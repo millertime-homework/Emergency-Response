@@ -1,6 +1,6 @@
 <html>
 <head>
-    <!-- <link rel="stylesheet" type="text/css" href="web/css/demo01.css"> -->
+    <link rel="stylesheet" type="text/css" href="web/css/demo01.css">
     <script type="text/javascript" src="web/js/prototype.js"></script>
     <script type="text/javascript" src="web/js/jquery.js"></script>
     <script type="text/javascript">
@@ -8,21 +8,50 @@
     </script>
 </head>
 <body>
-    <div id="create-container">
+    <div id="playerinfo">
+        <span class="player-title">Player Coordinates:</span>
+        <input type="text" id="playerloc" />
+        <span class="player-title">Facing:</span>
+        <input type="text" id="playerdir" />
+    </div>
+    <div id="locationinfo">
+        <span class="player-title">Current Floor:</span>
+        <input type="text" id="currentfloor" />
+        <span class="player-title">Current Room:</span>
+        <input type="text" id="currentroom" />
+        <span class="player-title">Facing Wall:</span>
+        <input type="text" id="currentwall" />
+    </div>
+    <div id="movebuttons">
+        <button class="move" id="north">Move North</button>
+        <button class="move" id="south">Move South</button>
+        <button class="move" id="east">Turn East</button>
+        <button class="move" id="west">Turn West</button>
+    </div>
+    <div id="dropdowns">
+        <span class="selector-title">Floor:</span>
         <select name="floor" id="floor-selector" disabled>
             <option value="blank">No Floors Listed</option>
         </select>
+        <button>Add Floor</button>
+        <br />
+        <span class="selector-title">Room:</span>
         <select name="room" id="room-selector" disabled>
             <option value="blank">No Rooms Listed</option>
         </select>
+        <button>Add Room</button>
+        <br />
+        <span class="selector-title">Wall:</span>
         <select name="wall" id="wall-selector" disabled>
             <option value="blank">No Walls Listed</option>
         </select>
+        <button>Add Wall</button>
     </div>
-        <textarea id="output" style="border: 1px solid black; width: 100%; height: 400px;">
-            Info will display here....
-        </textarea>
-        <input type="submit" value="Display Info" id="getInfo" />
+
+    <textarea id="output">
+        Info will display here....
+    </textarea>
+    <input type="submit" value="Display Info" id="getInfo" />
 
 
     <script type="text/javascript" src="web/js/demo01.js"></script>
@@ -30,7 +59,8 @@
     <script type="text/javascript">
         jQuery(document).ready(function($){
             // init ui
-            updateFloorSelector();
+            updateFloorSelector()
+            updatePlayerInfo()
 
 
             // ##########################
@@ -68,6 +98,26 @@
             // ##########################
             // ##### UI FUNCTIONS #######
             // ##########################
+
+            // Update player info from object
+            function updatePlayerInfo() {
+                if (!isPlayerDefined) {
+                    console.log('updatePlayerInfo - player not defined')
+                }
+
+                // update location
+                $('#playerloc').val(player.x + ', ' + player.y + ', ' + player.z)
+                // update direction
+                $('#playerdir').val(player.facing)
+
+                var locNames = scenario.getLocNames(player.x, player.y, player.z, player.facing)
+                if (typeof locNames === 'undefined') { 
+                    console.log('error getting names')
+                }
+                $('#currentfloor').val(locNames['floorName'])
+                $('#currentroom').val(locNames['roomName'])
+                $('#currentwall').val(locNames['wallName'])
+            }
 
             // Gets a list of floors from the scenario
             function updateFloorSelector() {
@@ -158,16 +208,23 @@
                     enableSelector('wall')
                 }
             }
-            function getSelectedOption(name) {
-                selector = getSelector(name)
-                return selector.find(':selected').attr('value')
-            }
             function isScenarioDefined() {
                 if (typeof scenario === 'undefined') {
                     console.log('scenario class undefined')
                     return false;
                 }
                 return true;
+            }
+            function isPlayerDefined() {
+                if (typeof player === 'undefined') {
+                    console.log('player class undefined')
+                    return false;
+                }
+                return true;
+            }
+            function getSelectedOption(name) {
+                selector = getSelector(name)
+                return selector.find(':selected').attr('value')
             }
             function disableSelector(name) {
                 var selector = getSelector(name);

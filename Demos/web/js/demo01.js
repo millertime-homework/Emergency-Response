@@ -22,17 +22,19 @@ var Player = Class.create({
         this.x = null;
         this.y = null;
         this.z = null;
+        this.facing = null;
         this.health = null;
         this.status = null;
-        this.game = null;
+        this.scenario = null;
     },
-    set: function(x, y, z, game) {
+    set: function(x, y, z, facing, scenario) {
         this.x = x;
         this.y = y;
         this.z = z;
+        this.facing = facing;
         this.health = PLAYER_HEALTH_DEFAULT;
         this.status = PLAYER_STATUS_ALIVE;
-        this.game = game;
+        this.scenario = scenario;
     },
     move: function(direction) {
         if (direction == DIRECTION_NORTH) {
@@ -117,6 +119,9 @@ var Room = Class.create({
         })
         return wallList;
     },
+    getWallByDir: function(direction) {
+        return this.walls[direction]
+    },
     dispInfo: function(ntabs) {
         if (typeof ntabs === 'undefined') {
             tabs = "";
@@ -175,6 +180,18 @@ var Floor = Class.create({
             return null;
         }
         return this.rooms[id];
+    },
+    getRoom: function(id) {
+        return this.getRoomById(id);
+    },
+    getRoomByXY: function(x ,y) {
+        var room = null;
+        $j.each(this.rooms, function(key, value) {
+            if (value.x == x && value.y == y) {
+                room = value;
+            }
+        })
+        return room;
     },
     getRoomList: function() {
         var roomList = new Array();
@@ -247,6 +264,11 @@ var Scenario = Class.create({
         floor.addRoom(id, name, x, y , z);
     },
     getFloor: function(z) {
+        floor = this.floors[z];
+        if (typeof floor === 'undefined' || floor === null) {
+            console.log('Scenario.getFloor - floor with z=' + z + ' does not exist')
+            return;
+        }
         return this.floors[z];
     },
     getFloorList: function() {
@@ -258,6 +280,28 @@ var Scenario = Class.create({
             });
         })
         return floorList;
+    },
+    getLocNames: function(x, y, z, direction) {
+        floor = this.getFloor(z)
+        if (typeof floor !== 'undefined') {
+            room = floor.getRoomByXY(x, y)
+            if (typeof room !== 'undefined') {
+                wall = room.getWallByDir(direction)
+                if (typeof wall !== 'undefined') {
+                    return {
+                        'floorName' : floor.name, 
+                        'roomName' : room.name,
+                        'wallName' : wall.name
+                    }
+                } else {
+                    console.log('getLocNames - error getting wall dir=' + direction)
+                }
+            } else {
+                console.log('getLocNames - error getting room x=' + x + ',' + y)
+            }
+        } else {
+            console.log('getLocNames - error getting floor z=' + z)
+        }
     },
     dispInfo: function(ntabs) {
         if (typeof ntabs === 'undefined') {

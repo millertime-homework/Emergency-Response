@@ -23,14 +23,38 @@ newRoom.addWall('W Hallway-Middle Wall', 'w', 'hall1-w.jpg')
 newRoom.addWall('N Hallway-Middle Wall', 'n', 'hall1-n.jpg')
 newRoom.addWall('S Hallway-Middle Wall', 's', 'hall1-s.jpg')
 // Hallway 2
-newRoom = firstFloor.addRoom('hall2', 'Hallway-Middle', 1, 2, 0)
+newRoom = firstFloor.addRoom('hall2', 'Hallway-North', 1, 2, 0)
 newRoom.addWall('E Hallway-North Wall', 'e', 'hall2-e.jpg')
 newRoom.addWall('W Hallway-North Wall', 'w', 'hall2-w.jpg')
 newRoom.addWall('N Hallway-North Wall', 'n', 'hall2-n.jpg')
 newRoom.addWall('S Hallway-North Wall', 's', 'hall2-s.jpg')
 // Other Office
-room = firstFloor.addRoom('miscoff', 'Miscellaneous Office', 2, 2, 0)
-room.addWall('E Misc-Office Wall', 'e', 'miscoff-e.jpg')
-room.addWall('W Misc-Office Wall', 'w', 'miscoff-w.jpg')
-room.addWall('N Misc-Office Wall', 'n', 'miscoff-n.jpg')
-room.addWall('S Misc-Office Wall', 's', 'miscoff-s.jpg')
+newRoom = firstFloor.addRoom('miscoff', 'Miscellaneous Office', 2, 2, 0)
+newRoom.addWall('E Misc-Office Wall', 'e', 'miscoff-e.jpg')
+newRoom.addWall('W Misc-Office Wall', 'w', 'miscoff-w.jpg')
+newRoom.addWall('N Misc-Office Wall', 'n', 'miscoff-n.jpg')
+newRoom.addWall('S Misc-Office Wall', 's', 'miscoff-s.jpg')
+// Elevator
+newRoom = firstFloor.addRoom('elevator', 'Elevator', 1, 3, 0)
+newRoom.addWall('E Elevator Wall', 'e', 'elev-e.jpg');
+newRoom.addWall('W Elevator Wall', 'w', 'elev-w.jpg');
+newRoom.addWall('N Elevator Wall', 'n', 'elev-n.jpg');
+newRoom.addWall('S Elevator Wall', 's', 'elev-s.jpg');
+
+newRoom = secondFloor.addRoom('elevator', 'Elevator', 1, 3, 1)
+newRoom.addWall('E Elevator Wall', 'e', 'elev-e.jpg');
+newRoom.addWall('W Elevator Wall', 'w', 'elev-w.jpg');
+newRoom.addWall('N Elevator Wall', 'n', 'elev-n.jpg');
+newRoom.addWall('S Elevator Wall', 's', 'elev-s.jpg');
+
+// Hallway 2
+newRoom = secondFloor.addRoom('hall2', '2nd Floor Hallway-North', 1, 2, 1)
+newRoom.addWall('E Hallway-North Wall', 'e', 'hall2-e.jpg')
+newRoom.addWall('W Hallway-North Wall', 'w', 'hall2-w.jpg')
+newRoom.addWall('N Hallway-North Wall', 'n', 'hall2-n.jpg')
+newRoom.addWall('S Hallway-North Wall', 's', 'hall2-s.jpg')
+
+
+// Player Info
+player = new Player
+player.set(0, 0, 0, "n", null)
