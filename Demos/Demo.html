@@ -5,7 +5,18 @@
     <script type="text/javascript" src="web/js/jquery.js"></script>
 </head>
 <body>
-        <textarea id="output" style="border: 1px solid black; width: 100%; height: 200px;">
+    <div id="create-wrapper">
+        <select name="floor" id="floor-selector" disabled>
+            <option value="blank">No Floors Listed</option>
+        </select>
+        <select name="room" id="room-selector" disabled>
+            <option value="blank">No Rooms Listed</option>
+        </select>
+        <select name="wall" id="wall-selector" disabled>
+            <option value="blank">No Walls Listed</option>
+        </select>
+    </div>
+        <textarea id="output" style="border: 1px solid black; width: 100%; height: 400px;">
             Info will display here....
         </textarea>
         <input type="submit" value="Display Info" id="getInfo" />
@@ -18,6 +29,8 @@
         var scenario = new Scenario
         scenario.set('Example Scenario', 'active')
         scenario.addFloor('First Floor', 0);
+        scenario.addFloor('Second Floor', 1);
+        scenario.addFloor('Third Floor', 2);
         firstFloor = scenario.getFloor(0)
         // Professor's Office
         firstFloor.addRoom('profoff', 'Professor\'s Office', 0, 0, 0)
@@ -34,10 +47,164 @@
     
         jQuery(document).ready(function($){
 
-            $('#getInfo').bind('click', function() {
-                // $('#output').val(aFloor.getInfo())
-                $('#output').val(scenario.dispInfo())
+            updateFloorSelector();
+
+
+            // ##########################
+            // ##### SELECT EVENTS ######
+            // ##########################
+
+            // User selects a floor from dropdown
+            $('select#floor-selector').change(function() {
+                if ($(this).attr('disabled')) {
+                    console.log('Invalid change - Floor Selector changed while disabled')
+                    return;
+                }
+                console.log('Floor select event: ' + getSelectedFloor() )
             })
+            // User selects a room from dropdown
+            $('select#room-selector').change(function() {
+                if ($this.attr('disabled')) {
+                    console.log('Invalid change - Room selector changed while disabled')
+                }
+                console.log('Room select event: ' + getSelectedRoom())
+            })
+
+            $('#getInfo').bind('click', function() {
+                $('#output').val(
+                    "===== Complete Scenario info for \"" + scenario.name +"\" =====\n"
+                    + scenario.dispInfo()
+                )
+            })
+
+            // ##########################
+            // ##### UI FUNCTIONS #######
+            // ##########################
+
+            // Gets a list of floors from the scenario
+            function updateFloorSelector() {
+                disableSelector('floor');
+
+                if (!isScenarioDefined) {
+                    console.log('updateFloorSelector - scenario not defined')
+                    return;
+                }
+
+                selector = getSelector('floor')
+                // get floors
+                var floors = scenario.getFloorList();
+                // add floor options to select element
+                if (floors.length > 0) {
+                    clearSelector('floor');
+                    // iterate over floors and add options
+                    $.each(floors, function(key, value) {
+                        selector.append('<option value=\'' + value.z + '\'>[' + value.z + ']' + value.name + '</option>')
+                    })
+                    enableSelector('floor')
+                    // Get selected floor z and update room selector
+                    updateRoomSelector(getSelectedFloor())
+                }
+            }
+            // Gets a list of rooms by floor z value
+            function updateRoomSelector(floorZ) {
+                disableSelector('room')
+
+                if (!isScenarioDefined) {
+                    console.log('updateRoomSelector - scenario not defined')
+                    return;
+                }
+
+                // get rooms
+                var floor = scenario.getFloor(floorZ)
+                if (typeof floor == 'undefined') {
+                    console.log('updateRoomSelector - invalid floor v=' + floorZ)
+                    return;
+                }
+                var rooms = floor.getRoomList()
+                if (typeof rooms === 'undefined') {
+                    console.log('updateRoomSelector - invalid floor z=' + z);
+                    return;
+                } else if (rooms.length < 0) {
+                    console.log('updateRoomSelector - no rooms on floor z=' + z)
+                    return;
+                }
+
+                selector = getSelector('room')
+                clearSelector('room');
+                $.each(rooms, function(key, value){
+                    selector.append('<option value=\'' + value.id + '\'>' + value.name + '</option>')
+                    newOpt = $('select#room-selector #' + value.id)
+                    if (typeof newOpt === 'undefined') { console.log('error finding newly added option'); return;}
+                    newOpt.attr('x', value.x)
+                    newOpt.attr('y', value.y)
+                    newOpt.attr('z', value.z)
+                })
+                enableSelector('room');
+            }
+
+
+            function getSelectedFloor() {
+                return $('select#floor-selector').find(':selected').attr('value')
+            }
+            function getSelectedRoom() {
+                return $('seledt#room-selector').find(':selected').attr('value')
+            }
+            function isScenarioDefined() {
+                if (typeof scenario === 'undefined') {
+                    console.log('scenario class undefined')
+                    return false;
+                }
+                return true;
+            }
+            function disableSelector(name) {
+                var selector = getSelector(name);
+                if (!selector) { 
+                    console.log('selector not found')
+                    return;
+                }
+                if (!selector.attr('disabled')) {
+                    selector.attr('disabled', 'disabled')
+                    clearSelector('room')
+                    selector.append('<option value=\'blank\'>No ' + name + ' Listed</option>')   
+                }
+
+            }
+            function enableSelector(name) {
+                selector = getSelector(name);
+                if (!selector) { 
+                    console.log('selector not found')
+                    return;
+                }
+                if (selector.attr('disabled')) {
+                    selector.removeAttr('disabled')
+                }
+
+            }
+            function clearSelector(name) {
+                selector = getSelector(name)
+                if (!selector) { 
+                    console.log('selector not found')
+                    return;
+                }
+                selector.empty()
+            }
+            function getSelector(name) {
+                var selector = ""
+                if (name == 'floor') {
+                    selector = $('select#floor-selector')
+                } else if (name == 'room') {
+                    selector = $('select#room-selector')
+                } else if (name == 'wall') {
+                    selector = $('select#wall-selector')
+                } else {
+                    return null;
+                }
+                if (typeof selector === 'undefined') { 
+                    console.log('selector not found')
+                    return null;
+                }
+                return selector;
+            }
         });
     </script>
 </body>

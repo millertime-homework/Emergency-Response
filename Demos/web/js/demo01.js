@@ -162,6 +162,19 @@ var Floor = Class.create({
         }
         return this.rooms[id];
     },
+    getRoomList: function() {
+        var roomList = new Array();
+        $j.each(this.rooms, function(key, value) {
+            roomList.push({
+                'id':key,
+                'name':value.name,
+                'x':value.x,
+                'y':value.y,
+                'z':value.z,
+            });
+        });
+        return roomList;
+    },
     dispInfo: function(ntabs) {
         if (typeof ntabs === 'undefined') {
             tabs = "";
@@ -220,6 +233,16 @@ var Scenario = Class.create({
     },
     getFloor: function(z) {
         return this.floors[z];
+    },
+    getFloorList: function() {
+        var floorList = new Array();
+        $j.each(this.floors, function(key, value) {
+            floorList.push({
+                'z': key,
+                'name': value.name,
+            });
+        })
+        return floorList;
     },
     dispInfo: function(ntabs) {
         if (typeof ntabs === 'undefined') {
