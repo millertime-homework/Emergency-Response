@@ -1,42 +1,69 @@
+// initialize must set the necessary variables to blank to prevent
+// next created object from retaining previous variables (prototype trick)
+
 var Wall = Class.create({
-    initialize: function(name, direction) {
+    initialize: function() {
+        this.name = null;
+        this.direction = null;
+        this.image = null;
+    },
+    set: function(name, direction, image) {
         this.name = name;
         this.direction = direction;
+        this.image = image;
     },
-
+    setName: function (name) {
+        this.name = name;
+    },
+    setDirection: function(name) {
+        this.direction = direction;
+    },
+    setImage: function(image) {
+        this.image = image;
+    },
     getInfo: function() {
-        return "(Wall) \'" + this.name + "\', Direction: " + this.direction + "";
+        return "(Wall) name=" + this.name + ", image=" + this.image;
     },
 });
 
 var Room = Class.create({
 
     initialize: function(name, x, y, z) {
+        this.name = null;
+        this.x = null;
+        this.y = null;
+        this.z = null;
+        this.walls = {};
+    },
+    set: function(name, x, y, z) {
         this.name = name;
         this.x = x;
         this.y = y;
         this.z = z;
-        this.walls = {};
     },
 
-    addWall: function(wall) {
-        this.walls[wall.name] = new Wall(wall.name, wall.direction)
+    addWall: function(name, direction, image) {
+        var newWall = new Wall;
+        newWall.set(name, direction, image)
+        this.walls[direction] = newWall;
     },
-
     getInfo: function() {
-        var str =  "(Room) \'" 
-            + this.name 
-            + "\', Location: ( " 
-            + this.x 
-            + ", " 
-            + this.y 
-            + ", " 
-            + this.z 
-            + "), Walls: \n";
+        var str =  "(Room) name=\"" + this.name + "\""
+            + ", location=( " + this.x + ", " + this.y + ", " + this.z + "), \n\tWalls=\n";
         $j.each(this.walls, function(key, value) {
-            str += "\t" + value.getInfo() + "\n";
+            str += "\t\t" + key + " " + value.getInfo() + "\n";
         })
         return str;
     },
 });
 
+var Floor = Class.create({
+    initialize: function(name, z) {
+        this.name = null;
+        this.z = null;
+    },
+    addRoom: function() {
+        
+    },
+
+});

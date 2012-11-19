@@ -5,7 +5,7 @@
     <script type="text/javascript" src="web/js/jquery.js"></script>
 </head>
 <body>
-        <textarea id="output" style="border: 1px solid black; width: 300px; height: 200px;">
+        <textarea id="output" style="border: 1px solid black; width: 100%; height: 200px;">
             Info will display here....
         </textarea>
         <input type="submit" value="Display Info" id="getInfo" />
@@ -15,16 +15,18 @@
     <script type="text/javascript">
         var $j = jQuery.noConflict();
 
-        var someRoom = new Room("Some Room", 5, 2, 1);
-        someRoom.addWall(new Wall("East Wall", "e"));
-        someRoom.addWall(new Wall("West Wall", "w"));
-        someRoom.addWall(new Wall("North Wall", "n"));
-        someRoom.addWall(new Wall("South Wall", "s"));
+        var someRoom = new Room("Prof Office", 5, 2, 1);
+        someRoom.set("Prof Office", 5, 2, 1);
+        someRoom.addWall("East Wall", "e", "profoffice-e.jpg");
+        someRoom.addWall("West Wall", "w", "profoffice-w.jpg");
+        someRoom.addWall("North Wall", "n", "profoffice-n.jpg");
+        someRoom.addWall("South Wall", "s", "profoffice-s.jpg");
 
         jQuery(document).ready(function($){
 
             $('#getInfo').bind('click', function() {
                 $('#output').val(someRoom.getInfo());
+
             })
         });
     </script>
