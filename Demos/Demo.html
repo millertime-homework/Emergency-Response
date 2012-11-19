@@ -35,19 +35,19 @@
         <select name="floor" id="floor-selector" disabled>
             <option value="blank">No Floors Listed</option>
         </select>
-        <button>Add Floor</button>
+        <button class="add" data-type="floor">Add Floor</button>
         <br />
         <span class="selector-title">Room:</span>
         <select name="room" id="room-selector" disabled>
             <option value="blank">No Rooms Listed</option>
         </select>
-        <button>Add Room</button>
+        <button class="add" data-type="room">Add Room</button>
         <br />
         <span class="selector-title">Wall:</span>
         <select name="wall" id="wall-selector" disabled>
             <option value="blank">No Walls Listed</option>
         </select>
-        <button>Add Wall</button>
+        <button class="add" data-type="wall">Add Wall</button>
     </div>
 
     <textarea id="output">
@@ -55,6 +55,49 @@
     </textarea>
     <input type="submit" value="Display Info" id="getInfo" />
 
+    <div id="modal" class="hidden">
+        <div class="floor add-form hidden">
+            <input type="submit" class="close-modal" value="Close" /><br />
+            <h3>Create a Floor</h3>
+            <br />
+            <span class="selector-title">Name:</span>
+            <input type="text" id="floor-name" />
+            <br />
+            <span class="selector-title">Z:</span>
+            <input type="text" id="floor-z" />
+        </div>
+        <div class="room add-form hidden">
+            <input type="submit" class="close-modal" value="Close" /><br />
+            <h3>Create a Room</h3>
+            <br />
+            <span class="selector-title">Name:</span>
+            <input type="text" id="room-name" />
+            <br />
+            <span class="selector-title">X:</span>
+            <input type="text" id="room-x" />
+            <br />
+            <span class="selector-title">Y:</span>
+            <input type="text" id="room-y" />
+            <br />
+            <span class="selector-title">Z:</span>
+            <input type="text" id="room-z" />
+        </div>
+        <div class="wall add-form hidden">
+            <input type="submit" class="close-modal" value="Close" /><br />
+            <h3>Create a Wall</h3>
+            <br />
+            <span class="selector-title">Name:</span>
+            <input type="text" id="wall-name" />
+            <br />
+            <span class="selector-title">Direction:</span>
+            <input type="text" id="wall-direction" />
+            <br />
+            <span class="selector-title">Image:</span>
+            <input type="text" id="wall-image" />
+        </div>
+
+
+    </div>
 
     <script type="text/javascript" src="web/js/demo01.js"></script>
     <script type="text/javascript" src="web/js/demo01-scenario.js"></script>
@@ -100,6 +143,62 @@
                     updatePlayerInfo()
                 }
             })
+
+            // User clicks an Add button
+            $('.add').click(function() {
+                if (!$('#modal').hasClass('hidden')) {
+                    return;
+                }
+                updateModalLocation();
+                $('#modal').removeClass('hidden')
+                if ($(this).data('type') == 'floor') {
+                    $('#modal').find('.floor').removeClass('hidden')
+                } else if ($(this).data('type') == 'room') {
+                    $('#modal').find('.room').removeClass('hidden')
+                } else if ($(this).data('type') == 'wall') {
+                    $('#modal').find('.wall').removeClass('hidden')
+                } 
+            })
+            // User clicks modal close button
+            $('.close-modal').click(function() {
+                $('#modal').addClass('hidden')
+                $('#modal > .floor').addClass('hidden')
+                $('#modal > .room').addClass('hidden')
+                $('#modal > .wall').addClass('hidden')
+            })
+
+            // ##########################
+            // ##### MODAL RESIZING #####
+            // ##########################
+
+            // When window is resized
+            $(window).resize(function() {
+                if (!$('#modal').hasClass('hidden')) {
+                    updateModalLocation();
+                }
+            })
+
+            function updateModalLocation() {
+                var modal = $('#modal')
+                var viewport = document.viewport.getDimensions()
+                var viewWidth = viewport.width;
+                var viewHeight = viewport.height;
+                var leftAlign = 0;
+                var topAlign = 0;
+                if (viewWidth > modal.width()) {
+                    leftAlign = (viewport.width - modal.width())/2;
+                }
+                if (viewHeight > modal.height()) {
+                    topAlign = (viewport.height - modal.height())/2;
+                }
+
+                console.log('leftAlign:' + leftAlign)
+                console.log('topAlign:' + topAlign)
+                modal.css('left', leftAlign + "px");
+                modal.css('top', topAlign + "px");
+            }
+
+
 
             // ##########################
             // ##### SELECT EVENTS ######
@@ -315,6 +414,7 @@
                 }
                 return selector;
             }
+
         });
     </script>
 </body>

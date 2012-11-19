@@ -24,3 +24,21 @@ body {
 #locationinfo {
   width: 100%;
 }
+#modal {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  z-index: 10;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background-color: white;
+  border: 1px solid black;
+  box-shadow: 3px 3px 3px #888888;
+  -webkit-box-shadow: 3px 3px 3px #888888;
+  -moz-box-shadow: 3px 3px 3px #888888;
+  padding: 10px;
+}
+.hidden {
+  display: none;
+}
