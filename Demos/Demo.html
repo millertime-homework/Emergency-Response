@@ -1,0 +1,32 @@
+<html>
+<head>
+    <!-- <link rel="stylesheet" type="text/css" href="web/css/demo01.css"> -->
+    <script type="text/javascript" src="web/js/prototype.js"></script>
+    <script type="text/javascript" src="web/js/jquery.js"></script>
+</head>
+<body>
+        <textarea id="output" style="border: 1px solid black; width: 300px; height: 200px;">
+            Info will display here....
+        </textarea>
+        <input type="submit" value="Display Info" id="getInfo" />
+
+
+    <script type="text/javascript" src="web/js/demo01.js"></script>
+    <script type="text/javascript">
+        var $j = jQuery.noConflict();
+
+        var someRoom = new Room("Some Room", 5, 2, 1);
+        someRoom.addWall(new Wall("East Wall", "e"));
+        someRoom.addWall(new Wall("West Wall", "w"));
+        someRoom.addWall(new Wall("North Wall", "n"));
+        someRoom.addWall(new Wall("South Wall", "s"));
+
+        jQuery(document).ready(function($){
+
+            $('#getInfo').bind('click', function() {
+                $('#output').val(someRoom.getInfo());
+            })
+        });
+    </script>
+</body>
+</html>

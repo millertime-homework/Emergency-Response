@@ -1,0 +1,43 @@
+@import "less-mixins.less"; // Import Mixins
+
+@width: 1240px;
+@height: 600px;
+
+#wrapper {
+    width: @width;
+    height: @height;
+    overflow: hidden;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    .border_radius(10px);
+    border: 2px solid black;
+}
+#pano-container {
+    width: @width * 3;
+    height: @height;
+    position: absolute;
+    left: 0;
+}
+.piece {
+    position: relative;
+    float: left;
+    width: @width;
+    height: @height;
+
+    &#img1 {
+        background-image: url('../img/pano-1.jpg');
+    }
+
+    &#img2 {
+        background-image: url('../img/pano-2.jpg');
+    }
+
+    &#img3 {
+        background-image: url('../img/pano-3.jpg');
+    }
+
+    &#img4 {
+        background-image: url('../img/pano-4.jpg');
+    }
+}

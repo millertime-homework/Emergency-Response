@@ -1,0 +1,25 @@
+#wrapper {
+  width: 800px;
+  height: 500px;
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+}
+button.ui-button {
+  height: 3em;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  box-shadow: #ff0000 rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: #ff0000 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: #ff0000 rgba(0, 0, 0, 0.5);
+  background: #33aaff url('../img/alert-overlay.png') repeat-x;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+button.ui-button:hover {
+  color: white;
+  background-color: #0077cc;
+}

@@ -1,0 +1,96 @@
+/*
+    Developed by anthonyvscode.com
+    This solution is to be used in the dotless implemention of less css: http://www.dotlesscss.org/
+*/
+/*Border Radius Functions*/
+/*Shadows*/
+/*Transformations*/
+#container {
+  position: relative;
+  width: 1130px;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  /*background-color: @container-background-color;*/
+
+  background-image: url('../img/A-north.jpg');
+  border: 1px solid black;
+  -webkit-border-radius: 12px 12px 12px 12px;
+  -moz-border-radius: 12px 12px 12px 12px;
+  border-radius: 12px 12px 12px 12px;
+}
+.move {
+  position: absolute;
+}
+.move#left,
+.move#right {
+  width: 50px;
+  height: 200px;
+  top: 200px;
+}
+.move#forward,
+.move#back {
+  width: 200px;
+  height: 50px;
+  left: 465px;
+}
+.move#left {
+  left: 0;
+}
+.move#right {
+  left: 1080px;
+}
+.move#forward {
+  top: 0;
+}
+.move#back {
+  top: 550px;
+}
+.move {
+  background-color: white;
+  filter: alpha(opacity=70);
+  -moz-opacity: 0.7;
+  -khtml-opacity: 0.7;
+  opacity: 0.7;
+  text-align: center;
+}
+.move#left {
+  -webkit-border-radius: 0 12px 12px 0;
+  -moz-border-radius: 0 12px 12px 0;
+  border-radius: 0 12px 12px 0;
+}
+.move#right {
+  -webkit-border-radius: 12px 0 0 12px;
+  -moz-border-radius: 12px 0 0 12px;
+  border-radius: 12px 0 0 12px;
+}
+.move#forward {
+  -webkit-border-radius: 0 0 12px 12px;
+  -moz-border-radius: 0 0 12px 12px;
+  border-radius: 0 0 12px 12px;
+}
+.move#back {
+  -webkit-border-radius: 12px 12px 0 0;
+  -moz-border-radius: 12px 12px 0 0;
+  border-radius: 12px 12px 0 0;
+}
+.move:hover {
+  filter: alpha(opacity=70);
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
+}
+.move#left:hover {
+  padding-left: 5;
+}
+.move#right:hover {
+  left: 1075px;
+  width: 55px;
+}
+.move#forward:hover {
+  padding-top: 5;
+}
+.move#back:hover {
+  top: 545px;
+  height: 55px;
+}
