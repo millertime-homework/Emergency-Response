@@ -60,7 +60,7 @@
                     console.log('Invalid change - Floor Selector changed while disabled')
                     return;
                 }
-                selectedFloor = getSelectedFloor()
+                selectedFloor = getSelectedOption('floor')
                 console.log('Floor select event: ' + selectedFloor )
                 updateRoomSelector(selectedFloor)
             })
@@ -69,7 +69,7 @@
                 if ($this.attr('disabled')) {
                     console.log('Invalid change - Room selector changed while disabled')
                 }
-                console.log('Room select event: ' + getSelectedRoom())
+                console.log('Room select event: ' + getSelectedOption('room'))
             })
 
             $('#getInfo').bind('click', function() {
@@ -104,7 +104,7 @@
                     })
                     enableSelector('floor')
                     // Get selected floor z and update room selector
-                    updateRoomSelector(getSelectedFloor())
+                    updateRoomSelector(getSelectedOption('floor'))
                 }
             }
             // Gets a list of rooms by floor z value
@@ -134,22 +134,13 @@
                 selector = getSelector('room')
                 clearSelector('room');
                 $.each(rooms, function(key, value){
-                    selector.append('<option value=\'' + value.id + '\'>' + value.name + '</option>')
-                    newOpt = $('select#room-selector #' + value.id)
-                    if (typeof newOpt === 'undefined') { console.log('error finding newly added option'); return;}
-                    newOpt.attr('x', value.x)
-                    newOpt.attr('y', value.y)
-                    newOpt.attr('z', value.z)
+                    selector.append('<option value=\'' + value.id + '\'>' + value.name + ' (' + value.x + ',' + value.y + ',' + value.z + ')' +'</option>')
                 })
                 enableSelector('room');
             }
-
-
-            function getSelectedFloor() {
-                return $('select#floor-selector').find(':selected').attr('value')
-            }
-            function getSelectedRoom() {
-                return $('seledt#room-selector').find(':selected').attr('value')
+            function getSelectedOption(name) {
+                selector = getSelector(name)
+                return selector.find(':selected').attr('value')
             }
             function isScenarioDefined() {
                 if (typeof scenario === 'undefined') {
