@@ -62,7 +62,7 @@ newRoom.addWall('S Penthouse Wall', 's', 'pent-s.jpg')
 
 // Player Info
 player = new Player
-player.set(1, 2, 1, "n", null)
+player.set(1, 2, 0, "n", null)
 
 
 
