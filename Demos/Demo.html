@@ -60,7 +60,9 @@
                     console.log('Invalid change - Floor Selector changed while disabled')
                     return;
                 }
-                console.log('Floor select event: ' + getSelectedFloor() )
+                selectedFloor = getSelectedFloor()
+                console.log('Floor select event: ' + selectedFloor )
+                updateRoomSelector(selectedFloor)
             })
             // User selects a room from dropdown
             $('select#room-selector').change(function() {
@@ -122,10 +124,10 @@
                 }
                 var rooms = floor.getRoomList()
                 if (typeof rooms === 'undefined') {
-                    console.log('updateRoomSelector - invalid floor z=' + z);
+                    console.log('updateRoomSelector - invalid floor z=' + floorZ);
                     return;
-                } else if (rooms.length < 0) {
-                    console.log('updateRoomSelector - no rooms on floor z=' + z)
+                } else if (rooms.length <= 0) {
+                    console.log('updateRoomSelector - no rooms on floor z=' + floorZ)
                     return;
                 }
 
