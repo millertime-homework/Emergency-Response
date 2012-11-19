@@ -104,6 +104,19 @@ var Room = Class.create({
         newWall.set(name, direction, image)
         this.walls[direction] = newWall;
     },
+    getWallList: function() {
+        if (typeof this.walls === 'undefined') {
+            return;
+        }
+        wallList = new Array()
+        $j.each(this.walls, function(key, value) {
+            wallList.push({
+                'direction': key,
+                'name': value.name,
+            })
+        })
+        return wallList;
+    },
     dispInfo: function(ntabs) {
         if (typeof ntabs === 'undefined') {
             tabs = "";

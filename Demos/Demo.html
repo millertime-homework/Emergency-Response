@@ -66,12 +66,15 @@
             })
             // User selects a room from dropdown
             $('select#room-selector').change(function() {
-                if ($this.attr('disabled')) {
+                if ($(this).attr('disabled')) {
                     console.log('Invalid change - Room selector changed while disabled')
                 }
-                console.log('Room select event: ' + getSelectedOption('room'))
+                selectedFloor = getSelectedOption('floor')
+                selectedRoom = getSelectedOption('room')
+                console.log('Room select event: ' + selectedRoom)
+                updateWallSelector(selectedFloor, selectedRoom)
             })
-
+            // Use clicks get info button
             $('#getInfo').bind('click', function() {
                 $('#output').val(
                     "===== Complete Scenario info for \"" + scenario.name +"\" =====\n"
@@ -85,7 +88,7 @@
 
             // Gets a list of floors from the scenario
             function updateFloorSelector() {
-                disableSelector('floor');
+                disableSelector('floor')
 
                 if (!isScenarioDefined) {
                     console.log('updateFloorSelector - scenario not defined')
@@ -110,6 +113,7 @@
             // Gets a list of rooms by floor z value
             function updateRoomSelector(floorZ) {
                 disableSelector('room')
+                disableSelector('wall')
 
                 if (!isScenarioDefined) {
                     console.log('updateRoomSelector - scenario not defined')
@@ -137,6 +141,39 @@
                     selector.append('<option value=\'' + value.id + '\'>' + value.name + ' (' + value.x + ',' + value.y + ',' + value.z + ')' +'</option>')
                 })
                 enableSelector('room');
+
+                updateWallSelector(floorZ, getSelectedOption('room'))
+            }
+
+            function updateWallSelector(floorZ, roomId) {
+                disableSelector('wall')
+
+                if (!isScenarioDefined) {
+                    console.log('updateWallSelector - scenario not defined')
+                    return;
+                }
+
+                // get room
+                var floor = scenario.getFloor(floorZ)
+                if (typeof floor === 'undefined') {
+                    console.log('updateWallSelector - invalid floor v=' + floorZ)
+                    return;
+                }
+                var room = floor.getRoomById(roomId)
+                if (typeof room === 'undefined') {
+                    console.log('updateWallSelector - invalid room id=' + roomId)
+                    return;
+                }
+                var walls = room.getWallList()
+
+                selector = getSelector('wall')
+                if (walls.length > 0) {
+                    clearSelector('wall')
+                    $.each(walls, function(key, value) {
+                        selector.append('<option value=\'' + value.direction + '\'>' + value.name + " (" + value.direction + ")</option>")
+                    })
+                    enableSelector('wall')
+                }
             }
             function getSelectedOption(name) {
                 selector = getSelector(name)
@@ -152,12 +189,12 @@
             function disableSelector(name) {
                 var selector = getSelector(name);
                 if (!selector) { 
-                    console.log('selector not found')
+                    console.log('disableSelector - selector ' + name + ' not found')
                     return;
                 }
                 if (!selector.attr('disabled')) {
                     selector.attr('disabled', 'disabled')
-                    clearSelector('room')
+                    clearSelector(name)
                     selector.append('<option value=\'blank\'>No ' + name + ' Listed</option>')   
                 }
 
@@ -165,7 +202,7 @@
             function enableSelector(name) {
                 selector = getSelector(name);
                 if (!selector) { 
-                    console.log('selector not found')
+                    console.log('enableSelector - selector' + name + 'not found')
                     return;
                 }
                 if (selector.attr('disabled')) {
@@ -176,7 +213,7 @@
             function clearSelector(name) {
                 selector = getSelector(name)
                 if (!selector) { 
-                    console.log('selector not found')
+                    console.log('clearSelector - selector' + name + 'not found')
                     return;
                 }
                 selector.empty()
