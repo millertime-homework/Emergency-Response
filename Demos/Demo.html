@@ -16,19 +16,34 @@
         var $j = jQuery.noConflict()
 
 
-        var aFloor = new Floor;
-        aFloor.set("First Floor", 0)
-        aFloor.addRoom("profoff", "Prof Office", 5, 2, 1)
-        aFloor.addWallToRoom("profoff", "East Wall", "e", "profoffice-e.jpg")
-        aFloor.addWallToRoom("profoff", "West Wall", "w", "profoffice-w.jpg")
-        aFloor.addWallToRoom("profoff", "North Wall", "n", "profoffice-n.jpg")
-        aFloor.addWallToRoom("profoff", "South Wall", "s", "profoffice-s.jpg")
+        // var firstFloor = new Floor;
+        // firstFloor.set('First Floor', 0)
+        // // Professor's Office
+        // firstFloor.addRoom('profoff', 'Prof Office', 0, 0, 0)
 
+        var scenario = new Scenario
+        scenario.set('Example Scenario', 'active')
+        scenario.addFloor('First Floor', 0);
+        firstFloor = scenario.getFloor(0)
+        // Professor's Office
+        firstFloor.addRoom('profoff', 'Professor\'s Office', 0, 0, 0)
+        firstFloor.addWallToRoom('profoff', 'East Office Wall', 'e', 'profoffice-e.jpg')
+        firstFloor.addWallToRoom('profoff', 'West Office Wall', 'w', 'profoffice-w.jpg')
+        firstFloor.addWallToRoom('profoff', 'North Office Wall', 'n', 'profoffice-n.jpg')
+        firstFloor.addWallToRoom('profoff', 'South Office Wall', 's', 'profoffice-s.jpg')
+        // // Hallway 
+        firstFloor.addRoom('hall0', 'Hallway', 1, 0, 0)
+        firstFloor.addWallToRoom('hall0', 'East Hallway Wall', 'e', 'hall0-e.jpg')
+        firstFloor.addWallToRoom('hall0', 'West Hallway Wall', 'w', 'hall0-w.jpg')
+        firstFloor.addWallToRoom('hall0', 'North Hallway Wall', 'n', 'hall0-n.jpg')
+        firstFloor.addWallToRoom('hall0', 'South Hallway Wall', 's', 'hall0-s.jpg')
+
+    
         jQuery(document).ready(function($){
 
             $('#getInfo').bind('click', function() {
                 // $('#output').val(aFloor.getInfo())
-                $('#output').val(aFloor.getRoomById("profoff").getInfo())
+                $('#output').val(scenario.dispInfo())
             })
         });
     </script>

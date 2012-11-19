@@ -1,4 +1,8 @@
 // CONSTANTS
+var SCENARIO_STATUS_ACTIVE = 'active';
+var SCENARIO_STATUS_INACTIVE = 'inactive';
+var SCENARIO_STATUS_DONE = 'done';
+
 var PLAYER_STATUS_ALIVE = 'alive';
 var PLAYER_STATUS_INJURED = 'injured';
 var PLAYER_STATUS_DEAD = 'dead';
@@ -40,8 +44,7 @@ var Player = Class.create({
         } else if (direction == DIRECTION_WEST){
             this.x = this.x - 1;
         }
-    }
-
+    },
 });
 
 var Wall = Class.create({
@@ -65,7 +68,7 @@ var Wall = Class.create({
         this.image = image;
     },
     dispInfo: function(ntabs) {
-        if (typeof ntabs == 'undefined') { 
+        if (typeof ntabs === 'undefined') { 
             tabs = ""; 
             ntabs = 0;
         } else {
@@ -79,7 +82,6 @@ var Wall = Class.create({
 });
 
 var Room = Class.create({
-
     initialize: function(name, x, y, z) {
         this.name = null;
         this.x = null;
@@ -93,14 +95,17 @@ var Room = Class.create({
         this.y = y;
         this.z = z;
     },
-
     addWall: function(name, direction, image) {
+        if (typeof this.walls[direction] !== 'undefined') {
+            console.log('Room.addWall - direction ' + direction + ' already defined')
+            return;
+        }
         var newWall = new Wall;
         newWall.set(name, direction, image)
         this.walls[direction] = newWall;
     },
     dispInfo: function(ntabs) {
-        if (typeof ntabs == 'undefined') {
+        if (typeof ntabs === 'undefined') {
             tabs = "";
             ntabs = 0;
         } else {
@@ -132,21 +137,33 @@ var Floor = Class.create({
         this.z = z;
     },
     addRoom: function(id, name, x, y, z) {
+        if (typeof this.rooms[id] !== 'undefined') {
+            console.log('Floor.addRoom - Room with id ' + id + ' already exists')
+            return;
+        }
         var newRoom = new Room;
         newRoom.set(name, x, y, z);
         this.rooms[id] = newRoom;
         this.numRooms += 1;
     },
     addWallToRoom: function(id, name, direction, image) {
-        var room = this.rooms[id];
+        var room = this.getRoomById(id);
+        if (typeof room === 'undefined' || room === null) {
+            console.log('Floor.addWallToRoom - Room with id ' + id + ' does not exist')
+            return;
+        }
         room.addWall(name, direction, image);
     },
-
     getRoomById: function(id) {
+        room = this.rooms[id];
+        if (typeof room === 'undefined' || room === null) {
+            console.log('Unknown Room Id - ' + id)
+            return null;
+        }
         return this.rooms[id];
     },
     dispInfo: function(ntabs) {
-        if (typeof ntabs == 'undefined') {
+        if (typeof ntabs === 'undefined') {
             tabs = "";
             ntabs = 0;
         } else {
@@ -163,7 +180,64 @@ var Floor = Class.create({
             info += value.dispInfo(ntabs+2);
         })
         return info;
-    }
-
-
+    },
 });
+
+var Scenario = Class.create({
+    initialize: function() {
+        this.name = null;
+        this.status = null;
+        this.floors = {}
+    },
+    set: function(name, status) {
+        this.name = name;
+        this.status = status;
+    },
+    start: function() {
+        if (this.status === SCENARIO_STATUS_ACTIVE) {
+            console.log('Scenario.start - scenario already active')
+            return;
+        } else if (this.status === SCENARIO_STATUS_DONE) {
+            console.log('Scenario.start - scenario done, must be reset to start')
+        }
+        this.status = SCENARIO_STATUS_ACTIVE;
+    },
+    addFloor: function(name, z) {
+        if (typeof this.floors[z] !== 'undefined') {
+            console.log('Scenario.addFloor - floor level with z=' + z + ' already defined')
+            return;
+        }
+        this.floors[z] = new Floor;
+        this.floors[z].set(name, z)
+    },
+    addRoomToFloor: function(z, id, name, x, y, z) {
+        floor = this.floors[z]
+        if (typeof floor === 'undefined' || floor === null) {
+            console.log('Scenario.addRoomToFloor - floor with z=' + z + ' does not exist')
+            return;
+        }
+        floor.addRoom(id, name, x, y , z);
+    },
+    getFloor: function(z) {
+        return this.floors[z];
+    },
+    dispInfo: function(ntabs) {
+        if (typeof ntabs === 'undefined') {
+            tabs = "";
+            ntabs = 0;
+        } else {
+            var tabs = "";
+            for (i = 0; i < ntabs; i++) { 
+                tabs += "\t"; 
+            }
+        }
+        var info = "";
+        info += tabs + "(Scenario) name=\"" + this.name + "\", status=" + this.status + "\n";
+        info += tabs + "\tFloors->\n";
+        $j.each(this.floors, function(key, value) {
+            info += value.dispInfo(ntabs+2);
+        });
+        return info;
+    },
+});
+
