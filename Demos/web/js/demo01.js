@@ -38,14 +38,31 @@ var Player = Class.create({
     },
     move: function(direction) {
         if (direction == DIRECTION_NORTH) {
-            this.y = this.y + 1;
+            if (scenario.isValidRoom(this.x, this.y+1, this.z)) {
+                this.y = this.y + 1;
+                return true;
+            }
+            console.log('Player.move - cannot move to ' + this.x + "," + (this.y+1) + "," + this.z)
         } else if (direction == DIRECTION_SOUTH) {
-            this.y = this.y + 1;
+            if (scenario.isValidRoom(this.x, this.y-1, this.z)) {
+                this.y = this.y - 1;
+                return true;
+            }
+            console.log('Player.move - cannot move to ' + this.x + "," + (this.y-1) + "," + this.z)
         } else if (direction == DIRECTION_EAST) {
-            this.x = this.x + 1;
+            if (scenario.isValidRoom(this.x+1, this.y, this.z)) {
+                this.x = this.x + 1;
+                return true;
+            }
+            console.log('Player.move - cannot move to ' + (this.x+1) + "," + y + "," + this.z)
         } else if (direction == DIRECTION_WEST){
-            this.x = this.x - 1;
+            if (scenario.isValidRoom(this.x-1, this.y, this.z)) {
+                this.x = this.x - 1;
+                return true;
+            }
+            console.log('Player.move - cannot move to ' + (this.x-1) + "," + this.y + "," + this.z)
         }
+        return false;
     },
 });
 
@@ -302,6 +319,16 @@ var Scenario = Class.create({
         } else {
             console.log('getLocNames - error getting floor z=' + z)
         }
+    },
+    isValidRoom: function(x, y, z) {
+        floor = this.getFloor(z);
+        if (typeof floor !== 'undefined' && floor != null) {
+            room = floor.getRoomByXY(x, y)
+            if (typeof room !== 'undefined' && room != null) {
+                return true;
+            }
+        }
+        return false;
     },
     dispInfo: function(ntabs) {
         if (typeof ntabs === 'undefined') {

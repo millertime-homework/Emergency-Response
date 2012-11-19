@@ -23,10 +23,12 @@
         <input type="text" id="currentwall" />
     </div>
     <div id="movebuttons">
-        <button class="move" id="north">Move North</button>
-        <button class="move" id="south">Move South</button>
-        <button class="move" id="east">Turn East</button>
-        <button class="move" id="west">Turn West</button>
+        <button class="move" id="move-north">Move North</button>
+        <button class="move" id="move-south">Move South</button>
+        <button class="move" id="move-east">Move East</button>
+        <button class="move" id="move-west">Move West</button>
+        <button class="turn" id="east">Turn East</button>
+        <button class="turn" id="west">Turn West</button>
     </div>
     <div id="dropdowns">
         <span class="selector-title">Floor:</span>
@@ -62,6 +64,25 @@
             updateFloorSelector()
             updatePlayerInfo()
 
+            // ##########################
+            // ##### MOVE BUTTONS  ######
+            // ##########################
+            $('#move-north').click(function() {
+                player.move(DIRECTION_NORTH)
+                updatePlayerInfo()
+            })
+            $('#move-south').click(function() {
+                player.move(DIRECTION_SOUTH)
+                updatePlayerInfo()
+            })
+            $('#move-east').click(function() {
+                player.move(DIRECTION_EAST)
+                updatePlayerInfo()
+            })
+            $('#move-west').click(function() {
+                player.move(DIRECTION_WEST)
+                updatePlayerInfo()
+            })
 
             // ##########################
             // ##### SELECT EVENTS ######
@@ -110,6 +131,7 @@
                 // update direction
                 $('#playerdir').val(player.facing)
 
+                // get names of current floor, room, facing wall
                 var locNames = scenario.getLocNames(player.x, player.y, player.z, player.facing)
                 if (typeof locNames === 'undefined') { 
                     console.log('error getting names')
