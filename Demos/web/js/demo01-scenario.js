@@ -48,13 +48,21 @@ newRoom.addWall('N Elevator Wall', 'n', 'elev-n.jpg');
 newRoom.addWall('S Elevator Wall', 's', 'elev-s.jpg');
 
 // Hallway 2
-newRoom = secondFloor.addRoom('hall2', '2nd Floor Hallway-North', 1, 2, 1)
-newRoom.addWall('E Hallway-North Wall', 'e', 'hall2-e.jpg')
-newRoom.addWall('W Hallway-North Wall', 'w', 'hall2-w.jpg')
-newRoom.addWall('N Hallway-North Wall', 'n', 'hall2-n.jpg')
-newRoom.addWall('S Hallway-North Wall', 's', 'hall2-s.jpg')
-
+newRoom = secondFloor.addRoom('2hall2', '2nd Floor Hallway-North', 1, 2, 1)
+newRoom.addWall('E Hallway-North Wall', 'e', '2hall2-e.jpg')
+newRoom.addWall('W Hallway-North Wall', 'w', '2hall2-w.jpg')
+newRoom.addWall('N Hallway-North Wall', 'n', '2hall2-n.jpg')
+newRoom.addWall('S Hallway-North Wall', 's', '2hall2-s.jpg')
+// Hallway 2
+newRoom = secondFloor.addRoom('pent', 'Penthouse', 1, 2, 1)
+newRoom.addWall('E Penthouse Wall', 'e', 'pent-e.jpg')
+newRoom.addWall('W Penthouse Wall', 'w', 'pent-w.jpg')
+newRoom.addWall('N Penthouse Wall', 'n', 'pent-n.jpg')
+newRoom.addWall('S Penthouse Wall', 's', 'pent-s.jpg')
 
 // Player Info
 player = new Player
-player.set(0, 0, 0, "n", null)
+player.set(1, 2, 1, "n", null)
+
+
+

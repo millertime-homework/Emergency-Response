@@ -54,7 +54,7 @@ var Player = Class.create({
                 this.x = this.x + 1;
                 return true;
             }
-            console.log('Player.move - cannot move to ' + (this.x+1) + "," + y + "," + this.z)
+            console.log('Player.move - cannot move to ' + (this.x+1) + "," + this.y + "," + this.z)
         } else if (direction == DIRECTION_WEST){
             if (scenario.isValidRoom(this.x-1, this.y, this.z)) {
                 this.x = this.x - 1;

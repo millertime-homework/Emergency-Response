@@ -60,6 +60,11 @@
     <script type="text/javascript" src="web/js/demo01-scenario.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($){
+            // check starting players position
+            if (!scenario.isValidRoom(player.x, player.y, player.z)) {
+                alert('Player\'s starting position is invalid')
+                return;
+            }
             // init ui
             updateFloorSelector()
             updatePlayerInfo()
@@ -68,19 +73,27 @@
             // ##### MOVE BUTTONS  ######
             // ##########################
             $('#move-north').click(function() {
-                player.move(DIRECTION_NORTH)
+                if (!player.move(DIRECTION_NORTH)) {
+                    alert('You cannot move North')
+                }
                 updatePlayerInfo()
             })
             $('#move-south').click(function() {
-                player.move(DIRECTION_SOUTH)
+                if (!player.move(DIRECTION_SOUTH)) {
+                    alert('You cannot move South')
+                }
                 updatePlayerInfo()
             })
             $('#move-east').click(function() {
-                player.move(DIRECTION_EAST)
+                if (!player.move(DIRECTION_EAST)) {
+                    alert('You cannot move East')
+                }
                 updatePlayerInfo()
             })
             $('#move-west').click(function() {
-                player.move(DIRECTION_WEST)
+                if (!player.move(DIRECTION_WEST)) {
+                    alert('You cannot move West')
+                }
                 updatePlayerInfo()
             })
 
