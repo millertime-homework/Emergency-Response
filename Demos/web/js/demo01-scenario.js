@@ -34,27 +34,27 @@ newRoom.addWall('E Misc-Office Wall', 'e', 'miscoff-e.jpg')
 newRoom.addWall('W Misc-Office Wall', 'w', 'miscoff-w.jpg')
 newRoom.addWall('N Misc-Office Wall', 'n', 'miscoff-n.jpg')
 newRoom.addWall('S Misc-Office Wall', 's', 'miscoff-s.jpg')
-// Elevator
+// Elevator - first floor
 newRoom = firstFloor.addRoom('elevator', 'Elevator', 1, 3, 0)
 newRoom.addWall('E Elevator Wall', 'e', 'elev-e.jpg');
 newRoom.addWall('W Elevator Wall', 'w', 'elev-w.jpg');
 newRoom.addWall('N Elevator Wall', 'n', 'elev-n.jpg');
 newRoom.addWall('S Elevator Wall', 's', 'elev-s.jpg');
-
+//Elevator - second floor
 newRoom = secondFloor.addRoom('elevator', 'Elevator', 1, 3, 1)
 newRoom.addWall('E Elevator Wall', 'e', 'elev-e.jpg');
 newRoom.addWall('W Elevator Wall', 'w', 'elev-w.jpg');
 newRoom.addWall('N Elevator Wall', 'n', 'elev-n.jpg');
 newRoom.addWall('S Elevator Wall', 's', 'elev-s.jpg');
 
-// Hallway 2
+// 2 Hallway 2
 newRoom = secondFloor.addRoom('2hall2', '2nd Floor Hallway-North', 1, 2, 1)
 newRoom.addWall('E Hallway-North Wall', 'e', '2hall2-e.jpg')
 newRoom.addWall('W Hallway-North Wall', 'w', '2hall2-w.jpg')
 newRoom.addWall('N Hallway-North Wall', 'n', '2hall2-n.jpg')
 newRoom.addWall('S Hallway-North Wall', 's', '2hall2-s.jpg')
-// Hallway 2
-newRoom = secondFloor.addRoom('pent', 'Penthouse', 1, 2, 1)
+// Penthouse
+newRoom = secondFloor.addRoom('pent', 'Penthouse', 1, 1, 1)
 newRoom.addWall('E Penthouse Wall', 'e', 'pent-e.jpg')
 newRoom.addWall('W Penthouse Wall', 'w', 'pent-w.jpg')
 newRoom.addWall('N Penthouse Wall', 'n', 'pent-n.jpg')

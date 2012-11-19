@@ -176,6 +176,9 @@ var Floor = Class.create({
             console.log('Floor.addRoom - Room with id ' + id + ' already exists')
             return;
         }
+        if (this.getRoomByXY(x, y) !== null) {
+            console.log('Floor.addRoom - Room with x,y=' + x + "," + y + " already exists")
+        }
         var newRoom = new Room;
         newRoom.set(name, x, y, z);
         this.rooms[id] = newRoom;
