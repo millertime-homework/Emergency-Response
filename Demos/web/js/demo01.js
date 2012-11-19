@@ -158,6 +158,7 @@ var Floor = Class.create({
         newRoom.set(name, x, y, z);
         this.rooms[id] = newRoom;
         this.numRooms += 1;
+        return this.rooms[id]
     },
     addWallToRoom: function(id, name, direction, image) {
         var room = this.getRoomById(id);
@@ -235,6 +236,7 @@ var Scenario = Class.create({
         }
         this.floors[z] = new Floor;
         this.floors[z].set(name, z)
+        return this.floors[z]
     },
     addRoomToFloor: function(z, id, name, x, y, z) {
         floor = this.floors[z]
