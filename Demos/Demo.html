@@ -13,20 +13,22 @@
 
     <script type="text/javascript" src="web/js/demo01.js"></script>
     <script type="text/javascript">
-        var $j = jQuery.noConflict();
+        var $j = jQuery.noConflict()
 
-        var someRoom = new Room("Prof Office", 5, 2, 1);
-        someRoom.set("Prof Office", 5, 2, 1);
-        someRoom.addWall("East Wall", "e", "profoffice-e.jpg");
-        someRoom.addWall("West Wall", "w", "profoffice-w.jpg");
-        someRoom.addWall("North Wall", "n", "profoffice-n.jpg");
-        someRoom.addWall("South Wall", "s", "profoffice-s.jpg");
+
+        var aFloor = new Floor;
+        aFloor.set("First Floor", 0)
+        aFloor.addRoom("profoff", "Prof Office", 5, 2, 1)
+        aFloor.addWallToRoom("profoff", "East Wall", "e", "profoffice-e.jpg")
+        aFloor.addWallToRoom("profoff", "West Wall", "w", "profoffice-w.jpg")
+        aFloor.addWallToRoom("profoff", "North Wall", "n", "profoffice-n.jpg")
+        aFloor.addWallToRoom("profoff", "South Wall", "s", "profoffice-s.jpg")
 
         jQuery(document).ready(function($){
 
             $('#getInfo').bind('click', function() {
-                $('#output').val(someRoom.getInfo());
-
+                // $('#output').val(aFloor.getInfo())
+                $('#output').val(aFloor.getRoomById("profoff").getInfo())
             })
         });
     </script>
