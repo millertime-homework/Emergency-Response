@@ -1,0 +1,26 @@
+/*
+    Developed by anthonyvscode.com
+    This solution is to be used in the dotless implemention of less css: http://www.dotlesscss.org/
+*/
+/*Border Radius Functions*/
+/*Shadows*/
+/*Transformations*/
+body {
+  font-family: "Helvetica-Neue-Light", "Helvetica Neue Light";
+  font-size: 14px;
+}
+.selector-title,
+.player-title {
+  font-weight: bold;
+}
+#output {
+  border: 1px solid black;
+  width: 100%;
+  height: 400px;
+}
+#playerinfo,
+#dropdowns,
+#movebuttons,
+#locationinfo {
+  width: 100%;
+}
