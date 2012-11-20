@@ -8,46 +8,48 @@
     </script>
 </head>
 <body>
-    <div id="playerinfo">
-        <span class="player-title">Player Coordinates:</span>
-        <input type="text" id="playerloc" />
-        <span class="player-title">Facing:</span>
-        <input type="text" id="playerdir" />
-    </div>
-    <div id="locationinfo">
-        <span class="player-title">Current Floor:</span>
-        <input type="text" id="currentfloor" />
-        <span class="player-title">Current Room:</span>
-        <input type="text" id="currentroom" />
-        <span class="player-title">Facing Wall:</span>
-        <input type="text" id="currentwall" />
-    </div>
-    <div id="movebuttons">
-        <button class="move" id="move-north">Move North</button>
-        <button class="move" id="move-south">Move South</button>
-        <button class="move" id="move-east">Move East</button>
-        <button class="move" id="move-west">Move West</button>
-        <button class="turn turn-left" id="editor-turn-left">Turn Left</button>
-        <button class="turn turn-right" id="editor-turn-right">Turn Right</button>
-    </div>
-    <div id="dropdowns">
-        <span class="selector-title">Floor:</span>
-        <select name="floor" id="floor-selector" disabled>
-            <option value="blank">No Floors Listed</option>
-        </select>
-        <button class="add" data-type="floor">Add Floor</button>
-        <br />
-        <span class="selector-title">Room:</span>
-        <select name="room" id="room-selector" disabled>
-            <option value="blank">No Rooms Listed</option>
-        </select>
-        <button class="add" data-type="room">Add Room</button>
-        <br />
-        <span class="selector-title">Wall:</span>
-        <select name="wall" id="wall-selector" disabled>
-            <option value="blank">No Walls Listed</option>
-        </select>
-        <button class="add" data-type="wall">Add Wall</button>
+    <div id="editor-controls">
+        <div id="playerinfo">
+            <span class="player-title">Player Coordinates:</span>
+            <input type="text" id="playerloc" />
+            <span class="player-title">Facing:</span>
+            <input type="text" id="playerdir" />
+        </div>
+        <div id="locationinfo">
+            <span class="player-title">Current Floor:</span>
+            <input type="text" id="currentfloor" />
+            <span class="player-title">Current Room:</span>
+            <input type="text" id="currentroom" />
+            <span class="player-title">Facing Wall:</span>
+            <input type="text" id="currentwall" />
+        </div>
+        <div id="movebuttons">
+            <button class="move" id="move-north">Move North</button>
+            <button class="move" id="move-south">Move South</button>
+            <button class="move" id="move-east">Move East</button>
+            <button class="move" id="move-west">Move West</button>
+            <button class="turn turn-left" id="editor-turn-left">Turn Left</button>
+            <button class="turn turn-right" id="editor-turn-right">Turn Right</button>
+        </div>
+        <div id="dropdowns">
+            <span class="selector-title">Floor:</span>
+            <select name="floor" id="floor-selector" disabled>
+                <option value="blank">No Floors Listed</option>
+            </select>
+            <button class="add" data-type="floor">Add Floor</button>
+            <br />
+            <span class="selector-title">Room:</span>
+            <select name="room" id="room-selector" disabled>
+                <option value="blank">No Rooms Listed</option>
+            </select>
+            <button class="add" data-type="room">Add Room</button>
+            <br />
+            <span class="selector-title">Wall:</span>
+            <select name="wall" id="wall-selector" disabled>
+                <option value="blank">No Walls Listed</option>
+            </select>
+            <button class="add" data-type="wall">Add Wall</button>
+        </div>
     </div>
     <div id="editor-output">
         <textarea id="output">
@@ -114,6 +116,18 @@
     <script type="text/javascript" src="web/js/demo01-scenario.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($){
+            if (getURLParameter("mode") != "edit") {
+                $('#editor-controls').empty();
+                $('#editor-output').empty();
+
+                var view = $('#view-modal');
+                view.css('left', '50%');
+                view.css('margin-left', '-' + view.width() / 2 + 'px');
+                view.css('top', '50%');
+                view.css('margin-top', '-' + view.height() / 2 + 'px' );
+
+            }
+
             // check starting players position
             if (!scenario.isValidRoom(player.x, player.y, player.z)) {
                 alert('Player\'s starting position is invalid')
@@ -459,6 +473,13 @@
             }
 
         });
+
+
+        function getURLParameter(name) {
+            return decodeURIComponent(
+                (location.search.match(RegExp("[?|&]" + name + '=(.+?)(&|$)')) || [, null])[1]
+            );
+        }
     </script>
 </body>
 </html>
