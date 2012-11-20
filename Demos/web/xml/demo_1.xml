@@ -1,0 +1,71 @@
+<scenario name='demo_1'>
+  <rooms>
+    <room name='hallway_0'>
+      <location>1,0,0</location>
+      <view>
+        <e>hallway_0_east</e>
+        <w>hallway_0_west</w>
+        <n>hallway_0_north</n>
+        <s>hallway_0_south</s>
+      </view>
+    </room>
+    <room name='hallway_1'>
+      <location>1,1,0</location>
+      <view>
+        <e>hallway_1_east</e>
+        <w>hallway_1_west</w>
+        <n>hallway_1_north</n>
+        <s>hallway_1_south</s>
+      </view>
+    </room>
+    <room name='hallway_2'>
+      <location>1,2,0</location>
+      <view>
+        <e>hallway_2_east</e>
+        <w>hallway_2_west</w>
+        <n>hallway_2_north</n>
+        <s>hallway_2_south</s>
+      </view>
+    </room>
+    <room name='prof_office_0'>
+      <location>1,2,0</location>
+      <view>
+        <e>prof_office_0_east</e>
+        <w>prof_office_0_west</w>
+        <n>prof_office_0_north</n>
+        <s>prof_office_0_south</s>
+      </view>
+    </room>
+    <room name='classroom_0'>
+      <location>0,0,0</location>
+      <view>
+        <e>classroom_0_east</e>
+        <w>classroom_0_west</w>
+        <n>classroom_0_north</n>
+        <s>classroom_0_south</s>
+      </view>
+    </room>
+  </rooms>
+  <views>
+    <view uid="hallway_0_east">hallway_0_east.jpg</view>
+    <view uid="hallway_0_west">hallway_0_west.jpg</view>
+    <view uid="hallway_0_north">hallway_0_north.jpg</view>
+    <view uid="hallway_0_south">hallway_0_south.jpg</view>
+    <view uid="hallway_1_east">hallway_1_east.jpg</view>
+    <view uid="hallway_1_west">hallway_1_west.jpg</view>
+    <view uid="hallway_1_north">hallway_1_north.jpg</view>
+    <view uid="hallway_1_south">hallway_1_south.jpg</view>
+    <view uid="hallway_2_east">hallway_2_east.jpg</view>
+    <view uid="hallway_2_west">hallway_2_west.jpg</view>
+    <view uid="hallway_2_north">hallway_2_north.jpg</view>
+    <view uid="hallway_2_south">hallway_2_south.jpg</view>
+    <view uid="prof_office_0_east">prof_office_0_east.jpg</view>
+    <view uid="prof_office_0_west">prof_office_0_west.jpg</view>
+    <view uid="prof_office_0_north">prof_office_0_north.jpg</view>
+    <view uid="prof_office_0_south">prof_office_0_south.jpg</view>
+    <view uid="classroom_0_east">classroom_0_east.jpg</view>
+    <view uid="classroom_0_west">classroom_0_west.jpg</view>
+    <view uid="classroom_0_north">classroom_0_north.jpg</view>
+    <view uid="classroom_0_south">classroom_0_south.jpg</view>
+  </views>
+</scenario>

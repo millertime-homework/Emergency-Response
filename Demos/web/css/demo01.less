@@ -1,0 +1,39 @@
+@import "less-mixins.less"; // Import Mixins
+
+
+body {
+    font-family: "Helvetica-Neue-Light", "Helvetica Neue Light";
+    font-size: 14px;
+}
+.selector-title, .player-title {
+    font-weight: bold;
+}
+
+#output {
+    border: 1px solid black; 
+    width: 100%; 
+    height: 400px;
+}
+
+#playerinfo, 
+#dropdowns, 
+#movebuttons,
+#locationinfo {
+    width: 100%;
+}
+
+#modal {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    z-index: 10;
+    .border_radius(10px);
+    background-color: white;
+    border: 1px solid black;
+    .box_shadow();
+    padding: 10px;
+}
+
+.hidden {
+    display: none;
+}
