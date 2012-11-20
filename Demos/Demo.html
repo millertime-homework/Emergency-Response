@@ -27,8 +27,8 @@
         <button class="move" id="move-south">Move South</button>
         <button class="move" id="move-east">Move East</button>
         <button class="move" id="move-west">Move West</button>
-        <button class="turn" id="east">Turn East</button>
-        <button class="turn" id="west">Turn West</button>
+        <button class="turn" id="turn-left">Turn Left</button>
+        <button class="turn" id="turn-right">Turn Right</button>
     </div>
     <div id="dropdowns">
         <span class="selector-title">Floor:</span>
@@ -49,11 +49,15 @@
         </select>
         <button class="add" data-type="wall">Add Wall</button>
     </div>
-
-    <textarea id="output">
-        Info will display here....
-    </textarea>
-    <input type="submit" value="Display Info" id="getInfo" />
+    <div id="editor-output">
+        <textarea id="output">
+            Info will display here....
+        </textarea>
+        <br />
+        <input type="submit" value="Display Info" id="getInfo" />
+     </div>
+    <div id="view-modal">
+    </div>
 
     <div id="modal" class="hidden">
         <div class="floor add-form hidden">
@@ -95,8 +99,6 @@
             <span class="selector-title">Image:</span>
             <input type="text" id="wall-image" />
         </div>
-
-
     </div>
 
     <script type="text/javascript" src="web/js/demo01.js"></script>
@@ -139,6 +141,22 @@
             $('#move-west').click(function() {
                 if (!player.move(DIRECTION_WEST)) {
                     // alert('You cannot move West')
+                } else {
+                    updatePlayerInfo()
+                }
+            })
+
+            $('#turn-left').click(function () {
+                if (!player.turn("l")) {
+                    // alert('There is nothing to see to your left!')
+                } else {
+                    updatePlayerInfo()
+                }
+            })
+
+            $('#turn-right').click(function () {
+                if (!player.turn("r")) {
+                    // alert('There is nothing to see to your right!')
                 } else {
                     updatePlayerInfo()
                 }
@@ -256,6 +274,13 @@
                 $('#currentfloor').val(locNames['floorName'])
                 $('#currentroom').val(locNames['roomName'])
                 $('#currentwall').val(locNames['wallName'])
+
+                renderScene();
+            }
+
+            function renderScene() {
+                $("#view-modal").empty();
+                $("#view-modal").append("<img src='web/img/" + scenario.getFloor(player.z).getRoomByXY(player.x, player.y).walls[player.facing].image + "'>");
             }
 
             // Gets a list of floors from the scenario

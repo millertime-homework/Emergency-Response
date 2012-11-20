@@ -12,6 +12,9 @@ var DIRECTION_EAST = "e";
 var DIRECTION_WEST = "w";
 var DIRECTION_NORTH = "n";
 var DIRECTION_SOUTH = "s";
+var DIRECTION_LEFT = "l";
+var DIRECTION_RIGHT = "r";
+var DIRECTION_INDEX = new Array("n", "e", "s", "w" );
 
 
 // initialize must set the necessary variables to blank to prevent
@@ -64,6 +67,21 @@ var Player = Class.create({
         }
         return false;
     },
+
+    turn: function (direction) {
+        var currentDirectionIndex = DIRECTION_INDEX.indexOf(player.facing);
+        var newDirectionIndex;
+        if (direction === DIRECTION_LEFT) {
+            newDirectionIndex = (currentDirectionIndex + 1) % 4;
+        } else if (direction === DIRECTION_RIGHT) {
+            newDirectionIndex = (currentDirectionIndex - 1 + 4) % 4;
+        }
+        if (scenario.getFloor(player.z).getRoomByXY(player.x, player.y).walls[DIRECTION_INDEX[newDirectionIndex]]) {
+            this.facing = DIRECTION_INDEX[newDirectionIndex];
+            return true;
+        }
+        return false;
+    }
 });
 
 var Wall = Class.create({
