@@ -1,3 +1,20 @@
+// Scenario -->
+//      Player --> 
+//          [player-attributes]
+//      Floors -->
+//          floor-id -->
+//              [floor-attributes]
+//              Rooms -->
+//                  room-id -->
+//                      [room-attributes]
+//                      Walls -->
+//                          direction -->
+//                              [wall-attributes]
+//
+// Floors are referenced by:    scenario['Floors'][floor-number]
+// Rooms are referenced by:     scenario['Floors'][floor-number]['Rooms'][room-id]
+// Walls are referenced by:     scenario['Floors'][floor-number]['Rooms'][room-id]['Walls'][direction]
+
 var scenario = {
     'name': 'Example Scenario',
     'Player': {
