@@ -85,7 +85,7 @@ var scenario = {
                 'x': 1, 
                 'y': 2, 
                 'z': 1,
-            }
+            },
             'bthrm': {
                 'name': 'Bathroom', 
                 'x': 1, 
