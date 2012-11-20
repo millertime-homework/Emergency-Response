@@ -1,0 +1,82 @@
+@import "less-mixins.less";
+
+@num-cols: 6;
+@cols-width: 16px;
+@gutter: 10px;
+
+// Container Vars
+@container-width: (@num-cols * @cols-width * @gutter) + @gutter;
+@container-height: 600px;
+@container-background-color: red;
+
+
+// Nav Vars
+@horiz-nav-height: 50px;
+@vert-nav-width: 50px;
+
+@horiz-nav-width: @container-width - (2 * @vert-nav-width);
+@vert-nav-height: @container-height - (2 * @horiz-nav-height);
+
+@nav-background-color: white;
+
+// horizontal (h), vertical (v) navs example:
+// ------------
+// - hhhhhhhh -
+// -v        v-
+// -v        v-
+// -v        v-
+// -v        v-
+// - hhhhhhhh -
+// ------------
+
+//################## Container ########################################
+
+
+    #container {
+        width: @container-width;
+        height: @container-height;
+        border: 1px solid black;
+        background-color: @container-background-color;
+
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+//################### Navigation Bars #######################################
+
+    .nav {
+        background-color: @nav-background-color;
+        position: absolute;
+    }
+    // width, height, margins
+    #nav-top, #nav-bottom {
+        width: @horiz-nav-width;
+        height: @horiz-nav-height;
+        margin: 0 @vert-nav-width 0 @vert-nav-width;
+    }
+    #nav-left, #nav-right {
+        width: @vert-nav-width;
+        height: @vert-nav-height;
+        margin: @horiz-nav-height 0 @horiz-nav-height 0;
+    }
+    // positioning
+    #nav-top { left: 0; top: 0;}
+    #nav-bottom { left: 0; top: (@horiz-nav-height + @vert-nav-height);}
+    #nav-left { left: 0; top: 0;}
+    #nav-right { left: (@horiz-nav-width + @vert-nav-width); top: 0;}
+
+    // opacities
+    .nav { 
+        .opacity(50);
+        &:hover {
+            .opacity(100);
+        }
+    }
+
+    // borders
+    @nav-border-radius: 12px;
+    #nav-top { .border_radius(0, 0, @nav-border-radius, @nav-border-radius);}
+    #nav-bottom { .border_radius(@nav-border-radius, @nav-border-radius, 0, 0);}
+    #nav-left { .border_radius(0, @nav-border-radius, @nav-border-radius, 0);}
+    #nav-right { .border_radius(@nav-border-radius, 0, 0, @nav-border-radius);}

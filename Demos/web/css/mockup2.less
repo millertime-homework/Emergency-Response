@@ -1,0 +1,141 @@
+@import "less-mixins.less"; // Import Mixins
+
+@num-cols: 7;
+@cols-width: 16px;
+@gutter: 10px;
+
+
+@global-radius: 12px;
+
+// Container Vars
+@container-width: (@num-cols * @cols-width * @gutter) + @gutter;
+@container-height: 600px;
+@container-background-color: lighten(grey, 20%);
+@container-border-size: 1;
+
+// Map Vars
+@map-height: 300px;
+@map-width: 100px;
+@map-left-margin: 20px;
+@map-border-size: 1;
+@map-x-size: 4;
+@map-y-size: 2;
+@map-col-width: @map-width / @map-x-size;
+@map-col-height: @map-height / @map-y-size;
+
+// Button Vars
+@row-move-button-width: 200px;
+@row-move-button-height: 50px;
+@col-move-button-width: 50px;
+@col-move-button-height: 200px;
+
+//Wrapper Vars
+@wrapper-height: @container-height;
+@wrapper-width: @container-width + @map-width + @map-left-margin + (@map-border-size * 2) + (@container-border-size * 2);
+
+#wrapper {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: @wrapper-width;
+    height: @wrapper-height;
+}
+// ##### Container #####
+#container {
+    position: relative;
+    float: left;
+    width: @container-width;
+    height: @container-height;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    /*background-color: @container-background-color;*/
+    background-image: url('../img/A-north.jpg');
+    border: @container-border-size solid black;
+    .border_radius(@global-radius);
+}
+
+// ##### Button Positioning #####
+.move {
+    position: absolute;
+    &#left, &#right { 
+        width: @col-move-button-width;
+        height: @col-move-button-height;
+        top: (@container-height / 2) - (@col-move-button-height / 2); 
+    }
+    &#forward, &#back { 
+        width: @row-move-button-width;
+        height: @row-move-button-height;
+        left: (@container-width / 2) - (@row-move-button-width / 2); 
+    }
+
+    &#left{
+        left: 0;
+    } 
+    &#right {
+        left: @container-width - @col-move-button-width;
+    }
+    &#forward {
+        top: 0;
+    } 
+    &#back {
+        top: @container-height - @row-move-button-height;
+    }
+}
+// ##### Button Styles #####
+.move {
+    background-color: white;
+    .opacity(70);
+    text-align: center;
+ 
+    // border-radius
+    &#left { .border_radius(0, @global-radius, @global-radius, 0); }
+    &#right { .border_radius(@global-radius, 0, 0, @global-radius); }
+    &#forward { .border_radius(0, 0, @global-radius, @global-radius); }
+    &#back { .border_radius(@global-radius, @global-radius, 0, 0); }
+ 
+}
+
+// ##### Button Hover behavior #####
+@button-hover-amount: 5;
+.move {
+    &:hover {
+        .opacity(100);
+    }
+    &#left:hover {
+        padding-left: @button-hover-amount;
+    }
+    &#right:hover {
+        left: @container-width - @col-move-button-width - @button-hover-amount;
+        width: @col-move-button-width + @button-hover-amount;
+    }
+    &#forward:hover {
+        padding-top: @button-hover-amount;
+    }
+    &#back:hover {
+        top: @container-height - @row-move-button-height - @button-hover-amount;
+        height: @row-move-button-height + @button-hover-amount;
+    }
+}
+
+// ##### Map #####
+#map {
+    position: relative;
+    float: left;
+    width: @map-width;
+    height: @map-height;
+    .border_radius(@global-radius);
+    border: @map-border-size solid black;
+    margin-left: @map-left-margin;
+
+    .col {
+        width: @map-col-width;
+        height: @map-col-height;
+        .blank {
+            background: white;
+        }
+        .active {
+            background: black;
+        }
+    }
+
+}

@@ -1,0 +1,32 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="web/css/fade.css">
+    <script type="text/javascript" src="web/js/jquery.js"></script>
+</head>
+<body>
+
+<div id="img1" class="img"></div>
+<div id="img2" class="img"></div>
+<div id="img3" class="img"></div>
+<div id="img4" class="img"></div>
+<script type="text/javascript">
+$(function() {
+    $('#img1').on('click', function() {
+        $('#img1').animate({
+            opacity: 0.0,
+        }, function() {
+            $('#img2').animate({
+                opacity: 0.0,
+            }, function() {
+                $('#img3').animate({
+                    opacity: 0.0,
+                }, function() {
+                    return;
+                })
+            })
+        })
+    })
+})
+</script>
+</body>
+</html>
