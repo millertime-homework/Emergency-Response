@@ -72,9 +72,9 @@ var Player = Class.create({
         var currentDirectionIndex = DIRECTION_INDEX.indexOf(player.facing);
         var newDirectionIndex;
         if (direction === DIRECTION_LEFT) {
-            newDirectionIndex = (currentDirectionIndex + 1) % 4;
-        } else if (direction === DIRECTION_RIGHT) {
             newDirectionIndex = (currentDirectionIndex - 1 + 4) % 4;
+        } else if (direction === DIRECTION_RIGHT) {
+            newDirectionIndex = (currentDirectionIndex + 1) % 4;
         }
         if (scenario.getFloor(player.z).getRoomByXY(player.x, player.y).walls[DIRECTION_INDEX[newDirectionIndex]]) {
             this.facing = DIRECTION_INDEX[newDirectionIndex];
