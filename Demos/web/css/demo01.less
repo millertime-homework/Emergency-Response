@@ -1,5 +1,6 @@
 @import "less-mixins.less"; // Import Mixins
-
+@viewportHeight: 611px;
+@viewportWidth: 1115px;
 
 body {
     font-family: "Helvetica-Neue-Light", "Helvetica Neue Light";
@@ -11,8 +12,47 @@ body {
 
 #view-modal {
     display: inline;
-    float: right;
+    position: relative;
+    float: left;
+    height: @viewportHeight;
+    width: @viewportWidth;
 }
+
+#viewport-turn-left {
+   position: absolute;
+   top: 50%;
+}
+
+#viewport-move-forward {
+   position: absolute;
+   margin-left: 50%;
+}
+
+#viewport-turn-right {
+   position: absolute;
+   top: 50%;
+   left: @viewportWidth;
+   margin-left: -24px;
+}
+
+#controls-overlay {
+    z-index: 1;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: @viewportHeight;
+    width: @viewportWidth;
+}
+
+#view-scene {
+    z-index: 0;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: @viewportHeight;
+    width: @viewportWidth;
+}
+
 
 #editor-output {
     display: inline;

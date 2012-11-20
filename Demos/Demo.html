@@ -27,8 +27,8 @@
         <button class="move" id="move-south">Move South</button>
         <button class="move" id="move-east">Move East</button>
         <button class="move" id="move-west">Move West</button>
-        <button class="turn" id="turn-left">Turn Left</button>
-        <button class="turn" id="turn-right">Turn Right</button>
+        <button class="turn turn-left" id="editor-turn-left">Turn Left</button>
+        <button class="turn turn-right" id="editor-turn-right">Turn Right</button>
     </div>
     <div id="dropdowns">
         <span class="selector-title">Floor:</span>
@@ -57,6 +57,14 @@
         <input type="submit" value="Display Info" id="getInfo" />
      </div>
     <div id="view-modal">
+        <div id="controls-overlay">
+            <input class="viewport-button turn-left" id="viewport-turn-left" type="button" value="<">
+            <input class="viewport-button turn-right" id="viewport-turn-right" type="button" value=">" />
+            <input class="viewport-button move-forward" id="viewport-move-forward" type="button" value="^" />
+        </div> 
+        <div id="view-scene">
+
+        </div>
     </div>
 
     <div id="modal" class="hidden">
@@ -146,7 +154,15 @@
                 }
             })
 
-            $('#turn-left').click(function () {
+            $('.move-forward').click(function () {
+                if (!player.move(player.facing)) {
+                    // alert('There is no where to go in front of you!')
+                } else {
+                    updatePlayerInfo();
+                }
+            })
+
+            $('.turn-left').click(function () {
                 if (!player.turn("l")) {
                     // alert('There is nothing to see to your left!')
                 } else {
@@ -154,13 +170,14 @@
                 }
             })
 
-            $('#turn-right').click(function () {
+            $('.turn-right').click(function () {
                 if (!player.turn("r")) {
                     // alert('There is nothing to see to your right!')
                 } else {
                     updatePlayerInfo()
                 }
             })
+
 
             // User clicks an Add button
             $('.add').click(function() {
@@ -279,8 +296,8 @@
             }
 
             function renderScene() {
-                $("#view-modal").empty();
-                $("#view-modal").append("<img src='web/img/" + scenario.getFloor(player.z).getRoomByXY(player.x, player.y).walls[player.facing].image + "'>");
+                $("#view-scene").empty();
+                $("#view-scene").append("<img src='web/img/" + scenario.getFloor(player.z).getRoomByXY(player.x, player.y).walls[player.facing].image + "'>");
             }
 
             // Gets a list of floors from the scenario
