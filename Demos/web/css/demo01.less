@@ -36,6 +36,7 @@ body {
     border-width: @borderThickness;
     padding: 2px 5px;
     outline-width: 0;
+    position: absolute;
 }
 
 input:hover, input:active, input:focus, textarea:hover, textarea:active, textarea:focus {
@@ -45,20 +46,22 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 }
 
 #viewport-move-forward {
-   position: absolute;
    margin-left: 50%;
 }
 
 #viewport-turn-left {
-   position: absolute;
    top: 50%;
 }
 
+#viewport-move-down {
+    top: 100%;
+    margin-top: -27px;
+}
+
 #viewport-turn-right {
-   position: absolute;
    top: 50%;
    left: @viewportWidth;
-   margin-left: -24px;
+   margin-left: -27px;
 }
 
 .primary-view {

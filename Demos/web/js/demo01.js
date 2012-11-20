@@ -14,6 +14,8 @@ var DIRECTION_NORTH = "n";
 var DIRECTION_SOUTH = "s";
 var DIRECTION_LEFT = "l";
 var DIRECTION_RIGHT = "r";
+var DIRECTION_UP = "u";
+var DIRECTION_DOWN = "d";
 var DIRECTION_INDEX = new Array("n", "e", "s", "w" );
 
 
@@ -64,6 +66,12 @@ var Player = Class.create({
                 return true;
             }
             console.log('Player.move - cannot move to ' + (this.x-1) + "," + this.y + "," + this.z)
+        } else if (direction === DIRECTION_UP && scenario.isValidRoom(this.x, this.y, this.z + 1)) {
+            this.z += 1;
+            return true;
+        } else if (direction === DIRECTION_DOWN && scenario.isValidRoom(this.x, this.y, this.z - 1)) {
+            this.z -= 1;
+            return true;
         }
         return false;
     },
@@ -309,6 +317,7 @@ var Scenario = Class.create({
         }
         return this.floors[z];
     },
+
     getFloorList: function() {
         var floorList = new Array();
         $j.each(this.floors, function(key, value) {
@@ -319,6 +328,7 @@ var Scenario = Class.create({
         })
         return floorList;
     },
+
     getLocNames: function(x, y, z, direction) {
         floor = this.getFloor(z)
         if (typeof floor !== 'undefined') {
