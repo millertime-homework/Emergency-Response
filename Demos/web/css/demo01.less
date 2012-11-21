@@ -1,5 +1,11 @@
 @import "less-mixins.less"; // Import Mixins
-
+@viewportHeight: 611px;
+@viewportWidth: 1115px;
+@primaryBorderColor: #000000;
+@primaryBackgroundColor: #FFFFFF;
+@primaryFontColor: #000000;
+@primaryHighlightColor: #4493F3;
+@borderThickness: 3px;
 
 body {
     font-family: "Helvetica-Neue-Light", "Helvetica Neue Light";
@@ -9,9 +15,80 @@ body {
     font-weight: bold;
 }
 
+#view-modal {
+    display: inline;
+    position: relative;
+    float: left;
+    background-color: @primaryBorderColor;
+    height: @viewportHeight + @borderThickness * 2;
+    width: @viewportWidth + @borderThickness * 2;
+}
+
+.bold-colored-text {
+    font-weight: bold;
+    color: @primaryBorderColor;
+}
+
+.viewport-button {
+    background-color: @primaryBackgroundColor;
+    border-color:@primaryBorderColor;
+    border-style: solid;
+    border-width: @borderThickness;
+    padding: 2px 5px;
+    outline-width: 0;
+    position: absolute;
+}
+
+input:hover, input:active, input:focus, textarea:hover, textarea:active, textarea:focus {
+    border-color: @primaryHighlightColor;
+    border-style: solid;
+    border-width: 3px;
+}
+
+#viewport-move-forward {
+   margin-left: 50%;
+}
+
+#viewport-turn-left {
+   top: 50%;
+}
+
+#viewport-move-down {
+    top: 100%;
+    margin-top: -27px;
+}
+
+#viewport-turn-right {
+   top: 50%;
+   left: @viewportWidth;
+   margin-left: -27px;
+}
+
+.primary-view {
+    position: absolute;
+    left: @borderThickness;
+    top: @borderThickness;
+    height: @viewportHeight;
+    width: @viewportWidth;
+}
+
+#controls-overlay {
+    z-index: 1;
+}
+
+#view-scene {
+    z-index: 0;
+}
+
+
+#editor-output {
+    display: inline;
+    float: left;
+}
+
 #output {
     border: 1px solid black; 
-    width: 100%; 
+    width: 300px; 
     height: 400px;
 }
 

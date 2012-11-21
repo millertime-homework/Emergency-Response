@@ -8,52 +8,69 @@
     </script>
 </head>
 <body>
-    <div id="playerinfo">
-        <span class="player-title">Player Coordinates:</span>
-        <input type="text" id="playerloc" />
-        <span class="player-title">Facing:</span>
-        <input type="text" id="playerdir" />
+    <div id="editor-controls">
+        <div id="playerinfo">
+            <span class="player-title">Player Coordinates:</span>
+            <input type="text" id="playerloc" />
+            <span class="player-title">Facing:</span>
+            <input type="text" id="playerdir" />
+        </div>
+        <div id="locationinfo">
+            <span class="player-title">Current Floor:</span>
+            <input type="text" id="currentfloor" />
+            <span class="player-title">Current Room:</span>
+            <input type="text" id="currentroom" />
+            <span class="player-title">Facing Wall:</span>
+            <input type="text" id="currentwall" />
+        </div>
+        <div id="movebuttons">
+            <button class="move" id="move-north">Move North</button>
+            <button class="move" id="move-south">Move South</button>
+            <button class="move" id="move-east">Move East</button>
+            <button class="move" id="move-west">Move West</button>
+            <button class="turn turn-left" id="editor-turn-left">Turn Left</button>
+            <button class="turn turn-right" id="editor-turn-right">Turn Right</button>
+        </div>
+        <div id="dropdowns">
+            <span class="selector-title">Floor:</span>
+            <select name="floor" id="floor-selector" disabled>
+                <option value="blank">No Floors Listed</option>
+            </select>
+            <button class="add" data-type="floor">Add Floor</button>
+            <br />
+            <span class="selector-title">Room:</span>
+            <select name="room" id="room-selector" disabled>
+                <option value="blank">No Rooms Listed</option>
+            </select>
+            <button class="add" data-type="room">Add Room</button>
+            <br />
+            <span class="selector-title">Wall:</span>
+            <select name="wall" id="wall-selector" disabled>
+                <option value="blank">No Walls Listed</option>
+            </select>
+            <button class="add" data-type="wall">Add Wall</button>
+        </div>
     </div>
-    <div id="locationinfo">
-        <span class="player-title">Current Floor:</span>
-        <input type="text" id="currentfloor" />
-        <span class="player-title">Current Room:</span>
-        <input type="text" id="currentroom" />
-        <span class="player-title">Facing Wall:</span>
-        <input type="text" id="currentwall" />
-    </div>
-    <div id="movebuttons">
-        <button class="move" id="move-north">Move North</button>
-        <button class="move" id="move-south">Move South</button>
-        <button class="move" id="move-east">Move East</button>
-        <button class="move" id="move-west">Move West</button>
-        <button class="turn" id="east">Turn East</button>
-        <button class="turn" id="west">Turn West</button>
-    </div>
-    <div id="dropdowns">
-        <span class="selector-title">Floor:</span>
-        <select name="floor" id="floor-selector" disabled>
-            <option value="blank">No Floors Listed</option>
-        </select>
-        <button class="add" data-type="floor">Add Floor</button>
+    <div id="editor-output">
+        <textarea id="output">
+            Info will display here....
+        </textarea>
         <br />
-        <span class="selector-title">Room:</span>
-        <select name="room" id="room-selector" disabled>
-            <option value="blank">No Rooms Listed</option>
-        </select>
-        <button class="add" data-type="room">Add Room</button>
-        <br />
-        <span class="selector-title">Wall:</span>
-        <select name="wall" id="wall-selector" disabled>
-            <option value="blank">No Walls Listed</option>
-        </select>
-        <button class="add" data-type="wall">Add Wall</button>
-    </div>
+        <input type="submit" value="Display Info" id="getInfo" />
+     </div>
+    
+    <div id="view-modal">
+        <div class="primary-view" id="controls-overlay">
+            <input class="viewport-button bold-colored-text turn-left" id="viewport-turn-left" type="button" value="<">
+            <input class="viewport-button bold-colored-text turn-right" id="viewport-turn-right" type="button" value=">" />
+            <input class="viewport-button bold-colored-text move-forward" id="viewport-move-forward" type="button" value="^" />
+            <input class="viewport-button bold-colored-text move-z move-up hidden" id="viewport-move-up" type="button" value="Go Up Stairs" />
+            <input class="viewport-button bold-colored-text move-z move-down hidden" id="viewport-move-down" type="button" value="Go Down Stairs" />
+        </div> 
+        <div class="primary-view" id="view-scene">
 
-    <textarea id="output">
-        Info will display here....
-    </textarea>
-    <input type="submit" value="Display Info" id="getInfo" />
+        </div>
+    </div>
 
     <div id="modal" class="hidden">
         <div class="floor add-form hidden">
@@ -95,14 +112,24 @@
             <span class="selector-title">Image:</span>
             <input type="text" id="wall-image" />
         </div>
-
-
     </div>
 
     <script type="text/javascript" src="web/js/demo01.js"></script>
     <script type="text/javascript" src="web/js/demo01-scenario.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($){
+            if (getURLParameter("mode") != "edit") {
+                $('#editor-controls').empty();
+                $('#editor-output').empty();
+
+                var view = $('#view-modal');
+                view.css('left', '50%');
+                view.css('margin-left', '-' + view.width() / 2 + 'px');
+                view.css('top', '50%');
+                view.css('margin-top', '-' + view.height() / 2 + 'px' );
+
+            }
+
             // check starting players position
             if (!scenario.isValidRoom(player.x, player.y, player.z)) {
                 alert('Player\'s starting position is invalid')
@@ -143,6 +170,47 @@
                     updatePlayerInfo()
                 }
             })
+
+            $('.move-forward').click(function () {
+                if (!player.move(player.facing)) {
+                    // alert('There is no where to go in front of you!')
+                } else {
+                    updatePlayerInfo();
+                }
+            })
+
+            $('.turn-left').click(function () {
+                if (!player.turn("l")) {
+                    // alert('There is nothing to see to your left!')
+                } else {
+                    updatePlayerInfo()
+                }
+            })
+
+            $('.turn-right').click(function () {
+                if (!player.turn("r")) {
+                    // alert('There is nothing to see to your right!')
+                } else {
+                    updatePlayerInfo()
+                }
+            })
+
+            $('.move-up').click(function () {
+                if (!player.move("u")) {
+                // alert('You cannot move up here!')
+                } else {
+                    updatePlayerInfo()
+                }
+            })
+
+            $('.move-down').click(function () {
+                if (!player.move("d")) {
+                    // alert('You cannot move down here!')
+                } else {
+                    updatePlayerInfo()
+                }
+            })
+
 
             // User clicks an Add button
             $('.add').click(function() {
@@ -256,6 +324,24 @@
                 $('#currentfloor').val(locNames['floorName'])
                 $('#currentroom').val(locNames['roomName'])
                 $('#currentwall').val(locNames['wallName'])
+
+                renderScene();
+            }
+
+            function renderScene() {
+                $("#view-scene").empty();
+                $(".move-z").hide();
+                var room = scenario.getRoom(player.x, player.y, player.z);
+                if (scenario.isValidRoom(player.x, player.y, player.z)) {
+                	$("#view-scene").append("<img src='web/img/" + room.walls[player.facing].image + "'>");
+                }
+                if (player.canMoveUp()) {
+                    $("#viewport-move-up").show();
+                }
+                if (player.canMoveDown()) {
+                    $("#viewport-move-down").show();
+                }
+
             }
 
             // Gets a list of floors from the scenario
@@ -416,6 +502,13 @@
             }
 
         });
+
+
+        function getURLParameter(name) {
+            return decodeURIComponent(
+                (location.search.match(RegExp("[?|&]" + name + '=(.+?)(&|$)')) || [, null])[1]
+            );
+        }
     </script>
 </body>
 </html>
