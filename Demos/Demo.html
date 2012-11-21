@@ -331,12 +331,14 @@
             function renderScene() {
                 $("#view-scene").empty();
                 $(".move-z").hide();
-                $("#view-scene").append("<img src='web/img/" + scenario.getFloor(player.z).getRoomByXY(player.x, player.y).walls[player.facing].image + "'>");
-
-                if (scenario.isValidRoom(player.x, player.y, player.z + 1)) {
+                var room = scenario.getRoom(player.x, player.y, player.z);
+                if (scenario.isValidRoom(player.x, player.y, player.z)) {
+                	$("#view-scene").append("<img src='web/img/" + room.walls[player.facing].image + "'>");
+                }
+                if (player.canMoveUp()) {
                     $("#viewport-move-up").show();
                 }
-                if (scenario.isValidRoom(player.x, player.y, player.z - 1)) {
+                if (player.canMoveDown()) {
                     $("#viewport-move-down").show();
                 }
 

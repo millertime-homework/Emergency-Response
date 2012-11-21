@@ -18,6 +18,11 @@ var DIRECTION_UP = "u";
 var DIRECTION_DOWN = "d";
 var DIRECTION_INDEX = new Array("n", "e", "s", "w" );
 
+var PROP_STAIRS_UP = "hasStairsUp";
+var PROP_STAIRS_DOWN = "hasStairsDown";
+var PROP_ENTER_STAIRS_DIRECTION = "enterStairsFacing";
+var PROP_EXIT_STAIRS_DIRECTION = "exitStairsFacing";
+
 
 // initialize must set the necessary variables to blank to prevent
 // next created object from retaining previous variables (prototype trick)
@@ -41,7 +46,7 @@ var Player = Class.create({
         this.status = PLAYER_STATUS_ALIVE;
         this.scenario = scenario;
     },
-    move: function(direction) {
+    move: function(direction) {	
         if (direction == DIRECTION_NORTH) {
             if (scenario.isValidRoom(this.x, this.y+1, this.z)) {
                 this.y = this.y + 1;
@@ -66,11 +71,13 @@ var Player = Class.create({
                 return true;
             }
             console.log('Player.move - cannot move to ' + (this.x-1) + "," + this.y + "," + this.z)
-        } else if (direction === DIRECTION_UP && scenario.isValidRoom(this.x, this.y, this.z + 1)) {
+        } else if (direction === DIRECTION_UP && this.canMoveUp()) {
             this.z += 1;
+            this.setFacingAfterExitingStairs();
             return true;
-        } else if (direction === DIRECTION_DOWN && scenario.isValidRoom(this.x, this.y, this.z - 1)) {
+        } else if (direction === DIRECTION_DOWN && this.canMoveDown()) {
             this.z -= 1;
+            this.setFacingAfterExitingStairs();
             return true;
         }
         return false;
@@ -84,11 +91,31 @@ var Player = Class.create({
         } else if (direction === DIRECTION_RIGHT) {
             newDirectionIndex = (currentDirectionIndex + 1) % 4;
         }
-        if (scenario.getFloor(player.z).getRoomByXY(player.x, player.y).walls[DIRECTION_INDEX[newDirectionIndex]]) {
+        if (scenario.getRoom(player.x, player.y, player.z).walls[DIRECTION_INDEX[newDirectionIndex]]) {
             this.facing = DIRECTION_INDEX[newDirectionIndex];
             return true;
         }
         return false;
+    },
+    
+    canMoveUp: function() {
+    	return (this.isFacingStairs() && scenario.getRoom(this.x, this.y, this.z).containsUpStairs() && scenario.isValidRoom(this.x, this.y, this.z + 1));
+    },
+    canMoveDown: function() {
+    	return (this.isFacingStairs() && scenario.getRoom(this.x, this.y, this.z).containsDownStairs() && scenario.isValidRoom(this.x, this.y, this.z - 1));
+    },
+    isFacingStairs: function() {
+    	var room = scenario.getRoom(player.x, player.y, player.z);
+    	if (room) {
+    		return room.stairEntryDirection() === player.facing;
+    	}
+    	return false;
+    },
+    setFacingAfterExitingStairs: function() {
+		var stairExitDirection = scenario.getRoom(player.x, player.y, player.z).stairExitDirection();
+		if (stairExitDirection) {
+			player.facing = stairExitDirection;
+		}
     }
 });
 
@@ -149,6 +176,9 @@ var Room = Class.create({
         newWall.set(name, direction, image)
         this.walls[direction] = newWall;
     },
+    addProp: function(prop, value) {
+    	this[prop] = value;
+    },
     getWallList: function() {
         if (typeof this.walls === 'undefined') {
             return;
@@ -164,6 +194,18 @@ var Room = Class.create({
     },
     getWallByDir: function(direction) {
         return this.walls[direction]
+    },
+    containsUpStairs: function() {
+    	return (this.hasOwnProperty(PROP_STAIRS_UP) && this[PROP_STAIRS_UP]);
+    },
+    containsDownStairs: function() {
+    	return (this.hasOwnProperty(PROP_STAIRS_DOWN) && this[PROP_STAIRS_DOWN]);
+    },
+    stairEntryDirection: function() {
+    	return this.hasOwnProperty(PROP_ENTER_STAIRS_DIRECTION) ? this[PROP_ENTER_STAIRS_DIRECTION] : null;
+    },
+    stairExitDirection: function() {
+    	return this.hasOwnProperty(PROP_EXIT_STAIRS_DIRECTION) ? this[PROP_EXIT_STAIRS_DIRECTION] : null;
     },
     dispInfo: function(ntabs) {
         if (typeof ntabs === 'undefined') {
@@ -360,6 +402,12 @@ var Scenario = Class.create({
             }
         }
         return false;
+    },
+    getRoom: function(x, y, z) {
+        if (this.isValidRoom(x, y, z)) {
+        	return this.getFloor(z).getRoomByXY(x, y);
+        }
+        return null;   	
     },
     dispInfo: function(ntabs) {
         if (typeof ntabs === 'undefined') {

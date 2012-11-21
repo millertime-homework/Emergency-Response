@@ -40,12 +40,18 @@ newRoom.addWall('E Elevator Wall', 'e', 'elev-e.jpg');
 newRoom.addWall('W Elevator Wall', 'w', 'elevw.jpg');
 newRoom.addWall('N Elevator Wall', 'n', 'elev-n.jpg');
 newRoom.addWall('S Elevator Wall', 's', 'elev-s.jpg');
+newRoom.addProp('hasStairsUp', true);
+newRoom.addProp('exitStairsFacing', 'e');
+newRoom.addProp('enterStairsFacing', 'w');
 //Elevator - second floor
 newRoom = secondFloor.addRoom('elevator', 'Elevator', 1, 3, 1)
 newRoom.addWall('E Elevator Wall', 'e', 'elev-e.jpg');
 newRoom.addWall('W Elevator Wall', 'w', 'elev-w.jpg');
 newRoom.addWall('N Elevator Wall', 'n', 'elev-n.jpg');
 newRoom.addWall('S Elevator Wall', 's', 'elev-s.jpg');
+newRoom.addProp('hasStairsDown', true);
+newRoom.addProp('exitStairsFacing', 'e');
+newRoom.addProp('enterStairsFacing', 'w');
 
 // 2 Hallway 2
 newRoom = secondFloor.addRoom('2hall2', '2nd Floor Hallway-North', 1, 2, 1)
