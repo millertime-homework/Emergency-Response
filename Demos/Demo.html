@@ -152,6 +152,24 @@
                 updatePlayerInfo()
             }
 
+            $(document).on('startEarthquake', function(){
+                var image = $('#scene-img')
+                var speed = 30
+                for (i = 0; i < 5; i++) {
+                    image.animate({
+                        left: '-5',
+                    }, speed).animate({ 
+                        left: '5',
+                    }, speed).animate({
+                        left: '-5',
+                    }).animate({
+                        left: '5',
+                    }, speed).animate({
+                        left: '0',
+                    }, speed)
+                }
+            })
+
             // ##########################
             // ##### MOVE BUTTONS  ######
             // ##########################
@@ -226,6 +244,8 @@
                     $('.turn-right').trigger('click')
                 } else if (event.which == 40) {
                     // down arrow key
+                } else if (event.which == 69) {
+                    $(document).trigger('startEarthquake')
                 }
                 keypressed = false;
 
@@ -241,7 +261,7 @@
                 $(".move-z").hide();
                 var room = scenario.getRoom(player.x, player.y, player.z);
                 if (scenario.isValidRoom(player.x, player.y, player.z)) {
-                    $("#view-scene").append("<img src='web/img/" + room.walls[player.facing].image + "'>");
+                    $("#view-scene").append("<img id='scene-img' src='web/img/" + room.walls[player.facing].image + "'>");
                 }
                 if (player.canMoveUp()) {
                     $("#viewport-move-up").show();
