@@ -232,6 +232,42 @@
             })
 
             // ##########################
+            // ##### UI FUNCTIONS #######
+            // ##########################
+
+
+            function renderScene() {
+                $("#view-scene").empty();
+                $(".move-z").hide();
+                var room = scenario.getRoom(player.x, player.y, player.z);
+                if (scenario.isValidRoom(player.x, player.y, player.z)) {
+                    $("#view-scene").append("<img src='web/img/" + room.walls[player.facing].image + "'>");
+                }
+                if (player.canMoveUp()) {
+                    $("#viewport-move-up").show();
+                }
+                if (player.canMoveDown()) {
+                    $("#viewport-move-down").show();
+                }
+
+            }
+            function isScenarioDefined() {
+                if (typeof scenario === 'undefined') {
+                    console.log('scenario class undefined')
+                    return false;
+                }
+                return true;
+            }
+            function isPlayerDefined() {
+                if (typeof player === 'undefined') {
+                    console.log('player class undefined')
+                    return false;
+                }
+                return true;
+            }
+
+
+            // ##########################
             // #### EDIT MODE EVENTS ####
             // ##########################
 
@@ -327,42 +363,10 @@
                     )
                 })
             }
-
             // ##########################
-            // ##### MODAL RESIZING #####
+            // ### EDIT MODE FUNCTIONS ##
             // ##########################
-
-            // When window is resized
-            $(window).resize(function() {
-                if (!$('#modal').hasClass('hidden')) {
-                    updateModalLocation();
-                }
-            })
-
-            function updateModalLocation() {
-                var modal = $('#modal')
-                var viewport = document.viewport.getDimensions()
-                var viewWidth = viewport.width;
-                var viewHeight = viewport.height;
-                var leftAlign = 0;
-                var topAlign = 0;
-                if (viewWidth > modal.width()) {
-                    leftAlign = (viewport.width - modal.width())/2;
-                }
-                if (viewHeight > modal.height()) {
-                    topAlign = (viewport.height - modal.height())/2;
-                }
-
-                console.log('leftAlign:' + leftAlign)
-                console.log('topAlign:' + topAlign)
-                modal.css('left', leftAlign + "px");
-                modal.css('top', topAlign + "px");
-            }
-
-            // ##########################
-            // ##### UI FUNCTIONS #######
-            // ##########################
-
+            
             // Update player info from object
             function updatePlayerInfo() {
                 if (!isPlayerDefined) {
@@ -384,23 +388,6 @@
                 $('#currentroom').val(locNames['roomName'])
                 $('#currentwall').val(locNames['wallName'])
             }
-
-            function renderScene() {
-                $("#view-scene").empty();
-                $(".move-z").hide();
-                var room = scenario.getRoom(player.x, player.y, player.z);
-                if (scenario.isValidRoom(player.x, player.y, player.z)) {
-                	$("#view-scene").append("<img src='web/img/" + room.walls[player.facing].image + "'>");
-                }
-                if (player.canMoveUp()) {
-                    $("#viewport-move-up").show();
-                }
-                if (player.canMoveDown()) {
-                    $("#viewport-move-down").show();
-                }
-
-            }
-
             // Gets a list of floors from the scenario
             function updateFloorSelector() {
                 disableSelector('floor')
@@ -490,19 +477,22 @@
                     enableSelector('wall')
                 }
             }
-            function isScenarioDefined() {
-                if (typeof scenario === 'undefined') {
-                    console.log('scenario class undefined')
-                    return false;
+            function getSelector(name) {
+                var selector = ""
+                if (name == 'floor') {
+                    selector = $('select#floor-selector')
+                } else if (name == 'room') {
+                    selector = $('select#room-selector')
+                } else if (name == 'wall') {
+                    selector = $('select#wall-selector')
+                } else {
+                    return null;
                 }
-                return true;
-            }
-            function isPlayerDefined() {
-                if (typeof player === 'undefined') {
-                    console.log('player class undefined')
-                    return false;
+                if (typeof selector === 'undefined') { 
+                    console.log('selector not found')
+                    return null;
                 }
-                return true;
+                return selector;
             }
             function getSelectedOption(name) {
                 selector = getSelector(name)
@@ -540,24 +530,36 @@
                 }
                 selector.empty()
             }
-            function getSelector(name) {
-                var selector = ""
-                if (name == 'floor') {
-                    selector = $('select#floor-selector')
-                } else if (name == 'room') {
-                    selector = $('select#room-selector')
-                } else if (name == 'wall') {
-                    selector = $('select#wall-selector')
-                } else {
-                    return null;
-                }
-                if (typeof selector === 'undefined') { 
-                    console.log('selector not found')
-                    return null;
-                }
-                return selector;
-            }
+            // ##########################
+            // ##### MODAL RESIZING #####
+            // ##########################
 
+            // When window is resized
+            $(window).resize(function() {
+                if (!$('#modal').hasClass('hidden')) {
+                    updateModalLocation();
+                }
+            })
+
+            function updateModalLocation() {
+                var modal = $('#modal')
+                var viewport = document.viewport.getDimensions()
+                var viewWidth = viewport.width;
+                var viewHeight = viewport.height;
+                var leftAlign = 0;
+                var topAlign = 0;
+                if (viewWidth > modal.width()) {
+                    leftAlign = (viewport.width - modal.width())/2;
+                }
+                if (viewHeight > modal.height()) {
+                    topAlign = (viewport.height - modal.height())/2;
+                }
+
+                console.log('leftAlign:' + leftAlign)
+                console.log('topAlign:' + topAlign)
+                modal.css('left', leftAlign + "px");
+                modal.css('top', topAlign + "px");
+            }
         });
 
         function getURLParameter(name) {
