@@ -248,7 +248,8 @@ var Floor = Class.create({
             return;
         }
         if (this.getRoomByXY(x, y) !== null) {
-            console.log('Floor.addRoom - Room with x,y=' + x + "," + y + " already exists")
+            console.log('Floor.addRoom - Room with x=' + x + ',y=' + y + ",z=" + z + " already exists")
+            return;
         }
         var newRoom = new Room;
         newRoom.set(name, x, y, z);
@@ -335,6 +336,7 @@ var Scenario = Class.create({
             return;
         } else if (this.status === SCENARIO_STATUS_DONE) {
             console.log('Scenario.start - scenario done, must be reset to start')
+            return;
         }
         this.status = SCENARIO_STATUS_ACTIVE;
     },
