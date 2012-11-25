@@ -118,7 +118,8 @@
     <script type="text/javascript" src="web/js/demo01-scenario.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($){
-            var isEditMode = false;
+            var isEditMode = false; // true when we're in edit mode
+            var keypressed = false; // true when handling a user's keypress
 
             if (getURLParameter("mode") != "edit") {
                 $('#editor-controls').empty();
@@ -149,47 +150,6 @@
             // ##########################
             // ##### MOVE BUTTONS  ######
             // ##########################
-            $('#move-north').click(function() {
-                if (!player.move(DIRECTION_NORTH)) {
-                    // alert('You cannot move North')
-                } else {
-                    renderScene()
-                    if (isEditMode) {
-                        updatePlayerInfo()
-                    }
-                }
-            })
-            $('#move-south').click(function() {
-                if (!player.move(DIRECTION_SOUTH)) {
-                    // alert('You cannot move South')
-                } else {
-                    renderScene()
-                    if (isEditMode) {
-                        updatePlayerInfo()
-                    }
-                }
-            })
-            $('#move-east').click(function() {
-                if (!player.move(DIRECTION_EAST)) {
-                    // alert('You cannot move East')
-                } else {
-                    renderScene()
-                    if (isEditMode) {
-                        updatePlayerInfo()
-                    }
-                }
-            })
-            $('#move-west').click(function() {
-                if (!player.move(DIRECTION_WEST)) {
-                    // alert('You cannot move West')
-                } else {
-                    renderScene()
-                    if (isEditMode) {
-                        updatePlayerInfo()
-                    }
-                }
-            })
-
             $('.move-forward').click(function () {
                 if (!player.move(player.facing)) {
                     // alert('There is no where to go in front of you!')
@@ -245,29 +205,123 @@
                 }
             })
 
-
-            // User clicks an Add button
-            $('.add').click(function() {
-                if (!$('#modal').hasClass('hidden')) {
-                    return;
+            $(window).keydown(function(event) {
+                if (keypressed) {
+                    return true;
                 }
-                updateModalLocation();
-                $('#modal').removeClass('hidden')
-                if ($(this).data('type') == 'floor') {
-                    $('#modal').find('.floor').removeClass('hidden')
-                } else if ($(this).data('type') == 'room') {
-                    $('#modal').find('.room').removeClass('hidden')
-                } else if ($(this).data('type') == 'wall') {
-                    $('#modal').find('.wall').removeClass('hidden')
-                } 
+                keypressed = true;
+                if (event.which == 37) {
+                    // left arrow key
+                    $('.turn-left').triggerHandler('click')
+                } else if (event.which == 38) {
+                    // up arrow key
+                    $('.move-forward').trigger('click')
+                } else if (event.which == 39) {
+                    // right arrow key
+                    $('.turn-right').trigger('click')
+                } else if (event.which == 40) {
+                    // down arrow key
+                }
+                keypressed = false;
+
             })
-            // User clicks modal close button
-            $('.close-modal').click(function() {
-                $('#modal').addClass('hidden')
-                $('#modal > .floor').addClass('hidden')
-                $('#modal > .room').addClass('hidden')
-                $('#modal > .wall').addClass('hidden')
-            })
+
+            // ##########################
+            // #### EDIT MODE EVENTS ####
+            // ##########################
+
+            if (isEditMode) {
+                $('#move-north').bind('click', function() {
+                        if (!player.move(DIRECTION_NORTH)) {
+                            // alert('You cannot move North')
+                        } else {
+                            renderScene()
+                            if (isEditMode) {
+                                updatePlayerInfo()
+                            }
+                        }
+                    })
+
+                $('#move-south').click(function() {
+                    if (!player.move(DIRECTION_SOUTH)) {
+                        // alert('You cannot move South')
+                    } else {
+                        renderScene()
+                        if (isEditMode) {
+                            updatePlayerInfo()
+                        }
+                    }
+                })
+                $('#move-east').click(function() {
+                    if (!player.move(DIRECTION_EAST)) {
+                        // alert('You cannot move East')
+                    } else {
+                        renderScene()
+                        if (isEditMode) {
+                            updatePlayerInfo()
+                        }
+                    }
+                })
+                $('#move-west').click(function() {
+                    if (!player.move(DIRECTION_WEST)) {
+                        // alert('You cannot move West')
+                    } else {
+                        renderScene()
+                        if (isEditMode) {
+                            updatePlayerInfo()
+                        }
+                    }
+                })
+                // User clicks an Add button
+                $('.add').click(function() {
+                    if (!$('#modal').hasClass('hidden')) {
+                        return;
+                    }
+                    updateModalLocation();
+                    $('#modal').removeClass('hidden')
+                    if ($(this).data('type') == 'floor') {
+                        $('#modal').find('.floor').removeClass('hidden')
+                    } else if ($(this).data('type') == 'room') {
+                        $('#modal').find('.room').removeClass('hidden')
+                    } else if ($(this).data('type') == 'wall') {
+                        $('#modal').find('.wall').removeClass('hidden')
+                    } 
+                })
+                // User clicks modal close button
+                $('.close-modal').click(function() {
+                    $('#modal').addClass('hidden')
+                    $('#modal > .floor').addClass('hidden')
+                    $('#modal > .room').addClass('hidden')
+                    $('#modal > .wall').addClass('hidden')
+                })
+                // User selects a floor from dropdown
+                $('select#floor-selector').change(function() {
+                    if ($(this).attr('disabled')) {
+                        console.log('Invalid change - Floor Selector changed while disabled')
+                        return;
+                    }
+                    selectedFloor = getSelectedOption('floor')
+                    console.log('Floor select event: ' + selectedFloor )
+                    updateRoomSelector(selectedFloor)
+                })
+                // User selects a room from dropdown
+                $('select#room-selector').change(function() {
+                    if ($(this).attr('disabled')) {
+                        console.log('Invalid change - Room selector changed while disabled')
+                    }
+                    selectedFloor = getSelectedOption('floor')
+                    selectedRoom = getSelectedOption('room')
+                    console.log('Room select event: ' + selectedRoom)
+                    updateWallSelector(selectedFloor, selectedRoom)
+                })
+                // Use clicks get info button
+                $('#getInfo').bind('click', function() {
+                    $('#output').val(
+                        "===== Complete Scenario info for \"" + scenario.name +"\" =====\n"
+                        + scenario.dispInfo()
+                    )
+                })
+            }
 
             // ##########################
             // ##### MODAL RESIZING #####
@@ -299,40 +353,6 @@
                 modal.css('left', leftAlign + "px");
                 modal.css('top', topAlign + "px");
             }
-
-
-
-            // ##########################
-            // ##### SELECT EVENTS ######
-            // ##########################
-
-            // User selects a floor from dropdown
-            $('select#floor-selector').change(function() {
-                if ($(this).attr('disabled')) {
-                    console.log('Invalid change - Floor Selector changed while disabled')
-                    return;
-                }
-                selectedFloor = getSelectedOption('floor')
-                console.log('Floor select event: ' + selectedFloor )
-                updateRoomSelector(selectedFloor)
-            })
-            // User selects a room from dropdown
-            $('select#room-selector').change(function() {
-                if ($(this).attr('disabled')) {
-                    console.log('Invalid change - Room selector changed while disabled')
-                }
-                selectedFloor = getSelectedOption('floor')
-                selectedRoom = getSelectedOption('room')
-                console.log('Room select event: ' + selectedRoom)
-                updateWallSelector(selectedFloor, selectedRoom)
-            })
-            // Use clicks get info button
-            $('#getInfo').bind('click', function() {
-                $('#output').val(
-                    "===== Complete Scenario info for \"" + scenario.name +"\" =====\n"
-                    + scenario.dispInfo()
-                )
-            })
 
             // ##########################
             // ##### UI FUNCTIONS #######
