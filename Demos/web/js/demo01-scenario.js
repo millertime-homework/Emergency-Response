@@ -5,35 +5,35 @@ secondFloor = scenario.addFloor('Second Floor', 1);
 thirdFloor = scenario.addFloor('Third Floor', 2);
 // firstFloor = scenario.getFloor(0)
 // Professor's Office
-newRoom = firstFloor.addRoom('profoff', 'Professor\'s Office', 0, 0, 0)
-newRoom.addWall('E Office Wall', 'e', 'A-east.jpg')
-newRoom.addWall('W Office Wall', 'w', 'A-west.jpg')
-newRoom.addWall('N Office Wall', 'n', 'A-north.jpg')
-newRoom.addWall('S Office Wall', 's', 'A-south.jpg')
+newRoom = firstFloor.addRoom('5thhall', 'SW 5th & Hall', 0, 0, 0)
+newRoom.addWall('E 5th Hall', 'e', 'A-east.jpg')
+newRoom.addWall('W 5th Hall', 'w', 'A-west.jpg')
+newRoom.addWall('N 5th Hall', 'n', 'A-north.jpg')
+newRoom.addWall('S 5th Hall', 's', 'A-south.jpg')
 // Hallway 0
-newRoom = firstFloor.addRoom('hall0', 'Hallway-South', 1, 0, 0)
-newRoom.addWall('E Hallway-South Wall', 'e', 'B-north.jpg')
-newRoom.addWall('W Hallway-South Wall', 'w', 'B-west.jpg')
-newRoom.addWall('N Hallway-South Wall', 'n', 'B-north.jpg')
-newRoom.addWall('S Hallway-South Wall', 's', 'B-south.jpg')
+newRoom = firstFloor.addRoom('north5th', 'Upper SW 5th & Hall', 0, 1, 0)
+newRoom.addWall('E Upper 5th Hall', 'e', 'B-east.jpg')
+newRoom.addWall('W Upper 5th Hall', 'w', 'B-west.jpg')
+newRoom.addWall('N Upper 5th Hall', 'n', 'B-north.jpg')
+newRoom.addWall('S Upper 5th Hall', 's', 'B-south.jpg')
 // Hallway 1
-newRoom = firstFloor.addRoom('hall1', 'Hallway-Middle', 1, 1, 0)
-newRoom.addWall('E Hallway-Middle Wall', 'e', 'C-east.jpg')
-newRoom.addWall('W Hallway-Middle Wall', 'w', 'C-west.jpg')
-newRoom.addWall('N Hallway-Middle Wall', 'n', 'C-north.jpg')
-newRoom.addWall('S Hallway-Middle Wall', 's', 'C-south.jpg')
+newRoom = firstFloor.addRoom('westhall', 'West on Hall', 1, 0, 0)
+newRoom.addWall('E West on Hall', 'e', 'C-east.jpg')
+newRoom.addWall('W West on Hall', 'w', 'C-west.jpg')
+newRoom.addWall('N West on Hall', 'n', 'C-north.jpg')
+newRoom.addWall('S West on Hall', 's', 'C-south.jpg')
 // Hallway 2
-newRoom = firstFloor.addRoom('hall2', 'Hallway-North', 1, 2, 0)
-newRoom.addWall('E Hallway-North Wall', 'e', 'D-east.jpg')
-newRoom.addWall('W Hallway-North Wall', 'w', 'D-west.jpg')
-newRoom.addWall('N Hallway-North Wall', 'n', 'D-north.jpg')
-newRoom.addWall('S Hallway-North Wall', 's', 'D-south.jpg')
+newRoom = firstFloor.addRoom('westhall2', 'West on Hall 2', 2, 0, 0)
+newRoom.addWall('E West on Hall 2', 'e', 'D-east.jpg')
+newRoom.addWall('W West on Hall 2', 'w', 'D-west.jpg')
+newRoom.addWall('N West on Hall 2', 'n', 'D-north.jpg')
+newRoom.addWall('S West on Hall 2', 's', 'D-south.jpg')
 // Other Office
-newRoom = firstFloor.addRoom('miscoff', 'Miscellaneous Office', 2, 2, 0)
-newRoom.addWall('E Misc-Office Wall', 'e', 'E-east.jpg')
-newRoom.addWall('W Misc-Office Wall', 'w', 'E-west.jpg')
-newRoom.addWall('N Misc-Office Wall', 'n', 'E-north.jpg')
-newRoom.addWall('S Misc-Office Wall', 's', 'E-south.jpg')
+newRoom = firstFloor.addRoom('SW 4th & Hall', 'SW 4th & Hall', 2, 0, 0)
+newRoom.addWall('E 4th Hall', 'e', 'E-east.jpg')
+newRoom.addWall('W 4th Hall', 'w', 'E-west.jpg')
+newRoom.addWall('N 4th Hall', 'n', 'E-north.jpg')
+newRoom.addWall('S 4th Hall', 's', 'E-south.jpg')
 // Elevator - first floor
 newRoom = firstFloor.addRoom('elevator', 'Elevator', 1, 3, 0)
 newRoom.addWall('E Elevator Wall', 'e', 'elev-e.jpg');
@@ -68,7 +68,7 @@ newRoom.addWall('S Penthouse Wall', 's', 'pent-s.jpg')
 
 // Player Info
 player = new Player
-player.set(1, 2, 0, "n", null)
+player.set(0, 0, 0, "n", null)
 
 
 
