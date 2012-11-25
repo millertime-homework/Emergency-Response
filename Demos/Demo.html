@@ -257,10 +257,10 @@
 
 
             function renderScene() {
-                $("#view-scene").empty();
                 $(".move-z").hide();
                 var room = scenario.getRoom(player.x, player.y, player.z);
                 if (scenario.isValidRoom(player.x, player.y, player.z)) {
+                    $("#view-scene").empty();
                     $("#view-scene").append("<img id='scene-img' src='web/img/" + room.walls[player.facing].image + "'>");
                 }
                 if (player.canMoveUp()) {
