@@ -141,10 +141,14 @@
                 alert('Player\'s starting position is invalid')
                 return;
             }
+
+            // ##########################
+            // ###### START GAME  #######
+            // ##########################            
             // init ui
-            updateFloorSelector()
             renderScene()
             if (isEditMode) {
+                updateFloorSelector()
                 updatePlayerInfo()
             }
 
