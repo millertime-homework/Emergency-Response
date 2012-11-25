@@ -1,3 +1,9 @@
+var target = document.getElementById('view-modal')
+var spinner = new Spinner({
+                color: '#fff'
+        }).spin(target)
+
+
 var scenario = new Scenario
 scenario.set('Example Scenario', 'active')
 firstFloor = scenario.addFloor('First Floor', 0);
@@ -35,40 +41,42 @@ newRoom.addWall('W 4th Hall', 'w', 'E-west.jpg')
 newRoom.addWall('N 4th Hall', 'n', 'E-north.jpg')
 newRoom.addWall('S 4th Hall', 's', 'E-south.jpg')
 // Elevator - first floor
-newRoom = firstFloor.addRoom('elevator', 'Elevator', 1, 3, 0)
-newRoom.addWall('E Elevator Wall', 'e', 'elev-e.jpg');
-newRoom.addWall('W Elevator Wall', 'w', 'elevw.jpg');
-newRoom.addWall('N Elevator Wall', 'n', 'elev-n.jpg');
-newRoom.addWall('S Elevator Wall', 's', 'elev-s.jpg');
-newRoom.addProp('hasStairsUp', true);
-newRoom.addProp('exitStairsFacing', 'e');
-newRoom.addProp('enterStairsFacing', 'w');
+// newRoom = firstFloor.addRoom('elevator', 'Elevator', 1, 3, 0)
+// newRoom.addWall('E Elevator Wall', 'e', 'elev-e.jpg');
+// newRoom.addWall('W Elevator Wall', 'w', 'elevw.jpg');
+// newRoom.addWall('N Elevator Wall', 'n', 'elev-n.jpg');
+// newRoom.addWall('S Elevator Wall', 's', 'elev-s.jpg');
+// newRoom.addProp('hasStairsUp', true);
+// newRoom.addProp('exitStairsFacing', 'e');
+// newRoom.addProp('enterStairsFacing', 'w');
 //Elevator - second floor
-newRoom = secondFloor.addRoom('elevator', 'Elevator', 1, 3, 1)
-newRoom.addWall('E Elevator Wall', 'e', 'elev-e.jpg');
-newRoom.addWall('W Elevator Wall', 'w', 'elev-w.jpg');
-newRoom.addWall('N Elevator Wall', 'n', 'elev-n.jpg');
-newRoom.addWall('S Elevator Wall', 's', 'elev-s.jpg');
-newRoom.addProp('hasStairsDown', true);
-newRoom.addProp('exitStairsFacing', 'e');
-newRoom.addProp('enterStairsFacing', 'w');
+// newRoom = secondFloor.addRoom('elevator', 'Elevator', 1, 3, 1)
+// newRoom.addWall('E Elevator Wall', 'e', 'elev-e.jpg');
+// newRoom.addWall('W Elevator Wall', 'w', 'elev-w.jpg');
+// newRoom.addWall('N Elevator Wall', 'n', 'elev-n.jpg');
+// newRoom.addWall('S Elevator Wall', 's', 'elev-s.jpg');
+// newRoom.addProp('hasStairsDown', true);
+// newRoom.addProp('exitStairsFacing', 'e');
+// newRoom.addProp('enterStairsFacing', 'w');
 
 // 2 Hallway 2
-newRoom = secondFloor.addRoom('2hall2', '2nd Floor Hallway-North', 1, 2, 1)
-newRoom.addWall('E Hallway-North Wall', 'e', '2hall2-e.jpg')
-newRoom.addWall('W Hallway-North Wall', 'w', '2hall2-w.jpg')
-newRoom.addWall('N Hallway-North Wall', 'n', '2hall2-n.jpg')
-newRoom.addWall('S Hallway-North Wall', 's', '2hall2-s.jpg')
+// newRoom = secondFloor.addRoom('2hall2', '2nd Floor Hallway-North', 1, 2, 1)
+// newRoom.addWall('E Hallway-North Wall', 'e', '2hall2-e.jpg')
+// newRoom.addWall('W Hallway-North Wall', 'w', '2hall2-w.jpg')
+// newRoom.addWall('N Hallway-North Wall', 'n', '2hall2-n.jpg')
+// newRoom.addWall('S Hallway-North Wall', 's', '2hall2-s.jpg')
 // Penthouse
-newRoom = secondFloor.addRoom('pent', 'Penthouse', 1, 1, 1)
-newRoom.addWall('E Penthouse Wall', 'e', 'pent-e.jpg')
-newRoom.addWall('W Penthouse Wall', 'w', 'pent-w.jpg')
-newRoom.addWall('N Penthouse Wall', 'n', 'pent-n.jpg')
-newRoom.addWall('S Penthouse Wall', 's', 'pent-s.jpg')
+// newRoom = secondFloor.addRoom('pent', 'Penthouse', 1, 1, 1)
+// newRoom.addWall('E Penthouse Wall', 'e', 'pent-e.jpg')
+// newRoom.addWall('W Penthouse Wall', 'w', 'pent-w.jpg')
+// newRoom.addWall('N Penthouse Wall', 'n', 'pent-n.jpg')
+// newRoom.addWall('S Penthouse Wall', 's', 'pent-s.jpg')
 
 // Player Info
 player = new Player
 player.set(0, 0, 0, "n", null)
 
-
+scenario.preloadImages(function() {
+        spinner.stop()
+})
 

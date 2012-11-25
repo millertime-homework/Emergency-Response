@@ -23,6 +23,7 @@ var PROP_STAIRS_DOWN = "hasStairsDown";
 var PROP_ENTER_STAIRS_DIRECTION = "enterStairsFacing";
 var PROP_EXIT_STAIRS_DIRECTION = "exitStairsFacing";
 
+var imageBasePath = "web/img/";
 
 // initialize must set the necessary variables to blank to prevent
 // next created object from retaining previous variables (prototype trick)
@@ -129,6 +130,7 @@ var Wall = Class.create({
         this.name = name;
         this.direction = direction;
         this.image = image;
+        scenario.addImage(image)
     },
     setName: function (name) {
         this.name = name;
@@ -138,6 +140,7 @@ var Wall = Class.create({
     },
     setImage: function(image) {
         this.image = image;
+        scenario.addImage(image)
     },
     dispInfo: function(ntabs) {
         if (typeof ntabs === 'undefined') { 
@@ -320,6 +323,7 @@ var Scenario = Class.create({
         this.name = null;
         this.status = null;
         this.floors = {}
+        this.images = []
     },
     set: function(name, status) {
         this.name = name;
@@ -333,6 +337,17 @@ var Scenario = Class.create({
             console.log('Scenario.start - scenario done, must be reset to start')
         }
         this.status = SCENARIO_STATUS_ACTIVE;
+    },
+    addImage: function(image) {
+        this.images.push(imageBasePath + image)
+    },
+    preloadImages: function(callback) {
+        this.images.each(function(value) {
+            console.log('preloading: ' + value)
+            var image = document.createElement('img')
+            image.src = value
+        })
+        callback()
     },
     addFloor: function(name, z) {
         if (typeof this.floors[z] !== 'undefined') {
