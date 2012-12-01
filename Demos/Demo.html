@@ -264,14 +264,12 @@
             function loadScenario(data) { 
                 scenario = new Scenario
                 scenario.set(data['name'], 'active')
-                console.log(data['name'])
                 currFloor = null
                 currRoom = null
                 currWall = null
                 //load floors
                 $.each(data['_floors'], function(key, value) {
                     currFloor = scenario.addFloor(key, value['z'])
-                    console.log('(Floor) - ' + key + ' - ' + value['z'])
                     // load rooms of this floor
                     $.each(value['_rooms'], function(key, value) { 
                         currRoom = currFloor.addRoom(key, value['id'], value['x'], value['y'], value['z'])
