@@ -129,8 +129,7 @@ var Wall = Class.create({
     set: function(name, direction, image) {
         this.name = name;
         this.direction = direction;
-        this.image = image;
-        scenario.addImage(image)
+        this.image = scenario.addImage(image)
     },
     setName: function (name) {
         this.name = name;
@@ -139,8 +138,7 @@ var Wall = Class.create({
         this.direction = direction;
     },
     setImage: function(image) {
-        this.image = image;
-        scenario.addImage(image)
+        this.image = scenario.addImage(image)
     },
     dispInfo: function(ntabs) {
         if (typeof ntabs === 'undefined') { 
@@ -342,14 +340,12 @@ var Scenario = Class.create({
     },
     addImage: function(image) {
         this.images.push(imageBasePath + image)
+        return this.preloadImage(imageBasePath + image)
     },
-    preloadImages: function(callback) {
-        this.images.each(function(value) {
-            console.log('preloading: ' + value)
-            var image = document.createElement('img')
-            image.src = value
-        })
-        callback()
+    preloadImage: function(imagePath) {
+        var image = document.createElement('img')
+        image.src = imagePath
+        return image
     },
     addFloor: function(name, z) {
         if (typeof this.floors[z] !== 'undefined') {

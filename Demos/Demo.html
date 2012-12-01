@@ -120,6 +120,7 @@
     <script type="text/javascript">
         var scenario = null;
         var player = null;
+        var spinner = null;
 
 
         jQuery(document).ready(function($){
@@ -142,13 +143,21 @@
 
             // ##########################
             // ## LOAD/START SCENARIO  ##
-            // ##########################            
+            // ##########################   
+            spinner = new Spinner({
+                color: '#fff'
+            }).spin(document.getElementById('view-modal'))
+
             loadScenario(scenarioDef)
 
             // check starting players position
-            if (!scenario.isValidRoom(player.x, player.y, player.z)) {
-                alert('Player\'s starting position is invalid')
-                return;
+            if (player) {
+                 if (!scenario.isValidRoom(player.x, player.y, player.z)) {
+                    alert('Player\'s starting position is invalid')
+                    return;
+                }
+            } else {
+                alert('Player not defined')
             }
 
             // init ui
@@ -157,6 +166,7 @@
                 updateFloorSelector()
                 updatePlayerInfo()
             }
+            spinner.stop();
 
             $(document).on('startEarthquake', function(){
                 var image = $('#scene-img')
@@ -285,13 +295,20 @@
 
             }
 
+            function preloadImage(value) {
+                var image = document.createElement('img')
+                image.src = scenario.imageBasePath + value
+                return image
+            }
 
             function renderScene() {
                 $(".move-z").hide();
                 var room = scenario.getRoom(player.x, player.y, player.z);
                 if (scenario.isValidRoom(player.x, player.y, player.z)) {
+                    var sceneImage = room.walls[player.facing].image
+                    $.attr(sceneImage,'id', 'scene-img')
                     $("#view-scene").empty();
-                    $("#view-scene").append("<img id='scene-img' src='web/img/" + room.walls[player.facing].image + "'>");
+                    $("#view-scene").append(sceneImage)
                 }
                 if (player.canMoveUp()) {
                     $("#viewport-move-up").show();
