@@ -116,8 +116,12 @@
     </div>
 
     <script type="text/javascript" src="web/js/demo01.js"></script>
-    <script type="text/javascript" src="web/js/demo01-scenario.js"></script>
+    <script type="text/javascript" src="web/js/demo01_def.js"></script>
     <script type="text/javascript">
+        var scenario = null;
+        var player = null;
+
+
         jQuery(document).ready(function($){
             var isEditMode = false; // true when we're in edit mode
             var keypressed = false; // true when handling a user's keypress
@@ -136,15 +140,17 @@
                 isEditMode = true;
             }
 
+            // ##########################
+            // ## LOAD/START SCENARIO  ##
+            // ##########################            
+            loadScenario(scenarioDef)
+
             // check starting players position
             if (!scenario.isValidRoom(player.x, player.y, player.z)) {
                 alert('Player\'s starting position is invalid')
                 return;
             }
 
-            // ##########################
-            // ###### START GAME  #######
-            // ##########################            
             // init ui
             renderScene()
             if (isEditMode) {
@@ -252,8 +258,34 @@
             })
 
             // ##########################
-            // ##### UI FUNCTIONS #######
+            // ###### FUNCTIONS #########
             // ##########################
+
+            function loadScenario(data) { 
+                scenario = new Scenario
+                scenario.set(data['name'], 'active')
+                console.log(data['name'])
+                currFloor = null
+                currRoom = null
+                currWall = null
+                //load floors
+                $.each(data['_floors'], function(key, value) {
+                    currFloor = scenario.addFloor(key, value['z'])
+                    console.log('(Floor) - ' + key + ' - ' + value['z'])
+                    // load rooms of this floor
+                    $.each(value['_rooms'], function(key, value) { 
+                        currRoom = currFloor.addRoom(key, value['id'], value['x'], value['y'], value['z'])
+                    //     // load walls of this room
+                        $.each(value['_walls'], function(key, value) {
+                            currRoom.addWall(value['name'], key, value['image'])
+                        })
+                    })
+                })
+                player = new Player
+                playerDef = data['_player']
+                player.set(playerDef['x'], playerDef['y'], playerDef['z'], playerDef['_facing'], null)
+
+            }
 
 
             function renderScene() {
