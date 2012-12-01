@@ -111,3 +111,20 @@ textarea:focus {
 .hidden {
   display: none;
 }
+#map {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  float: left;
+  overflow: hidden;
+}
+#map > div {
+  position: relative;
+  float: left;
+}
+#map > div.active {
+  background: black;
+}
+#map > div.active.player-pos {
+  background: red;
+}

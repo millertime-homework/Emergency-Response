@@ -41,6 +41,7 @@ jQuery(document).ready(function($){
     }
 
     // init ui
+    initMap()
     renderScene()
     if (isEditMode) {
         updateFloorSelector()
@@ -183,6 +184,7 @@ jQuery(document).ready(function($){
             $.attr(sceneImage,'id', 'scene-img')
             $("#view-scene").empty();
             $("#view-scene").append(sceneImage)
+            renderMap()
         }
         if (player.canMoveUp()) {
             $("#viewport-move-up").show();
@@ -192,6 +194,50 @@ jQuery(document).ready(function($){
         }
 
     }
+
+    function renderMap() {
+        clearMap()
+
+        // Set active map squares
+        var floorList = currFloor.getRoomList()
+        $.each(floorList, function(key, value) {
+            $('div#' + value.x + '-' + value.y).addClass('active').removeClass('player-pos')
+        })
+        $('#map #' + player.x + '-' + player.y).addClass('player-pos')
+    }
+
+    function clearMap() {
+        currFloor = scenario.getFloor(player.z)
+        mapWidth = currFloor.maxX;
+        mapHeight = currFloor.maxY; 
+
+        for(var j = mapHeight; j >= 0; j--) { 
+            for(var i = 0; i <= mapWidth; i++) {
+                $('#map #' + i + '-' + 'j').removeClass()
+            }
+        }
+    }
+
+    function initMap() {
+        currFloor = scenario.getFloor(player.z)
+        mapWidth = currFloor.maxX;
+        mapHeight = currFloor.maxY;   
+        
+        // Append Map squares
+        var map = $('#map')
+        for(var j = mapHeight; j >= 0; j--) { 
+            for(var i = 0; i <= mapWidth; i++) {
+                map.append('<div id="' + i + '-' + j + '" class="map-square"></div>')
+            }
+        }
+
+        // Style width/height of map squares
+        totalWidth = map.width();
+        totalHeight = map.height();
+        $('.map-square').css('width', Math.round(totalWidth/(mapWidth+1)))
+        $('.map-square').css('height', Math.round(totalHeight/(mapHeight+1)))
+    }
+
     function isScenarioDefined() {
         if (typeof scenario === 'undefined') {
             console.log('scenario class undefined')

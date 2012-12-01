@@ -235,6 +235,8 @@ var Floor = Class.create({
         this.z = null;
         this.numRooms = 0;
         this.rooms = {};
+        this.maxX = 0;
+        this.maxY = 0;
     },
     set: function(name, z) {
         this.name = name;
@@ -248,6 +250,12 @@ var Floor = Class.create({
         if (this.getRoomByXY(x, y) !== null) {
             console.log('Floor.addRoom - Room with x=' + x + ',y=' + y + ",z=" + z + " already exists")
             return;
+        }
+        if (x > this.maxX) { 
+            this.maxX = x
+        }
+        if (y > this.maxY) {
+            this.maxY = y
         }
         var newRoom = new Room;
         newRoom.set(name, x, y, z);
