@@ -6,6 +6,7 @@
 @primaryFontColor: #000000;
 @primaryHighlightColor: #4493F3;
 @borderThickness: 3px;
+@primaryBorderRadius: 20px;
 
 body {
     font-family: "Helvetica-Neue-Light", "Helvetica Neue Light";
@@ -22,6 +23,8 @@ body {
     background-color: @primaryBorderColor;
     height: @viewportHeight + @borderThickness * 2;
     width: @viewportWidth + @borderThickness * 2;
+    .border_radius(@primaryBorderRadius);
+    .box_shadow();
 }
 
 .bold-colored-text {
@@ -85,6 +88,7 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     position: absolute;
     left: 0;
     top: 0;
+    .border_radius(@primaryBorderRadius - 5);
 }
 
 #editor-output {

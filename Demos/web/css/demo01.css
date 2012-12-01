@@ -20,6 +20,12 @@ body {
   background-color: #000000;
   height: 617px;
   width: 1121px;
+  -webkit-border-radius: 20px 20px 20px 20px;
+  -moz-border-radius: 20px 20px 20px 20px;
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: 3px 3px 3px #888888;
+  -webkit-box-shadow: 3px 3px 3px #888888;
+  -moz-box-shadow: 3px 3px 3px #888888;
 }
 .bold-colored-text {
   font-weight: bold;
@@ -77,6 +83,9 @@ textarea:focus {
   position: absolute;
   left: 0;
   top: 0;
+  -webkit-border-radius: 15px 15px 15px 15px;
+  -moz-border-radius: 15px 15px 15px 15px;
+  border-radius: 15px 15px 15px 15px;
 }
 #editor-output {
   display: inline;
