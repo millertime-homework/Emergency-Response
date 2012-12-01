@@ -1,448 +1,556 @@
-// CONSTANTS
-var SCENARIO_STATUS_ACTIVE = 'active';
-var SCENARIO_STATUS_INACTIVE = 'inactive';
-var SCENARIO_STATUS_DONE = 'done';
+var scenario = null;
+var player = null;
+var spinner = null;
 
-var PLAYER_STATUS_ALIVE = 'alive';
-var PLAYER_STATUS_INJURED = 'injured';
-var PLAYER_STATUS_DEAD = 'dead';
-var PLAYER_HEALTH_DEFAULT = 100;
 
-var DIRECTION_EAST = "e";
-var DIRECTION_WEST = "w";
-var DIRECTION_NORTH = "n";
-var DIRECTION_SOUTH = "s";
-var DIRECTION_LEFT = "l";
-var DIRECTION_RIGHT = "r";
-var DIRECTION_UP = "u";
-var DIRECTION_DOWN = "d";
-var DIRECTION_INDEX = new Array("n", "e", "s", "w" );
+jQuery(document).ready(function($){
+    var isEditMode = false; // true when we're in edit mode
+    var keypressed = false; // true when handling a user's keypress
 
-var PROP_STAIRS_UP = "hasStairsUp";
-var PROP_STAIRS_DOWN = "hasStairsDown";
-var PROP_ENTER_STAIRS_DIRECTION = "enterStairsFacing";
-var PROP_EXIT_STAIRS_DIRECTION = "exitStairsFacing";
+    if (getURLParameter("mode") != "edit") {
+        $('#editor-controls').empty();
+        $('#editor-output').empty();
 
-var imageBasePath = "web/img/";
+        var view = $('#view-modal');
+        view.css('left', '50%');
+        view.css('margin-left', '-' + view.width() / 2 + 'px');
+        view.css('top', '50%');
+        view.css('margin-top', '-' + view.height() / 2 + 'px' );
 
-// initialize must set the necessary variables to blank to prevent
-// next created object from retaining previous variables (prototype trick)
+    } else {
+        isEditMode = true;
+    }
 
-var Player = Class.create({
-    initialize: function() {
-        this.x = null;
-        this.y = null;
-        this.z = null;
-        this.facing = null;
-        this.health = null;
-        this.status = null;
-        this.scenario = null;
-    },
-    set: function(x, y, z, facing, scenario) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
-        this.facing = facing;
-        this.health = PLAYER_HEALTH_DEFAULT;
-        this.status = PLAYER_STATUS_ALIVE;
-        this.scenario = scenario;
-    },
-    move: function(direction) {	
-        if (direction == DIRECTION_NORTH) {
-            if (scenario.isValidRoom(this.x, this.y+1, this.z)) {
-                this.y = this.y + 1;
-                return true;
+    // ##########################
+    // ## LOAD/START SCENARIO  ##
+    // ##########################   
+    spinner = new Spinner({
+        color: '#fff'
+    }).spin(document.getElementById('view-modal'))
+
+    loadScenario(scenarioDef)
+
+    // check starting players position
+    if (player) {
+         if (!scenario.isValidRoom(player.x, player.y, player.z)) {
+            alert('Player\'s starting position is invalid')
+            return;
+        }
+    } else {
+        alert('Player not defined')
+    }
+
+    // init ui
+    initMap()
+    renderScene()
+    if (isEditMode) {
+        updateFloorSelector()
+        updatePlayerInfo()
+    }
+    spinner.stop();
+
+    $(document).on('startEarthquake', function(){
+        var image = $('#scene-img')
+        var speed = 30
+        for (i = 0; i < 5; i++) {
+            image.animate({
+                left: '-5',
+            }, speed).animate({ 
+                left: '5',
+            }, speed).animate({
+                left: '-5',
+            }).animate({
+                left: '5',
+            }, speed).animate({
+                left: '0',
+            }, speed)
+        }
+    })
+
+    // ##########################
+    // ##### MOVE BUTTONS  ######
+    // ##########################
+    $('.move-forward').click(function () {
+        if (!player.move(player.facing)) {
+            // alert('There is no where to go in front of you!')
+        } else {
+            renderScene()
+            if (isEditMode) {
+                updatePlayerInfo()
             }
-            console.log('Player.move - cannot move to ' + this.x + "," + (this.y+1) + "," + this.z)
-        } else if (direction == DIRECTION_SOUTH) {
-            if (scenario.isValidRoom(this.x, this.y-1, this.z)) {
-                this.y = this.y - 1;
-                return true;
+        }
+    })
+
+    $('.turn-left').click(function () {
+        if (!player.turn("l")) {
+            // alert('There is nothing to see to your left!')
+        } else {
+            renderScene()
+            if (isEditMode) {
+                updatePlayerInfo()
             }
-            console.log('Player.move - cannot move to ' + this.x + "," + (this.y-1) + "," + this.z)
-        } else if (direction == DIRECTION_EAST) {
-            if (scenario.isValidRoom(this.x+1, this.y, this.z)) {
-                this.x = this.x + 1;
-                return true;
+        }
+    })
+
+    $('.turn-right').click(function () {
+        if (!player.turn("r")) {
+            // alert('There is nothing to see to your right!')
+        } else {
+            renderScene()
+            if (isEditMode) {
+                updatePlayerInfo()
             }
-            console.log('Player.move - cannot move to ' + (this.x+1) + "," + this.y + "," + this.z)
-        } else if (direction == DIRECTION_WEST){
-            if (scenario.isValidRoom(this.x-1, this.y, this.z)) {
-                this.x = this.x - 1;
-                return true;
+        }
+    })
+
+    $('.move-up').click(function () {
+        if (!player.move("u")) {
+        // alert('You cannot move up here!')
+        } else {
+            renderScene()
+            if (isEditMode) {
+                updatePlayerInfo()
             }
-            console.log('Player.move - cannot move to ' + (this.x-1) + "," + this.y + "," + this.z)
-        } else if (direction === DIRECTION_UP && this.canMoveUp()) {
-            this.z += 1;
-            this.setFacingAfterExitingStairs();
-            return true;
-        } else if (direction === DIRECTION_DOWN && this.canMoveDown()) {
-            this.z -= 1;
-            this.setFacingAfterExitingStairs();
+        }
+    })
+
+    $('.move-down').click(function () {
+        if (!player.move("d")) {
+            // alert('You cannot move down here!')
+        } else {
+            renderScene()
+            if (isEditMode) {
+                updatePlayerInfo()
+            }
+        }
+    })
+
+    $(window).keydown(function(event) {
+        if (keypressed) {
             return true;
         }
-        return false;
-    },
+        keypressed = true;
+        if (event.which == 37) {
+            // left arrow key
+            $('.turn-left').triggerHandler('click')
+        } else if (event.which == 38) {
+            // up arrow key
+            $('.move-forward').trigger('click')
+        } else if (event.which == 39) {
+            // right arrow key
+            $('.turn-right').trigger('click')
+        } else if (event.which == 40) {
+            // down arrow key
+        } else if (event.which == 69) {
+            $(document).trigger('startEarthquake')
+        }
+        keypressed = false;
 
-    turn: function (direction) {
-        var currentDirectionIndex = DIRECTION_INDEX.indexOf(player.facing);
-        var newDirectionIndex;
-        if (direction === DIRECTION_LEFT) {
-            newDirectionIndex = (currentDirectionIndex - 1 + 4) % 4;
-        } else if (direction === DIRECTION_RIGHT) {
-            newDirectionIndex = (currentDirectionIndex + 1) % 4;
+    })
+
+    // ##########################
+    // ###### FUNCTIONS #########
+    // ##########################
+
+    function loadScenario(data) { 
+        scenario = new Scenario
+        scenario.set(data['name'], 'active')
+        currFloor = null
+        currRoom = null
+        currWall = null
+        //load floors
+        $.each(data['_floors'], function(key, value) {
+            currFloor = scenario.addFloor(key, value['z'])
+            // load rooms of this floor
+            $.each(value['_rooms'], function(key, value) { 
+                currRoom = currFloor.addRoom(key, value['id'], value['x'], value['y'], value['z'])
+            //     // load walls of this room
+                $.each(value['_walls'], function(key, value) {
+                    currRoom.addWall(value['name'], key, value['image'])
+                })
+            })
+        })
+        player = new Player
+        playerDef = data['_player']
+        player.set(playerDef['x'], playerDef['y'], playerDef['z'], playerDef['_facing'], null)
+
+    }
+
+    function renderScene() {
+        $(".move-z").hide();
+        var room = scenario.getRoom(player.x, player.y, player.z);
+        if (scenario.isValidRoom(player.x, player.y, player.z)) {
+            var sceneImage = room.walls[player.facing].image
+            $.attr(sceneImage,'id', 'scene-img')
+            $("#view-scene").empty();
+            $("#view-scene").append(sceneImage)
+            renderMap()
         }
-        if (scenario.getRoom(player.x, player.y, player.z).walls[DIRECTION_INDEX[newDirectionIndex]]) {
-            this.facing = DIRECTION_INDEX[newDirectionIndex];
-            return true;
+        if (player.canMoveUp()) {
+            $("#viewport-move-up").show();
         }
-        return false;
-    },
+        if (player.canMoveDown()) {
+            $("#viewport-move-down").show();
+        }
+
+    }
+
+    function renderMap() {
+        clearMap()
+
+        // Set active map squares
+        var floorList = currFloor.getRoomList()
+        $.each(floorList, function(key, value) {
+            $('div#' + value.x + '-' + value.y).addClass('active').removeClass('player-pos')
+        })
+        $('#map #' + player.x + '-' + player.y).addClass('player-pos')
+    }
+
+    function clearMap() {
+        currFloor = scenario.getFloor(player.z)
+        mapWidth = currFloor.maxX;
+        mapHeight = currFloor.maxY; 
+
+        for(var j = mapHeight; j >= 0; j--) { 
+            for(var i = 0; i <= mapWidth; i++) {
+                $('#map #' + i + '-' + 'j').removeClass()
+            }
+        }
+    }
+
+    function initMap() {
+        currFloor = scenario.getFloor(player.z)
+        mapWidth = currFloor.maxX;
+        mapHeight = currFloor.maxY;   
+        
+        // Append Map squares
+        var map = $('#map')
+        for(var j = mapHeight; j >= 0; j--) { 
+            for(var i = 0; i <= mapWidth; i++) {
+                map.append('<div id="' + i + '-' + j + '" class="map-square"></div>')
+            }
+        }
+
+        // Style width/height of map squares
+        totalWidth = map.width();
+        totalHeight = map.height();
+        $('.map-square').css('width', Math.round(totalWidth/(mapWidth+1)))
+        $('.map-square').css('height', Math.round(totalHeight/(mapHeight+1)))
+    }
+
+    function isScenarioDefined() {
+        if (typeof scenario === 'undefined') {
+            console.log('scenario class undefined')
+            return false;
+        }
+        return true;
+    }
+    function isPlayerDefined() {
+        if (typeof player === 'undefined') {
+            console.log('player class undefined')
+            return false;
+        }
+        return true;
+    }
+
+
+    // ##########################
+    // #### EDIT MODE EVENTS ####
+    // ##########################
+
+    if (isEditMode) {
+        $('#move-north').bind('click', function() {
+                if (!player.move(DIRECTION_NORTH)) {
+                    // alert('You cannot move North')
+                } else {
+                    renderScene()
+                    if (isEditMode) {
+                        updatePlayerInfo()
+                    }
+                }
+            })
+
+        $('#move-south').click(function() {
+            if (!player.move(DIRECTION_SOUTH)) {
+                // alert('You cannot move South')
+            } else {
+                renderScene()
+                if (isEditMode) {
+                    updatePlayerInfo()
+                }
+            }
+        })
+        $('#move-east').click(function() {
+            if (!player.move(DIRECTION_EAST)) {
+                // alert('You cannot move East')
+            } else {
+                renderScene()
+                if (isEditMode) {
+                    updatePlayerInfo()
+                }
+            }
+        })
+        $('#move-west').click(function() {
+            if (!player.move(DIRECTION_WEST)) {
+                // alert('You cannot move West')
+            } else {
+                renderScene()
+                if (isEditMode) {
+                    updatePlayerInfo()
+                }
+            }
+        })
+        // User clicks an Add button
+        $('.add').click(function() {
+            if (!$('#modal').hasClass('hidden')) {
+                return;
+            }
+            updateModalLocation();
+            $('#modal').removeClass('hidden')
+            if ($(this).data('type') == 'floor') {
+                $('#modal').find('.floor').removeClass('hidden')
+            } else if ($(this).data('type') == 'room') {
+                $('#modal').find('.room').removeClass('hidden')
+            } else if ($(this).data('type') == 'wall') {
+                $('#modal').find('.wall').removeClass('hidden')
+            } 
+        })
+        // User clicks modal close button
+        $('.close-modal').click(function() {
+            $('#modal').addClass('hidden')
+            $('#modal > .floor').addClass('hidden')
+            $('#modal > .room').addClass('hidden')
+            $('#modal > .wall').addClass('hidden')
+        })
+        // User selects a floor from dropdown
+        $('select#floor-selector').change(function() {
+            if ($(this).attr('disabled')) {
+                console.log('Invalid change - Floor Selector changed while disabled')
+                return;
+            }
+            selectedFloor = getSelectedOption('floor')
+            console.log('Floor select event: ' + selectedFloor )
+            updateRoomSelector(selectedFloor)
+        })
+        // User selects a room from dropdown
+        $('select#room-selector').change(function() {
+            if ($(this).attr('disabled')) {
+                console.log('Invalid change - Room selector changed while disabled')
+            }
+            selectedFloor = getSelectedOption('floor')
+            selectedRoom = getSelectedOption('room')
+            console.log('Room select event: ' + selectedRoom)
+            updateWallSelector(selectedFloor, selectedRoom)
+        })
+        // Use clicks get info button
+        $('#getInfo').bind('click', function() {
+            $('#output').val(
+                "===== Complete Scenario info for \"" + scenario.name +"\" =====\n"
+                + scenario.dispInfo()
+            )
+        })
+    }
+    // ##########################
+    // ### EDIT MODE FUNCTIONS ##
+    // ##########################
     
-    canMoveUp: function() {
-    	return (this.isFacingStairs() && scenario.getRoom(this.x, this.y, this.z).containsUpStairs() && scenario.isValidRoom(this.x, this.y, this.z + 1));
-    },
-    canMoveDown: function() {
-    	return (this.isFacingStairs() && scenario.getRoom(this.x, this.y, this.z).containsDownStairs() && scenario.isValidRoom(this.x, this.y, this.z - 1));
-    },
-    isFacingStairs: function() {
-    	var room = scenario.getRoom(player.x, player.y, player.z);
-    	if (room) {
-    		return room.stairEntryDirection() === player.facing;
-    	}
-    	return false;
-    },
-    setFacingAfterExitingStairs: function() {
-		var stairExitDirection = scenario.getRoom(player.x, player.y, player.z).stairExitDirection();
-		if (stairExitDirection) {
-			player.facing = stairExitDirection;
-		}
+    // Update player info from object
+    function updatePlayerInfo() {
+        if (!isPlayerDefined) {
+            console.log('updatePlayerInfo - player not defined')
+        }
+
+        // update location
+        $('#playerloc').val(player.x + ', ' + player.y + ', ' + player.z)
+        // update direction
+        $('#playerdir').val(player.facing)
+
+        // get names of current floor, room, facing wall
+        var locNames = scenario.getLocNames(player.x, player.y, player.z, player.facing)
+        if (typeof locNames === 'undefined') { 
+            console.log('error getting names')
+            return;
+        }
+        $('#currentfloor').val(locNames['floorName'])
+        $('#currentroom').val(locNames['roomName'])
+        $('#currentwall').val(locNames['wallName'])
+    }
+    // Gets a list of floors from the scenario
+    function updateFloorSelector() {
+        disableSelector('floor')
+
+        if (!isScenarioDefined) {
+            console.log('updateFloorSelector - scenario not defined')
+            return;
+        }
+
+        selector = getSelector('floor')
+        // get floors
+        var floors = scenario.getFloorList();
+        // add floor options to select element
+        if (floors.length > 0) {
+            clearSelector('floor');
+            // iterate over floors and add options
+            $.each(floors, function(key, value) {
+                selector.append('<option value=\'' + value.z + '\'>[' + value.z + ']' + value.name + '</option>')
+            })
+            enableSelector('floor')
+            // Get selected floor z and update room selector
+            updateRoomSelector(getSelectedOption('floor'))
+        }
+    }
+    // Gets a list of rooms by floor z value
+    function updateRoomSelector(floorZ) {
+        disableSelector('room')
+        disableSelector('wall')
+
+        if (!isScenarioDefined) {
+            console.log('updateRoomSelector - scenario not defined')
+            return;
+        }
+
+        // get rooms
+        var floor = scenario.getFloor(floorZ)
+        if (typeof floor == 'undefined') {
+            console.log('updateRoomSelector - invalid floor v=' + floorZ)
+            return;
+        }
+        var rooms = floor.getRoomList()
+        if (typeof rooms === 'undefined') {
+            console.log('updateRoomSelector - invalid floor z=' + floorZ);
+            return;
+        } else if (rooms.length <= 0) {
+            console.log('updateRoomSelector - no rooms on floor z=' + floorZ)
+            return;
+        }
+
+        selector = getSelector('room')
+        clearSelector('room');
+        $.each(rooms, function(key, value){
+            selector.append('<option value=\'' + value.id + '\'>' + value.name + ' (' + value.x + ',' + value.y + ',' + value.z + ')' +'</option>')
+        })
+        enableSelector('room');
+
+        updateWallSelector(floorZ, getSelectedOption('room'))
+    }
+
+    function updateWallSelector(floorZ, roomId) {
+        disableSelector('wall')
+
+        if (!isScenarioDefined) {
+            console.log('updateWallSelector - scenario not defined')
+            return;
+        }
+
+        // get room
+        var floor = scenario.getFloor(floorZ)
+        if (typeof floor === 'undefined') {
+            console.log('updateWallSelector - invalid floor v=' + floorZ)
+            return;
+        }
+        var room = floor.getRoomById(roomId)
+        if (typeof room === 'undefined') {
+            console.log('updateWallSelector - invalid room id=' + roomId)
+            return;
+        }
+        var walls = room.getWallList()
+
+        selector = getSelector('wall')
+        if (walls.length > 0) {
+            clearSelector('wall')
+            $.each(walls, function(key, value) {
+                selector.append('<option value=\'' + value.direction + '\'>' + value.name + " (" + value.direction + ")</option>")
+            })
+            enableSelector('wall')
+        }
+    }
+    function getSelector(name) {
+        var selector = ""
+        if (name == 'floor') {
+            selector = $('select#floor-selector')
+        } else if (name == 'room') {
+            selector = $('select#room-selector')
+        } else if (name == 'wall') {
+            selector = $('select#wall-selector')
+        } else {
+            return null;
+        }
+        if (typeof selector === 'undefined') { 
+            console.log('selector not found')
+            return null;
+        }
+        return selector;
+    }
+    function getSelectedOption(name) {
+        selector = getSelector(name)
+        return selector.find(':selected').attr('value')
+    }
+    function disableSelector(name) {
+        var selector = getSelector(name);
+        if (!selector) { 
+            console.log('disableSelector - selector ' + name + ' not found')
+            return;
+        }
+        if (!selector.attr('disabled')) {
+            selector.attr('disabled', 'disabled')
+            clearSelector(name)
+            selector.append('<option value=\'blank\'>No ' + name + ' Listed</option>')   
+        }
+
+    }
+    function enableSelector(name) {
+        selector = getSelector(name);
+        if (!selector) { 
+            console.log('enableSelector - selector' + name + 'not found')
+            return;
+        }
+        if (selector.attr('disabled')) {
+            selector.removeAttr('disabled')
+        }
+
+    }
+    function clearSelector(name) {
+        selector = getSelector(name)
+        if (!selector) { 
+            console.log('clearSelector - selector' + name + 'not found')
+            return;
+        }
+        selector.empty()
+    }
+    // ##########################
+    // ##### MODAL RESIZING #####
+    // ##########################
+
+    // When window is resized
+    $(window).resize(function() {
+        if (!$('#modal').hasClass('hidden')) {
+            updateModalLocation();
+        }
+    })
+
+    function updateModalLocation() {
+        var modal = $('#modal')
+        var viewport = document.viewport.getDimensions()
+        var viewWidth = viewport.width;
+        var viewHeight = viewport.height;
+        var leftAlign = 0;
+        var topAlign = 0;
+        if (viewWidth > modal.width()) {
+            leftAlign = (viewport.width - modal.width())/2;
+        }
+        if (viewHeight > modal.height()) {
+            topAlign = (viewport.height - modal.height())/2;
+        }
+
+        console.log('leftAlign:' + leftAlign)
+        console.log('topAlign:' + topAlign)
+        modal.css('left', leftAlign + "px");
+        modal.css('top', topAlign + "px");
     }
 });
 
-var Wall = Class.create({
-    initialize: function() {
-        this.name = null;
-        this.direction = null;
-        this.image = null;
-    },
-    set: function(name, direction, image) {
-        this.name = name;
-        this.direction = direction;
-        this.image = image;
-        scenario.addImage(image)
-    },
-    setName: function (name) {
-        this.name = name;
-    },
-    setDirection: function(name) {
-        this.direction = direction;
-    },
-    setImage: function(image) {
-        this.image = image;
-        scenario.addImage(image)
-    },
-    dispInfo: function(ntabs) {
-        if (typeof ntabs === 'undefined') { 
-            tabs = ""; 
-            ntabs = 0;
-        } else {
-            tabs = "";
-            for (i = 0; i < ntabs; i++) { 
-                tabs += "\t"; 
-            }
-        }
-        return tabs + "(Wall) direction=" + this.direction + ", name=" + this.name + ", image=" + this.image + "\n";
-    },
-});
-
-var Room = Class.create({
-    initialize: function(name, x, y, z) {
-        this.name = null;
-        this.x = null;
-        this.y = null;
-        this.z = null;
-        this.walls = {};
-    },
-    set: function(name, x, y, z) {
-        this.name = name;
-        this.x = x;
-        this.y = y;
-        this.z = z;
-    },
-    addWall: function(name, direction, image) {
-        if (typeof this.walls[direction] !== 'undefined') {
-            console.log('Room.addWall - direction ' + direction + ' already defined')
-            return;
-        }
-        var newWall = new Wall;
-        newWall.set(name, direction, image)
-        this.walls[direction] = newWall;
-    },
-    addProp: function(prop, value) {
-    	this[prop] = value;
-    },
-    getWallList: function() {
-        if (typeof this.walls === 'undefined') {
-            return;
-        }
-        wallList = new Array()
-        $j.each(this.walls, function(key, value) {
-            wallList.push({
-                'direction': key,
-                'name': value.name,
-            })
-        })
-        return wallList;
-    },
-    getWallByDir: function(direction) {
-        return this.walls[direction]
-    },
-    containsUpStairs: function() {
-    	return (this.hasOwnProperty(PROP_STAIRS_UP) && this[PROP_STAIRS_UP]);
-    },
-    containsDownStairs: function() {
-    	return (this.hasOwnProperty(PROP_STAIRS_DOWN) && this[PROP_STAIRS_DOWN]);
-    },
-    stairEntryDirection: function() {
-    	return this.hasOwnProperty(PROP_ENTER_STAIRS_DIRECTION) ? this[PROP_ENTER_STAIRS_DIRECTION] : null;
-    },
-    stairExitDirection: function() {
-    	return this.hasOwnProperty(PROP_EXIT_STAIRS_DIRECTION) ? this[PROP_EXIT_STAIRS_DIRECTION] : null;
-    },
-    dispInfo: function(ntabs) {
-        if (typeof ntabs === 'undefined') {
-            tabs = "";
-            ntabs = 0;
-        } else {
-            var tabs = "";
-            for (i = 0; i < ntabs; i++) { 
-                tabs += "\t"; 
-            }
-        }
-        var info = "";
-
-        info += tabs + "(Room) name=\"" + this.name + "\", location=( " + this.x + ", " + this.y + ", " + this.z + "), \n";
-        info += tabs + "\tWalls->\n";
-        $j.each(this.walls, function(key, value) {
-            info += value.dispInfo(ntabs+2);
-        })
-        return info;
-    },
-});
-
-var Floor = Class.create({
-    initialize: function(name, z) {
-        this.name = null;
-        this.z = null;
-        this.numRooms = 0;
-        this.rooms = {};
-    },
-    set: function(name, z) {
-        this.name = name;
-        this.z = z;
-    },
-    addRoom: function(id, name, x, y, z) {
-        if (typeof this.rooms[id] !== 'undefined') {
-            console.log('Floor.addRoom - Room with id ' + id + ' already exists')
-            return;
-        }
-        if (this.getRoomByXY(x, y) !== null) {
-            console.log('Floor.addRoom - Room with x=' + x + ',y=' + y + ",z=" + z + " already exists")
-            return;
-        }
-        var newRoom = new Room;
-        newRoom.set(name, x, y, z);
-        this.rooms[id] = newRoom;
-        this.numRooms += 1;
-        return this.rooms[id]
-    },
-    addWallToRoom: function(id, name, direction, image) {
-        var room = this.getRoomById(id);
-        if (typeof room === 'undefined' || room === null) {
-            console.log('Floor.addWallToRoom - Room with id ' + id + ' does not exist')
-            return;
-        }
-        room.addWall(name, direction, image);
-    },
-    getRoomById: function(id) {
-        room = this.rooms[id];
-        if (typeof room === 'undefined' || room === null) {
-            console.log('Unknown Room Id - ' + id)
-            return null;
-        }
-        return this.rooms[id];
-    },
-    getRoom: function(id) {
-        return this.getRoomById(id);
-    },
-    getRoomByXY: function(x ,y) {
-        var room = null;
-        $j.each(this.rooms, function(key, value) {
-            if (value.x == x && value.y == y) {
-                room = value;
-            }
-        })
-        return room;
-    },
-    getRoomList: function() {
-        var roomList = new Array();
-        $j.each(this.rooms, function(key, value) {
-            roomList.push({
-                'id':key,
-                'name':value.name,
-                'x':value.x,
-                'y':value.y,
-                'z':value.z,
-            });
-        });
-        return roomList;
-    },
-    dispInfo: function(ntabs) {
-        if (typeof ntabs === 'undefined') {
-            tabs = "";
-            ntabs = 0;
-        } else {
-            var tabs = "";
-            for (i = 0; i < ntabs; i++) { 
-                tabs += "\t"; 
-            }
-        }
-        var info = "";
-
-        info += tabs + "(Floor) name=\"" + this.name + "\", #" + this.z + ", numRooms=" + this.numRooms + "\n";
-        info += tabs + "\tRooms->\n";
-        $j.each(this.rooms, function(key, value) {
-            info += value.dispInfo(ntabs+2);
-        })
-        return info;
-    },
-});
-
-var Scenario = Class.create({
-    initialize: function() {
-        this.name = null;
-        this.status = null;
-        this.floors = {}
-        this.images = []
-    },
-    set: function(name, status) {
-        this.name = name;
-        this.status = status;
-    },
-    start: function() {
-        if (this.status === SCENARIO_STATUS_ACTIVE) {
-            console.log('Scenario.start - scenario already active')
-            return;
-        } else if (this.status === SCENARIO_STATUS_DONE) {
-            console.log('Scenario.start - scenario done, must be reset to start')
-            return;
-        }
-        this.status = SCENARIO_STATUS_ACTIVE;
-    },
-    addImage: function(image) {
-        this.images.push(imageBasePath + image)
-    },
-    preloadImages: function(callback) {
-        this.images.each(function(value) {
-            console.log('preloading: ' + value)
-            var image = document.createElement('img')
-            image.src = value
-        })
-        callback()
-    },
-    addFloor: function(name, z) {
-        if (typeof this.floors[z] !== 'undefined') {
-            console.log('Scenario.addFloor - floor level with z=' + z + ' already defined')
-            return;
-        }
-        this.floors[z] = new Floor;
-        this.floors[z].set(name, z)
-        return this.floors[z]
-    },
-    addRoomToFloor: function(z, id, name, x, y, z) {
-        floor = this.floors[z]
-        if (typeof floor === 'undefined' || floor === null) {
-            console.log('Scenario.addRoomToFloor - floor with z=' + z + ' does not exist')
-            return;
-        }
-        floor.addRoom(id, name, x, y , z);
-    },
-    getFloor: function(z) {
-        floor = this.floors[z];
-        if (typeof floor === 'undefined' || floor === null) {
-            console.log('Scenario.getFloor - floor with z=' + z + ' does not exist')
-            return;
-        }
-        return this.floors[z];
-    },
-
-    getFloorList: function() {
-        var floorList = new Array();
-        $j.each(this.floors, function(key, value) {
-            floorList.push({
-                'z': key,
-                'name': value.name,
-            });
-        })
-        return floorList;
-    },
-
-    getLocNames: function(x, y, z, direction) {
-        floor = this.getFloor(z)
-        if (typeof floor !== 'undefined') {
-            room = floor.getRoomByXY(x, y)
-            if (typeof room !== 'undefined') {
-                wall = room.getWallByDir(direction)
-                if (typeof wall !== 'undefined') {
-                    return {
-                        'floorName' : floor.name, 
-                        'roomName' : room.name,
-                        'wallName' : wall.name
-                    }
-                } else {
-                    console.log('getLocNames - error getting wall dir=' + direction)
-                }
-            } else {
-                console.log('getLocNames - error getting room x=' + x + ',' + y)
-            }
-        } else {
-            console.log('getLocNames - error getting floor z=' + z)
-        }
-    },
-    isValidRoom: function(x, y, z) {
-        floor = this.getFloor(z);
-        if (typeof floor !== 'undefined' && floor != null) {
-            room = floor.getRoomByXY(x, y)
-            if (typeof room !== 'undefined' && room != null) {
-                return true;
-            }
-        }
-        return false;
-    },
-    getRoom: function(x, y, z) {
-        if (this.isValidRoom(x, y, z)) {
-        	return this.getFloor(z).getRoomByXY(x, y);
-        }
-        return null;   	
-    },
-    dispInfo: function(ntabs) {
-        if (typeof ntabs === 'undefined') {
-            tabs = "";
-            ntabs = 0;
-        } else {
-            var tabs = "";
-            for (i = 0; i < ntabs; i++) { 
-                tabs += "\t"; 
-            }
-        }
-        var info = "";
-        info += tabs + "(Scenario) name=\"" + this.name + "\", status=" + this.status + "\n";
-        info += tabs + "\tFloors->\n";
-        $j.each(this.floors, function(key, value) {
-            info += value.dispInfo(ntabs+2);
-        });
-        return info;
-    },
-});
-
+function getURLParameter(name) {
+    return decodeURIComponent(
+        (location.search.match(RegExp("[?|&]" + name + '=(.+?)(&|$)')) || [, null])[1]
+    );
+}
