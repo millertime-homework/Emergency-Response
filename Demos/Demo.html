@@ -295,12 +295,6 @@
 
             }
 
-            function preloadImage(value) {
-                var image = document.createElement('img')
-                image.src = scenario.imageBasePath + value
-                return image
-            }
-
             function renderScene() {
                 $(".move-z").hide();
                 var room = scenario.getRoom(player.x, player.y, player.z);
