@@ -84,20 +84,24 @@ jQuery(document).ready(function($) {
         if (keypressed) {
             return true;
         }
-        event.preventDefault();
         keypressed = true;
         if (event.which == 37) {
+            event.preventDefault();
             // left arrow key
             $('.turn-left').trigger('click')
         } else if (event.which == 38) {
+            event.preventDefault();
             // up arrow key
             $('.move-forward').trigger('click')
         } else if (event.which == 39) {
+            event.preventDefault();
             // right arrow key
             $('.turn-right').trigger('click')
         } else if (event.which == 40) {
+            event.preventDefault();
             // down arrow key
         } else if (event.which == 69) {
+            event.preventDefault();
             $(document).trigger('startEarthquake')
         }
         keypressed = false;
