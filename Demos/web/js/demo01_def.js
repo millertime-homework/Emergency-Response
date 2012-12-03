@@ -29,7 +29,7 @@ window.scenarioDef = {
                                         }
                                 },
                                 'Upper SW 5th & Hall': {
-                                        'name': 'north5th',
+                                        'id': 'north5th',
                                         'x': 0,
                                         'y': 1,
                                         '_walls': {
@@ -52,7 +52,7 @@ window.scenarioDef = {
                                         }
                                 },
                                 'West on Hall': {
-                                        'name': 'westhall',
+                                        'id': 'westhall',
                                         'x': 1,
                                         'y': 0,
                                         '_walls': {
@@ -75,7 +75,7 @@ window.scenarioDef = {
                                         }
                                 },
                                 'West on Hall 2': {
-                                        'name': 'westhall2',
+                                        'id': 'westhall2',
                                         'x': 2,
                                         'y': 0,
                                         '_walls': {
@@ -98,7 +98,7 @@ window.scenarioDef = {
                                         }
                                 },
                                 'SW 4th & Hall': {
-                                        'name': '4thhall',
+                                        'id': '4thhall',
                                         'x': 3,
                                         'y': 0,
                                         '_walls': {

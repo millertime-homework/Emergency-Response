@@ -124,9 +124,34 @@
         var Floor = null;
         var Room = null;
         var Wall = null;
+        var scenario = null;
+        var player = null;
+        var spinner = null;
+        var isEditMode = null;
+        // Global Functions
+        function loadScenario() {};
+        function renderScene() {};
+        function renderMap() {};
+        function isScenarioDefined() {};
+        function isPlayerDefined() {};
     </script>
     <script type="text/javascript" src="web/js/scenario-objects.js"></script>
     <script type="text/javascript" src="web/js/demo01_def.js"></script>
+    <script type="text/javascript">
+        if (isEditMode) {
+            // Global Edit Functions
+            function updatePlayerInfo() {};
+            function updateFloorSelector() {};
+            function updateRoomSelector() {};
+            function updateWallSelector() {};
+            function getSelector() {};
+            function getSelectedOption() {};
+            function disableSelector() {};
+            function enableSelector() {};
+            function clearSelector() {};
+        }
+    </script>
+    <script type="text/javascript" src="web/js/demo01_edit_mode.js"></script>
     <script type="text/javascript" src="web/js/demo01.js"></script>
 </body>
 </html>
