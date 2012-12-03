@@ -54,15 +54,15 @@ jQuery(document).ready(function($){
         var speed = 30
         for (i = 0; i < 5; i++) {
             image.animate({
-                left: '-5',
+                left: '-5'
             }, speed).animate({ 
-                left: '5',
+                left: '5'
             }, speed).animate({
-                left: '-5',
+                left: '-5'
             }).animate({
-                left: '5',
+                left: '5'
             }, speed).animate({
-                left: '0',
+                left: '0'
             }, speed)
         }
     })

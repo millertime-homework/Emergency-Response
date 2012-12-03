@@ -151,7 +151,7 @@ var Wall = Class.create({
             }
         }
         return tabs + "(Wall) direction=" + this.direction + ", name=" + this.name + ", image=" + this.image + "\n";
-    },
+    }
 });
 
 var Room = Class.create({
@@ -226,7 +226,7 @@ var Room = Class.create({
             info += value.dispInfo(ntabs+2);
         })
         return info;
-    },
+    }
 });
 
 var Floor = Class.create({
@@ -322,7 +322,7 @@ var Floor = Class.create({
             info += value.dispInfo(ntabs+2);
         })
         return info;
-    },
+    }
 });
 
 var Scenario = Class.create({
@@ -447,6 +447,6 @@ var Scenario = Class.create({
             info += value.dispInfo(ntabs+2);
         });
         return info;
-    },
+    }
 });
 
