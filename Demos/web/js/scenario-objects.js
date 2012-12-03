@@ -173,7 +173,7 @@ var Room = Class.create({
             console.log('Room.addWall - direction ' + direction + ' already defined')
             return;
         }
-        var newWall = new Wall;
+        var newWall = new Wall();
         newWall.set(name, direction, image)
         this.walls[direction] = newWall;
     },
@@ -257,7 +257,7 @@ var Floor = Class.create({
         if (y > this.maxY) {
             this.maxY = y
         }
-        var newRoom = new Room;
+        var newRoom = new Room();
         newRoom.set(name, x, y, z);
         this.rooms[id] = newRoom;
         this.numRooms += 1;
@@ -360,7 +360,7 @@ var Scenario = Class.create({
             console.log('Scenario.addFloor - floor level with z=' + z + ' already defined')
             return;
         }
-        this.floors[z] = new Floor;
+        this.floors[z] = new Floor();
         this.floors[z].set(name, z)
         return this.floors[z]
     },
