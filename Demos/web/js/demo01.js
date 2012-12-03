@@ -41,7 +41,7 @@ jQuery(document).ready(function($){
     }
 
     // init ui
-    initMap()
+    // initMap()
     renderScene()
     if (isEditMode) {
         updateFloorSelector()
@@ -184,7 +184,7 @@ jQuery(document).ready(function($){
             $.attr(sceneImage,'id', 'scene-img')
             $("#view-scene").empty();
             $("#view-scene").append(sceneImage)
-            renderMap()
+            // renderMap()
         }
         if (player.canMoveUp()) {
             $("#viewport-move-up").show();
