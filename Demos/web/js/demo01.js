@@ -153,7 +153,7 @@ jQuery(document).ready(function($){
     // ##########################
 
     function loadScenario(data) { 
-        scenario = new Scenario();
+        scenario = new Scenario;
         scenario.set(data['name'], 'active')
         currFloor = null
         currRoom = null
@@ -170,7 +170,7 @@ jQuery(document).ready(function($){
                 })
             })
         })
-        player = new Player();
+        player = new Player;
         playerDef = data['_player']
         player.set(playerDef['x'], playerDef['y'], playerDef['z'], playerDef['_facing'], null)
 
