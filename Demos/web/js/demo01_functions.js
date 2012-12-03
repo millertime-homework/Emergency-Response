@@ -3,6 +3,7 @@ var scenario = null;
 var player = null;
 function loadScenario() {};
 function renderScene() {};
+function renderClickables() {};
 function renderMap() {};
 function isScenarioDefined() {};
 function isPlayerDefined() {};
@@ -26,7 +27,20 @@ jQuery(document).ready(function($){
                 currRoom = currFloor.addRoom(key, value['id'], value['x'], value['y'], currFloor.z)
                 // load walls of this room
                 $.each(value['_walls'], function(key, value) {
-                    currRoom.addWall(value['name'], key, value['image'])
+                    currWall = currRoom.addWall(value['name'], key, value['image'])
+                    if (typeof value['_clickables'] != 'undefined') {
+                        $.each(value['_clickables'], function(key, value) {
+                            currWall.addClickable(
+                                key, 
+                                value['name'], 
+                                value['image'], 
+                                value['width'], 
+                                value['height'], 
+                                value['left'], 
+                                value['top']
+                            )
+                        })
+                    }
                 })
             })
         })
@@ -42,10 +56,12 @@ jQuery(document).ready(function($){
         $(".move-z").hide();
         var room = scenario.getRoom(player.x, player.y, player.z);
         if (scenario.isValidRoom(player.x, player.y, player.z)) {
-            var sceneImage = room.walls[player.facing].image
+            var wall = room.walls[player.facing]
+            var sceneImage = wall.image
             $.attr(sceneImage,'id', 'scene-img')
             $("#view-scene").empty();
             $("#view-scene").append(sceneImage)
+            renderClickables(wall)
             // renderMap()
         }
         if (player.canMoveUp()) {
@@ -56,6 +72,22 @@ jQuery(document).ready(function($){
         }
 
     }
+
+    // Renders clickables on wall
+    renderClickables = function(wall) {
+        var view = $('#view-scene')
+        $.each(wall.clickables, function(key, value) {
+            view.append('<div id="' + key + '" class="clickable" width="' + value['width'] + '" height="' + value['height'] +'">')
+
+            var viewClickable = $('#' + key)
+            viewClickable.css('left', value['left'])
+            viewClickable.css('top', value['top'])
+            viewClickable.css('width', value['width'])
+            viewClickable.css('height', value['height'])
+            viewClickable.append(value['image'])
+        })
+        
+    } 
 
     // Sets active map squares and player position in map
     renderMap = function() {

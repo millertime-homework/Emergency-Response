@@ -35,7 +35,17 @@ scenarioDef = {
                                         '_walls': {
                                                 'e':  {
                                                         'name': 'E Upper 5th Hall', 
-                                                        'image': 'B-east.jpg'
+                                                        'image': 'B-east.jpg',
+                                                        '_clickables': {
+                                                                'espressoWindow': {
+                                                                        'name': 'Espresso Shop Window',
+                                                                        'image': 'B-east-window.jpg',
+                                                                        'width': 156,
+                                                                        'length': 135,
+                                                                        'left': 80,
+                                                                        'top': 374
+                                                                }
+                                                        }
                                                 }, 
                                                 'w': {
                                                         'name': 'W Upper 5th Hall', 

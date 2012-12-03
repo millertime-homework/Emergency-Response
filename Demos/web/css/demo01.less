@@ -69,19 +69,20 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 
 .primary-view {
     position: absolute;
+    z-index: 0;
+    overflow: hidden;
     left: @borderThickness;
     top: @borderThickness;
     height: @viewportHeight;
     width: @viewportWidth;
+    .clickable {
+        position: absolute;
+        z-index: 2; 
+    }
 }
 
 #controls-overlay {
     z-index: 1;
-}
-
-#view-scene {
-    z-index: 0;
-    overflow: hidden;
 }
 
 #scene-img {

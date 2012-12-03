@@ -4,6 +4,7 @@ var Scenario = null;
 var Floor = null;
 var Room = null;
 var Wall = null;
+var Clickable = null;
 
 /* ######################################## */
 /* ######################################## */
@@ -135,11 +136,18 @@ Wall = Class.create({
         this.name = null;
         this.direction = null;
         this.image = null;
+        this.clickables = {};
     },
     set: function(name, direction, image) {
         this.name = name;
         this.direction = direction;
         this.image = scenario.addImage(image)
+    },
+    addClickable: function(id, name, image, width, height, left, right) {
+        var newClickable = new Clickable;
+        clickableImage = scenario.addImage(image)
+        newClickable.set(name, clickableImage, width, height, left, right);
+        this.clickables[id] = newClickable;
     },
     setName: function (name) {
         this.name = name;
@@ -186,6 +194,7 @@ Room = Class.create({
         var newWall = new Wall;
         newWall.set(name, direction, image)
         this.walls[direction] = newWall;
+        return newWall;
     },
     addProp: function(prop, value) {
     	this[prop] = value;
@@ -457,6 +466,25 @@ Scenario = Class.create({
             info += value.dispInfo(ntabs+2);
         });
         return info;
+    }
+});
+
+Clickable = Class.create({
+    init: function() {
+        this.name = null;
+        this.image = null;
+        this.width = null;
+        this.height = null;
+        this.left = null;
+        this.top = null;
+    },
+    set: function(name, image, width, height, left, top) {
+        this.name = name;
+        this.image = image;
+        this.width = width;
+        this.height = height;
+        this.left = left;
+        this.top = top;  
     }
 });
 

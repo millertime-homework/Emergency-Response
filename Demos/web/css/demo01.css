@@ -67,17 +67,19 @@ textarea:focus {
 }
 .primary-view {
   position: absolute;
+  z-index: 0;
+  overflow: hidden;
   left: 3px;
   top: 3px;
   height: 611px;
   width: 1115px;
 }
+.primary-view .clickable {
+  position: absolute;
+  z-index: 2;
+}
 #controls-overlay {
   z-index: 1;
-}
-#view-scene {
-  z-index: 0;
-  overflow: hidden;
 }
 #scene-img {
   position: absolute;
