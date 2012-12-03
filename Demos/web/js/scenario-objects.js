@@ -28,7 +28,7 @@ var imageBasePath = "web/img/";
 // initialize must set the necessary variables to blank to prevent
 // next created object from retaining previous variables (prototype trick)
 
-window.Player = Class.create({
+Player = Class.create({
     initialize: function() {
         this.x = null;
         this.y = null;
@@ -120,7 +120,7 @@ window.Player = Class.create({
     }
 });
 
-window.Wall = Class.create({
+Wall = Class.create({
     initialize: function() {
         this.name = null;
         this.direction = null;
@@ -154,7 +154,7 @@ window.Wall = Class.create({
     }
 });
 
-window.Room = Class.create({
+Room = Class.create({
     initialize: function(name, x, y, z) {
         this.name = null;
         this.x = null;
@@ -229,7 +229,7 @@ window.Room = Class.create({
     }
 });
 
-window.Floor = Class.create({
+Floor = Class.create({
     initialize: function(name, z) {
         this.name = null;
         this.z = null;
@@ -325,7 +325,7 @@ window.Floor = Class.create({
     }
 });
 
-window.Scenario = Class.create({
+Scenario = Class.create({
     initialize: function() {
         this.name = null;
         this.status = null;
