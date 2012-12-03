@@ -1,6 +1,23 @@
+// GLOBALS 
+if (isEditMode) { 
+    function updatePlayerInfo() {};
+    function updateFloorSelector() {};
+    function updateRoomSelector() {};
+    function updateWallSelector() {};
+    function getSelector() {};
+    function getSelectedOption() {};
+    function disableSelector() {};
+    function enableSelector() {};
+    function clearSelector() {};
+}
+
+/* ######################################## */
+/* ######################################## */
+
+
+
 jQuery(document).ready(function($){
-    // Check for edit mode
-    if (getURLParameter("mode") != "edit") {
+    if (!isEditMode) {
         $('#editor-controls').empty();
         $('#editor-output').empty();
 
@@ -9,15 +26,8 @@ jQuery(document).ready(function($){
         view.css('margin-left', '-' + view.width() / 2 + 'px');
         view.css('top', '50%');
         view.css('margin-top', '-' + view.height() / 2 + 'px' );
-
-    } else {
-        isEditMode = true;
-        console.log("EDIT MODE!")
     }
 
-    // ##########################
-    // #### EDIT MODE EVENTS ####
-    // ##########################
 
     if (isEditMode) {
 
@@ -56,6 +66,7 @@ jQuery(document).ready(function($){
             }
             $(document).trigger('player-move')
         })
+
         // User clicks an Add button
         $('.add').click(function() {
             if (!$('#modal').hasClass('hidden')) {
@@ -71,6 +82,7 @@ jQuery(document).ready(function($){
                 $('#modal').find('.wall').removeClass('hidden')
             } 
         })
+
         // User clicks modal close button
         $('.close-modal').click(function() {
             $('#modal').addClass('hidden')
@@ -78,6 +90,7 @@ jQuery(document).ready(function($){
             $('#modal > .room').addClass('hidden')
             $('#modal > .wall').addClass('hidden')
         })
+
         // User selects a floor from dropdown
         $('select#floor-selector').change(function() {
             if ($(this).attr('disabled')) {
@@ -88,6 +101,7 @@ jQuery(document).ready(function($){
             console.log('Floor select event: ' + selectedFloor )
             updateRoomSelector(selectedFloor)
         })
+
         // User selects a room from dropdown
         $('select#room-selector').change(function() {
             if ($(this).attr('disabled')) {
@@ -98,6 +112,7 @@ jQuery(document).ready(function($){
             console.log('Room select event: ' + selectedRoom)
             updateWallSelector(selectedFloor, selectedRoom)
         })
+
         // Use clicks get info button
         $('#getInfo').bind('click', function() {
             $('#output').val(
@@ -275,9 +290,3 @@ jQuery(document).ready(function($){
         selector.empty()
     }    
 })
-
-function getURLParameter(name) {
-    return decodeURIComponent(
-        (location.search.match(RegExp("[?|&]" + name + '=(.+?)(&|$)')) || [, null])[1]
-    );
-}

@@ -1,3 +1,13 @@
+// GLOBALS
+var Player = null;
+var Scenario = null;
+var Floor = null;
+var Room = null;
+var Wall = null;
+
+/* ######################################## */
+/* ######################################## */
+
 // CONSTANTS
 var SCENARIO_STATUS_ACTIVE = 'active';
 var SCENARIO_STATUS_INACTIVE = 'inactive';

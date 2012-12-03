@@ -1,3 +1,9 @@
+// GLOBALS
+var spinner = null;
+
+/* ######################################## */
+/* ######################################## */
+
 jQuery(document).ready(function($){
 
     // Add spinner to view-modal while loading scenario   

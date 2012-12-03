@@ -1,4 +1,4 @@
-window.scenarioDef = {
+scenarioDef = {
         'name': 'Demo 01 Scenario',
         '_floors': {
                 'First Floor': {
