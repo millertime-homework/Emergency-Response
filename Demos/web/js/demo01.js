@@ -28,7 +28,7 @@ jQuery(document).ready(function($){
         color: '#fff'
     }).spin(document.getElementById('view-modal'))
 
-    loadScenario(scenarioDef)
+    loadScenario(this.scenarioDef)
 
     // check starting players position
     if (player) {
