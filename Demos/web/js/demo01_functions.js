@@ -4,6 +4,7 @@ var player = null;
 function loadScenario() {};
 function renderScene() {};
 function renderClickables() {};
+function clearClickables() {};
 function renderMap() {};
 function isScenarioDefined() {};
 function isPlayerDefined() {};
@@ -28,6 +29,7 @@ jQuery(document).ready(function($){
                 // load walls of this room
                 $.each(value['_walls'], function(key, value) {
                     currWall = currRoom.addWall(value['name'], key, value['image'])
+                    // Add clickables - if any
                     if (typeof value['_clickables'] != 'undefined') {
                         $.each(value['_clickables'], function(key, value) {
                             currWall.addClickable(
@@ -41,6 +43,15 @@ jQuery(document).ready(function($){
                             )
                         })
                     }
+                    // Add exits/destinations
+                    if (typeof value['destination'] != 'undefined'){
+                        var newX, newY, newZ, newF, dest = value['destination'];
+                        if (typeof dest['x'] != 'undefined') { newX = dest['x']; } else { newX = currRoom['x']; }
+                        if (typeof dest['y'] != 'undefined') { newY = dest['y']; } else { newY = currRoom['y']; }
+                        if (typeof dest['z'] != 'undefined') { newZ = dest['z']; } else { newZ = currRoom['z']; }
+                        if (typeof dest['f'] != 'undefined') { newF = dest['f']; } else { newF = key; }
+                        currWall.setDestination(newX, newY, newZ, newF);
+                    }
                 })
             })
         })
@@ -53,6 +64,7 @@ jQuery(document).ready(function($){
     // Applies new scene image, 
     // Shows movement buttons that are available 
     renderScene = function() {
+        clearClickables();
         $(".move-z").hide();
         var room = scenario.getRoom(player.x, player.y, player.z);
         if (scenario.isValidRoom(player.x, player.y, player.z)) {
@@ -88,6 +100,10 @@ jQuery(document).ready(function($){
         })
         
     } 
+
+    clearClickables = function() {
+        $('#view-modal .clickable').remove()
+    }
 
     // Sets active map squares and player position in map
     renderMap = function() {

@@ -11,16 +11,21 @@ scenarioDef = {
                                         '_walls': {
                                                 'e': {
                                                         'name': 'E 5th Hall', 
-                                                        'image': 'A-east.jpg'
+                                                        'image': 'A-east.jpg',
+                                                        'destination': {
+                                                                'x': 1
+                                                        }
                                                 },
                                                 'w': {
                                                         'name': 'W 5th Hall',
                                                         'image': 'A-west.jpg'
-                                                
                                                 },
                                                 'n': {
                                                         'name': 'N 5th Hall',   
-                                                        'image': 'A-north.jpg'
+                                                        'image': 'A-north.jpg',
+                                                        'destination': {
+                                                                'y': 1
+                                                        }
                                                 },
                                                 's': {
                                                         'name': 'S 5th Hall', 
@@ -57,9 +62,12 @@ scenarioDef = {
                                                 },
                                                 's': {
                                                         'name': 'S Upper 5th Hall', 
-                                                        'image': 'B-south.jpg'
+                                                        'image': 'B-south.jpg',
+                                                        'destination': {
+                                                                'y': 0
+                                                        }
                                                 }
-                                        }
+                                        },
                                 },
                                 'West on Hall': {
                                         'id': 'westhall',
@@ -68,11 +76,17 @@ scenarioDef = {
                                         '_walls': {
                                                 'e': {
                                                         'name': 'E West on Hall',
-                                                        'image': 'C-east.jpg'
+                                                        'image': 'C-east.jpg',
+                                                        'destination': {
+                                                                'x': 2
+                                                        }
                                                 },
                                                 'w': {
                                                         'name': 'W West on Hall',
-                                                        'image': 'C-west.jpg'
+                                                        'image': 'C-west.jpg',
+                                                        'destination': {
+                                                                'x': 0
+                                                        }
                                                 },
                                                 'n': {
                                                         'name': 'N West on Hall',
@@ -91,11 +105,17 @@ scenarioDef = {
                                         '_walls': {
                                                 'e': {
                                                         'name': 'E West on Hall 2',
-                                                        'image': 'D-east.jpg'
+                                                        'image': 'D-east.jpg',
+                                                        'destination': {
+                                                                'x': 3
+                                                        }
                                                 },
                                                 'w': {
                                                         'name': 'W West on Hall 2',
-                                                        'image': 'D-west.jpg'
+                                                        'image': 'D-west.jpg',
+                                                        'destination': {
+                                                                'x': 1
+                                                        }
                                                 },
                                                 'n': {
                                                         'name': 'N West on Hall 2',
@@ -114,11 +134,14 @@ scenarioDef = {
                                         '_walls': {
                                                 'e': {
                                                         'name': 'E 4th Hall',
-                                                        'image': 'E-east.jpg'
+                                                        'image': 'E-east.jpg',
                                                 },
                                                 'w': {
                                                         'name': 'W 4th Hall',
-                                                        'image': 'E-west.jpg'
+                                                        'image': 'E-west.jpg',
+                                                        'destination': {
+                                                                'x': 2
+                                                        }
                                                 },
                                                 'n': {
                                                         'name': 'N 4th Hall',

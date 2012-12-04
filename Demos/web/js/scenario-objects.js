@@ -59,40 +59,53 @@ Player = Class.create({
         this.scenario = scenario;
     },
     move: function(direction) {	
-        if (direction == DIRECTION_NORTH) {
-            if (scenario.isValidRoom(this.x, this.y+1, this.z)) {
-                this.y = this.y + 1;
-                return true;
-            }
-            console.log('Player.move - cannot move to ' + this.x + "," + (this.y+1) + "," + this.z)
-        } else if (direction == DIRECTION_SOUTH) {
-            if (scenario.isValidRoom(this.x, this.y-1, this.z)) {
-                this.y = this.y - 1;
-                return true;
-            }
-            console.log('Player.move - cannot move to ' + this.x + "," + (this.y-1) + "," + this.z)
-        } else if (direction == DIRECTION_EAST) {
-            if (scenario.isValidRoom(this.x+1, this.y, this.z)) {
-                this.x = this.x + 1;
-                return true;
-            }
-            console.log('Player.move - cannot move to ' + (this.x+1) + "," + this.y + "," + this.z)
-        } else if (direction == DIRECTION_WEST){
-            if (scenario.isValidRoom(this.x-1, this.y, this.z)) {
-                this.x = this.x - 1;
-                return true;
-            }
-            console.log('Player.move - cannot move to ' + (this.x-1) + "," + this.y + "," + this.z)
-        } else if (direction === DIRECTION_UP && this.canMoveUp()) {
-            this.z += 1;
-            this.setFacingAfterExitingStairs();
-            return true;
-        } else if (direction === DIRECTION_DOWN && this.canMoveDown()) {
-            this.z -= 1;
-            this.setFacingAfterExitingStairs();
+        var currRoom = scenario.getRoom(this.x, this.y, this.z)
+        var currWall = currRoom.getWallByDir(direction)
+        if (currWall.hasDestination()) {
+            destination = currWall['destination']
+            this.x = destination['x']
+            this.y = destination['y']
+            this.z = destination['z']
+            this.facing = destination['f']
             return true;
         }
-        return false;
+        return false
+
+
+        // if (direction == DIRECTION_NORTH) {
+        //     if (scenario.isValidRoom(this.x, this.y+1, this.z)) {
+        //         this.y = this.y + 1;
+        //         return true;
+        //     }
+        //     console.log('Player.move - cannot move to ' + this.x + "," + (this.y+1) + "," + this.z)
+        // } else if (direction == DIRECTION_SOUTH) {
+        //     if (scenario.isValidRoom(this.x, this.y-1, this.z)) {
+        //         this.y = this.y - 1;
+        //         return true;
+        //     }
+        //     console.log('Player.move - cannot move to ' + this.x + "," + (this.y-1) + "," + this.z)
+        // } else if (direction == DIRECTION_EAST) {
+        //     if (scenario.isValidRoom(this.x+1, this.y, this.z)) {
+        //         this.x = this.x + 1;
+        //         return true;
+        //     }
+        //     console.log('Player.move - cannot move to ' + (this.x+1) + "," + this.y + "," + this.z)
+        // } else if (direction == DIRECTION_WEST){
+        //     if (scenario.isValidRoom(this.x-1, this.y, this.z)) {
+        //         this.x = this.x - 1;
+        //         return true;
+        //     }
+        //     console.log('Player.move - cannot move to ' + (this.x-1) + "," + this.y + "," + this.z)
+        // } else if (direction === DIRECTION_UP && this.canMoveUp()) {
+        //     this.z += 1;
+        //     this.setFacingAfterExitingStairs();
+        //     return true;
+        // } else if (direction === DIRECTION_DOWN && this.canMoveDown()) {
+        //     this.z -= 1;
+        //     this.setFacingAfterExitingStairs();
+        //     return true;
+        // }
+        // return false;
     },
 
     turn: function (direction) {
@@ -137,6 +150,7 @@ Wall = Class.create({
         this.direction = null;
         this.image = null;
         this.clickables = {};
+        this.destination = null;
     },
     set: function(name, direction, image) {
         this.name = name;
@@ -148,6 +162,18 @@ Wall = Class.create({
         clickableImage = scenario.addImage(image)
         newClickable.set(name, clickableImage, width, height, left, right);
         this.clickables[id] = newClickable;
+    },
+    setDestination: function(x, y, z, f) {
+        if (this.destination == null) {
+            this.destination = {};
+        }
+        this.destination['x'] = x;
+        this.destination['y'] = y;
+        this.destination['z'] = z;
+        this.destination['f'] = f;
+    },
+    hasDestination: function() {
+        return (this.destination != null);
     },
     setName: function (name) {
         this.name = name;
@@ -168,7 +194,7 @@ Wall = Class.create({
                 tabs += "\t"; 
             }
         }
-        return tabs + "(Wall) direction=" + this.direction + ", name=" + this.name + ", image=" + this.image + "\n";
+        return tabs + "(Wall) direction=" + this.direction + ", name=" + this.name + ", image=" + this.image + ", hasExit:" + this.hasDestination() +  "\n";
     }
 });
 
