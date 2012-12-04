@@ -75,14 +75,20 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     top: @borderThickness;
     height: @viewportHeight;
     width: @viewportWidth;
-    .clickable {
-        position: absolute;
-        z-index: 2; 
+}
+
+.clickable {
+    position: absolute;
+    z-index: 3; 
+    .opacity(50);
+    &:hover {
+        .opacity(100);
     }
 }
 
 #controls-overlay {
     z-index: 1;
+    background: transparent;
 }
 
 #scene-img {

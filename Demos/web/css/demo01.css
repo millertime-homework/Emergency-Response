@@ -74,12 +74,23 @@ textarea:focus {
   height: 611px;
   width: 1115px;
 }
-.primary-view .clickable {
+.clickable {
   position: absolute;
-  z-index: 2;
+  z-index: 3;
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  opacity: 0.5;
+}
+.clickable:hover {
+  filter: alpha(opacity=50);
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
 }
 #controls-overlay {
   z-index: 1;
+  background: transparent;
 }
 #scene-img {
   position: absolute;

@@ -75,7 +75,7 @@ jQuery(document).ready(function($){
 
     // Renders clickables on wall
     renderClickables = function(wall) {
-        var view = $('#view-scene')
+        var view = $('#view-modal')
         $.each(wall.clickables, function(key, value) {
             view.append('<div id="' + key + '" class="clickable" width="' + value['width'] + '" height="' + value['height'] +'">')
 

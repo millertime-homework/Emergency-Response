@@ -41,9 +41,9 @@ scenarioDef = {
                                                                         'name': 'Espresso Shop Window',
                                                                         'image': 'B-east-window.jpg',
                                                                         'width': 156,
-                                                                        'length': 135,
-                                                                        'left': 80,
-                                                                        'top': 374
+                                                                        'height': 135,
+                                                                        'left': 88,
+                                                                        'top': 377
                                                                 }
                                                         }
                                                 }, 
