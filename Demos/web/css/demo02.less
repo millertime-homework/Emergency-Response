@@ -1,0 +1,169 @@
+@import "less-mixins.less"; // Import Mixins
+@viewportHeight: 480px;
+@viewportWidth: 640px;
+@primaryBorderColor: #000000;
+@primaryBackgroundColor: #FFFFFF;
+@primaryFontColor: #000000;
+@primaryHighlightColor: #4493F3;
+@borderThickness: 3px;
+@primaryBorderRadius: 20px;
+
+body {
+    font-family: "Helvetica-Neue-Light", "Helvetica Neue Light";
+    font-size: 14px;
+}
+.selector-title, .player-title {
+    font-weight: bold;
+}
+
+#view-modal {
+    display: inline;
+    position: relative;
+    float: left;
+    background-color: @primaryBorderColor;
+    height: @viewportHeight + @borderThickness * 2;
+    width: @viewportWidth + @borderThickness * 2;
+    .border_radius(@primaryBorderRadius);
+    .box_shadow();
+}
+
+.bold-colored-text {
+    font-weight: bold;
+    color: @primaryBorderColor;
+}
+
+.viewport-button {
+    background-color: @primaryBackgroundColor;
+    border-color:@primaryBorderColor;
+    border-style: solid;
+    border-width: 0px;
+    padding: 2px 5px;
+    outline-width: 0;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+}
+
+input:hover, input:active, input:focus, textarea:hover, textarea:active, textarea:focus {
+    border-color: @primaryHighlightColor;
+    border-style: solid;
+    border-width: 0px;
+}
+
+#viewport-move-forward {
+   margin-left: 50%;
+   background-color: transparent;
+   background-image: url('../img/up.png');
+   &:hover {
+      background-image: url('../img/up-glow.png');
+   }
+}
+
+#viewport-turn-left {
+   top: 50%;
+   background-color: transparent;
+   background-image: url('../img/left.png');
+   &:hover {
+      background-image: url('../img/left-glow.png');
+   }
+}
+
+#viewport-move-down {
+    top: 100%;
+    margin-top: -27px;
+}
+
+#viewport-turn-right {
+   top: 50%;
+   left: @viewportWidth;
+   margin-left: -27px;
+   background-color: transparent;
+   background-image: url('../img/right.png');
+   &:hover {
+      background-image: url('../img/right-glow.png');
+   }
+}
+
+.primary-view {
+    position: absolute;
+    z-index: 0;
+    overflow: hidden;
+    left: @borderThickness;
+    top: @borderThickness;
+    height: @viewportHeight;
+    width: @viewportWidth;
+}
+
+.clickable {
+    position: absolute;
+    z-index: 3; 
+    .opacity(50);
+    &:hover {
+        .opacity(100);
+    }
+}
+
+#controls-overlay {
+    z-index: 1;
+    background: transparent;
+}
+
+#scene-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    .border_radius(@primaryBorderRadius - 5);
+}
+
+#editor-output {
+    display: inline;
+    float: left;
+}
+
+#output {
+    border: 1px solid black; 
+    width: 300px; 
+    height: 400px;
+}
+
+#playerinfo, 
+#dropdowns, 
+#movebuttons,
+#locationinfo {
+    width: 100%;
+}
+
+#modal {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    z-index: 10;
+    .border_radius(10px);
+    background-color: white;
+    border: 1px solid black;
+    .box_shadow();
+    padding: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+#map {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    float: left;
+    overflow: hidden;
+    > div {
+        position: relative;
+        float: left;
+        &.active {
+            background: black;
+            &.player-pos {
+                background: red;
+            }
+        }
+    }
+}
