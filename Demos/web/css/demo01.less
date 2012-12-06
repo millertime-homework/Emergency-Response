@@ -36,24 +36,36 @@ body {
     background-color: @primaryBackgroundColor;
     border-color:@primaryBorderColor;
     border-style: solid;
-    border-width: @borderThickness;
+    border-width: 0px;
     padding: 2px 5px;
     outline-width: 0;
     position: absolute;
+    width: 30px;
+    height: 30px;
 }
 
 input:hover, input:active, input:focus, textarea:hover, textarea:active, textarea:focus {
     border-color: @primaryHighlightColor;
     border-style: solid;
-    border-width: 3px;
+    border-width: 0px;
 }
 
 #viewport-move-forward {
    margin-left: 50%;
+   background-color: transparent;
+   background-image: url('../img/up.png');
+   &:hover {
+      background-image: url('../img/up-glow.png');
+   }
 }
 
 #viewport-turn-left {
    top: 50%;
+   background-color: transparent;
+   background-image: url('../img/left.png');
+   &:hover {
+      background-image: url('../img/left-glow.png');
+   }
 }
 
 #viewport-move-down {
@@ -65,6 +77,11 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
    top: 50%;
    left: @viewportWidth;
    margin-left: -27px;
+   background-color: transparent;
+   background-image: url('../img/right.png');
+   &:hover {
+      background-image: url('../img/right-glow.png');
+   }
 }
 
 .primary-view {
