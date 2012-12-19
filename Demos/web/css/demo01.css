@@ -52,34 +52,34 @@ textarea:focus {
   border-style: solid;
   border-width: 0px;
 }
-#viewport-move-forward {
+#move-forward {
   margin-left: 50%;
   background-color: transparent;
   background-image: url('../img/up.png');
 }
-#viewport-move-forward:hover {
+#move-forward:hover {
   background-image: url('../img/up-glow.png');
 }
-#viewport-turn-left {
+#turn-left {
   top: 50%;
   background-color: transparent;
   background-image: url('../img/left.png');
 }
-#viewport-turn-left:hover {
+#turn-left:hover {
   background-image: url('../img/left-glow.png');
 }
-#viewport-move-down {
+#move-down {
   top: 100%;
   margin-top: -27px;
 }
-#viewport-turn-right {
+#turn-right {
   top: 50%;
   left: 1115px;
   margin-left: -27px;
   background-color: transparent;
   background-image: url('../img/right.png');
 }
-#viewport-turn-right:hover {
+#turn-right:hover {
   background-image: url('../img/right-glow.png');
 }
 .primary-view {

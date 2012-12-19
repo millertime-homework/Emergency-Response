@@ -169,25 +169,4 @@ jQuery(document).ready(function($){
         }
         return true;
     }
-    
-    // Resizes modal 
-    function updateModalLocation() {
-        var modal = $('#modal')
-        var viewport = document.viewport.getDimensions()
-        var viewWidth = viewport.width;
-        var viewHeight = viewport.height;
-        var leftAlign = 0;
-        var topAlign = 0;
-        if (viewWidth > modal.width()) {
-            leftAlign = (viewport.width - modal.width())/2;
-        }
-        if (viewHeight > modal.height()) {
-            topAlign = (viewport.height - modal.height())/2;
-        }
-
-        console.log('leftAlign:' + leftAlign)
-        console.log('topAlign:' + topAlign)
-        modal.css('left', leftAlign + "px");
-        modal.css('top', topAlign + "px");
-    }
 })

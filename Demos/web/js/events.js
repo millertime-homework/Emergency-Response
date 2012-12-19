@@ -30,16 +30,8 @@ jQuery(document).ready(function($) {
         renderScene()
     })
 
-    // When window is resized, resize modal
-    // TODO: bind if modal shown, unbind when modal closed
-    $(window).resize(function() {
-        if (!$('#modal').hasClass('hidden')) {
-            updateModalLocation();
-        }
-    })
-
     // Player clicks move-forward button
-    $('.move-forward').click(function () {
+    $('#move-forward').click(function () {
         if (!player.move(player.facing)) {
             return;
         }
@@ -47,7 +39,7 @@ jQuery(document).ready(function($) {
     })
 
     // Player clicks turn-left button
-    $('.turn-left').click(function () {
+    $('#turn-left').click(function () {
         if (!player.turn("l")) {
             return;
         }
@@ -55,7 +47,7 @@ jQuery(document).ready(function($) {
     })
 
     // Player clicks turn-right button
-    $('.turn-right').click(function () {
+    $('#turn-right').click(function () {
         if (!player.turn("r")) {
             return;
         }
@@ -63,7 +55,7 @@ jQuery(document).ready(function($) {
     })
 
     // Player clicks move-up button
-    $('.move-up').click(function () {
+    $('#move-up').click(function () {
         if (!player.move("u")) {
             return;
         }
@@ -71,7 +63,7 @@ jQuery(document).ready(function($) {
     })
 
     // Player clicks move-down button
-    $('.move-down').click(function () {
+    $('#move-down').click(function () {
         if (!player.move("d")) {
             return;
         }
@@ -88,15 +80,15 @@ jQuery(document).ready(function($) {
         if (event.which == 37) {
             event.preventDefault();
             // left arrow key
-            $('.turn-left').trigger('click')
+            $('#turn-left').trigger('click')
         } else if (event.which == 38) {
             event.preventDefault();
             // up arrow key
-            $('.move-forward').trigger('click')
+            $('#move-forward').trigger('click')
         } else if (event.which == 39) {
             event.preventDefault();
             // right arrow key
-            $('.turn-right').trigger('click')
+            $('#turn-right').trigger('click')
         } else if (event.which == 40) {
             event.preventDefault();
             // down arrow key
