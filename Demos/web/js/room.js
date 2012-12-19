@@ -57,24 +57,5 @@ Room = Class.create({
     },
     stairExitDirection: function() {
         return this.hasOwnProperty(PROP_EXIT_STAIRS_DIRECTION) ? this[PROP_EXIT_STAIRS_DIRECTION] : null;
-    },
-    dispInfo: function(ntabs) {
-        if (typeof ntabs === 'undefined') {
-            tabs = "";
-            ntabs = 0;
-        } else {
-            var tabs = "";
-            for (i = 0; i < ntabs; i++) { 
-                tabs += "\t"; 
-            }
-        }
-        var info = "";
-
-        info += tabs + "(Room) name=\"" + this.name + "\", location=( " + this.x + ", " + this.y + ", " + this.z + "), \n";
-        info += tabs + "\tWalls->\n";
-        $j.each(this.walls, function(key, value) {
-            info += value.dispInfo(ntabs+2);
-        })
-        return info;
     }
 });

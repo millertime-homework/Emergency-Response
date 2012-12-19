@@ -72,24 +72,5 @@ Floor = Class.create({
             });
         });
         return roomList;
-    },
-    dispInfo: function(ntabs) {
-        if (typeof ntabs === 'undefined') {
-            tabs = "";
-            ntabs = 0;
-        } else {
-            var tabs = "";
-            for (i = 0; i < ntabs; i++) { 
-                tabs += "\t"; 
-            }
-        }
-        var info = "";
-
-        info += tabs + "(Floor) name=\"" + this.name + "\", #" + this.z + ", numRooms=" + this.numRooms + "\n";
-        info += tabs + "\tRooms->\n";
-        $j.each(this.rooms, function(key, value) {
-            info += value.dispInfo(ntabs+2);
-        })
-        return info;
     }
 });

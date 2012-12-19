@@ -37,17 +37,5 @@ Wall = Class.create({
     },
     setImage: function(image) {
         this.image = scenario.addImage(image)
-    },
-    dispInfo: function(ntabs) {
-        if (typeof ntabs === 'undefined') { 
-            tabs = ""; 
-            ntabs = 0;
-        } else {
-            tabs = "";
-            for (i = 0; i < ntabs; i++) { 
-                tabs += "\t"; 
-            }
-        }
-        return tabs + "(Wall) direction=" + this.direction + ", name=" + this.name + ", image=" + this.image + ", hasExit:" + this.hasDestination() +  "\n";
     }
 });
