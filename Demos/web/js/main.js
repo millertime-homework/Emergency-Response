@@ -28,9 +28,6 @@ jQuery(document).ready(function($){
     // ## INIT UI ##
     // initMap()
     renderScene()
-    if (isEditMode) {
-        updateFloorSelector()
-        updatePlayerInfo()
-    }
+
     spinner.stop();
 });

@@ -10,100 +10,6 @@
     </script>
 </head>
 <body>
-    <!-- BEGIN EDITMODE -->
-        <div id="editor-controls">
-            <div id="playerinfo">
-                <span class="player-title">Player Coordinates:</span>
-                <input type="text" id="playerloc" />
-                <span class="player-title">Facing:</span>
-                <input type="text" id="playerdir" />
-            </div>
-            <div id="locationinfo">
-                <span class="player-title">Current Floor:</span>
-                <input type="text" id="currentfloor" />
-                <span class="player-title">Current Room:</span>
-                <input type="text" id="currentroom" />
-                <span class="player-title">Facing Wall:</span>
-                <input type="text" id="currentwall" />
-            </div>
-            <div id="movebuttons">
-                <button class="move" id="move-north">Move North</button>
-                <button class="move" id="move-south">Move South</button>
-                <button class="move" id="move-east">Move East</button>
-                <button class="move" id="move-west">Move West</button>
-                <button class="turn turn-left" id="editor-turn-left">Turn Left</button>
-                <button class="turn turn-right" id="editor-turn-right">Turn Right</button>
-            </div>
-            <div id="dropdowns">
-                <span class="selector-title">Floor:</span>
-                <select name="floor" id="floor-selector" disabled>
-                    <option value="blank">No Floors Listed</option>
-                </select>
-                <button class="add" data-type="floor">Add Floor</button>
-                <br />
-                <span class="selector-title">Room:</span>
-                <select name="room" id="room-selector" disabled>
-                    <option value="blank">No Rooms Listed</option>
-                </select>
-                <button class="add" data-type="room">Add Room</button>
-                <br />
-                <span class="selector-title">Wall:</span>
-                <select name="wall" id="wall-selector" disabled>
-                    <option value="blank">No Walls Listed</option>
-                </select>
-                <button class="add" data-type="wall">Add Wall</button>
-            </div>
-        </div>
-        <div id="editor-output">
-            <textarea id="output">
-                Info will display here....
-            </textarea>
-            <br />
-            <input type="submit" value="Display Info" id="getInfo" />
-         </div>
-         <div id="modal" class="hidden">
-            <div class="floor add-form hidden">
-                <input type="submit" class="close-modal" value="Close" /><br />
-                <h3>Create a Floor</h3>
-                <br />
-                <span class="selector-title">Name:</span>
-                <input type="text" id="floor-name" />
-                <br />
-                <span class="selector-title">Z:</span>
-                <input type="text" id="floor-z" />
-            </div>
-            <div class="room add-form hidden">
-                <input type="submit" class="close-modal" value="Close" /><br />
-                <h3>Create a Room</h3>
-                <br />
-                <span class="selector-title">Name:</span>
-                <input type="text" id="room-name" />
-                <br />
-                <span class="selector-title">X:</span>
-                <input type="text" id="room-x" />
-                <br />
-                <span class="selector-title">Y:</span>
-                <input type="text" id="room-y" />
-                <br />
-                <span class="selector-title">Z:</span>
-                <input type="text" id="room-z" />
-            </div>
-            <div class="wall add-form hidden">
-                <input type="submit" class="close-modal" value="Close" /><br />
-                <h3>Create a Wall</h3>
-                <br />
-                <span class="selector-title">Name:</span>
-                <input type="text" id="wall-name" />
-                <br />
-                <span class="selector-title">Direction:</span>
-                <input type="text" id="wall-direction" />
-                <br />
-                <span class="selector-title">Image:</span>
-                <input type="text" id="wall-image" />
-            </div>
-        </div>
-     <!-- END EDITMODE -->
-    
     <!-- BEGIN MAIN -->
         <div id="view-modal">
             <div class="primary-view" id="controls-overlay">
@@ -122,12 +28,6 @@
         <script type="text/javascript">
             // Globals that must be defined outside the scripts
             var scenarioDef = null;
-            var isEditMode = false;
-
-            // Check for edit mode
-            if (getURLParameter("mode") === "edit") {
-                isEditMode = true;
-            }
 
             function getURLParameter(name) {
                 return decodeURIComponent(
@@ -137,11 +37,10 @@
         </script>
         <!-- The ordering of including scripts are important -->
         <script type="text/javascript" src="web/js/scenario-objects.js"></script>   <!-- Scenario Objects/Classes -->
-        <script type="text/javascript" src="web/js/demo01_def.js"></script>         <!-- Scenario File containing JSON representation -->
-        <script type="text/javascript" src="web/js/demo01_edit_mode.js"></script>   <!-- Edit Mode Functionality -->
-        <script type="text/javascript" src="web/js/demo01_functions.js"></script>   <!-- Main Functions (rendering/loading) -->
-        <script type="text/javascript" src="web/js/demo01_events.js"></script>      <!-- Events and their handlers -->
-        <script type="text/javascript" src="web/js/demo01_main.js"></script>        <!-- Main code to start game -->
+        <script type="text/javascript" src="web/js/def.js"></script>         <!-- Scenario File containing JSON representation -->
+        <script type="text/javascript" src="web/js/functions.js"></script>   <!-- Main Functions (rendering/loading) -->
+        <script type="text/javascript" src="web/js/events.js"></script>      <!-- Events and their handlers -->
+        <script type="text/javascript" src="web/js/main.js"></script>        <!-- Main code to start game -->
     <!-- END JAVASCRIPTS -->
 </body>
 </html>
