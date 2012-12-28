@@ -96,6 +96,11 @@ jQuery(document).ready(function($){
             viewClickable.css('width', value['width'])
             viewClickable.css('height', value['height'])
             viewClickable.append(value['image'])
+            viewClickable.bind('click', function () {
+                alert("I was clicked " + this.id);
+
+            })
+
         })
         
     } 

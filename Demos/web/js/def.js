@@ -48,7 +48,8 @@ scenarioDef = {
                                                                         'width': 156,
                                                                         'height': 135,
                                                                         'left': 88,
-                                                                        'top': 377
+                                                                        'top': 377,
+                                                                        'content' : 'B-east-window-Large.jpg'
                                                                 }
                                                         }
                                                 }, 
