@@ -7,6 +7,7 @@ function renderClickables() {};
 function clearClickables() {};
 function isScenarioDefined() {};
 function isPlayerDefined() {};
+function evalGameState() {};
 
 /* ######################################## */
 /* ######################################## */
@@ -120,4 +121,30 @@ jQuery(document).ready(function($){
         }
         return true;
     }
+
+    // Changes the layout to match the current game state.
+    evalGameState = function() {
+        switch(playerState)
+        {
+            case"Main-Menu":
+                $('#view-modal').hide();
+                $('#main-menu').show();
+                break;
+            case"Playing":
+                $('#main-menu').hide();
+                $('#view-modal').show();
+                break;
+            case"Paused":
+                if(confirm("Quit and retrurn to main menu?")){
+                        //alert("In Paused");
+                        playerState = "Main-Menu";
+                        evalGameState();
+                    } else{ alert("opps");}
+                
+                break;
+
+        }
+
+    }
+
 })

@@ -95,6 +95,11 @@ jQuery(document).ready(function($) {
         } else if (event.which == 69) {
             event.preventDefault();
             $(document).trigger('startEarthquake')
+        } else if(event.which == 27){
+            playerState = "Paused";
+            evalGameState();
+        } else {
+            alert(event.which);
         }
         keypressed = false;
 
