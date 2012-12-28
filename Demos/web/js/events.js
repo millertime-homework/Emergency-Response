@@ -99,7 +99,7 @@ jQuery(document).ready(function($) {
             playerState = "Paused";
             evalGameState();
         } else {
-            alert(event.which);
+            // alert(event.which);
         }
         keypressed = false;
 

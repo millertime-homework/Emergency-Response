@@ -135,7 +135,7 @@ jQuery(document).ready(function($){
                 $('#view-modal').show();
                 break;
             case"Paused":
-                if(confirm("Quit and retrurn to main menu?")){
+                if(confirm("Quit and return to main menu?")){
                         //alert("In Paused");
                         playerState = "Main-Menu";
                         evalGameState();
