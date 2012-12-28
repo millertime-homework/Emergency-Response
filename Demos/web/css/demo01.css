@@ -167,7 +167,7 @@ textarea:focus {
 #map > div.active.player-pos {
   background: red;
 }
-#menu {
+#main-menu {
   position: absolute;
   left: 50%;
   margin-left: -557.5px;
@@ -178,7 +178,7 @@ textarea:focus {
   -moz-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
 }
-#menu #header {
+#main-menu #header {
   position: relative;
   float: left;
   width: 100%;
@@ -188,7 +188,7 @@ textarea:focus {
   font-color: #555;
   border-bottom: 1px solid black;
 }
-#menu .option {
+#main-menu .option {
   position: relative;
   float: left;
   width: 100%;
@@ -196,12 +196,12 @@ textarea:focus {
   margin-bottom: 10px;
   text-align: center;
 }
-#menu .option span {
+#main-menu .option span {
   padding: 2px;
   font-size: 1.2em;
   color: #77f;
 }
-#menu .option span:hover {
+#main-menu .option span:hover {
   border: 1px solid black;
   -webkit-border-radius: 5px 5px 5px 5px;
   -moz-border-radius: 5px 5px 5px 5px;
