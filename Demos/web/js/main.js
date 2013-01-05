@@ -1,3 +1,10 @@
+// GLOBALS
+var spinner = null;
+var playerState = "Main-Menu";
+
+/* ######################################## */
+/* ######################################## */
+
 jQuery(document).ready(function($){
 
     // Add spinner to view-modal while loading scenario   
@@ -8,7 +15,7 @@ jQuery(document).ready(function($){
     // ## MAIN FUNCTION ##
     // LOAD SCENARIO
     loadScenario(scenarioDef)
-
+    
     // Check starting players position
     if (player) {
          if (!scenario.isValidRoom(player.x, player.y, player.z)) {
@@ -22,9 +29,6 @@ jQuery(document).ready(function($){
     // ## INIT UI ##
     // initMap()
     renderScene()
-    if (isEditMode) {
-        updateFloorSelector()
-        updatePlayerInfo()
-    }
+    evalGameState()
     spinner.stop();
 });

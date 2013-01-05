@@ -1,6 +1,6 @@
 @import "less-mixins.less"; // Import Mixins
-@viewportHeight: 611px;
-@viewportWidth: 1115px;
+@viewportHeight: 480px;
+@viewportWidth: 640px;
 @primaryBorderColor: #000000;
 @primaryBackgroundColor: #FFFFFF;
 @primaryFontColor: #000000;
@@ -50,7 +50,7 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     border-width: 0px;
 }
 
-#move-forward {
+#viewport-move-forward {
    margin-left: 50%;
    background-color: transparent;
    background-image: url('../img/up.png');
@@ -59,7 +59,7 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
    }
 }
 
-#turn-left {
+#viewport-turn-left {
    top: 50%;
    background-color: transparent;
    background-image: url('../img/left.png');
@@ -68,12 +68,12 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
    }
 }
 
-#move-down {
+#viewport-move-down {
     top: 100%;
     margin-top: -27px;
 }
 
-#turn-right {
+#viewport-turn-right {
    top: 50%;
    left: @viewportWidth;
    margin-left: -27px;
@@ -166,43 +166,4 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
             }
         }
     }
-}
-
-#main-menu {
-  position: absolute;
-  left: 50%;
-  margin-left: -(@viewportWidth/2);
-  display: none;
-
-  width: @viewportWidth;
-  border: 1px solid black;
-  .border_radius(10px);
-  #header {
-    position: relative;
-    float: left;
-    width: 100%;
-    height: 2.1em;
-    font-size: 2em;
-    text-align: center;
-    font-color: #555;
-    border-bottom: 1px solid black;
-  }
-  .option {
-    position: relative;
-    float: left;
-    width: 100%;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    text-align: center;
-    span {
-      padding: 2px;
-      font-size: 1.2em;
-      color: #77f;
-      &:hover {
-        border: 1px solid black;
-        .border_radius(5px);
-        color: #00f;
-      }
-    }
-  }
 }
