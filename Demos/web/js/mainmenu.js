@@ -18,7 +18,12 @@ jQuery(document).ready(function($){
     
 	// Brings Up the Info page.
 	$('#info-button').click(function() {
-		alert("Stub: Team info page goes here!");
+		$('#overlay').removeClass('hidden');
+		$('#modal').removeClass('hidden');
+		$('#overlay, #modal').bind('click', function() {
+			$('#overlay').addClass('hidden');
+			$('#modal').addClass('hidden');
+		})
 	})
 
 })
