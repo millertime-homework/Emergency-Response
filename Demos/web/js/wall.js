@@ -18,10 +18,10 @@ Wall = Class.create({
         this.clickables[id] = newClickable;
     },
     getClickable: function(id) {
-        if (typeof this.clickables[id] != null) {
-            return this.clickables[id];
+        if (typeof this.clickables[id] === 'undefined') {
+            return null;
         }
-        return null;
+        return this.clickables[id];
     },
     setDestination: function(x, y, z, f) {
         if (this.destination == null) {
