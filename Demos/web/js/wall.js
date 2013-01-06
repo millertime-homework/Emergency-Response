@@ -17,6 +17,12 @@ Wall = Class.create({
         newClickable.set(name, clickableImage, width, height, left, right, content);
         this.clickables[id] = newClickable;
     },
+    getClickable: function(id) {
+        if (typeof this.clickables[id] != null) {
+            return this.clickables[id];
+        }
+        return null;
+    },
     setDestination: function(x, y, z, f) {
         if (this.destination == null) {
             this.destination = {};
