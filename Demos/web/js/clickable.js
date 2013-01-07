@@ -6,15 +6,16 @@ Clickable = Class.create({
         this.height = null;
         this.left = null;
         this.top = null;
+        this.largeImage = null;
     },
-    set: function(name, image, width, height, left, top, content) {
+    set: function(name, image, width, height, left, top, largeImage) {
         this.name = name;
         this.image = image;
         this.width = width;
         this.height = height;
         this.left = left;
         this.top = top;  
-        this.content = content;
+        this.largeImage = largeImage;
     }
 
 });

@@ -11,10 +11,11 @@ Wall = Class.create({
         this.direction = direction;
         this.image = scenario.addImage(image)
     },
-    addClickable: function(id, name, image, width, height, left, right, content) {
+    addClickable: function(id, name, image, width, height, left, right, largeImage) {
         var newClickable = new Clickable;
-        clickableImage = scenario.addImage(image)
-        newClickable.set(name, clickableImage, width, height, left, right, content);
+        clickableImage = scenario.addImage(image);
+        contentImage = scenario.addImage(largeImage);
+        newClickable.set(name, clickableImage, width, height, left, right, contentImage);
         this.clickables[id] = newClickable;
     },
     getClickable: function(id) {

@@ -39,7 +39,8 @@ jQuery(document).ready(function($){
                                 value['width'], 
                                 value['height'], 
                                 value['left'], 
-                                value['top']
+                                value['top'],
+                                value['largeImage']
                             )
                         })
                     }
@@ -96,11 +97,22 @@ jQuery(document).ready(function($){
             viewClickable.css('width', value['width'])
             viewClickable.css('height', value['height'])
             viewClickable.append(value['image'])
-            viewClickable.bind('click', function () {
-                alert("I was clicked " + this.id);
-
+            var eventParams = {};
+            if (typeof value['largeImage'] !== 'undefined') {
+                eventParams['image'] = value['largeImage'];
+            }
+            viewClickable.bind('click', eventParams, function(event) {
+                $('#overlay').removeClass('hidden')
+                $('#modal').removeClass('hidden')
+                // Add largeImage if it's been passed into eventParams
+                if (typeof event.data.image !== 'undefined') {
+                    $('#modal #content').html(event.data.image);
+                }
+                $('#overlay').bind('click', function() { 
+                    $('#overlay').addClass('hidden')
+                    $('#modal').addClass('hidden')
+                })
             })
-
         })
         
     } 

@@ -49,7 +49,7 @@ scenarioDef = {
                                                                         'height': 135,
                                                                         'left': 88,
                                                                         'top': 377,
-                                                                        'content' : 'B-east-window-Large.jpg'
+                                                                        'largeImage' : 'B-east-window-Large.jpg'
                                                                 }
                                                         }
                                                 }, 
