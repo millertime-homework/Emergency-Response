@@ -3,6 +3,7 @@ var SCENARIO_STATUS_INACTIVE = 'inactive';
 var SCENARIO_STATUS_DONE = 'done';
 var imageBasePath = "web/img/";
 
+
 Scenario = Class.create({
     initialize: function() {
         this.name = null;
@@ -108,4 +109,5 @@ Scenario = Class.create({
         }
         return null;    
     }
+
 });
