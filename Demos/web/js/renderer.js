@@ -40,21 +40,18 @@ jQuery(document).ready(function($){
             viewClickable.css('width', value['width'])
             viewClickable.css('height', value['height'])
             viewClickable.append(value['image'])
-            var eventParams = {};
+            var eventParams = {
+                'image': null,
+                'name': null,
+            };
             if (typeof value['largeImage'] !== 'undefined') {
                 eventParams['image'] = value['largeImage'];
+            } 
+            if (typeof value['name'] !== 'undefined') {
+                eventParams['name'] = value['name'];
             }
             viewClickable.bind('click', eventParams, function(event) {
-                $('#overlay').removeClass('hidden')
-                $('#modal').removeClass('hidden')
-                // Add largeImage if it's been passed into eventParams
-                if (typeof event.data.image !== 'undefined') {
-                    $('#modal #content').html(event.data.image);
-                }
-                $('#overlay').bind('click', function() { 
-                    $('#overlay').addClass('hidden')
-                    $('#modal').addClass('hidden')
-                })
+                showModal(event.data.name, null, event.data.image)
             })
         })
         

@@ -5,6 +5,8 @@ function isScenarioDefined() {};
 function isPlayerDefined() {};
 function evalGameState() {};
 function loadScenario() {};
+function showModal() {};
+function hideModal() {};
 
 /* ######################################## */
 /* ######################################## */
@@ -102,6 +104,31 @@ jQuery(document).ready(function($){
 
         }
 
+    }
+
+    showModal = function(header, text, image) {
+        var modal = $('#modal');
+        var overlay = $('#overlay');
+
+        $('#modal #header').html(header);
+        $('#modal #content').html(text);
+        $('#modal #content').append(image);
+        modal.removeClass('hidden');
+        overlay.removeClass('hidden');
+
+        $('#overlay').click(function() {
+            hideModal();
+        })
+
+    }
+
+    hideModal = function() {
+        // Clear header and content
+        $('#modal #header').html('');
+        $('#modal #content').html('');
+        // Hide modal and overlay
+        $('#modal').addClass('hidden');
+        $('#overlay').addClass('hidden');
     }
 
 })

@@ -38,12 +38,7 @@ jQuery(document).ready(function($){
     
 	// Brings Up the Info page.
 	$('#info-button').click(function() {
-		$('#overlay').removeClass('hidden');
-		$('#modal').removeClass('hidden');
-		$('#overlay, #modal').bind('click', function() {
-			$('#overlay').addClass('hidden');
-			$('#modal').addClass('hidden');
-		})
+		showModal('About this game', 'We are about this game. That is all for now.', null);
 	})
 
 })
