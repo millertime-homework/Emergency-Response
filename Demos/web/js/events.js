@@ -1,5 +1,4 @@
 // GLOBALS
-var keypressed = null; // true when handling a user's keypress
 
 /* ######################################## */
 /* ######################################## */
@@ -26,82 +25,53 @@ jQuery(document).ready(function($) {
     })
 
     // Call renderScene when player moves
-    $(document).on('player-move', function() {
-        renderScene()
+    $(document).on('player-move', function(event, direction) {
+        var playerMoved = false;
+        switch(direction) {
+            case 'move-forward':
+                playerMoved = player.move(player.facing);
+                break;
+            case 'turn-left':
+                playerMoved = player.turn('l');
+                break;
+            case 'turn-right':
+                playerMoved = player.turn('r');
+                break;
+            case 'move-up':
+                playerMoved = player.move('u');
+                break;
+            case 'move-down':
+                playerMoved = player.move('d');
+                break;
+
+        }
+        if (playerMoved) {
+            renderScene()
+        }
     })
 
     // Player clicks move-forward button
     $('#move-forward').click(function () {
-        if (!player.move(player.facing)) {
-            return;
-        }
-        $(document).trigger('player-move')
+        $(document).trigger('player-move', 'move-forward');
     })
 
     // Player clicks turn-left button
     $('#turn-left').click(function () {
-        if (!player.turn("l")) {
-            return;
-        }
-        $(document).trigger('player-move')
+        $(document).trigger('player-move', 'turn-left')
     })
 
     // Player clicks turn-right button
     $('#turn-right').click(function () {
-        if (!player.turn("r")) {
-            return;
-        }
-        $(document).trigger('player-move')
+        $(document).trigger('player-move', 'turn-right')
     })
 
     // Player clicks move-up button
     $('#move-up').click(function () {
-        if (!player.move("u")) {
-            return;
-        }
-        $(document).trigger('player-move')
+        $(document).trigger('player-move', 'move-up')
     })
 
     // Player clicks move-down button
     $('#move-down').click(function () {
-        if (!player.move("d")) {
-            return;
-        }
-        $(document).trigger('player-move')
-    })
-
-    // Key is pressed
-    // TODO: hijack arrow-keys from scrollbar
-    $(window).keydown(function(event) {
-        if (keypressed) {
-            return true;
-        }
-        keypressed = true;
-        if (event.which == 37) {
-            event.preventDefault();
-            // left arrow key
-            $('#turn-left').trigger('click')
-        } else if (event.which == 38) {
-            event.preventDefault();
-            // up arrow key
-            $('#move-forward').trigger('click')
-        } else if (event.which == 39) {
-            event.preventDefault();
-            // right arrow key
-            $('#turn-right').trigger('click')
-        } else if (event.which == 40) {
-            event.preventDefault();
-            // down arrow key
-        } else if (event.which == 69) {
-            event.preventDefault();
-            $(document).trigger('startEarthquake')
-        } else if(event.which == 27){
-            playerState = "Paused";
-            evalGameState();
-        } else {
-            // alert(event.which);
-        }
-        keypressed = false;
-
+        $(document).trigger('player-move', 'move-down')
     })
 })
