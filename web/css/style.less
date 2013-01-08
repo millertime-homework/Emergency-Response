@@ -20,6 +20,9 @@ body {
     display: inline;
     position: relative;
     float: left;
+}
+
+.bordered {
     background-color: @primaryBorderColor;
     height: @viewportHeight + @borderThickness * 2;
     width: @viewportWidth + @borderThickness * 2;
@@ -30,6 +33,34 @@ body {
 .bold-colored-text {
     font-weight: bold;
     color: @primaryBorderColor;
+}
+
+#objective {
+    color: white;
+    text-align: center;
+    width: 150px;
+    height: 100px;
+    position: absolute;
+    top: 0px;
+    left: 1120px;
+}
+
+#map {
+    width: 150px;
+    height: 230px;
+    position: absolute;
+    top: 105px;
+    left: 1120px;
+}
+
+#help {
+    color: white;
+    text-align: center;
+    width: 150px;
+    height: 60px;
+    position: absolute;
+    top: 340px;
+    left: 1120px;
 }
 
 .viewport-button {
@@ -87,7 +118,7 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 .primary-view {
     position: absolute;
     z-index: 0;
-    overflow: hidden;
+    overflow: show;
     left: @borderThickness;
     top: @borderThickness;
     height: @viewportHeight;
@@ -151,7 +182,7 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     display: none;
 }
 
-
+/*
 #map {
     width: 100px;
     height: 100px;
@@ -169,7 +200,7 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
         }
     }
 }
-
+*/
 
 /*
   MAIN MENU STYLINGS
