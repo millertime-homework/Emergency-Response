@@ -9,6 +9,7 @@ jQuery(document).ready(function($) {
     $(document).on('startEarthquake', function(){
         var image = $('#scene-img')
         var speed = 30
+	image.stop(true);
         for (i = 0; i < 5; i++) {
             image.animate({
                 left: '-5'
