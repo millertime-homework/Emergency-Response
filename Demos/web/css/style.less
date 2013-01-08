@@ -1,47 +1,259 @@
-@width: 800px;
-
-.rounded-corners (@radius: 5px) {
-  -webkit-border-radius: @radius;
-  -moz-border-radius: @radius;
-  -ms-border-radius: @radius;
-  -o-border-radius: @radius;
-  border-radius: @radius;
-}
-
-.box-shadow(@style, @c) when (iscolor(@c)) {
-  box-shadow:         @style @c;
-  -webkit-box-shadow: @style @c;
-  -moz-box-shadow:    @style @c;
-}
-.box-shadow(@style, @alpha: 50%) when (isnumber(@alpha)) {
-  .box-shadow(@style, rgba(0, 0, 0, @alpha));
-}
-
-// ########################################################################
-// ########################################################################
+@import "less-mixins.less"; // Import Mixins
+@viewportHeight: 611px;
+@viewportWidth: 1115px;
+@primaryBorderColor: #000000;
+@primaryBackgroundColor: #FFFFFF;
+@primaryFontColor: #000000;
+@primaryHighlightColor: #4493F3;
+@borderThickness: 3px;
+@primaryBorderRadius: 20px;
 
 body {
-    
+    font-family: "Helvetica-Neue-Light", "Helvetica Neue Light";
+    font-size: 14px;
+}
+.selector-title, .player-title {
+    font-weight: bold;
 }
 
-#wrapper {
-    width: 800px;
-    height: 500px;
-    border: 1px solid black;
-    margin-left: auto;
-    margin-right: auto;
+#view-modal {
+    display: inline;
+    position: relative;
+    float: left;
 }
 
-button.ui-button {
-    height: 3em;
-    .rounded-corners;
-    .box-shadow(red);
-    background: #3af url('../img/alert-overlay.png') repeat-x;
-    padding-left: 20px;
-    padding-right: 20px;
+.bordered {
+    background-color: @primaryBorderColor;
+    height: @viewportHeight + @borderThickness * 2;
+    width: @viewportWidth + @borderThickness * 2;
+    .border_radius(@primaryBorderRadius);
+    .box_shadow();
+}
 
+.bold-colored-text {
+    font-weight: bold;
+    color: @primaryBorderColor;
+}
+
+#objective {
+    color: white;
+    text-align: center;
+    width: 150px;
+    height: 100px;
+    position: absolute;
+    top: 0px;
+    left: 1120px;
+}
+
+#map {
+    width: 150px;
+    height: 230px;
+    position: absolute;
+    top: 105px;
+    left: 1120px;
+}
+
+#help {
+    color: white;
+    text-align: center;
+    width: 150px;
+    height: 60px;
+    position: absolute;
+    top: 340px;
+    left: 1120px;
+}
+
+.viewport-button {
+    background-color: @primaryBackgroundColor;
+    border-color:@primaryBorderColor;
+    border-style: solid;
+    border-width: 0px;
+    padding: 2px 5px;
+    outline-width: 0;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+}
+
+input:hover, input:active, input:focus, textarea:hover, textarea:active, textarea:focus {
+    border-color: @primaryHighlightColor;
+    border-style: solid;
+    border-width: 0px;
+}
+
+#move-forward {
+   margin-left: 50%;
+   background-color: transparent;
+   background-image: url('../img/up.png');
+   &:hover {
+      background-image: url('../img/up-glow.png');
+   }
+}
+
+#turn-left {
+   top: 50%;
+   background-color: transparent;
+   background-image: url('../img/left.png');
+   &:hover {
+      background-image: url('../img/left-glow.png');
+   }
+}
+
+#move-down {
+    top: 100%;
+    margin-top: -27px;
+}
+
+#turn-right {
+   top: 50%;
+   left: @viewportWidth;
+   margin-left: -27px;
+   background-color: transparent;
+   background-image: url('../img/right.png');
+   &:hover {
+      background-image: url('../img/right-glow.png');
+   }
+}
+
+.primary-view {
+    position: absolute;
+    z-index: 0;
+    overflow: show;
+    left: @borderThickness;
+    top: @borderThickness;
+    height: @viewportHeight;
+    width: @viewportWidth;
+}
+
+.clickable {
+    position: absolute;
+    z-index: 3; 
+    .opacity(50);
     &:hover {
-        color: white;
-        background-color: darken(#3af, 20%);
+        .opacity(100);
     }
+}
+
+#controls-overlay {
+    z-index: 1;
+    background: transparent;
+}
+
+#scene-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    .border_radius(@primaryBorderRadius - 5);
+}
+
+#editor-output {
+    display: inline;
+    float: left;
+}
+
+#output {
+    border: 1px solid black; 
+    width: 300px; 
+    height: 400px;
+}
+
+#playerinfo, 
+#dropdowns, 
+#movebuttons,
+#locationinfo {
+    width: 100%;
+}
+
+#modal {
+    position: absolute;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    z-index: 10;
+    margin-left: -200px;
+    .border_radius(10px);
+    background-color: white;
+    border: 1px solid black;
+    .box_shadow();
+    padding: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+/*
+#map {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    float: left;
+    overflow: hidden;
+    > div {
+        position: relative;
+        float: left;
+        &.active {
+            background: black;
+            &.player-pos {
+                background: red;
+            }
+        }
+    }
+}
+*/
+
+/*
+  MAIN MENU STYLINGS
+*/
+#main-menu {
+  position: absolute;
+  left: 50%;
+  margin-left: -(@viewportWidth/2);
+  display: none;
+
+  width: @viewportWidth;
+  border: 1px solid black;
+  .border_radius(10px);
+  #header {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 2.1em;
+    font-size: 2em;
+    text-align: center;
+    font-color: #555;
+    border-bottom: 1px solid black;
+  }
+  .option {
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    span {
+      padding: 2px;
+      font-size: 1.2em;
+      color: #77f;
+      &:hover {
+        border: 1px solid black;
+        .border_radius(5px);
+        color: #00f;
+      }
+    }
+  }
+}
+
+/*
+  MODAL/OVERLAY STYLINGS
+*/
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  .opacity(75);
+  z-index: 9;
 }
