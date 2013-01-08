@@ -43,13 +43,27 @@ scenarioDef = {
                                                         'image': 'B-east.jpg',
                                                         '_clickables': {
                                                                 'espressoWindow': {
-                                                                        'name': 'Espresso Shop Window',
                                                                         'image': 'B-east-window.jpg',
                                                                         'width': 156,
                                                                         'height': 135,
                                                                         'left': 88,
                                                                         'top': 377,
-                                                                        'largeImage' : 'B-east-window-Large.jpg'
+                                                                        'action': 'showModal',
+                                                                        'actionVariables': {
+                                                                            'image': 'B-east-window-Large.jpg',
+                                                                            'name': 'Espresso Shop Window'
+                                                                        }
+                                                                },
+                                                                'convoTest': {
+                                                                    'image': 'agent01.png',
+                                                                    'width': 50,
+                                                                    'height': 50,
+                                                                    'left': 600,
+                                                                    'top': 377,
+                                                                    'action': 'showConversation',
+                                                                    'actionVariables': {
+                                                                        'conversationName': 'Bill the Excitable Emoticon'
+                                                                    }
                                                                 }
                                                         }
                                                 }, 
@@ -156,6 +170,49 @@ scenarioDef = {
                                 }
                         }
                 }
+        },
+        '_conversations': {
+            'Bill the Excitable Emoticon': {
+                '1' : {
+                    'message' : 'How\'s the weather!?',
+                    'replies' : {
+                        'Looks like rain': 2,
+                        'Sunny with a high of 75': 3,
+                        'It\s going to snow!': 4
+                    }
+                },
+                '2' : {
+                    'message' : 'Sounds like a typical day in Portland...',
+                    'replies' : {
+                        'Goodbye': 0
+                    }
+                },
+                '3' : {
+                    'message' : '75 degrees in January? Let\'s go swimming!!!',
+                    'replies' : {
+                        'You\'re kind of crazy': 5,
+                        'Goodbye' : 0
+                    }
+                },
+                '4' : {
+                    'message' : 'I like snow!!!',
+                    'replies' : {
+                        'Me too. Snow is awesome!': 6
+                    }
+                },
+                '5': {
+                    'message': 'You ever been kicked in the head by a bull?',
+                    'replies': {
+                        'Back away slowly...': 0
+                    }
+                },
+                '6': {
+                    'message': 'Hey, lets build a snowman!!',
+                    'replies': {
+                        'Actually I\m busy preparing for an earthquake. Gotta go.': 0
+                    }
+                }
+            }
         },
         '_player': {
                 'x': 0,
