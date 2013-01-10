@@ -161,7 +161,7 @@ jQuery(document).ready(function($){
         modal.show();
     }
 
-    showModal = function(header, text, image) {
+    displayModal = function(header, text, image) {
         var modal = $('#modal');
         var overlay = $('#overlay');
         emptyModal();
@@ -170,8 +170,6 @@ jQuery(document).ready(function($){
         $('#modal #content').html(text);
         $('#modal #content').append(image);
         showModal();
-
-
     }
 
     emptyModal = function() {

@@ -38,7 +38,7 @@ jQuery(document).ready(function($){
     
 	// Brings Up the Info page.
 	$('#info-button').click(function() {
-		showModal('About this game', 'We are about this game. That is all for now.', null);
+		displayModal('About this game', 'We are about this game. That is all for now.', null);
 	})
 
 })

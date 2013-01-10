@@ -14,7 +14,7 @@ Wall = Class.create({
     addClickable: function(id, name, image, width, height, left, right, action, actionVariables) {
         var newClickable = new Clickable;
         clickableImage = scenario.addImage(image);
-        if (action ==='showModal') {
+        if (action ==='displayModal') {
             actionVariables['image'] = scenario.addImage(actionVariables['image']);
         }
         newClickable.set(name, clickableImage, width, height, left, right, action, actionVariables);

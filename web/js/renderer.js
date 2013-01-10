@@ -44,11 +44,11 @@ jQuery(document).ready(function($){
                 'image': null,
                 'name': null,
             };
-            if (value['action'] === 'showModal' && value['actionVariables'] && value['actionVariables']['image'] && value['actionVariables']['name']) {
+            if (value['action'] === 'displayModal' && value['actionVariables'] && value['actionVariables']['image'] && value['actionVariables']['name']) {
                 eventParams['image'] = value['actionVariables']['image'];
                 eventParams['name'] = value['actionVariables']['name'];
                 viewClickable.bind('click', eventParams, function (event) {
-                    showModal(event.data.name, null, event.data.image)
+                    displayModal(event.data.name, null, event.data.image)
                 });
             } else if (value['action'] === 'showConversation' && value['actionVariables'] && value['actionVariables']['conversationName']) {
                 eventParams['conversationName'] = value['actionVariables']['conversationName'];

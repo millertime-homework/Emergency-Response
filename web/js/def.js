@@ -48,7 +48,7 @@ scenarioDef = {
                                                                         'height': 135,
                                                                         'left': 88,
                                                                         'top': 377,
-                                                                        'action': 'showModal',
+                                                                        'action': 'displayModal',
                                                                         'actionVariables': {
                                                                             'image': 'B-east-window-Large.jpg',
                                                                             'name': 'Espresso Shop Window'
