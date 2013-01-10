@@ -1,5 +1,5 @@
 @import "less-mixins.less"; // Import Mixins
-@viewportHeight: 411px;
+@viewportHeight: 611px;
 @viewportWidth: 1115px;
 @primaryBorderColor: #000000;
 @primaryBackgroundColor: #FFFFFF;
@@ -8,6 +8,8 @@
 @primaryHighlightColor: #4493F3;
 @borderThickness: 3px;
 @primaryBorderRadius: 10px;
+@sidebarWidth: 150px;
+@margin: 5px;
 
 body {
     font-family: "Helvetica-Neue-Light", "Helvetica Neue Light";
@@ -28,8 +30,15 @@ body {
 }
 
 #main-content {
-    width:100%;
-    height:@viewportHeight;
+    width:@sidebarWidth + @viewportWidth;
+    height:auto;
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border-top: @margin;
+    border-bottom: @margin;
+    border-color: @primaryBackgroundColor;
 }
 
 #main-footer {
@@ -41,15 +50,28 @@ body {
 }
 
 #view-modal {
-    display: inline;
+    display:block;
+    height: @viewportHeight;
+    width: @viewportWidth;
+}
+
+#sidebar {
+    margin-left: 5px;
     position: relative;
-    float: left;
+    left: @viewportWidth;
+    width: @sidebarWidth;
+    height: auto;
+}
+
+.primary-view {
+    display: block;
+    position: absolute;
+    height: @viewportHeight;
+    width: @viewportWidth;
 }
 
 .bordered {
     background-color: @primaryBorderColor;
-    height: @viewportHeight + @borderThickness * 2;
-    width: @viewportWidth + @borderThickness * 2;
     .border_radius(@primaryBorderRadius);
     .box_shadow();
 }
@@ -64,34 +86,29 @@ body {
     border-style: solid;
     border-color: @primaryBorderColor;
     background-color: @sidebarBackgroundColor;
-    left: 1125px;
-    width: 150px;
-    position: absolute;
-    margin: 0px;
+    width: 100%;
+    margin-bottom: 5px;
 }
 #objective {
     .sidebar;
     text-align: center;
     height: 100px;
-    top: 0px;
 }
 
 #help {
     .sidebar;
     text-align: center;
     height: 60px;
-    top: 340px;
 }
 
 #map {
     .sidebar;
     height: 220px;
-    top: 110px;
 }
 
 #map-container {
-    position: absolute;
-    overflow: visible;
+    position: relative;
+    display: block;
 }
 .map-cell.occupied {
     background-color: #FF0000;
@@ -150,23 +167,13 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 
 #turn-right {
    top: 50%;
-   left: @viewportWidth;
+   left: 100%;
    margin-left: -27px;
    background-color: transparent;
    background-image: url('../img/right.png');
    &:hover {
       background-image: url('../img/right-glow.png');
    }
-}
-
-.primary-view {
-    position: absolute;
-    z-index: 0;
-    overflow: show;
-    left: @borderThickness;
-    top: @borderThickness;
-    height: @viewportHeight;
-    width: @viewportWidth;
 }
 
 .clickable {
@@ -184,11 +191,6 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 }
 
 #scene-img {
-    height:@viewportHeight;
-    width:@viewportWidth;
-    position: absolute;
-    left: 0;
-    top: 0;
     .border_radius(@primaryBorderRadius - 5);
 }
 
@@ -255,8 +257,8 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
   margin-left:auto;
   margin-right:auto;
   display: none;
-
-  width: 100%;
+  height: @viewportHeight;
+  width: @viewportWidth;
   border: 1px solid black;
   .border_radius(10px);
 

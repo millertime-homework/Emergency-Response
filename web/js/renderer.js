@@ -30,10 +30,9 @@ jQuery(document).ready(function($){
 
     // Renders clickables on wall
     renderClickables = function(wall) {
-        var view = $('#view-modal')
+        var view = $('#controls-overlay')
         $.each(wall.clickables, function(key, value) {
             view.append('<div id="' + key + '" class="clickable" width="' + value['width'] + '" height="' + value['height'] +'">')
-
             var viewClickable = $('#' + key)
             viewClickable.css('left', value['left'])
             viewClickable.css('top', value['top'])
