@@ -178,7 +178,7 @@ scenarioDef = {
                     'replies' : {
                         'Looks like rain': 2,
                         'Sunny with a high of 75': 3,
-                        'It\s going to snow!': 4
+                        'It\'s going to snow!': 4
                     }
                 },
                 '2' : {
@@ -209,7 +209,7 @@ scenarioDef = {
                 '6': {
                     'message': 'Hey, lets build a snowman!!',
                     'replies': {
-                        'Actually I\m busy preparing for an earthquake. Gotta go.': 0
+                        'Actually I\'m busy preparing for an earthquake. Gotta go.': 0
                     }
                 }
             }
