@@ -159,6 +159,7 @@ jQuery(document).ready(function($){
         $('#modal #content').append('</ul>');
 
         modal.show();
+        overlay.show();
     }
 
     showModal = function(header, text, image) {
