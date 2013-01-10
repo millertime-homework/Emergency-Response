@@ -3,10 +3,11 @@
 @viewportWidth: 1115px;
 @primaryBorderColor: #000000;
 @primaryBackgroundColor: #FFFFFF;
+@sidebarBackgroundColor: #EEE;
 @primaryFontColor: #000000;
 @primaryHighlightColor: #4493F3;
 @borderThickness: 3px;
-@primaryBorderRadius: 20px;
+@primaryBorderRadius: 10px;
 
 body {
     font-family: "Helvetica-Neue-Light", "Helvetica Neue Light";
@@ -58,32 +59,52 @@ body {
     color: @primaryBorderColor;
 }
 
-#objective {
-    color: white;
-    text-align: center;
+.sidebar {
+    border: @borderThickness;
+    border-style: solid;
+    border-color: @primaryBorderColor;
+    background-color: @sidebarBackgroundColor;
+    left: 1125px;
     width: 150px;
-    height: 100px;
     position: absolute;
-    top: 0px;
-    left: 1120px;
+    margin: 0px;
 }
-
-#map {
-    width: 150px;
-    height: 230px;
-    position: absolute;
-    top: 105px;
-    left: 1120px;
+#objective {
+    .sidebar;
+    text-align: center;
+    height: 100px;
+    top: 0px;
 }
 
 #help {
-    color: white;
+    .sidebar;
     text-align: center;
-    width: 150px;
     height: 60px;
-    position: absolute;
     top: 340px;
-    left: 1120px;
+}
+
+#map {
+    .sidebar;
+    height: 220px;
+    top: 110px;
+}
+
+#map-container {
+    position: absolute;
+    overflow: visible;
+}
+.map-cell.occupied {
+    background-color: #FF0000;
+}
+
+.map-cell {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    background-color: #0000FF;
+    border: 1px;
+    border-style: solid;
+    border-color: #000;
 }
 
 .viewport-button {

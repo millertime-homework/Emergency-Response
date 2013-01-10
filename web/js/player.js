@@ -41,6 +41,7 @@ Player = Class.create({
             this.y = destination['y']
             this.z = destination['z']
             this.facing = destination['f']
+            updateMap();
             return true;
         }
         return false;

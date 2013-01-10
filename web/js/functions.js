@@ -11,9 +11,9 @@ function hideModal() {};
 /* ######################################## */
 /* ######################################## */
 
-jQuery(document).ready(function($){
+jQuery(document).ready(function ($) {
     // Loads the Scenario objects from the data parameter (scenario-definition array)
-    loadScenario = function(data) { 
+    loadScenario = function (data) {
         scenario = new Scenario;
         scenario.set(data['name'], 'active')
         currFloor = null
@@ -66,11 +66,12 @@ jQuery(document).ready(function($){
         playerDef = data['_player']
         player.set(playerDef['x'], playerDef['y'], playerDef['z'], playerDef['_facing'], null)
 
+        generateMap(playerDef['x'], playerDef['y'], scenario.getFloor(playerDef['z']));
     }
 
 
-        // Returns True if scenario object is defined
-    isScenarioDefined = function() {
+    // Returns True if scenario object is defined
+    isScenarioDefined = function () {
         if (typeof scenario === 'undefined') {
             console.log('scenario class undefined')
             return false;
@@ -80,7 +81,7 @@ jQuery(document).ready(function($){
 
 
     // Returns True if player object is defined
-    isPlayerDefined = function() {
+    isPlayerDefined = function () {
         if (typeof player === 'undefined') {
             console.log('player class undefined')
             return false;
@@ -89,34 +90,33 @@ jQuery(document).ready(function($){
     }
 
     // Changes the layout to match the current game state.
-    evalGameState = function() {
-        switch(playerState)
-        {
-            case"Main-Menu":
+    evalGameState = function () {
+        switch (playerState) {
+            case "Main-Menu":
                 $('#view-modal').hide();
                 $('#main-menu').show();
                 break;
-            case"Playing":
+            case "Playing":
                 $('#main-menu').hide();
                 $('#view-modal').show();
                 break;
-            case"Paused":
-                if(confirm("Quit and return to main menu?")){
-                        //alert("In Paused");
-                        playerState = "Main-Menu";
-                        evalGameState();
-                    } else{ alert("opps");}
-                
+            case "Paused":
+                if (confirm("Quit and return to main menu?")) {
+                    //alert("In Paused");
+                    playerState = "Main-Menu";
+                    evalGameState();
+                } else { alert("opps"); }
+
                 break;
 
         }
 
     }
 
-    showConversation = function(conversationName, currentConversationChoice) {
+    showConversation = function (conversationName, currentConversationChoice) {
         var modal = $('#modal');
         var overlay = $('#overlay');
-        var optionRowTemplate = "<li data-conversation-option='{0}'>{1}</li><br />";
+        var optionRowTemplate = "<li class='conversation-option' data-conversation-option='{0}'>{1}</li><br />";
 
         //fetch the conversation name if we're progressing through a conversation tree.
         if (!conversationName) {
@@ -147,13 +147,10 @@ jQuery(document).ready(function($){
         $('#modal #header').html(conversationName);
         $('#modal #content').append(currentOption['message'] + '<p /> You Reply: <br /><ul>');
 
-        var replyChoices =  currentOption['replies'];
+        var replyChoices = currentOption['replies'];
         for (var choiceText in replyChoices) {
             if (replyChoices.hasOwnProperty(choiceText)) {
                 $('#modal #content').append(optionRowTemplate.format(replyChoices[choiceText], choiceText));
-                $("li[data-conversation-option='" + replyChoices[choiceText] + "']").live("click", function() {
-                    showConversation(null, $(this).attr('data-conversation-option'));
-                });
             }
         }
         $('#modal #content').append('</ul>');
@@ -162,7 +159,7 @@ jQuery(document).ready(function($){
         overlay.show();
     }
 
-    displayModal = function(header, text, image) {
+    displayModal = function (header, text, image) {
         var modal = $('#modal');
         var overlay = $('#overlay');
         emptyModal();
@@ -173,13 +170,13 @@ jQuery(document).ready(function($){
         showModal();
     }
 
-    emptyModal = function() {
+    emptyModal = function () {
         // Clear header and content
         $('#modal #header').empty();
         $('#modal #content').empty();
     }
 
-    hideModal = function() {
+    hideModal = function () {
         // Hide modal and overlay
         $('#modal').hide();
         $('#overlay').hide();
@@ -193,7 +190,12 @@ jQuery(document).ready(function($){
     $('#overlay').live("click", function () {
         hideModal();
     });
-})
+
+    $("li.conversation-option").live("click", function () {
+        showConversation(null, $(this).attr('data-conversation-option'));
+    });
+});
+
 
 String.prototype.format = function () {
     var args = arguments;
