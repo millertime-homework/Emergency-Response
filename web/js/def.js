@@ -46,8 +46,8 @@ scenarioDef = {
                                                                         'image': 'B-east-window.jpg',
                                                                         'width': 156,
                                                                         'height': 135,
-                                                                        'left': 88,
-                                                                        'top': 377,
+                                                                        'left': 80,
+                                                                        'top': 342,
                                                                         'action': 'displayModal',
                                                                         'actionVariables': {
                                                                             'image': 'B-east-window-Large.jpg',
@@ -55,14 +55,14 @@ scenarioDef = {
                                                                         }
                                                                 },
                                                                 'convoTest': {
-                                                                    'image': 'agent01.png',
-                                                                    'width': 50,
-                                                                    'height': 50,
+                                                                    'image': 'bro.png',
+                                                                    'width': 173,
+                                                                    'height': 328,
                                                                     'left': 600,
-                                                                    'top': 377,
+                                                                    'top': 277,
                                                                     'action': 'showConversation',
                                                                     'actionVariables': {
-                                                                        'conversationName': 'Bill the Excitable Emoticon'
+                                                                        'conversationName': 'Bill the Bizarre Bro'
                                                                     }
                                                                 }
                                                         }
@@ -172,7 +172,7 @@ scenarioDef = {
                 }
         },
         '_conversations': {
-            'Bill the Excitable Emoticon': {
+            'Bill the Bizarre Bro': {
                 '1' : {
                     'message' : 'How\'s the weather!?',
                     'replies' : {
