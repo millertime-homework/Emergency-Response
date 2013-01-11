@@ -1,6 +1,16 @@
 // GLOBALS
 var scenario = null;
 var player = null;
+
+//TODO Set these values in the CSS and derive them on initialization through jQuery.attr()
+var FooterMinHeight = 30;
+var FooterMaxHeight = 100;
+var HeaderMinHeight = 50;
+var HeaderMaxHeight = 100;
+var BodyMinHeight = 358;
+var BodyMaxHeight = 641;
+var BodyMaxWidth = 1115;
+
 function isScenarioDefined() {};
 function isPlayerDefined() {};
 function evalGameState() {};
@@ -10,8 +20,66 @@ function hideModal() {};
 
 /* ######################################## */
 /* ######################################## */
+function sizeWindow() {
+    var windowHeight = jQuery(window).height();
+    var windowWidth = jQuery(window).width();
+    var newHeaderHeight = HeaderMaxHeight;
+    var newBodyHeight = BodyMaxHeight;
+    var newFooterHeight = FooterMaxHeight;
 
+    //If we're larger than the max for all elements, center them.
+    jQuery('body').css('overflow', 'hidden');
+    if (windowHeight >= HeaderMaxHeight + BodyMaxHeight + FooterMaxHeight) {
+        jQuery('#outer-container').css('margin-top', 'auto').css('margin-bottom', 'auto');
+    //Else start taking height from the footer
+    } else if (windowHeight >= HeaderMaxHeight + BodyMaxHeight + FooterMinHeight) {
+        newFooterHeight = windowHeight - (HeaderMaxHeight + BodyMaxHeight);
+    //Now take all that we can from the footer, and start taking from the header
+    } else if (windowHeight >= HeaderMinHeight + BodyMaxHeight + FooterMinHeight) {
+        newFooterHeight = FooterMinHeight;
+        newHeaderHeight = windowHeight - (BodyMaxHeight + FooterMinHeight);
+    //Now start taking from the body
+    } else if (windowHeight >= HeaderMinHeight + BodyMinHeight + FooterMinHeight) {
+        newFooterHeight = FooterMinHeight;
+        newHeaderHeight = HeaderMinHeight;
+        newBodyHeight = windowHeight - (FooterMinHeight + HeaderMinHeight);
+    //If we've reached all the minimums, don't go any smaller, we'll just show a scrollbar instead.
+    } else {
+        jQuery('body').css('overflow', 'scroll');
+        newHeaderHeight = HeaderMinHeight;
+        newBodyHeight = BodyMinHeight;
+        newFooterHeight = FooterMinHeight;
+    }
+
+    //Set the heights.
+    jQuery('#main-header').height(newHeaderHeight).css('min-height', newHeaderHeight + 'px');
+    jQuery('#main-footer').height(newFooterHeight).css('min-height', newFooterHeight + 'px');
+    jQuery('#main-content').height(newBodyHeight).css('min-height', newBodyHeight + 'px');
+
+    var sidebar = jQuery("#sidebar");
+    var sidebarWidth = sidebar ? sidebar.width() : 0;
+
+    //Now proportionally increase the width of the rendered scene.
+    var newBodyContentHeight = newBodyHeight - 30;
+    var newWidth = BodyMaxWidth * newBodyContentHeight / BodyMaxHeight;
+    //If the body has lost height, we need to shrink the elements inside the viewport.
+    jQuery('.main-content-child').height(newBodyContentHeight);
+    jQuery('.main-content-viewport').width(newWidth);
+    jQuery('#main-content').width(newWidth + sidebarWidth);
+
+        //TODO We need to scale the positioning and size of any visible clickables
+
+    //Finally, let the map expand/contract to fill up the sidebar.
+    if (sidebar) {
+        sidebar.css('left', newWidth + 'px');
+        jQuery('#map').css('height', (sidebar.height() - jQuery('#objective').height() - jQuery('#help').height() - 20) + 'px');
+        centerMap();
+    }
+}
 jQuery(document).ready(function ($) {
+    $(window).resize(function() {
+        sizeWindow();
+    });
     // Loads the Scenario objects from the data parameter (scenario-definition array)
     loadScenario = function (data) {
         scenario = new Scenario;
@@ -67,6 +135,7 @@ jQuery(document).ready(function ($) {
         player.set(playerDef['x'], playerDef['y'], playerDef['z'], playerDef['_facing'], null)
 
         generateMap(playerDef['x'], playerDef['y'], scenario.getFloor(playerDef['z']));
+        sizeWindow();
     }
 
 

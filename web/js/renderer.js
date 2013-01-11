@@ -12,12 +12,13 @@ jQuery(document).ready(function($){
         $(".move-z").hide();
         var room = scenario.getRoom(player.x, player.y, player.z);
         if (scenario.isValidRoom(player.x, player.y, player.z)) {
-            var wall = room.walls[player.facing]
-            var sceneImage = wall.image
-            $.attr(sceneImage,'id', 'scene-img')
-            $("#view-scene").empty();
-            $("#view-scene").append(sceneImage)
-            renderClickables(wall)
+            var wall = room.walls[player.facing];
+            var sceneImage = wall.image;
+            $.attr(sceneImage, 'id', 'scene-img');
+            var viewScene = $("#view-scene");
+            viewScene.empty().append(sceneImage);
+            $('#scene-img').addClass('main-content-child main-content-viewport').height(viewScene.height()).width(viewScene.width());
+            renderClickables(wall);
         }
         if (player.canMoveUp()) {
             $("#viewport-move-up").show();

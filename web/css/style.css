@@ -6,7 +6,8 @@ input:hover,input:active,input:focus,textarea:hover,textarea:active,textarea:foc
 .hidden{display:none;}
 #outer-container{background-color:#ffffff;}
 #main-header{text-align:center;height:100px;min-height:100px;width:100%;background-color:gray;}
-#main-content{width:1265px;height:auto;clear:both;margin-left:auto;margin-right:auto;background-color:#ffffff;}
+#main-header h1{vertical-align:middle;}
+#main-content{width:1265px;height:auto;clear:both;margin-left:auto;margin-right:auto;}
 #main-footer{height:100px;min-height:100px;width:100%;background-color:gray;margin-bottom:0px;}
 #view-modal{display:block;height:621px;width:1125px;padding-top:10px;padding-bottom:10px;}
 .primary-view{display:block;position:absolute;height:611px;width:1115px;border-style:solid;border-width:3px;border-color:#000000;-webkit-border-radius:7px 7px 7px 7px;-moz-border-radius:7px 7px 7px 7px;border-radius:7px 7px 7px 7px;-webkit-border-radius:10px 10px 10px 10px;-moz-border-radius:10px 10px 10px 10px;border-radius:10px 10px 10px 10px;box-shadow:3px 3px 3px #888888;-webkit-box-shadow:3px 3px 3px #888888;-moz-box-shadow:3px 3px 3px #888888;}
@@ -22,7 +23,7 @@ input:hover,input:active,input:focus,textarea:hover,textarea:active,textarea:foc
 .sidebar{border:3px;border-style:solid;border-color:#000000;background-color:#eeeeee;width:100%;margin-bottom:5px;}
 #objective{border:3px;border-style:solid;border-color:#000000;background-color:#eeeeee;width:100%;margin-bottom:5px;text-align:center;height:100px;}
 #help{border:3px;border-style:solid;border-color:#000000;background-color:#eeeeee;width:100%;margin-bottom:5px;text-align:center;height:60px;}
-#map{border:3px;border-style:solid;border-color:#000000;background-color:#eeeeee;width:100%;margin-bottom:5px;height:220px;}
+#map{border:3px;border-style:solid;border-color:#000000;background-color:#eeeeee;width:100%;margin-bottom:5px;height:220px;overflow:hidden;}
 #map-container{position:relative;display:block;}
 .map-cell.occupied{background-color:#FF0000;}
 .map-cell{height:30px;width:30px;position:absolute;background-color:#0000FF;border:1px;border-style:solid;border-color:#000;}

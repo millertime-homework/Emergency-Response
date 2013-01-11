@@ -1,7 +1,12 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <title>
+        Emergency Response Game
+    </title>
     <meta http-equiv="X-UA-Compatible" content="IE=8" />
-    <link rel="stylesheet" type="text/css" href="web/css/style.css">
+    <link rel="stylesheet" type="text/css" href="web/css/style.css" />
     <script type="text/javascript" src="web/js/prototype.js"></script>
     <script type="text/javascript" src="web/js/spin.js"></script>
     <script type="text/javascript" src="web/js/jquery.js"></script>
@@ -11,7 +16,7 @@
 </head>
 <body>
     <div id="outer-container">
-        <div id="main-header"><br /><h1>Emergency Response Game</h1></div>
+        <div id="main-header"><h1>Emergency Response Game</h1></div>
         <div id="main-content">
             <!-- BEGIN MENU -->
             <div id="main-menu">
@@ -31,15 +36,15 @@
             <!-- END MENU -->
             <!-- BEGIN MAIN -->
             <div id="view-modal">
-                <div class="primary-view" id="controls-overlay">
-                    <input class="viewport-button" id="turn-left" type="button">
-                    <input class="viewport-button" id="turn-right" type="button">
-                    <input class="viewport-button" id="move-forward" type="button">
+                <div class="primary-view main-content-child main-content-viewport" id="controls-overlay">
+                    <input class="viewport-button" id="turn-left" type="button" />
+                    <input class="viewport-button" id="turn-right" type="button" />
+                    <input class="viewport-button" id="move-forward" type="button" />
                     <input class="viewport-button hidden" id="move-up" type="button" value="Go Up Stairs" />
                     <input class="viewport-button hidden" id="move-down" type="button" value="Go Down Stairs" />
                 </div> 
-                <div class="primary-view" id="view-scene"></div>
-                <div id="sidebar">
+                <div class="primary-view main-content-child main-content-viewport" id="view-scene"></div>
+                <div class='main-content-child' id="sidebar">
                     <div class="bordered" id="objective"><br />Survive the <br />aftermath of the earthquake</div>
                     <div class="bordered" id="map">
                             <div id ="map-container" data-floor="">
@@ -58,7 +63,7 @@
     <div id="report-modal" class="hidden">
         <form id="report-form">
             <b>Name:<input type="text" id="reporter-name"><br />
-            Email Address:<input type="text" id="reporter-email"><br /></b>
+            Email Address:<input type="text" id="reporter-email" /><br /></b>
             Please describe the issue you encountered.<br />
             <i> Include details like where you were in the game.<br />
             What you were interacting with. ETC</i><br />
