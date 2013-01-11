@@ -164,6 +164,7 @@ jQuery(document).ready(function ($) {
             case "Main-Menu":
                 $('#view-modal').hide();
                 $('#main-menu').show();
+                hideModal();
                 break;
             case "Playing":
                 $('#main-menu').hide();
@@ -246,9 +247,8 @@ jQuery(document).ready(function ($) {
     }
 
     hideModal = function () {
-        // Hide modal and overlay
-        $('#modal').hide();
-        $('#overlay').hide();
+        // Hide any visible modal element
+        $('.modal').hide();
     }
 
     showModal = function () {
