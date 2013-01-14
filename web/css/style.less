@@ -29,6 +29,10 @@ body {
     color: @primaryBorderColor;
 }
 
+.conversation-option {
+    cursor:pointer;
+}
+
 input:hover, input:active, input:focus, textarea:hover, textarea:active, textarea:focus {
     border-color: @primaryHighlightColor;
     border-style: solid;
@@ -112,15 +116,16 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     position: absolute;
     width: 30px;
     height: 30px;
+    .opacity(100);
+    &:hover {
+        .opacity(50);
+    }
 }
 
 #turn-left {
    top: 50%;
    background-color: transparent;
    background-image: url('../img/left.png');
-   &:hover {
-      background-image: url('../img/left-glow.png');
-   }
 }
 
 #move-down {
@@ -132,9 +137,6 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
    margin-left: 50%;
    background-color: transparent;
    background-image: url('../img/up.png');
-   &:hover {
-      background-image: url('../img/up-glow.png');
-   }
 }
 
 #turn-right {
@@ -143,9 +145,6 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
    margin-left: -31px;
    background-color: transparent;
    background-image: url('../img/right.png');
-   &:hover {
-      background-image: url('../img/right-glow.png');
-   }
 }
 
 .clickable {
