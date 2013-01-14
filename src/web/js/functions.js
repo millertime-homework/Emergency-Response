@@ -190,7 +190,7 @@ jQuery(document).ready(function ($) {
                     //alert("In Paused");
                     playerState = "Main-Menu";
                     evalGameState();
-                } else { alert("opps"); }
+                } else { alert("oops"); }
 
                 break;
 
