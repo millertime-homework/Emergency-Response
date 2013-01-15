@@ -179,16 +179,19 @@ jQuery(document).ready(function ($) {
             case "Main-Menu":
                 $('#view-modal').hide();
                 $('#main-menu').show();
+                allowKeyEvents = false;
                 hideModal();
                 break;
             case "Playing":
                 $('#main-menu').hide();
                 $('#view-modal').show();
+                allowKeyEvents = true;
                 break;
             case "Paused":
                 if (confirm("Quit and return to main menu?")) {
                     //alert("In Paused");
                     playerState = "Main-Menu";
+                    allowKeyEvents = false;
                     evalGameState();
                 } else { alert("oops"); }
 
@@ -199,8 +202,6 @@ jQuery(document).ready(function ($) {
     }
 
     showConversation = function (conversationName, currentConversationChoice) {
-        var modal = $('#modal');
-        var overlay = $('#overlay');
         var optionRowTemplate = "<li class='conversation-option' data-conversation-option='{0}'>{1}</li><br />";
 
         //fetch the conversation name if we're progressing through a conversation tree.
@@ -244,8 +245,6 @@ jQuery(document).ready(function ($) {
     }
 
     displayModal = function (header, text, image) {
-        var modal = $('#modal');
-        var overlay = $('#overlay');
         emptyModal();
 
         $('#modal #header').html(header);
@@ -262,10 +261,13 @@ jQuery(document).ready(function ($) {
 
     hideModal = function () {
         // Hide any visible modal element
+        allowKeyEvents = false;
         $('.modal').hide();
+        $('#overlay').hide();
     }
 
     showModal = function () {
+        allowKeyEvents = true;
         $('#modal').show();
         $('#overlay').show();
     }
