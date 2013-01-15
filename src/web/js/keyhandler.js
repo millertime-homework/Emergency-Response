@@ -1,4 +1,5 @@
 var keypressed = null; // true when handling a user's keypress
+var keysbound = false;
 function bindGameKeyEvents() {};
 function unbindGameKeyEvents() {};
 /* ######################################## */
@@ -8,7 +9,9 @@ jQuery(document).ready(function($) {
     // Key is pressed
 
     bindGameKeyEvents = function() {
-        unbindGameKeyEvents();
+        if (keysbound) {
+            return;
+        }
         $(window).bind('keydown', function(event) {
             if (keypressed) {
                 return true;
@@ -47,12 +50,16 @@ jQuery(document).ready(function($) {
                 console.log(e);
             }
             keypressed = false;
-
+            keysbound = true;
         })
     }
 
     unbindGameKeyEvents = function() {
+        if (!keysbound) {
+            return;
+        }
         $(window).unbind('keydown');
         keypressed = false;
+        keysbound = false;
     }
 })

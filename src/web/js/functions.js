@@ -151,8 +151,6 @@ jQuery(document).ready(function ($) {
 
         generateMap(playerDef['x'], playerDef['y'], scenario.getFloor(playerDef['z']));
         sizeWindow();
-
-        bindGameKeyEvents();
     }
 
 
@@ -265,13 +263,11 @@ jQuery(document).ready(function ($) {
     hideModal = function () {
         // Hide any visible modal element
         $('.modal').hide();
-        bindGameKeyEvents();
     }
 
     showModal = function () {
         $('#modal').show();
         $('#overlay').show();
-        unbindGameKeyEvents();
     }
 
     $('#overlay').live("click", function () {
