@@ -261,13 +261,13 @@ jQuery(document).ready(function ($) {
 
     hideModal = function () {
         // Hide any visible modal element
-        allowKeyEvents = false;
+        allowKeyEvents = true;
         $('.modal').hide();
         $('#overlay').hide();
     }
 
     showModal = function () {
-        allowKeyEvents = true;
+        allowKeyEvents = false;
         $('#modal').show();
         $('#overlay').show();
     }
