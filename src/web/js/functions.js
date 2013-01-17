@@ -193,7 +193,7 @@ jQuery(document).ready(function ($) {
                     playerState = "Main-Menu";
                     allowKeyEvents = false;
                     evalGameState();
-                } else { alert("oops"); }
+                } else { playerState = "Playing"; }
 
                 break;
 
@@ -261,7 +261,8 @@ jQuery(document).ready(function ($) {
 
     hideModal = function () {
         // Hide any visible modal element
-        allowKeyEvents = true;
+        if(playerState == 'Playing')
+            allowKeyEvents = true;
         $('.modal').hide();
         $('#overlay').hide();
     }
