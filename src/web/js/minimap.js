@@ -1,48 +1,63 @@
-var MAP_CELL_SELECTOR_TEMPLATE = "[data-x='{0}'][data-y='{1}']";
-var MAP_CELL_HTML_TEMPLATE = "<div class='map-cell' data-x='{0}' data-y='{1}'></div>";
+if (!erg) {
+    var erg = {};
+}
 
+jQuery(document).ready(function ($) {
+    erg.MAP_CELL_TEMPLATE = jQuery('#templates').children('.map-cell');
+    erg.DIRECTIONAL_INDICATOR_SELECTOR_TEMPLATE = '#directional-indicator-{0}';
+    erg.MAP_CELL_SELECTOR_TEMPLATE = "[data-x='{0}'][data-y='{1}']";
+    erg.MAP_CELL_HEIGHT = erg.MAP_CELL_TEMPLATE.height();
+    erg.MAP_CELL_WIDTH = erg.MAP_CELL_TEMPLATE.width();
+    erg.MAP_CONTAINER = jQuery('#map-container');
+    erg.MAP_CONTAINER_PARENT = jQuery('#map');
+});
 
 function generateMap() {
     var rooms = scenario.getFloor(player.z).getRoomList();
-    var mapContainer = jQuery('#map-container');
-    mapContainer.empty();
-    mapContainer.attr('data-floor', player.z);
+    erg.MAP_CONTAINER.empty().attr('data-floor', player.z);
+
     for (var room in rooms) {
         if (rooms.hasOwnProperty(room)) {
             var x = rooms[room]['x'];
             var y = rooms[room]['y'];
-            mapContainer.append(MAP_CELL_HTML_TEMPLATE.format(x, y));
-            var thisCell = mapContainer.children(MAP_CELL_SELECTOR_TEMPLATE.format(x, y));
-            thisCell.css('top', (x * thisCell.height()) + 'px').css('left', (y * thisCell.width()) + 'px');
+            erg.MAP_CELL_TEMPLATE.clone().appendTo(erg.MAP_CONTAINER)
+                .attr({ 'data-x': x, 'data-y': y })
+                .css('top', (x * erg.MAP_CELL_HEIGHT) + 'px')
+                .css('left', (y * erg.MAP_CELL_WIDTH) + 'px');
         }
     }
-    mapContainer.children(MAP_CELL_SELECTOR_TEMPLATE.format(player.x, player.y)).addClass('occupied');
+    erg.MAP_CONTAINER.children(erg.MAP_CELL_SELECTOR_TEMPLATE.format(player.x, player.y)).addClass('occupied');
     centerMap();
+    showDirectionalIndicator();
 };
 
 function updateMap() {
-    var mapContainer = jQuery('#map-container');
-
     //If the player has changed floors, we need to redraw the map to show the current floor.
-    if (player.z != mapContainer.attr('data-floor')) {
+    if (player.z != erg.MAP_CONTAINER.attr('data-floor')) {
         generateMap();
     } else {
         //else clear the old occupied cell
-        mapContainer.children('.map-cell.occupied').removeClass('occupied');
+        erg.MAP_CONTAINER.children('.occupied').empty().removeClass('occupied');
 
         //and indicate the new one
-        mapContainer.children(MAP_CELL_SELECTOR_TEMPLATE.format(player.x, player.y)).addClass('occupied');
+        erg.MAP_CONTAINER.children(erg.MAP_CELL_SELECTOR_TEMPLATE.format(player.x, player.y)).addClass('occupied');
         centerMap();
+        showDirectionalIndicator();
     }
 };
 
 function centerMap() {
-    var outerMapContainer = jQuery('#map');
-    var innerMapContainer = jQuery('#map-container');
-    var occupiedCell = jQuery(MAP_CELL_SELECTOR_TEMPLATE.format(player.x, player.y));
+    var occupiedCell = jQuery(erg.MAP_CONTAINER).children(erg.MAP_CELL_SELECTOR_TEMPLATE.format(player.x, player.y));
     var occupiedTop = occupiedCell.position().top;
     var occupiedLeft = occupiedCell.position().left;
 
-    innerMapContainer.css('left', ((outerMapContainer.width() / 2) - (occupiedCell.width() / 2) - occupiedLeft) + 'px')
-        .css('top', ((outerMapContainer.height() / 2) - (occupiedCell.height() / 2) - occupiedTop) + 'px');
+    erg.MAP_CONTAINER.css('left', ((erg.MAP_CONTAINER_PARENT.width() / 2) - (occupiedCell.width() / 2) - occupiedLeft) + 'px')
+        .css('top', ((erg.MAP_CONTAINER_PARENT.height() / 2) - (occupiedCell.height() / 2) - occupiedTop) + 'px');
+};
+
+function showDirectionalIndicator() {
+    jQuery(erg.MAP_CONTAINER)
+        .children('.occupied')
+        .empty()
+        .append(jQuery(erg.DIRECTIONAL_INDICATOR_SELECTOR_TEMPLATE.format(player.facing)).clone());
 };

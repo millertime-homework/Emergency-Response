@@ -57,6 +57,7 @@ Player = Class.create({
         }
         if (scenario.getRoom(player.x, player.y, player.z).walls[DIRECTION_INDEX[newDirectionIndex]]) {
             this.facing = DIRECTION_INDEX[newDirectionIndex];
+            showDirectionalIndicator();
             return true;
         }
         return false;

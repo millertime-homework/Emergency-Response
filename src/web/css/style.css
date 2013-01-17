@@ -28,6 +28,7 @@ input:hover,input:active,input:focus,textarea:hover,textarea:active,textarea:foc
 #map-container{position:relative;display:block;}
 .map-cell.occupied{background-color:#FF0000;}
 .map-cell{height:30px;width:30px;position:absolute;background-color:#0000FF;border:1px;border-style:solid;border-color:#000;}
+.directional-indicator{position:absolute;top:50%;left:50%;margin-left:-3px;margin-top:-8px;}
 #editor-output{display:inline;float:left;}
 #output{border:1px solid black;width:300px;height:400px;}
 #main-menu{margin-left:auto;margin-right:auto;display:none;height:611px;width:1115px;border:1px solid black;-webkit-border-radius:10px 10px 10px 10px;-moz-border-radius:10px 10px 10px 10px;border-radius:10px 10px 10px 10px;}#main-menu .option{position:relative;float:left;width:100%;margin-top:5px;margin-bottom:10px;text-align:center;}#main-menu .option span{padding:2px;font-size:1.2em;color:#77f;cursor:pointer;}#main-menu .option span:hover{border:1px solid black;-webkit-border-radius:5px 5px 5px 5px;-moz-border-radius:5px 5px 5px 5px;border-radius:5px 5px 5px 5px;color:#00f;}
