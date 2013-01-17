@@ -73,7 +73,20 @@ scenarioDef = {
                                                 },
                                                 'n': {
                                                         'name': 'N Upper 5th Hall', 
-                                                        'image': 'B-north.jpg'
+                                                        'image': 'B-north.jpg',
+                                                        '_clickables': {
+                                                                'key': {
+                                                                    'image': 'key.png',
+                                                                    'width': 50,
+                                                                    'height': 50,
+                                                                    'left': 600,
+                                                                    'top': 277,
+                                                                    'action': 'showConversation',
+                                                                    'actionVariables': {
+                                                                        'conversationName': 'Bill the Bizarre Bro'
+                                                                    }
+                                                                }
+                                                        }
                                                 },
                                                 's': {
                                                         'name': 'S Upper 5th Hall', 
