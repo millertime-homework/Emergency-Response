@@ -2,16 +2,6 @@
 var scenario = null;
 var player = null;
 
-//TODO Set these values in the CSS and derive them on initialization through jQuery.attr()
-var FooterMinHeight = 30;
-var FooterMaxHeight = 100;
-var HeaderMinHeight = 50;
-var HeaderMaxHeight = 100;
-var BodyMinHeight = 358;
-var BodyMaxHeight = 641;
-var BodyMaxWidth = 1115;
-var BodyMinWidth = BodyMaxWidth * (BodyMinHeight / BodyMaxHeight);
-
 function isScenarioDefined() {};
 function isPlayerDefined() {};
 function evalGameState() {};
@@ -21,76 +11,6 @@ function hideModal() {};
 
 /* ######################################## */
 /* ######################################## */
-function sizeWindow() {
-    var windowHeight = jQuery(window).height();
-    var windowWidth = jQuery(window).width();
-    var newHeaderHeight = HeaderMaxHeight;
-    var newBodyHeight = BodyMaxHeight;
-    var newFooterHeight = FooterMaxHeight;
-    var newWidth = BodyMaxWidth;
-
-    var sidebar = jQuery("#sidebar");
-    var sidebarWidth = sidebar ? sidebar.width() : 0;
-
-    jQuery('body').css('overflow', 'hidden');
-
-    //Set reduced width if necessary.
-    if (windowWidth >= BodyMaxWidth + sidebar.width()) {
-        newBodyWidth = BodyMaxWidth;
-    } else if (windowWidth >= BodyMinWidth + sidebar.width()) {
-        newBodyWidth = windowWidth - sidebar.width() - 40;
-    } else {
-        newBodyWidth = BodyMinWidth;
-        jQuery('body').css('overflow', 'scroll');
-    }
-
-    //Set reduced height if necessary, first taking from the footer, then from header, then from body.
-    if (windowHeight >= HeaderMaxHeight + BodyMaxHeight + FooterMaxHeight) {
-        jQuery('#outer-container').css('margin-top', 'auto').css('margin-bottom', 'auto');
-    } else if (windowHeight >= HeaderMaxHeight + BodyMaxHeight + FooterMinHeight) {
-        newFooterHeight = windowHeight - (HeaderMaxHeight + BodyMaxHeight);
-    } else if (windowHeight >= HeaderMinHeight + BodyMaxHeight + FooterMinHeight) {
-        newFooterHeight = FooterMinHeight;
-        newHeaderHeight = windowHeight - (BodyMaxHeight + FooterMinHeight);
-    } else if (windowHeight >= HeaderMinHeight + BodyMinHeight + FooterMinHeight) {
-        newFooterHeight = FooterMinHeight;
-        newHeaderHeight = HeaderMinHeight;
-        newBodyHeight = windowHeight - (FooterMinHeight + HeaderMinHeight);
-    } else {
-        jQuery('body').css('overflow', 'scroll');
-        newHeaderHeight = HeaderMinHeight;
-        newBodyHeight = BodyMinHeight;
-        newFooterHeight = FooterMinHeight;
-    }
-
-    //Figure out whether height constrains width or width constrains height.
-    var bodyWidthFromHeight = BodyMaxWidth * newBodyHeight / BodyMaxHeight;
-    var bodyHeightFromWidth = BodyMaxHeight * newBodyWidth / BodyMaxWidth;
-    newBodyWidth = Math.min(newBodyWidth, bodyWidthFromHeight);
-    newBodyHeight = Math.min(newBodyHeight, bodyHeightFromWidth);
-
-    //Set the heights.
-    jQuery('#main-header').height(newHeaderHeight).css('min-height', newHeaderHeight + 'px');
-    jQuery('#main-footer').height(newFooterHeight).css('min-height', newFooterHeight + 'px');
-    jQuery('#main-content').height(newBodyHeight).css('min-height', newBodyHeight + 'px');
-
-
-    //Now set the proportionate width for the body.
-    var newBodyContentHeight = newBodyHeight - 30;//Take away some height for the margins.
-    //If the body has lost height, we need to shrink the elements inside the viewport.
-    jQuery('.main-content-child').height(newBodyContentHeight);
-    jQuery('.main-content-viewport').width(newBodyWidth);
-    jQuery('#main-content').width(newBodyWidth + sidebarWidth);
-
-    //TODO We need to scale the positioning and size of any visible clickables
-
-    //Finally, let the map expand/contract to fill up the sidebar.
-    if (sidebar) {
-        sidebar.css('left', newBodyWidth + 'px');
-        jQuery('#map').css('height', (sidebar.height() - jQuery('#objective').height() - jQuery('#help').height() - 20) + 'px');
-        centerMap();
-    }
-}
 jQuery(document).ready(function ($) {
     $(window).resize(function() {
         sizeWindow();

@@ -35,11 +35,11 @@ jQuery(document).ready(function($){
         $.each(wall.clickables, function(key, value) {
             view.append('<div id="' + key + '" class="clickable" width="' + value['width'] + '" height="' + value['height'] +'">')
             var viewClickable = $('#' + key)
-            viewClickable.css('left', value['left'])
-            viewClickable.css('top', value['top'])
-            viewClickable.css('width', value['width'])
-            viewClickable.css('height', value['height'])
-            viewClickable.append(value['image'])
+            viewClickable.css('left', value['left']).data('left', value['left']);
+            viewClickable.css('top', value['top']).data('top', value['top']);
+            viewClickable.css('width', value['width']).data('width', value['width']);
+            viewClickable.css('height', value['height']).data('height', value['height']);
+            viewClickable.append(value['image']);
             var eventParams = {
                 'imageElement': null,
                 'name': null,
@@ -57,7 +57,7 @@ jQuery(document).ready(function($){
                 });
             }
         })
-        
+        scaleClickables();    
     } 
 
     clearClickables = function() {

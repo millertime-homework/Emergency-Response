@@ -1,6 +1,4 @@
-if (!erg) {
-    var erg = {};
-}
+var erg = erg || {};
 
 jQuery(document).ready(function ($) {
     erg.MAP_CELL_TEMPLATE = jQuery('#templates').children('.map-cell');
