@@ -46,8 +46,8 @@ scenarioDef = {
                                                                         'image': 'B-east-window.jpg',
                                                                         'width': 156,
                                                                         'height': 135,
-                                                                        'left': 80,
-                                                                        'top': 342,
+                                                                        'left': 85,
+                                                                        'top': 374,
                                                                         'action': 'displayModal',
                                                                         'actionVariables': {
                                                                             'image': 'B-east-window-Large.jpg',

@@ -268,7 +268,7 @@ jQuery(document).ready(function ($) {
 
     showModal = function () {
         allowKeyEvents = false;
-        $('#modal').show();
+        $('#modal').center().show();
         $('#overlay').show();
     }
 
@@ -285,3 +285,11 @@ String.prototype.format = function () {
     var args = arguments;
     return this.replace(/\{(\d+)\}/g, function (m, n) { return args[n]; });
 };
+
+jQuery.fn.center = function () {
+    return this.css({
+        "position" : "absolute",
+        "top" : (jQuery(window).height() - this.height()) / 2 + jQuery(window).scrollTop() + "px",
+        "left" : (jQuery(window).width() - this.width()) / 2 + jQuery(window).scrollLeft() + "px"
+    });
+}
