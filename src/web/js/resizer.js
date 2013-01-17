@@ -12,6 +12,7 @@ erg.CurrentFooterHeight = erg.FooterMaxHeight;
 erg.CurrentHeaderHeight = erg.HeaderMaxHeight;
 erg.CurrentBodyHeight = erg.BodyMaxHeight;
 erg.CurrentBodyWidth = erg.BodyMaxWidth;
+erg.CurrentScale = 1;
 
 function sizeWindow() {
     var windowHeight = jQuery(window).height();
@@ -29,10 +30,6 @@ function sizeWindow() {
     if (sidebar) {
         reisizeSidebar(sidebar);
     }
-
-    function scaleClickables() {
-        //TODO We need to scale the positioning and size of any visible clickables
-    };
 
     function reisizeSidebar(sidebar) {
             sidebar.css('left', erg.CurrentBodyWidth + 'px');
@@ -60,6 +57,7 @@ function sizeWindow() {
         var bodyHeightFromWidth = erg.BodyMaxHeight * erg.CurrentBodyWidth / erg.BodyMaxWidth;
         erg.CurrentBodyWidth = Math.min(erg.CurrentBodyWidth, bodyWidthFromHeight);
         erg.CurrentBodyHeight = Math.min(erg.CurrentBodyHeight, bodyHeightFromWidth);
+        erg.CurrentScale = erg.CurrentBodyWidth / erg.BodyMaxWidth;
     };
 
     function calculateCurrentHeights(windowHeight) {
@@ -97,3 +95,22 @@ function sizeWindow() {
         }
     };
 }
+
+function scaleClickables() {
+    jQuery('.clickable').each( function() {
+        var clickable = jQuery(this);
+        clickable.css({
+            'top' : erg.CurrentScale * parsePxValue(clickable.data('top')) + 'px',
+            'left' : erg.CurrentScale * parsePxValue(clickable.data('left')) + 'px'
+        })
+        .children('img').css({
+            'height' : erg.CurrentScale * parsePxValue(clickable.data('height')) + 'px',
+            'width' : erg.CurrentScale * parsePxValue(clickable.data('width')) + 'px'
+        });
+    });
+};
+
+function parsePxValue(value) {
+
+    return isNaN(value) ? value.replace(' ', '').replace("px", '') : value;
+};
