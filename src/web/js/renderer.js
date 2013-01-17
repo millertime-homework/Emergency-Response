@@ -41,14 +41,14 @@ jQuery(document).ready(function($){
             viewClickable.css('height', value['height'])
             viewClickable.append(value['image'])
             var eventParams = {
-                'image': null,
+                'imageElement': null,
                 'name': null,
             };
-            if (value['action'] === 'displayModal' && value['actionVariables'] && value['actionVariables']['image'] && value['actionVariables']['name']) {
-                eventParams['image'] = value['actionVariables']['image'];
+            if (value['action'] === 'displayModal' && value['actionVariables'] && value['actionVariables']['imageElement'] && value['actionVariables']['name']) {
+                eventParams['imageElement'] = value['actionVariables']['imageElement'];
                 eventParams['name'] = value['actionVariables']['name'];
                 viewClickable.bind('click', eventParams, function (event) {
-                    displayModal(event.data.name, null, event.data.image)
+                    displayModal(event.data.name, null, event.data.imageElement)
                 });
             } else if (value['action'] === 'showConversation' && value['actionVariables'] && value['actionVariables']['conversationName']) {
                 eventParams['conversationName'] = value['actionVariables']['conversationName'];
