@@ -161,11 +161,9 @@ jQuery(document).ready(function ($) {
         if (currentOption['checkInventory']) {
             checkInventory: for (var i = 0; i < currentOption.checkInventory.length; i++) {
                 for (var j = 0; j < currentOption.checkInventory[i]['has'].length; j++) {
-                    console.log(currentOption.checkInventory[i]['has'][j]+", "+player.inventory.contains(currentOption.checkInventory[i]['has'][j]));
                     if(!player.inventory.contains(currentOption.checkInventory[i]['has'][j]))
                         continue checkInventory;
                 }
-                    console.log(i);
                 currentOptionId = currentOption.checkInventory[i]['goto'];
                 break;
             }
@@ -175,7 +173,6 @@ jQuery(document).ready(function ($) {
         }
 
         var currentOption = conversation.getOption(currentOptionId);
-        console.log(currentOptionId);
         if (!currentOption) {
             hideModal();
             return;
