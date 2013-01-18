@@ -1,15 +1,16 @@
+// TODO also show the inventory?
 Inventory = Class.create({
-    init: function() {
-        this.items = [];
+    initialize: function() {
+        this.items = {};
     },
     add: function(item) {
-        this.items[this.items.length] = item;
+        this.items[item.name] = item;
     },
-    contains: function(item) {
-        for(var i = 0; i < this.items.length; i++)
-            if(this.items[i] == item)
-                return true;
-        return false;
+    contains: function(itemName) {
+         return this.items[itemName] != null;
+    },
+    remove: function(itemName) {
+         this.items[itemName] = null;
     }
 });
 
@@ -17,5 +18,9 @@ InventoryItem = Class.create({
     init: function() {
         this.name = null;
         this.image = null;
+    },
+    set: function(name, image) {
+        this.name = name;
+        this.image = image;
     }
 });
