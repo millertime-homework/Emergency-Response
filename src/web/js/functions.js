@@ -158,7 +158,6 @@ jQuery(document).ready(function ($) {
             for (var i = 0; i < currentOption['takeFromPlayer'].length; i++)
                 player.inventory.remove(currentOption['takeFromPlayer'][i]);
         }
-        // FIXME at this point, I don't think this will restore when starting a new game
         if (currentOption['removeFromScene']) {
             for (var i = 0; i < currentOption['removeFromScene'].length; i++)
                 delete scenario.getRoom(player.x, player.y, player.z).walls[player.facing].clickables[currentOption['removeFromScene'][i]];
