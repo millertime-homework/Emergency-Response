@@ -85,7 +85,19 @@ scenarioDef = {
                                                                     'actionVariables': {
                                                                         'conversationName': 'Key'
                                                                     }
+                                                                },
+                                                                'door': {
+                                                                    'image': 'door.png',
+                                                                    'width': 125,
+                                                                    'height': 250,
+                                                                    'left': 300,
+                                                                    'top': 277,
+                                                                    'action': 'showConversation',
+                                                                    'actionVariables': {
+                                                                        'conversationName': 'Door'
+                                                                    }
                                                                 }
+                                                                
                                                         }
                                                 },
                                                 's': {
@@ -255,6 +267,26 @@ scenarioDef = {
                     'removeFromScene': ['key'],
                     'goto': 0,
                     'message': 'Yay!'
+                }
+            },
+            'Door': {
+                '1': {
+                    'checkInventory': [{'has': ['Key'], 'goto': '2'}],
+                    'message': 'The door is locked',
+                    'replies': {
+                        'Walk away': 0
+                    }
+                },
+                '2': {
+                    'message': 'The door is locked',
+                    'replies': {
+                        'Use the key': 3,
+                        'Walk away': 0
+                    }
+                },
+                '3': {
+                    'removeFromScene': ['door'],
+                    'goto': 0
                 }
             }
         },
