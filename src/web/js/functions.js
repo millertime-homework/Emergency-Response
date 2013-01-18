@@ -160,10 +160,12 @@ jQuery(document).ready(function ($) {
         }
         if (currentOption['checkInventory']) {
             checkInventory: for (var i in currentOption['checkInventory']) {
-                for (var i in currentOption['checkInventory']['has'])
-                    if(!player.inventory.contains(currentOption['checkInventory']['has'][i]))
+                for (var j in currentOption['checkInventory'][i]['has']) {
+                    console.log(currentOption['checkInventory'][i]['has'][j]+", "+player.inventory.contains(currentOption['checkInventory'][i]['has'][j]));
+                    if(!player.inventory.contains(currentOption['checkInventory'][i]['has'][j]))
                         continue checkInventory;
-                currentOptionId = currentOption['checkInventory']['goto'];
+                }
+                currentOptionId = currentOption['checkInventory'][i]['goto'];
                 break;
             }
         }

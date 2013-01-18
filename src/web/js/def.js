@@ -187,11 +187,21 @@ scenarioDef = {
         '_conversations': {
             'Bill the Bizarre Bro': {
                 '1' : {
+                    'checkInventory': [{'has': ['Key'], 'goto': '1-key'}],
                     'message' : 'How\'s the weather!?',
                     'replies' : {
                         'Looks like rain': 2,
                         'Sunny with a high of 75': 3,
                         'It\'s going to snow!': 4
+                    }
+                },
+                '1-key' : {
+                    'message' : 'How\'s the weather!?',
+                    'replies' : {
+                        'Looks like rain': 2,
+                        'Sunny with a high of 75': 3,
+                        'It\'s going to snow!': 4,
+                        'Is this your key?': 7
                     }
                 },
                 '2' : {
@@ -223,6 +233,13 @@ scenarioDef = {
                     'message': 'Hey, lets build a snowman!!',
                     'replies': {
                         'Actually I\'m busy preparing for an earthquake. Gotta go.': 0
+                    }
+                },
+                '7': {
+                    'message': 'Oh, thank you!  I must have dropped it!',
+                    'takeFromPlayer': ['Key'],
+                    'replies': {
+                        'You\'re welcome!': 0
                     }
                 }
             },
