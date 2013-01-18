@@ -159,13 +159,14 @@ jQuery(document).ready(function ($) {
                 player.inventory.remove(currentOption['takeFromPlayer'][i]);
         }
         if (currentOption['checkInventory']) {
-            checkInventory: for (var i in currentOption['checkInventory']) {
-                for (var j in currentOption['checkInventory'][i]['has']) {
-                    console.log(currentOption['checkInventory'][i]['has'][j]+", "+player.inventory.contains(currentOption['checkInventory'][i]['has'][j]));
-                    if(!player.inventory.contains(currentOption['checkInventory'][i]['has'][j]))
+            checkInventory: for (var i = 0; i < currentOption.checkInventory.length; i++) {
+                for (var j = 0; j < currentOption.checkInventory[i]['has'].length; j++) {
+                    console.log(currentOption.checkInventory[i]['has'][j]+", "+player.inventory.contains(currentOption.checkInventory[i]['has'][j]));
+                    if(!player.inventory.contains(currentOption.checkInventory[i]['has'][j]))
                         continue checkInventory;
                 }
-                currentOptionId = currentOption['checkInventory'][i]['goto'];
+                    console.log(i);
+                currentOptionId = currentOption.checkInventory[i]['goto'];
                 break;
             }
         }
