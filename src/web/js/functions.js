@@ -167,11 +167,12 @@ jQuery(document).ready(function ($) {
                 break;
             }
         }
-        if (currentOption['goto']) {
+        if (currentOption['goto'] != null) {
             currentOptionId = currentOption['goto'];
         }
 
         var currentOption = conversation.getOption(currentOptionId);
+        console.log(currentOptionId);
         if (!currentOption) {
             hideModal();
             return;
