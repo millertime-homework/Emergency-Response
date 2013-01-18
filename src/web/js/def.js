@@ -83,7 +83,7 @@ scenarioDef = {
                                                                     'top': 277,
                                                                     'action': 'showConversation',
                                                                     'actionVariables': {
-                                                                        'conversationName': 'Bill the Bizarre Bro'
+                                                                        'conversationName': 'Key'
                                                                     }
                                                                 }
                                                         }
@@ -223,6 +223,14 @@ scenarioDef = {
                     'message': 'Hey, lets build a snowman!!',
                     'replies': {
                         'Actually I\'m busy preparing for an earthquake. Gotta go.': 0
+                    }
+                }
+            },
+            'Key': {
+                '1': {
+                    'message': 'You found a key!',
+                    'replies': {
+                         'Take it': 0
                     }
                 }
             }
