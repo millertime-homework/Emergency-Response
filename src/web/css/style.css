@@ -23,7 +23,7 @@ input:hover,input:active,input:focus,textarea:hover,textarea:active,textarea:foc
 #sidebar{margin-left:10px;position:relative;left:1115px;width:150px;height:auto;}
 .sidebar{border:3px;border-style:solid;border-color:#000000;background-color:#eeeeee;width:100%;margin-bottom:5px;}
 #objective{border:3px;border-style:solid;border-color:#000000;background-color:#eeeeee;width:100%;margin-bottom:5px;text-align:center;height:100px;}
-#help{border:3px;border-style:solid;border-color:#000000;background-color:#eeeeee;width:100%;margin-bottom:5px;text-align:center;height:60px;}
+#help{border:3px;border-style:solid;border-color:#000000;background-color:#eeeeee;width:100%;margin-bottom:5px;text-align:center;height:60px;}#help:hover{cursor:pointer;}
 #map{border:3px;border-style:solid;border-color:#000000;background-color:#eeeeee;width:100%;margin-bottom:5px;height:220px;overflow:hidden;}
 #map-container{position:relative;display:block;}
 .map-cell.occupied{background-color:#FF0000;}
