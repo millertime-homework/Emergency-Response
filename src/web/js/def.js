@@ -230,8 +230,13 @@ scenarioDef = {
                 '1': {
                     'message': 'You found a key!',
                     'replies': {
-                         'Take it': 0
+                         'Take it': '2'
                     }
+                },
+                '2': {
+                    'givePlayer': [{'name': 'Key', 'image': 'key.png'}],
+                    'goto': 0,
+                    'message': 'Yay!'
                 }
             }
         },

@@ -148,7 +148,35 @@ jQuery(document).ready(function ($) {
             hideModal();
             return;
         }
+        
+        // Allow actions involving the inventory as part of the conversation
+        if (currentOption['givePlayer']) {
+            for (var i in currentOption['givePlayer'])
+                player.inventory.add(currentOption['givePlayer'][i]);
+        }
+        if (currentOption['takeFromPlayer']) {
+            for (var i in currentOption['takeFromPlayer'])
+                player.inventory.remove(currentOption['takeFromPlayer'][i]);
+        }
+        if (currentOption['checkInventory']) {
+            checkInventory: for (var i in currentOption['checkInventory']) {
+                for (var i in currentOption['checkInventory']['has'])
+                    if(!player.inventory.contains(currentOption['checkInventory']['has'][i]))
+                        continue checkInventory;
+                currentOptionId = currentOption['checkInventory']['goto'];
+                break;
+            }
+        }
+        if (currentOption['goto']) {
+            currentOptionId = currentOption['goto'];
+        }
 
+        var currentOption = conversation.getOption(currentOptionId);
+        if (!currentOption) {
+            hideModal();
+            return;
+        }
+        
         //Show the message and reply options.
         $('#modal #header').html(conversationName);
         $('#modal #content').append(currentOption['message'] + '<p /> You Reply: <br /><ul>');
