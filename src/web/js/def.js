@@ -252,6 +252,7 @@ scenarioDef = {
                 },
                 '2': {
                     'givePlayer': [{'name': 'Key', 'image': 'key.png'}],
+                    'removeFromScene': ['key'],
                     'goto': 0,
                     'message': 'Yay!'
                 }

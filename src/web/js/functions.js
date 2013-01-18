@@ -151,12 +151,18 @@ jQuery(document).ready(function ($) {
         
         // Allow actions involving the inventory as part of the conversation
         if (currentOption['givePlayer']) {
-            for (var i in currentOption['givePlayer'])
+            for (var i = 0; i < currentOption['givePlayer'].length; i++)
                 player.inventory.add(currentOption['givePlayer'][i]);
         }
         if (currentOption['takeFromPlayer']) {
-            for (var i in currentOption['takeFromPlayer'])
+            for (var i = 0; i < currentOption['takeFromPlayer'].length; i++)
                 player.inventory.remove(currentOption['takeFromPlayer'][i]);
+        }
+        // FIXME at this point, I don't think this will restore when starting a new game
+        if (currentOption['removeFromScene']) {
+            for (var i = 0; i < currentOption['removeFromScene'].length; i++)
+                delete scenario.getRoom(player.x, player.y, player.z).walls[player.facing].clickables[currentOption['removeFromScene'][i]];
+            renderScene();
         }
         if (currentOption['checkInventory']) {
             checkInventory: for (var i = 0; i < currentOption.checkInventory.length; i++) {
