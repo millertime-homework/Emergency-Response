@@ -25,6 +25,9 @@ Scenario = Class.create({
         }
         this.status = SCENARIO_STATUS_ACTIVE;
     },
+    addTrigger: function (triggerName, triggerData) {
+        scenario.triggers.pool[triggerName] = triggerData;
+    },
     addImage: function(image) {
         this.images.push(imageBasePath + image)
         return this.preloadImage(imageBasePath + image)

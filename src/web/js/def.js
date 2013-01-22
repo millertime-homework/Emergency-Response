@@ -82,7 +82,7 @@ scenarioDef = {
                                                                 'y': 0
                                                         }
                                                 }
-                                        },
+                                        }
                                 },
                                 'West on Hall': {
                                         'id': 'westhall',
@@ -212,6 +212,62 @@ scenarioDef = {
                         'Actually I\'m busy preparing for an earthquake. Gotta go.': 0
                     }
                 }
+            }
+        },
+        '_triggers': {
+            'showAModal': {
+                'event': 'showModal',
+                'eventArgs' : ['Instantly triggered Modal', 'Sup']
+            },
+            'timeDelayedModal': {
+                'event': 'showModal',
+                'exeAfterNMilliseconds': 5000,
+                'eventArgs': ['Time delayed triggered Modal', 'I\'m going to trigger one more time delayed modal!'],
+                'startTriggers': ['chainedTimeDelayModal']
+            },
+            'chainedTimeDelayModal': {
+                'event': 'showModal',
+                'exeAfterNMilliseconds': 5000,
+                'eventArgs': ['Time delayed triggered Modal', 'Pretty cool, eh?']
+            },
+            'moveDelayedModal': {
+                'event': 'showModal',
+                'exeAfterNMoves' : 3,
+                'eventArgs': ['Move delayed triggered Modal', 'Some text for the body of the triggered modal'],
+                'startTriggers': ['startedByOtherTrigger']
+            },
+            'startedByOtherTrigger': {
+                'event': 'showModal',
+                'exeAfterNMoves': 1,
+                'eventArgs': ['Move delayed modal triggered by another trigger', 'Some text for the body of the triggered modal']
+            },
+            'controversialAbortionModal': {
+                'event': 'showModal',
+                'exeAfterNMoves': 1,
+                'eventArgs': ['I have aborted a time delayed and move delayed modal!', 'I am a terrible creature.'],
+                'abortTriggers': ['moveDelayedModal', 'timeDelayedModal']
+            },
+            'theDeletionist': {
+                'event': 'showModal',
+                'eventArgs': ['I am the grim reaper', 'ha ha ha ha ha'],
+                'deleteTriggers' : ['deleteMe']
+            },
+            'deleteMe': {
+                'event': 'showModal',
+                'eventArgs': ['I will never have a chance to live.', 'What\'s the point? Nobody will ever see this message.'],
+            },
+            'signaler': {
+                'signalTriggers': ['signalee']
+            },
+            'signalee': {
+                'event': 'showModal',
+                'eventArgs': ['I will not appear until I am instructed to do so.', 'Ahh, it is good to be seen.'],
+                'waitForSignal': true
+            },
+            'multipleLifeModal': {
+                'event': 'showModal',
+                'lives': 3,
+                'eventArgs': ['I have only 3 lives to live', 'Some text for the body of the triggered modal']
             }
         },
         '_player': {

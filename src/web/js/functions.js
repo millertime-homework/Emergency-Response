@@ -27,7 +27,8 @@ jQuery(document).ready(function ($) {
             currFloor = scenario.addFloor(key, value['z'])
             // load rooms of this floor
             $.each(value['_rooms'], function (key, value) {
-                currRoom = currFloor.addRoom(key, value['id'], value['x'], value['y'], currFloor.z)
+                currRoom = currFloor.addRoom(key, value['id'], value['x'], value['y'], currFloor.z);
+                currRoom.addTriggers(value._triggers);
                 // load walls of this room
                 $.each(value['_walls'], function (key, value) {
                     currWall = currRoom.addWall(value['name'], key, value['image'])
@@ -60,17 +61,30 @@ jQuery(document).ready(function ($) {
             })
         })
         scenario.conversations = {};
-        $.each(data['_conversations'], function (key, value) {
-            var newConversation = new Conversation;
-            newConversation.set(key, value);
-            scenario.conversations[key] = newConversation;
-        });
+        if (data['_conversations']) {
+            $.each(data['_conversations'], function (key, value) {
+                var newConversation = new Conversation;
+                newConversation.set(key, value);
+                scenario.conversations[key] = newConversation;
+            });
+        }
+        clearAllTriggers();
+        if (data['_triggers']) {
+            $.each(data['_triggers'], function (key, value) {
+                scenario.addTrigger(key, value);
+            });
+        }
         player = new Player;
         playerDef = data['_player']
         player.set(playerDef['x'], playerDef['y'], playerDef['z'], playerDef['_facing'], null)
 
         generateMap(playerDef['x'], playerDef['y'], scenario.getFloor(playerDef['z']));
         sizeWindow();
+
+        var startRoomTriggers = scenario.getRoom(player.x, player.y, player.z).triggers;
+        if (startRoomTriggers) {
+            startRoomTriggers.map(startTrigger);
+        }
     }
 
 

@@ -9,6 +9,7 @@ Room = Class.create({
         this.x = null;
         this.y = null;
         this.z = null;
+        this.triggers;
         this.walls = {};
     },
     set: function(name, x, y, z) {
@@ -29,6 +30,9 @@ Room = Class.create({
     },
     addProp: function(prop, value) {
         this[prop] = value;
+    },
+    addTriggers: function (triggers) {
+        this.triggers = triggers;
     },
     getWallList: function() {
         if (typeof this.walls === 'undefined') {

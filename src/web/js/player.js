@@ -41,8 +41,7 @@ Player = Class.create({
             this.y = destination['y']
             this.z = destination['z']
             this.facing = destination['f']
-            updateMap();
-            return true;
+            jQuery(document).trigger('player-moved', [this.x, this.y, this.z]);
         }
         return false;
     },
@@ -57,7 +56,7 @@ Player = Class.create({
         }
         if (scenario.getRoom(player.x, player.y, player.z).walls[DIRECTION_INDEX[newDirectionIndex]]) {
             this.facing = DIRECTION_INDEX[newDirectionIndex];
-            showDirectionalIndicator();
+            jQuery(document).trigger('player-turned');
             return true;
         }
         return false;
