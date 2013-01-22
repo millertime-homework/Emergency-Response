@@ -200,7 +200,7 @@ jQuery(document).ready(function ($) {
     
     showInventory = function () {
         // modeled after showConversation's implementation
-        var rowTemplate = "<li><img src='{1}'> {2}</li>";
+        var rowTemplate = "<li><img src='web/img/{0}'> {1}</li>";
         var items = player.inventory.items;
         
         emptyModal();
