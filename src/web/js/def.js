@@ -294,6 +294,7 @@ scenarioDef = {
                 'x': 0,
                 'y': 0,
                 'z': 0,
-                '_facing': 'n'
+                '_facing': 'n',
+                'inventory': [{'name': 'Wrong key', 'image': 'key.png'}]
         },
 };
