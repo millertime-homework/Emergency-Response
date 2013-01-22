@@ -207,7 +207,7 @@ jQuery(document).ready(function ($) {
         $('#modal #header').html("Inventory");
         $('#modal #content').append('<ul class="inventory">');
         for (var i in items)
-            if (items.hasOwnProperty(i))
+            if (items.hasOwnProperty(i) && items[i] != null)
                 $('#modal #content').append(rowTemplate.format(items[i].image, items[i].name));
         $('#modal #content').append('</ul>');
 

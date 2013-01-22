@@ -10,7 +10,7 @@ Inventory = Class.create({
          return this.items[itemName] != null;
     },
     remove: function(itemName) {
-         this.items[itemName] = null;
+         delete this.items[itemName];
     }
 });
 
