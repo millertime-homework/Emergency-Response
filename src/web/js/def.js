@@ -277,13 +277,13 @@ scenarioDef = {
             'Door': {
                 '1': {
                     'checkInventory': [{'has': ['Key'], 'goto': '2'}],
-                    'message': 'The door is locked',
+                    'message': 'The door is locked, and you don\'t have any keys',
                     'replies': {
                         'Walk away': 0
                     }
                 },
                 '2': {
-                    'message': 'The door is locked',
+                    'message': 'The door is locked, but you have a key',
                     'replies': {
                         'Use the key': 3,
                         'Walk away': 0
