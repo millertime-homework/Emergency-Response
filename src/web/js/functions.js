@@ -197,6 +197,22 @@ jQuery(document).ready(function ($) {
 
         showModal();
     }
+    
+    showInventory = function () {
+        // modeled after showConversation's implementation
+        var rowTemplate = "<li><img src='{1}'> {2}</li>";
+        var items = player.inventory.items;
+        
+        emptyModal();
+        $('#modal #header').html("Inventory");
+        $('#modal #content').append('<ul class="inventory">');
+        for (var i in items)
+            if (items.hasOwnProperty(i))
+                $('#modal #content').append(rowTemplate.format(items[i].image, items[i].name));
+        $('#modal #content').append('</ul>');
+
+        showModal();
+    }
 
     displayModal = function (header, text, image) {
         emptyModal();
