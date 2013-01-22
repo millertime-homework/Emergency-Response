@@ -14,13 +14,7 @@ Inventory = Class.create({
     }
 });
 
-InventoryItem = Class.create({
-    init: function() {
-        this.name = null;
-        this.image = null;
-    },
-    set: function(name, image) {
-        this.name = name;
-        this.image = image;
-    }
-});
+/* No specific class for inventory items, but they have these properties:
+        name: Used as both the display name and for identifying it within the scenario file.
+        image: An image to display next to the item in the inventory.
+*/
