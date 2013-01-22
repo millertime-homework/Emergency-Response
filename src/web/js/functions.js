@@ -61,15 +61,19 @@ jQuery(document).ready(function ($) {
             })
         })
         scenario.conversations = {};
-        $.each(data['_conversations'], function (key, value) {
-            var newConversation = new Conversation;
-            newConversation.set(key, value);
-            scenario.conversations[key] = newConversation;
-        });
+        if (data['_conversations']) {
+            $.each(data['_conversations'], function (key, value) {
+                var newConversation = new Conversation;
+                newConversation.set(key, value);
+                scenario.conversations[key] = newConversation;
+            });
+        }
         clearAllTriggers();
-        $.each(data['_triggers'], function (key, value) {
-            scenario.addTrigger(key, value);
-        });
+        if (data['_triggers']) {
+            $.each(data['_triggers'], function (key, value) {
+                scenario.addTrigger(key, value);
+            });
+        }
         player = new Player;
         playerDef = data['_player']
         player.set(playerDef['x'], playerDef['y'], playerDef['z'], playerDef['_facing'], null)
