@@ -248,11 +248,16 @@ scenarioDef = {
                     }
                 },
                 '7': {
-                    'message': 'Oh, thank you!  I must have dropped it!',
+                    'message': 'Oh, thank you!  I must have dropped it!  Would you like a cookie?',
                     'takeFromPlayer': ['Key'],
                     'replies': {
-                        'You\'re welcome!': 0
+                        'No, thank you': 0,
+                        'Yes, please!': 8
                     }
+                },
+                '8': {
+                    'givePlayer': [{'name': 'Cookie', 'image': 'cookie.png'}],
+                    'goto': 0
                 }
             },
             'Key': {
@@ -295,6 +300,6 @@ scenarioDef = {
                 'y': 0,
                 'z': 0,
                 '_facing': 'n',
-                'inventory': [{'name': 'Wrong key', 'image': 'key.png'}]
+                'inventory': [{'name': 'Arrows', 'image': 'up.png'}]
         },
 };
