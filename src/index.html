@@ -37,23 +37,14 @@
                     <span id="info-button">About Game</span>
                 </div>
                 <div class="option">
-                    <span id="feedback-button">Feedback</span>
+                    <span id="feedback-button">
+                        <a href="https://docs.google.com/spreadsheet/embeddedform?formkey=dElEcm8xTEVmd3RWS1pldFNwQjhMNHc6MQ" target="_blank">
+                            Feedback
+                        </a>
+                    </span>
                 </div>
             </div>
             <!-- END MENU -->
-            <!-- BEGIN FEEDBACK FORM -->
-            <div id="report-modal" class="modal">
-                <form id="report-form">
-                    <b>Name:<input type="text" id="reporter-name"><br />
-                    Email Address:<input type="text" id="reporter-email" /><br /></b>
-                    Please describe the issue you encountered.<br />
-                    <i> Include details like where you were in the game.<br />
-                    What you were interacting with. ETC</i><br />
-                    <textarea type="text" id="report-body" cols="50" rows="15" ></textarea><br />
-                    <input type="submit" value="Submit Report" id="submit-button">
-                </form>
-            </div>
-            <!--- END FEEDBACK FORM -->
             <!-- BEGIN MAIN -->
             <div id="view-modal">
                 <div class="primary-view main-content-child main-content-viewport" id="controls-overlay">
@@ -93,7 +84,6 @@
             var scenarioDef = null;
         </script>
         <!-- The ordering of including scripts are important -->
-        <script type="text/javascript" src="web/js/reportform.js"></script> <!-- Feedback Form functions -->
         <script type="text/javascript" src="web/js/help.js"></script> <!-- Show Help -->
         <script type="text/javascript" src="web/js/player.js"></script>   <!-- Player Class -->
         <script type="text/javascript" src="web/js/wall.js"></script>   <!-- Wall Class -->

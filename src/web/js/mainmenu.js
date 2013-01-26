@@ -41,11 +41,6 @@ jQuery(document).ready(function($){
 		displayModal('About this game', 'We are about this game. That is all for now.', null);
 	})
 
-    $('#feedback-button').click(function(){
-        $('#report-modal').show();
-        $('#main-menu').hide();
-    })
-
 })
 
 
