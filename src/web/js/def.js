@@ -104,9 +104,9 @@ scenarioDef = {
                     '_walls': {
                         'e': {
                             'name': 'EHall400', 
-                            'image': 'R400-east.jpg' /*, can't go to 4,0,0 it's commented out
+                            'image': 'R400-east.jpg' /*, can't go to 5,0,0 it's commented out
                             'destination': {
-                                'x': 4
+                                'x': 5
                             }
                             */
                         },
