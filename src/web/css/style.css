@@ -2,6 +2,7 @@
 body{font-family:"Helvetica-Neue-Light","Helvetica Neue Light";font-size:14px;margin:0px;background-color:gray;}
 .bordered{-webkit-border-radius:10px 10px 10px 10px;-moz-border-radius:10px 10px 10px 10px;border-radius:10px 10px 10px 10px;box-shadow:3px 3px 3px #888888;-webkit-box-shadow:3px 3px 3px #888888;-moz-box-shadow:3px 3px 3px #888888;}
 .bold-colored-text{font-weight:bold;color:#000000;}
+.pause-option{cursor:pointer;}
 .conversation-option{cursor:pointer;}
 input:hover,input:active,input:focus,textarea:hover,textarea:active,textarea:focus{border-color:#4493f3;border-style:solid;border-width:0px;}
 .hidden{display:none;}
@@ -34,5 +35,5 @@ input:hover,input:active,input:focus,textarea:hover,textarea:active,textarea:foc
 #main-menu{margin-left:auto;margin-right:auto;display:none;height:611px;width:1115px;border:1px solid black;-webkit-border-radius:10px 10px 10px 10px;-moz-border-radius:10px 10px 10px 10px;border-radius:10px 10px 10px 10px;}#main-menu .option{position:relative;float:left;width:100%;margin-top:5px;margin-bottom:10px;text-align:center;}#main-menu .option span{padding:2px;font-size:1.2em;color:#77f;cursor:pointer;}#main-menu .option span:hover{border:1px solid black;-webkit-border-radius:5px 5px 5px 5px;-moz-border-radius:5px 5px 5px 5px;border-radius:5px 5px 5px 5px;color:#00f;}
 #main-menu .option a{color:#77f;text-decoration:none;}
 #modals{position:absolute;top:0px;left:0px;height:0;width:0;overflow:visible;}
-#modal{position:absolute;top:10%;left:10%;width:400px;height:400px;z-index:10;-webkit-border-radius:10px 10px 10px 10px;-moz-border-radius:10px 10px 10px 10px;border-radius:10px 10px 10px 10px;background-color:white;border:1px solid black;box-shadow:3px 3px 3px #888888;-webkit-box-shadow:3px 3px 3px #888888;-moz-box-shadow:3px 3px 3px #888888;padding:10px;}
+#modal{position:absolute;top:10%;left:10%;width:400px;height:400px;z-index:10;-webkit-border-radius:10px 10px 10px 10px;-moz-border-radius:10px 10px 10px 10px;border-radius:10px 10px 10px 10px;background-color:white;border:1px solid black;box-shadow:3px 3px 3px #888888;-webkit-box-shadow:3px 3px 3px #888888;-moz-box-shadow:3px 3px 3px #888888;padding:10px;}#modal a{color:#000000;text-decoration:none;}
 #overlay{position:absolute;top:0;left:0;width:100%;height:100%;background-color:white;filter:alpha(opacity=75);-moz-opacity:0.75;-khtml-opacity:0.75;opacity:0.75;z-index:9;}
