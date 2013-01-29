@@ -75,7 +75,18 @@ earthquakeDef = {
                             'image': 'R300-east.jpg',
                             'destination': {
                                 'x': 4
-                            }
+                            },                            
+                            '_clickables' : {
+                                'dolphin' : {
+                                    'image': 'dolphin.png',
+                                    'hoverImage' : 'dolphinhover.png',
+                                    'top' : 200,
+                                    'left' : 200,
+                                    'height': 256,
+                                    'width' : 499,
+                                },
+                            },
+
                         },
                         'w': {
                             'name': 'WHall300',

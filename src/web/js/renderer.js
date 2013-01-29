@@ -33,13 +33,29 @@ jQuery(document).ready(function($){
     renderClickables = function(wall) {
         var view = $('#controls-overlay')
         $.each(wall.clickables, function(key, value) {
-            view.append('<div id="' + key + '" class="clickable" width="' + value['width'] + '" height="' + value['height'] +'">')
-            var viewClickable = $('#' + key)
-            viewClickable.css('left', value['left']).data('left', value['left']);
-            viewClickable.css('top', value['top']).data('top', value['top']);
-            viewClickable.css('width', value['width']).data('width', value['width']);
-            viewClickable.css('height', value['height']).data('height', value['height']);
+            data = { 'left': value['left'], 'top': value['top'], 'width': value['width'], 'height': value['height'] };
+            view.append('<div id="' + key + '" class="clickable base-clickable"></div>')
+            var viewClickable = $('#' + key);
+            viewClickable.css({ 
+                'left': value['left'],
+                'top': value['top'],
+                'width': value['width'],
+                'height': value['height']
+            }).data(data);
+
+            if (value['hoverImage']) {
+                viewClickable.clone().
+                appendTo(view).
+                data(data).
+                removeClass('base-clickable').
+                addClass('hover-clickable').
+                append(value['hoverImage']);
+            } else {
+                //This will make the base clickable image display at all times.
+                viewClickable.removeClass('base-clickable').addClass('hover-clickable');
+            }
             viewClickable.append(value['image']);
+
             var eventParams = {
                 'imageElement': null,
                 'name': null,

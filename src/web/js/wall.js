@@ -11,13 +11,15 @@ Wall = Class.create({
         this.direction = direction;
         this.image = scenario.addImage(image)
     },
-    addClickable: function(id, name, image, width, height, left, right, action, actionVariables) {
+    addClickable: function(id, name, image, hoverImage, width, height, left, right, action, actionVariables) {
         var newClickable = new Clickable;
         clickableImage = scenario.addImage(image);
+        clickableHoverImage = hoverImage && scenario.addImage(hoverImage);
+        
         if (action ==='displayModal' && !actionVariables['imageElement']) {
             actionVariables['imageElement'] = scenario.addImage(actionVariables['image']);
         }
-        newClickable.set(name, clickableImage, width, height, left, right, action, actionVariables);
+        newClickable.set(name, clickableImage, clickableHoverImage, width, height, left, right, action, actionVariables);
         this.clickables[id] = newClickable;
     },
     getClickable: function(id) {

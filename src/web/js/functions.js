@@ -47,6 +47,7 @@ jQuery(document).ready(function ($) {
                                 key,
                                 value['name'],
                                 value['image'],
+                                value['hoverImage'],
                                 value['width'],
                                 value['height'],
                                 value['left'],
