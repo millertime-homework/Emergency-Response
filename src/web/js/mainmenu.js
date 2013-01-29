@@ -12,27 +12,24 @@ jQuery(document).ready(function($){
 	$('#play-button').click(function() {
 		// ## MAIN FUNCTION ##
     	// LOAD SCENARIO
-        loadScenario(scenarioDef)
+
+        // loadScenario(scenarioDef)
     
-    	// Check starting players position
-    	// Add spinner to view-modal while loading scenario   
-    	spinner = new Spinner({
-        	color: '#fff'
-    	}).spin(document.getElementById('view-modal'))
-
-    	if (player) {
-        	if (!scenario.isValidRoom(player.x, player.y, player.z)) {
-            	alert('Player\'s starting position is invalid')
-           		return;
-       		}
-    	} else {
-        	alert('Player not defined')
-    	}
-    	renderScene()
-
-		playerState = "Playing";
-		evalGameState();
-		spinner.stop();
+        // Show Scene Selector
+        displayModal('Select Scenario', '<a href="#" id="loadActiveShooter">Active Shooter</a><br /><a href="#" id="loadEarthquake">Earthquake</a>', null);
+        // Load Scenario
+        $("#loadActiveShooter").live("click", function() {
+            loadScenario(activeShooterDef);
+            $("#loadEarthquake").unbind("click");
+            $(this).unbind("click");
+            hideModal();
+        });
+        $("#loadEarthquake").live("click", function() {
+            loadScenario(earthquakeDef);
+            $("#loadActiveShooter").unbind("click");
+            $(this).unbind("click");
+            hideModal();
+        });
 	})
 	
     
