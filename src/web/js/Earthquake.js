@@ -1,5 +1,5 @@
 earthquakeDef = {
-    'name': 'Demo 01 Scenario',
+    'name': 'Earthquake Scenario',
     '_floors': {
         'First Floor': {
             'z': 0,

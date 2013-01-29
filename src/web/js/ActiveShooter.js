@@ -1,5 +1,5 @@
 activeShooterDef = {
-    'name': 'Demo 01 Scenario',
+    'name': 'Active Shooter Scenario',
     '_floors': {
         'First Floor': {
             'z': 0,

@@ -13,7 +13,7 @@ jQuery(document).ready(function($){
 		// ## MAIN FUNCTION ##
     
         // Show Scene Selector
-        displayModal('Select Scenario', '<a href="#" id="loadActiveShooter">Active Shooter</a><br /><a href="#" id="loadEarthquake">Earthquake</a>', null);
+        displayModal('Select Scenario', '<a href="#" id="loadActiveShooter">' + activeShooterDef['name'] + '</a><br /><a href="#" id="loadEarthquake">' + earthquakeDef['name'] + '</a>', null);
         
         // Load Scenario
         $("#loadActiveShooter").live("click", function() {
@@ -22,7 +22,7 @@ jQuery(document).ready(function($){
             $(this).unbind("click");
             hideModal();
         });
-        
+
         $("#loadEarthquake").live("click", function() {
             loadScenario(earthquakeDef);
             $("#loadActiveShooter").unbind("click");
