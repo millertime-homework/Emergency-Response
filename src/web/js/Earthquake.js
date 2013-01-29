@@ -874,10 +874,8 @@ earthquakeDef = {
         //It starts sampleObjectiveEnd, which is triggered after the player moves.
         //Player earns points, and starts new triggers which complete this objective and start a new one.
         'sampleObjectiveEnd' : {
-            'event' : 'addPoints',
-            'eventArgs' : [10],
             'exeAfterNMoves' : 1,
-            'startTriggers' : ['completeObjective', 'findTheDolphin'],
+            'startTriggers' : ['add10Points', 'completeObjective', 'findTheDolphin'],
         },
         //The player is tasked with finding the dolphin. TODO: Add a requirement that the player must face
         //a certain direction to complete a trigger (IE, they must look at the dolphin, not just be on its tile)
@@ -889,21 +887,27 @@ earthquakeDef = {
         },
         //Starts disabled so it can't be triggered unless the player is on the dolphin quest
         'dolphinFound' : {
-            'event' : 'addPoints',
-            'eventArgs' : [100],
             'disabled' : true,
-            'startTriggers' : ['completeObjective'],
+            'startTriggers' : ['add10Points', 'completeObjective'],
             'abortTriggers' : ['dolphinHint']
         },
+        //Triggered if the player is having trouble finding the dolphin. Note that because it is
+        //aborted by dolphinFound, this only appears if the player takes too long to find the dolphin
         'dolphinHint' : {
             'event' : 'setObjective',
             'exeAfterNMoves' : 5,
             'eventArgs' : ['Find the dolphin! Hint: Look in a classroom.'],
         },
-        //Generic complet objective.
+        //Generic complet objective trigger
         'completeObjective' : {
             'event' : 'completeObjective',
             'eventArgs' : ['Objective complete. Good job!'],
+            'lives' : 99999999
+        },
+        //Generic add points trigger
+        'add10Points' : {
+            'event' : 'addPoints',
+            'eventArgs' : [10],
             'lives' : 99999999
         }
     },
