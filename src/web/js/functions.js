@@ -226,6 +226,7 @@ jQuery(document).ready(function ($) {
             'player-move',
             $(this).attr('id')
         );
+    });
 
     /* Pause Menu click functions */
     $('#pause-resume-button').live("click", function() {
