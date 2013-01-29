@@ -37,23 +37,21 @@
                     <span id="info-button">About Game</span>
                 </div>
                 <div class="option">
-                    <span id="feedback-button">Feedback</span>
+                    <span id="feedback-button">
+                        <a href="https://docs.google.com/spreadsheet/embeddedform?formkey=dElEcm8xTEVmd3RWS1pldFNwQjhMNHc6MQ" target="_blank">
+                            Feedback
+                        </a>
+                    </span>
+                </div>
+                <div class="option">
+                    <span id="back-button">
+                        <a href="../index.html">
+                            Back to Clark College
+                        </a>
+                    </span>
                 </div>
             </div>
             <!-- END MENU -->
-            <!-- BEGIN FEEDBACK FORM -->
-            <div id="report-modal" class="modal">
-                <form id="report-form">
-                    <b>Name:<input type="text" id="reporter-name"><br />
-                    Email Address:<input type="text" id="reporter-email" /><br /></b>
-                    Please describe the issue you encountered.<br />
-                    <i> Include details like where you were in the game.<br />
-                    What you were interacting with. ETC</i><br />
-                    <textarea type="text" id="report-body" cols="50" rows="15" ></textarea><br />
-                    <input type="submit" value="Submit Report" id="submit-button">
-                </form>
-            </div>
-            <!--- END FEEDBACK FORM -->
             <!-- BEGIN MAIN -->
             <div id="view-modal">
                 <div class="primary-view main-content-child main-content-viewport" id="controls-overlay">
@@ -93,13 +91,14 @@
             var scenarioDef = null;
         </script>
         <!-- The ordering of including scripts are important -->
-        <script type="text/javascript" src="web/js/reportform.js"></script> <!-- Feedback Form functions -->
         <script type="text/javascript" src="web/js/inventory.js"></script> <!-- Inventory class -->
+        <script type="text/javascript" src="web/js/help.js"></script> <!-- Show Help -->
         <script type="text/javascript" src="web/js/player.js"></script>   <!-- Player Class -->
         <script type="text/javascript" src="web/js/wall.js"></script>   <!-- Wall Class -->
         <script type="text/javascript" src="web/js/room.js"></script>   <!-- Room Class -->
         <script type="text/javascript" src="web/js/floor.js"></script>   <!-- Floor Class -->
         <script type="text/javascript" src="web/js/conversation.js"></script>   <!-- Conversation Class -->
+        <script type="text/javascript" src="web/js/triggers.js"></script>   <!-- Conversation Class -->
         <script type="text/javascript" src="web/js/mainmenu.js"></script>   <!-- Main Menu Code -->
         <script type="text/javascript" src="web/js/scenario.js"></script>   <!-- Scenario Class -->
         <script type="text/javascript" src="web/js/clickable.js"></script>   <!-- Clickable Class -->
@@ -110,7 +109,6 @@
         <script type="text/javascript" src="web/js/events.js"></script>      <!-- Events and their handlers -->
         <script type="text/javascript" src="web/js/keyhandler.js"></script>
         <script type="text/javascript" src="web/js/main.js"></script>        <!-- Main code to start game -->
-        <script type="text/javascript" src="web/js/mainmenu.js"></script>   <!-- Main Menu Code -->
         <script type="text/javascript" src="web/js/minimap.js"></script>
     <!-- END JAVASCRIPTS -->
 

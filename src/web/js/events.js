@@ -44,35 +44,21 @@ jQuery(document).ready(function($) {
             case 'move-down':
                 playerMoved = player.move('d');
                 break;
-
-        }
-        if (playerMoved) {
-            renderScene()
         }
     })
 
-    // Player clicks move-forward button
-    $('#move-forward').click(function () {
-        $(document).trigger('player-move', 'move-forward');
-    })
+    $(document).on('player-moved', function (event, x, y, z) {
+        renderScene();
+        updateMap();
+        triggersMovementHandler(x, y, z);
+    });
 
-    // Player clicks turn-left button
-    $('#turn-left').click(function () {
-        $(document).trigger('player-move', 'turn-left')
-    })
+    $(document).on('showModal', function (event, header, body, image) {
+        displayModal(header, body, image);
+    });
 
-    // Player clicks turn-right button
-    $('#turn-right').click(function () {
-        $(document).trigger('player-move', 'turn-right')
-    })
-
-    // Player clicks move-up button
-    $('#move-up').click(function () {
-        $(document).trigger('player-move', 'move-up')
-    })
-
-    // Player clicks move-down button
-    $('#move-down').click(function () {
-        $(document).trigger('player-move', 'move-down')
-    })
+    $(document).on('player-turned', function (event, x, y, z) {
+        renderScene();
+        showDirectionalIndicator();
+    });
 })

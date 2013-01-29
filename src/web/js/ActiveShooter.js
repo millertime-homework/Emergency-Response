@@ -687,10 +687,10 @@ scenarioDef = {
                     }
                 },
                 */
-                'room240': {
+                'room240': {						//Room Name
                     'id': 'hall240', 
-                    'x': 2, 
-                    'y': 4,
+                    'x': 2, 						//Room Location on a grid?
+                    'y': 4,  
                     '_walls': {
                         'e': {
                             'name': 'EHall240', 
@@ -855,7 +855,7 @@ scenarioDef = {
         'x': 3,
         'y': 0,
         'z': 0,
-        '_facing': 'n',
-	'inventory': []
+        '_facing': 'n'
     },
+
 };

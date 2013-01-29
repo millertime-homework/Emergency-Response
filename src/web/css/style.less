@@ -152,6 +152,7 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     z-index: 3; 
     .opacity(50);
     &:hover {
+        cursor: pointer;
         .opacity(100);
     }
 }
@@ -184,6 +185,9 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     .sidebar;
     text-align: center;
     height: 60px;
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 #map {
@@ -260,12 +264,11 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
         color: #00f;
       }
     }
+    a {
+        color: #77f;
+        text-decoration: none;
+    }
   }
-}
-
-/* FEEDBACK FORM */
-#report-modal {
-    height:@viewportHeight;
 }
 
 /*  MODAL/OVERLAY STYLINGS */
