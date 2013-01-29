@@ -60,5 +60,19 @@ jQuery(document).ready(function($) {
     $(document).on('player-turned', function (event, x, y, z) {
         renderScene();
         showDirectionalIndicator();
+    });    
+
+    $(document).on('addPoints', function (event, pointValue) {
+        if (pointValue && !isNaN(pointValue) && pointValue > 0) {
+            player.score += pointValue;
+        }
     });
-})
+
+    $(document).on('setObjective', function (event, displayText) {
+        setObjective(displayText);
+    });
+
+    $(document).on('completeObjective', function (event) {
+        completeObjective();
+    });
+});

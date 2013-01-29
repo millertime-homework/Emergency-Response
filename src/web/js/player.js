@@ -22,6 +22,7 @@ Player = Class.create({
         this.health = null;
         this.status = null;
         this.scenario = null;
+        this.score = 0;
     },
     set: function(x, y, z, facing, scenario) {
         this.x = x;
@@ -31,6 +32,7 @@ Player = Class.create({
         this.health = PLAYER_HEALTH_DEFAULT;
         this.status = PLAYER_STATUS_ALIVE;
         this.scenario = scenario;
+        this.score = 0;
     },
     move: function(direction) { 
         var currRoom = scenario.getRoom(this.x, this.y, this.z)

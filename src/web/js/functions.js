@@ -268,6 +268,14 @@ jQuery(document).ready(function ($) {
     });
 });
 
+function setObjective(displayText) {
+    jQuery('#objective').text(displayText);
+};
+
+function completeObjective(displayText) {
+    jQuery('#objective').text('');
+};
+
 String.prototype.format = function () {
     var args = arguments;
     return this.replace(/\{(\d+)\}/g, function (m, n) { return args[n]; });

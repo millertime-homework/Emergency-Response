@@ -26,7 +26,11 @@ Scenario = Class.create({
         this.status = SCENARIO_STATUS_ACTIVE;
     },
     addTrigger: function (triggerName, triggerData) {
-        scenario.triggers.pool[triggerName] = triggerData;
+        if (triggerData['disabled']) {
+            scenario.triggers['disabled'][triggerName] = triggerData;
+        } else {
+            scenario.triggers.pool[triggerName] = triggerData;
+        }
     },
     addImage: function(image) {
         this.images.push(imageBasePath + image)

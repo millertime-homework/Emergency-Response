@@ -8,6 +8,7 @@ scenario.triggers.deferredByTime = {};
 //For use when loading/changing scenarios.
 function clearAllTriggers() {
     scenario.triggers = {};
+    scenario.triggers['disabled'] = {};
     scenario.triggers.pool = {};
     scenario.triggers.waitingForSignal = {};
     scenario.triggers.deferredByMoves = {};
@@ -17,10 +18,11 @@ function clearAllTriggers() {
 //Called when the player class triggers an event signaling that the player has moved.
 function triggersMovementHandler(x, y, z) {
     var triggers = scenario.getRoom(x, y, z).triggers;
+    processWaitingForMoves();
+    
     if (triggers) {
         triggers.map(startTrigger);
     }
-    processWaitingForMoves();
 };
 
 //This function can be called by anything that wants to start a trigger. All you need is a trigger name.
@@ -114,6 +116,9 @@ function processTriggers(trigger) {
 	if (trigger.startTriggers) {
 		trigger.startTriggers.map(startTrigger);
 	}
+	if (trigger.enableTriggers) {
+		trigger.enableTriggers.map(enableTrigger);
+	}
 }
 
 //If any of the specified triggers are doing a time, move, or signal wait, they are not allowed to execute.
@@ -122,6 +127,15 @@ function abortTrigger(triggerName) {
 	delete scenario.triggers.deferredByTime[triggerName];
 	delete scenario.triggers.waitingForSignal[triggerName];
 	return triggerName;
+}
+
+function enableTrigger(triggerName) {
+	var trigger = scenario.triggers['disabled'][triggerName];
+	if (trigger) {
+		trigger['disabled'] = false
+		delete scenario.triggers['disabled'][triggerName];
+		scenario.triggers.pool[triggerName] = trigger;
+	}
 }
 
 //If any of the specified triggers are waiting on a signal, they are allowed to continue.

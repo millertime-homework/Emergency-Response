@@ -75,17 +75,7 @@ earthquakeDef = {
                             'image': 'R300-east.jpg',
                             'destination': {
                                 'x': 4
-                            },                            
-                            '_clickables' : {
-                                'dolphin' : {
-                                    'image': 'dolphin.png',
-                                    'hoverImage' : 'dolphinhover.png',
-                                    'top' : 200,
-                                    'left' : 200,
-                                    'height': 256,
-                                    'width' : 499,
-                                },
-                            },
+                            }
 
                         },
                         'w': {
@@ -320,6 +310,7 @@ earthquakeDef = {
                     'id': 'hall120', 
                     'x': 1, 
                     'y': 2,
+                    '_triggers' : ['dolphinFound'],
                     '_walls': {
                         'e': {
                             'name': 'EHall120', 
@@ -330,7 +321,17 @@ earthquakeDef = {
                         },
                         'w': {
                             'name': 'WHall120',
-                            'image': 'R120-west.jpg'
+                            'image': 'R120-west.jpg',                            
+                            '_clickables' : {
+                                'dolphin' : {
+                                    'image': 'dolphin.png',
+                                    'hoverImage' : 'dolphinhover.png',
+                                    'top' : 200,
+                                    'left' : 200,
+                                    'height': 256,
+                                    'width' : 499,
+                                }
+                            }
                         },
                         'n': {
                             'name': 'NHall120',   
@@ -702,6 +703,7 @@ earthquakeDef = {
                     'id': 'hall240', 
                     'x': 2, 						//Room Location on a grid?
                     'y': 4,  
+                    '_triggers' : ['sampleObjective'],
                     '_walls': {
                         'e': {
                             'name': 'EHall240', 
@@ -860,6 +862,49 @@ earthquakeDef = {
                 },
                 */
             }
+        }
+    },
+    '_triggers' : {
+        //This sample objective is started when you hit the room where it is included.
+        'sampleObjective' : {
+            'event' : 'setObjective',
+            'eventArgs' : ['Move somewhere'],
+            'startTriggers' : ['sampleObjectiveEnd']
+        },
+        //It starts sampleObjectiveEnd, which is triggered after the player moves.
+        //Player earns points, and starts new triggers which complete this objective and start a new one.
+        'sampleObjectiveEnd' : {
+            'event' : 'addPoints',
+            'eventArgs' : [10],
+            'exeAfterNMoves' : 1,
+            'startTriggers' : ['completeObjective', 'findTheDolphin'],
+        },
+        //The player is tasked with finding the dolphin. TODO: Add a requirement that the player must face
+        //a certain direction to complete a trigger (IE, they must look at the dolphin, not just be on its tile)
+        'findTheDolphin' : {
+            'event' : 'setObjective',
+            'eventArgs' : ['Find the dolphin!'],
+            'enableTriggers' : ['dolphinFound'],
+            'startTriggers' : ['dolphinHint']
+        },
+        //Starts disabled so it can't be triggered unless the player is on the dolphin quest
+        'dolphinFound' : {
+            'event' : 'addPoints',
+            'eventArgs' : [100],
+            'disabled' : true,
+            'startTriggers' : ['completeObjective'],
+            'abortTriggers' : ['dolphinHint']
+        },
+        'dolphinHint' : {
+            'event' : 'setObjective',
+            'exeAfterNMoves' : 5,
+            'eventArgs' : ['Find the dolphin! Hint: Look in a classroom.'],
+        },
+        //Generic complet objective.
+        'completeObjective' : {
+            'event' : 'completeObjective',
+            'eventArgs' : ['Objective complete. Good job!'],
+            'lives' : 99999999
         }
     },
     '_player': {
