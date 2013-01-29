@@ -266,6 +266,13 @@ jQuery(document).ready(function ($) {
     $("li.conversation-option").live("click", function () {
         showConversation(null, $(this).attr('data-conversation-option'));
     });
+
+    $(".viewport-button").live("click", function () {
+        $(document).trigger(
+            'player-move',
+            $(this).attr('id')
+        );
+    });
 });
 
 String.prototype.format = function () {
