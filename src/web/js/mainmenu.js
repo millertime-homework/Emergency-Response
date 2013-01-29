@@ -11,12 +11,10 @@ jQuery(document).ready(function($){
 	// Changes Game State from main-menu to Playing
 	$('#play-button').click(function() {
 		// ## MAIN FUNCTION ##
-    	// LOAD SCENARIO
-
-        // loadScenario(scenarioDef)
     
         // Show Scene Selector
         displayModal('Select Scenario', '<a href="#" id="loadActiveShooter">Active Shooter</a><br /><a href="#" id="loadEarthquake">Earthquake</a>', null);
+        
         // Load Scenario
         $("#loadActiveShooter").live("click", function() {
             loadScenario(activeShooterDef);
@@ -24,6 +22,7 @@ jQuery(document).ready(function($){
             $(this).unbind("click");
             hideModal();
         });
+        
         $("#loadEarthquake").live("click", function() {
             loadScenario(earthquakeDef);
             $("#loadActiveShooter").unbind("click");
