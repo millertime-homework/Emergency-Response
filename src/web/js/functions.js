@@ -23,6 +23,13 @@ jQuery(document).ready(function ($) {
         currFloor = null
         currRoom = null
         currWall = null
+
+        // Add spinner to view-modal while loading scenario   
+        spinner = new Spinner({
+            color: '#fff'
+        }).spin(document.getElementById('view-modal'))
+
+
         //load floors
         $.each(data['_floors'], function (key, value) {
             currFloor = scenario.addFloor(key, value['z'])
@@ -86,6 +93,23 @@ jQuery(document).ready(function ($) {
         if (startRoomTriggers) {
             startRoomTriggers.map(startTrigger);
         }
+
+
+        // Check if player exists
+        if (player) {
+            if (!scenario.isValidRoom(player.x, player.y, player.z)) {
+                alert('Player\'s starting position is invalid')
+                return;
+            }
+        } else {
+            alert('Player not defined')
+        }
+        
+        renderScene()
+
+        playerState = "Playing";
+        evalGameState();
+        spinner.stop();
     }
 
 
