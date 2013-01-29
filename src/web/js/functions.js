@@ -77,8 +77,10 @@ jQuery(document).ready(function ($) {
         player = new Player;
         playerDef = data['_player']
         player.set(playerDef['x'], playerDef['y'], playerDef['z'], playerDef['_facing'], null)
-        for (var i = 0; i < playerDef['inventory'].length; i++)
-            player.inventory.add(playerDef['inventory'][i]);
+        if (playerDef['inventory']) {
+            for (var i = 0; i < playerDef['inventory'].length; i++)
+                player.inventory.add(playerDef['inventory'][i]);
+        }
 
         generateMap(playerDef['x'], playerDef['y'], scenario.getFloor(playerDef['z']));
         sizeWindow();
