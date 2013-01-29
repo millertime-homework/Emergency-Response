@@ -6,6 +6,7 @@ function isScenarioDefined() {};
 function isPlayerDefined() {};
 function evalGameState() {};
 function loadScenario() {};
+function pauseMenu() {};
 function showModal() {};
 function hideModal() {};
 
@@ -122,17 +123,22 @@ jQuery(document).ready(function ($) {
                 allowKeyEvents = true;
                 break;
             case "Paused":
-                if (confirm("Quit and return to main menu?")) {
-                    //alert("In Paused");
-                    playerState = "Main-Menu";
-                    allowKeyEvents = false;
-                    evalGameState();
-                } else { playerState = "Playing"; }
-
+                pauseModal();
                 break;
 
         }
 
+    }
+
+    pauseModal = function() {
+        emptyModal();
+
+        $('#modal #header').html('Pause Menu');
+        $('#modal #content').append('<div class="pause-option" id="pause-resume-button">Resume</div>');
+        $('#modal #content').append('<a class="pause-option" href="https://docs.google.com/spreadsheet/embeddedform?formkey=dElEcm8xTEVmd3RWS1pldFNwQjhMNHc6MQ" target="_blank">Feedback</a>');
+        $('#modal #content').append('<div class="pause-option" id="pause-mainmenu-button">Main Menu</div>');
+
+        showModal();
     }
 
     showConversation = function (conversationName, currentConversationChoice) {
@@ -220,6 +226,19 @@ jQuery(document).ready(function ($) {
             'player-move',
             $(this).attr('id')
         );
+
+    /* Pause Menu click functions */
+    $('#pause-resume-button').live("click", function() {
+        hideModal();
+    });
+
+    $('#pause-mainmenu-button').live("click", function() {
+        if (confirm("Quit and return to main menu?")) {
+            hideModal();
+            playerState = "Main-Menu";
+            allowKeyEvents = false;
+            evalGameState();
+        }
     });
 });
 
