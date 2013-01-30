@@ -44,8 +44,7 @@ jQuery(document).ready(function ($) {
         //The remaining events can be triggered at all times.
         if (event.keyCode == KEY_ESC) {
                 // pause game
-                playerState = "Paused";
-                evalGameState();
+                showPauseMenu();
         }
         if (keyEvent) {
             event.preventDefault();

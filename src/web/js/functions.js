@@ -1,6 +1,7 @@
 // GLOBALS
 var scenario = null;
 var player = null;
+var gameState = 
 
 function isScenarioDefined() {};
 function isPlayerDefined() {};
@@ -108,8 +109,7 @@ jQuery(document).ready(function ($) {
         
         renderScene()
 
-        playerState = "Playing";
-        evalGameState();
+        setGameState(GAME_STATE_RUNNING);
         spinner.stop();
     }
 
@@ -134,28 +134,28 @@ jQuery(document).ready(function ($) {
     }
 
     // Changes the layout to match the current game state.
-    evalGameState = function () {
-        switch (playerState) {
-            case "Main-Menu":
+    setGameState = function (state) {
+        gameState = state;
+        switch (state) {
+            case GAME_STATE_MENU:
                 $('#view-modal').hide();
+                hideModal();
                 $('#main-menu').show();
                 allowKeyEvents = false;
                 hideModal();
                 break;
-            case "Playing":
+            case GAME_STATE_RUNNING:
                 $('#main-menu').hide();
                 $('#view-modal').show();
                 allowKeyEvents = true;
                 break;
-            case "Paused":
-                pauseModal();
+            case GAME_STATE_PAUSED:
+                allowKeyEvents = false;
                 break;
-
         }
-
     }
 
-    pauseModal = function() {
+    showPauseMenu = function() {
         emptyModal();
 
         $('#modal #header').html('Pause Menu');
@@ -226,14 +226,14 @@ jQuery(document).ready(function ($) {
 
     hideModal = function () {
         // Hide any visible modal element
-        if(playerState == 'Playing')
-            allowKeyEvents = true;
+        if(gameState !== GAME_STATE_MENU)
+            setGameState(GAME_STATE_RUNNING);
         $('.modal').hide();
         $('#overlay').hide();
     }
 
     showModal = function () {
-        allowKeyEvents = false;
+        setGameState(GAME_STATE_PAUSED);
         $('#modal').center().show();
         $('#overlay').show();
     }
@@ -260,10 +260,7 @@ jQuery(document).ready(function ($) {
 
     $('#pause-mainmenu-button').live("click", function() {
         if (confirm("Quit and return to main menu?")) {
-            hideModal();
-            playerState = "Main-Menu";
-            allowKeyEvents = false;
-            evalGameState();
+            setGameState(GAME_STATE_MENU);
         }
     });
 });
