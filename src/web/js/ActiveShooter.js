@@ -902,7 +902,7 @@ activeShooterDef = {
                     }
                 },
                 '2': {
-                    'givePlayer': [{'name': 'Fire-Extinguisher', 'image': 'fire-extinguisher.png'}],
+                    'givePlayer': [{'name': 'Fire-Extinguisher', 'image': 'fire-extinguisher.png', 'width':32, 'height':32}],
                     'removeFromScene': ['fire-extinguisher'],
                     'goto': 0,
                     'message': 'Good.'
