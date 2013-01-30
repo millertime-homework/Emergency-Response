@@ -63,14 +63,14 @@ function runTrigger(triggerName, trigger) {
 
 		scenario.triggers.waitingForSignal[triggerName] = trigger;
 		return;
-	} else if (trigger.exeAfterNMoves > 0 && !isNaN(trigger.exeAfterNMoves)) {
+	} else if (trigger.moveDelay > 0 && !isNaN(trigger.moveDelay)) {
 		scenario.triggers.deferredByMoves[triggerName] = trigger;
 		return;
 	}
 
-	if (trigger.exeAfterNMilliseconds > 0 && !isNaN(trigger.exeAfterNMilliseconds)) {
+	if (trigger.timeDelay > 0 && !isNaN(trigger.timeDelay)) {
 		scenario.triggers.deferredByTime[triggerName] = trigger;
-		setTimeout(function () { executeTimeDelayedTriggerEvent(triggerName) }, trigger.exeAfterNMilliseconds);
+		setTimeout(function () { executeTimeDelayedTriggerEvent(triggerName) }, trigger.timeDelay);
 	} else {
 		executeTriggerEvent(trigger);
 	}
@@ -93,13 +93,13 @@ function executeTimeDelayedTriggerEvent(triggerName) {
 //send messages to other triggers if the current trigger has messages to send.
 function executeTriggerEvent(trigger) {
     processTriggers(trigger);
-
-    var newEvent = trigger['event'];
-
-	if (newEvent) {
-	    var eventArgs = trigger.eventArgs || {};
-		jQuery(document).trigger(newEvent, eventArgs);
-	}
+    var events = trigger['events'] || []
+    for (var eventName in events) {
+    	if (events.hasOwnProperty(eventName)) {
+    		var arguments = events[eventName]
+			jQuery(document).trigger(eventName, arguments);
+    	}
+    }
 }
 
 //Sends messages to other triggers, if any such messages exist.
@@ -165,8 +165,8 @@ function processWaitingForMoves(trigger) {
     for (var triggerName in deferredPool) {
         if (deferredPool.hasOwnProperty([triggerName])) {
             currentTrigger = deferredPool[triggerName];
-            --currentTrigger.exeAfterNMoves;
-            if (currentTrigger.exeAfterNMoves === 0) {
+            --currentTrigger.moveDelay;
+            if (currentTrigger.moveDelay === 0) {
                 delete scenario.triggers.deferredByMoves[triggerName];
                 executeTriggerEvent(currentTrigger);
             }
