@@ -11,28 +11,24 @@ jQuery(document).ready(function($){
 	// Changes Game State from main-menu to Playing
 	$('#play-button').click(function() {
 		// ## MAIN FUNCTION ##
-    	// LOAD SCENARIO
-        loadScenario(scenarioDef)
     
-    	// Check starting players position
-    	// Add spinner to view-modal while loading scenario   
-    	spinner = new Spinner({
-        	color: '#fff'
-    	}).spin(document.getElementById('view-modal'))
+        // Show Scene Selector
+        displayModal('Select Scenario', '<a href="#" id="loadActiveShooter">' + activeShooterDef['name'] + '</a><br /><a href="#" id="loadEarthquake">' + earthquakeDef['name'] + '</a>', null);
+        
+        // Load Scenario
+        $("#loadActiveShooter").live("click", function() {
+            loadScenario(activeShooterDef);
+            $("#loadEarthquake").unbind("click");
+            $(this).unbind("click");
+            hideModal();
+        });
 
-    	if (player) {
-        	if (!scenario.isValidRoom(player.x, player.y, player.z)) {
-            	alert('Player\'s starting position is invalid')
-           		return;
-       		}
-    	} else {
-        	alert('Player not defined')
-    	}
-    	renderScene()
-
-		playerState = "Playing";
-		evalGameState();
-		spinner.stop();
+        $("#loadEarthquake").live("click", function() {
+            loadScenario(earthquakeDef);
+            $("#loadActiveShooter").unbind("click");
+            $(this).unbind("click");
+            hideModal();
+        });
 	})
 	
     

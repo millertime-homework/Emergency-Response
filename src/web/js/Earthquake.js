@@ -1,5 +1,5 @@
-scenarioDef = {
-    'name': 'Demo 01 Scenario',
+earthquakeDef = {
+    'name': 'Earthquake Scenario',
     '_floors': {
         'First Floor': {
             'z': 0,
@@ -852,8 +852,8 @@ scenarioDef = {
         }
     },
     '_player': {
-        'x': 3,
-        'y': 0,
+        'x': 2,
+        'y': 4,
         'z': 0,
         '_facing': 'n'
     },
