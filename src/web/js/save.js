@@ -21,4 +21,5 @@ function loadGame() {
     player.z = saveable.player.z;
     player.facing = saveable.player.facing;
     renderScene();
+    updateMap();
 }

@@ -32,6 +32,13 @@ jQuery(document).ready(function($){
             hideModal();
         });
 	})
+
+        $("#resume-button").click(function() {
+            if(!canLoadGame())
+                alert("You have not yet saved a game.");
+            else
+                loadGame();
+        });
 	
     
 	// Brings Up the Info page.

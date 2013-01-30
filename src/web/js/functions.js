@@ -160,6 +160,7 @@ jQuery(document).ready(function ($) {
 
         $('#modal #header').html('Pause Menu');
         $('#modal #content').append('<div class="pause-option" id="pause-resume-button">Resume</div>');
+        $('#modal #content').append('<div class="pause-option" id="pause-save-button">Save</div>');
         $('#modal #content').append('<a class="pause-option" href="https://docs.google.com/spreadsheet/embeddedform?formkey=dElEcm8xTEVmd3RWS1pldFNwQjhMNHc6MQ" target="_blank">Feedback</a>');
         $('#modal #content').append('<div class="pause-option" id="pause-mainmenu-button">Main Menu</div>');
 
@@ -255,6 +256,11 @@ jQuery(document).ready(function ($) {
 
     /* Pause Menu click functions */
     $('#pause-resume-button').live("click", function() {
+        hideModal();
+    });
+    
+    $('#pause-save-button').live("click", function() {
+        saveGame();
         hideModal();
     });
 
