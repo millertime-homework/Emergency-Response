@@ -57,20 +57,6 @@ activeShooterDef = {
                             'image': 'R200-north.jpg',
                             'destination': {
                                 'y': 1
-                            },
-                            '_clickables': {
-                                'arrow': {
-                                    'name': 'arrow',
-                                    'image': 'up.png',
-                                    'width': 50,
-                                    'height': 50,
-                                    'left': 50,
-                                    'top': 50,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'Arrow'
-                                    }
-                                }
                             }
                         },
                         's': {
@@ -880,20 +866,6 @@ activeShooterDef = {
         }
     },
     '_conversations': {
-            'Arrow': {
-                '1': {
-                    'message': 'You found an arrow!',
-                    'replies': {
-                         'Take it': '2'
-                    }
-                },
-                '2': {
-                    'givePlayer': [{'name': 'Arrow', 'image': 'up.png'}],
-                    'removeFromScene': ['arrow'],
-                    'goto': 0,
-                    'message': 'Yay!'
-                }
-            },
             'Fire-Extinguisher': {
                 '1': {
                     'message': 'This is a fire extinguisher.',
