@@ -57,13 +57,27 @@ scenarioDef = {
                             'image': 'R200-north.jpg',
                             'destination': {
                                 'y': 1
+                            },
+                            '_clickables': {
+                                'arrow': {
+                                    'name': 'arrow',
+                                    'image': 'up.png',
+                                    'width': 10,
+                                    'height': 10,
+                                    'left': 85,
+                                    'top': 374,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'arrow'
+                                    }
+                                }
                             }
                         },
                         's': {
                             'name': 'SHall200', 
                             'image': 'R200-south.jpg'
                         }
-                    }
+                    },
                 },
                 'room300': {
                     'id': 'hall300', 
@@ -850,6 +864,22 @@ scenarioDef = {
                 */
             }
         }
+    },
+    '_conversations': {
+            'Arrow': {
+                '1': {
+                    'message': 'You found an arrow!',
+                    'replies': {
+                         'Take it': '2'
+                    }
+                },
+                '2': {
+                    'givePlayer': [{'name': 'Arrow', 'image': 'up.png'}],
+                    'removeFromScene': ['arrow'],
+                    'goto': 0,
+                    'message': 'Yay!'
+                }
+            },
     },
     '_player': {
         'x': 3,
