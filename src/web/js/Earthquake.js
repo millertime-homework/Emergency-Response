@@ -866,43 +866,47 @@ earthquakeDef = {
     },
     '_triggers' : {
         //This sample objective is started when you hit the room where it is included.
+        //'moveTutorial' is the internal name of the objective used for objective tracking.
+        //'Move somewhere' is the quest presented to the user.
         'sampleObjective' : {
             'event' : 'setObjective',
-            'eventArgs' : ['Move somewhere'],
+            'eventArgs' : ['moveTutorial', 'Move somewhere'],
             'startTriggers' : ['sampleObjectiveEnd']
         },
-        //It starts sampleObjectiveEnd, which is triggered after the player moves.
-        //Player earns points, and starts new triggers which complete this objective and start a new one.
+        //It starts sampleObjectiveEnd, which is triggered after the player moves. Completes 'moveTutorial' objective.
+        //Player earns points, and starts a new objecive.
         'sampleObjectiveEnd' : {
+            'event' : 'completeObjective',
+            'eventArgs' : ['moveTutorial'],
             'exeAfterNMoves' : 1,
-            'startTriggers' : ['add10Points', 'completeObjective', 'findTheDolphin'],
+            'startTriggers' : ['add10Points', 'findTheDolphin'],
         },
         //The player is tasked with finding the dolphin. TODO: Add a requirement that the player must face
         //a certain direction to complete a trigger (IE, they must look at the dolphin, not just be on its tile)
+        //'dolphinHunt' is the internal name of the objective used for objective tracking.
+        //'Find the dolphin!' is the quest presented to the user.
         'findTheDolphin' : {
             'event' : 'setObjective',
-            'eventArgs' : ['Find the dolphin!'],
+            'eventArgs' : ['dolphinHunt', 'Find the dolphin!'],
             'enableTriggers' : ['dolphinFound'],
             'startTriggers' : ['dolphinHint']
         },
         //Starts disabled so it can't be triggered unless the player is on the dolphin quest
         'dolphinFound' : {
+            'event' : 'completeObjective',
+            'eventArgs' : ['dolphinHunt'],
             'disabled' : true,
-            'startTriggers' : ['add10Points', 'completeObjective'],
+            'startTriggers' : ['add10Points'],
             'abortTriggers' : ['dolphinHint']
         },
         //Triggered if the player is having trouble finding the dolphin. Note that because it is
         //aborted by dolphinFound, this only appears if the player takes too long to find the dolphin
+        //You can override existing objectives with modified display text simply by reusing the
+        //objective name.
         'dolphinHint' : {
             'event' : 'setObjective',
             'exeAfterNMoves' : 5,
-            'eventArgs' : ['Find the dolphin! Hint: Look in a classroom.'],
-        },
-        //Generic complet objective trigger
-        'completeObjective' : {
-            'event' : 'completeObjective',
-            'eventArgs' : ['Objective complete. Good job!'],
-            'lives' : 99999999
+            'eventArgs' : ['dolphinHunt', 'Find the dolphin! Hint: Look in a classroom.'],
         },
         //Generic add points trigger
         'add10Points' : {

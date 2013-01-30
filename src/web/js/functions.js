@@ -268,12 +268,28 @@ jQuery(document).ready(function ($) {
     });
 });
 
-function setObjective(displayText) {
-    jQuery('#objective').text(displayText);
+function setObjective(name, displayText) {
+    scenario.objectives.inProgress[name] = displayText || name;
+    jQuery('#objective').find('#' + name).remove();
+    jQuery('#objective').append('<li id="{0}">{1}</li>'.format(name, scenario.objectives.inProgress[name]));
 };
 
-function completeObjective(displayText) {
-    jQuery('#objective').text('');
+function completeObjective(name) {
+    objective = scenario.objectives.inProgress[name];
+    if (objective) {
+        scenario.objectives.completed[name] = objective;
+        delete scenario.objectives.inProgress[name];
+    }
+    jQuery('#objective').find('#' + name).remove();
+};
+
+function failObjective(name) {
+    objective = scenario.objectives.inProgress[name];
+    if (objective) {
+        scenario.objectives.failed[name] = objective;
+        delete scenario.objectives.inProgress[name];
+    }
+    jQuery('#objective').find('#' + name).remove();
 };
 
 String.prototype.format = function () {

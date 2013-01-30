@@ -8,8 +8,12 @@ Scenario = Class.create({
     initialize: function() {
         this.name = null;
         this.status = null;
-        this.floors = {}
-        this.images = []
+        this.floors = {};
+        this.images = [];
+        this.objectives = {};
+        this.objectives.inProgress = {};
+        this.objectives.completed = {};
+        this.objectives.failed = {};
     },
     set: function(name, status) {
         this.name = name;

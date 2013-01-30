@@ -68,11 +68,15 @@ jQuery(document).ready(function($) {
         }
     });
 
-    $(document).on('setObjective', function (event, displayText) {
-        setObjective(displayText);
+    $(document).on('setObjective', function (event, name, displayText) {
+        setObjective(name, displayText);
     });
 
-    $(document).on('completeObjective', function (event) {
-        completeObjective();
+    $(document).on('completeObjective', function (event, name) {
+        completeObjective(name);
+    });
+
+    $(document).on('failObjective', function (event, name) {
+        failObjective(name);
     });
 });
