@@ -62,13 +62,13 @@ activeShooterDef = {
                                 'arrow': {
                                     'name': 'arrow',
                                     'image': 'up.png',
-                                    'width': 10,
-                                    'height': 10,
-                                    'left': 85,
-                                    'top': 374,
+                                    'width': 50,
+                                    'height': 50,
+                                    'left': 50,
+                                    'top': 50,
                                     'action': 'showConversation',
                                     'actionVariables': {
-                                        'conversationName': 'arrow'
+                                        'conversationName': 'Arrow'
                                     }
                                 }
                             }
