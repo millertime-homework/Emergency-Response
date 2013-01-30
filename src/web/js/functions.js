@@ -1,6 +1,7 @@
 // GLOBALS
 var scenario = null;
 var player = null;
+var scenarioVariable = null;
 
 function isScenarioDefined() {};
 function isPlayerDefined() {};

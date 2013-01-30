@@ -17,6 +17,7 @@ jQuery(document).ready(function($){
         
         // Load Scenario
         $("#loadActiveShooter").live("click", function() {
+            scenarioVariable = "activeShooterDef";
             loadScenario(activeShooterDef);
             $("#loadEarthquake").unbind("click");
             $(this).unbind("click");
@@ -24,6 +25,7 @@ jQuery(document).ready(function($){
         });
 
         $("#loadEarthquake").live("click", function() {
+            scenarioVariable = "earthquakeDef";
             loadScenario(earthquakeDef);
             $("#loadActiveShooter").unbind("click");
             $(this).unbind("click");
