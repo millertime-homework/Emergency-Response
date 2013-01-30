@@ -159,11 +159,39 @@ jQuery(document).ready(function ($) {
         emptyModal();
 
         $('#modal #header').html('Pause Menu');
-        $('#modal #content').append('<div class="pause-option" id="pause-resume-button">Resume</div>');
-        $('#modal #content').append('<a class="pause-option" href="https://docs.google.com/spreadsheet/embeddedform?formkey=dElEcm8xTEVmd3RWS1pldFNwQjhMNHc6MQ" target="_blank">Feedback</a>');
-        $('#modal #content').append('<div class="pause-option" id="pause-mainmenu-button">Main Menu</div>');
+        $('#modal #content').append('<div class="pause-option" id="pause-resume-button">Resume</div>').
+        append('<a class="pause-option" href="https://docs.google.com/spreadsheet/embeddedform?formkey=dElEcm8xTEVmd3RWS1pldFNwQjhMNHc6MQ" target="_blank">Feedback</a>').
+        append('<div class="pause-option" id="pause-mainmenu-button">Main Menu</div>').
+        append('<div id="pauseObjectiveList"></div>');
+
+        var objectivesInProgress = scenario.getObjectivesInProgress();
+        var objectivesCompleted = scenario.getObjectivesCompleted();
+        var objectivesFailed = scenario.getObjectivesFailed();
+        var objectiveList = jQuery('#pauseObjectiveList');
+
+        if (objectivesInProgress.length > 0) {
+            showObjectives(objectiveList, objectivesInProgress, 'Current Objectives');
+        }
+
+        if (objectivesCompleted.length > 0) {
+            showObjectives(objectiveList, objectivesCompleted, 'Completed Objectives');
+        }
+
+        if (objectivesFailed.length > 0) {
+            showObjectives(objectiveList, objectivesFailed, 'Failed Objectives');
+        }
 
         showModal();
+
+        function showObjectives(container, list, header) {
+                container.append('<span class="pause-header">{0}</span><ul>'.format(header));
+                for (var objectiveText in list) {
+                    if (list.hasOwnProperty(objectiveText)) {
+                        container.append('<li>{0}</li>'.format(list[objectiveText]));
+                    }
+                }
+                container.append('</ul>');
+        }
     }
 
     showConversation = function (conversationName, currentConversationChoice) {

@@ -119,6 +119,25 @@ Scenario = Class.create({
             return this.getFloor(z).getRoomByXY(x, y);
         }
         return null;    
+    },
+
+    getObjectives: function(objectiveSource) {
+        result = []
+        for (var objective in objectiveSource) {
+            if (objectiveSource.hasOwnProperty(objective)) {
+                result.push(objectiveSource[objective]);
+            }
+        }
+        return result;
+    },
+    getObjectivesInProgress: function() {
+        return this.getObjectives(this.objectives.inProgress);
+    },
+    getObjectivesCompleted: function() {
+        return this.getObjectives(this.objectives.completed);
+    },
+    getObjectivesFailed: function() {
+        return this.getObjectives(this.objectives.failed);
     }
 
 });
