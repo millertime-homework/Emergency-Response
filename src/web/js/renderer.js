@@ -34,7 +34,7 @@ jQuery(document).ready(function($){
         var view = $('#controls-overlay')
         $.each(wall.props, function(key, value) {
             data = { 'left': value['left'], 'top': value['top'], 'width': value['width'], 'height': value['height'] };
-            view.append('<div id="' + key + '" class="clickable base-clickable"></div>')
+            view.append('<div id="' + key + '" class="prop base-prop"></div>')
             var viewProp = $('#' + key);
             viewProp.css({ 
                 'left': value['left'],
@@ -47,12 +47,12 @@ jQuery(document).ready(function($){
                 viewProp.clone().
                 appendTo(view).
                 data(data).
-                removeClass('base-clickable').
-                addClass('hover-clickable').
+                removeClass('base-prop').
+                addClass('hover-prop').
                 append(value['hoverImage']);
             } else {
-                //This will make the base clickable image display at all times.
-                viewProp.removeClass('base-clickable').addClass('hover-clickable');
+                //This will make the base prop image display at all times.
+                viewProp.removeClass('base-prop').addClass('hover-prop');
             }
             viewProp.append(value['image']);
 
@@ -77,7 +77,7 @@ jQuery(document).ready(function($){
     } 
 
     clearProps = function() {
-        $('#view-modal .clickable').remove()
+        $('#view-modal .prop').remove()
     }
 
 })

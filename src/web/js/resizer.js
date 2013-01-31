@@ -97,7 +97,7 @@ function sizeWindow() {
 }
 
 function scaleProps() {
-    jQuery('.clickable').each( function() {
+    jQuery('.prop').each( function() {
         var object = jQuery(this);
         object.css({
             'top' : erg.CurrentScale * parsePxValue(object.data('top')) + 'px',
