@@ -23,6 +23,7 @@ Player = Class.create({
         this.status = null;
         this.scenario = null;
 	this.inventory = null;
+        this.score = 0;
     },
     set: function(x, y, z, facing, scenario) {
         this.x = x;
@@ -33,11 +34,12 @@ Player = Class.create({
         this.status = PLAYER_STATUS_ALIVE;
         this.scenario = scenario;
 	this.inventory = new Inventory();
+        this.score = 0;
     },
     move: function(direction) { 
         var currRoom = scenario.getRoom(this.x, this.y, this.z)
         var currWall = currRoom.getWallByDir(direction)
-        if (currWall.hasDestination()) {
+        if (currWall && currWall.hasDestination()) {
             destination = currWall['destination']
             this.x = destination['x']
             this.y = destination['y']

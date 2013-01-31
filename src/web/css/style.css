@@ -20,7 +20,9 @@ input:hover,input:active,input:focus,textarea:hover,textarea:active,textarea:foc
 #move-down{top:100%;margin-top:-27px;}
 #move-forward{margin-left:50%;background-color:transparent;background-image:url('../img/up.png');}
 #turn-right{top:50%;left:100%;margin-left:-31px;background-color:transparent;background-image:url('../img/right.png');}
-.clickable{position:absolute;z-index:3;filter:alpha(opacity=50);-moz-opacity:0.5;-khtml-opacity:0.5;opacity:0.5;}.clickable:hover{cursor:pointer;filter:alpha(opacity=100);-moz-opacity:1;-khtml-opacity:1;opacity:1;}
+.base-prop{position:absolute;z-index:4;}
+.base-prop img{filter:alpha(opacity=100);-moz-opacity:1;-khtml-opacity:1;opacity:1;}.base-prop img:hover{cursor:pointer;filter:alpha(opacity=0);-moz-opacity:0;-khtml-opacity:0;opacity:0;}
+.hover-prop{position:absolute;z-index:3;}
 #sidebar{margin-left:10px;position:relative;left:1115px;width:150px;height:auto;}
 .sidebar{border:3px;border-style:solid;border-color:#000000;background-color:#eeeeee;width:100%;margin-bottom:5px;}
 #objective{border:3px;border-style:solid;border-color:#000000;background-color:#eeeeee;width:100%;margin-bottom:5px;text-align:center;height:100px;}

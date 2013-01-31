@@ -1,6 +1,6 @@
 function renderScene() {};
-function renderClickables() {};
-function clearClickables() {};
+function renderProps() {};
+function clearProps() {};
 
 
 jQuery(document).ready(function($){
@@ -8,7 +8,7 @@ jQuery(document).ready(function($){
 // Applies new scene image, 
     // Shows movement buttons that are available 
     renderScene = function() {
-        clearClickables();
+        clearProps();
         $(".move-z").hide();
         var room = scenario.getRoom(player.x, player.y, player.z);
         if (scenario.isValidRoom(player.x, player.y, player.z)) {
@@ -18,7 +18,7 @@ jQuery(document).ready(function($){
             var viewScene = $("#view-scene");
             viewScene.empty().append(sceneImage);
             $('#scene-img').addClass('main-content-child main-content-viewport').height(viewScene.height()).width(viewScene.width());
-            renderClickables(wall);
+            renderProps(wall);
         }
         if (player.canMoveUp()) {
             $("#viewport-move-up").show();
@@ -29,17 +29,33 @@ jQuery(document).ready(function($){
 
     }
 
-    // Renders clickables on wall
-    renderClickables = function(wall) {
+    // Renders props on wall
+    renderProps = function(wall) {
         var view = $('#controls-overlay')
-        $.each(wall.clickables, function(key, value) {
-            view.append('<div id="' + key + '" class="clickable" width="' + value['width'] + '" height="' + value['height'] +'">')
-            var viewClickable = $('#' + key)
-            viewClickable.css('left', value['left']).data('left', value['left']);
-            viewClickable.css('top', value['top']).data('top', value['top']);
-            viewClickable.css('width', value['width']).data('width', value['width']);
-            viewClickable.css('height', value['height']).data('height', value['height']);
-            viewClickable.append(value['image']);
+        $.each(wall.props, function(key, value) {
+            data = { 'left': value['left'], 'top': value['top'], 'width': value['width'], 'height': value['height'] };
+            view.append('<div id="' + key + '" class="prop base-prop"></div>')
+            var viewProp = $('#' + key);
+            viewProp.css({ 
+                'left': value['left'],
+                'top': value['top'],
+                'width': value['width'],
+                'height': value['height']
+            }).data(data);
+
+            if (value['hoverImage']) {
+                viewProp.clone().
+                appendTo(view).
+                data(data).
+                removeClass('base-prop').
+                addClass('hover-prop').
+                append(value['hoverImage']);
+            } else {
+                //This will make the base prop image display at all times.
+                viewProp.removeClass('base-prop').addClass('hover-prop');
+            }
+            viewProp.append(value['image']);
+
             var eventParams = {
                 'imageElement': null,
                 'name': null,
@@ -47,21 +63,21 @@ jQuery(document).ready(function($){
             if (value['action'] === 'displayModal' && value['actionVariables'] && value['actionVariables']['imageElement'] && value['actionVariables']['name']) {
                 eventParams['imageElement'] = value['actionVariables']['imageElement'];
                 eventParams['name'] = value['actionVariables']['name'];
-                viewClickable.bind('click', eventParams, function (event) {
+                viewProp.bind('click', eventParams, function (event) {
                     displayModal(event.data.name, null, event.data.imageElement)
                 });
             } else if (value['action'] === 'showConversation' && value['actionVariables'] && value['actionVariables']['conversationName']) {
                 eventParams['conversationName'] = value['actionVariables']['conversationName'];
-                viewClickable.bind('click', eventParams, function (event) {
+                viewProp.bind('click', eventParams, function (event) {
                     showConversation(event.data['conversationName']);
                 });
             }
         })
-        scaleClickables();    
+        scaleProps();    
     } 
 
-    clearClickables = function() {
-        $('#view-modal .clickable').remove()
+    clearProps = function() {
+        $('#view-modal .prop').remove()
     }
 
 })
