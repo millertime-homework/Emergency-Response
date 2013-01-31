@@ -309,6 +309,7 @@ earthquakeDef = {
                     'id': 'hall120', 
                     'x': 1, 
                     'y': 2,
+                    '_triggers': ['earthquake'],
                     '_walls': {
                         'e': {
                             'name': 'EHall120', 
@@ -849,6 +850,12 @@ earthquakeDef = {
                 },
                 */
             }
+        }
+    },
+    '_triggers': {
+        'earthquake': {
+            'event': 'showModal',
+            'eventArgs': ['Test']
         }
     },
     '_player': {
