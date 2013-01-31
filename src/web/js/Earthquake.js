@@ -919,6 +919,7 @@ earthquakeDef = {
         'x': 2,
         'y': 4,
         'z': 0,
-        '_facing': 'n'
+        '_facing': 'n',
+        'inventory': []
     },
 };

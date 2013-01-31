@@ -885,7 +885,8 @@ activeShooterDef = {
         'x': 3,
         'y': 0,
         'z': 0,
-        '_facing': 'n'
+        '_facing': 'n',
+        'inventory': []
     },
 
 };
