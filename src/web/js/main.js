@@ -1,6 +1,9 @@
 // GLOBALS
 var spinner = null;
-var playerState = "Main-Menu";
+var GAME_STATE_MENU = "Main-Menu";
+var GAME_STATE_PAUSED = "Paused";
+var GAME_STATE_RUNNING = "Running";
+var gameState;
 /* ######################################## */
 /* ######################################## */
 
@@ -8,6 +11,6 @@ jQuery(document).ready(function($){
     // ## INIT UI ##
     // initMap()
 
-    evalGameState();
+    setGameState(GAME_STATE_MENU);
 
 });

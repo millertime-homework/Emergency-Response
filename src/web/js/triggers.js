@@ -8,6 +8,7 @@ scenario.triggers.deferredByTime = {};
 //For use when loading/changing scenarios.
 function clearAllTriggers() {
     scenario.triggers = {};
+    scenario.triggers['disabled'] = {};
     scenario.triggers.pool = {};
     scenario.triggers.waitingForSignal = {};
     scenario.triggers.deferredByMoves = {};
@@ -17,10 +18,11 @@ function clearAllTriggers() {
 //Called when the player class triggers an event signaling that the player has moved.
 function triggersMovementHandler(x, y, z) {
     var triggers = scenario.getRoom(x, y, z).triggers;
+    processWaitingForMoves();
+    
     if (triggers) {
         triggers.map(startTrigger);
     }
-    processWaitingForMoves();
 };
 
 //This function can be called by anything that wants to start a trigger. All you need is a trigger name.
@@ -61,14 +63,14 @@ function runTrigger(triggerName, trigger) {
 
 		scenario.triggers.waitingForSignal[triggerName] = trigger;
 		return;
-	} else if (trigger.exeAfterNMoves > 0 && !isNaN(trigger.exeAfterNMoves)) {
+	} else if (trigger.moveDelay > 0 && !isNaN(trigger.moveDelay)) {
 		scenario.triggers.deferredByMoves[triggerName] = trigger;
 		return;
 	}
 
-	if (trigger.exeAfterNMilliseconds > 0 && !isNaN(trigger.exeAfterNMilliseconds)) {
+	if (trigger.timeDelay > 0 && !isNaN(trigger.timeDelay)) {
 		scenario.triggers.deferredByTime[triggerName] = trigger;
-		setTimeout(function () { executeTimeDelayedTriggerEvent(triggerName) }, trigger.exeAfterNMilliseconds);
+		setTimeout(function () { executeTimeDelayedTriggerEvent(triggerName) }, trigger.timeDelay);
 	} else {
 		executeTriggerEvent(trigger);
 	}
@@ -91,13 +93,13 @@ function executeTimeDelayedTriggerEvent(triggerName) {
 //send messages to other triggers if the current trigger has messages to send.
 function executeTriggerEvent(trigger) {
     processTriggers(trigger);
-
-    var newEvent = trigger['event'];
-
-	if (newEvent) {
-	    var eventArgs = trigger.eventArgs || {};
-		jQuery(document).trigger(newEvent, eventArgs);
-	}
+    var events = trigger['events'] || []
+    for (var eventName in events) {
+    	if (events.hasOwnProperty(eventName)) {
+    		var arguments = events[eventName]
+			jQuery(document).trigger(eventName, arguments);
+    	}
+    }
 }
 
 //Sends messages to other triggers, if any such messages exist.
@@ -114,6 +116,9 @@ function processTriggers(trigger) {
 	if (trigger.startTriggers) {
 		trigger.startTriggers.map(startTrigger);
 	}
+	if (trigger.enableTriggers) {
+		trigger.enableTriggers.map(enableTrigger);
+	}
 }
 
 //If any of the specified triggers are doing a time, move, or signal wait, they are not allowed to execute.
@@ -122,6 +127,15 @@ function abortTrigger(triggerName) {
 	delete scenario.triggers.deferredByTime[triggerName];
 	delete scenario.triggers.waitingForSignal[triggerName];
 	return triggerName;
+}
+
+function enableTrigger(triggerName) {
+	var trigger = scenario.triggers['disabled'][triggerName];
+	if (trigger) {
+		trigger['disabled'] = false
+		delete scenario.triggers['disabled'][triggerName];
+		scenario.triggers.pool[triggerName] = trigger;
+	}
 }
 
 //If any of the specified triggers are waiting on a signal, they are allowed to continue.
@@ -151,8 +165,8 @@ function processWaitingForMoves(trigger) {
     for (var triggerName in deferredPool) {
         if (deferredPool.hasOwnProperty([triggerName])) {
             currentTrigger = deferredPool[triggerName];
-            --currentTrigger.exeAfterNMoves;
-            if (currentTrigger.exeAfterNMoves === 0) {
+            --currentTrigger.moveDelay;
+            if (currentTrigger.moveDelay === 0) {
                 delete scenario.triggers.deferredByMoves[triggerName];
                 executeTriggerEvent(currentTrigger);
             }
