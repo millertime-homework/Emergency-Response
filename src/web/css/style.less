@@ -13,7 +13,7 @@
 
 body {
     font-family: "Helvetica-Neue-Light", "Helvetica Neue Light";
-    font-size: 14px;
+    font-size: 1em;
     margin:0px;
     background-color:gray;
 }
@@ -172,7 +172,7 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 
 /*--------Game sidebar*/
 #sidebar {
-    margin-left: 10px;
+    margin-left: 30px;
     position: relative;
     left: @viewportWidth;
     width: @sidebarWidth;
@@ -185,12 +185,31 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     border-color: @primaryBorderColor;
     background-color: @sidebarBackgroundColor;
     width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 #objective {
     .sidebar;
     text-align: center;
     height: 100px;
+}
+
+#objective hr { 
+    display: block; 
+    height: 1px;
+    border: 0; 
+    border-top: 1px solid #000;
+    padding: 0; 
+}
+
+#objective ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+#objective-header {
+    font-weight : bold;
+    font-size: 1.2em;
 }
 
 #help {
@@ -248,39 +267,39 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 }
 
 
-/* MAIN MENU STYLINGS */
-#main-menu {
-  margin-left:auto;
-  margin-right:auto;
-  display: none;
-  height: @viewportHeight;
-  width: @viewportWidth;
-  border: 1px solid black;
-  .border_radius(10px);
-
-  .option {
+/* MAIN/PAUSE/SCENARIO SELECT MENU STYLINGS */
+.menu-modal div {
     position: relative;
     float: left;
-    width: 100%;
+    width: 400px;
     margin-top: 5px;
     margin-bottom: 10px;
     text-align: center;
-    span {
-      padding: 2px;
-      font-size: 1.2em;
-      color: #77f;
-      cursor: pointer;
-      &:hover {
-        border: 1px solid black;
-        .border_radius(5px);
+}
+.option span {
+    padding: 2px;
+    font-size: 1em;
+    color: #77f;
+    cursor: pointer;
+    &:hover {
         color: #00f;
-      }
     }
     a {
         color: #77f;
         text-decoration: none;
     }
-  }
+}
+
+#menu-header {
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+  
+.menu-options-container {
+    z-index: 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 /*  MODAL/OVERLAY STYLINGS */
@@ -292,16 +311,23 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     width: 0;
     overflow: visible;
 }
+
+#pause-menu {
+    z-index: 11;
+}
+
 #modal {
+    z-index: 10;
+}
+.modal {
     position: absolute;
     top: 10%;
     left: 10%;
     width: 400px;
     height: 400px;
-    z-index: 10;
     .border_radius(10px);
     background-color: white;
-    border: 1px solid black;
+    border: @borderThickness solid black;
     .box_shadow();
     padding: 10px;
     a {

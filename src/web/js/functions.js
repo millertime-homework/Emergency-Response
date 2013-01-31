@@ -10,12 +10,11 @@ function pauseMenu() {};
 function showModal() {};
 function hideModal() {};
 
-/* ######################################## */
-/* ######################################## */
 jQuery(document).ready(function ($) {
     $(window).resize(function() {
         sizeWindow();
     });
+
     // Loads the Scenario objects from the data parameter (scenario-definition array)
     loadScenario = function (data) {
         scenario = new Scenario;
@@ -110,7 +109,7 @@ jQuery(document).ready(function ($) {
             alert('Player not defined')
         }
         
-        renderScene()
+        renderScene();
 
         setGameState(GAME_STATE_RUNNING);
         spinner.stop();
@@ -138,17 +137,17 @@ jQuery(document).ready(function ($) {
 
     // Changes the layout to match the current game state.
     setGameState = function (state) {
+        lastGameState = gameState;
         gameState = state;
         switch (state) {
             case GAME_STATE_MENU:
                 $('#view-modal').hide();
-                hideModal();
-                $('#main-menu').show();
+                $('.modal').hide();
+                showMainMenu();
                 allowKeyEvents = false;
-                hideModal();
                 break;
             case GAME_STATE_RUNNING:
-                $('#main-menu').hide();
+                $('.modal').hide();
                 $('#view-modal').show();
                 allowKeyEvents = true;
                 break;
@@ -159,32 +158,30 @@ jQuery(document).ready(function ($) {
     }
 
     showPauseMenu = function() {
-        emptyModal();
+        jQuery('#pauseObjectiveList').empty();
+        if (scenario) {
+            var objectivesInProgress = scenario.getObjectivesInProgress();
+            var objectivesCompleted = scenario.getObjectivesCompleted();
+            var objectivesFailed = scenario.getObjectivesFailed();
+            var objectiveList = jQuery('#pauseObjectiveList');
 
-        $('#modal #header').html('Pause Menu');
-        $('#modal #content').append('<div class="pause-option" id="pause-resume-button">Resume</div>').
-        append('<a class="pause-option" href="https://docs.google.com/spreadsheet/embeddedform?formkey=dElEcm8xTEVmd3RWS1pldFNwQjhMNHc6MQ" target="_blank">Feedback</a>').
-        append('<div class="pause-option" id="pause-mainmenu-button">Main Menu</div>').
-        append('<div id="pauseObjectiveList"></div>');
+            if (objectivesInProgress.length > 0) {
+                showObjectives(objectiveList, objectivesInProgress, 'Current Objectives');
+            }
 
-        var objectivesInProgress = scenario.getObjectivesInProgress();
-        var objectivesCompleted = scenario.getObjectivesCompleted();
-        var objectivesFailed = scenario.getObjectivesFailed();
-        var objectiveList = jQuery('#pauseObjectiveList');
+            if (objectivesCompleted.length > 0) {
+                showObjectives(objectiveList, objectivesCompleted, 'Completed Objectives');
+            }
 
-        if (objectivesInProgress.length > 0) {
-            showObjectives(objectiveList, objectivesInProgress, 'Current Objectives');
+            if (objectivesFailed.length > 0) {
+                showObjectives(objectiveList, objectivesFailed, 'Failed Objectives');
+            }
         }
+        jQuery('#pause-menu').show();
+        centerModal(jQuery('#pause-menu'));
+        setGameState(GAME_STATE_PAUSED);
 
-        if (objectivesCompleted.length > 0) {
-            showObjectives(objectiveList, objectivesCompleted, 'Completed Objectives');
-        }
-
-        if (objectivesFailed.length > 0) {
-            showObjectives(objectiveList, objectivesFailed, 'Failed Objectives');
-        }
-
-        showModal();
+        
 
         function showObjectives(container, list, header) {
                 container.append('<span class="pause-header">{0}</span><ul>'.format(header));
@@ -313,15 +310,28 @@ jQuery(document).ready(function ($) {
 
     hideModal = function () {
         // Hide any visible modal element
+        if (lastGameState === GAME_STATE_MENU) {
+            setGameState(GAME_STATE_MENU);
+        }
         if(gameState !== GAME_STATE_MENU)
             setGameState(GAME_STATE_RUNNING);
-        $('.modal').hide();
+        $('#modal').hide();
         $('#overlay').hide();
+    }
+
+    showMainMenu = function() {
+        $('#main-menu').show();
+        centerMainMenu();
+    }
+
+    hideMainMenu = function() {
+        $('#main-menu').hide();
     }
 
     showModal = function () {
         setGameState(GAME_STATE_PAUSED);
-        $('#modal').center().show();
+        $('#modal').show();
+        centerModal($('#modal'));
         $('#overlay').show();
     }
 
@@ -342,7 +352,7 @@ jQuery(document).ready(function ($) {
 
     /* Pause Menu click functions */
     $('#pause-resume-button').live("click", function() {
-        hideModal();
+        setGameState(GAME_STATE_RUNNING);
     });
 
     $('#pause-mainmenu-button').live("click", function() {
@@ -355,7 +365,7 @@ jQuery(document).ready(function ($) {
 function setObjective(name, displayText) {
     scenario.objectives.inProgress[name] = displayText || name;
     jQuery('#objective').find('#' + name).remove();
-    jQuery('#objective').append('<li id="{0}">{1}</li>'.format(name, scenario.objectives.inProgress[name]));
+    jQuery('#objective ul').append('<li id="{0}">{1}</li>'.format(name, scenario.objectives.inProgress[name]));
 };
 
 function completeObjective(name) {
