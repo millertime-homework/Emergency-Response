@@ -25,7 +25,7 @@ function sizeWindow() {
     resolveBodySizeConstraints();
     applyCurrentHeights();
     applyCurrentWidths(sidebarWidth);
-    scaleClickables();
+    scaleProps();
 
     if (sidebar) {
         reisizeSidebar(sidebar);
@@ -96,16 +96,16 @@ function sizeWindow() {
     };
 }
 
-function scaleClickables() {
-    jQuery('.clickable').each( function() {
-        var clickable = jQuery(this);
-        clickable.css({
-            'top' : erg.CurrentScale * parsePxValue(clickable.data('top')) + 'px',
-            'left' : erg.CurrentScale * parsePxValue(clickable.data('left')) + 'px'
+function scaleProps() {
+    jQuery('.prop').each( function() {
+        var object = jQuery(this);
+        object.css({
+            'top' : erg.CurrentScale * parsePxValue(object.data('top')) + 'px',
+            'left' : erg.CurrentScale * parsePxValue(object.data('left')) + 'px'
         })
         .children('img').css({
-            'height' : erg.CurrentScale * parsePxValue(clickable.data('height')) + 'px',
-            'width' : erg.CurrentScale * parsePxValue(clickable.data('width')) + 'px'
+            'height' : erg.CurrentScale * parsePxValue(object.data('height')) + 'px',
+            'width' : erg.CurrentScale * parsePxValue(object.data('width')) + 'px'
         });
     });
 };

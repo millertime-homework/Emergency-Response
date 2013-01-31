@@ -322,7 +322,7 @@ earthquakeDef = {
                         'w': {
                             'name': 'WHall120',
                             'image': 'R120-west.jpg',                            
-                            '_clickables' : {
+                            '_props' : {
                                 'dolphin' : {
                                     'image': 'dolphin.png',
                                     'hoverImage' : 'dolphinhover.png',

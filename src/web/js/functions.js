@@ -40,10 +40,10 @@ jQuery(document).ready(function ($) {
                 // load walls of this room
                 $.each(value['_walls'], function (key, value) {
                     currWall = currRoom.addWall(value['name'], key, value['image'])
-                    // Add clickables - if any
-                    if (typeof value['_clickables'] != 'undefined') {
-                        $.each(value['_clickables'], function (key, value) {
-                            currWall.addClickable(
+                    // Add objects - if any
+                    if (typeof value['_props'] != 'undefined') {
+                        $.each(value['_props'], function (key, value) {
+                            currWall.addProp(
                                 key,
                                 value['name'],
                                 value['image'],
@@ -236,7 +236,7 @@ jQuery(document).ready(function ($) {
         }
         if (currentOption['removeFromScene']) {
             for (var i = 0; i < currentOption['removeFromScene'].length; i++)
-                delete scenario.getRoom(player.x, player.y, player.z).walls[player.facing].clickables[currentOption['removeFromScene'][i]];
+                delete scenario.getRoom(player.x, player.y, player.z).walls[player.facing].props[currentOption['removeFromScene'][i]];
             renderScene();
         }
         if (currentOption['checkInventory']) {

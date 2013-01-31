@@ -1,4 +1,4 @@
-Clickable = Class.create({
+Prop = Class.create({
     init: function() {
         this.name = null;
         this.image = null;
