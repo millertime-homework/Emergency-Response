@@ -89,6 +89,20 @@ activeShooterDef = {
                             'image': 'R300-north.jpg',
                             'destination': {
                                 'y': 1
+                            },
+                            '_props': {
+                                'prof-bell': {
+                                    'name': 'prof-bell',
+                                    'image': 'prof_bell.png',
+                                    'width': 200,
+                                    'height': 354,
+                                    'left': 900,
+                                    'top': 257,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Professor-Bell'
+                                    }
+                                }
                             }
                         },
                         's': {
@@ -866,20 +880,32 @@ activeShooterDef = {
         }
     },
     '_conversations': {
-            'Fire-Extinguisher': {
-                '1': {
-                    'message': 'This is a fire extinguisher.',
-                    'replies': {
-                        'Pick it up': '2'
-                    }
-                },
-                '2': {
-                    'givePlayer': [{'name': 'Fire-Extinguisher', 'image': 'fire-extinguisher.png', 'width':32, 'height':32}],
-                    'removeFromScene': ['fire-extinguisher'],
-                    'goto': 0,
-                    'message': 'Good.'
+        'Fire-Extinguisher': {
+            '1': {
+                'message': 'This is a fire extinguisher.',
+                'replies': {
+                    'Pick it up': '2'
+                }
+            },
+            '2': {
+                'givePlayer': [{'name': 'Fire-Extinguisher', 'image': 'fire-extinguisher.png', 'width':32, 'height':32}],
+                'removeFromScene': ['fire-extinguisher'],
+                'goto': 0,
+                'message': 'Good.'
+            }
+        },
+        'Professor-Bell': {
+            '1': {
+                'message': 'Good morning! Today we\'re going over how to respond to an ' +
+                    'active shooter scenario. Class won\'t start for another five minutes ' +
+                    'so feel free to walk around or talk to other students.',
+                'replies': {
+                    'I\'ll go sit down': 0,
+                    'I\'ll skip the lecture and take the quiz': 0,
+                    'I\'ve already taken the quiz': 0
                 }
             }
+        }
     },
     '_player': {
         'x': 3,
