@@ -18,42 +18,37 @@ jQuery(document).ready(function ($) {
         var keyEvent = null;
         var keyEventArg = null;
         keypressed = true;
-        try {
             //These are key events that should only be triggered when the game is in the correct state.
-            if (allowKeyEvents) {
-                if (event.keyCode == KEY_LEFT) {
-                    // left arrow key
-                    keyEvent = 'player-move';
-                    keyEventArg = 'turn-left';
-                } else if (event.keyCode == KEY_UP) {
-                    // up arrow key
-                    keyEvent = 'player-move';
-                    keyEventArg = 'move-forward';
-                } else if (event.keyCode == KEY_RIGHT) {
-                    // right arrow key
-                    keyEvent = 'player-move';
-                    keyEventArg = 'turn-right';
-                } else if (event.keyCode == KEY_DOWN) {
-                    // down arrow key
-                    keyEvent = 'player-move';
-                    keyEventArg = 'move-down';
-                } else if (event.keyCode == KEY_E) {
-                    // start earthquake
-                    keyEvent = 'startEarthquake';
-                }
+        if (allowKeyEvents) {
+            if (event.keyCode == KEY_LEFT) {
+                // left arrow key
+                keyEvent = 'player-move';
+                keyEventArg = 'turn-left';
+            } else if (event.keyCode == KEY_UP) {
+                // up arrow key
+                keyEvent = 'player-move';
+                keyEventArg = 'move-forward';
+            } else if (event.keyCode == KEY_RIGHT) {
+                // right arrow key
+                keyEvent = 'player-move';
+                keyEventArg = 'turn-right';
+            } else if (event.keyCode == KEY_DOWN) {
+                // down arrow key
+                keyEvent = 'player-move';
+                keyEventArg = 'move-down';
+            } else if (event.keyCode == KEY_E) {
+                // start earthquake
+                keyEvent = 'startEarthquake';
             }
-            //The remaining events can be triggered at all times.
-            if (event.keyCode == KEY_ESC) {
-                    // pause game
-                    playerState = "Paused";
-                    evalGameState();
-            }
-            if (keyEvent) {
-                event.preventDefault();
-                $(document).trigger(keyEvent, keyEventArg);
-            }
-        } catch (e) {
-            console.log(e);
+        }
+        //The remaining events can be triggered at all times.
+        if (event.keyCode == KEY_ESC) {
+                // pause game
+                showPauseMenu();
+        }
+        if (keyEvent) {
+            event.preventDefault();
+            $(document).trigger(keyEvent, keyEventArg);
         }
         keypressed = false;
     })

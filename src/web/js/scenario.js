@@ -8,8 +8,12 @@ Scenario = Class.create({
     initialize: function() {
         this.name = null;
         this.status = null;
-        this.floors = {}
-        this.images = []
+        this.floors = {};
+        this.images = [];
+        this.objectives = {};
+        this.objectives.inProgress = {};
+        this.objectives.completed = {};
+        this.objectives.failed = {};
     },
     set: function(name, status) {
         this.name = name;
@@ -26,7 +30,11 @@ Scenario = Class.create({
         this.status = SCENARIO_STATUS_ACTIVE;
     },
     addTrigger: function (triggerName, triggerData) {
-        scenario.triggers.pool[triggerName] = triggerData;
+        if (triggerData['disabled']) {
+            scenario.triggers['disabled'][triggerName] = triggerData;
+        } else {
+            scenario.triggers.pool[triggerName] = triggerData;
+        }
     },
     addImage: function(image) {
         this.images.push(imageBasePath + image)
@@ -111,6 +119,25 @@ Scenario = Class.create({
             return this.getFloor(z).getRoomByXY(x, y);
         }
         return null;    
+    },
+
+    getObjectives: function(objectiveSource) {
+        result = []
+        for (var objective in objectiveSource) {
+            if (objectiveSource.hasOwnProperty(objective)) {
+                result.push(objectiveSource[objective]);
+            }
+        }
+        return result;
+    },
+    getObjectivesInProgress: function() {
+        return this.getObjectives(this.objectives.inProgress);
+    },
+    getObjectivesCompleted: function() {
+        return this.getObjectives(this.objectives.completed);
+    },
+    getObjectivesFailed: function() {
+        return this.getObjectives(this.objectives.failed);
     }
 
 });
