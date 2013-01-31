@@ -28,9 +28,7 @@ jQuery(document).ready(function($) {
         player.inventory.remove(item);
     });
     $(document).on("removeFromScene", function(event, item) {
-        var dirs = ['n', 's', 'e', 'w'];
-        for (var i = 0; i < dirs.length; i++)
-            delete scenario.getRoom(player.x, player.y, player.z).walls[dirs[i]].props[item];
+        scenario.inactiveProps[item] = true;
         renderScene();
     });
     $(document).on("takeFromScene", function(event, item, sceneItem) {

@@ -89,6 +89,16 @@ activeShooterDef = {
                             'image': 'R300-north.jpg',
                             'destination': {
                                 'y': 1
+                            },
+                            '_props': {
+                                'Fire-Extinguisher': {
+                                    'name': 'Fire-Extinguisher',
+                                    'image': 'fire-extinguisher.png',
+                                    'width': 20,
+                                    'height': 20,
+                                    'left': 450,
+                                    'top': 300
+                                }
                             }
                         },
                         's': {

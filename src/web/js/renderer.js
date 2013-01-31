@@ -33,6 +33,9 @@ jQuery(document).ready(function($){
     renderProps = function(wall) {
         var view = $('#controls-overlay')
         $.each(wall.props, function(key, value) {
+            if (scenario.inactiveProps[key])
+                return;
+            
             data = { 'left': value['left'], 'top': value['top'], 'width': value['width'], 'height': value['height'] };
             view.append('<div id="' + key + '" class="prop base-prop"></div>')
             var viewProp = $('#' + key);
