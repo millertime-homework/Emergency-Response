@@ -249,6 +249,20 @@ activeShooterDef = {
                         'n': {
                             'name': 'NHall310',   
                             'image': 'R310-north.jpg',
+                            '_clickables': {
+                                'Fire-Extinguisher': {
+                                    'name': 'Fire-Extinguisher',
+                                    'image': 'fire-extinguisher.png',
+                                    'width': 190,
+                                    'height': 190,
+                                    'left': 100,
+                                    'top': 300,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Fire Extinguisher'
+                                    }
+                                }
+                            }
                         },
                         's': {
                             'name': 'SHall310', 
@@ -884,7 +898,7 @@ activeShooterDef = {
             'eventArgs': [
                 {'name': 'Fire Extinguisher', 'image': 'fire-extinguisher.png', 'width':32, 'height':32},
                 'Fire-Extinguisher',
-                {'x': 3, 'y': 1, 'z': 0, 'facing': 'w'}
+                [{'x': 3, 'y': 1, 'z': 0, 'facing': 'w'}, {'x': 3, 'y': 1, 'z': 0, 'facing': 'n'}]
             ]
         }
     },

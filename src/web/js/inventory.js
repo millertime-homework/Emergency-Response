@@ -34,6 +34,7 @@ jQuery(document).ready(function($) {
             where = [where];
         for (var i = 0; i < where.length; i++)
             delete scenario.getRoom(where[i].x, where[i].y, where[i].z).walls[where[i].facing].clickables[item];
+        console.log(where.toSource());
         renderScene();
     });
     $(document).on("takeFromScene", function(event, item, sceneItem, where) {
