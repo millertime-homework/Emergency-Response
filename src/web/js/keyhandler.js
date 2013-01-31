@@ -34,8 +34,6 @@ jQuery(document).ready(function ($) {
                 keyEventArg = 'turn-right';
             } else if (event.keyCode == KEY_DOWN) {
                 // down arrow key
-                keyEvent = 'player-move';
-                keyEventArg = 'move-down';
             } else if (event.keyCode == KEY_E) {
                 // start earthquake
                 keyEvent = 'startEarthquake';
