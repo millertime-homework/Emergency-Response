@@ -232,8 +232,8 @@ activeShooterDef = {
                             'name': 'WHall310',
                             'image': 'R310-west.jpg',
                             '_clickables': {
-                                'fire-extinguisher': {
-                                    'name': 'fire-extinguisher',
+                                'Fire-Extinguisher': {
+                                    'name': 'Fire-Extinguisher',
                                     'image': 'fire-extinguisher.png',
                                     'width': 190,
                                     'height': 190,
@@ -241,7 +241,7 @@ activeShooterDef = {
                                     'top': 300,
                                     'action': 'showConversation',
                                     'actionVariables': {
-                                        'conversationName': 'Fire-Extinguisher'
+                                        'conversationName': 'Fire Extinguisher'
                                     }
                                 }
                             }
@@ -866,7 +866,7 @@ activeShooterDef = {
         }
     },
     '_conversations': {
-            'Fire-Extinguisher': {
+            'Fire Extinguisher': {
                 '1': {
                     'message': 'This is a fire extinguisher.',
                     'replies': {
@@ -874,12 +874,15 @@ activeShooterDef = {
                     }
                 },
                 '2': {
-                    'givePlayer': [{'name': 'Fire-Extinguisher', 'image': 'fire-extinguisher.png', 'width':32, 'height':32}],
-                    'removeFromScene': ['fire-extinguisher'],
-                    'goto': 0,
-                    'message': 'Good.'
+                    'triggers': ['takeFireExtinguisher']
                 }
             }
+    },
+    '_triggers': {
+        'takeFireExtinguisher': {
+            'event': 'addInventory',
+            'eventArgs': [{'name': 'Fire-Extinguisher', 'image': 'fire-extinguisher.png', 'width':32, 'height':32}, {'x': 3, 'y': 1, 'z': 0, 'facing': 'w'}]
+        }
     },
     '_player': {
         'x': 3,

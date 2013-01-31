@@ -24,7 +24,7 @@ jQuery(document).ready(function($) {
     $(document).on("addInventory", function(event, item, where) {
         player.inventory.add(item);
         if (where != null) {
-            delete scenario.getRoom(where.x, where.y, where.z).walls[where.facing].clickables[item];
+            delete scenario.getRoom(where.x, where.y, where.z).walls[where.facing].clickables[item.name];
             renderScene();
         }
     });
