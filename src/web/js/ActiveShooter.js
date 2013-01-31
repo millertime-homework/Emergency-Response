@@ -897,8 +897,7 @@ activeShooterDef = {
             'event': 'takeFromScene',
             'eventArgs': [
                 {'name': 'Fire Extinguisher', 'image': 'fire-extinguisher.png', 'width':32, 'height':32},
-                'Fire-Extinguisher',
-                [{'x': 3, 'y': 1, 'z': 0, 'facing': 'w'}, {'x': 3, 'y': 1, 'z': 0, 'facing': 'n'}]
+                'Fire-Extinguisher'
             ]
         }
     },

@@ -21,24 +21,20 @@ Inventory = Class.create({
 */
 
 jQuery(document).ready(function($) {
-    $(document).on("addInventory", function(event, item, where) {
+    $(document).on("addInventory", function(event, item) {
         player.inventory.add(item);
     });
     $(document).on("removeInventory", function(event, item) {
         player.inventory.remove(item);
     });
-    $(document).on("removeFromScene", function(event, item, where) {
-        if(where == null)
-            where = [player];
-        else if(typeof where != 'array')
-            where = [where];
-        for (var i = 0; i < where.length; i++)
-            delete scenario.getRoom(where[i].x, where[i].y, where[i].z).walls[where[i].facing].clickables[item];
-        console.log(where.toSource());
+    $(document).on("removeFromScene", function(event, item) {
+        var dirs = ['n', 's', 'e', 'w'];
+        for (var i = 0; i < dirs.length; i++)
+            delete scenario.getRoom(player.x, player.y, player.z).walls[dirs[i]].clickables[item];
         renderScene();
     });
-    $(document).on("takeFromScene", function(event, item, sceneItem, where) {
+    $(document).on("takeFromScene", function(event, item, sceneItem) {
         $(document).trigger("addInventory", item);
-        $(document).trigger("removeFromScene", sceneItem, where);
+        $(document).trigger("removeFromScene", sceneItem);
     });
 });
