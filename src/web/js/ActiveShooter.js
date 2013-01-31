@@ -63,7 +63,7 @@ activeShooterDef = {
                             'name': 'SHall200', 
                             'image': 'R200-south.jpg'
                         }
-                    }
+                    },
                 },
                 'room300': {
                     'id': 'hall300', 
@@ -230,7 +230,21 @@ activeShooterDef = {
                         },
                         'w': {
                             'name': 'WHall310',
-                            'image': 'R310-west.jpg'
+                            'image': 'R310-west.jpg',
+                            '_clickables': {
+                                'fire-extinguisher': {
+                                    'name': 'fire-extinguisher',
+                                    'image': 'fire-extinguisher.png',
+                                    'width': 190,
+                                    'height': 190,
+                                    'left': 800,
+                                    'top': 300,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Fire-Extinguisher'
+                                    }
+                                }
+                            }
                         },
                         'n': {
                             'name': 'NHall310',   
@@ -851,11 +865,28 @@ activeShooterDef = {
             }
         }
     },
+    '_conversations': {
+            'Fire-Extinguisher': {
+                '1': {
+                    'message': 'This is a fire extinguisher.',
+                    'replies': {
+                        'Pick it up': '2'
+                    }
+                },
+                '2': {
+                    'givePlayer': [{'name': 'Fire-Extinguisher', 'image': 'fire-extinguisher.png', 'width':32, 'height':32}],
+                    'removeFromScene': ['fire-extinguisher'],
+                    'goto': 0,
+                    'message': 'Good.'
+                }
+            }
+    },
     '_player': {
         'x': 3,
         'y': 0,
         'z': 0,
-        '_facing': 'n'
+        '_facing': 'n',
+        'inventory': []
     },
 
 };

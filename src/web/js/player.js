@@ -22,6 +22,7 @@ Player = Class.create({
         this.health = null;
         this.status = null;
         this.scenario = null;
+	this.inventory = null;
         this.score = 0;
     },
     set: function(x, y, z, facing, scenario) {
@@ -32,6 +33,7 @@ Player = Class.create({
         this.health = PLAYER_HEALTH_DEFAULT;
         this.status = PLAYER_STATUS_ALIVE;
         this.scenario = scenario;
+	this.inventory = new Inventory();
         this.score = 0;
     },
     move: function(direction) { 

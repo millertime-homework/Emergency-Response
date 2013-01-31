@@ -86,6 +86,10 @@ jQuery(document).ready(function ($) {
         player = new Player;
         playerDef = data['_player']
         player.set(playerDef['x'], playerDef['y'], playerDef['z'], playerDef['_facing'], null)
+        if (playerDef['inventory']) {
+            for (var i = 0; i < playerDef['inventory'].length; i++)
+                player.inventory.add(playerDef['inventory'][i]);
+        }
 
         generateMap(playerDef['x'], playerDef['y'], scenario.getFloor(playerDef['z']));
         sizeWindow();
@@ -220,7 +224,41 @@ jQuery(document).ready(function ($) {
             hideModal();
             return;
         }
+        
+        // Allow actions involving the inventory as part of the conversation
+        if (currentOption['givePlayer']) {
+            for (var i = 0; i < currentOption['givePlayer'].length; i++)
+                player.inventory.add(currentOption['givePlayer'][i]);
+        }
+        if (currentOption['takeFromPlayer']) {
+            for (var i = 0; i < currentOption['takeFromPlayer'].length; i++)
+                player.inventory.remove(currentOption['takeFromPlayer'][i]);
+        }
+        if (currentOption['removeFromScene']) {
+            for (var i = 0; i < currentOption['removeFromScene'].length; i++)
+                delete scenario.getRoom(player.x, player.y, player.z).walls[player.facing].clickables[currentOption['removeFromScene'][i]];
+            renderScene();
+        }
+        if (currentOption['checkInventory']) {
+            checkInventory: for (var i = 0; i < currentOption.checkInventory.length; i++) {
+                for (var j = 0; j < currentOption.checkInventory[i]['has'].length; j++) {
+                    if(!player.inventory.contains(currentOption.checkInventory[i]['has'][j]))
+                        continue checkInventory;
+                }
+                currentOptionId = currentOption.checkInventory[i]['goto'];
+                break;
+            }
+        }
+        if (currentOption['goto'] != null) {
+            currentOptionId = currentOption['goto'];
+        }
 
+        var currentOption = conversation.getOption(currentOptionId);
+        if (!currentOption) {
+            hideModal();
+            return;
+        }
+        
         //Show the message and reply options.
         $('#modal #header').html(conversationName);
         $('#modal #content').append(currentOption['message'] + '<p /> You Reply: <br /><ul>');
@@ -231,6 +269,28 @@ jQuery(document).ready(function ($) {
                 $('#modal #content').append(optionRowTemplate.format(replyChoices[choiceText], choiceText));
             }
         }
+        $('#modal #content').append('</ul>');
+
+        showModal();
+    }
+    
+    showInventory = function () {
+        // modeled after showConversation's implementation
+        var rowTemplate = "<li><img src='web/img/{0}' alt=''{1}> {2}</li>";
+        var items = player.inventory.items;
+        
+        emptyModal();
+        $('#modal #header').html("Inventory");
+        $('#modal #content').append('<ul class="inventory">');
+        for (var i in items)
+            if (items.hasOwnProperty(i) && items[i] != null) {
+                var attrs = '';
+                if(items[i].width)
+                    attrs += ' width="'+items[i].width+'"';
+                if(items[i].height)
+                    attrs += ' width="'+items[i].height+'"';
+                $('#modal #content').append(rowTemplate.format(items[i].image, attrs, items[i].name));
+            }
         $('#modal #content').append('</ul>');
 
         showModal();
