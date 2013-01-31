@@ -231,7 +231,7 @@ activeShooterDef = {
                         'w': {
                             'name': 'WHall310',
                             'image': 'R310-west.jpg',
-                            '_clickables': {
+                            '_props': {
                                 'fire-extinguisher': {
                                     'name': 'fire-extinguisher',
                                     'image': 'fire-extinguisher.png',
