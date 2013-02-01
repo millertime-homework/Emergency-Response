@@ -90,7 +90,6 @@ jQuery(document).ready(function ($) {
                 player.inventory.add(playerDef['inventory'][i]);
         }
 
-        sizeWindow();
 
         var startRoomTriggers = scenario.getRoom(player.x, player.y, player.z).triggers;
         if (startRoomTriggers) {
@@ -108,10 +107,11 @@ jQuery(document).ready(function ($) {
             alert('Player not defined')
         }
         
-        renderScene();
 
         setGameState(GAME_STATE_RUNNING);
+        renderScene();
         generateMap(playerDef['x'], playerDef['y'], scenario.getFloor(playerDef['z']));
+        sizeWindow();
         spinner.stop();
     }
 

@@ -172,7 +172,7 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 
 /*--------Game sidebar*/
 #sidebar {
-    margin-left: 30px;
+    margin-left: 10px;
     position: relative;
     left: @viewportWidth;
     width: @sidebarWidth;
@@ -185,7 +185,7 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     border-color: @primaryBorderColor;
     background-color: @sidebarBackgroundColor;
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 #objective {
     .sidebar;
@@ -231,6 +231,12 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     position: relative;
     display: block;
 }
+
+
+.map-cell.visited {
+    background-color:#2b4b9e;
+}
+
 .map-cell.occupied {
     background-color: #6881ff;
 }
