@@ -28,8 +28,8 @@ function generateMap() {
             yPosition = rooms[room].y;
             cell = erg.MAP_CELL_TEMPLATE.clone().appendTo(erg.MAP_CONTAINER)
                 .attr({ 'data-x': xPosition, 'data-y': yPosition })
-                .css('top', (yPosition * (erg.MAP_CELL_WIDTH + erg.CONNECTOR_LENGTH)) + 'px')
-                .css('left', (xPosition * -(erg.MAP_CELL_HEIGHT + erg.CONNECTOR_LENGTH)) + 'px');
+                .css('top', (yPosition * -(erg.MAP_CELL_WIDTH + erg.CONNECTOR_LENGTH)) + 'px')
+                .css('left', (xPosition * (erg.MAP_CELL_HEIGHT + erg.CONNECTOR_LENGTH)) + 'px');
             generateConnections(rooms[room], cell, connectionsBuilt);
         }
     }
@@ -75,8 +75,8 @@ function generateConnection(room, cell, destination) {
         cellCenterX, cellCenterY, newConnector;
 
     //Determine which direction we've shifted.
-    yChange = -(room.y - destination.y);
-    xChange = (room.x - destination.x);
+    yChange = (room.y - destination.y);
+    xChange = -(room.x - destination.x);
     template = xChange ? erg.X_CONNECTOR_TEMPLATE : erg.Y_CONNECTOR_TEMPLATE;
     cellCenterX = cell.position().left + (erg.MAP_CELL_WIDTH / 2);
     cellCenterY = cell.position().top + (erg.MAP_CELL_HEIGHT / 2);
@@ -112,14 +112,14 @@ function connectionExists(destination, room, connectionsBuilt) {
 function updateMap() {
     "use strict";
     //If the player has changed floors, we need to redraw the map to show the current floor.
-    if (player.z !== erg.MAP_CONTAINER.attr('data-floor')) {
+    if (String(player.z) !== erg.MAP_CONTAINER.attr('data-floor')) {
         generateMap();
     } else {
         //else clear the old occupied cell
-        erg.MAP_CONTAINER.children('.occupied').empty().removeClass('occupied');
+        erg.MAP_CONTAINER.children('.occupied').empty().removeClass('occupied').addClass('visited');
 
         //and indicate the new one
-        erg.MAP_CONTAINER.children(erg.MAP_CELL_SELECTOR_TEMPLATE.format(player.x, player.y)).addClass('occupied');
+        erg.MAP_CONTAINER.children(erg.MAP_CELL_SELECTOR_TEMPLATE.format(player.x, player.y)).removeClass('visited').addClass('occupied');
         centerMap();
         showDirectionalIndicator();
     }

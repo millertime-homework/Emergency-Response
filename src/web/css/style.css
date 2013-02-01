@@ -23,16 +23,17 @@ input:hover,input:active,input:focus,textarea:hover,textarea:active,textarea:foc
 .base-prop{position:absolute;z-index:4;}
 .base-prop img{filter:alpha(opacity=100);-moz-opacity:1;-khtml-opacity:1;opacity:1;}.base-prop img:hover{cursor:pointer;filter:alpha(opacity=0);-moz-opacity:0;-khtml-opacity:0;opacity:0;}
 .hover-prop{position:absolute;z-index:3;}
-#sidebar{margin-left:30px;position:relative;left:1115px;width:150px;height:auto;}
-.sidebar{border:3px;border-style:solid;border-color:#000000;background-color:#eeeeee;width:100%;margin-bottom:10px;}
-#objective{border:3px;border-style:solid;border-color:#000000;background-color:#eeeeee;width:100%;margin-bottom:10px;text-align:center;height:100px;}
+#sidebar{margin-left:10px;position:relative;left:1115px;width:150px;height:auto;}
+.sidebar{border:3px;border-style:solid;border-color:#000000;background-color:#eeeeee;width:100%;margin-bottom:5px;}
+#objective{border:3px;border-style:solid;border-color:#000000;background-color:#eeeeee;width:100%;margin-bottom:5px;text-align:center;height:100px;}
 #objective hr{display:block;height:1px;border:0;border-top:1px solid #000;padding:0;}
 #objective ul{margin:0;padding:0;list-style-type:none;}
 #objective-header{font-weight:bold;font-size:1.2em;}
 #help{border:3px;border-style:solid;border-color:#000000;background-color:#eeeeee;width:100%;margin-bottom:10px;text-align:center;height:60px;}#help:hover{cursor:pointer;}
-#map{border:3px;border-style:solid;border-color:#000000;background-color:#eeeeee;width:100%;margin-bottom:10px;height:220px;overflow:hidden;}
+#map{border:3px;border-style:solid;border-color:#000000;background-color:#eeeeee;width:100%;margin-bottom:5px;height:220px;overflow:hidden;}
 #map-container{position:relative;display:block;}
 .map-cell.occupied{background-color:#6881ff;}
+.map-cell.visited{background-color:#2b4b9e;}
 .map-cell{height:30px;width:30px;position:absolute;background-color:#4b4b4b;border:1px;border-style:solid;border-color:#000;}
 .x-connector{position:absolute;height:4px;width:10px;background-color:#4b4b4b;z-index:5;}
 .y-connector{position:absolute;height:10px;width:4px;background-color:#4b4b4b;z-index:5;}

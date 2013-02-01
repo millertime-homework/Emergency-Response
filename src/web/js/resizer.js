@@ -39,7 +39,7 @@ function sizeWindow() {
 function reisizeSidebar(sidebar) {
     "use strict";
     sidebar.css('left', erg.CurrentBodyWidth + 'px');
-    jQuery('#map').css('height', (sidebar.height() - jQuery('#objective').height() - jQuery('#help').height() - 20) + 'px');
+    jQuery('#map').css('height', (sidebar.height() - jQuery('#objective').height() - jQuery('#help').height() - 22) + 'px');
     centerMap();
 }
 
