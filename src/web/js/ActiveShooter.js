@@ -187,6 +187,7 @@ activeShooterDef = {
                     'id': 'hall110',
                     'x': 1,
                     'y': 1,
+                    '_triggers': ['listenToLecture'],
                     '_walls': {
                         'e': {
                             'name': 'EHall110',
@@ -648,6 +649,7 @@ activeShooterDef = {
                     'id': 'hall530',
                     'x': 5,
                     'y': 3,
+                    '_triggers': ['aceTheQuiz'],
                     '_walls': {
                         'e': {
                             'name': 'EHall530',
@@ -919,10 +921,16 @@ activeShooterDef = {
                     'active shooter scenario. Class won\'t start for another five minutes ' +
                     'so feel free to walk around or talk to other students.',
                 'replies': {
-                    'I\'ll go sit down': 0,
-                    'I\'ll skip the lecture and take the quiz': 0,
+                    'I\'ll go sit down': 2,
+                    'I\'ll skip the lecture and take the quiz': 3,
                     'I\'ve already taken the quiz': 0
                 }
+            },
+            '2': {
+                'triggers': ['getToClass']
+            },
+            '3': {
+                'triggers': ['skipToTheQuiz']
             }
         }
     },
@@ -932,6 +940,45 @@ activeShooterDef = {
                 'takeFromScene' : [ {'name': 'Fire Extinguisher', 'image': 'fire-extinguisher.png', 'width':32, 'height':32 },
                                     'Fire-Extinguisher' ]
             }
+        },
+        /* Professor Bell gives 'Get to class' objective. Upon arrival at class, the lecture begins. */
+        'getToClass': {
+            'events': {
+                'setObjective': ['getToClass', 'Get to class for the lecture']
+            },
+            'enableTriggers': ['listenToLecture']
+        },
+        /* For now, the lecture ends by leaving the room */
+        'listenToLecture': {
+            'events': {
+                'completeObjective': ['getToClass'],
+                'setObjective': ['listenToLecture', 'Listen to the lecture']
+            },
+            'disabled': true,
+            'startTriggers': ['takeTheQuiz']
+        },
+        /* Quiz = go to different room. Since we don't have quiz yet. */
+        'takeTheQuiz': {
+            'events': {
+                'completeObjective': ['listenToLecture'],
+                'setObjective': ['takeTheQuiz', 'Take a quiz (get to the testing center).']
+            },
+            'moveDelay': 1,
+            'enableTriggers': ['aceTheQuiz']
+        },
+        /* No move delay on this version */
+        'skipToTheQuiz': {
+            'events': {
+                'setObjective': ['takeTheQuiz', 'Take a quiz (get to the testing center).']
+            },
+            'enableTriggers': ['aceTheQuiz']
+        },
+        /* Aced it! */
+        'aceTheQuiz': {
+            'events': {
+                'completeObjective': ['takeTheQuiz']
+            },
+            'disabled': true
         }
     },
     '_player': {
