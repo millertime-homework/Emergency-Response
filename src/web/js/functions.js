@@ -239,6 +239,10 @@ jQuery(document).ready(function ($) {
                 delete scenario.getRoom(player.x, player.y, player.z).walls[player.facing].props[currentOption['removeFromScene'][i]];
             renderScene();
         }
+        if (currentOption['triggers']) {
+            for (var i = 0; i < currentOption['triggers'].length; i++)
+                startTrigger(currentOption.triggers[i]);
+        }
         if (currentOption['checkInventory']) {
             checkInventory: for (var i = 0; i < currentOption.checkInventory.length; i++) {
                 for (var j = 0; j < currentOption.checkInventory[i]['has'].length; j++) {
@@ -254,7 +258,7 @@ jQuery(document).ready(function ($) {
         }
 
         var currentOption = conversation.getOption(currentOptionId);
-        if (!currentOption) {
+        if (!currentOption || currentOption.message == null) {
             hideModal();
             return;
         }
