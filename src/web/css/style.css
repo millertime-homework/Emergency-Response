@@ -32,9 +32,10 @@ input:hover,input:active,input:focus,textarea:hover,textarea:active,textarea:foc
 #help{border:3px;border-style:solid;border-color:#000000;background-color:#eeeeee;width:100%;margin-bottom:10px;text-align:center;height:60px;}#help:hover{cursor:pointer;}
 #map{border:3px;border-style:solid;border-color:#000000;background-color:#eeeeee;width:100%;margin-bottom:10px;height:220px;overflow:hidden;}
 #map-container{position:relative;display:block;}
-.map-cell.occupied{background-color:#FF0000;}
-.map-cell{height:30px;width:30px;position:absolute;background-color:#0000FF;border:1px;border-style:solid;border-color:#000;}
-.directional-indicator{position:absolute;top:50%;left:50%;margin-left:-3px;margin-top:-8px;}
+.map-cell.occupied{background-color:#6881ff;}
+.map-cell{height:30px;width:30px;position:absolute;background-color:#4b4b4b;border:1px;border-style:solid;border-color:#000;}
+.x-connector{position:absolute;height:4px;width:10px;background-color:#4b4b4b;z-index:5;}
+.y-connector{position:absolute;height:10px;width:4px;background-color:#4b4b4b;z-index:5;}
 #editor-output{display:inline;float:left;}
 #output{border:1px solid black;width:300px;height:400px;}
 .menu-modal div{position:relative;float:left;width:400px;margin-top:5px;margin-bottom:10px;text-align:center;}

@@ -90,7 +90,6 @@ jQuery(document).ready(function ($) {
                 player.inventory.add(playerDef['inventory'][i]);
         }
 
-        generateMap(playerDef['x'], playerDef['y'], scenario.getFloor(playerDef['z']));
         sizeWindow();
 
         var startRoomTriggers = scenario.getRoom(player.x, player.y, player.z).triggers;
@@ -112,6 +111,7 @@ jQuery(document).ready(function ($) {
         renderScene();
 
         setGameState(GAME_STATE_RUNNING);
+        generateMap(playerDef['x'], playerDef['y'], scenario.getFloor(playerDef['z']));
         spinner.stop();
     }
 

@@ -232,25 +232,33 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     display: block;
 }
 .map-cell.occupied {
-    background-color: #FF0000;
+    background-color: #6881ff;
 }
 
 .map-cell {
     height: 30px;
     width: 30px;
     position: absolute;
-    background-color: #0000FF;
+    background-color: #4b4b4b;
     border: 1px;
     border-style: solid;
     border-color: #000;
 }
 
-.directional-indicator {
+.x-connector {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -3px;
-    margin-top: -8px;
+    height: 4px;
+    width: 10px;
+    background-color: #4b4b4b;
+    z-index: 5;
+}
+
+.y-connector {
+    position: absolute;
+    height: 10px;
+    width: 4px;
+    background-color: #4b4b4b;
+    z-index: 5;
 }
 /*END---Game sidebar*/
 
