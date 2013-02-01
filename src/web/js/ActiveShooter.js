@@ -100,8 +100,16 @@ activeShooterDef = {
                                     'top': 257,
                                     'action': 'showConversation',
                                     'actionVariables': {
-                                        'conversationName': 'Professor-Bell'
-                                    }
+                                        'conversationName': 'Professor Bell'
+                                    },
+                                },
+                                'Fire-Extinguisher': {
+                                    'name': 'Fire-Extinguisher',
+                                    'image': 'fire-extinguisher.png',
+                                    'width': 20,
+                                    'height': 20,
+                                    'left': 450,
+                                    'top': 300
                                 }
                             }
                         },
@@ -246,8 +254,8 @@ activeShooterDef = {
                             'name': 'WHall310',
                             'image': 'R310-west.jpg',
                             '_props': {
-                                'fire-extinguisher': {
-                                    'name': 'fire-extinguisher',
+                                'Fire-Extinguisher': {
+                                    'name': 'Fire-Extinguisher',
                                     'image': 'fire-extinguisher.png',
                                     'width': 190,
                                     'height': 190,
@@ -255,7 +263,7 @@ activeShooterDef = {
                                     'top': 300,
                                     'action': 'showConversation',
                                     'actionVariables': {
-                                        'conversationName': 'Fire-Extinguisher'
+                                        'conversationName': 'Fire Extinguisher'
                                     }
                                 }
                             }
@@ -263,6 +271,20 @@ activeShooterDef = {
                         'n': {
                             'name': 'NHall310',   
                             'image': 'R310-north.jpg',
+                            '_props': {
+                                'Fire-Extinguisher': {
+                                    'name': 'Fire-Extinguisher',
+                                    'image': 'fire-extinguisher.png',
+                                    'width': 190,
+                                    'height': 190,
+                                    'left': 100,
+                                    'top': 300,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Fire Extinguisher'
+                                    }
+                                }
+                            }
                         },
                         's': {
                             'name': 'SHall310', 
@@ -880,7 +902,7 @@ activeShooterDef = {
         }
     },
     '_conversations': {
-        'Fire-Extinguisher': {
+        'Fire Extinguisher': {
             '1': {
                 'message': 'This is a fire extinguisher.',
                 'replies': {
@@ -888,13 +910,10 @@ activeShooterDef = {
                 }
             },
             '2': {
-                'givePlayer': [{'name': 'Fire-Extinguisher', 'image': 'fire-extinguisher.png', 'width':32, 'height':32}],
-                'removeFromScene': ['fire-extinguisher'],
-                'goto': 0,
-                'message': 'Good.'
+                'triggers': ['takeFireExtinguisher']
             }
         },
-        'Professor-Bell': {
+        'Professor Bell': {
             '1': {
                 'message': 'Good morning! Today we\'re going over how to respond to an ' +
                     'active shooter scenario. Class won\'t start for another five minutes ' +
@@ -907,6 +926,14 @@ activeShooterDef = {
             }
         }
     },
+    '_triggers': {
+        'takeFireExtinguisher': {
+            'events': {
+                'takeFromScene' : [ {'name': 'Fire Extinguisher', 'image': 'fire-extinguisher.png', 'width':32, 'height':32 },
+                                    'Fire-Extinguisher' ]
+            }
+        }
+    },
     '_player': {
         'x': 3,
         'y': 0,
@@ -914,5 +941,4 @@ activeShooterDef = {
         '_facing': 'n',
         'inventory': []
     },
-
 };
