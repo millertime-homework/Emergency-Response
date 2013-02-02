@@ -195,7 +195,7 @@ jQuery(document).ready(function ($) {
     }
 
     showConversation = function (conversationName, currentConversationChoice) {
-        var optionRowTemplate = "<li class='pointer-cursor' data-conversation-option='{0}'>{1}</li><br />";
+        var optionRowTemplate = "<li class='conversation-option' data-conversation-option='{0}'>{1}</li><br />";
 
         //fetch the conversation name if we're progressing through a conversation tree.
         if (!conversationName) {
