@@ -3,6 +3,7 @@ body{font-family:"Helvetica-Neue-Light","Helvetica Neue Light";font-size:1em;mar
 .bordered{-webkit-border-radius:10px 10px 10px 10px;-moz-border-radius:10px 10px 10px 10px;border-radius:10px 10px 10px 10px;box-shadow:3px 3px 3px #888888;-webkit-box-shadow:3px 3px 3px #888888;-moz-box-shadow:3px 3px 3px #888888;}
 .bold-colored-text{font-weight:bold;color:#000000;}
 .pointer-cursor{cursor:pointer;}
+.conversation-option{cursor:pointer;}
 input:hover,input:active,input:focus,textarea:hover,textarea:active,textarea:focus{border-color:#4493f3;border-style:solid;border-width:0px;}
 .hidden{display:none;}
 #outer-container{background-color:#ffffff;}
