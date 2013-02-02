@@ -894,7 +894,7 @@ activeShooterDef = {
                 '1': {
                     'message': 'This is a fire extinguisher.',
                     'replies': {
-                        'Pick it up': '2'
+                        'Pick it up': 2
                     }
                 },
                 '2': {
@@ -905,7 +905,7 @@ activeShooterDef = {
     '_triggers': {
         'takeFireExtinguisher': {
             'events': {
-                'takeFromScene' : [ {'name': 'Fire Extinguisher', 'image': 'fire-extinguisher.png', 'width':32, 'height':32 },
+                'takeFromScene' : [ {'name': 'Fire-Extinguisher', 'image': 'fire-extinguisher.png', 'width':32, 'height':32 },
                                     'Fire-Extinguisher' ]
             }
         }
