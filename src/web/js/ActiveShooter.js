@@ -42,6 +42,16 @@ activeShooterDef = {
                             'image': 'R200-east.jpg',
                             'destination': {
                                 'x': 3
+                            },
+                            '_props': {
+                                'prof-bell': {
+                                    'name': 'prof-bell',
+                                    'image': 'prof_bell.png',
+                                    'width': 50,
+                                    'height': 89,
+                                    'left': 480,
+                                    'top': 285
+                                }
                             }
                         },
                         'w': {
@@ -75,6 +85,20 @@ activeShooterDef = {
                             'image': 'R300-east.jpg',
                             'destination': {
                                 'x': 4
+                            },
+                            '_props': {
+                                'prof-bell': {
+                                    'name': 'prof-bell',
+                                    'image': 'prof_bell.png',
+                                    'width': 200,
+                                    'height': 354,
+                                    'left': 100,
+                                    'top': 257,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Professor Bell'
+                                    }
+                                }
                             }
                         },
                         'w': {
@@ -137,6 +161,16 @@ activeShooterDef = {
                             'image': 'R400-west.jpg',
                             'destination': {
                                 'x': 3
+                            },
+                            '_props': {
+                                'prof-bell': {
+                                    'name': 'prof-bell',
+                                    'image': 'prof_bell.png',
+                                    'width': 75,
+                                    'height': 133,
+                                    'left': 630,
+                                    'top': 315
+                                }
                             }
                         },
                         'n': {
@@ -292,6 +326,16 @@ activeShooterDef = {
                             'image': 'R310-south.jpg',
                             'destination': {
                                 'y': 0
+                            },
+                            '_props': {
+                                'prof-bell': {
+                                    'name': 'prof-bell',
+                                    'image': 'prof_bell.png',
+                                    'width': 150,
+                                    'height': 266,
+                                    'left': 280,
+                                    'top': 315
+                                }
                             }
                         }
                     }
