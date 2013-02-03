@@ -15,6 +15,13 @@ Wall = Class.create({
         var newProp = new Prop;
         propImage = scenario.addImage(image);
         propHoverImage = hoverImage && scenario.addImage(hoverImage);
+        if (action || hoverImage) {
+            if (hoverImage) {
+                propHoverImage.style.cursor = "pointer";
+            } else {
+                propImage.style.cursor = "pointer";
+            }
+        }
         
         if (action ==='displayModal' && !actionVariables['imageElement']) {
             actionVariables['imageElement'] = scenario.addImage(actionVariables['image']);
