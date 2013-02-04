@@ -226,20 +226,6 @@ jQuery(document).ready(function ($) {
             return;
         }
         
-        // Allow actions involving the inventory as part of the conversation
-        if (currentOption['givePlayer']) {
-            for (var i = 0; i < currentOption['givePlayer'].length; i++)
-                player.inventory.add(currentOption['givePlayer'][i]);
-        }
-        if (currentOption['takeFromPlayer']) {
-            for (var i = 0; i < currentOption['takeFromPlayer'].length; i++)
-                player.inventory.remove(currentOption['takeFromPlayer'][i]);
-        }
-        if (currentOption['removeFromScene']) {
-            for (var i = 0; i < currentOption['removeFromScene'].length; i++)
-                delete scenario.getRoom(player.x, player.y, player.z).walls[player.facing].props[currentOption['removeFromScene'][i]];
-            renderScene();
-        }
         if (currentOption['triggers']) {
             for (var i = 0; i < currentOption['triggers'].length; i++)
                 startTrigger(currentOption.triggers[i]);
@@ -253,9 +239,6 @@ jQuery(document).ready(function ($) {
                 currentOptionId = currentOption.checkInventory[i]['goto'];
                 break;
             }
-        }
-        if (currentOption['goto'] != null) {
-            currentOptionId = currentOption['goto'];
         }
 
         var currentOption = conversation.getOption(currentOptionId);
