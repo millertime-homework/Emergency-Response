@@ -3,7 +3,7 @@ Wall = Class.create({
         this.name = null;
         this.direction = null;
         this.image = null;
-        this.clickables = {};
+        this.props = {};
         this.destination = null;
     },
     set: function(name, direction, image) {
@@ -11,22 +11,29 @@ Wall = Class.create({
         this.direction = direction;
         this.image = scenario.addImage(image)
     },
-    addClickable: function(id, name, image, hoverImage, width, height, left, right, action, actionVariables) {
-        var newClickable = new Clickable;
-        clickableImage = scenario.addImage(image);
-        clickableHoverImage = hoverImage && scenario.addImage(hoverImage);
+    addProp: function(id, name, image, hoverImage, width, height, left, right, action, actionVariables) {
+        var newProp = new Prop;
+        propImage = scenario.addImage(image);
+        propHoverImage = hoverImage && scenario.addImage(hoverImage);
+        if (action || hoverImage) {
+            if (hoverImage) {
+                propHoverImage.style.cursor = "pointer";
+            } else {
+                propImage.style.cursor = "pointer";
+            }
+        }
         
         if (action ==='displayModal' && !actionVariables['imageElement']) {
             actionVariables['imageElement'] = scenario.addImage(actionVariables['image']);
         }
-        newClickable.set(name, clickableImage, clickableHoverImage, width, height, left, right, action, actionVariables);
-        this.clickables[id] = newClickable;
+        newProp.set(name, propImage, propHoverImage, width, height, left, right, action, actionVariables);
+        this.props[id] = newProp;
     },
-    getClickable: function(id) {
-        if (typeof this.clickables[id] === 'undefined') {
+    getProp: function(id) {
+        if (typeof this.props[id] === 'undefined') {
             return null;
         }
-        return this.clickables[id];
+        return this.props[id];
     },
     setDestination: function(x, y, z, f) {
         if (this.destination == null) {

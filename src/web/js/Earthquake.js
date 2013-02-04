@@ -322,7 +322,7 @@ earthquakeDef = {
                         'w': {
                             'name': 'WHall120',
                             'image': 'R120-west.jpg',                            
-                            '_clickables' : {
+                            '_props' : {
                                 'dolphin' : {
                                     'image': 'dolphin.png',
                                     'hoverImage' : 'dolphinhover.png',
@@ -912,7 +912,7 @@ earthquakeDef = {
             'events' : {
                 'setObjective' : ['dolphinHunt', 'Find the dolphin! Hint: Look in a classroom.'],
             },
-            'exeAfterNMoves' : 5,
+            'moveDelay' : 5,
         },
     },
     '_player': {

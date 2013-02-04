@@ -39,7 +39,7 @@ Player = Class.create({
     move: function(direction) { 
         var currRoom = scenario.getRoom(this.x, this.y, this.z)
         var currWall = currRoom.getWallByDir(direction)
-        if (currWall.hasDestination()) {
+        if (currWall && currWall.hasDestination()) {
             destination = currWall['destination']
             this.x = destination['x']
             this.y = destination['y']

@@ -34,15 +34,13 @@ jQuery(document).ready(function ($) {
                 keyEventArg = 'turn-right';
             } else if (event.keyCode == KEY_DOWN) {
                 // down arrow key
-                keyEvent = 'player-move';
-                keyEventArg = 'move-down';
             } else if (event.keyCode == KEY_E) {
                 // start earthquake
                 keyEvent = 'startEarthquake';
             }
         }
         //The remaining events can be triggered at all times.
-        if (event.keyCode == KEY_ESC) {
+        if (event.keyCode == KEY_ESC && gameState !== GAME_STATE_MENU) {
                 // pause game
                 showPauseMenu();
         }
