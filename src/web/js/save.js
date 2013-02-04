@@ -1,5 +1,10 @@
 function saveGame() {
-    var saveable = {"player": {"x": player.x, "y": player.y, "z": player.z, "facing": player.facing}, "scenario": scenarioVariable};
+    var saveable = {
+        "player": {"x": player.x, "y": player.y, "z": player.z, "facing": player.facing},
+        "scenario": scenarioVariable,
+        "objectives": scenario.objectives,
+        "inactiveProps": scenario.inactiveProps
+    };
     var str = escape(JSON.stringify(saveable));
     // TODO expire
     document.cookie = "emergencySave="+str+"";
@@ -20,6 +25,8 @@ function loadGame() {
     player.y = saveable.player.y;
     player.z = saveable.player.z;
     player.facing = saveable.player.facing;
+    scenario.objectives = saveable.objectives;
+    scenario.inactiveProps = saveable.inactiveProps;
     renderScene();
     updateMap();
 }
