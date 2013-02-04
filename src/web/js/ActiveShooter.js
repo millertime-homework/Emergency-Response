@@ -1025,6 +1025,7 @@ activeShooterDef = {
             'disabled': true
         }
     },
+    //'inactiveProps': ['Fire-Extinguisher'],
     '_player': {
         'x': 3,
         'y': 0,

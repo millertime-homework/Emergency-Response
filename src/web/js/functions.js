@@ -82,6 +82,10 @@ jQuery(document).ready(function ($) {
                 scenario.addTrigger(key, value);
             });
         }
+        if (data['inactiveProps']) {
+            for (var i = 0; i < data['inactiveProps'].length; i++)
+                scenario.inactiveProps[data['inactiveProps']] = true;
+        }
         player = new Player;
         playerDef = data['_player']
         player.set(playerDef['x'], playerDef['y'], playerDef['z'], playerDef['_facing'], null)
