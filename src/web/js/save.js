@@ -17,8 +17,6 @@ function canLoadGame() {
 }
 
 function loadGame() {
-    try {
-        console.log('load');
     document.cookie.match(/emergencySave=([^;]+)/);
     var str = unescape(RegExp.$1);
     var saveable = jQuery.parseJSON(str);
@@ -32,18 +30,13 @@ function loadGame() {
     player.inventory.items = saveable.inventory;
     scenario.objectives = saveable.objectives;
     scenario.triggers = saveable.triggers;
-    // still need to update the displayed objective, and restore timed triggers
+    // restore timed triggers
     scenario.inactiveProps = saveable.inactiveProps;
     renderScene();
     updateMap();
-        console.log('load');
     for (var name in scenario.objectives.inProgress) {
         console.log(name);
         if(scenario.objectives.inProgress.hasOwnProperty(name))
             jQuery('#objective ul').append('<li id="{0}">{1}</li>'.format(name, scenario.objectives.inProgress[name]));
-    }
-        console.log('load');
-    } catch (e) {
-        console.log(e);
     }
 }
