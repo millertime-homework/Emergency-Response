@@ -117,6 +117,7 @@ jQuery(document).ready(function ($) {
 
         setGameState(GAME_STATE_RUNNING);
         renderScene();
+        saveGame();
         generateMap(playerDef['x'], playerDef['y'], scenario.getFloor(playerDef['z']));
         sizeWindow();
         spinner.stop();

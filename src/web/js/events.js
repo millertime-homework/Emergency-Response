@@ -50,6 +50,7 @@ jQuery(document).ready(function($) {
     $(document).on('player-moved', function (event, x, y, z) {
         renderScene();
         updateMap();
+        saveGame();
         triggersMovementHandler(x, y, z);
     });
 
@@ -59,6 +60,7 @@ jQuery(document).ready(function($) {
 
     $(document).on('player-turned', function (event, x, y, z) {
         renderScene();
+        saveGame();
         showDirectionalIndicator();
     });    
 
