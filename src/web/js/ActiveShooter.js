@@ -425,6 +425,20 @@ activeShooterDef = {
                             'image': 'R120-east.jpg',
                             'destination': {
                                 'x': 2
+                            },
+							'_props' : {
+                                'Dr_Smiley' : {
+                                    'image': 'Dr_Smiley.png',
+                                    'hoverImage' : 'smileyhover.png',
+                                    'top' : 200,
+                                    'left' : 200,
+                                    'height': 256,
+                                    'width' : 256,
+									'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Bell_Conversation_1',
+									}
+								}
                             }
                         },
                         'w': {
@@ -978,6 +992,16 @@ activeShooterDef = {
         }
     },
     '_conversations': {
+		'Bell_Conversation_1': {
+			'1': {
+				'message' : 'Good morning, today we are going over how to respond to an active shooter scenario. Class will not start for another 5 minutes so feel free to walk around the school or talk to other students.',
+				'replies': {
+					'Skip ahead to the lecture' : '2',
+					'Skip ahead to the quiz' : '3',
+					'Skip ahead to after the quiz.' : '4'
+				}
+			}
+		},
         'Fire Extinguisher': {
             '1': {
                 'message': 'This is a fire extinguisher.',
@@ -1026,6 +1050,12 @@ activeShooterDef = {
         }
     },
     '_triggers': {
+		//The first objective.
+        'See_Professor' : {
+            'events' : {
+				'setObjective' : ['talkToProfessor', 'Go talk to Professor Bell in room 120']
+            }
+		},
         'fireAppears': {
             'events': {
                 'addToScene': ['fire1']
