@@ -1007,6 +1007,7 @@ activeShooterDef = {
         },
         'Professor Bell': {
             '1': {
+                'triggers': ['fireAppears'],
                 'message': 'Good morning! Today we\'re going over how to respond to an ' +
                     'active shooter scenario. Class won\'t start for another five minutes ' +
                     'so feel free to walk around or talk to other students.',
@@ -1025,6 +1026,11 @@ activeShooterDef = {
         }
     },
     '_triggers': {
+        'fireAppears': {
+            'events': {
+                'addToScene': ['fire1']
+            }
+        },
         'takeFireExtinguisher': {
             'events': {
                 'takeFromScene' : [ {'name': 'Fire Extinguisher', 'image': 'fire-extinguisher.png', 'width':32, 'height':32 },
@@ -1077,7 +1083,7 @@ activeShooterDef = {
             'disabled': true
         }
     },
-    //'inactiveProps': ['Fire-Extinguisher'],
+    'inactiveProps': ['fire1'],
     '_player': {
         'x': 3,
         'y': 0,
