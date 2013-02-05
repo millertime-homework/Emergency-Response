@@ -229,10 +229,6 @@ jQuery(document).ready(function ($) {
             return;
         }
         
-        if (currentOption['triggers']) {
-            for (var i = 0; i < currentOption['triggers'].length; i++)
-                startTrigger(currentOption.triggers[i]);
-        }
         if (currentOption['checkInventory']) {
             checkInventory: for (var i = 0; i < currentOption.checkInventory.length; i++) {
                 for (var j = 0; j < currentOption.checkInventory[i]['has'].length; j++) {
@@ -243,11 +239,26 @@ jQuery(document).ready(function ($) {
                 break;
             }
         }
+        if (currentOption['checkTriggers']) {
+            checkTriggers: for (var i = 0; i < currentOption.checkTriggers.length; i++) {
+                for (var j = 0; j < currentOption.checkTriggers[i]['enabled'].length; j++) {
+                    if(!scenario.triggers.pool[currentOption.checkTriggers[i]['enabled'][j]])
+                        continue checkTriggers;
+                }
+                currentOptionId = currentOption.checkTriggers[i]['goto'];
+                break;
+            }
+        }
 
         var currentOption = conversation.getOption(currentOptionId);
         if (!currentOption || currentOption.message == null) {
             hideModal();
             return;
+        }
+        
+        if (currentOption['triggers']) {
+            for (var i = 0; i < currentOption['triggers'].length; i++)
+                startTrigger(currentOption.triggers[i]);
         }
         
         //Show the message and reply options.
