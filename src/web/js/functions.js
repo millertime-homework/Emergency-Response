@@ -87,7 +87,7 @@ jQuery(document).ready(function ($) {
         }
         if (data['inactiveProps']) {
             for (var i = 0; i < data['inactiveProps'].length; i++)
-                scenario.inactiveProps[data['inactiveProps']] = true;
+                scenario.inactiveProps[data['inactiveProps'][i]] = true;
         }
         player = new Player;
         playerDef = data['_player']
