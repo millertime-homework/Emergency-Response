@@ -54,7 +54,9 @@ jQuery(document).ready(function ($) {
                                 value['top'],
                                 value['action'],
                                 value['actionVariables']
-                            )
+                            );
+                            if (value['barrier'])
+                                currWall.barriers[currWall.barriers.length] = key;
                         })
                     }
                     // Add exits/destinations
@@ -82,6 +84,10 @@ jQuery(document).ready(function ($) {
             $.each(data['_triggers'], function (key, value) {
                 scenario.addTrigger(key, value);
             });
+        }
+        if (data['inactiveProps']) {
+            for (var i = 0; i < data['inactiveProps'].length; i++)
+                scenario.inactiveProps[data['inactiveProps']] = true;
         }
         player = new Player;
         playerDef = data['_player']

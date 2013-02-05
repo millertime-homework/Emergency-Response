@@ -18,6 +18,7 @@ jQuery(document).ready(function ($) {
         var keyEvent = null;
         var keyEventArg = null;
         keypressed = true;
+        try {
             //These are key events that should only be triggered when the game is in the correct state.
         if (allowKeyEvents) {
             if (event.keyCode == KEY_LEFT) {
@@ -47,6 +48,9 @@ jQuery(document).ready(function ($) {
         if (keyEvent) {
             event.preventDefault();
             $(document).trigger(keyEvent, keyEventArg);
+        }
+        } catch (e) {
+            console.log(e);
         }
         keypressed = false;
     })

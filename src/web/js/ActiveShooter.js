@@ -356,6 +356,21 @@ activeShooterDef = {
                         'n': {
                             'name': 'NHall410',
                             'image': 'R410-north.jpg',
+                            '_props': {
+                                'fire1': {
+                                    'name': 'fire1',
+                                    'image': 'fire.png',
+                                    'width': 800,
+                                    'height': 400,
+                                    'left': 100,
+                                    'top': 100,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Fire'
+                                    },
+                                    'barrier': true
+                                }
+                            },
                             'destination': {
                                 'y': 2
                             }
@@ -524,6 +539,21 @@ activeShooterDef = {
                         's': {
                             'name': 'SHall420',
                             'image': 'R420-south.jpg',
+                            '_props': {
+                                'fire1': {
+                                    'name': 'fire1',
+                                    'image': 'fire.png',
+                                    'width': 800,
+                                    'height': 400,
+                                    'left': 100,
+                                    'top': 100,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Fire'
+                                    },
+                                    'barrier': true
+                                }
+                            },
                             'destination': {
                                 'y': 1
                             }
@@ -959,8 +989,25 @@ activeShooterDef = {
                 'triggers': ['takeFireExtinguisher']
             }
         },
+        'Fire': {
+            '1': {
+                'checkInventory': [{'has': ['Fire Extinguisher'], 'goto': '2'}],
+                'message': 'Oh no there is a fire in the way!',
+                'replies': {}
+            },
+            '2': {
+                'message': 'There is a fire in the way!',
+                'replies': {
+                    'Extinguish': '3'
+                }
+            },
+            '3': {
+                'triggers': ['useFireExtinguisher']
+            }
+        },
         'Professor Bell': {
             '1': {
+                'triggers': ['fireAppears'],
                 'message': 'Good morning! Today we\'re going over how to respond to an ' +
                     'active shooter scenario. Class won\'t start for another five minutes ' +
                     'so feel free to walk around or talk to other students.',
@@ -979,10 +1026,21 @@ activeShooterDef = {
         }
     },
     '_triggers': {
+        'fireAppears': {
+            'events': {
+                'addToScene': ['fire1']
+            }
+        },
         'takeFireExtinguisher': {
             'events': {
                 'takeFromScene' : [ {'name': 'Fire Extinguisher', 'image': 'fire-extinguisher.png', 'width':32, 'height':32 },
                                     'Fire-Extinguisher' ]
+            }
+        },
+        'useFireExtinguisher': {
+            'events': {
+                //'addToScene': ['Fire-Extinguisher'],
+                'removeFromScene': ['fire1']
             }
         },
         /* Professor Bell gives 'Get to class' objective. Upon arrival at class, the lecture begins. */
@@ -1025,6 +1083,7 @@ activeShooterDef = {
             'disabled': true
         }
     },
+    'inactiveProps': ['fire1'],
     '_player': {
         'x': 3,
         'y': 0,
