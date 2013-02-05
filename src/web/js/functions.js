@@ -1,6 +1,7 @@
 // GLOBALS
 var scenario = null;
 var player = null;
+var scenarioVariable = null;
 
 function isScenarioDefined() {};
 function isPlayerDefined() {};
@@ -357,6 +358,11 @@ jQuery(document).ready(function ($) {
     /* Pause Menu click functions */
     $('#pause-resume-button').live("click", function() {
         setGameState(GAME_STATE_RUNNING);
+    });
+    
+    $('#pause-save-button').live("click", function() {
+        saveGame();
+        hideModal();
     });
 
     $('#pause-mainmenu-button').live("click", function() {
