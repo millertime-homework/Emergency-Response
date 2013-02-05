@@ -233,6 +233,7 @@ jQuery(document).ready(function ($) {
         if (currentOption['triggers']) {
             for (var i = 0; i < currentOption['triggers'].length; i++)
                 startTrigger(currentOption.triggers[i]);
+            saveGame();
         }
         if (currentOption['checkInventory']) {
             checkInventory: for (var i = 0; i < currentOption.checkInventory.length; i++) {

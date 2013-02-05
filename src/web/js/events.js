@@ -50,8 +50,8 @@ jQuery(document).ready(function($) {
     $(document).on('player-moved', function (event, x, y, z) {
         renderScene();
         updateMap();
-        saveGame();
         triggersMovementHandler(x, y, z);
+        saveGame();
     });
 
     $(document).on('showModal', function (event, header, body, image) {
