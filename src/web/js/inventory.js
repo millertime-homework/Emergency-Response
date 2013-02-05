@@ -27,6 +27,10 @@ jQuery(document).ready(function($) {
     $(document).on("removeInventory", function(event, item) {
         player.inventory.remove(item);
     });
+    $(document).on("addToScene", function(event, item) {
+        delete scenario.inactiveProps[item];
+        renderScene();
+    });
     $(document).on("removeFromScene", function(event, item) {
         scenario.inactiveProps[item] = true;
         renderScene();
