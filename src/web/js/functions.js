@@ -53,7 +53,9 @@ jQuery(document).ready(function ($) {
                                 value['top'],
                                 value['action'],
                                 value['actionVariables']
-                            )
+                            );
+                            if (value['barrier'])
+                                currWall.barriers[currWall.barriers.length] = key;
                         })
                     }
                     // Add exits/destinations

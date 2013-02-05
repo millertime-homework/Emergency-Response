@@ -367,7 +367,8 @@ activeShooterDef = {
                                     'action': 'showConversation',
                                     'actionVariables': {
                                         'conversationName': 'Fire'
-                                    }
+                                    },
+                                    'barrier': true
                                 }
                             },
                             'destination': {
@@ -549,7 +550,8 @@ activeShooterDef = {
                                     'action': 'showConversation',
                                     'actionVariables': {
                                         'conversationName': 'Fire'
-                                    }
+                                    },
+                                    'barrier': true
                                 }
                             },
                             'destination': {

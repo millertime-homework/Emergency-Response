@@ -5,6 +5,7 @@ Wall = Class.create({
         this.image = null;
         this.props = {};
         this.destination = null;
+        this.barriers = [];
     },
     set: function(name, direction, image) {
         this.name = name;
@@ -45,6 +46,9 @@ Wall = Class.create({
         this.destination['f'] = f;
     },
     hasDestination: function() {
+        for (var i = 0; i < this.barriers.length; i++)
+            if (!scenario.inactiveProps[this.barriers[i]])
+                return false;
         return (this.destination != null);
     },
     setName: function (name) {
