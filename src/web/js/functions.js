@@ -275,6 +275,9 @@ jQuery(document).ready(function ($) {
             return;
         }
         
+        if (currentOption.message == null)
+            hideModal();
+        
         if (currentOption['triggers']) {
             for (var i = 0; i < currentOption['triggers'].length; i++)
                 startTrigger(currentOption.triggers[i]);
@@ -282,7 +285,6 @@ jQuery(document).ready(function ($) {
         }
         
         if (currentOption.message == null) {
-            hideModal();
             return;
         }
         
