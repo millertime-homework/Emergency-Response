@@ -39,4 +39,9 @@ jQuery(document).ready(function($) {
         $(document).trigger("addInventory", item);
         $(document).trigger("removeFromScene", sceneItem);
     });
+    $(document).on("replaceProp", function(event, prop, otherProp) {
+        scenario.inactiveProps[prop] = true;
+        delete scenario.inactiveProps[otherProp];
+        renderScene();
+    })
 });
