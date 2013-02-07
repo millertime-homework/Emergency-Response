@@ -1223,10 +1223,14 @@ activeShooterDef = {
                 'message': 'USE YOUR EXTINGUISHER!! HURRY!',
                 'replies': {
                     'Extinguish': 3,
+                    'Just ignore him': 4
                 }
             },
             '3': {
                 'triggers': ['extinguishProf']
+            },
+            '4': {
+                'triggers': ['dontExtinguish']
             }
         },
         // Jimmy Conversation
@@ -1366,13 +1370,20 @@ activeShooterDef = {
             'events': {
                 'replaceProp': ['prof-bell', 'prof-bell-on-fire']
             },
-            'lives': Infinity
+            'lives': Infinity,
+            'startTriggers': ['dontExtinguish']
         },
         'extinguishProf': {
             'events' : {
                 'replaceProp': ['prof-bell-on-fire', 'prof-bell']
             },
             'lives': Infinity
+        },
+        'dontExtinguish': {
+            'events': {
+                'endGame': ['You lose', 'You failed to save the professor.  No one lives happily ever after.']
+            },
+            'moveDelay': 5
         },
         'fireAppears': {
             'events': {
