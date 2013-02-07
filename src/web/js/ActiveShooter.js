@@ -67,6 +67,16 @@ activeShooterDef = {
                             'image': 'R200-north.jpg',
                             'destination': {
                                 'y': 1
+                            },
+                            '_props': {
+                                'Info-TV': {
+                                    'name': 'Info-TV',
+                                    'image': 'info-tv-skew-left.png',
+                                    'width': 150,
+                                    'height': 104,
+                                    'left': 650,
+                                    'top': 190,
+                                }
                             }
                         },
                         's': {
@@ -221,7 +231,6 @@ activeShooterDef = {
                     'id': 'hall110',
                     'x': 1,
                     'y': 1,
-                    '_triggers': ['listenToLecture'],
                     '_walls': {
                         'e': {
                             'name': 'EHall110',
@@ -252,6 +261,20 @@ activeShooterDef = {
                         'e': {
                             'name': 'EHall210',
                             'image': 'R210-east.jpg',
+                            '_props': {
+                                'Info-TV': {
+                                    'name': 'Info-TV',
+                                    'image': 'info-tv.png',
+                                    'width': 370,
+                                    'height': 217,
+                                    'left': 200,
+                                    'top': 50,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Info TV'
+                                    }
+                                }
+                            }
                         },
                         'w': {
                             'name': 'WHall210',
@@ -473,6 +496,16 @@ activeShooterDef = {
                             'image': 'R220-south.jpg',
                             'destination': {
                                 'y': 1
+                            },
+                            '_props': {
+                                'Info-TV': {
+                                    'name': 'Info-TV',
+                                    'image': 'info-tv-skew-right.png',
+                                    'width': 150,
+                                    'height': 104,
+                                    'left': 320,
+                                    'top': 190,
+                                }
                             }
                         }
                     }
@@ -595,6 +628,7 @@ activeShooterDef = {
                     'id': 'hall130',
                     'x': 1,
                     'y': 3,
+                    '_triggers': ['gotToClass'],
                     '_walls': {
                         'e': {
                             'name': 'EHall130',
@@ -723,7 +757,6 @@ activeShooterDef = {
                     'id': 'hall530',
                     'x': 5,
                     'y': 3,
-                    '_triggers': ['aceTheQuiz'],
                     '_walls': {
                         'e': {
                             'name': 'EHall530',
@@ -1005,24 +1038,60 @@ activeShooterDef = {
                 'triggers': ['useFireExtinguisher']
             }
         },
+        'Info TV': {
+            '1': {
+                'message': 'What should you do in emergency situations? Stay tuned!',
+                'replies': {
+                    '(keep watching)': 2,
+                    '(walk away)': 0
+                }
+            },
+            '2': {
+                'message': 'When there is an active shooter in the building what are your three options?',
+                'replies': {
+                    '(keep watching)': 3,
+                    '(walk away)': 0
+                }
+            },
+            '3': {
+                'message': 'The first is run. Encourage others to do so as well.',
+                'replies': {
+                    '(keep watching)': 4,
+                    '(walk away)': 0
+                }
+            },
+            '4': {
+                'message': 'The second is hide. Remember to look for protective cover, not just concealment.',
+                'replies': {
+                    '(keep watching)': 5,
+                    '(walk away)': 0
+                }
+            },
+            '5': {
+                'message': 'The third is fight. Be violent and aggressive. Commit to this decision. Get help from others and attack as a group.',
+                'replies': {
+                    '(keep watching)': 6,
+                    '(walk away)': 0
+                }
+            },
+            '6': {
+                'message': 'Run. Hide. Fight!',
+                'replies': {
+                    'I am prepared!': 0
+                }
+            }
+        },
         'Professor Bell': {
             '1': {
                 'triggers': ['fireAppears'],
-                'message': 'Good morning! Today we\'re going over how to respond to an ' +
-                    'active shooter scenario. Class won\'t start for another five minutes ' +
-                    'so feel free to walk around or talk to other students.',
+                'message': 'Good morning! Class is starting soon!.',
                 'replies': {
-                    'I\'ll go sit down': 2,
-                    'I\'ll skip the lecture and take the quiz': 3,
-                    'I\'ve already taken the quiz': 0
+                    'Thanks, Professor Bell.': 2
                 }
             },
             '2': {
                 'triggers': ['getToClass']
             },
-            '3': {
-                'triggers': ['skipToTheQuiz']
-            }
         }
     },
     '_triggers': {
@@ -1048,40 +1117,15 @@ activeShooterDef = {
             'events': {
                 'setObjective': ['getToClass', 'Get to class for the lecture']
             },
-            'enableTriggers': ['listenToLecture']
+            'enableTriggers': ['gotToClass']
         },
         /* For now, the lecture ends by leaving the room */
-        'listenToLecture': {
+        'gotToClass': {
             'events': {
                 'completeObjective': ['getToClass'],
-                'setObjective': ['listenToLecture', 'Listen to the lecture']
             },
             'disabled': true,
-            'startTriggers': ['takeTheQuiz']
         },
-        /* Quiz = go to different room. Since we don't have quiz yet. */
-        'takeTheQuiz': {
-            'events': {
-                'completeObjective': ['listenToLecture'],
-                'setObjective': ['takeTheQuiz', 'Take a quiz (get to the testing center).']
-            },
-            'moveDelay': 1,
-            'enableTriggers': ['aceTheQuiz']
-        },
-        /* No move delay on this version */
-        'skipToTheQuiz': {
-            'events': {
-                'setObjective': ['takeTheQuiz', 'Take a quiz (get to the testing center).']
-            },
-            'enableTriggers': ['aceTheQuiz']
-        },
-        /* Aced it! */
-        'aceTheQuiz': {
-            'events': {
-                'completeObjective': ['takeTheQuiz']
-            },
-            'disabled': true
-        }
     },
     'inactiveProps': ['fire1'],
     '_player': {
