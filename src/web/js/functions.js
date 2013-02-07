@@ -87,7 +87,7 @@ jQuery(document).ready(function ($) {
         }
         if (data['inactiveProps']) {
             for (var i = 0; i < data['inactiveProps'].length; i++)
-                scenario.inactiveProps[data['inactiveProps']] = true;
+                scenario.inactiveProps[data['inactiveProps'][i]] = true;
         }
         player = new Player;
         playerDef = data['_player']
@@ -368,7 +368,7 @@ function setObjective(name, displayText) {
 };
 
 function completeObjective(name) {
-    objective = scenario.objectives.inProgress[name];
+    var objective = scenario.objectives.inProgress[name];
     if (objective) {
         scenario.objectives.completed[name] = objective;
         delete scenario.objectives.inProgress[name];
@@ -377,7 +377,7 @@ function completeObjective(name) {
 };
 
 function failObjective(name) {
-    objective = scenario.objectives.inProgress[name];
+    var objective = scenario.objectives.inProgress[name];
     if (objective) {
         scenario.objectives.failed[name] = objective;
         delete scenario.objectives.inProgress[name];
