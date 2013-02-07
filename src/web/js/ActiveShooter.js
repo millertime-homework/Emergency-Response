@@ -991,23 +991,20 @@ activeShooterDef = {
         },
         'Fire': {
             '1': {
-                'checkInventory': [{'has': ['Fire Extinguisher'], 'goto': '2'}],
                 'message': 'Oh no there is a fire in the way!',
-                'replies': {}
-            },
-            '2': {
-                'message': 'There is a fire in the way!',
                 'replies': {
                     'Extinguish': '3'
                 }
             },
             '3': {
-                'triggers': ['useFireExtinguisher']
+                'triggers': ['useFireExtinguisher'],
+                'requires': {'has': ['Fire Extinguisher']}
+                // or use 'check': [{'has': ['Fire Extinguisher'], 'goto': '2'}]
             }
         },
         'Professor Bell': {
             '1': {
-                'checkTriggers': [{'enabled': ['fireAppears'], 'goto': '10'}],
+                'triggers': ['fireAppears'],
                 'message': 'Good morning! Today we\'re going over how to respond to an ' +
                     'active shooter scenario. Class won\'t start for another five minutes ' +
                     'so feel free to walk around or talk to other students.',
@@ -1018,14 +1015,12 @@ activeShooterDef = {
                 }
             },
             '2': {
-                'triggers': ['getToClass']
+                'triggers': ['getToClass'],
+                'requires': {'triggersEnabled':['getToClass']}
             },
             '3': {
-                'triggers': ['skipToTheQuiz']
-            },
-            '10': {
-                'message': 'Fire?',
-                'triggers': ['fireAppears']
+                'triggers': ['skipToTheQuiz'],
+                'requires': {'triggersEnabled':['skipToTheQuiz']}
             }
         }
     },

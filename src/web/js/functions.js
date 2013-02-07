@@ -229,29 +229,37 @@ jQuery(document).ready(function ($) {
             return;
         }
         
-        if (currentOption['checkInventory']) {
-            checkInventory: for (var i = 0; i < currentOption.checkInventory.length; i++) {
-                for (var j = 0; j < currentOption.checkInventory[i]['has'].length; j++) {
-                    if(!player.inventory.contains(currentOption.checkInventory[i]['has'][j]))
-                        continue checkInventory;
+        // Allow the conversation to change based on various things.
+        // Local helper function:
+        function checkCondition(condition) {
+            if (condition['has'])
+                for (var j = 0; j < condition['has'].length; j++) {
+                    if (!player.inventory.contains(condition['has'][j]))
+                        return false;
                 }
-                currentOptionId = currentOption.checkInventory[i]['goto'];
-                break;
-            }
+            if (condition['triggersEnabled'])
+                for (var j = 0; j < condition['triggersEnabled'].length; j++) {
+                    if(!scenario.triggers.pool[condition['triggersEnabled'][j]])
+                        return false;
+                }
+            return true;
         }
-        if (currentOption['checkTriggers']) {
-            checkTriggers: for (var i = 0; i < currentOption.checkTriggers.length; i++) {
-                for (var j = 0; j < currentOption.checkTriggers[i]['enabled'].length; j++) {
-                    if(!scenario.triggers.pool[currentOption.checkTriggers[i]['enabled'][j]])
-                        continue checkTriggers;
+        
+        // checkInventory was the name of this property before I allowed checking other things;
+        // keeping it for now since I don't know if other people are using it in other branches.
+        if (currentOption['checkInventory'])
+            currentOption['check'] = currentOption['checkInventory'];
+        if (currentOption['check']) {
+            for (var i = 0; i < currentOption.check.length; i++) {
+                if (checkCondition(currentOption.check[i])) {
+                    currentOptionId = currentOption.check[i]['goto'];
+                    break;
                 }
-                currentOptionId = currentOption.checkTriggers[i]['goto'];
-                break;
             }
         }
 
         var currentOption = conversation.getOption(currentOptionId);
-        if (!currentOption || currentOption.message == null) {
+        if (!currentOption) {
             hideModal();
             return;
         }
@@ -261,6 +269,11 @@ jQuery(document).ready(function ($) {
                 startTrigger(currentOption.triggers[i]);
         }
         
+        if (currentOption.message == null) {
+            hideModal();
+            return;
+        }
+        
         //Show the message and reply options.
         $('#modal #header').html(conversationName);
         $('#modal #content').append(currentOption['message'] + '<p /> You Reply: <br /><ul>');
@@ -268,6 +281,10 @@ jQuery(document).ready(function ($) {
         var replyChoices = currentOption['replies'];
         for (var choiceText in replyChoices) {
             if (replyChoices.hasOwnProperty(choiceText)) {
+                if (conversation.getOption(replyChoices[choiceText]) &&
+                    conversation.getOption(replyChoices[choiceText]).requires &&
+                    !checkCondition(conversation.getOption(replyChoices[choiceText]).requires))
+                    continue;
                 $('#modal #content').append(optionRowTemplate.format(replyChoices[choiceText], choiceText));
             }
         }
