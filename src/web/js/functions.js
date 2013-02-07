@@ -1,6 +1,7 @@
 // GLOBALS
 var scenario = null;
 var player = null;
+var scenarioVariable = null;
 
 function isScenarioDefined() {};
 function isPlayerDefined() {};
@@ -53,7 +54,9 @@ jQuery(document).ready(function ($) {
                                 value['top'],
                                 value['action'],
                                 value['actionVariables']
-                            )
+                            );
+                            if (value['barrier'])
+                                currWall.barriers[currWall.barriers.length] = key;
                         })
                     }
                     // Add exits/destinations
@@ -81,6 +84,10 @@ jQuery(document).ready(function ($) {
             $.each(data['_triggers'], function (key, value) {
                 scenario.addTrigger(key, value);
             });
+        }
+        if (data['inactiveProps']) {
+            for (var i = 0; i < data['inactiveProps'].length; i++)
+                scenario.inactiveProps[data['inactiveProps'][i]] = true;
         }
         player = new Player;
         playerDef = data['_player']
@@ -222,20 +229,6 @@ jQuery(document).ready(function ($) {
             return;
         }
         
-        // Allow actions involving the inventory as part of the conversation
-        if (currentOption['givePlayer']) {
-            for (var i = 0; i < currentOption['givePlayer'].length; i++)
-                player.inventory.add(currentOption['givePlayer'][i]);
-        }
-        if (currentOption['takeFromPlayer']) {
-            for (var i = 0; i < currentOption['takeFromPlayer'].length; i++)
-                player.inventory.remove(currentOption['takeFromPlayer'][i]);
-        }
-        if (currentOption['removeFromScene']) {
-            for (var i = 0; i < currentOption['removeFromScene'].length; i++)
-                delete scenario.getRoom(player.x, player.y, player.z).walls[player.facing].props[currentOption['removeFromScene'][i]];
-            renderScene();
-        }
         if (currentOption['triggers']) {
             for (var i = 0; i < currentOption['triggers'].length; i++)
                 startTrigger(currentOption.triggers[i]);
@@ -249,9 +242,6 @@ jQuery(document).ready(function ($) {
                 currentOptionId = currentOption.checkInventory[i]['goto'];
                 break;
             }
-        }
-        if (currentOption['goto'] != null) {
-            currentOptionId = currentOption['goto'];
         }
 
         var currentOption = conversation.getOption(currentOptionId);
@@ -358,6 +348,11 @@ jQuery(document).ready(function ($) {
     $('#pause-resume-button').live("click", function() {
         setGameState(GAME_STATE_RUNNING);
     });
+    
+    $('#pause-save-button').live("click", function() {
+        saveGame();
+        hideModal();
+    });
 
     $('#pause-mainmenu-button').live("click", function() {
         if (confirm("Quit and return to main menu?")) {
@@ -373,7 +368,7 @@ function setObjective(name, displayText) {
 };
 
 function completeObjective(name) {
-    objective = scenario.objectives.inProgress[name];
+    var objective = scenario.objectives.inProgress[name];
     if (objective) {
         scenario.objectives.completed[name] = objective;
         delete scenario.objectives.inProgress[name];
@@ -382,7 +377,7 @@ function completeObjective(name) {
 };
 
 function failObjective(name) {
-    objective = scenario.objectives.inProgress[name];
+    var objective = scenario.objectives.inProgress[name];
     if (objective) {
         scenario.objectives.failed[name] = objective;
         delete scenario.objectives.inProgress[name];
