@@ -15,6 +15,7 @@ Scenario = Class.create({
         this.objectives.completed = {};
         this.objectives.failed = {};
         this.inactiveProps = {};
+        this.gameOver = false;
     },
     set: function(name, status) {
         this.name = name;

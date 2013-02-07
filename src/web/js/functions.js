@@ -2,6 +2,7 @@
 var scenario = null;
 var player = null;
 var scenarioVariable = null;
+var canDismissModal = true; // this must be set after calling showModal
 
 function isScenarioDefined() {};
 function isPlayerDefined() {};
@@ -369,10 +370,12 @@ jQuery(document).ready(function ($) {
         $('#modal').show();
         centerModal($('#modal'));
         $('#overlay').show();
+        canDismissModal = true;
     }
 
     $('#overlay').live("click", function () {
-        hideModal();
+        if (canDismissModal)
+            hideModal();
     });
 
     $("li.conversation-option").live("click", function () {
