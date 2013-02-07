@@ -242,6 +242,16 @@ jQuery(document).ready(function ($) {
                     if(!scenario.triggers.pool[condition['triggersEnabled'][j]])
                         return false;
                 }
+            if (condition['objectivesInProgress'])
+                for (var j = 0; j < condition['objectivesInProgress'].length; j++) {
+                    if(!scenario.objectives.inProgress[condition['objectivesInProgress'][j]])
+                        return false;
+                }
+            if (condition['objectivesCompleted'])
+                for (var j = 0; j < condition['objectivesCompleted'].length; j++) {
+                    if(!scenario.objectives.completed[condition['objectivesCompleted'][j]])
+                        return false;
+                }
             return true;
         }
         

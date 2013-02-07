@@ -1005,6 +1005,7 @@ activeShooterDef = {
         'Professor Bell': {
             '1': {
                 'triggers': ['fireAppears'],
+                'check': [{'objectivesCompleted': ['takeTheQuiz'], 'goto': '10'}],
                 'message': 'Good morning! Today we\'re going over how to respond to an ' +
                     'active shooter scenario. Class won\'t start for another five minutes ' +
                     'so feel free to walk around or talk to other students.',
@@ -1021,6 +1022,9 @@ activeShooterDef = {
             '3': {
                 'triggers': ['skipToTheQuiz'],
                 'requires': {'triggersEnabled':['skipToTheQuiz']}
+            },
+            '10': {
+                'message': 'Congratulations!  You have completed the quiz!'
             }
         }
     },
