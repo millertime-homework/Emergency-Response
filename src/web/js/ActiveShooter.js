@@ -1055,22 +1055,6 @@ activeShooterDef = {
                 'triggers': ['takeFireExtinguisher']
             }
         },
-        'Fire': {
-            '1': {
-                'checkInventory': [{'has': ['Fire Extinguisher'], 'goto': '2'}],
-                'message': 'Oh no there is a fire in the way!',
-                'replies': {}
-            },
-            '2': {
-                'message': 'There is a fire in the way!',
-                'replies': {
-                    'Extinguish': '3'
-                }
-            },
-            '3': {
-                'triggers': ['useFireExtinguisher']
-            }
-        },
         'Info TV': {
             '1': {
                 'message': 'What should you do in emergency situations? Stay tuned!',
@@ -1129,22 +1113,6 @@ activeShooterDef = {
             '3': {
                 'triggers': ['skipToTheQuiz']
             },
-        },
-        'Professor Bell On Fire': {
-            '1' : {
-                'checkInventory': [{'has': ['Fire Extinguisher'], 'goto': '2'}],
-                'message': 'Help!!!! I\'M ON FIRE! GET AN EXTINGUISHER!',
-                'replies': {}
-            },
-            '2': {
-                'message': 'USE YOUR EXTINGUISHER!! HURRY!',
-                'replies': {
-                    'Extinguish': 3,
-                }
-            },
-            '3': {
-                'triggers': ['extinguishProf']
-            }
         },
         // Jimmy Conversation
         'Jimmy_Conversation_1': {
