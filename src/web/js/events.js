@@ -61,6 +61,7 @@ jQuery(document).ready(function($) {
     $(document).on('endGame', function (event, header, body) {
         displayModal(header, body+'<p>Score: '+player.score+'<p><a href="javascript:setGameState(GAME_STATE_MENU);">Main menu</a>');
         canDismissModal = false;
+        scenario.gameOver = true;
     });
 
     $(document).on('player-turned', function (event, x, y, z) {
