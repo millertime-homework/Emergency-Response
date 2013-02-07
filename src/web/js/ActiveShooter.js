@@ -448,11 +448,64 @@ activeShooterDef = {
                             'image': 'R120-east.jpg',
                             'destination': {
                                 'x': 2
-                            }
+                            },
+							'_props' : {
+                                'Dr_Smiley' : {
+                                    'image': 'Dr_Smiley.png',
+                                    'hoverImage' : 'smileyhover.png',
+                                    'top' : 200,
+                                    'left' : 200,
+                                    'height': 256,
+                                    'width' : 256,
+									'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Bell_Conversation_1',
+									}
+								}
+                            },
+                            
                         },
                         'w': {
                             'name': 'WHall120',
-                            'image': 'R120-west.jpg'
+                            'image': 'R120-west.jpg',
+                            '_props' : {
+                                'Jimmy' : {
+                                    'image': 'Jim.png',
+									'hoverImage' : 'hoverJim.png',
+                                    'top' : 200,
+                                    'left' : 50,
+                                    'height': 256,
+                                    'width' : 256,
+									'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Jimmy_Conversation_1'
+									}
+								},						
+								'Jerome' : {
+                                    'image': 'Jerome.png',
+									'hoverImage' : 'hoverJerome.png',
+                                    'top' : 200,
+                                    'left' : 450,
+                                    'height': 256,
+                                    'width' : 256,
+									'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Jerome_Conversation_1'
+									}
+								},
+								'Maria' : {
+                                    'image': 'Maria.png',
+									'hoverImage' : 'hoverMaria.png',
+                                    'top' : 200,
+                                    'left' : 825,
+                                    'height': 256,
+                                    'width' : 256,
+									'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Maria_Conversation_1'
+									}
+								}
+                            }							
                         },
                         'n': {
                             'name': 'NHall120',
@@ -1011,6 +1064,16 @@ activeShooterDef = {
         }
     },
     '_conversations': {
+		'Bell_Conversation_1': {
+			'1': {
+				'message' : 'Good morning, today we are going over how to respond to an active shooter scenario. Class will not start for another 5 minutes so feel free to walk around the school or talk to other students.',
+				'replies': {
+					'Skip ahead to the lecture' : '2',
+					'Skip ahead to the quiz' : '3',
+					'Skip ahead to after the quiz.' : '4'
+				}
+			}
+		},
         'Fire Extinguisher': {
             '1': {
                 'message': 'This is a fire extinguisher.',
@@ -1091,10 +1154,141 @@ activeShooterDef = {
             },
             '2': {
                 'triggers': ['getToClass']
-            },
-        }
+            }
+        },
+        // Jimmy Conversation
+        'Jimmy_Conversation_1': {
+			'1': {
+				'message' : 'Hi, I\'m Jimmy, how\'s it going?',
+				'replies': {
+					'Good, thanks! Do you know where the bathroom is?' : '2',
+					'I\m doing swell. You don\'t know where the library is by any chance do you?' : '3',
+					'Good Thanks. [Exit Conversation]' : '4'			
+				}
+			},
+            '2': {
+				'message' : 'Yeah, head out the classroom door and go left. The bathroom is at the end of the hall on the right.',
+				'replies' :{
+					'You don\'t know where the library is by any chance do you?' : '3',
+					'Ok, thanks. [Exit Conversation]' : '4'
+				}
+			},
+			'3': {
+				'message' : 'Yeah go back to the front of the school and look for the stairs. The library is at the top of them.',
+				'replies' :{
+					'Do you know where the bathroom is?' : '2',
+					'Ok, thanks. [Exit Conversation]' : '4'
+				}
+			}
+		},
+		//Maria Conversation
+		'Maria_Conversation_1': {
+			'1': {
+				'message' : 'Hi, I\'m Maria, how\'s it going?',
+				'replies': {
+					'Good, thanks! Do you know where the bathroom is?' : '2',
+					'I\m doing swell. You don\'t know where the library is by any chance do you?' : '3',
+					'Good Thanks. [Exit Conversation]' : '4'			
+				}
+			},
+			'2': {
+				'message' : 'Yeah, head out the classroom door and go left. The bathroom is at the end of the hall on the right.',
+				'replies' :{
+					'You don\'t know where the library is by any chance do you?' : '3',
+					'Ok, thanks. [Exit Conversation]' : '4'
+				}
+			},
+			'3': {
+				'message' : 'Yeah go back to the front of the school and look for the stairs. The library is at the top of them.',
+				'replies' :{
+					'Do you know where the bathroom is?' : '2',
+					'Ok, thanks. [Exit Conversation]' : '4'
+				}
+			}
+			
+		},
+        //Jerome Conversation
+        'Jerome_Conversation_1': {
+            '1': {
+				'message' : 'Hi, I\'m Jerome, are you ready for the quiz?',
+				'replies': {
+					'Quiz, what quiz?' : '2',
+					'Yeah, what about you?' : '3',
+					'Yeah, thanks. Good luck. [Exit Conversation]' : '4'			
+				}
+			},
+			'2': {
+				'message' : 'There\'s a quiz after the lecture today. Here\'s a study guide to help you prepare for it. (Look in your inventory)',
+				'replies' :{
+					'Thanks a lot, do you want to study for it realy quick?' : '5',
+					'Oh, thanks. [Exit Conversation]' : '4'
+				}
+			},
+			'3': {
+				'message' : 'Yeah, I\'m pretty much ready. I\'m just trying to remember the 3 action words that describe how to react to an active shooter scenario. Do you remember what they are?',
+				'replies' :{
+					'Yeah, they\'re Stop, Run and Fight?' : '7',
+					'Oh yeah, I got this one, The\'re Stop, Drop and Roll.' : '7',
+					'Oh you\'re talking about Run Hide and Fight' : '6',
+				}
+			},
+			'5': {
+				'message' : 'Yeah sure. I\'m actually trying to remember the 3 action words that describe how to react to an active shooter scenario. Do you remember what they are?',
+				'replies' :{
+					'Yeah, they\'re Stop, Run and Fight?' : '7',
+					'Oh yeah, I got this one, The\'re Stop, Drop and Roll.' : '7',
+					'Oh you\'re talking about Run Hide and Fight' : '6',
+				}
+			},
+			'6': {
+				'message': 'Oh, yeah you\'re right, thanks',
+				'replies' : {
+					'No problem, do you have any other questions I can help answer?' : '8',
+					'Great! Well, I better get going. Good luck on the quiz [Exit Conversation]' : '4'
+				}
+			},
+			'7': {
+				'message': 'Hmmm, actually if you look at the study guide the 3 action words are Run Hide and Fight',
+				'replies' : {
+					'Oh, you\'re right. Do you have any other questions I can help answer?' : '8',
+					'Oh yeah, you\'re right. Well I need to get going. Good luck on the quiz [Exit Conversation]' : '4'
+				}
+			},
+			'8':{
+				'message' : 'Sure, what are some good places to hide from an active shooter',
+				'replies' : {
+					'Hiding is never a good idea' : '9',
+					'You could hide in a closet with a door that locks.' : '10',
+					'I don\'nt know, maybe under a chair or something.' : '11',
+				}
+			},
+			'9':{
+				'message' : 'Actually if you aren\'t able to run from the shooter, hiding is what you should try to do next. Remember the 3 action words? Run, Hide, Fight?',
+				'replies' : {
+					'Oh, you\'re right. Ok, well I should get going. Good luck on the quiz. [Exit Conversation]' : '4',
+				}
+			},
+			'10':{
+				'message' : 'Yeah, you\'re right. Thanks.',
+				'replies' : {
+					'Great! Well I have to go now. Good luck. [Exit Conversation]' : '4',
+				}
+			},
+			'11':{
+				'message' : 'That doesn\'t seem like a very good place to hide. Maybe you could hide in a closet or underneath a a big sturdy desk.',
+				'replies' : {
+					'Yeah, you\'re probably right. Well, I should go. Thanks and good luck on the quiz. [Exit Conversation]' : '4'
+				}
+			}
+		},
     },
     '_triggers': {
+		//The first objective.
+        'See_Professor' : {
+            'events' : {
+				'setObjective' : ['talkToProfessor', 'Go talk to Professor Bell in room 120']
+            }
+		},
         'fireAppears': {
             'events': {
                 'addToScene': ['fire1']
