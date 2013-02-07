@@ -1408,6 +1408,11 @@ activeShooterDef = {
             },
             'disabled': true,
         },
+        'skipToTheQuiz': {
+            'events': {
+                'showModal': ['The quiz', 'Name: _________']
+            }
+        }
     },
     'inactiveProps': ['fire1', 'prof-bell-on-fire'],
     '_player': {
