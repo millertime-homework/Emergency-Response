@@ -271,6 +271,7 @@ testDef = {
                     'id': 'hall110',
                     'x': 1,
                     'y': 1,
+                    '_triggers' : ['dolphinFound'],
                     '_walls': {
                         'e': {
                             'name': 'EHall110',
@@ -281,7 +282,17 @@ testDef = {
                         },
                         'w': {
                             'name': 'WHall110',
-                            'image': 'R110-west.jpg'
+                            'image': 'R110-west.jpg',
+                            '_props' : {
+                                'dolphin' : {
+                                    'image': 'dolphin.png',
+                                    'hoverImage' : 'dolphinhover.png',
+                                    'top' : 200,
+                                    'left' : 200,
+                                    'height': 256,
+                                    'width' : 499,
+                                }
+                            }
                         },
                         'n': {
                             'name': 'NHall110',
@@ -951,6 +962,7 @@ testDef = {
                     'id': 'hall240',
                     'x': 2,                         //Room Location on a grid?
                     'y': 4,
+                    '_triggers' : ['sampleObjective'],
                     '_walls': {
                         'e': {
                             'name': 'EHall240',
@@ -1363,6 +1375,55 @@ testDef = {
 		},
     },
     '_triggers': {
+        //This sample objective is started when you hit the room where it is included.
+        //'moveTutorial' is the internal name of the objective used for objective tracking.
+        //'Move somewhere' is the quest presented to the user.
+        'sampleObjective' : {
+            'events' : {
+                'setObjective' : ['moveTutorial', 'Move somewhere']
+            },
+            'startTriggers' : ['sampleObjectiveEnd']
+        },
+        //It starts sampleObjectiveEnd, which is triggered after the player moves. Completes 'moveTutorial' objective.
+        //Player earns points, and starts a new objecive.
+        'sampleObjectiveEnd' : {
+            'events' : {
+                'completeObjective' : ['moveTutorial'],
+                'addPoints' : [10]
+            },
+            'moveDelay' : 1,
+            'startTriggers' : ['findTheDolphin'],
+        },
+        //The player is tasked with finding the dolphin. TODO: Add a requirement that the player must face
+        //a certain direction to complete a trigger (IE, they must look at the dolphin, not just be on its tile)
+        //'dolphinHunt' is the internal name of the objective used for objective tracking.
+        //'Find the dolphin!' is the quest presented to the user.
+        'findTheDolphin' : {
+            'events' : { 
+                'setObjective' : ['dolphinHunt', 'Find the dolphin!'],
+            },
+            'enableTriggers' : ['dolphinFound'],
+            'startTriggers' : ['dolphinHint']
+        },
+        //Starts disabled so it can't be triggered unless the player is on the dolphin quest
+        'dolphinFound' : {
+            'events' : {
+                'completeObjective' : ['dolphinHunt'],
+                'addPoints' : [50]
+            },
+            'disabled' : true,
+            'abortTriggers' : ['dolphinHint']
+        },
+        //Triggered if the player is having trouble finding the dolphin. Note that because it is
+        //aborted by dolphinFound, this only appears if the player takes too long to find the dolphin
+        //You can override existing objectives with modified display text simply by reusing the
+        //objective name.
+        'dolphinHint' : {
+            'events' : {
+                'setObjective' : ['dolphinHunt', 'Find the dolphin! Hint: Look in a classroom.'],
+            },
+            'moveDelay' : 5,
+        },
 		//The first objective.
         'See_Professor' : {
             'events' : {
