@@ -1,5 +1,5 @@
-activeShooterDef = {
-    'name': 'Active Shooter Scenario',
+testDef = {
+    'name': 'Test Scenario',
     '_floors': {
         'First Floor': {
             'z': 0,
@@ -47,6 +47,14 @@ activeShooterDef = {
                                 'prof-bell': {
                                     'name': 'prof-bell',
                                     'image': 'prof_bell.png',
+                                    'width': 50,
+                                    'height': 89,
+                                    'left': 480,
+                                    'top': 285
+                                },
+                                'prof-bell-on-fire': {
+                                    'name': 'prof-bell-on-fire',
+                                    'image': 'prof_bell_on_fire.png',
                                     'width': 50,
                                     'height': 89,
                                     'left': 480,
@@ -108,6 +116,18 @@ activeShooterDef = {
                                     'actionVariables': {
                                         'conversationName': 'Professor Bell'
                                     }
+                                },
+                                'prof-bell-on-fire': {
+                                    'name': 'prof-bell-on-fire',
+                                    'image': 'prof_bell_on_fire.png',
+                                    'width': 200,
+                                    'height': 354,
+                                    'left': 100,
+                                    'top': 257,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Professor Bell On Fire'
+                                    }
                                 }
                             }
                         },
@@ -136,6 +156,18 @@ activeShooterDef = {
                                     'actionVariables': {
                                         'conversationName': 'Professor Bell'
                                     },
+                                },
+                                'prof-bell-on-fire': {
+                                    'name': 'prof-bell-on-fire',
+                                    'image': 'prof_bell_on_fire.png',
+                                    'width': 200,
+                                    'height': 354,
+                                    'left': 900,
+                                    'top': 257,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Professor Bell On Fire'
+                                    }
                                 },
                                 'Fire-Extinguisher': {
                                     'name': 'Fire-Extinguisher',
@@ -176,6 +208,14 @@ activeShooterDef = {
                                 'prof-bell': {
                                     'name': 'prof-bell',
                                     'image': 'prof_bell.png',
+                                    'width': 75,
+                                    'height': 133,
+                                    'left': 630,
+                                    'top': 315
+                                },
+                                'prof-bell-on-fire': {
+                                    'name': 'prof-bell-on-fire',
+                                    'image': 'prof_bell_on_fire.png',
                                     'width': 75,
                                     'height': 133,
                                     'left': 630,
@@ -358,6 +398,14 @@ activeShooterDef = {
                                     'height': 266,
                                     'left': 280,
                                     'top': 315
+                                },
+                                'prof-bell-on-fire': {
+                                    'name': 'prof-bell-on-fire',
+                                    'image': 'prof_bell_on_fire.png',
+                                    'width': 150,
+                                    'height': 266,
+                                    'left': 280,
+                                    'top': 315,
                                 }
                             }
                         }
@@ -379,6 +427,21 @@ activeShooterDef = {
                         'n': {
                             'name': 'NHall410',
                             'image': 'R410-north.jpg',
+                            '_props': {
+                                'fire1': {
+                                    'name': 'fire1',
+                                    'image': 'fire.png',
+                                    'width': 800,
+                                    'height': 400,
+                                    'left': 100,
+                                    'top': 100,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Fire'
+                                    },
+                                    'barrier': true
+                                }
+                            },
                             'destination': {
                                 'y': 2
                             }
@@ -610,6 +673,21 @@ activeShooterDef = {
                         's': {
                             'name': 'SHall420',
                             'image': 'R420-south.jpg',
+                            '_props': {
+                                'fire1': {
+                                    'name': 'fire1',
+                                    'image': 'fire.png',
+                                    'width': 800,
+                                    'height': 400,
+                                    'left': 100,
+                                    'top': 100,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Fire'
+                                    },
+                                    'barrier': true
+                                }
+                            },
                             'destination': {
                                 'y': 1
                             }
@@ -1055,6 +1133,22 @@ activeShooterDef = {
                 'triggers': ['takeFireExtinguisher']
             }
         },
+        'Fire': {
+            '1': {
+                'checkInventory': [{'has': ['Fire Extinguisher'], 'goto': '2'}],
+                'message': 'Oh no there is a fire in the way!',
+                'replies': {}
+            },
+            '2': {
+                'message': 'There is a fire in the way!',
+                'replies': {
+                    'Extinguish': '3'
+                }
+            },
+            '3': {
+                'triggers': ['useFireExtinguisher']
+            }
+        },
         'Info TV': {
             '1': {
                 'message': 'What should you do in emergency situations? Stay tuned!',
@@ -1100,11 +1194,13 @@ activeShooterDef = {
         },
         'Professor Bell': {
             '1': {
+                'triggers': ['fireAppears'],
                 'message': 'Good morning! Class is starting soon!.',
                 'replies': {
                     'I\'ll go sit down': 2,
                     'I\'ll skip the lecture and take the quiz': 3,
                     'I\'ve already taken the quiz': 0,
+                    'Don\'t play with those matches...': 4,
                 }
             },
             '2': {
@@ -1113,6 +1209,29 @@ activeShooterDef = {
             '3': {
                 'triggers': ['skipToTheQuiz']
             },
+            '4': {
+                'triggers': ['lightProfOnFire']
+            }
+        },
+        'Professor Bell On Fire': {
+            '1' : {
+                'checkInventory': [{'has': ['Fire Extinguisher'], 'goto': '2'}],
+                'message': 'Help!!!! I\'M ON FIRE! GET AN EXTINGUISHER!',
+                'replies': {}
+            },
+            '2': {
+                'message': 'USE YOUR EXTINGUISHER!! HURRY!',
+                'replies': {
+                    'Extinguish': 3,
+                    'Just ignore him': 4
+                }
+            },
+            '3': {
+                'triggers': ['extinguishProf']
+            },
+            '4': {
+                'triggers': ['dontExtinguish']
+            }
         },
         // Jimmy Conversation
         'Jimmy_Conversation_1': {
@@ -1247,10 +1366,40 @@ activeShooterDef = {
 				'setObjective' : ['talkToProfessor', 'Go talk to Professor Bell in room 120']
             }
 		},
+        'lightProfOnFire': {
+            'events': {
+                'replaceProp': ['prof-bell', 'prof-bell-on-fire']
+            },
+            'lives': Infinity,
+            'startTriggers': ['dontExtinguish']
+        },
+        'extinguishProf': {
+            'events' : {
+                'replaceProp': ['prof-bell-on-fire', 'prof-bell']
+            },
+            'lives': Infinity
+        },
+        'dontExtinguish': {
+            'events': {
+                'endGame': ['You lose', 'You failed to save the professor.  No one lives happily ever after.']
+            },
+            'moveDelay': 5
+        },
+        'fireAppears': {
+            'events': {
+                'addToScene': ['fire1']
+            }
+        },
         'takeFireExtinguisher': {
             'events': {
                 'takeFromScene' : [ {'name': 'Fire Extinguisher', 'image': 'fire-extinguisher.png', 'width':32, 'height':32 },
                                     'Fire-Extinguisher' ]
+            }
+        },
+        'useFireExtinguisher': {
+            'events': {
+                //'addToScene': ['Fire-Extinguisher'],
+                'removeFromScene': ['fire1']
             }
         },
         /* Professor Bell gives 'Get to class' objective. Upon arrival at class, the lecture begins. */
@@ -1268,6 +1417,7 @@ activeShooterDef = {
             'disabled': true,
         },
     },
+    'inactiveProps': ['fire1', 'prof-bell-on-fire'],
     '_player': {
         'x': 3,
         'y': 0,
