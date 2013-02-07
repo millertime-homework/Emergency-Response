@@ -1406,7 +1406,7 @@ activeShooterDef = {
             'disabled': true,
         },
     },
-    'inactiveProps': ['prof-bell-on-fire'],
+    'inactiveProps': ['fire1', 'prof-bell-on-fire'],
     '_player': {
         'x': 3,
         'y': 0,
