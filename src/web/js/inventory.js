@@ -30,13 +30,20 @@ jQuery(document).ready(function($) {
     $(document).on("addToScene", function(event, item) {
         delete scenario.inactiveProps[item];
         renderScene();
+        saveGame();
     });
     $(document).on("removeFromScene", function(event, item) {
         scenario.inactiveProps[item] = true;
         renderScene();
+        saveGame();
     });
     $(document).on("takeFromScene", function(event, item, sceneItem) {
         $(document).trigger("addInventory", item);
         $(document).trigger("removeFromScene", sceneItem);
     });
+    $(document).on("replaceProp", function(event, prop, otherProp) {
+        scenario.inactiveProps[prop] = true;
+        delete scenario.inactiveProps[otherProp];
+        renderScene();
+    })
 });

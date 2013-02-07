@@ -51,6 +51,14 @@ activeShooterDef = {
                                     'height': 89,
                                     'left': 480,
                                     'top': 285
+                                },
+                                'prof-bell-on-fire': {
+                                    'name': 'prof-bell-on-fire',
+                                    'image': 'prof_bell_on_fire.png',
+                                    'width': 50,
+                                    'height': 89,
+                                    'left': 480,
+                                    'top': 285
                                 }
                             }
                         },
@@ -67,6 +75,16 @@ activeShooterDef = {
                             'image': 'R200-north.jpg',
                             'destination': {
                                 'y': 1
+                            },
+                            '_props': {
+                                'Info-TV': {
+                                    'name': 'Info-TV',
+                                    'image': 'info-tv-skew-left.png',
+                                    'width': 150,
+                                    'height': 104,
+                                    'left': 650,
+                                    'top': 190,
+                                }
                             }
                         },
                         's': {
@@ -98,6 +116,18 @@ activeShooterDef = {
                                     'actionVariables': {
                                         'conversationName': 'Professor Bell'
                                     }
+                                },
+                                'prof-bell-on-fire': {
+                                    'name': 'prof-bell-on-fire',
+                                    'image': 'prof_bell_on_fire.png',
+                                    'width': 200,
+                                    'height': 354,
+                                    'left': 100,
+                                    'top': 257,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Professor Bell On Fire'
+                                    }
                                 }
                             }
                         },
@@ -126,6 +156,18 @@ activeShooterDef = {
                                     'actionVariables': {
                                         'conversationName': 'Professor Bell'
                                     },
+                                },
+                                'prof-bell-on-fire': {
+                                    'name': 'prof-bell-on-fire',
+                                    'image': 'prof_bell_on_fire.png',
+                                    'width': 200,
+                                    'height': 354,
+                                    'left': 900,
+                                    'top': 257,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Professor Bell On Fire'
+                                    }
                                 },
                                 'Fire-Extinguisher': {
                                     'name': 'Fire-Extinguisher',
@@ -166,6 +208,14 @@ activeShooterDef = {
                                 'prof-bell': {
                                     'name': 'prof-bell',
                                     'image': 'prof_bell.png',
+                                    'width': 75,
+                                    'height': 133,
+                                    'left': 630,
+                                    'top': 315
+                                },
+                                'prof-bell-on-fire': {
+                                    'name': 'prof-bell-on-fire',
+                                    'image': 'prof_bell_on_fire.png',
                                     'width': 75,
                                     'height': 133,
                                     'left': 630,
@@ -221,7 +271,6 @@ activeShooterDef = {
                     'id': 'hall110',
                     'x': 1,
                     'y': 1,
-                    '_triggers': ['listenToLecture'],
                     '_walls': {
                         'e': {
                             'name': 'EHall110',
@@ -252,6 +301,20 @@ activeShooterDef = {
                         'e': {
                             'name': 'EHall210',
                             'image': 'R210-east.jpg',
+                            '_props': {
+                                'Info-TV': {
+                                    'name': 'Info-TV',
+                                    'image': 'info-tv.png',
+                                    'width': 370,
+                                    'height': 217,
+                                    'left': 200,
+                                    'top': 50,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Info TV'
+                                    }
+                                }
+                            }
                         },
                         'w': {
                             'name': 'WHall210',
@@ -335,6 +398,14 @@ activeShooterDef = {
                                     'height': 266,
                                     'left': 280,
                                     'top': 315
+                                },
+                                'prof-bell-on-fire': {
+                                    'name': 'prof-bell-on-fire',
+                                    'image': 'prof_bell_on_fire.png',
+                                    'width': 150,
+                                    'height': 266,
+                                    'left': 280,
+                                    'top': 315,
                                 }
                             }
                         }
@@ -425,11 +496,64 @@ activeShooterDef = {
                             'image': 'R120-east.jpg',
                             'destination': {
                                 'x': 2
-                            }
+                            },
+							'_props' : {
+                                'Dr_Smiley' : {
+                                    'image': 'Dr_Smiley.png',
+                                    'hoverImage' : 'smileyhover.png',
+                                    'top' : 200,
+                                    'left' : 200,
+                                    'height': 256,
+                                    'width' : 256,
+									'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Bell_Conversation_1',
+									}
+								}
+                            },
+                            
                         },
                         'w': {
                             'name': 'WHall120',
-                            'image': 'R120-west.jpg'
+                            'image': 'R120-west.jpg',
+                            '_props' : {
+                                'Jimmy' : {
+                                    'image': 'Jim.png',
+									'hoverImage' : 'hoverJim.png',
+                                    'top' : 200,
+                                    'left' : 50,
+                                    'height': 256,
+                                    'width' : 256,
+									'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Jimmy_Conversation_1'
+									}
+								},						
+								'Jerome' : {
+                                    'image': 'Jerome.png',
+									'hoverImage' : 'hoverJerome.png',
+                                    'top' : 200,
+                                    'left' : 450,
+                                    'height': 256,
+                                    'width' : 256,
+									'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Jerome_Conversation_1'
+									}
+								},
+								'Maria' : {
+                                    'image': 'Maria.png',
+									'hoverImage' : 'hoverMaria.png',
+                                    'top' : 200,
+                                    'left' : 825,
+                                    'height': 256,
+                                    'width' : 256,
+									'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Maria_Conversation_1'
+									}
+								}
+                            }							
                         },
                         'n': {
                             'name': 'NHall120',
@@ -473,6 +597,16 @@ activeShooterDef = {
                             'image': 'R220-south.jpg',
                             'destination': {
                                 'y': 1
+                            },
+                            '_props': {
+                                'Info-TV': {
+                                    'name': 'Info-TV',
+                                    'image': 'info-tv-skew-right.png',
+                                    'width': 150,
+                                    'height': 104,
+                                    'left': 320,
+                                    'top': 190,
+                                }
                             }
                         }
                     }
@@ -595,6 +729,7 @@ activeShooterDef = {
                     'id': 'hall130',
                     'x': 1,
                     'y': 3,
+                    '_triggers': ['gotToClass'],
                     '_walls': {
                         'e': {
                             'name': 'EHall130',
@@ -723,7 +858,6 @@ activeShooterDef = {
                     'id': 'hall530',
                     'x': 5,
                     'y': 3,
-                    '_triggers': ['aceTheQuiz'],
                     '_walls': {
                         'e': {
                             'name': 'EHall530',
@@ -978,6 +1112,16 @@ activeShooterDef = {
         }
     },
     '_conversations': {
+		'Bell_Conversation_1': {
+			'1': {
+				'message' : 'Good morning, today we are going over how to respond to an active shooter scenario. Class will not start for another 5 minutes so feel free to walk around the school or talk to other students.',
+				'replies': {
+					'Skip ahead to the lecture' : '2',
+					'Skip ahead to the quiz' : '3',
+					'Skip ahead to after the quiz.' : '4'
+				}
+			}
+		},
         'Fire Extinguisher': {
             '1': {
                 'message': 'This is a fire extinguisher.',
@@ -1002,17 +1146,59 @@ activeShooterDef = {
                 // or use 'check': [{'has': ['Fire Extinguisher'], 'goto': '2'}]
             }
         },
+        'Info TV': {
+            '1': {
+                'message': 'What should you do in emergency situations? Stay tuned!',
+                'replies': {
+                    '(keep watching)': 2,
+                    '(walk away)': 0
+                }
+            },
+            '2': {
+                'message': 'When there is an active shooter in the building what are your three options?',
+                'replies': {
+                    '(keep watching)': 3,
+                    '(walk away)': 0
+                }
+            },
+            '3': {
+                'message': 'The first is run. Encourage others to do so as well.',
+                'replies': {
+                    '(keep watching)': 4,
+                    '(walk away)': 0
+                }
+            },
+            '4': {
+                'message': 'The second is hide. Remember to look for protective cover, not just concealment.',
+                'replies': {
+                    '(keep watching)': 5,
+                    '(walk away)': 0
+                }
+            },
+            '5': {
+                'message': 'The third is fight. Be violent and aggressive. Commit to this decision. Get help from others and attack as a group.',
+                'replies': {
+                    '(keep watching)': 6,
+                    '(walk away)': 0
+                }
+            },
+            '6': {
+                'message': 'Run. Hide. Fight!',
+                'replies': {
+                    'I am prepared!': 0
+                }
+            }
+        },
         'Professor Bell': {
             '1': {
                 'triggers': ['fireAppears'],
                 'check': [{'objectivesCompleted': ['takeTheQuiz'], 'goto': '10'}],
-                'message': 'Good morning! Today we\'re going over how to respond to an ' +
-                    'active shooter scenario. Class won\'t start for another five minutes ' +
-                    'so feel free to walk around or talk to other students.',
+                'message': 'Good morning! Class is starting soon!.',
                 'replies': {
                     'I\'ll go sit down': 2,
                     'I\'ll skip the lecture and take the quiz': 3,
-                    'I\'ve already taken the quiz': 0
+                    'I\'ve already taken the quiz': 0,
+                    'Don\'t play with those matches...': 4,
                 }
             },
             '2': {
@@ -1023,12 +1209,174 @@ activeShooterDef = {
                 'triggers': ['skipToTheQuiz'],
                 'requires': {'triggersEnabled':['skipToTheQuiz']}
             },
+            '4': {
+                'triggers': ['lightProfOnFire']
+            },
             '10': {
                 'message': 'Congratulations!  You have completed the quiz!'
             }
-        }
+        },
+        'Professor Bell On Fire': {
+            '1' : {
+                'checkInventory': [{'has': ['Fire Extinguisher'], 'goto': '2'}],
+                'message': 'Help!!!! I\'M ON FIRE! GET AN EXTINGUISHER!',
+                'replies': {}
+            },
+            '2': {
+                'message': 'USE YOUR EXTINGUISHER!! HURRY!',
+                'replies': {
+                    'Extinguish': 3,
+                }
+            },
+            '3': {
+                'triggers': ['extinguishProf']
+            }
+        },
+        // Jimmy Conversation
+        'Jimmy_Conversation_1': {
+			'1': {
+				'message' : 'Hi, I\'m Jimmy, how\'s it going?',
+				'replies': {
+					'Good, thanks! Do you know where the bathroom is?' : '2',
+					'I\m doing swell. You don\'t know where the library is by any chance do you?' : '3',
+					'Good Thanks. [Exit Conversation]' : '4'			
+				}
+			},
+            '2': {
+				'message' : 'Yeah, head out the classroom door and go left. The bathroom is at the end of the hall on the right.',
+				'replies' :{
+					'You don\'t know where the library is by any chance do you?' : '3',
+					'Ok, thanks. [Exit Conversation]' : '4'
+				}
+			},
+			'3': {
+				'message' : 'Yeah go back to the front of the school and look for the stairs. The library is at the top of them.',
+				'replies' :{
+					'Do you know where the bathroom is?' : '2',
+					'Ok, thanks. [Exit Conversation]' : '4'
+				}
+			}
+		},
+		//Maria Conversation
+		'Maria_Conversation_1': {
+			'1': {
+				'message' : 'Hi, I\'m Maria, how\'s it going?',
+				'replies': {
+					'Good, thanks! Do you know where the bathroom is?' : '2',
+					'I\m doing swell. You don\'t know where the library is by any chance do you?' : '3',
+					'Good Thanks. [Exit Conversation]' : '4'			
+				}
+			},
+			'2': {
+				'message' : 'Yeah, head out the classroom door and go left. The bathroom is at the end of the hall on the right.',
+				'replies' :{
+					'You don\'t know where the library is by any chance do you?' : '3',
+					'Ok, thanks. [Exit Conversation]' : '4'
+				}
+			},
+			'3': {
+				'message' : 'Yeah go back to the front of the school and look for the stairs. The library is at the top of them.',
+				'replies' :{
+					'Do you know where the bathroom is?' : '2',
+					'Ok, thanks. [Exit Conversation]' : '4'
+				}
+			}
+			
+		},
+        //Jerome Conversation
+        'Jerome_Conversation_1': {
+            '1': {
+				'message' : 'Hi, I\'m Jerome, are you ready for the quiz?',
+				'replies': {
+					'Quiz, what quiz?' : '2',
+					'Yeah, what about you?' : '3',
+					'Yeah, thanks. Good luck. [Exit Conversation]' : '4'			
+				}
+			},
+			'2': {
+				'message' : 'There\'s a quiz after the lecture today. Here\'s a study guide to help you prepare for it. (Look in your inventory)',
+				'replies' :{
+					'Thanks a lot, do you want to study for it realy quick?' : '5',
+					'Oh, thanks. [Exit Conversation]' : '4'
+				}
+			},
+			'3': {
+				'message' : 'Yeah, I\'m pretty much ready. I\'m just trying to remember the 3 action words that describe how to react to an active shooter scenario. Do you remember what they are?',
+				'replies' :{
+					'Yeah, they\'re Stop, Run and Fight?' : '7',
+					'Oh yeah, I got this one, The\'re Stop, Drop and Roll.' : '7',
+					'Oh you\'re talking about Run Hide and Fight' : '6',
+				}
+			},
+			'5': {
+				'message' : 'Yeah sure. I\'m actually trying to remember the 3 action words that describe how to react to an active shooter scenario. Do you remember what they are?',
+				'replies' :{
+					'Yeah, they\'re Stop, Run and Fight?' : '7',
+					'Oh yeah, I got this one, The\'re Stop, Drop and Roll.' : '7',
+					'Oh you\'re talking about Run Hide and Fight' : '6',
+				}
+			},
+			'6': {
+				'message': 'Oh, yeah you\'re right, thanks',
+				'replies' : {
+					'No problem, do you have any other questions I can help answer?' : '8',
+					'Great! Well, I better get going. Good luck on the quiz [Exit Conversation]' : '4'
+				}
+			},
+			'7': {
+				'message': 'Hmmm, actually if you look at the study guide the 3 action words are Run Hide and Fight',
+				'replies' : {
+					'Oh, you\'re right. Do you have any other questions I can help answer?' : '8',
+					'Oh yeah, you\'re right. Well I need to get going. Good luck on the quiz [Exit Conversation]' : '4'
+				}
+			},
+			'8':{
+				'message' : 'Sure, what are some good places to hide from an active shooter',
+				'replies' : {
+					'Hiding is never a good idea' : '9',
+					'You could hide in a closet with a door that locks.' : '10',
+					'I don\'nt know, maybe under a chair or something.' : '11',
+				}
+			},
+			'9':{
+				'message' : 'Actually if you aren\'t able to run from the shooter, hiding is what you should try to do next. Remember the 3 action words? Run, Hide, Fight?',
+				'replies' : {
+					'Oh, you\'re right. Ok, well I should get going. Good luck on the quiz. [Exit Conversation]' : '4',
+				}
+			},
+			'10':{
+				'message' : 'Yeah, you\'re right. Thanks.',
+				'replies' : {
+					'Great! Well I have to go now. Good luck. [Exit Conversation]' : '4',
+				}
+			},
+			'11':{
+				'message' : 'That doesn\'t seem like a very good place to hide. Maybe you could hide in a closet or underneath a a big sturdy desk.',
+				'replies' : {
+					'Yeah, you\'re probably right. Well, I should go. Thanks and good luck on the quiz. [Exit Conversation]' : '4'
+				}
+			}
+		},
     },
     '_triggers': {
+		//The first objective.
+        'See_Professor' : {
+            'events' : {
+				'setObjective' : ['talkToProfessor', 'Go talk to Professor Bell in room 120']
+            }
+		},
+        'lightProfOnFire': {
+            'events': {
+                'replaceProp': ['prof-bell', 'prof-bell-on-fire']
+            },
+            'lives': Infinity
+        },
+        'extinguishProf': {
+            'events' : {
+                'replaceProp': ['prof-bell-on-fire', 'prof-bell']
+            },
+            'lives': Infinity
+        },
         'fireAppears': {
             'events': {
                 'addToScene': ['fire1']
@@ -1051,42 +1399,17 @@ activeShooterDef = {
             'events': {
                 'setObjective': ['getToClass', 'Get to class for the lecture']
             },
-            'enableTriggers': ['listenToLecture']
+            'enableTriggers': ['gotToClass']
         },
         /* For now, the lecture ends by leaving the room */
-        'listenToLecture': {
+        'gotToClass': {
             'events': {
                 'completeObjective': ['getToClass'],
-                'setObjective': ['listenToLecture', 'Listen to the lecture']
             },
             'disabled': true,
-            'startTriggers': ['takeTheQuiz']
         },
-        /* Quiz = go to different room. Since we don't have quiz yet. */
-        'takeTheQuiz': {
-            'events': {
-                'completeObjective': ['listenToLecture'],
-                'setObjective': ['takeTheQuiz', 'Take a quiz (get to the testing center).']
-            },
-            'moveDelay': 1,
-            'enableTriggers': ['aceTheQuiz']
-        },
-        /* No move delay on this version */
-        'skipToTheQuiz': {
-            'events': {
-                'setObjective': ['takeTheQuiz', 'Take a quiz (get to the testing center).']
-            },
-            'enableTriggers': ['aceTheQuiz']
-        },
-        /* Aced it! */
-        'aceTheQuiz': {
-            'events': {
-                'completeObjective': ['takeTheQuiz']
-            },
-            'disabled': true
-        }
     },
-    'inactiveProps': ['fire1'],
+    'inactiveProps': ['fire1', 'prof-bell-on-fire'],
     '_player': {
         'x': 3,
         'y': 0,
