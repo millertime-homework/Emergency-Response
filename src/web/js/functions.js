@@ -117,6 +117,7 @@ jQuery(document).ready(function ($) {
 
         setGameState(GAME_STATE_RUNNING);
         renderScene();
+        saveGame();
         generateMap(playerDef['x'], playerDef['y'], scenario.getFloor(playerDef['z']));
         sizeWindow();
         spinner.stop();
@@ -232,6 +233,7 @@ jQuery(document).ready(function ($) {
         if (currentOption['triggers']) {
             for (var i = 0; i < currentOption['triggers'].length; i++)
                 startTrigger(currentOption.triggers[i]);
+            saveGame();
         }
         if (currentOption['checkInventory']) {
             checkInventory: for (var i = 0; i < currentOption.checkInventory.length; i++) {

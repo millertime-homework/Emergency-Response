@@ -51,6 +51,7 @@ jQuery(document).ready(function($) {
         renderScene();
         updateMap();
         triggersMovementHandler(x, y, z);
+        saveGame();
     });
 
     $(document).on('showModal', function (event, header, body, image) {
@@ -59,6 +60,7 @@ jQuery(document).ready(function($) {
 
     $(document).on('player-turned', function (event, x, y, z) {
         renderScene();
+        saveGame();
         showDirectionalIndicator();
     });    
 
