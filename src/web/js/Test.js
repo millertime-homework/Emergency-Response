@@ -1,5 +1,5 @@
-activeShooterDef = {
-    'name': 'Active Shooter Scenario',
+testDef = {
+    'name': 'Test Scenario',
     '_floors': {
         'First Floor': {
             'z': 0,
