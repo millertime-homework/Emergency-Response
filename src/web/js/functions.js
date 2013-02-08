@@ -2,6 +2,7 @@
 var scenario = null;
 var player = null;
 var scenarioVariable = null;
+var canDismissModal = true; // this must be set after calling showModal
 
 function isScenarioDefined() {};
 function isPlayerDefined() {};
@@ -230,25 +231,61 @@ jQuery(document).ready(function ($) {
             return;
         }
         
+        // Allow the conversation to change based on various things.
+        // Local helper function:
+        function checkCondition(condition) {
+            if (condition['has'])
+                for (var j = 0; j < condition['has'].length; j++) {
+                    if (!player.inventory.contains(condition['has'][j]))
+                        return false;
+                }
+            if (condition['triggersEnabled'])
+                for (var j = 0; j < condition['triggersEnabled'].length; j++) {
+                    if(!scenario.triggers.pool[condition['triggersEnabled'][j]])
+                        return false;
+                }
+            if (condition['objectivesInProgress'])
+                for (var j = 0; j < condition['objectivesInProgress'].length; j++) {
+                    if(!scenario.objectives.inProgress[condition['objectivesInProgress'][j]])
+                        return false;
+                }
+            if (condition['objectivesCompleted'])
+                for (var j = 0; j < condition['objectivesCompleted'].length; j++) {
+                    if(!scenario.objectives.completed[condition['objectivesCompleted'][j]])
+                        return false;
+                }
+            return true;
+        }
+        
+        // checkInventory was the name of this property before I allowed checking other things;
+        // keeping it for now since I don't know if other people are using it in other branches.
+        if (currentOption['checkInventory'])
+            currentOption['check'] = currentOption['checkInventory'];
+        if (currentOption['check']) {
+            for (var i = 0; i < currentOption.check.length; i++) {
+                if (checkCondition(currentOption.check[i])) {
+                    currentOptionId = currentOption.check[i]['goto'];
+                    break;
+                }
+            }
+        }
+
+        var currentOption = conversation.getOption(currentOptionId);
+        if (!currentOption) {
+            hideModal();
+            return;
+        }
+        
+        if (currentOption.message == null)
+            hideModal();
+        
         if (currentOption['triggers']) {
             for (var i = 0; i < currentOption['triggers'].length; i++)
                 startTrigger(currentOption.triggers[i]);
             saveGame();
         }
-        if (currentOption['checkInventory']) {
-            checkInventory: for (var i = 0; i < currentOption.checkInventory.length; i++) {
-                for (var j = 0; j < currentOption.checkInventory[i]['has'].length; j++) {
-                    if(!player.inventory.contains(currentOption.checkInventory[i]['has'][j]))
-                        continue checkInventory;
-                }
-                currentOptionId = currentOption.checkInventory[i]['goto'];
-                break;
-            }
-        }
-
-        var currentOption = conversation.getOption(currentOptionId);
-        if (!currentOption || currentOption.message == null) {
-            hideModal();
+        
+        if (currentOption.message == null) {
             return;
         }
         
@@ -259,6 +296,10 @@ jQuery(document).ready(function ($) {
         var replyChoices = currentOption['replies'];
         for (var choiceText in replyChoices) {
             if (replyChoices.hasOwnProperty(choiceText)) {
+                if (conversation.getOption(replyChoices[choiceText]) &&
+                    conversation.getOption(replyChoices[choiceText]).requires &&
+                    !checkCondition(conversation.getOption(replyChoices[choiceText]).requires))
+                    continue;
                 $('#modal #content').append(optionRowTemplate.format(replyChoices[choiceText], choiceText));
             }
         }
@@ -329,10 +370,12 @@ jQuery(document).ready(function ($) {
         $('#modal').show();
         centerModal($('#modal'));
         $('#overlay').show();
+        canDismissModal = true;
     }
 
     $('#overlay').live("click", function () {
-        hideModal();
+        if (canDismissModal)
+            hideModal();
     });
 
     $("li.conversation-option").live("click", function () {

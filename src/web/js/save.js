@@ -1,4 +1,8 @@
 function saveGame() {
+    if (scenario.gameOver) {
+        document.cookie = 'emergencySave=; expires=Sat, 1-Jan-2000 00:00:00 GMT'; // expire in the past to delete
+        return;
+    }
     var saveable = {
         "player": {"x": player.x, "y": player.y, "z": player.z, "facing": player.facing},
         "scenario": scenarioVariable,

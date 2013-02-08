@@ -17,6 +17,7 @@ jQuery(document).ready(function($){
         scenarioSelectModal.find('.option').remove();
         scenarioSelectModal.append('<div class="option"><span id="loadActiveShooter">' + activeShooterDef['name'] + '</span></div>').
         append('<div class="option"><span id="loadEarthquake">' + earthquakeDef['name'] + '</span></div>').
+        append('<div class="option"><span id="loadTest">' + testDef['name'] + '</span></div>').
         show();
         centerModal(scenarioSelectModal);
 
@@ -26,6 +27,7 @@ jQuery(document).ready(function($){
             scenarioVariable = "activeShooterDef";
             loadScenario(activeShooterDef);
             $("#loadEarthquake").unbind("click");
+            $("#loadTest").unbind("click");
             $(this).unbind("click");
             jQuery('#scenario-select').hide();
         });
@@ -34,6 +36,16 @@ jQuery(document).ready(function($){
             scenarioVariable = "earthquakeDef";
             loadScenario(earthquakeDef);
             $("#loadActiveShooter").unbind("click");
+            $("#loadTest").unbind("click");
+            $(this).unbind("click");
+            jQuery('#scenario-select').hide();
+        });
+
+        $("#loadTest").live("click", function() {
+            scenarioVariable = "testDef";
+            loadScenario(testDef);
+            $("#loadActiveShooter").unbind("click");
+            $("#loadEarthquake").unbind("click");
             $(this).unbind("click");
             jQuery('#scenario-select').hide();
         });
