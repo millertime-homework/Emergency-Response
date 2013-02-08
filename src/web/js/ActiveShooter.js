@@ -481,10 +481,10 @@ activeShooterDef = {
 								'Maria' : {
                                     'image': 'Maria.png',
 									'hoverImage' : 'hoverMaria.png',
-                                    'top' : 200,
+                                    'top' : 264,
                                     'left' : 825,
-                                    'height': 256,
-                                    'width' : 256,
+                                    'height': 347,
+                                    'width' : 236,
 									'action': 'showConversation',
                                     'actionVariables': {
                                         'conversationName': 'Maria_Conversation_1'
