@@ -165,26 +165,26 @@ jQuery(document).ready(function ($) {
                 allowKeyEvents = true;
                 break;
             case GAME_STATE_PAUSED:
-                allowKeyEvents = false;
-                canDismissModal = true;
-                $('#overlay').show();
-                jQuery('#pause-menu').show();
-                centerModal(jQuery('#pause-menu'));
+                showNamedModal($('#pause-menu'), false, true);
+                break;
+            case GAME_STATE_SHOW_INVENTORY:
+                showNamedModal($('#inventory-modal'), false, true);
                 break;
             case GAME_STATE_MODAL:
-                allowKeyEvents = false;
-                canDismissModal = true;
-                $('#modal').show();
-                centerModal($('#modal'));
-                $('#overlay').show();
+                showNamedModal($('#modal'), false, true);
                 break;
             case GAME_STATE_OVER:
-                canDismissModal = false;
-                allowKeyEvents = false;
-                jQuery('#game-over-menu').show();
-                centerModal(jQuery('#game-over-menu'));
+                showNamedModal(jQuery('#game-over-menu'), false, false);
         }
     }
+
+    function showNamedModal(modal, newAllowKeyEvents, newCanDismissModal) {
+        canDismissModal = newCanDismissModal;
+        allowKeyEvents = newAllowKeyEvents;
+        modal.show();
+        centerModal(modal);
+        $('#overlay').show();
+    };
 
     showGameOver = function(header, body) {
         gameOverMenu = jQuery('#game-over-menu');
@@ -304,25 +304,31 @@ jQuery(document).ready(function ($) {
     }
     
     showInventory = function () {
+        var i, items, rowTemplate, inventoryItemsContainer, inventoryModal, attrs;
         // modeled after showConversation's implementation
-        var rowTemplate = "<li><img src='web/img/{0}' alt=''{1}> {2}</li>";
-        var items = player.inventory.items;
-        
-        emptyModal();
-        $('#modal #header').html("Inventory");
-        $('#modal #content').append('<ul class="inventory">');
-        for (var i in items)
+        rowTemplate = "<span><img src='web/img/{0}' alt=''{1}> {2}</span>";
+        items = player.inventory.items;
+        inventoryModal = jQuery('#inventory-modal');
+        inventoryItemsContainer = inventoryModal.find('#items-container');
+        inventoryItemsContainer.empty();
+        for (i in items) {
             if (items.hasOwnProperty(i) && items[i] != null) {
-                var attrs = '';
+                attrs = '';
                 if(items[i].width)
                     attrs += ' width="'+items[i].width+'"';
                 if(items[i].height)
                     attrs += ' width="'+items[i].height+'"';
-                $('#modal #content').append(rowTemplate.format(items[i].image, attrs, items[i].name));
+                inventoryItemsContainer.append(rowTemplate.format(items[i].image, attrs, items[i].name));
             }
-        $('#modal #content').append('</ul>');
-
-        showModal();
+        }
+        if (inventoryItemsContainer.find('span').length > 0) {
+            inventoryModal.find('#inventory-empty').hide();
+            inventoryModal.find('#inventory-items').show();
+        } else {
+            inventoryModal.find('#inventory-empty').show();
+            inventoryModal.find('#inventory-items').hide();
+        }
+        setGameState(GAME_STATE_SHOW_INVENTORY);
     }
 
     displayModal = function (header, text, image) {

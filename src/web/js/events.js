@@ -47,6 +47,10 @@ jQuery(document).ready(function($) {
         }
     })
 
+    $('#inventory').click(function() {
+        showInventory();
+    });
+
     $(document).on('player-moved', function (event, x, y, z) {
         renderScene();
         updateMap();

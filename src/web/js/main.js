@@ -5,6 +5,7 @@ var GAME_STATE_PAUSED = "Paused";
 var GAME_STATE_RUNNING = "Running";
 var GAME_STATE_OVER = "Game over man. GAME OVER!";
 var GAME_STATE_MODAL = "modal";
+var GAME_STATE_SHOW_INVENTORY = "inventory";
 var gameState;
 var lastGameState;
 
