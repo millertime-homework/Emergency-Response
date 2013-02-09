@@ -24,7 +24,7 @@ jQuery(document).ready(function($){
         
         // Load Scenario
         $("#loadActiveShooter").live("click", function() {
-            scenarioVariable = "activeShooterDef";
+            currentScenario = "activeShooterDef";
             loadScenario(activeShooterDef);
             $("#loadEarthquake").unbind("click");
             $("#loadTest").unbind("click");
@@ -33,7 +33,7 @@ jQuery(document).ready(function($){
         });
 
         $("#loadEarthquake").live("click", function() {
-            scenarioVariable = "earthquakeDef";
+            currentScenario = "earthquakeDef";
             loadScenario(earthquakeDef);
             $("#loadActiveShooter").unbind("click");
             $("#loadTest").unbind("click");
@@ -42,7 +42,7 @@ jQuery(document).ready(function($){
         });
 
         $("#loadTest").live("click", function() {
-            scenarioVariable = "testDef";
+            currentScenario = "testDef";
             loadScenario(testDef);
             $("#loadActiveShooter").unbind("click");
             $("#loadEarthquake").unbind("click");
