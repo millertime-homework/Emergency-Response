@@ -27,6 +27,8 @@ jQuery(document).ready(function ($) {
         currRoom = null
         currWall = null
 
+        clearObjective();
+
         // Add spinner to view-modal while loading scenario   
         spinner = new Spinner({
             color: '#fff'
@@ -158,49 +160,82 @@ jQuery(document).ready(function ($) {
                 break;
             case GAME_STATE_RUNNING:
                 $('.modal').hide();
+                $('#overlay').hide();
                 $('#view-modal').show();
                 allowKeyEvents = true;
                 break;
             case GAME_STATE_PAUSED:
                 allowKeyEvents = false;
+                canDismissModal = true;
+                $('#overlay').show();
+                jQuery('#pause-menu').show();
+                centerModal(jQuery('#pause-menu'));
                 break;
+            case GAME_STATE_MODAL:
+                allowKeyEvents = false;
+                canDismissModal = true;
+                $('#modal').show();
+                centerModal($('#modal'));
+                $('#overlay').show();
+                break;
+            case GAME_STATE_OVER:
+                canDismissModal = false;
+                allowKeyEvents = false;
+                jQuery('#game-over-menu').show();
+                centerModal(jQuery('#game-over-menu'));
         }
     }
 
+    showGameOver = function(header, body) {
+        gameOverMenu = jQuery('#game-over-menu');
+        gameOverMenu.find('#game-over-header').text(header);
+        gameOverMenu.find('#game-over-message').text(body);
+        gameOverMenu.find('#game-over-score span').text(player.score);
+        showObjectivesIn(jQuery('#game-over-objective-list'), true);
+        setGameState(GAME_STATE_OVER);
+    }
+
     showPauseMenu = function() {
-        $('#pauseObjectiveList').empty();
+        showObjectivesIn(jQuery('#pause-objective-list'));
+        setGameState(GAME_STATE_PAUSED);
+    }
+
+    function showObjectivesIn(element, markInProgressAsFailed) {
+        var objectivesInProgress, objectivesCompleted, objectivesFailed;
+
+        element.empty();
+
         if (scenario) {
-            var objectivesInProgress = scenario.getObjectivesInProgress();
-            var objectivesCompleted = scenario.getObjectivesCompleted();
-            var objectivesFailed = scenario.getObjectivesFailed();
-            var objectiveList = $('#pauseObjectiveList');
+            objectivesInProgress = scenario.getObjectivesInProgress();
+            objectivesCompleted = scenario.getObjectivesCompleted();
+            objectivesFailed = scenario.getObjectivesFailed();
+
+            if (markInProgressAsFailed) {
+                objectivesFailed = objectivesFailed.concat(objectivesInProgress);
+                objectivesInProgress = [];
+            }
 
             if (objectivesInProgress.length > 0) {
-                showObjectives(objectiveList, objectivesInProgress, 'Current Objectives');
+                showObjectives(element, objectivesInProgress, 'Current Objectives');
             }
 
             if (objectivesCompleted.length > 0) {
-                showObjectives(objectiveList, objectivesCompleted, 'Completed Objectives');
+                showObjectives(element, objectivesCompleted, 'Completed Objectives');
             }
 
             if (objectivesFailed.length > 0) {
-                showObjectives(objectiveList, objectivesFailed, 'Failed Objectives');
+                showObjectives(element, objectivesFailed, 'Failed Objectives');
             }
         }
-        $('#pause-menu').show();
-        centerModal($('#pause-menu'));
-        setGameState(GAME_STATE_PAUSED);
-
-        
 
         function showObjectives(container, list, header) {
-                container.append('<span class="pause-header">{0}</span><ul>'.format(header));
-                for (var objectiveText in list) {
-                    if (list.hasOwnProperty(objectiveText)) {
-                        container.append('<li>{0}</li>'.format(list[objectiveText]));
-                    }
+            container.append('<span class="pause-header bold-colored-text">{0}</span><br>'.format(header));
+            for (var objectiveText in list) {
+                if (list.hasOwnProperty(objectiveText)) {
+                    container.append('<span>{0}</span><br>'.format(list[objectiveText]));
                 }
-                container.append('</ul>');
+            }
+            container.append('<p>');
         }
     }
 
@@ -312,8 +347,6 @@ jQuery(document).ready(function ($) {
         }
         if(gameState !== GAME_STATE_MENU)
             setGameState(GAME_STATE_RUNNING);
-        $('#modal').hide();
-        $('#overlay').hide();
     }
 
     showMainMenu = function() {
@@ -326,10 +359,7 @@ jQuery(document).ready(function ($) {
     }
 
     showModal = function () {
-        setGameState(GAME_STATE_PAUSED);
-        $('#modal').show();
-        centerModal($('#modal'));
-        $('#overlay').show();
+        setGameState(GAME_STATE_MODAL);
     }
 
     setObjective = function (name, displayText) {
@@ -357,7 +387,9 @@ jQuery(document).ready(function ($) {
     };
 
     $('#overlay').live("click", function () {
-        hideModal();
+        if (canDismissModal) {
+            hideModal();
+        }
     });
 
     $("li.conversation-option").live("click", function () {
@@ -391,7 +423,7 @@ jQuery(document).ready(function ($) {
 String.prototype.format = function () {
     var args = arguments;
     return this.replace(/\{(\d+)\}/g, function (m, n) { return args[n]; });
-};
+}
 
 jQuery.fn.center = function () {
     return this.css({
