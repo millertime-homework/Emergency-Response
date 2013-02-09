@@ -5,7 +5,7 @@ var imageBasePath = "web/img/";
 
 
 Scenario = Class.create({
-    initialize: function ()
+    initialize: function () {
         this.name = null;
         this.status = null;
         this.floors = {};
