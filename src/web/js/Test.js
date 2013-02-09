@@ -1,5 +1,5 @@
-activeShooterDef = {
-    'name': 'Active Shooter Scenario',
+testDef = {
+    'name': 'Test Scenario',
     '_floors': {
         'First Floor': {
             'z': 0,
@@ -47,6 +47,14 @@ activeShooterDef = {
                                 'prof-bell': {
                                     'name': 'prof-bell',
                                     'image': 'prof_bell.png',
+                                    'width': 50,
+                                    'height': 89,
+                                    'left': 480,
+                                    'top': 285
+                                },
+                                'prof-bell-on-fire': {
+                                    'name': 'prof-bell-on-fire',
+                                    'image': 'prof_bell_on_fire.png',
                                     'width': 50,
                                     'height': 89,
                                     'left': 480,
@@ -108,6 +116,18 @@ activeShooterDef = {
                                     'actionVariables': {
                                         'conversationName': 'Professor Bell'
                                     }
+                                },
+                                'prof-bell-on-fire': {
+                                    'name': 'prof-bell-on-fire',
+                                    'image': 'prof_bell_on_fire.png',
+                                    'width': 200,
+                                    'height': 354,
+                                    'left': 100,
+                                    'top': 257,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Professor Bell On Fire'
+                                    }
                                 }
                             }
                         },
@@ -136,6 +156,18 @@ activeShooterDef = {
                                     'actionVariables': {
                                         'conversationName': 'Professor Bell'
                                     },
+                                },
+                                'prof-bell-on-fire': {
+                                    'name': 'prof-bell-on-fire',
+                                    'image': 'prof_bell_on_fire.png',
+                                    'width': 200,
+                                    'height': 354,
+                                    'left': 900,
+                                    'top': 257,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Professor Bell On Fire'
+                                    }
                                 },
                                 'Fire-Extinguisher': {
                                     'name': 'Fire-Extinguisher',
@@ -176,6 +208,14 @@ activeShooterDef = {
                                 'prof-bell': {
                                     'name': 'prof-bell',
                                     'image': 'prof_bell.png',
+                                    'width': 75,
+                                    'height': 133,
+                                    'left': 630,
+                                    'top': 315
+                                },
+                                'prof-bell-on-fire': {
+                                    'name': 'prof-bell-on-fire',
+                                    'image': 'prof_bell_on_fire.png',
                                     'width': 75,
                                     'height': 133,
                                     'left': 630,
@@ -231,6 +271,7 @@ activeShooterDef = {
                     'id': 'hall110',
                     'x': 1,
                     'y': 1,
+                    '_triggers' : ['dolphinFound'],
                     '_walls': {
                         'e': {
                             'name': 'EHall110',
@@ -241,7 +282,17 @@ activeShooterDef = {
                         },
                         'w': {
                             'name': 'WHall110',
-                            'image': 'R110-west.jpg'
+                            'image': 'R110-west.jpg',
+                            '_props' : {
+                                'dolphin' : {
+                                    'image': 'dolphin.png',
+                                    'hoverImage' : 'dolphinhover.png',
+                                    'top' : 200,
+                                    'left' : 200,
+                                    'height': 256,
+                                    'width' : 499,
+                                }
+                            }
                         },
                         'n': {
                             'name': 'NHall110',
@@ -358,6 +409,14 @@ activeShooterDef = {
                                     'height': 266,
                                     'left': 280,
                                     'top': 315
+                                },
+                                'prof-bell-on-fire': {
+                                    'name': 'prof-bell-on-fire',
+                                    'image': 'prof_bell_on_fire.png',
+                                    'width': 150,
+                                    'height': 266,
+                                    'left': 280,
+                                    'top': 315,
                                 }
                             }
                         }
@@ -379,6 +438,21 @@ activeShooterDef = {
                         'n': {
                             'name': 'NHall410',
                             'image': 'R410-north.jpg',
+                            '_props': {
+                                'fire1': {
+                                    'name': 'fire1',
+                                    'image': 'fire.png',
+                                    'width': 800,
+                                    'height': 400,
+                                    'left': 100,
+                                    'top': 100,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Fire'
+                                    },
+                                    'barrier': true
+                                }
+                            },
                             'destination': {
                                 'y': 2
                             }
@@ -610,6 +684,21 @@ activeShooterDef = {
                         's': {
                             'name': 'SHall420',
                             'image': 'R420-south.jpg',
+                            '_props': {
+                                'fire1': {
+                                    'name': 'fire1',
+                                    'image': 'fire.png',
+                                    'width': 800,
+                                    'height': 400,
+                                    'left': 100,
+                                    'top': 100,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Fire'
+                                    },
+                                    'barrier': true
+                                }
+                            },
                             'destination': {
                                 'y': 1
                             }
@@ -873,6 +962,7 @@ activeShooterDef = {
                     'id': 'hall240',
                     'x': 2,                         //Room Location on a grid?
                     'y': 4,
+                    '_triggers' : ['sampleObjective'],
                     '_walls': {
                         'e': {
                             'name': 'EHall240',
@@ -1055,6 +1145,19 @@ activeShooterDef = {
                 'triggers': ['takeFireExtinguisher']
             }
         },
+        'Fire': {
+            '1': {
+                'message': 'Oh no there is a fire in the way!',
+                'replies': {
+                    'Extinguish': '3'
+                }
+            },
+            '3': {
+                'triggers': ['useFireExtinguisher'],
+                'requires': {'has': ['Fire Extinguisher']}
+                // or use 'check': [{'has': ['Fire Extinguisher'], 'goto': '2'}]
+            }
+        },
         'Info TV': {
             '1': {
                 'message': 'What should you do in emergency situations? Stay tuned!',
@@ -1100,19 +1203,50 @@ activeShooterDef = {
         },
         'Professor Bell': {
             '1': {
+                'triggers': ['fireAppears'],
+                'check': [{'objectivesCompleted': ['takeTheQuiz'], 'goto': '10'}],
                 'message': 'Good morning! Class is starting soon!.',
                 'replies': {
                     'I\'ll go sit down': 2,
                     'I\'ll skip the lecture and take the quiz': 3,
                     'I\'ve already taken the quiz': 0,
+                    'Don\'t play with those matches...': 4,
                 }
             },
             '2': {
-                'triggers': ['getToClass']
+                'triggers': ['getToClass'],
+                'requires': {'triggersEnabled':['getToClass']}
             },
             '3': {
-                'triggers': ['skipToTheQuiz']
+                'triggers': ['skipToTheQuiz'],
+                'requires': {'triggersEnabled':['skipToTheQuiz']}
             },
+            '4': {
+                'triggers': ['lightProfOnFire']
+            },
+            '10': {
+                'message': 'Congratulations!  You have completed the quiz!'
+            }
+        },
+        'Professor Bell On Fire': {
+            '1' : {
+                'checkInventory': [{'has': ['Fire Extinguisher'], 'goto': '2'}],
+                'message': 'Help!!!! I\'M ON FIRE! GET AN EXTINGUISHER!',
+                'replies': {}
+            },
+            '2': {
+                'message': 'USE YOUR EXTINGUISHER!! HURRY!',
+                'replies': {
+                    'Extinguish': 3,
+                    'Just ignore him': 4
+                }
+            },
+            '3': {
+                'triggers': ['extinguishProf']
+            },
+            '4': {
+                'triggers': ['dontExtinguish']
+            }
         },
         // Jimmy Conversation
         'Jimmy_Conversation_1': {
@@ -1241,16 +1375,95 @@ activeShooterDef = {
 		},
     },
     '_triggers': {
+        //This sample objective is started when you hit the room where it is included.
+        //'moveTutorial' is the internal name of the objective used for objective tracking.
+        //'Move somewhere' is the quest presented to the user.
+        'sampleObjective' : {
+            'events' : {
+                'setObjective' : ['moveTutorial', 'Move somewhere']
+            },
+            'startTriggers' : ['sampleObjectiveEnd']
+        },
+        //It starts sampleObjectiveEnd, which is triggered after the player moves. Completes 'moveTutorial' objective.
+        //Player earns points, and starts a new objecive.
+        'sampleObjectiveEnd' : {
+            'events' : {
+                'completeObjective' : ['moveTutorial'],
+                'addPoints' : [10]
+            },
+            'moveDelay' : 1,
+            'startTriggers' : ['findTheDolphin'],
+        },
+        //The player is tasked with finding the dolphin. TODO: Add a requirement that the player must face
+        //a certain direction to complete a trigger (IE, they must look at the dolphin, not just be on its tile)
+        //'dolphinHunt' is the internal name of the objective used for objective tracking.
+        //'Find the dolphin!' is the quest presented to the user.
+        'findTheDolphin' : {
+            'events' : { 
+                'setObjective' : ['dolphinHunt', 'Find the dolphin!'],
+            },
+            'enableTriggers' : ['dolphinFound'],
+            'startTriggers' : ['dolphinHint']
+        },
+        //Starts disabled so it can't be triggered unless the player is on the dolphin quest
+        'dolphinFound' : {
+            'events' : {
+                'completeObjective' : ['dolphinHunt'],
+                'addPoints' : [50]
+            },
+            'disabled' : true,
+            'abortTriggers' : ['dolphinHint']
+        },
+        //Triggered if the player is having trouble finding the dolphin. Note that because it is
+        //aborted by dolphinFound, this only appears if the player takes too long to find the dolphin
+        //You can override existing objectives with modified display text simply by reusing the
+        //objective name.
+        'dolphinHint' : {
+            'events' : {
+                'setObjective' : ['dolphinHunt', 'Find the dolphin! Hint: Look in a classroom.'],
+            },
+            'moveDelay' : 5,
+        },
 		//The first objective.
         'See_Professor' : {
             'events' : {
 				'setObjective' : ['talkToProfessor', 'Go talk to Professor Bell in room 120']
             }
 		},
+        'lightProfOnFire': {
+            'events': {
+                'replaceProp': ['prof-bell', 'prof-bell-on-fire']
+            },
+            'lives': Infinity,
+            'startTriggers': ['dontExtinguish']
+        },
+        'extinguishProf': {
+            'events' : {
+                'replaceProp': ['prof-bell-on-fire', 'prof-bell']
+            },
+            'lives': Infinity
+        },
+        'dontExtinguish': {
+            'events': {
+                'endGame': ['You lose', 'You failed to save the professor.  No one lives happily ever after.']
+            },
+            'moveDelay': 5
+        },
+        'fireAppears': {
+            'events': {
+                'addToScene': ['fire1']
+            }
+        },
         'takeFireExtinguisher': {
             'events': {
                 'takeFromScene' : [ {'name': 'Fire Extinguisher', 'image': 'fire-extinguisher.png', 'width':32, 'height':32 },
                                     'Fire-Extinguisher' ]
+            }
+        },
+        'useFireExtinguisher': {
+            'events': {
+                //'addToScene': ['Fire-Extinguisher'],
+                'removeFromScene': ['fire1']
             }
         },
         /* Professor Bell gives 'Get to class' objective. Upon arrival at class, the lecture begins. */
@@ -1267,7 +1480,13 @@ activeShooterDef = {
             },
             'disabled': true,
         },
+        'skipToTheQuiz': {
+            'events': {
+                'showModal': ['The quiz', 'Name: _________']
+            }
+        }
     },
+    'inactiveProps': ['fire1', 'prof-bell-on-fire'],
     '_player': {
         'x': 3,
         'y': 0,
