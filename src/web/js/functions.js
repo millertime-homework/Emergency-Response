@@ -1,11 +1,7 @@
 // GLOBALS
 var scenario = null;
 var player = null;
-var currentScenario;
-/* Determines whether a modal can be ignored by clicking in deadspace to close it.
-Managed by setGameState, so you can override it temporarily without cleaning up
-after yourself (ie, saving and then restoring the original value) */
-var canDismissModal = false; 
+var scenarioVariable = null;
 
 function isScenarioDefined() {};
 function isPlayerDefined() {};
@@ -14,6 +10,9 @@ function loadScenario() {};
 function pauseMenu() {};
 function showModal() {};
 function hideModal() {};
+function failObjective() {};
+function completeObjective() {};
+function setObjective() {};
 
 jQuery(document).ready(function ($) {
     $(window).resize(function() {
@@ -121,7 +120,6 @@ jQuery(document).ready(function ($) {
 
         setGameState(GAME_STATE_RUNNING);
         renderScene();
-        saveGame();
         generateMap(playerDef['x'], playerDef['y'], scenario.getFloor(playerDef['z']));
         sizeWindow();
         spinner.stop();
@@ -165,21 +163,17 @@ jQuery(document).ready(function ($) {
                 break;
             case GAME_STATE_PAUSED:
                 allowKeyEvents = false;
-                canDismissModal = true;
                 break;
-            case GAME_STATE_OVER:
-                canDismissModal = false;
-                allowKeyEvents = false;
         }
     }
 
     showPauseMenu = function() {
-        jQuery('#pauseObjectiveList').empty();
+        $('#pauseObjectiveList').empty();
         if (scenario) {
             var objectivesInProgress = scenario.getObjectivesInProgress();
             var objectivesCompleted = scenario.getObjectivesCompleted();
             var objectivesFailed = scenario.getObjectivesFailed();
-            var objectiveList = jQuery('#pauseObjectiveList');
+            var objectiveList = $('#pauseObjectiveList');
 
             if (objectivesInProgress.length > 0) {
                 showObjectives(objectiveList, objectivesInProgress, 'Current Objectives');
@@ -193,8 +187,8 @@ jQuery(document).ready(function ($) {
                 showObjectives(objectiveList, objectivesFailed, 'Failed Objectives');
             }
         }
-        jQuery('#pause-menu').show();
-        centerModal(jQuery('#pause-menu'));
+        $('#pause-menu').show();
+        centerModal($('#pause-menu'));
         setGameState(GAME_STATE_PAUSED);
 
         
@@ -238,61 +232,24 @@ jQuery(document).ready(function ($) {
             return;
         }
         
-        // Allow the conversation to change based on various things.
-        // Local helper function:
-        function checkCondition(condition) {
-            if (condition['has'])
-                for (var j = 0; j < condition['has'].length; j++) {
-                    if (!player.inventory.contains(condition['has'][j]))
-                        return false;
-                }
-            if (condition['triggersEnabled'])
-                for (var j = 0; j < condition['triggersEnabled'].length; j++) {
-                    if(!scenario.triggers.pool[condition['triggersEnabled'][j]])
-                        return false;
-                }
-            if (condition['objectivesInProgress'])
-                for (var j = 0; j < condition['objectivesInProgress'].length; j++) {
-                    if(!scenario.objectives.inProgress[condition['objectivesInProgress'][j]])
-                        return false;
-                }
-            if (condition['objectivesCompleted'])
-                for (var j = 0; j < condition['objectivesCompleted'].length; j++) {
-                    if(!scenario.objectives.completed[condition['objectivesCompleted'][j]])
-                        return false;
-                }
-            return true;
+        if (currentOption['triggers']) {
+            for (var i = 0; i < currentOption['triggers'].length; i++)
+                startTrigger(currentOption.triggers[i]);
         }
-        
-        // checkInventory was the name of this property before I allowed checking other things;
-        // keeping it for now since I don't know if other people are using it in other branches.
-        if (currentOption['checkInventory'])
-            currentOption['check'] = currentOption['checkInventory'];
-        if (currentOption['check']) {
-            for (var i = 0; i < currentOption.check.length; i++) {
-                if (checkCondition(currentOption.check[i])) {
-                    currentOptionId = currentOption.check[i]['goto'];
-                    break;
+        if (currentOption['checkInventory']) {
+            checkInventory: for (var i = 0; i < currentOption.checkInventory.length; i++) {
+                for (var j = 0; j < currentOption.checkInventory[i]['has'].length; j++) {
+                    if(!player.inventory.contains(currentOption.checkInventory[i]['has'][j]))
+                        continue checkInventory;
                 }
+                currentOptionId = currentOption.checkInventory[i]['goto'];
+                break;
             }
         }
 
         var currentOption = conversation.getOption(currentOptionId);
-        if (!currentOption) {
+        if (!currentOption || currentOption.message == null) {
             hideModal();
-            return;
-        }
-        
-        if (currentOption.message == null)
-            hideModal();
-        
-        if (currentOption['triggers']) {
-            for (var i = 0; i < currentOption['triggers'].length; i++)
-                startTrigger(currentOption.triggers[i]);
-            saveGame();
-        }
-        
-        if (currentOption.message == null) {
             return;
         }
         
@@ -303,10 +260,6 @@ jQuery(document).ready(function ($) {
         var replyChoices = currentOption['replies'];
         for (var choiceText in replyChoices) {
             if (replyChoices.hasOwnProperty(choiceText)) {
-                if (conversation.getOption(replyChoices[choiceText]) &&
-                    conversation.getOption(replyChoices[choiceText]).requires &&
-                    !checkCondition(conversation.getOption(replyChoices[choiceText]).requires))
-                    continue;
                 $('#modal #content').append(optionRowTemplate.format(replyChoices[choiceText], choiceText));
             }
         }
@@ -379,9 +332,32 @@ jQuery(document).ready(function ($) {
         $('#overlay').show();
     }
 
+    setObjective = function (name, displayText) {
+        scenario.objectives.inProgress[name] = displayText || name;
+        $('#objective').find('#' + name).remove();
+        $('#objective ul').append('<li id="{0}">{1}</li>'.format(name, scenario.objectives.inProgress[name]));
+    };
+
+    completeObjective = function (name) {
+        var objective = scenario.objectives.inProgress[name];
+        if (objective) {
+            scenario.objectives.completed[name] = objective;
+            delete scenario.objectives.inProgress[name];
+        }
+        $('#objective').find('#' + name).remove();
+    };
+
+    failObjective = function (name) {
+        var objective = scenario.objectives.inProgress[name];
+        if (objective) {
+            scenario.objectives.failed[name] = objective;
+            delete scenario.objectives.inProgress[name];
+        }
+        $('#objective').find('#' + name).remove();
+    };
+
     $('#overlay').live("click", function () {
-        if (canDismissModal)
-            hideModal();
+        hideModal();
     });
 
     $("li.conversation-option").live("click", function () {
@@ -411,30 +387,6 @@ jQuery(document).ready(function ($) {
         }
     });
 });
-
-function setObjective(name, displayText) {
-    scenario.objectives.inProgress[name] = displayText || name;
-    jQuery('#objective').find('#' + name).remove();
-    jQuery('#objective ul').append('<li id="{0}">{1}</li>'.format(name, scenario.objectives.inProgress[name]));
-};
-
-function completeObjective(name) {
-    var objective = scenario.objectives.inProgress[name];
-    if (objective) {
-        scenario.objectives.completed[name] = objective;
-        delete scenario.objectives.inProgress[name];
-    }
-    jQuery('#objective').find('#' + name).remove();
-};
-
-function failObjective(name) {
-    var objective = scenario.objectives.inProgress[name];
-    if (objective) {
-        scenario.objectives.failed[name] = objective;
-        delete scenario.objectives.inProgress[name];
-    }
-    jQuery('#objective').find('#' + name).remove();
-};
 
 String.prototype.format = function () {
     var args = arguments;
