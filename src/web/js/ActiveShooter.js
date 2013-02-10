@@ -467,7 +467,7 @@ activeShooterDef = {
                             'image': 'R220-west.jpg',
                             'destination': {
                                 'x': 1
-                            }
+                            },
                         },
                         'n': {
                             'name': 'NHall220',
@@ -609,7 +609,21 @@ activeShooterDef = {
                         },
                         'w': {
                             'name': 'WHall130',
-                            'image': 'R130-west.jpg'
+                            'image': 'R130-west.jpg',
+                            '_props': {
+                                'prof-bell': {
+                                    'name': 'prof-bell',
+                                    'image': 'prof_bell.png',
+                                    'width': 80,
+                                    'height': 150,
+                                    'left': 500,
+                                    'top': 270,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Professor Bell_2'
+                                    }
+                                }
+                            }
                         },
                         'n': {
                             'name': 'NHall130',
