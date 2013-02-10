@@ -1441,13 +1441,15 @@ testDef = {
             'events' : {
                 'replaceProp': ['prof-bell-on-fire', 'prof-bell']
             },
-            'lives': Infinity
+            'lives': Infinity,
+            'abortTriggers': ['dontExtinguish']
         },
         'dontExtinguish': {
             'events': {
                 'endGame': ['You lose', 'You failed to save the professor.  No one lives happily ever after.']
             },
-            'moveDelay': 5
+            'moveDelay': 5,
+            'lives': Infinity,
         },
         'fireAppears': {
             'events': {
