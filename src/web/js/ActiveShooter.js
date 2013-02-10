@@ -1008,7 +1008,6 @@ activeShooterDef = {
                 }
             }
         },
-////////////////////////////////////////////////////////////////////////
         'Professor Bell': {
             '1': {
                 'triggers': ['gotToClass'],
@@ -1074,40 +1073,28 @@ activeShooterDef = {
                 // or use 'check': [{'has': ['Fire Extinguisher'], 'goto': '2'}]
             }
         },
-      
-//////////////////////////////////////////////////////////////////////////
     },
     '_triggers': {
-		//The first objective.
-        'See_Professor' : {
-            'events' : {
-				'setObjective' : ['talkToProfessor', 'Go talk to Professor Bell in room 120']
-            }
-		},
         'takeFireExtinguisher': {
             'events': {
                 'takeFromScene' : [ {'name': 'Fire Extinguisher', 'image': 'fire-extinguisher.png', 'width':32, 'height':32 },
                                     'Fire-Extinguisher' ]
             }
         },
-        /* Professor Bell gives 'Get to class' objective. Upon arrival at class, the lecture begins. */
         'getToClass': {
             'events': {
                 'setObjective': ['getToClass', 'Get to class for the lecture in room 130 (click on professor Bell)']
             },
-            'enableTriggers': ['gotToClass']
         },
-        /* For now, the lecture ends by leaving the room */
         'gotToClass': {
             'events': {
                 'completeObjective': ['getToClass'],
             },
-            'disabled': true,
         },
-        ///////////////////////////////////////////////
         'getToFrontDoors': {
             'events': {
-                'setObjective': ['getToFrontDoors', 'Go to the front doors of the school and get out of the building']
+                'setObjective': ['getToFrontDoors', 'Go to the front doors of the school and get out of the building'],
+                'addToScene': ['UseDoor'],
             },
             'enableTriggers': ['FrontDoorsReached']
         },
@@ -1117,8 +1104,8 @@ activeShooterDef = {
             },
             'disabled':true,
         },
-        //////////////////////////////////////////////
     },
+    'inactiveProps': ['UseDoor'],
     '_player': {
         'x': 3,
         'y': 0,
