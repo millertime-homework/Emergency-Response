@@ -14,115 +14,155 @@ function failObjective() {};
 function completeObjective() {};
 function setObjective() {};
 
-jQuery(document).ready(function ($) {
-    $(window).resize(function() {
+function loadFloors(scenarioData) {
+    "use strict";
+    var currentFloor;
+
+    jQuery.each(scenarioData._floors, function (key, floor) {
+        currentFloor = scenario.addFloor(key, floor.z);
+        loadRooms(currentFloor, floor);
+    });
+}
+
+function loadRooms(floor, floorData) {
+    "use strict";
+    var currentRoom;
+
+    jQuery.each(floorData._rooms, function (key, roomData) {
+        currentRoom = floor.addRoom(key, roomData.id, roomData.x, roomData.y, floorData.z);
+        currentRoom.addTriggers(roomData._triggers);
+        loadWalls(currentRoom, roomData);
+    });
+}
+
+function loadWalls(room, roomData) {
+    "use strict";
+    var currentWall;
+
+    jQuery.each(roomData._walls, function (key, wallData) {
+        currentWall = room.addWall(wallData.name, key, wallData.image);
+
+        if (wallData._props) {
+            loadProps(currentWall, wallData);
+        }
+
+        if (wallData.destination) {
+            var newX, newY, newZ, newF, dest;
+            dest = wallData.destination;
+            newX = dest.x === undefined ? room.x : dest.x;
+            newY = dest.y === undefined ? room.y : dest.y;
+            newZ = dest.z === undefined ? room.z : dest.z;
+            newF = dest.f === undefined ? key : dest.f;
+            currentWall.setDestination(newX, newY, newZ, newF);
+        }
+    });
+}
+
+function loadProps(wall, wallData) {
+    "use strict";
+
+    jQuery.each(wallData._props, function (key, prop) {
+        wall.addProp(
+            key,
+            prop.name,
+            prop.image,
+            prop.hoverImage,
+            prop.width,
+            prop.height,
+            prop.left,
+            prop.top,
+            prop.action,
+            prop.actionVariables
+        );
+        if (prop.barrier) {
+            wall.barriers[wall.barriers.length] = key;
+        }
+    });
+}
+
+function loadConversations(conversationData) {
+    scenario.conversations = {};
+    if (conversationData) {
+        jQuery.each(conversationData, function (key, value) {
+            var newConversation = new Conversation;
+            newConversation.set(key, value);
+            scenario.conversations[key] = newConversation;
+        });
+    }
+}
+
+function loadTriggers(triggerData) {
+    clearAllTriggers();
+    if (triggerData) {
+        jQuery.each(triggerData, function (key, value) {
+            scenario.addTrigger(key, value);
+        });
+    }
+
+    var startRoomTriggers = scenario.getRoom(player.x, player.y, player.z).triggers;
+    if (startRoomTriggers) {
+        startRoomTriggers.map(startTrigger);
+    }
+}
+
+function initializePlayer(playerData) {
+    player = new Player;
+    player.set(playerData.x, playerData.y, playerData.z, playerData._facing, null);
+    if (playerData.inventory) {
+        for (var i = 0; i < playerData.inventory.length; i++) {
+            player.inventory.add(playerData.inventory[i]);
+        }
+    }
+
+    // Check if player exists
+    if (player) {
+        if (!scenario.isValidRoom(player.x, player.y, player.z)) {
+            alert('Player\'s starting position is invalid')
+            return;
+        }
+    } else {
+        alert('Player not defined')
+    }
+        
+}
+
+function addSpinner() {
+         // Add spinner to view-modal while loading scenario   
+        var spinner = new Spinner({
+            color: '#fff'
+        }).spin(document.getElementById('view-modal'))
+        return spinner;
+}
+
+function markInactivePropsInactive(inactivePropData) {
+    if (inactivePropData) {
+        for (var i = 0; i < inactivePropData.length; i++)
+            scenario.inactiveProps[inactivePropData[i]] = true;
+    }
+}
+
+jQuery(document).ready(function (jQuery) {
+    var spinner;
+    jQuery(window).resize(function() {
         sizeWindow();
     });
 
     // Loads the Scenario objects from the data parameter (scenario-definition array)
     loadScenario = function (data) {
         scenario = new Scenario;
-        scenario.set(data['name'], 'active')
-        currFloor = null
-        currRoom = null
-        currWall = null
+        scenario.set(data.name, 'active');
+        spinner = addSpinner();
 
+        loadFloors(data);
+        loadConversations(data._conversations);
+        initializePlayer(data._player);
+        loadTriggers(data._triggers);
+        markInactivePropsInactive(data.inactiveProps);
         clearObjective();
-
-        // Add spinner to view-modal while loading scenario   
-        spinner = new Spinner({
-            color: '#fff'
-        }).spin(document.getElementById('view-modal'))
-
-
-        //load floors
-        $.each(data['_floors'], function (key, value) {
-            currFloor = scenario.addFloor(key, value['z'])
-            // load rooms of this floor
-            $.each(value['_rooms'], function (key, value) {
-                currRoom = currFloor.addRoom(key, value['id'], value['x'], value['y'], currFloor.z);
-                currRoom.addTriggers(value._triggers);
-                // load walls of this room
-                $.each(value['_walls'], function (key, value) {
-                    currWall = currRoom.addWall(value['name'], key, value['image'])
-                    // Add objects - if any
-                    if (typeof value['_props'] != 'undefined') {
-                        $.each(value['_props'], function (key, value) {
-                            currWall.addProp(
-                                key,
-                                value['name'],
-                                value['image'],
-                                value['hoverImage'],
-                                value['width'],
-                                value['height'],
-                                value['left'],
-                                value['top'],
-                                value['action'],
-                                value['actionVariables']
-                            );
-                            if (value['barrier'])
-                                currWall.barriers[currWall.barriers.length] = key;
-                        })
-                    }
-                    // Add exits/destinations
-                    if (typeof value['destination'] != 'undefined') {
-                        var newX, newY, newZ, newF, dest = value['destination'];
-                        if (typeof dest['x'] != 'undefined') { newX = dest['x']; } else { newX = currRoom['x']; }
-                        if (typeof dest['y'] != 'undefined') { newY = dest['y']; } else { newY = currRoom['y']; }
-                        if (typeof dest['z'] != 'undefined') { newZ = dest['z']; } else { newZ = currRoom['z']; }
-                        if (typeof dest['f'] != 'undefined') { newF = dest['f']; } else { newF = key; }
-                        currWall.setDestination(newX, newY, newZ, newF);
-                    }
-                })
-            })
-        })
-        scenario.conversations = {};
-        if (data['_conversations']) {
-            $.each(data['_conversations'], function (key, value) {
-                var newConversation = new Conversation;
-                newConversation.set(key, value);
-                scenario.conversations[key] = newConversation;
-            });
-        }
-        clearAllTriggers();
-        if (data['_triggers']) {
-            $.each(data['_triggers'], function (key, value) {
-                scenario.addTrigger(key, value);
-            });
-        }
-        if (data['inactiveProps']) {
-            for (var i = 0; i < data['inactiveProps'].length; i++)
-                scenario.inactiveProps[data['inactiveProps'][i]] = true;
-        }
-        player = new Player;
-        playerDef = data['_player']
-        player.set(playerDef['x'], playerDef['y'], playerDef['z'], playerDef['_facing'], null)
-        if (playerDef['inventory']) {
-            for (var i = 0; i < playerDef['inventory'].length; i++)
-                player.inventory.add(playerDef['inventory'][i]);
-        }
-
-
-        var startRoomTriggers = scenario.getRoom(player.x, player.y, player.z).triggers;
-        if (startRoomTriggers) {
-            startRoomTriggers.map(startTrigger);
-        }
-
-
-        // Check if player exists
-        if (player) {
-            if (!scenario.isValidRoom(player.x, player.y, player.z)) {
-                alert('Player\'s starting position is invalid')
-                return;
-            }
-        } else {
-            alert('Player not defined')
-        }
-        
-
         setGameState(GAME_STATE_RUNNING);
         renderScene();
-        generateMap(playerDef['x'], playerDef['y'], scenario.getFloor(playerDef['z']));
+        saveGame();
+        generateMap(player.x, player.y, scenario.getFloor(player.z));
         sizeWindow();
         spinner.stop();
     }
@@ -153,25 +193,25 @@ jQuery(document).ready(function ($) {
         gameState = state;
         switch (state) {
             case GAME_STATE_MENU:
-                $('#view-modal').hide();
-                $('.modal').hide();
+                jQuery('#view-modal').hide();
+                jQuery('.modal').hide();
                 showMainMenu();
                 allowKeyEvents = false;
                 break;
             case GAME_STATE_RUNNING:
-                $('.modal').hide();
-                $('#overlay').hide();
-                $('#view-modal').show();
+                jQuery('.modal').hide();
+                jQuery('#overlay').hide();
+                jQuery('#view-modal').show();
                 allowKeyEvents = true;
                 break;
             case GAME_STATE_PAUSED:
-                showNamedModal($('#pause-menu'), false, true);
+                showNamedModal(jQuery('#pause-menu'), false, true);
                 break;
             case GAME_STATE_SHOW_INVENTORY:
-                showNamedModal($('#inventory-modal'), false, true);
+                showNamedModal(jQuery('#inventory-modal'), false, true);
                 break;
             case GAME_STATE_MODAL:
-                showNamedModal($('#modal'), false, true);
+                showNamedModal(jQuery('#modal'), false, true);
                 break;
             case GAME_STATE_OVER:
                 showNamedModal(jQuery('#game-over-menu'), false, false);
@@ -183,7 +223,7 @@ jQuery(document).ready(function ($) {
         allowKeyEvents = newAllowKeyEvents;
         modal.show();
         centerModal(modal);
-        $('#overlay').show();
+        jQuery('#overlay').show();
     };
 
     showGameOver = function(header, body) {
@@ -244,7 +284,7 @@ jQuery(document).ready(function ($) {
 
         //fetch the conversation name if we're progressing through a conversation tree.
         if (!conversationName) {
-            conversationName = $('#modal #header').text();
+            conversationName = jQuery('#modal #header').text();
         }
 
         //Now the current contents from the modal.
@@ -289,16 +329,20 @@ jQuery(document).ready(function ($) {
         }
         
         //Show the message and reply options.
-        $('#modal #header').html(conversationName);
-        $('#modal #content').append(currentOption['message'] + '<p /> You Reply: <br /><ul>');
+        jQuery('#modal #header').html(conversationName);
+        jQuery('#modal #content').append(currentOption['message'] + '<p /> You Reply: <br /><ul>');
 
         var replyChoices = currentOption['replies'];
         for (var choiceText in replyChoices) {
             if (replyChoices.hasOwnProperty(choiceText)) {
-                $('#modal #content').append(optionRowTemplate.format(replyChoices[choiceText], choiceText));
+                if (conversation.getOption(replyChoices[choiceText]) &&
+                    conversation.getOption(replyChoices[choiceText]).requires &&
+                    !checkCondition(conversation.getOption(replyChoices[choiceText]).requires))
+                    continue;
+                jQuery('#modal #content').append(optionRowTemplate.format(replyChoices[choiceText], choiceText));
             }
         }
-        $('#modal #content').append('</ul>');
+        jQuery('#modal #content').append('</ul>');
 
         showModal();
     }
@@ -334,16 +378,16 @@ jQuery(document).ready(function ($) {
     displayModal = function (header, text, image) {
         emptyModal();
 
-        $('#modal #header').html(header);
-        $('#modal #content').html(text);
-        $('#modal #content').append(image);
+        jQuery('#modal #header').html(header);
+        jQuery('#modal #content').html(text);
+        jQuery('#modal #content').append(image);
         showModal();
     }
 
     emptyModal = function () {
         // Clear header and content
-        $('#modal #header').empty();
-        $('#modal #content').empty();
+        jQuery('#modal #header').empty();
+        jQuery('#modal #content').empty();
     }
 
     hideModal = function () {
@@ -356,12 +400,12 @@ jQuery(document).ready(function ($) {
     }
 
     showMainMenu = function() {
-        $('#main-menu').show();
+        jQuery('#main-menu').show();
         centerMainMenu();
     }
 
     hideMainMenu = function() {
-        $('#main-menu').hide();
+        jQuery('#main-menu').hide();
     }
 
     showModal = function () {
@@ -393,33 +437,35 @@ jQuery(document).ready(function ($) {
     };
 
     $('#overlay').live("click", function () {
+
+    jQuery('#overlay').live("click", function () {
         if (canDismissModal) {
             hideModal();
         }
     });
 
-    $("li.conversation-option").live("click", function () {
-        showConversation(null, $(this).attr('data-conversation-option'));
+    jQuery("li.conversation-option").live("click", function () {
+        showConversation(null, jQuery(this).attr('data-conversation-option'));
     });
 
-    $(".viewport-button").live("click", function () {
-        $(document).trigger(
+    jQuery(".viewport-button").live("click", function () {
+        jQuery(document).trigger(
             'player-move',
-            $(this).attr('id')
+            jQuery(this).attr('id')
         );
     });
 
     /* Pause Menu click functions */
-    $('#pause-resume-button').live("click", function() {
+    jQuery('#pause-resume-button').live("click", function() {
         setGameState(GAME_STATE_RUNNING);
     });
     
-    $('#pause-save-button').live("click", function() {
+    jQuery('#pause-save-button').live("click", function() {
         saveGame();
         hideModal();
     });
 
-    $('#pause-mainmenu-button').live("click", function() {
+    jQuery('#pause-mainmenu-button').live("click", function() {
         if (confirm("Quit and return to main menu?")) {
             setGameState(GAME_STATE_MENU);
         }
