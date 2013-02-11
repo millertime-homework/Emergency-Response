@@ -125,6 +125,8 @@ jQuery(document).ready(function ($) {
         generateMap(playerDef['x'], playerDef['y'], scenario.getFloor(playerDef['z']));
         sizeWindow();
         spinner.stop();
+	onImagesLoaded = function() { console.log("Done"); };
+	if(imagesToLoad == 0) onImagesLoaded();
     }
 
 
