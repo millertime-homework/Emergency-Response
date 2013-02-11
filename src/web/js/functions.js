@@ -101,13 +101,6 @@ jQuery(document).ready(function ($) {
                 player.inventory.add(playerDef['inventory'][i]);
         }
 
-
-        var startRoomTriggers = scenario.getRoom(player.x, player.y, player.z).triggers;
-        if (startRoomTriggers) {
-            startRoomTriggers.map(startTrigger);
-        }
-
-
         // Check if player exists
         if (player) {
             if (!scenario.isValidRoom(player.x, player.y, player.z)) {
@@ -117,15 +110,20 @@ jQuery(document).ready(function ($) {
         } else {
             alert('Player not defined')
         }
-        
 
-        setGameState(GAME_STATE_RUNNING);
-        renderScene();
-        saveGame();
-        generateMap(playerDef['x'], playerDef['y'], scenario.getFloor(playerDef['z']));
-        sizeWindow();
-        spinner.stop();
-	onImagesLoaded = function() { console.log("Done"); };
+	onImagesLoaded = function() {
+		var startRoomTriggers = scenario.getRoom(player.x, player.y, player.z).triggers;
+		if (startRoomTriggers) {
+		    startRoomTriggers.map(startTrigger);
+		}
+		
+		setGameState(GAME_STATE_RUNNING);
+		renderScene();
+		saveGame();
+		generateMap(playerDef['x'], playerDef['y'], scenario.getFloor(playerDef['z']));
+		sizeWindow();
+		spinner.stop();
+	};
 	if(imagesToLoad == 0) onImagesLoaded();
     }
 
