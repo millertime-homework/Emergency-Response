@@ -29,9 +29,11 @@ jQuery(document).ready(function ($) {
         currWall = null
 
         // Add spinner to view-modal while loading scenario   
+	canDismissModal = false;
+	$('#overlay').show();
         spinner = new Spinner({
-            color: '#fff'
-        }).spin(document.getElementById('view-modal'))
+            color: '#000'
+        }).spin(document.getElementById('overlay'))
 
 
         //load floors
@@ -111,18 +113,19 @@ jQuery(document).ready(function ($) {
             alert('Player not defined')
         }
 
-	setGameState(GAME_STATE_RUNNING);
 	onImagesLoaded = function() {
 		var startRoomTriggers = scenario.getRoom(player.x, player.y, player.z).triggers;
 		if (startRoomTriggers) {
 		    startRoomTriggers.map(startTrigger);
 		}
 		
+		setGameState(GAME_STATE_RUNNING);
 		renderScene();
 		saveGame();
 		generateMap(playerDef['x'], playerDef['y'], scenario.getFloor(playerDef['z']));
 		sizeWindow();
 		spinner.stop();
+		$('#overlay').hide();
 	};
 	if(imagesToLoad == 0) onImagesLoaded();
     }
