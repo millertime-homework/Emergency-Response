@@ -1,8 +1,11 @@
 // GLOBALS
 var scenario = null;
 var player = null;
-var scenarioVariable = null;
-var canDismissModal = true; // this must be set after calling showModal
+var currentScenario;
+/* Determines whether a modal can be ignored by clicking in deadspace to close it.
+Managed by setGameState, so you can override it temporarily without cleaning up
+after yourself (ie, saving and then restoring the original value) */
+var canDismissModal = false; 
 
 function isScenarioDefined() {};
 function isPlayerDefined() {};
@@ -162,7 +165,11 @@ jQuery(document).ready(function ($) {
                 break;
             case GAME_STATE_PAUSED:
                 allowKeyEvents = false;
+                canDismissModal = true;
                 break;
+            case GAME_STATE_OVER:
+                canDismissModal = false;
+                allowKeyEvents = false;
         }
     }
 
@@ -370,7 +377,6 @@ jQuery(document).ready(function ($) {
         $('#modal').show();
         centerModal($('#modal'));
         $('#overlay').show();
-        canDismissModal = true;
     }
 
     $('#overlay').live("click", function () {

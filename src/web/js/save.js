@@ -1,11 +1,11 @@
 function saveGame() {
-    if (scenario.gameOver) {
+    if (gameState == GAME_STATE_OVER) {
         document.cookie = 'emergencySave=; expires=Sat, 1-Jan-2000 00:00:00 GMT'; // expire in the past to delete
         return;
     }
     var saveable = {
         "player": {"x": player.x, "y": player.y, "z": player.z, "facing": player.facing},
-        "scenario": scenarioVariable,
+        "scenario": currentScenario,
         "objectives": scenario.objectives,
         "inactiveProps": scenario.inactiveProps,
         "inventory": player.inventory.items,
@@ -24,8 +24,8 @@ function loadGame() {
     document.cookie.match(/emergencySave=([^;]+)/);
     var str = unescape(RegExp.$1);
     var saveable = jQuery.parseJSON(str);
-    scenarioVariable = saveable.scenario;
-    loadScenario(window[scenarioVariable]);
+    currentScenario = saveable.scenario;
+    loadScenario(window[currentScenario]);
     
     player.x = saveable.player.x;
     player.y = saveable.player.y;
