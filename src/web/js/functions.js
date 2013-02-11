@@ -111,13 +111,13 @@ jQuery(document).ready(function ($) {
             alert('Player not defined')
         }
 
+	setGameState(GAME_STATE_RUNNING);
 	onImagesLoaded = function() {
 		var startRoomTriggers = scenario.getRoom(player.x, player.y, player.z).triggers;
 		if (startRoomTriggers) {
 		    startRoomTriggers.map(startTrigger);
 		}
 		
-		setGameState(GAME_STATE_RUNNING);
 		renderScene();
 		saveGame();
 		generateMap(playerDef['x'], playerDef['y'], scenario.getFloor(playerDef['z']));
