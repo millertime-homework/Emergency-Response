@@ -1013,7 +1013,7 @@ activeShooterDef = {
                 'triggers': ['gotToClass'],
                 'message': 'Good morning! Class is starting, have a seat. Today we\'re going over... [Bang!]... [Bang! Bang!]. What? What is that. That sounds like gun fire. [Professor Bell goes to the class room door and peers out.] Quickly, everyone get out. I think we can make it to the front doors.',
                 'replies': {
-                    'No way! I\'m staying right here. [Exit Conversation]': 2,
+                    'No way! I\'m staying right here. [Exit Conversation]': 0,
                     'Ok, let\'s go! [Exit Conversation]' : 2,
                 }
             },
@@ -1026,37 +1026,37 @@ activeShooterDef = {
                 'triggers': ['FrontDoorsReached'],
                 'message' : 'The Door has been locked!',
                 'replies':{
-                    'Break Down The Door!' : '2',
-                    'Go Hide [Exit Conversation]' : '3',
+                    'Break Down The Door!' : 2,
+                    'Go Hide [Exit Conversation]' : 0,
                 }
             },
             '2':{
                 'message' : 'You start to throw yourself against the door. It appears to be locked with a chain from the outside. The door doesn\'t seem to be budging!',
                 'replies':{
-                    'Continue to try and break down the door': '4',
-                    'Leave the door and go hide [Exit Conversation]': '5',
+                    'Continue to try and break down the door': 3,
+                    'Leave the door and go hide [Exit Conversation]': 4,
                 }
             },
-            '4':{
+            '3':{
                 'message' : 'The door seems to be giving way, but you can hear gun shots just around the corner to the north. The active shooter is very close!',
                 'replies' : {
-                    'Too late now, I\'m committed. Continue to break down the front door': '6',
-                    'Abandon the door and go hide' : '7',
+                    'Too late now, I\'m committed. Continue to break down the front door': 5,
+                    'Abandon the door and go hide' : 6,
                     }                
             },
-            '5':{
+            '4':{
                 'message': 'Ok, you\'ve only lost a little bit of time. You can hear the shooter approaching down the hallway to the north. Quick! Find a hiding place.',
                 'replies' : {
-                    '[Exit Conversation]' : '3',
+                    '[Exit Conversation]' : 0,
                 }
             },
-            '6':{
-                'message': 'You desperately try to get the door open, but it is too late. The shooter comes around the corner and sees you out in the open. He shoots you [Game Over]',
+            '5':{
+                'triggers': ['shotAtFrontDoor'],
             },
-            '7':{
+            '6':{
                 'message': 'You don\'t have much time. The shooter is really close. Hide quickly!',
                 'replies' : {
-                    '[Exit Conversation]': '3',
+                    '[Exit Conversation]': 0,
                 }
             }
         },       
@@ -1103,6 +1103,12 @@ activeShooterDef = {
                 'completeObjective': ['getToFrontDoors'],
             },
             'disabled':true,
+        },
+        'shotAtFrontDoor': {
+            'events': {
+                'endGame': ['Game Over','You desperately try to get the door open, but it is too late. The shooter comes around the corner and sees you out in the open. He shoots you [Game Over]'],
+            },
+            'lives': Infinity,
         },
     },
     'inactiveProps': ['UseDoor'],
