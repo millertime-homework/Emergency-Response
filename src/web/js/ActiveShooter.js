@@ -128,6 +128,19 @@ activeShooterDef = {
                                     'actionVariables': {
                                         'conversationName': 'ExitSchool'
                                     }
+                                },
+                                'policeman': {
+                                    'name': 'policeman',
+                                    'image': 'policeman.png',
+                                    'hoverImage': 'policeman-hover.png',
+                                    'width': 250,
+                                    'height': 441,
+                                    'left': 500,
+                                    'top': 170,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'policeman'
+                                    }
                                 }
                             }
                         }
@@ -700,6 +713,7 @@ activeShooterDef = {
                     'id': 'hall530',
                     'x': 5,
                     'y': 3,
+                    '_triggers': ['foundHidingPlace'],
                     '_walls': {
                         'e': {
                             'name': 'EHall530',
@@ -1013,8 +1027,8 @@ activeShooterDef = {
                 'triggers': ['gotToClass'],
                 'message': 'Good morning! Class is starting, have a seat. Today we\'re going over... [Bang!]... [Bang! Bang!]. What? What is that. That sounds like gun fire. [Professor Bell goes to the class room door and peers out.] Quickly, everyone get out. I think we can make it to the front doors.',
                 'replies': {
-                    'No way! I\'m staying right here. [Exit Conversation]': 0,
-                    'Ok, let\'s go! [Exit Conversation]' : 2,
+                    'No way! I\'m staying right here.': 0,
+                    'Ok, let\'s go!' : 2,
                 }
             },
             '2': {
@@ -1027,27 +1041,27 @@ activeShooterDef = {
                 'message' : 'The Door has been locked!',
                 'replies':{
                     'Break Down The Door!' : 2,
-                    'Go Hide [Exit Conversation]' : 0,
+                    'Go Hide' : 7,
                 }
             },
             '2':{
                 'message' : 'You start to throw yourself against the door. It appears to be locked with a chain from the outside. The door doesn\'t seem to be budging!',
                 'replies':{
                     'Continue to try and break down the door': 3,
-                    'Leave the door and go hide [Exit Conversation]': 4,
+                    'Leave the door and go hide': 4,
                 }
             },
             '3':{
                 'message' : 'The door seems to be giving way, but you can hear gun shots just around the corner to the north. The active shooter is very close!',
                 'replies' : {
                     'Too late now, I\'m committed. Continue to break down the front door': 5,
-                    'Abandon the door and go hide' : 6,
+                    'Abandon the door and go hide' : 7,
                     }                
             },
             '4':{
                 'message': 'Ok, you\'ve only lost a little bit of time. You can hear the shooter approaching down the hallway to the north. Quick! Find a hiding place.',
                 'replies' : {
-                    '[Exit Conversation]' : 0,
+                    '[Exit Conversation]' : 7,
                 }
             },
             '5':{
@@ -1056,8 +1070,11 @@ activeShooterDef = {
             '6':{
                 'message': 'You don\'t have much time. The shooter is really close. Hide quickly!',
                 'replies' : {
-                    '[Exit Conversation]': 0,
+                    '[Exit Conversation]': 7,
                 }
+            },
+            '7': {
+                'triggers': ['goHide'],
             }
         },       
         'Fire': {
@@ -1073,6 +1090,22 @@ activeShooterDef = {
                 // or use 'check': [{'has': ['Fire Extinguisher'], 'goto': '2'}]
             }
         },
+        'policeman': {
+            '1': {
+                'triggers': ['escaped'],
+                'message': 'Freeze! Put your hands where I can see them!',
+                'replies': {
+                    '[Put hands in the air]': 2,
+                    '[Approach the officer]': 3,
+                }
+            },
+            '2': {
+                'triggers': ['survived'],
+            },
+            '3': {
+                'triggers': ['shotByPolice'],
+            }
+        }
     },
     '_triggers': {
         'takeFireExtinguisher': {
@@ -1110,8 +1143,38 @@ activeShooterDef = {
             },
             'lives': Infinity,
         },
+        'goHide': {
+            'events': {
+                'setObjective': ['goHide', 'Find a hiding place'],
+                'removeFromScene': ['UseDoor'],
+            },
+            'enableTriggers': ['foundHidingPlace'],
+        },
+        'foundHidingPlace': {
+            'events': {
+                'completeObjective': ['goHide'],
+                'setObjective': ['escape', 'Escape the school'],
+                'addToScene': ['policeman'],
+            },
+            'disabled': true,
+        },
+        'escaped': {
+            'events': {
+                'completeObjective': ['escape'],
+            },
+        },
+        'survived': {
+            'events': {
+                'endGame': ['You survived!', 'You made it! You wait outside for the police to apprehend the shooter.'],
+            }
+        },
+        'shotByPolice': {
+            'events': {
+                'endGame': ['Game Over','Unfortunately your actions caused the police to shoot you, and now you are dead.']
+            }
+        }
     },
-    'inactiveProps': ['UseDoor'],
+    'inactiveProps': ['UseDoor', 'policeman'],
     '_player': {
         'x': 3,
         'y': 0,
