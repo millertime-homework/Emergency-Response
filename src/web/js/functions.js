@@ -261,6 +261,26 @@ jQuery(document).ready(function ($) {
                     if(!scenario.objectives.completed[condition['objectivesCompleted'][j]])
                         return false;
                 }
+            if (condition['hasNot'])
+                for (var j = 0; j < condition['has'].length; j++) {
+                    if (player.inventory.contains(condition['has'][j]))
+                        return false;
+                }
+            if (condition['triggersDisabled'])
+                for (var j = 0; j < condition['triggersEnabled'].length; j++) {
+                    if(scenario.triggers.pool[condition['triggersEnabled'][j]])
+                        return false;
+                }
+            if (condition['objectivesNotInProgress'])
+                for (var j = 0; j < condition['objectivesInProgress'].length; j++) {
+                    if(scenario.objectives.inProgress[condition['objectivesInProgress'][j]])
+                        return false;
+                }
+            if (condition['objectivesNotCompleted'])
+                for (var j = 0; j < condition['objectivesCompleted'].length; j++) {
+                    if(!scenario.objectives.completed[condition['objectivesCompleted'][j]])
+                        return false;
+                }
             return true;
         }
         
