@@ -143,10 +143,10 @@ activeShooterDef = {
                                     'name': 'UseDoor',
                                     'image': 'UseDoor.png',
                                     'hoverImage': 'hoverUseDoor.png',
-                                    'width': 85,
-                                    'height': 200,
+                                    'width': 78,
+                                    'height': 190,
                                     'left' : 470,
-                                    'top': 250,
+                                    'top': 245,
                                     'action': 'showConversation',
                                     'actionVariables': {
                                         'conversationName': 'ExitSchool'
