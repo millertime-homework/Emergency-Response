@@ -46,11 +46,34 @@ activeShooterDef = {
                         },
                         'w': {
                             'name': 'WHall200',
-                            'image': 'R200-west.jpg' /*, can't go to 1,0,0 it's commented out
+                            'image': 'R200-west.jpg', /* can't go to 1,0,0 it's commented out
                             'destination': {
                                 'x': 1
                             }
                             */
+                            '_props': {
+                                'shooter': {
+                                    'name': 'shooter',
+                                    'image': 'shooter.png',
+                                    'hoverImage': 'shooter-hover.png',
+                                    'width': 128,
+                                    'height': 256,
+                                    'left': 450,
+                                    'top': 255,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Shooter'
+                                    }
+                                },
+                                'shooter-downed': {
+                                    'name': 'shooter-downed',
+                                    'image': 'shooter-downed.png',
+                                    'width': 256,
+                                    'height': 128,
+                                    'left': 420,
+                                    'top': 325,
+                                }
+                            }
                         },
                         'n': {
                             'name': 'NHall200',
@@ -817,11 +840,26 @@ activeShooterDef = {
                         },
                         'w': {
                             'name': 'WHall240',
-                            'image': 'R240-west.jpg' /*, can't go to 1,4,0 it's commented out
+                            'image': 'R240-west.jpg', /* can't go to 1,4,0 it's commented out
                             'destination': {
                                 'x': 1
                             }
                             */
+                            '_props': {
+                                'crowbar': {
+                                    'name': 'crowbar',
+                                    'image': 'crowbar.png',
+                                    'hoverImage': 'crowbar-hover.png',
+                                    'width': 200,
+                                    'height': 134,
+                                    'left': 400,
+                                    'top': 377,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Crowbar',
+                                    }
+                                }
+                            },
                         },
                         'n': {
                             'name': 'NHall240',
@@ -853,7 +891,18 @@ activeShooterDef = {
                             'image': 'R340-west.jpg',
                             'destination': {
                                 'x': 2
-                            }
+                            },
+                            '_props': {
+                                'crowbar': {
+                                    'name': 'crowbar',
+                                    'image': 'crowbar.png',
+                                    'hoverImage': 'crowbar-hover.png',
+                                    'width': 72,
+                                    'height': 48,
+                                    'left': 500,
+                                    'top': 320,
+                                }
+                            },
                         },
                         'n': {
                             'name': 'NHall340',
@@ -1090,6 +1139,41 @@ activeShooterDef = {
                 // or use 'check': [{'has': ['Fire Extinguisher'], 'goto': '2'}]
             }
         },
+        'Crowbar': {
+            '1': {
+                'message': 'Pick up crowbar?',
+                'replies': {
+                    'Pick up': 2,
+                    'Leave': 0,
+                }
+            },
+            '2': {
+                'triggers': ['takeCrowbar'],
+            },
+        },
+        'Shooter': {
+            '1': {
+                'message': 'This stupid gun! I can\'t believe it\'s jamming!',
+                'replies': {
+                    'ATTACK!!!': 2,
+                    'Try to incapacitate': 3,
+                    'Run away': 0,
+                }
+            },
+            '2': {
+                'message': 'OUCH! Grr!',
+                'replies': {
+                    'ATTACK!!!': 4,
+                    'Run away': 0,
+                }
+            },
+            '3': {
+                'triggers': ['knockedOutByShooter'],
+            },
+            '4': {
+                'triggers': ['takeDownShooter'],
+            },
+        },
         'policeman': {
             '1': {
                 'triggers': ['escaped'],
@@ -1112,6 +1196,14 @@ activeShooterDef = {
             'events': {
                 'takeFromScene' : [ {'name': 'Fire Extinguisher', 'image': 'fire-extinguisher.png', 'width':32, 'height':32 },
                                     'Fire-Extinguisher' ]
+            }
+        },
+        'takeCrowbar': {
+            'events': {
+                'takeFromScene': [ {'name': 'crowbar', 'image': 'crowbar.png', 'width':32, 'height':20},
+                                   'crowbar'],
+                'completeObjective': ['getWeapon'],
+                'setObjective': ['attackShooter', 'Find and attack the shooter'],
             }
         },
         'getToClass': {
@@ -1141,22 +1233,36 @@ activeShooterDef = {
             'events': {
                 'endGame': ['Game Over','You desperately try to get the door open, but it is too late. The shooter comes around the corner and sees you out in the open. He shoots you [Game Over]'],
             },
-            'lives': Infinity,
         },
         'goHide': {
             'events': {
                 'setObjective': ['goHide', 'Find a hiding place'],
                 'removeFromScene': ['UseDoor'],
+                'addToScene': ['shooter'],
             },
             'enableTriggers': ['foundHidingPlace'],
         },
         'foundHidingPlace': {
             'events': {
+                'displayModal': ['Gun Jam!', 'The shooter\'s gun jammed! Quick! Find a weapon and take him out!'],
                 'completeObjective': ['goHide'],
-                'setObjective': ['escape', 'Escape the school'],
-                'addToScene': ['policeman'],
+                'setObjective': ['getWeapon', 'Find a weapon'],
+                'addToScene': ['crowbar'],
             },
             'disabled': true,
+        },
+        'knockedOutByShooter': {
+            'events': {
+                'endGame': ['Game Over', 'You didn\'t commit! The shooter knocked you out!'],
+            }
+        },
+        'takeDownShooter': {
+            'events': {
+                'completeObjective': ['attackShooter'],
+                'setObjective': ['escape', 'Escape the school'],
+                'replaceProp': ['shooter', 'shooter-downed'],
+                'addToScene': ['policeman'],
+            },
         },
         'escaped': {
             'events': {
@@ -1174,7 +1280,7 @@ activeShooterDef = {
             }
         }
     },
-    'inactiveProps': ['UseDoor', 'policeman'],
+    'inactiveProps': ['UseDoor', 'policeman', 'crowbar', 'shooter', 'shooter-downed'],
     '_player': {
         'x': 3,
         'y': 0,
