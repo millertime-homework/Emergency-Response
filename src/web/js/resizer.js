@@ -131,12 +131,20 @@ function scaleProps() {
     var object;
     jQuery('.prop').each(function () {
         object = jQuery(this);
+        var oldPos = {
+            'top': object.data('top'),
+            'left': object.data('left'),
+            'width': object.data('width'),
+            'height': object.data('height'),
+        };
         object.css({
-            'top' : erg.CurrentScale * parsePxValue(object.data('top')) + 'px',
-            'left' : erg.CurrentScale * parsePxValue(object.data('left')) + 'px'
+            'top' : erg.CurrentScale * parsePxValue(oldPos['top']) + 'px',
+            'left' : erg.CurrentScale * parsePxValue(oldPos['left']) + 'px',
+            'height' : erg.CurrentScale * parsePxValue(oldPos['height']) + 'px',
+            'width' : erg.CurrentScale * parsePxValue(oldPos['width']) + 'px'
         }).children('img').css({
-            'height' : erg.CurrentScale * parsePxValue(object.data('height')) + 'px',
-            'width' : erg.CurrentScale * parsePxValue(object.data('width')) + 'px'
+            'height' : erg.CurrentScale * parsePxValue(oldPos['height']) + 'px',
+            'width' : erg.CurrentScale * parsePxValue(oldPos['width']) + 'px'
         });
     });
 }
