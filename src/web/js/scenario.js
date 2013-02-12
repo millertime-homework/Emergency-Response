@@ -47,7 +47,7 @@ Scenario = Class.create({
         var image = document.createElement('img')
         image.src = imagePath
         imagesToLoad++;
-        image.onload = function() {
+        image.onload = image.onerror = function() {
             imagesToLoad--;
             if(imagesToLoad == 0) {
                 onImagesLoaded();
