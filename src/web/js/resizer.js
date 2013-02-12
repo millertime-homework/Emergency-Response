@@ -34,6 +34,8 @@ function sizeWindow() {
     } else {
         centerMainMenu(windowHeight);
     }
+    if (jQuery('body').css('overflow') == 'hidden')
+	scrollTo(0, 0);
 }
 
 function reisizeSidebar(sidebar) {
