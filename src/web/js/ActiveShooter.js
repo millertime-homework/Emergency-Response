@@ -1153,24 +1153,33 @@ activeShooterDef = {
         },
         'Shooter': {
             '1': {
-                'message': 'This stupid gun! I can\'t believe it\'s jamming!',
+                'check': [{'objectivesInProgress': ['attackShooter'], 'goto': '2'}],
+                'message': 'WELL HELLO THERE!',
                 'replies': {
-                    'ATTACK!!!': 2,
-                    'Try to incapacitate': 3,
                     'Run away': 0,
                 }
             },
             '2': {
-                'message': 'OUCH! Grr!',
+                'message': 'This stupid gun! I can\'t believe it\'s jamming!',
                 'replies': {
-                    'ATTACK!!!': 4,
+                    'ATTACK!!!': 3,
+                    'Try to incapacitate': 4,
                     'Run away': 0,
                 }
             },
             '3': {
-                'triggers': ['knockedOutByShooter'],
+                'requires': {'has': ['crowbar']},
+                'message': 'OUCH! Grr!',
+                'replies': {
+                    'ATTACK!!!': 5,
+                    'Run away': 0,
+                }
             },
             '4': {
+                'requires': {'has': ['crowbar']},
+                'triggers': ['knockedOutByShooter'],
+            },
+            '5': {
                 'triggers': ['takeDownShooter'],
             },
         },
@@ -1244,7 +1253,7 @@ activeShooterDef = {
         },
         'foundHidingPlace': {
             'events': {
-                'displayModal': ['Gun Jam!', 'The shooter\'s gun jammed! Quick! Find a weapon and take him out!'],
+                'showModal': ['Gun Jam!', 'The shooter\'s gun jammed! Quick! Find a weapon and take him out!'],
                 'completeObjective': ['goHide'],
                 'setObjective': ['getWeapon', 'Find a weapon'],
                 'addToScene': ['crowbar'],
