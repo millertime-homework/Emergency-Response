@@ -29,9 +29,11 @@ jQuery(document).ready(function ($) {
         currWall = null
 
         // Add spinner to view-modal while loading scenario   
+	canDismissModal = false;
+	$('#overlay').show();
         spinner = new Spinner({
-            color: '#fff'
-        }).spin(document.getElementById('view-modal'))
+            color: '#000'
+        }).spin(document.getElementById('overlay'))
 
 
         //load floors
@@ -101,13 +103,6 @@ jQuery(document).ready(function ($) {
                 player.inventory.add(playerDef['inventory'][i]);
         }
 
-
-        var startRoomTriggers = scenario.getRoom(player.x, player.y, player.z).triggers;
-        if (startRoomTriggers) {
-            startRoomTriggers.map(startTrigger);
-        }
-
-
         // Check if player exists
         if (player) {
             if (!scenario.isValidRoom(player.x, player.y, player.z)) {
@@ -117,14 +112,22 @@ jQuery(document).ready(function ($) {
         } else {
             alert('Player not defined')
         }
-        
 
-        setGameState(GAME_STATE_RUNNING);
-        renderScene();
-        saveGame();
-        generateMap(playerDef['x'], playerDef['y'], scenario.getFloor(playerDef['z']));
-        sizeWindow();
-        spinner.stop();
+	onImagesLoaded = function() {
+		var startRoomTriggers = scenario.getRoom(player.x, player.y, player.z).triggers;
+		if (startRoomTriggers) {
+		    startRoomTriggers.map(startTrigger);
+		}
+		
+		setGameState(GAME_STATE_RUNNING);
+		renderScene();
+		saveGame();
+		generateMap(playerDef['x'], playerDef['y'], scenario.getFloor(playerDef['z']));
+		sizeWindow();
+		spinner.stop();
+		$('#overlay').hide();
+	};
+	if(imagesToLoad == 0) onImagesLoaded();
     }
 
 
@@ -154,11 +157,13 @@ jQuery(document).ready(function ($) {
         switch (state) {
             case GAME_STATE_MENU:
                 $('#view-modal').hide();
+		$('#overlay').hide();
                 $('.modal').hide();
                 showMainMenu();
                 allowKeyEvents = false;
                 break;
             case GAME_STATE_RUNNING:
+		$('#overlay').hide();
                 $('.modal').hide();
                 $('#view-modal').show();
                 allowKeyEvents = true;
@@ -259,6 +264,26 @@ jQuery(document).ready(function ($) {
             if (condition['objectivesCompleted'])
                 for (var j = 0; j < condition['objectivesCompleted'].length; j++) {
                     if(!scenario.objectives.completed[condition['objectivesCompleted'][j]])
+                        return false;
+                }
+            if (condition['hasNot'])
+                for (var j = 0; j < condition['hasNot'].length; j++) {
+                    if (player.inventory.contains(condition['hasNot'][j]))
+                        return false;
+                }
+            if (condition['triggersDisabled'])
+                for (var j = 0; j < condition['triggersDisabled'].length; j++) {
+                    if(scenario.triggers.pool[condition['triggersEnabled'][j]])
+                        return false;
+                }
+            if (condition['objectivesNotInProgress'])
+                for (var j = 0; j < condition['objectivesNotInProgress'].length; j++) {
+                    if(scenario.objectives.inProgress[condition['objectivesNotInProgress'][j]])
+                        return false;
+                }
+            if (condition['objectivesNotCompleted'])
+                for (var j = 0; j < condition['objectivesNotCompleted'].length; j++) {
+                    if(!scenario.objectives.completed[condition['objectivesNotCompleted'][j]])
                         return false;
                 }
             return true;

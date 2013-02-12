@@ -1207,6 +1207,7 @@ testDef = {
                 'check': [{'objectivesCompleted': ['takeTheQuiz'], 'goto': '10'}],
                 'message': 'Good morning! Class is starting soon!.',
                 'replies': {
+                    'Where is the fire extinguisher': 5,
                     'I\'ll go sit down': 2,
                     'I\'ll skip the lecture and take the quiz': 3,
                     'I\'ve already taken the quiz': 0,
@@ -1223,6 +1224,10 @@ testDef = {
             },
             '4': {
                 'triggers': ['lightProfOnFire']
+            },
+            '5': {
+                'requires': {'hasNot': ['Fire Extinguisher']},
+                'message': 'By the elevators'
             },
             '10': {
                 'message': 'Congratulations!  You have completed the quiz!'
