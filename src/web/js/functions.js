@@ -264,23 +264,23 @@ jQuery(document).ready(function ($) {
                         return false;
                 }
             if (condition['hasNot'])
-                for (var j = 0; j < condition['has'].length; j++) {
-                    if (player.inventory.contains(condition['has'][j]))
+                for (var j = 0; j < condition['hasNot'].length; j++) {
+                    if (player.inventory.contains(condition['hasNot'][j]))
                         return false;
                 }
             if (condition['triggersDisabled'])
-                for (var j = 0; j < condition['triggersEnabled'].length; j++) {
+                for (var j = 0; j < condition['triggersDisabled'].length; j++) {
                     if(scenario.triggers.pool[condition['triggersEnabled'][j]])
                         return false;
                 }
             if (condition['objectivesNotInProgress'])
-                for (var j = 0; j < condition['objectivesInProgress'].length; j++) {
-                    if(scenario.objectives.inProgress[condition['objectivesInProgress'][j]])
+                for (var j = 0; j < condition['objectivesNotInProgress'].length; j++) {
+                    if(scenario.objectives.inProgress[condition['objectivesNotInProgress'][j]])
                         return false;
                 }
             if (condition['objectivesNotCompleted'])
-                for (var j = 0; j < condition['objectivesCompleted'].length; j++) {
-                    if(!scenario.objectives.completed[condition['objectivesCompleted'][j]])
+                for (var j = 0; j < condition['objectivesNotCompleted'].length; j++) {
+                    if(!scenario.objectives.completed[condition['objectivesNotCompleted'][j]])
                         return false;
                 }
             return true;
