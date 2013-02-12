@@ -154,11 +154,13 @@ jQuery(document).ready(function ($) {
         switch (state) {
             case GAME_STATE_MENU:
                 $('#view-modal').hide();
+		$('#overlay').hide();
                 $('.modal').hide();
                 showMainMenu();
                 allowKeyEvents = false;
                 break;
             case GAME_STATE_RUNNING:
+		$('#overlay').hide();
                 $('.modal').hide();
                 $('#view-modal').show();
                 allowKeyEvents = true;
