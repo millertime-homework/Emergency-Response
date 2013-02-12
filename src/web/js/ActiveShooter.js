@@ -72,7 +72,7 @@ activeShooterDef = {
                                     'height': 128,
                                     'left': 420,
                                     'top': 325,
-                                }
+                                },
                             }
                         },
                         'n': {
@@ -89,12 +89,31 @@ activeShooterDef = {
                                     'height': 104,
                                     'left': 650,
                                     'top': 190,
+                                },
+                                'Room110Sign': {
+                                    'name': 'Room110Sign',
+                                    'image': 'sign-room110-skew.png',
+                                    'width': 47,
+                                    'height': 39,
+                                    'left': 340,
+                                    'top': 320,
                                 }
                             }
                         },
                         's': {
                             'name': 'SHall200',
-                            'image': 'R200-south.jpg'
+                            'image': 'R200-south.jpg',
+                            '_props': {
+                                'RHF_Poster': {
+                                    'name': 'RHF_Poster',
+                                    'image': 'RHF_Poster.png',
+                                    'width': 350,
+                                    'height': 438,
+                                    'left': 400,
+                                    'top': 60,
+                                   
+                                }
+                            }
                         }
                     },
                 },
@@ -116,6 +135,24 @@ activeShooterDef = {
                             'image': 'R300-west.jpg',
                             'destination': {
                                 'x': 2
+                            },
+                            '_props': {
+                                'RHF_Poster': {
+                                    'name': 'RHF_Poster',
+                                    'image': 'RHF_Poster-skew.png',
+                                    'width': 64,
+                                    'height': 103,
+                                    'left': 420,
+                                    'top': 250,
+                                },
+                                'Room110Sign' : {
+                                    'name': 'Room110Sign',
+                                    'image': 'sign-room110.png',
+                                    'width': 19,
+                                    'height': 10,
+                                    'left' : 670,
+                                    'top': 305,
+                                }
                             }
                         },
                         'n': {
@@ -243,7 +280,7 @@ activeShooterDef = {
                             'image': 'R110-east.jpg',
                             'destination': {
                                 'x': 2
-                            }
+                            },
                         },
                         'w': {
                             'name': 'WHall110',
@@ -287,6 +324,16 @@ activeShooterDef = {
                             'image': 'R210-west.jpg',
                             'destination': {
                                 'x': 1
+                            },
+                            '_props': {
+                                'Room110Sign' : {
+                                    'name': 'Room110Sign',
+                                    'image': 'sign-room110.png',
+                                    'width': 78,
+                                    'height': 39,
+                                    'left' : 650,
+                                    'top': 375,
+                                }
                             }
                         },
                         'n': {
@@ -301,6 +348,17 @@ activeShooterDef = {
                             'image': 'R210-south.jpg',
                             'destination': {
                                 'y': 0
+                            },
+                            '_props': {
+                                'RHF_Poster': {
+                                    'name': 'RHF_Poster',
+                                    'image': 'RHF_Poster.png',
+                                    'width': 140,
+                                    'height': 175,
+                                    'left': 500,
+                                    'top': 220,
+                                   
+                                }
                             }
                         }
                     }
@@ -437,7 +495,7 @@ activeShooterDef = {
                         },
                         'n': {
                             'name': 'NHall120',
-                            'image': 'R120-north.jpg'
+                            'image': 'R120-north.jpg',
                         },
                         's': {
                             'name': 'SHall120',
@@ -464,6 +522,16 @@ activeShooterDef = {
                             'destination': {
                                 'x': 1
                             },
+                            '_props': {
+                                'Room120Sign' : {
+                                    'name': 'Room120Sign',
+                                    'image': 'sign-room120.png',
+                                    'width': 80,
+                                    'height': 43,
+                                    'left' : 585,
+                                    'top': 365,
+                                }
+                            }
                         },
                         'n': {
                             'name': 'NHall220',
@@ -644,6 +712,16 @@ activeShooterDef = {
                             'image': 'R230-west.jpg',
                             'destination': {
                                 'x': 1
+                            },
+                            '_props': {
+                                'Room130Sign' : {
+                                    'name': 'Room130Sign',
+                                    'image': 'sign-room130.png',
+                                    'width': 79,
+                                    'height': 42,
+                                    'left' : 725,
+                                    'top': 375,
+                                }
                             }
                         },
                         'n': {
@@ -736,7 +814,6 @@ activeShooterDef = {
                     'id': 'hall530',
                     'x': 5,
                     'y': 3,
-                    '_triggers': ['foundHidingPlace'],
                     '_walls': {
                         'e': {
                             'name': 'EHall530',
@@ -747,7 +824,23 @@ activeShooterDef = {
                             'image': 'R530-west.jpg',
                             'destination': {
                                 'x': 4
+                            },
+                            '_props': {
+                                'HidingPlace' : {
+                                    'name': 'HidingPlace',
+                                    'image': 'hiding-place.png',
+                                    'hoverImage': 'hiding-place-hover.png',
+                                    'width': 90,
+                                    'height': 40,
+                                    'left' : 470,
+                                    'top': 335,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Hide'
+                                    }
+                                }
                             }
+
                         },
                         'n': {
                             'name': 'NHall530',
@@ -760,7 +853,7 @@ activeShooterDef = {
                         },
                         's': {
                             'name': 'SHall530',
-                            'image': 'R530-south.jpg'
+                            'image': 'R530-south.jpg',
                         }
                     }
                 },
@@ -870,6 +963,16 @@ activeShooterDef = {
                             'image': 'R240-south.jpg',
                             'destination': {
                                 'y': 3
+                            },
+                            '_props': {
+                                'Room130Sign': {
+                                    'name': 'Room130Sign',
+                                    'image': 'sign-room130-skew.png',
+                                    'width': 50,
+                                    'height': 40,
+                                    'left': 800,
+                                    'top': 350,
+                                }
                             }
                         }
                     }
@@ -1126,19 +1229,6 @@ activeShooterDef = {
                 'triggers': ['goHide'],
             }
         },       
-        'Fire': {
-            '1': {
-                'message': 'Oh no there is a fire in the way!',
-                'replies': {
-                    'Extinguish': '3'
-                }
-            },
-            '3': {
-                'triggers': ['useFireExtinguisher'],
-                'requires': {'has': ['Fire Extinguisher']}
-                // or use 'check': [{'has': ['Fire Extinguisher'], 'goto': '2'}]
-            }
-        },
         'Crowbar': {
             '1': {
                 'message': 'Pick up crowbar?',
@@ -1148,6 +1238,7 @@ activeShooterDef = {
                 }
             },
             '2': {
+                'requires': {'objectivesInProgress': ['getWeapon']},
                 'triggers': ['takeCrowbar'],
             },
         },
@@ -1198,7 +1289,12 @@ activeShooterDef = {
             '3': {
                 'triggers': ['shotByPolice'],
             }
-        }
+        },
+        'Hide':{
+            '1':{
+                'triggers': ['foundHidingPlace'],
+            }
+        },
     },
     '_triggers': {
         'takeFireExtinguisher': {
@@ -1217,7 +1313,8 @@ activeShooterDef = {
         },
         'getToClass': {
             'events': {
-                'setObjective': ['getToClass', 'Get to class for the lecture in room 130 (click on professor Bell)']
+                'setObjective': ['getToClass', 'Get to class for the lecture in room 130 (click on professor Bell)'],
+                'removeFromScene' : ['UseDoor']
             },
         },
         'gotToClass': {
@@ -1235,6 +1332,7 @@ activeShooterDef = {
         'FrontDoorsReached':{
             'events':{
                 'completeObjective': ['getToFrontDoors'],
+                'addToScene': ['crowbar'],
             },
             'disabled':true,
         },
@@ -1247,18 +1345,17 @@ activeShooterDef = {
             'events': {
                 'setObjective': ['goHide', 'Find a hiding place'],
                 'removeFromScene': ['UseDoor'],
-                'addToScene': ['shooter'],
+                'addToScene': ['HidingPlace'],
             },
-            'enableTriggers': ['foundHidingPlace'],
         },
         'foundHidingPlace': {
             'events': {
                 'showModal': ['Gun Jam!', 'The shooter\'s gun jammed! Quick! Find a weapon and take him out!'],
                 'completeObjective': ['goHide'],
                 'setObjective': ['getWeapon', 'Find a weapon'],
-                'addToScene': ['crowbar'],
+                'addToScene': ['shooter'],
+                'removeFromScene': ['HidingPlace'],
             },
-            'disabled': true,
         },
         'knockedOutByShooter': {
             'events': {
@@ -1289,7 +1386,7 @@ activeShooterDef = {
             }
         }
     },
-    'inactiveProps': ['UseDoor', 'policeman', 'crowbar', 'shooter', 'shooter-downed'],
+    'inactiveProps': ['UseDoor', 'policeman', 'crowbar', 'shooter', 'shooter-downed', 'HidingPlace'],
     '_player': {
         'x': 3,
         'y': 0,
@@ -1297,4 +1394,4 @@ activeShooterDef = {
         '_facing': 'n',
         'inventory': []
     },
-};
+}
