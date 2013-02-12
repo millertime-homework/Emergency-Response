@@ -72,6 +72,18 @@ activeShooterDef = {
                                     'height': 128,
                                     'left': 420,
                                     'top': 325,
+                                'SecurityGaurd' : {
+                                    'name': 'SecurityGaurd',
+                                    'image': 'Dr_Smiley.png',
+                                    'hoverImage': 'hoverSecurityGaurd.png',
+                                    'width': 200,
+                                    'height': 200,
+                                    'left' : 500,
+                                    'top': 250,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'SecurityGaurd'
+                                    }
                                 }
                             }
                         },
@@ -116,6 +128,16 @@ activeShooterDef = {
                             'image': 'R300-west.jpg',
                             'destination': {
                                 'x': 2
+                            },
+                            '_props': {
+                                'Room130Sign' : {
+                                    'name': 'Room130Sign',
+                                    'image': 'Room130.png',
+                                    'width': 12,
+                                    'height': 9,
+                                    'left' : 670,
+                                    'top': 305,
+                                }
                             }
                         },
                         'n': {
@@ -252,6 +274,21 @@ activeShooterDef = {
                         'n': {
                             'name': 'NHall110',
                             'image': 'R110-north.jpg',
+                            '_props': {
+                                'HidingPlace_1' : {
+                                    'name': 'HidingPlace',
+                                    'image': 'HidingPlace.png',
+                                    'hoverImage': 'hoverHidingPlace.png',
+                                    'width': 200,
+                                    'height': 100,
+                                    'left' : 470,
+                                    'top': 250,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Hide'
+                                    }
+                                }
+                            }
                         },
                         's': {
                             'name': 'SHall110',
@@ -287,6 +324,16 @@ activeShooterDef = {
                             'image': 'R210-west.jpg',
                             'destination': {
                                 'x': 1
+                            },
+                            '_props': {
+                                'Room110Sign' : {
+                                    'name': 'Room110Sign',
+                                    'image': 'Room110.png',
+                                    'width': 50,
+                                    'height': 35,
+                                    'left' : 650,
+                                    'top': 375,
+                                }
                             }
                         },
                         'n': {
@@ -301,6 +348,21 @@ activeShooterDef = {
                             'image': 'R210-south.jpg',
                             'destination': {
                                 'y': 0
+                            },
+                            '_props': {
+                                'SecurityGaurd' : {
+                                    'name': 'SecurityGaurd',
+                                    'image': 'Dr_Smiley.png',
+                                    'hoverImage': 'hoverSecurityGaurd.png',
+                                    'width': 100,
+                                    'height': 100,
+                                    'left' : 900,
+                                    'top': 250,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Security_Gaurd'
+                                    }
+                                }
                             }
                         }
                     }
@@ -437,7 +499,22 @@ activeShooterDef = {
                         },
                         'n': {
                             'name': 'NHall120',
-                            'image': 'R120-north.jpg'
+                            'image': 'R120-north.jpg',
+                            '_props': {
+                                'HidingPlace_1' : {
+                                    'name': 'HidingPlace',
+                                    'image': 'HidingPlace.png',
+                                    'hoverImage': 'hoverHidingPlace.png',
+                                    'width': 200,
+                                    'height': 100,
+                                    'left' : 470,
+                                    'top': 250,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Hide'
+                                    }
+                                }
+                            }
                         },
                         's': {
                             'name': 'SHall120',
@@ -464,6 +541,16 @@ activeShooterDef = {
                             'destination': {
                                 'x': 1
                             },
+                            '_props': {
+                                'Room120Sign' : {
+                                    'name': 'Room120Sign',
+                                    'image': 'Room120.png',
+                                    'width': 50,
+                                    'height': 35,
+                                    'left' : 625,
+                                    'top': 375,
+                                }
+                            }
                         },
                         'n': {
                             'name': 'NHall220',
@@ -623,6 +710,17 @@ activeShooterDef = {
                         'n': {
                             'name': 'NHall130',
                             'image': 'R130-north.jpg',
+                            '_props': {
+                                'RHF_Poster': {
+                                    'name': 'RHF_Poster',
+                                    'image': 'RHF_Poster.png',
+                                    'width': 108,
+                                    'height': 150,
+                                    'left': 500,
+                                    'top': 220,
+                                   
+                                }
+                            }
                         },
                         's': {
                             'name': 'SHall130',
@@ -644,6 +742,16 @@ activeShooterDef = {
                             'image': 'R230-west.jpg',
                             'destination': {
                                 'x': 1
+                            },
+                            '_props': {
+                                'Room130Sign' : {
+                                    'name': 'Room130Sign',
+                                    'image': 'Room130.png',
+                                    'width': 50,
+                                    'height': 35,
+                                    'left' : 725,
+                                    'top': 375,
+                                }
                             }
                         },
                         'n': {
@@ -760,7 +868,22 @@ activeShooterDef = {
                         },
                         's': {
                             'name': 'SHall530',
-                            'image': 'R530-south.jpg'
+                            'image': 'R530-south.jpg',
+                            '_props': {
+                                'HidingPlace_1' : {
+                                    'name': 'HidingPlace',
+                                    'image': 'HidingPlace.png',
+                                    'hoverImage': 'hoverHidingPlace.png',
+                                    'width': 200,
+                                    'height': 100,
+                                    'left' : 470,
+                                    'top': 250,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Hide'
+                                    }
+                                }
+                            }
                         }
                     }
                 },
@@ -1199,6 +1322,19 @@ activeShooterDef = {
                 'triggers': ['shotByPolice'],
             }
         }
+        'Hide':{
+            '1':{
+                'message': 'You are now hiding, good  job'
+            }
+        },
+        'SecurityGaurd':{
+            '1':{
+                'message': 'Hey, the shooter locked the door! Go hide, the police will be here soon!',
+                'replies':{
+                    '[Exit Conversation]' : '2'
+                }
+            }
+        },
     },
     '_triggers': {
         'takeFireExtinguisher': {
@@ -1217,7 +1353,8 @@ activeShooterDef = {
         },
         'getToClass': {
             'events': {
-                'setObjective': ['getToClass', 'Get to class for the lecture in room 130 (click on professor Bell)']
+                'setObjective': ['getToClass', 'Get to class for the lecture in room 130 (click on professor Bell)'],
+                'removeFromScene' : ['UseDoor']
             },
         },
         'gotToClass': {
@@ -1249,7 +1386,14 @@ activeShooterDef = {
                 'removeFromScene': ['UseDoor'],
                 'addToScene': ['shooter'],
             },
+            'startTriggers' : ['ShooterReallyClose'],
             'enableTriggers': ['foundHidingPlace'],
+        },
+        'ShooterReallyClose':{
+            'events':{
+                'setObjective': ['Fight', 'Fight the Shooter'],
+            },
+            'timeDelay' : 60000
         },
         'foundHidingPlace': {
             'events': {
