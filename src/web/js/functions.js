@@ -58,7 +58,6 @@ function loadScenario(data) {
     initializePlayer(data._player);
     loadTriggers(data._triggers);
     markInactivePropsInactive(data.inactiveProps);
-    clearObjective();
 
     //Allows scenario image loader to signal once all the images are loaded.
     jQuery(document).on('scenario-images-loaded', function(event) {
@@ -144,6 +143,8 @@ function loadScenario(data) {
 
     function loadTriggers(triggerData) {
         clearAllTriggers();
+        clearObjective();
+
         if (triggerData) {
             jQuery.each(triggerData, function (key, value) {
                 scenario.addTrigger(key, value);
