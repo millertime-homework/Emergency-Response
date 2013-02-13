@@ -530,7 +530,7 @@ function doesContain(source, contains) {
 function checkScenario(checkFunction, conditionProperty, secnarioProperty) {
     var i;
     if (conditionProperty) {
-        for (j = 0; j < conditionProperty.length; j++) {
+        for (i = 0; i < conditionProperty.length; i++) {
             if (!checkFunction(secnarioProperty, conditionProperty)) {
                 return false;
             }
