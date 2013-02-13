@@ -104,20 +104,31 @@ function executeTriggerEvent(trigger) {
 
 //Sends messages to other triggers, if any such messages exist.
 function processTriggers(trigger) {
+	var index;
+
 	if (trigger.signalTriggers) {
 		trigger.signalTriggers.map(signalTrigger)
 	}
+
 	if (trigger.deleteTriggers) {
 		trigger.deleteTriggers.map(deleteTrigger)
 	}
+
 	if (trigger.abortTriggers) {
 		trigger.abortTriggers.map(abortTrigger);
 	}
+
 	if (trigger.startTriggers) {
 		trigger.startTriggers.map(startTrigger);
 	}
+
 	if (trigger.enableTriggers) {
 		trigger.enableTriggers.map(enableTrigger);
+	}
+
+	if (trigger.startRandomTrigger) {
+		index = Math.floor(Math.random() * (trigger.startRandomTrigger.length));
+		startTrigger(trigger.startRandomTrigger[index]);
 	}
 }
 

@@ -56,7 +56,6 @@ function loadScenario(data) {
     loadFloors(data);
     loadConversations(data._conversations);
     initializePlayer(data._player);
-    loadTriggers(data._triggers);
     markInactivePropsInactive(data.inactiveProps);
 
     //Allows scenario image loader to signal once all the images are loaded.
@@ -65,6 +64,7 @@ function loadScenario(data) {
         renderScene();
         generateMap(player.x, player.y, scenario.getFloor(player.z));
         sizeWindow();
+        loadTriggers(data._triggers);
         saveGame();
         spinner.stop();
     });
