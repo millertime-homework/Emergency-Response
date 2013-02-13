@@ -182,24 +182,25 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
    background-color: transparent;
    background-image: url('../img/right.png');
 }
-
-.base-prop {
+.prop {
     position: absolute;
     overflow: visible;
+}
+
+.base-prop {
     z-index: 2; 
+}
+
+.hover-prop {
+    z-index: 1;
 }
 
 .base-prop img {
     .opacity(100);
-    &:hover {
-        cursor: pointer;
-        .opacity(0);
-    }
 }
 
-.hover-prop {
-    position: absolute;
-    z-index: 1; 
+.hover-prop img {
+    .opacity(0);
 }
 /*END---------Game viewport controls*/
 

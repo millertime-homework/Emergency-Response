@@ -6,9 +6,9 @@ var currentScenario;
 Managed by setGameState, so you can override it temporarily without cleaning up
 after yourself (ie, saving and then restoring the original value) */
 var canDismissModal = false;
+var spinner;
 
 jQuery(document).ready(function (jQuery) {
-    var spinner;
     jQuery(window).resize(function () {
         sizeWindow();
     });
@@ -332,8 +332,9 @@ function hideModal() {
     if (lastGameState === GAME_STATE_MENU) {
         setGameState(GAME_STATE_MENU);
     }
-
-    if (gameState !== GAME_STATE_MENU) {
+    if (gameState === GAME_STATE_OVER) {
+        jQuery('#modal').hide();
+    } else if (gameState !== GAME_STATE_MENU) {
         setGameState(GAME_STATE_RUNNING);
     }
 }
@@ -424,6 +425,15 @@ jQuery.fn.center = function () {
     });
 }
 
+jQuery.fn.opacity = function (opacity) {
+    return this.css({
+        "filter" : "alpha({0}*100)".format(opacity),
+        "moz opacity" : opacity,
+        "khtml opacity" : opacity,
+        "opacity" : opacity
+    });
+}
+
 /*The remaining functions are all for showConversations. The main showConversation method
 is a bit of a mess but I don't understand the check/inventory check stuff well enough
 to want to mess with it anymore than I have.*/
@@ -484,7 +494,7 @@ function showConversation(conversationName, currentConversationChoice) {
     }
 
     if (!currentOption.message) {
-        hideModal()
+        hideModal();
         return;
     }
 
