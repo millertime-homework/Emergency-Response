@@ -471,10 +471,6 @@ function showConversation(conversationName, currentConversationChoice) {
         return;
     }
 
-    if (currentOption.message === null) {
-        hideModal();
-    }
-
     if (currentOption.triggers) {
         for (i = 0; i < currentOption.triggers.length; i++) {
             startTrigger(currentOption.triggers[i]);
@@ -482,7 +478,8 @@ function showConversation(conversationName, currentConversationChoice) {
         saveGame();
     }
 
-    if (currentOption.message === null) {
+    if (!currentOption.message) {
+        hideModal()
         return;
     }
 
