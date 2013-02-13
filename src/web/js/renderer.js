@@ -42,8 +42,6 @@ jQuery(document).ready(function($){
             viewProp.css({ 
                 'left': value['left'],
                 'top': value['top'],
-                'width': value['width'],
-                'height': value['height']
             }).data(data);
 
             if (value['hoverImage']) {

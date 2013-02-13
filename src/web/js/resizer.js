@@ -34,6 +34,8 @@ function sizeWindow() {
     } else {
         centerMainMenu(windowHeight);
     }
+    if (jQuery('body').css('overflow') == 'hidden')
+	scrollTo(0, 0);
 }
 
 function reisizeSidebar(sidebar) {
@@ -131,7 +133,7 @@ function scaleProps() {
         object = jQuery(this);
         object.css({
             'top' : erg.CurrentScale * parsePxValue(object.data('top')) + 'px',
-            'left' : erg.CurrentScale * parsePxValue(object.data('left')) + 'px'
+            'left' : erg.CurrentScale * parsePxValue(object.data('left')) + 'px',
         }).children('img').css({
             'height' : erg.CurrentScale * parsePxValue(object.data('height')) + 'px',
             'width' : erg.CurrentScale * parsePxValue(object.data('width')) + 'px'

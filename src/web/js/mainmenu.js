@@ -13,7 +13,7 @@ jQuery(document).ready(function($){
 		// ## MAIN FUNCTION ##
     
         // Show Scene Selector
-        var scenarioSelectModal = $('#scenario-select');
+        var scenarioSelectModal = jQuery('#scenario-select');
         scenarioSelectModal.find('.option').remove();
         scenarioSelectModal.append('<div class="option"><span id="loadActiveShooter">' + activeShooterDef['name'] + '</span></div>').
         append('<div class="option"><span id="loadEarthquake">' + earthquakeDef['name'] + '</span></div>').
@@ -29,7 +29,7 @@ jQuery(document).ready(function($){
             $("#loadEarthquake").unbind("click");
             $("#loadTest").unbind("click");
             $(this).unbind("click");
-            $('#scenario-select').hide();
+            jQuery('#scenario-select').hide();
         });
 
         $("#loadEarthquake").live("click", function() {
@@ -38,7 +38,7 @@ jQuery(document).ready(function($){
             $("#loadActiveShooter").unbind("click");
             $("#loadTest").unbind("click");
             $(this).unbind("click");
-            $('#scenario-select').hide();
+            jQuery('#scenario-select').hide();
         });
 
         $("#loadTest").live("click", function() {
@@ -47,7 +47,7 @@ jQuery(document).ready(function($){
             $("#loadActiveShooter").unbind("click");
             $("#loadEarthquake").unbind("click");
             $(this).unbind("click");
-            $('#scenario-select').hide();
+            jQuery('#scenario-select').hide();
         });
 	})
 

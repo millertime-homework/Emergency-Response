@@ -59,13 +59,16 @@ function loadScenario(data) {
     loadTriggers(data._triggers);
     markInactivePropsInactive(data.inactiveProps);
     clearObjective();
-    setGameState(GAME_STATE_RUNNING);
-    renderScene();
-    generateMap(player.x, player.y, scenario.getFloor(player.z));
-    sizeWindow();
-    saveGame();
-    spinner.stop();
 
+    //Allows scenario image loader to signal once all the images are loaded.
+    jQuery(document).on('scenario-images-loaded', function(event) {
+        setGameState(GAME_STATE_RUNNING);
+        renderScene();
+        generateMap(player.x, player.y, scenario.getFloor(player.z));
+        sizeWindow();
+        saveGame();
+        spinner.stop();
+    });
 
     function loadFloors(scenarioData) {
         var currentFloor;
@@ -179,8 +182,8 @@ function loadScenario(data) {
     function addSpinner() {
          // Add spinner to view-modal while loading scenario   
         var spinner = new Spinner({
-            color: '#fff'
-        }).spin(document.getElementById('view-modal'));
+            color: '#000'
+        }).spin(document.getElementById('overlay'));
         return spinner;
     }
 
@@ -221,6 +224,7 @@ function setGameState(state) {
     case GAME_STATE_MENU:
         jQuery('#view-modal').hide();
         jQuery('.modal').hide();
+        jQuery('#overlay').hide();
         showMainMenu();
         allowKeyEvents = false;
         break;
@@ -505,32 +509,32 @@ function shouldShowReplyChoice(conversation, replyChoices, choiceText) {
 }
 
 function checkCondition(condition) {
-    function checkInventory(conditionProperty, inventory) {
-        var i;
-        if (conditionProperty) {
-            for (j = 0; j < conditionProperty.length; j++) {
-                if (!inventory.contains(condition.has[j])) {
-                    return false;
-                }
+    return checkScenario(doesContain, condition.has, player.inventory.items) &&
+            checkScenario(doesContain, condition.triggersEnabled, scenario.triggers.pool) &&
+            checkScenario(doesContain, condition.objectivesInProgress, scenario.objectives.inProgress) &&
+            checkScenario(doesContain, condition.objectivesCompleted, scenario.objectives.completed) &&
+            checkScenario(doesNotContain, condition.hasNot, player.inventory.items) &&
+            checkScenario(doesNotContain, condition.triggersDisabled, scenario.triggers.pool) &&
+            checkScenario(doesNotContain, condition.objectivesNotInProgress, scenario.objectives.inProgress) &&
+            checkScenario(doesNotContain, condition.objectivesNotCompleted, scenario.objectives.completed);
+}
+
+function doesNotContain(source, contains) {
+    return !source[contains];
+}
+
+function doesContain(source, contains) {
+    return source[contains];
+}
+
+function checkScenario(checkFunction, conditionProperty, secnarioProperty) {
+    var i;
+    if (conditionProperty) {
+        for (j = 0; j < conditionProperty.length; j++) {
+            if (!checkFunction(secnarioProperty, conditionProperty)) {
+                return false;
             }
         }
-        return true;
     }
-
-    function checkScenario(conditionProperty, secnarioProperty) {
-        var i;
-        if (conditionProperty) {
-            for (j = 0; j < conditionProperty.length; j++) {
-                if (!secnarioProperty[conditionProperty[j]]) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-
-    return checkInventory(condition.has, player.inventory) &&
-            checkScenario(condition.triggersEnabled, scenario.triggers.pool) &&
-            checkScenario(condition.objectivesInProgress, scenario.objectives.inProgress) &&
-            checkScenario(condition.objectivesCompleted, scenario.objectives.completed);
+    return true;
 }

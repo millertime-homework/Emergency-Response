@@ -43,24 +43,37 @@ activeShooterDef = {
                             'destination': {
                                 'x': 3
                             },
-                            '_props': {
-                                'prof-bell': {
-                                    'name': 'prof-bell',
-                                    'image': 'prof_bell.png',
-                                    'width': 50,
-                                    'height': 89,
-                                    'left': 480,
-                                    'top': 285
-                                }
-                            }
                         },
                         'w': {
                             'name': 'WHall200',
-                            'image': 'R200-west.jpg' /*, can't go to 1,0,0 it's commented out
+                            'image': 'R200-west.jpg', /* can't go to 1,0,0 it's commented out
                             'destination': {
                                 'x': 1
                             }
                             */
+                            '_props': {
+                                'shooter': {
+                                    'name': 'shooter',
+                                    'image': 'shooter.png',
+                                    'hoverImage': 'shooter-hover.png',
+                                    'width': 128,
+                                    'height': 256,
+                                    'left': 450,
+                                    'top': 255,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Shooter'
+                                    }
+                                },
+                                'shooter-downed': {
+                                    'name': 'shooter-downed',
+                                    'image': 'shooter-downed.png',
+                                    'width': 256,
+                                    'height': 128,
+                                    'left': 420,
+                                    'top': 325,
+                                },
+                            }
                         },
                         'n': {
                             'name': 'NHall200',
@@ -76,12 +89,31 @@ activeShooterDef = {
                                     'height': 104,
                                     'left': 650,
                                     'top': 190,
+                                },
+                                'Room110Sign': {
+                                    'name': 'Room110Sign',
+                                    'image': 'sign-room110-skew.png',
+                                    'width': 47,
+                                    'height': 39,
+                                    'left': 340,
+                                    'top': 320,
                                 }
                             }
                         },
                         's': {
                             'name': 'SHall200',
-                            'image': 'R200-south.jpg'
+                            'image': 'R200-south.jpg',
+                            '_props': {
+                                'RHF_Poster': {
+                                    'name': 'RHF_Poster',
+                                    'image': 'RHF_Poster.png',
+                                    'width': 350,
+                                    'height': 438,
+                                    'left': 400,
+                                    'top': 60,
+                                   
+                                }
+                            }
                         }
                     },
                 },
@@ -89,6 +121,7 @@ activeShooterDef = {
                     'id': 'hall300',
                     'x': 3,
                     'y': 0,
+                    '_triggers' : ['getToClass'],
                     '_walls': {
                         'e': {
                             'name': 'EHall300',
@@ -96,26 +129,30 @@ activeShooterDef = {
                             'destination': {
                                 'x': 4
                             },
-                            '_props': {
-                                'prof-bell': {
-                                    'name': 'prof-bell',
-                                    'image': 'prof_bell.png',
-                                    'width': 200,
-                                    'height': 354,
-                                    'left': 100,
-                                    'top': 257,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'Professor Bell'
-                                    }
-                                }
-                            }
                         },
                         'w': {
                             'name': 'WHall300',
                             'image': 'R300-west.jpg',
                             'destination': {
                                 'x': 2
+                            },
+                            '_props': {
+                                'RHF_Poster': {
+                                    'name': 'RHF_Poster',
+                                    'image': 'RHF_Poster-skew.png',
+                                    'width': 64,
+                                    'height': 103,
+                                    'left': 420,
+                                    'top': 250,
+                                },
+                                'Room110Sign' : {
+                                    'name': 'Room110Sign',
+                                    'image': 'sign-room110.png',
+                                    'width': 19,
+                                    'height': 10,
+                                    'left' : 670,
+                                    'top': 305,
+                                }
                             }
                         },
                         'n': {
@@ -125,18 +162,6 @@ activeShooterDef = {
                                 'y': 1
                             },
                             '_props': {
-                                'prof-bell': {
-                                    'name': 'prof-bell',
-                                    'image': 'prof_bell.png',
-                                    'width': 200,
-                                    'height': 354,
-                                    'left': 900,
-                                    'top': 257,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'Professor Bell'
-                                    },
-                                },
                                 'Fire-Extinguisher': {
                                     'name': 'Fire-Extinguisher',
                                     'image': 'fire-extinguisher.png',
@@ -149,7 +174,35 @@ activeShooterDef = {
                         },
                         's': {
                             'name': 'SHall300',
-                            'image': 'R300-south.jpg'
+                            'image': 'R300-south.jpg',
+                            '_props': {
+                                'UseDoor':{
+                                    'name': 'UseDoor',
+                                    'image': 'UseDoor.png',
+                                    'hoverImage': 'hoverUseDoor.png',
+                                    'width': 78,
+                                    'height': 190,
+                                    'left' : 470,
+                                    'top': 245,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'ExitSchool'
+                                    }
+                                },
+                                'policeman': {
+                                    'name': 'policeman',
+                                    'image': 'policeman.png',
+                                    'hoverImage': 'policeman-hover.png',
+                                    'width': 250,
+                                    'height': 441,
+                                    'left': 500,
+                                    'top': 170,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'policeman'
+                                    }
+                                }
+                            }
                         }
                     }
                 },
@@ -172,16 +225,6 @@ activeShooterDef = {
                             'destination': {
                                 'x': 3
                             },
-                            '_props': {
-                                'prof-bell': {
-                                    'name': 'prof-bell',
-                                    'image': 'prof_bell.png',
-                                    'width': 75,
-                                    'height': 133,
-                                    'left': 630,
-                                    'top': 315
-                                }
-                            }
                         },
                         'n': {
                             'name': 'NHall400',
@@ -237,7 +280,7 @@ activeShooterDef = {
                             'image': 'R110-east.jpg',
                             'destination': {
                                 'x': 2
-                            }
+                            },
                         },
                         'w': {
                             'name': 'WHall110',
@@ -281,6 +324,16 @@ activeShooterDef = {
                             'image': 'R210-west.jpg',
                             'destination': {
                                 'x': 1
+                            },
+                            '_props': {
+                                'Room110Sign' : {
+                                    'name': 'Room110Sign',
+                                    'image': 'sign-room110.png',
+                                    'width': 78,
+                                    'height': 39,
+                                    'left' : 650,
+                                    'top': 375,
+                                }
                             }
                         },
                         'n': {
@@ -295,6 +348,17 @@ activeShooterDef = {
                             'image': 'R210-south.jpg',
                             'destination': {
                                 'y': 0
+                            },
+                            '_props': {
+                                'RHF_Poster': {
+                                    'name': 'RHF_Poster',
+                                    'image': 'RHF_Poster.png',
+                                    'width': 140,
+                                    'height': 175,
+                                    'left': 500,
+                                    'top': 220,
+                                   
+                                }
                             }
                         }
                     }
@@ -350,16 +414,6 @@ activeShooterDef = {
                             'destination': {
                                 'y': 0
                             },
-                            '_props': {
-                                'prof-bell': {
-                                    'name': 'prof-bell',
-                                    'image': 'prof_bell.png',
-                                    'width': 150,
-                                    'height': 266,
-                                    'left': 280,
-                                    'top': 315
-                                }
-                            }
                         }
                     }
                 },
@@ -441,7 +495,7 @@ activeShooterDef = {
                         },
                         'n': {
                             'name': 'NHall120',
-                            'image': 'R120-north.jpg'
+                            'image': 'R120-north.jpg',
                         },
                         's': {
                             'name': 'SHall120',
@@ -467,6 +521,16 @@ activeShooterDef = {
                             'image': 'R220-west.jpg',
                             'destination': {
                                 'x': 1
+                            },
+                            '_props': {
+                                'Room120Sign' : {
+                                    'name': 'Room120Sign',
+                                    'image': 'sign-room120.png',
+                                    'width': 80,
+                                    'height': 43,
+                                    'left' : 585,
+                                    'top': 365,
+                                }
                             }
                         },
                         'n': {
@@ -598,7 +662,6 @@ activeShooterDef = {
                     'id': 'hall130',
                     'x': 1,
                     'y': 3,
-                    '_triggers': ['gotToClass'],
                     '_walls': {
                         'e': {
                             'name': 'EHall130',
@@ -609,7 +672,21 @@ activeShooterDef = {
                         },
                         'w': {
                             'name': 'WHall130',
-                            'image': 'R130-west.jpg'
+                            'image': 'R130-west.jpg',
+                            '_props': {
+                                'prof-bell': {
+                                    'name': 'prof-bell',
+                                    'image': 'prof_bell.png',
+                                    'width': 80,
+                                    'height': 150,
+                                    'left': 500,
+                                    'top': 270,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Professor Bell'
+                                    }
+                                }
+                            }
                         },
                         'n': {
                             'name': 'NHall130',
@@ -635,6 +712,16 @@ activeShooterDef = {
                             'image': 'R230-west.jpg',
                             'destination': {
                                 'x': 1
+                            },
+                            '_props': {
+                                'Room130Sign' : {
+                                    'name': 'Room130Sign',
+                                    'image': 'sign-room130.png',
+                                    'width': 79,
+                                    'height': 42,
+                                    'left' : 725,
+                                    'top': 375,
+                                }
                             }
                         },
                         'n': {
@@ -737,7 +824,23 @@ activeShooterDef = {
                             'image': 'R530-west.jpg',
                             'destination': {
                                 'x': 4
+                            },
+                            '_props': {
+                                'HidingPlace' : {
+                                    'name': 'HidingPlace',
+                                    'image': 'hiding-place.png',
+                                    'hoverImage': 'hiding-place-hover.png',
+                                    'width': 90,
+                                    'height': 40,
+                                    'left' : 470,
+                                    'top': 335,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Hide'
+                                    }
+                                }
                             }
+
                         },
                         'n': {
                             'name': 'NHall530',
@@ -750,7 +853,7 @@ activeShooterDef = {
                         },
                         's': {
                             'name': 'SHall530',
-                            'image': 'R530-south.jpg'
+                            'image': 'R530-south.jpg',
                         }
                     }
                 },
@@ -830,11 +933,26 @@ activeShooterDef = {
                         },
                         'w': {
                             'name': 'WHall240',
-                            'image': 'R240-west.jpg' /*, can't go to 1,4,0 it's commented out
+                            'image': 'R240-west.jpg', /* can't go to 1,4,0 it's commented out
                             'destination': {
                                 'x': 1
                             }
                             */
+                            '_props': {
+                                'crowbar': {
+                                    'name': 'crowbar',
+                                    'image': 'crowbar.png',
+                                    'hoverImage': 'crowbar-hover.png',
+                                    'width': 200,
+                                    'height': 134,
+                                    'left': 400,
+                                    'top': 377,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Crowbar',
+                                    }
+                                }
+                            },
                         },
                         'n': {
                             'name': 'NHall240',
@@ -845,6 +963,16 @@ activeShooterDef = {
                             'image': 'R240-south.jpg',
                             'destination': {
                                 'y': 3
+                            },
+                            '_props': {
+                                'Room130Sign': {
+                                    'name': 'Room130Sign',
+                                    'image': 'sign-room130-skew.png',
+                                    'width': 50,
+                                    'height': 40,
+                                    'left': 800,
+                                    'top': 350,
+                                }
                             }
                         }
                     }
@@ -866,7 +994,18 @@ activeShooterDef = {
                             'image': 'R340-west.jpg',
                             'destination': {
                                 'x': 2
-                            }
+                            },
+                            '_props': {
+                                'crowbar': {
+                                    'name': 'crowbar',
+                                    'image': 'crowbar.png',
+                                    'hoverImage': 'crowbar-hover.png',
+                                    'width': 72,
+                                    'height': 48,
+                                    'left': 500,
+                                    'top': 320,
+                                }
+                            },
                         },
                         'n': {
                             'name': 'NHall340',
@@ -1037,46 +1176,217 @@ activeShooterDef = {
         },
         'Professor Bell': {
             '1': {
-                'message': 'Good morning! Class is starting soon!.',
+                'triggers': ['gotToClass'],
+                'message': 'Good morning! Class is starting, have a seat. Today we\'re going over... [Bang!]... [Bang! Bang!]. What? What is that. That sounds like gun fire. [Professor Bell goes to the class room door and peers out.] Quickly, everyone get out. I think we can make it to the front doors.',
                 'replies': {
-                    'I\'ll go sit down': 2,
-                    'I\'ll skip the lecture and take the quiz': 3,
-                    'I\'ve already taken the quiz': 0,
+                    'No way! I\'m staying right here.': 0,
+                    'Ok, let\'s go!' : 2,
                 }
             },
             '2': {
-                'triggers': ['getToClass']
+                'triggers': ['getToFrontDoors']
             },
+        },
+        'ExitSchool':{
+            '1':{
+                'triggers': ['FrontDoorsReached'],
+                'message' : 'The Door has been locked!',
+                'replies':{
+                    'Break Down The Door!' : 2,
+                    'Go Hide' : 7,
+                }
+            },
+            '2':{
+                'message' : 'You start to throw yourself against the door. It appears to be locked with a chain from the outside. The door doesn\'t seem to be budging!',
+                'replies':{
+                    'Continue to try and break down the door': 3,
+                    'Leave the door and go hide': 4,
+                }
+            },
+            '3':{
+                'message' : 'The door seems to be giving way, but you can hear gun shots just around the corner to the north. The active shooter is very close!',
+                'replies' : {
+                    'Too late now, I\'m committed. Continue to break down the front door': 5,
+                    'Abandon the door and go hide' : 7,
+                    }                
+            },
+            '4':{
+                'message': 'Ok, you\'ve only lost a little bit of time. You can hear the shooter approaching down the hallway to the north. Quick! Find a hiding place.',
+                'replies' : {
+                    '[Exit Conversation]' : 7,
+                }
+            },
+            '5':{
+                'triggers': ['shotAtFrontDoor'],
+            },
+            '6':{
+                'message': 'You don\'t have much time. The shooter is really close. Hide quickly!',
+                'replies' : {
+                    '[Exit Conversation]': 7,
+                }
+            },
+            '7': {
+                'triggers': ['goHide'],
+            }
+        },       
+        'Crowbar': {
+            '1': {
+                'message': 'Pick up crowbar?',
+                'replies': {
+                    'Pick up': 2,
+                    'Leave': 0,
+                }
+            },
+            '2': {
+                'requires': {'objectivesInProgress': ['getWeapon']},
+                'triggers': ['takeCrowbar'],
+            },
+        },
+        'Shooter': {
+            '1': {
+                'check': [{'objectivesInProgress': ['attackShooter'], 'goto': '2'}],
+                'message': 'WELL HELLO THERE!',
+                'replies': {
+                    'Run away': 0,
+                }
+            },
+            '2': {
+                'message': 'This stupid gun! I can\'t believe it\'s jamming!',
+                'replies': {
+                    'ATTACK!!!': 3,
+                    'Try to incapacitate': 4,
+                    'Run away': 0,
+                }
+            },
+            '3': {
+                'requires': {'has': ['crowbar']},
+                'message': 'OUCH! Grr!',
+                'replies': {
+                    'ATTACK!!!': 5,
+                    'Run away': 0,
+                }
+            },
+            '4': {
+                'requires': {'has': ['crowbar']},
+                'triggers': ['knockedOutByShooter'],
+            },
+            '5': {
+                'triggers': ['takeDownShooter'],
+            },
+        },
+        'policeman': {
+            '1': {
+                'triggers': ['escaped'],
+                'message': 'Freeze! Put your hands where I can see them!',
+                'replies': {
+                    '[Put hands in the air]': 2,
+                    '[Approach the officer]': 3,
+                }
+            },
+            '2': {
+                'triggers': ['survived'],
+            },
+            '3': {
+                'triggers': ['shotByPolice'],
+            }
+        },
+        'Hide':{
+            '1':{
+                'triggers': ['foundHidingPlace'],
+            }
         },
     },
     '_triggers': {
-		//The first objective.
-        'See_Professor' : {
-            'events' : {
-				'setObjective' : ['talkToProfessor', 'Go talk to Professor Bell in room 120']
-            }
-		},
         'takeFireExtinguisher': {
             'events': {
                 'takeFromScene' : [ {'name': 'Fire Extinguisher', 'image': 'fire-extinguisher.png', 'width':32, 'height':32 },
                                     'Fire-Extinguisher' ]
             }
         },
-        /* Professor Bell gives 'Get to class' objective. Upon arrival at class, the lecture begins. */
+        'takeCrowbar': {
+            'events': {
+                'takeFromScene': [ {'name': 'crowbar', 'image': 'crowbar.png', 'width':32, 'height':20},
+                                   'crowbar'],
+                'completeObjective': ['getWeapon'],
+                'setObjective': ['attackShooter', 'Find and attack the shooter'],
+            }
+        },
         'getToClass': {
             'events': {
-                'setObjective': ['getToClass', 'Get to class for the lecture']
+                'setObjective': ['getToClass', 'Get to class for the lecture in room 130 (click on professor Bell)'],
+                'removeFromScene' : ['UseDoor']
             },
-            'enableTriggers': ['gotToClass']
         },
-        /* For now, the lecture ends by leaving the room */
         'gotToClass': {
             'events': {
                 'completeObjective': ['getToClass'],
             },
-            'disabled': true,
         },
+        'getToFrontDoors': {
+            'events': {
+                'setObjective': ['getToFrontDoors', 'Go to the front doors of the school and get out of the building'],
+                'addToScene': ['UseDoor'],
+            },
+            'enableTriggers': ['FrontDoorsReached']
+        },
+        'FrontDoorsReached':{
+            'events':{
+                'completeObjective': ['getToFrontDoors'],
+                'addToScene': ['crowbar'],
+            },
+            'disabled':true,
+        },
+        'shotAtFrontDoor': {
+            'events': {
+                'endGame': ['Game Over','You desperately try to get the door open, but it is too late. The shooter comes around the corner and sees you out in the open. He shoots you [Game Over]'],
+            },
+        },
+        'goHide': {
+            'events': {
+                'setObjective': ['goHide', 'Find a hiding place'],
+                'removeFromScene': ['UseDoor'],
+                'addToScene': ['HidingPlace'],
+            },
+        },
+        'foundHidingPlace': {
+            'events': {
+                'showModal': ['Gun Jam!', 'The shooter\'s gun jammed! Quick! Find a weapon and take him out!'],
+                'completeObjective': ['goHide'],
+                'setObjective': ['getWeapon', 'Find a weapon'],
+                'addToScene': ['shooter'],
+                'removeFromScene': ['HidingPlace'],
+            },
+        },
+        'knockedOutByShooter': {
+            'events': {
+                'endGame': ['Game Over', 'You didn\'t commit! The shooter knocked you out!'],
+            }
+        },
+        'takeDownShooter': {
+            'events': {
+                'completeObjective': ['attackShooter'],
+                'setObjective': ['escape', 'Escape the school'],
+                'replaceProp': ['shooter', 'shooter-downed'],
+                'addToScene': ['policeman'],
+            },
+        },
+        'escaped': {
+            'events': {
+                'completeObjective': ['escape'],
+            },
+        },
+        'survived': {
+            'events': {
+                'endGame': ['You survived!', 'You made it! You wait outside for the police to apprehend the shooter.'],
+            }
+        },
+        'shotByPolice': {
+            'events': {
+                'endGame': ['Game Over','Unfortunately your actions caused the police to shoot you, and now you are dead.']
+            }
+        }
     },
+    'inactiveProps': ['UseDoor', 'policeman', 'crowbar', 'shooter', 'shooter-downed', 'HidingPlace'],
     '_player': {
         'x': 3,
         'y': 0,
@@ -1084,4 +1394,4 @@ activeShooterDef = {
         '_facing': 'n',
         'inventory': []
     },
-};
+}
