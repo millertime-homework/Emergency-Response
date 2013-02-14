@@ -375,6 +375,9 @@ activeShooterDef = {
                         'w': {
                             'name': 'WHall310',
                             'image': 'R310-west.jpg',
+                            'destination': {
+                                'z': 1
+                            },
                             '_props': {
                                 'Fire-Extinguisher': {
                                     'name': 'Fire-Extinguisher',
@@ -393,6 +396,11 @@ activeShooterDef = {
                         'n': {
                             'name': 'NHall310',
                             'image': 'R310-north.jpg',
+                            'destination': {
+                                'x': 2,
+                                'y': 3,
+                                'z': 1,
+                            },
                             '_props': {
                                 'Fire-Extinguisher': {
                                     'name': 'Fire-Extinguisher',
@@ -1116,6 +1124,609 @@ activeShooterDef = {
                     }
                 },
                 */
+            }
+        },
+        'Second Floor': {
+            'z': 1,
+            '_rooms': {
+                'room011': {
+                    'id': 'class011',
+                    'x': 0,
+                    'y': 1,
+                    '_walls': {
+                        'e': {
+                            'name': 'EClass011',
+                            'image': 'R011-east.jpg',
+                            'destination': {
+                                'x': 1
+                            }
+                        },
+                        'w': {
+                            'name': 'WClass011',
+                            'image': 'R011-west.jpg',
+                        },
+                        'n': {
+                            'name': 'NClass011',
+                            'image': 'R011-north.jpg',
+                        },
+                        's': {
+                            'name': 'SClass011',
+                            'image': 'R011-south.jpg',
+                        }
+                    }
+                },
+                'room021': {
+                    'id': 'class021',
+                    'x': 0,
+                    'y': 2,
+                    '_walls': {
+                        'e': {
+                            'name': 'EClass021',
+                            'image': 'R021-east.jpg',
+                            'destination': {
+                                'x': 1
+                            }
+                        },
+                        'w': {
+                            'name': 'WClass021',
+                            'image': 'R021-west.jpg',
+                        },
+                        'n': {
+                            'name': 'NClass021',
+                            'image': 'R021-north.jpg',
+                        },
+                        's': {
+                            'name': 'SClass021',
+                            'image': 'R021-south.jpg',
+                        }
+                    }
+                },
+                'room041': {
+                    'id': 'office041',
+                    'x': 0,
+                    'y': 4,
+                    '_walls': {
+                        'e': {
+                            'name': 'EOffice041',
+                            'image': 'R041-east.jpg',
+                            'destination': {
+                                'x': 1
+                            }
+                        },
+                        'w': {
+                            'name': 'WOffice041',
+                            'image': 'R041-west.jpg',
+                        },
+                        'n': {
+                            'name': 'NOffice041',
+                            'image': 'R041-north.jpg',
+                        },
+                        's': {
+                            'name': 'SOffice041',
+                            'image': 'R041-south.jpg',
+                        }
+                    }
+                },
+                'room051': {
+                    'id': 'office051',
+                    'x': 0,
+                    'y': 5,
+                    '_walls': {
+                        'e': {
+                            'name': 'EOffice051',
+                            'image': 'R051-east.jpg',
+                            'destination': {
+                                'x': 1
+                            }
+                        },
+                        'w': {
+                            'name': 'WOffice051',
+                            'image': 'R051-west.jpg',
+                        },
+                        'n': {
+                            'name': 'NOffice051',
+                            'image': 'R051-north.jpg',
+                        },
+                        's': {
+                            'name': 'SOffice051',
+                            'image': 'R051-south.jpg',
+                        }
+                    }
+                },
+                'room101': {
+                    'id': 'hall101',
+                    'x': 1,
+                    'y': 0,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall101',
+                            'image': 'R101-east.jpg',
+                            'destination': {
+                                'x': 2
+                            }
+                        },
+                        'w': {
+                            'name': 'WHall101',
+                            'image': 'R101-west.jpg',
+                        },
+                        'n': {
+                            'name': 'NHall101',
+                            'image': 'R101-north.jpg',
+                            'destination': {
+                                'y': 1
+                            }
+                        },
+                        's': {
+                            'name': 'SHall101',
+                            'image': 'R101-south.jpg',
+                        }
+                    }
+                },
+                'room111': {
+                    'id': 'hall111',
+                    'x': 1,
+                    'y': 1,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall111',
+                            'image': 'R111-east.jpg'
+                        },
+                        'w': {
+                            'name': 'WHall111',
+                            'image': 'R111-west.jpg',
+                            'destination': {
+                                'x': 0
+                            }
+                        },
+                        'n': {
+                            'name': 'NHall111',
+                            'image': 'R111-north.jpg',
+                            'destination': {
+                                'y': 2
+                            }
+                        },
+                        's': {
+                            'name': 'SHall111',
+                            'image': 'R111-south.jpg',
+                            'destination': {
+                                'y': 0
+                            }
+                        }
+                    }
+                },
+                'room121': {
+                    'id': 'hall121',
+                    'x': 1,
+                    'y': 2,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall121',
+                            'image': 'R121-east.jpg',
+                            'destination': {
+                                'x': 3,
+                                'y': 1,
+                                'z': 0
+                            }
+                        },
+                        'w': {
+                            'name': 'WHall121',
+                            'image': 'R121-west.jpg',
+                            'destination': {
+                                'x': 0
+                            }
+                        },
+                        'n': {
+                            'name': 'NHall121',
+                            'image': 'R121-north.jpg',
+                            'destination': {
+                                'y': 3
+                            }
+                        },
+                        's': {
+                            'name': 'SHall121',
+                            'image': 'R121-south.jpg',
+                            'destination': {
+                                'y': 1
+                            }
+                        }
+                    }
+                },
+                'room131': {
+                    'id': 'hall131',
+                    'x': 1,
+                    'y': 3,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall131',
+                            'image': 'R131-east.jpg',
+                            'destination': {
+                                'x': 2
+                            }
+                        },
+                        'w': {
+                            'name': 'WHall131',
+                            'image': 'R131-west.jpg'
+                        },
+                        'n': {
+                            'name': 'NHall131',
+                            'image': 'R131-north.jpg',
+                            'destination': {
+                                'y': 4
+                            }
+                        },
+                        's': {
+                            'name': 'SHall131',
+                            'image': 'R131-south.jpg',
+                            'destination': {
+                                'y': 2
+                            }
+                        }
+                    }
+                },
+                'room141': {
+                    'id': 'hall141',
+                    'x': 1,
+                    'y': 4,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall141',
+                            'image': 'R141-east.jpg',
+                            'destination': {
+                                'x': 2
+                            }
+                        },
+                        'w': {
+                            'name': 'WHall141',
+                            'image': 'R141-west.jpg',
+                            'destination': {
+                                'x': 0
+                            }
+                        },
+                        'n': {
+                            'name': 'NHall141',
+                            'image': 'R141-north.jpg',
+                            'destination': {
+                                'y': 5
+                            }
+                        },
+                        's': {
+                            'name': 'SHall141',
+                            'image': 'R141-south.jpg',
+                            'destination': {
+                                'y': 3
+                            }
+                        }
+                    }
+                },
+                'room151': {
+                    'id': 'hall151',
+                    'x': 1,
+                    'y': 5,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall151',
+                            'image': 'R151-east.jpg'
+                        },
+                        'w': {
+                            'name': 'WHall151',
+                            'image': 'R151-west.jpg',
+                            'destination': {
+                                'x': 0
+                            }
+                        },
+                        'n': {
+                            'name': 'NHall151',
+                            'image': 'R151-north.jpg'
+                        },
+                        's': {
+                            'name': 'SHall151',
+                            'image': 'R151-south.jpg',
+                            'destination': {
+                                'y': 4
+                            }
+                        }
+                    }
+                },
+                'room201': {
+                    'id': 'restroom201',
+                    'x': 2,
+                    'y': 0,
+                    '_walls': {
+                        'e': {
+                            'name': 'ERestroom201',
+                            'image': 'R201-east.jpg'
+                        },
+                        'w': {
+                            'name': 'WRestroom201',
+                            'image': 'R201-west.jpg',
+                            'destination': {
+                                'x': 1
+                            }
+                        },
+                        'n': {
+                            'name': 'NRestroom201',
+                            'image': 'R201-north.jpg'
+                        },
+                        's': {
+                            'name': 'SRestroom201',
+                            'image': 'R201-south.jpg'
+                        }
+                    }
+                },
+                'room231': {
+                    'id': 'hall231',
+                    'x': 2,
+                    'y': 3,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall231',
+                            'image': 'R231-east.jpg',
+                            'destination': {
+                                'x': 3
+                            }
+                        },
+                        'w': {
+                            'name': 'WHall231',
+                            'image': 'R231-west.jpg',
+                            'destination': {
+                                'x': 1
+                            }
+                        },
+                        'n': {
+                            'name': 'NHall231',
+                            'image': 'R231-north.jpg'
+                        },
+                        's': {
+                            'name': 'SHall231',
+                            'image': 'R231-south.jpg'
+                        }
+                    }
+                },
+                'room241': {
+                    'id': 'library241',
+                    'x': 2,
+                    'y': 4,
+                    '_walls': {
+                        'e': {
+                            'name': 'ELibrary241',
+                            'image': 'R241-east.jpg',
+                            'destination': {
+                                'x': 3
+                            }
+                        },
+                        'w': {
+                            'name': 'WLibrary241',
+                            'image': 'R241-west.jpg',
+                            'destination': {
+                                'x': 1
+                            }
+                        },
+                        'n': {
+                            'name': 'NLibrary241',
+                            'image': 'R241-north.jpg',
+                            'destination': {
+                                'y': 5
+                            }
+                        },
+                        's': {
+                            'name': 'SLibrary241',
+                            'image': 'R241-south.jpg'
+                        }
+                    }
+                },
+                'room251': {
+                    'id': 'library251',
+                    'x': 2,
+                    'y': 5,
+                    '_walls': {
+                        'e': {
+                            'name': 'ELibrary251',
+                            'image': 'R251-east.jpg',
+                            'destination': {
+                                'x': 3
+                            }
+                        },
+                        'w': {
+                            'name': 'WLibrary251',
+                            'image': 'R251-west.jpg'
+                        },
+                        'n': {
+                            'name': 'NLibrary251',
+                            'image': 'R251-north.jpg'
+                        },
+                        's': {
+                            'name': 'SLibrary251',
+                            'image': 'R251-south.jpg',
+                            'destination': {
+                                'y': 4
+                            }
+                        }
+                    }
+                },
+                'room301': {
+                    'id': 'storage301',
+                    'x': 3,
+                    'y': 0,
+                    '_walls': {
+                        'e': {
+                            'name': 'EStorage301',
+                            'image': 'R301-east.jpg'
+                        },
+                        'w': {
+                            'name': 'WStorage301',
+                            'image': 'R301-west.jpg'
+                        },
+                        'n': {
+                            'name': 'NStorage301',
+                            'image': 'R301-north.jpg',
+                            'destination': {
+                                'y': 1
+                            }
+                        },
+                        's': {
+                            'name': 'SStorage301',
+                            'image': 'R301-south.jpg'
+                        }
+                    }
+                },
+                'room311': {
+                    'id': 'hall311',
+                    'x': 3,
+                    'y': 1,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall311',
+                            'image': 'R311-east.jpg'
+                        },
+                        'w': {
+                            'name': 'WHall311',
+                            'image': 'R311-west.jpg',
+                            'destination': {
+                                'z': 0
+                            }
+                        },
+                        'n': {
+                            'name': 'NHall311',
+                            'image': 'R311-north.jpg',
+                            'destination': {
+                                'y': 2
+                            }
+                        },
+                        's': {
+                            'name': 'SHall311',
+                            'image': 'R311-south.jpg',
+                            'destination': {
+                                'y': 0
+                            }
+                        }
+                    }
+                },
+                'room321': {
+                    'id': 'hall321',
+                    'x': 3,
+                    'y': 2,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall321',
+                            'image': 'R321-east.jpg'
+                        },
+                        'w': {
+                            'name': 'WHall321',
+                            'image': 'R321-west.jpg',
+                            'destination': {
+                                'y': 1,
+                                'z': 0
+                            }
+                        },
+                        'n': {
+                            'name': 'NHall321',
+                            'image': 'R321-north.jpg',
+                            'destination': {
+                                'y': 3
+                            }
+                        },
+                        's': {
+                            'name': 'SHall321',
+                            'image': 'R321-south.jpg',
+                            'destination': {
+                                'y': 1
+                            }
+                        }
+                    }
+                },
+                'room331': {
+                    'id': 'hall331',
+                    'x': 3,
+                    'y': 3,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall331',
+                            'image': 'R331-east.jpg'
+                        },
+                        'w': {
+                            'name': 'WHall331',
+                            'image': 'R331-west.jpg',
+                            'destination': {
+                                'x': 2
+                            }
+                        },
+                        'n': {
+                            'name': 'NHall331',
+                            'image': 'R331-north.jpg',
+                            'destination': {
+                                'y': 4
+                            }
+                        },
+                        's': {
+                            'name': 'SHall331',
+                            'image': 'R331-south.jpg',
+                            'destination': {
+                                'y': 2
+                            }
+                        }
+                    }
+                },
+                'room341': {
+                    'id': 'library341',
+                    'x': 3,
+                    'y': 4,
+                    '_walls': {
+                        'e': {
+                            'name': 'ELibrary341',
+                            'image': 'R341-east.jpg'
+                        },
+                        'w': {
+                            'name': 'WLibrary341',
+                            'image': 'R341-west.jpg',
+                            'destination': {
+                                'x': 2
+                            }
+                        },
+                        'n': {
+                            'name': 'NLibrary341',
+                            'image': 'R341-north.jpg',
+                            'destination': {
+                                'y': 5
+                            }
+                        },
+                        's': {
+                            'name': 'SLibrary341',
+                            'image': 'R341-south.jpg',
+                            'destination': {
+                                'y': 3
+                            }
+                        }
+                    }
+                },
+                'room351': {
+                    'id': 'library351',
+                    'x': 3,
+                    'y': 5,
+                    '_walls': {
+                        'e': {
+                            'name': 'ELibrary351',
+                            'image': 'R351-east.jpg'
+                        },
+                        'w': {
+                            'name': 'WLibrary351',
+                            'image': 'R351-west.jpg',
+                            'destination': {
+                                'x': 2
+                            }
+                        },
+                        'n': {
+                            'name': 'NLibrary351',
+                            'image': 'R351-north.jpg'
+                        },
+                        's': {
+                            'name': 'SLibrary351',
+                            'image': 'R351-south.jpg',
+                            'destination': {
+                                'y': 4
+                            }
+                        }
+                    }
+                }
             }
         }
     },

@@ -5,11 +5,11 @@
 
 jQuery(document).ready(function($) {
 
-    // Shakes the scene image - super realistic.
     $(document).on('startEarthquake', function(){
+        // Shakes the scene image - super realistic.
         var image = $('#scene-img')
         var speed = 30
-	image.stop(true);
+        image.stop(true);
         for (i = 0; i < 5; i++) {
             image.animate({
                 left: '-5'
@@ -23,6 +23,10 @@ jQuery(document).ready(function($) {
                 left: '0'
             }, speed)
         }
+
+        // Moves the player to aftermath floor
+        player.set(player.x, player.y, player.z + 8, player.facing, player.scenario);
+        jQuery(document).trigger('player-moved', [player.x, player.y, player.z]);
     })
 
     // Call renderScene when player moves
