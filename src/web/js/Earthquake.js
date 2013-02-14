@@ -611,6 +611,20 @@ earthquakeDef = {
                         'e': {
                             'name': 'EHall530', 
                             'image': 'R530-east.jpg',
+                            '_props': {
+                                'waterbottle': {
+                                    'name': 'waterbottle',
+                                    'image': 'waterbottle.png',
+                                    'width': 262,
+                                    'height': 562,
+                                    'left': 400,
+                                    'top': 20,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Water Bottle'
+                                    }
+                                }
+                            }
                         },
                         'w': {
                             'name': 'WHall530',
@@ -1460,8 +1474,9 @@ earthquakeDef = {
                         }
                     }
                 }
-            },
-            'First Floor Aftermath': {
+            }
+        },
+        'First Floor Aftermath': {
             'z': 8,
             '_rooms': {
                 /* 1,0,8 no images yet
@@ -2923,7 +2938,32 @@ earthquakeDef = {
             }
         }
     },
+    '_conversations': {
+        'Water Bottle': {
+            '1': {
+                'message': 'Want to shake things up?',
+                'replies': {
+                    'Sure': 2,
+                    'I am not prepared.': 0,
+                },
+            },
+            '2': {
+                'message': 'OHHHH NOOOO IT\'S AN EARTHQUAKE!!!',
+                'replies': {
+                    '[panic]': 3
+                }
+            },
+            '3': {
+                'triggers': ['shakeThingsUp'],
+            },
+        },
+    },
     '_triggers' : {
+        'shakeThingsUp': {
+            'events': {
+                'startEarthquake': [],
+            },
+        },
     },
     '_player': {
         'x': 2,
