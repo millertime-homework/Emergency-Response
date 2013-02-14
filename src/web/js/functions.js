@@ -45,6 +45,10 @@ jQuery(document).ready(function (jQuery) {
             setGameState(GAME_STATE_MENU);
         }
     });
+
+    jQuery('#game-over-mainmenu-button').live("click", function () {
+        setGameState(GAME_STATE_MENU);
+    });
 });
 
 // Loads the Scenario objects from the data parameter (scenario-definition array)
