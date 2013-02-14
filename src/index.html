@@ -61,6 +61,28 @@
             </div>
         </div>
     </div>
+    <div id="game-over-menu" class='menu-modal modal hidden'>
+        <div class='menu-options-container'>
+            <div class="header-text" id="menu-header">
+                <span id='game-over-header'>Game Over</span>
+            </div>
+            <div id="game-over-message"></div>
+            <div id="game-over-score">Final Score: <span></span></div>
+            <div class="option">
+                <span class="pointer-cursor" id="game-over-mainmenu-button">Return to Main Menu</span>
+            </div>
+            <div id="game-over-objective-list"></div>
+        </div>
+    </div>
+    <div id="inventory-modal" class='menu-modal modal hidden'>
+        <div class='menu-options-container'>
+            <div class="header-text" id="menu-header">
+                <span id='inventory-empty'>Your backpack is empty!</span>
+                <span id='inventory-items'>Backpack:</span>
+            </div>
+            <div id="items-container"></div>
+        </div>
+    </div>
     <div id="pause-menu" class='menu-modal modal hidden'>
         <div class='menu-options-container'>
             <div class="header-text" id="menu-header">
@@ -80,7 +102,7 @@
             <div class="option">
                 <span class="pointer-cursor" id="pause-mainmenu-button">Main Menu</span>
             </div>
-            <div id="pauseObjectiveList"></div>
+            <div id="pause-objective-list"></div>
         </div>
     </div>
     <!-- END MODAL -->
@@ -92,11 +114,13 @@
             <!-- BEGIN MAIN -->
             <div id="view-modal">
                 <div class="primary-view main-content-child main-content-viewport" id="controls-overlay">
-                    <input class="viewport-button" id="turn-left" type="button" />
-                    <input class="viewport-button" id="turn-right" type="button" />
-                    <input class="viewport-button" id="move-forward" type="button" />
-                    <input class="viewport-button hidden" id="move-up" type="button" value="Go Up Stairs" />
-                    <input class="viewport-button hidden" id="move-down" type="button" value="Go Down Stairs" />
+                    <input class="ui viewport-button" id="turn-left" type="button" />
+                    <input class="ui viewport-button" id="turn-right" type="button" />
+                    <input class="ui viewport-button" id="move-forward" type="button" />
+                    <input class="ui viewport-button hidden" id="move-up" type="button" value="Go Up Stairs" />
+                    <input class="ui viewport-button hidden" id="move-down" type="button" value="Go Down Stairs" />
+                    <div class='ui' id='inventory'></div>
+                    <div class='ui' id='cell-phone'></div>
                 </div> 
                 <div class="primary-view main-content-child main-content-viewport" id="view-scene"></div>
                 <div class='main-content-child' id="sidebar">
@@ -106,7 +130,7 @@
 
                             </div>
                     </div>
-                    <div class="bordered" id="help"><br />Help<br /><a href="javascript:showInventory();">Inventory</a></div>
+                    <div class="bordered" id="help"><br />Help<br /></div>
                 </div>
             </div>
             <!-- END MAIN -->

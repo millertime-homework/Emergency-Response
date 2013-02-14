@@ -31,31 +31,45 @@ jQuery(document).ready(function($){
 
     // Renders props on wall
     renderProps = function(wall) {
-        var view = $('#controls-overlay')
+        var view;
+        view = $('#controls-overlay')
         $.each(wall.props, function(key, value) {
             if (scenario.inactiveProps[key])
                 return;
             
-            data = { 'left': value['left'], 'top': value['top'], 'width': value['width'], 'height': value['height'] };
+            data = { 'left': value.left, 'top': value.top, 'width': value.width, 'height': value.height };
             view.append('<div id="' + key + '" class="prop base-prop"></div>')
             var viewProp = $('#' + key);
             viewProp.css({ 
-                'left': value['left'],
-                'top': value['top'],
-                'width': value['width'],
-                'height': value['height']
+                'left': value.left,
+                'top': value.top,
             }).data(data);
 
-            if (value['hoverImage']) {
+            if (value.hoverImage) {
                 viewProp.clone().
                 appendTo(view).
                 data(data).
                 removeClass('base-prop').
                 addClass('hover-prop').
-                append(value['hoverImage']);
+                append(value.hoverImage);
+
+                viewProp.
+                bind('mouseenter', function (event) {
+                    var propId;
+                    jQuery(this).opacity(0);
+                    propId = jQuery(this).attr('id');
+                    jQuery('#{0}.hover-prop img'.format(propId)).opacity(1);
+                }).
+                bind('mouseleave', function (event) {
+                    var propId;
+                    jQuery(this).opacity(1);
+                    propId = jQuery(this).attr('id');
+                    jQuery('#{0}.hover-prop img'.format(propId)).opacity(0);
+                });
+
             } else {
                 //This will make the base prop image display at all times.
-                viewProp.removeClass('base-prop').addClass('hover-prop');
+                viewProp.removeClass('base-prop').addClass('permanent-prop');
             }
             viewProp.append(value['image']);
 
@@ -63,16 +77,16 @@ jQuery(document).ready(function($){
                 'imageElement': null,
                 'name': null,
             };
-            if (value['action'] === 'displayModal' && value['actionVariables'] && value['actionVariables']['imageElement'] && value['actionVariables']['name']) {
-                eventParams['imageElement'] = value['actionVariables']['imageElement'];
-                eventParams['name'] = value['actionVariables']['name'];
-                viewProp.bind('click', eventParams, function (event) {
+            if (value.action === 'displayModal' && value.actionVariables && value.actionVariables.imageElement && value.actionVariables.name) {
+                eventParams.imageElement = value.actionVariables.imageElement;
+                eventParams.name = value.actionVariables.name;
+                viewProp.find('img').bind('click', eventParams, function (event) {
                     displayModal(event.data.name, null, event.data.imageElement)
                 });
-            } else if (value['action'] === 'showConversation' && value['actionVariables'] && value['actionVariables']['conversationName']) {
-                eventParams['conversationName'] = value['actionVariables']['conversationName'];
-                viewProp.bind('click', eventParams, function (event) {
-                    showConversation(event.data['conversationName']);
+            } else if (value.action === 'showConversation' && value.actionVariables && value.actionVariables.conversationName) {
+                eventParams.conversationName = value.actionVariables.conversationName;
+                viewProp.find('img').bind('click', eventParams, function (event) {
+                    showConversation(event.data.conversationName);
                 });
             }
         })

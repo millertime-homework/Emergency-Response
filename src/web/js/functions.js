@@ -5,443 +5,264 @@ var currentScenario;
 /* Determines whether a modal can be ignored by clicking in deadspace to close it.
 Managed by setGameState, so you can override it temporarily without cleaning up
 after yourself (ie, saving and then restoring the original value) */
-var canDismissModal = false; 
+var canDismissModal = false;
 
-function isScenarioDefined() {};
-function isPlayerDefined() {};
-function evalGameState() {};
-function loadScenario() {};
-function pauseMenu() {};
-function showModal() {};
-function hideModal() {};
-
-jQuery(document).ready(function ($) {
-    $(window).resize(function() {
+jQuery(document).ready(function (jQuery) {
+    jQuery(window).resize(function () {
         sizeWindow();
     });
 
-    // Loads the Scenario objects from the data parameter (scenario-definition array)
-    loadScenario = function (data) {
-        scenario = new Scenario;
-        scenario.set(data['name'], 'active')
-        currFloor = null
-        currRoom = null
-        currWall = null
+    jQuery('#overlay').live("click", function () {
+        if (canDismissModal) {
+            hideModal();
+        }
+    });
 
-        // Add spinner to view-modal while loading scenario   
-	canDismissModal = false;
-	$('#overlay').show();
-        spinner = new Spinner({
-            color: '#000'
-        }).spin(document.getElementById('overlay'))
+    jQuery("li.conversation-option").live("click", function () {
+        showConversation(null, jQuery(this).attr('data-conversation-option'));
+    });
 
+    jQuery(".viewport-button").live("click", function () {
+        jQuery(document).trigger(
+            'player-move',
+            jQuery(this).attr('id')
+        );
+    });
 
-        //load floors
-        $.each(data['_floors'], function (key, value) {
-            currFloor = scenario.addFloor(key, value['z'])
-            // load rooms of this floor
-            $.each(value['_rooms'], function (key, value) {
-                currRoom = currFloor.addRoom(key, value['id'], value['x'], value['y'], currFloor.z);
-                currRoom.addTriggers(value._triggers);
-                // load walls of this room
-                $.each(value['_walls'], function (key, value) {
-                    currWall = currRoom.addWall(value['name'], key, value['image'])
-                    // Add objects - if any
-                    if (typeof value['_props'] != 'undefined') {
-                        $.each(value['_props'], function (key, value) {
-                            currWall.addProp(
-                                key,
-                                value['name'],
-                                value['image'],
-                                value['hoverImage'],
-                                value['width'],
-                                value['height'],
-                                value['left'],
-                                value['top'],
-                                value['action'],
-                                value['actionVariables']
-                            );
-                            if (value['barrier'])
-                                currWall.barriers[currWall.barriers.length] = key;
-                        })
-                    }
-                    // Add exits/destinations
-                    if (typeof value['destination'] != 'undefined') {
-                        var newX, newY, newZ, newF, dest = value['destination'];
-                        if (typeof dest['x'] != 'undefined') { newX = dest['x']; } else { newX = currRoom['x']; }
-                        if (typeof dest['y'] != 'undefined') { newY = dest['y']; } else { newY = currRoom['y']; }
-                        if (typeof dest['z'] != 'undefined') { newZ = dest['z']; } else { newZ = currRoom['z']; }
-                        if (typeof dest['f'] != 'undefined') { newF = dest['f']; } else { newF = key; }
-                        currWall.setDestination(newX, newY, newZ, newF);
-                    }
-                })
-            })
-        })
+    /* Pause Menu click functions */
+    jQuery('#pause-resume-button').live("click", function () {
+        setGameState(GAME_STATE_RUNNING);
+    });
+
+    jQuery('#pause-save-button').live("click", function () {
+        saveGame();
+        hideModal();
+    });
+
+    jQuery('#pause-mainmenu-button').live("click", function () {
+        if (confirm("Quit and return to main menu?")) {
+            setGameState(GAME_STATE_MENU);
+        }
+    });
+
+    jQuery('#game-over-mainmenu-button').live("click", function () {
+        setGameState(GAME_STATE_MENU);
+    });
+});
+
+// Loads the Scenario objects from the data parameter (scenario-definition array)
+function loadScenario(data) {
+    scenario = new Scenario;
+    scenario.set(data.name, 'active');
+    addSpinner();
+
+    loadFloors(data);
+    loadConversations(data._conversations);
+    initializePlayer(data._player);
+    markInactivePropsInactive(data.inactiveProps);
+
+    //Allows scenario image loader to signal once all the images are loaded.
+    jQuery(document).on('scenario-images-loaded', function(event) {
+        setGameState(GAME_STATE_RUNNING);
+        renderScene();
+        generateMap(player.x, player.y, scenario.getFloor(player.z));
+        sizeWindow();
+        loadTriggers(data._triggers);
+        saveGame();
+        jQuery('div.spinner').remove();
+    });
+
+    function loadFloors(scenarioData) {
+        var currentFloor;
+
+        jQuery.each(scenarioData._floors, function (key, floor) {
+            currentFloor = scenario.addFloor(key, floor.z);
+            loadRooms(currentFloor, floor);
+        });
+    }
+
+    function loadRooms(floor, floorData) {
+        var currentRoom;
+
+        jQuery.each(floorData._rooms, function (key, roomData) {
+            currentRoom = floor.addRoom(key, roomData.id, roomData.x, roomData.y, floorData.z);
+            currentRoom.addTriggers(roomData._triggers);
+            loadWalls(currentRoom, roomData);
+        });
+    }
+
+    function loadWalls(room, roomData) {
+        var currentWall;
+
+        jQuery.each(roomData._walls, function (key, wallData) {
+            currentWall = room.addWall(wallData.name, key, wallData.image);
+
+            if (wallData._props) {
+                loadProps(currentWall, wallData);
+            }
+
+            if (wallData.destination) {
+                var newX, newY, newZ, newF, dest;
+                dest = wallData.destination;
+                newX = dest.x === undefined ? room.x : dest.x;
+                newY = dest.y === undefined ? room.y : dest.y;
+                newZ = dest.z === undefined ? room.z : dest.z;
+                newF = dest.f === undefined ? key : dest.f;
+                currentWall.setDestination(newX, newY, newZ, newF);
+            }
+        });
+    }
+
+    function loadProps(wall, wallData) {
+        jQuery.each(wallData._props, function (key, prop) {
+            wall.addProp(
+                key,
+                prop.name,
+                prop.image,
+                prop.hoverImage,
+                prop.width,
+                prop.height,
+                prop.left,
+                prop.top,
+                prop.action,
+                prop.actionVariables
+            );
+            if (prop.barrier) {
+                wall.barriers[wall.barriers.length] = key;
+            }
+        });
+    }
+
+    function loadConversations(conversationData) {
         scenario.conversations = {};
-        if (data['_conversations']) {
-            $.each(data['_conversations'], function (key, value) {
+        if (conversationData) {
+            jQuery.each(conversationData, function (key, value) {
                 var newConversation = new Conversation;
                 newConversation.set(key, value);
                 scenario.conversations[key] = newConversation;
             });
         }
+    }
+
+    function loadTriggers(triggerData) {
         clearAllTriggers();
-        if (data['_triggers']) {
-            $.each(data['_triggers'], function (key, value) {
+        clearObjective();
+
+        if (triggerData) {
+            jQuery.each(triggerData, function (key, value) {
                 scenario.addTrigger(key, value);
             });
         }
-        if (data['inactiveProps']) {
-            for (var i = 0; i < data['inactiveProps'].length; i++)
-                scenario.inactiveProps[data['inactiveProps'][i]] = true;
+
+        var startRoomTriggers = scenario.getRoom(player.x, player.y, player.z).triggers;
+        if (startRoomTriggers) {
+            startRoomTriggers.map(startTrigger);
         }
+    }
+
+    function initializePlayer(playerData) {
+        var i;
+
         player = new Player;
-        playerDef = data['_player']
-        player.set(playerDef['x'], playerDef['y'], playerDef['z'], playerDef['_facing'], null)
-        if (playerDef['inventory']) {
-            for (var i = 0; i < playerDef['inventory'].length; i++)
-                player.inventory.add(playerDef['inventory'][i]);
+        player.set(playerData.x, playerData.y, playerData.z, playerData._facing, null);
+        if (playerData.inventory) {
+            for (i = 0; i < playerData.inventory.length; i++) {
+                player.inventory.add(playerData.inventory[i]);
+            }
         }
 
         // Check if player exists
         if (player) {
             if (!scenario.isValidRoom(player.x, player.y, player.z)) {
-                alert('Player\'s starting position is invalid')
+                alert('Player\'s starting position is invalid');
                 return;
             }
         } else {
-            alert('Player not defined')
+            alert('Player not defined');
         }
 
-	onImagesLoaded = function() {
-		var startRoomTriggers = scenario.getRoom(player.x, player.y, player.z).triggers;
-		if (startRoomTriggers) {
-		    startRoomTriggers.map(startTrigger);
-		}
-		
-		setGameState(GAME_STATE_RUNNING);
-		renderScene();
-		saveGame();
-		generateMap(playerDef['x'], playerDef['y'], scenario.getFloor(playerDef['z']));
-		sizeWindow();
-		spinner.stop();
-		$('#overlay').hide();
-	};
-	if(imagesToLoad == 0) onImagesLoaded();
     }
 
-
-    // Returns True if scenario object is defined
-    isScenarioDefined = function () {
-        if (typeof scenario === 'undefined') {
-            console.log('scenario class undefined')
-            return false;
-        }
-        return true;
+    function addSpinner() {
+         // Add spinner to view-modal while loading scenario   
+        var spinner = new Spinner({
+            color: '#000'
+        }).spin(document.getElementById('scenario-select'));
+        jQuery('#overlay').show();
+        jQuery('div.spinner').css({
+            'position' : 'absolute',
+            'top' : '213px',
+            'left' : '213px'
+        })
+        return spinner;
     }
 
-
-    // Returns True if player object is defined
-    isPlayerDefined = function () {
-        if (typeof player === 'undefined') {
-            console.log('player class undefined')
-            return false;
-        }
-        return true;
-    }
-
-    // Changes the layout to match the current game state.
-    setGameState = function (state) {
-        lastGameState = gameState;
-        gameState = state;
-        switch (state) {
-            case GAME_STATE_MENU:
-                $('#view-modal').hide();
-		$('#overlay').hide();
-                $('.modal').hide();
-                showMainMenu();
-                allowKeyEvents = false;
-                break;
-            case GAME_STATE_RUNNING:
-		$('#overlay').hide();
-                $('.modal').hide();
-                $('#view-modal').show();
-                allowKeyEvents = true;
-                break;
-            case GAME_STATE_PAUSED:
-                allowKeyEvents = false;
-                canDismissModal = true;
-                break;
-            case GAME_STATE_OVER:
-                canDismissModal = false;
-                allowKeyEvents = false;
-        }
-    }
-
-    showPauseMenu = function() {
-        jQuery('#pauseObjectiveList').empty();
-        if (scenario) {
-            var objectivesInProgress = scenario.getObjectivesInProgress();
-            var objectivesCompleted = scenario.getObjectivesCompleted();
-            var objectivesFailed = scenario.getObjectivesFailed();
-            var objectiveList = jQuery('#pauseObjectiveList');
-
-            if (objectivesInProgress.length > 0) {
-                showObjectives(objectiveList, objectivesInProgress, 'Current Objectives');
-            }
-
-            if (objectivesCompleted.length > 0) {
-                showObjectives(objectiveList, objectivesCompleted, 'Completed Objectives');
-            }
-
-            if (objectivesFailed.length > 0) {
-                showObjectives(objectiveList, objectivesFailed, 'Failed Objectives');
+    function markInactivePropsInactive(inactivePropData) {
+        var i;
+        if (inactivePropData) {
+            for (i = 0; i < inactivePropData.length; i++) {
+                scenario.inactiveProps[inactivePropData[i]] = true;
             }
         }
-        jQuery('#pause-menu').show();
-        centerModal(jQuery('#pause-menu'));
-        setGameState(GAME_STATE_PAUSED);
-
-        
-
-        function showObjectives(container, list, header) {
-                container.append('<span class="pause-header">{0}</span><ul>'.format(header));
-                for (var objectiveText in list) {
-                    if (list.hasOwnProperty(objectiveText)) {
-                        container.append('<li>{0}</li>'.format(list[objectiveText]));
-                    }
-                }
-                container.append('</ul>');
-        }
     }
+}
 
-    showConversation = function (conversationName, currentConversationChoice) {
-        var optionRowTemplate = "<li class='conversation-option' data-conversation-option='{0}'>{1}</li><br />";
-
-        //fetch the conversation name if we're progressing through a conversation tree.
-        if (!conversationName) {
-            conversationName = $('#modal #header').text();
-        }
-
-        //Now the current contents from the modal.
-        emptyModal();
-
-        //Ensure the conversation exists.
-        var conversation = scenario.conversations[conversationName];
-        if (!conversation) {
-            hideModal();
-            return;
-        }
-
-        //If there is no current conversation choice provided then we'll start from the beginning. 0 terminates the conversation.
-        var currentOptionId = currentConversationChoice || currentConversationChoice === 0 ? currentConversationChoice : 1;
-
-        //Ensure that this is a valid conversation choice.
-        var currentOption = conversation.getOption(currentOptionId);
-        if (!currentOption) {
-            hideModal();
-            return;
-        }
-        
-        // Allow the conversation to change based on various things.
-        // Local helper function:
-        function checkCondition(condition) {
-            if (condition['has'])
-                for (var j = 0; j < condition['has'].length; j++) {
-                    if (!player.inventory.contains(condition['has'][j]))
-                        return false;
-                }
-            if (condition['triggersEnabled'])
-                for (var j = 0; j < condition['triggersEnabled'].length; j++) {
-                    if(!scenario.triggers.pool[condition['triggersEnabled'][j]])
-                        return false;
-                }
-            if (condition['objectivesInProgress'])
-                for (var j = 0; j < condition['objectivesInProgress'].length; j++) {
-                    if(!scenario.objectives.inProgress[condition['objectivesInProgress'][j]])
-                        return false;
-                }
-            if (condition['objectivesCompleted'])
-                for (var j = 0; j < condition['objectivesCompleted'].length; j++) {
-                    if(!scenario.objectives.completed[condition['objectivesCompleted'][j]])
-                        return false;
-                }
-            if (condition['hasNot'])
-                for (var j = 0; j < condition['hasNot'].length; j++) {
-                    if (player.inventory.contains(condition['hasNot'][j]))
-                        return false;
-                }
-            if (condition['triggersDisabled'])
-                for (var j = 0; j < condition['triggersDisabled'].length; j++) {
-                    if(scenario.triggers.pool[condition['triggersEnabled'][j]])
-                        return false;
-                }
-            if (condition['objectivesNotInProgress'])
-                for (var j = 0; j < condition['objectivesNotInProgress'].length; j++) {
-                    if(scenario.objectives.inProgress[condition['objectivesNotInProgress'][j]])
-                        return false;
-                }
-            if (condition['objectivesNotCompleted'])
-                for (var j = 0; j < condition['objectivesNotCompleted'].length; j++) {
-                    if(!scenario.objectives.completed[condition['objectivesNotCompleted'][j]])
-                        return false;
-                }
-            return true;
-        }
-        
-        // checkInventory was the name of this property before I allowed checking other things;
-        // keeping it for now since I don't know if other people are using it in other branches.
-        if (currentOption['checkInventory'])
-            currentOption['check'] = currentOption['checkInventory'];
-        if (currentOption['check']) {
-            for (var i = 0; i < currentOption.check.length; i++) {
-                if (checkCondition(currentOption.check[i])) {
-                    currentOptionId = currentOption.check[i]['goto'];
-                    break;
-                }
-            }
-        }
-
-        var currentOption = conversation.getOption(currentOptionId);
-        if (!currentOption) {
-            hideModal();
-            return;
-        }
-        
-        if (currentOption.message == null)
-            hideModal();
-        
-        if (currentOption['triggers']) {
-            for (var i = 0; i < currentOption['triggers'].length; i++)
-                startTrigger(currentOption.triggers[i]);
-            saveGame();
-        }
-        
-        if (currentOption.message == null) {
-            return;
-        }
-        
-        //Show the message and reply options.
-        $('#modal #header').html(conversationName);
-        $('#modal #content').append(currentOption['message'] + '<p /> You Reply: <br /><ul>');
-
-        var replyChoices = currentOption['replies'];
-        for (var choiceText in replyChoices) {
-            if (replyChoices.hasOwnProperty(choiceText)) {
-                if (conversation.getOption(replyChoices[choiceText]) &&
-                    conversation.getOption(replyChoices[choiceText]).requires &&
-                    !checkCondition(conversation.getOption(replyChoices[choiceText]).requires))
-                    continue;
-                $('#modal #content').append(optionRowTemplate.format(replyChoices[choiceText], choiceText));
-            }
-        }
-        $('#modal #content').append('</ul>');
-
-        showModal();
+// Returns True if scenario object is defined
+function isScenarioDefined() {
+    if (scenario === undefined) {
+        console.log('scenario class undefined');
+        return false;
     }
-    
-    showInventory = function () {
-        // modeled after showConversation's implementation
-        var rowTemplate = "<li><img src='web/img/{0}' alt=''{1}> {2}</li>";
-        var items = player.inventory.items;
-        
-        emptyModal();
-        $('#modal #header').html("Inventory");
-        $('#modal #content').append('<ul class="inventory">');
-        for (var i in items)
-            if (items.hasOwnProperty(i) && items[i] != null) {
-                var attrs = '';
-                if(items[i].width)
-                    attrs += ' width="'+items[i].width+'"';
-                if(items[i].height)
-                    attrs += ' width="'+items[i].height+'"';
-                $('#modal #content').append(rowTemplate.format(items[i].image, attrs, items[i].name));
-            }
-        $('#modal #content').append('</ul>');
+    return true;
+}
 
-        showModal();
+
+// Returns True if player object is defined
+function isPlayerDefined() {
+    if (player === undefined) {
+        console.log('player class undefined');
+        return false;
     }
+    return true;
+}
 
-    displayModal = function (header, text, image) {
-        emptyModal();
-
-        $('#modal #header').html(header);
-        $('#modal #content').html(text);
-        $('#modal #content').append(image);
-        showModal();
+// Changes the layout to match the current game state.
+function setGameState(state) {
+    lastGameState = gameState;
+    gameState = state;
+    switch (state) {
+    case GAME_STATE_MENU:
+        jQuery('#view-modal').hide();
+        jQuery('.modal').hide();
+        jQuery('#overlay').hide();
+        showMainMenu();
+        allowKeyEvents = false;
+        break;
+    case GAME_STATE_RUNNING:
+        jQuery('.modal').hide();
+        jQuery('#overlay').hide();
+        jQuery('#view-modal').show();
+        allowKeyEvents = true;
+        break;
+    case GAME_STATE_PAUSED:
+        showNamedModal(jQuery('#pause-menu'), false, true);
+        break;
+    case GAME_STATE_SHOW_INVENTORY:
+        showNamedModal(jQuery('#inventory-modal'), false, true);
+        break;
+    case GAME_STATE_MODAL:
+        showNamedModal(jQuery('#modal'), false, true);
+        break;
+    case GAME_STATE_OVER:
+        showNamedModal(jQuery('#game-over-menu'), false, false);
     }
-
-    emptyModal = function () {
-        // Clear header and content
-        $('#modal #header').empty();
-        $('#modal #content').empty();
-    }
-
-    hideModal = function () {
-        // Hide any visible modal element
-        if (lastGameState === GAME_STATE_MENU) {
-            setGameState(GAME_STATE_MENU);
-        }
-        if(gameState !== GAME_STATE_MENU)
-            setGameState(GAME_STATE_RUNNING);
-        $('#modal').hide();
-        $('#overlay').hide();
-    }
-
-    showMainMenu = function() {
-        $('#main-menu').show();
-        centerMainMenu();
-    }
-
-    hideMainMenu = function() {
-        $('#main-menu').hide();
-    }
-
-    showModal = function () {
-        setGameState(GAME_STATE_PAUSED);
-        $('#modal').show();
-        centerModal($('#modal'));
-        $('#overlay').show();
-    }
-
-    $('#overlay').live("click", function () {
-        if (canDismissModal)
-            hideModal();
-    });
-
-    $("li.conversation-option").live("click", function () {
-        showConversation(null, $(this).attr('data-conversation-option'));
-    });
-
-    $(".viewport-button").live("click", function () {
-        $(document).trigger(
-            'player-move',
-            $(this).attr('id')
-        );
-    });
-
-    /* Pause Menu click functions */
-    $('#pause-resume-button').live("click", function() {
-        setGameState(GAME_STATE_RUNNING);
-    });
-    
-    $('#pause-save-button').live("click", function() {
-        saveGame();
-        hideModal();
-    });
-
-    $('#pause-mainmenu-button').live("click", function() {
-        if (confirm("Quit and return to main menu?")) {
-            setGameState(GAME_STATE_MENU);
-        }
-    });
-});
+}
 
 function setObjective(name, displayText) {
     scenario.objectives.inProgress[name] = displayText || name;
     jQuery('#objective').find('#' + name).remove();
     jQuery('#objective ul').append('<li id="{0}">{1}</li>'.format(name, scenario.objectives.inProgress[name]));
-};
+}
 
 function completeObjective(name) {
     var objective = scenario.objectives.inProgress[name];
@@ -450,7 +271,7 @@ function completeObjective(name) {
         delete scenario.objectives.inProgress[name];
     }
     jQuery('#objective').find('#' + name).remove();
-};
+}
 
 function failObjective(name) {
     var objective = scenario.objectives.inProgress[name];
@@ -459,12 +280,151 @@ function failObjective(name) {
         delete scenario.objectives.inProgress[name];
     }
     jQuery('#objective').find('#' + name).remove();
-};
+}
+
+function clearObjective() {
+    jQuery('#objective').find('ul').empty();
+}
+
+function showNamedModal(modal, newAllowKeyEvents, newCanDismissModal) {
+    canDismissModal = newCanDismissModal;
+    allowKeyEvents = newAllowKeyEvents;
+    modal.show();
+    centerModal(modal);
+    jQuery('#overlay').show();
+}
+
+function showGameOver(header, body) {
+    gameOverMenu = jQuery('#game-over-menu');
+    gameOverMenu.find('#game-over-header').text(header);
+    gameOverMenu.find('#game-over-message').text(body);
+    gameOverMenu.find('#game-over-score span').text(player.score);
+    showObjectivesIn(jQuery('#game-over-objective-list'), true);
+    setGameState(GAME_STATE_OVER);
+}
+
+function showPauseMenu() {
+    showObjectivesIn(jQuery('#pause-objective-list'));
+    setGameState(GAME_STATE_PAUSED);
+}
+
+function showMainMenu() {
+    jQuery('#main-menu').show();
+    centerMainMenu();
+}
+
+function hideMainMenu() {
+    jQuery('#main-menu').hide();
+}
+
+function displayModal(header, text, image) {
+    emptyModal();
+
+    jQuery('#modal #header').html(header);
+    jQuery('#modal #content').html(text);
+    jQuery('#modal #content').append(image);
+    showModal();
+}
+
+function showModal() {
+    setGameState(GAME_STATE_MODAL);
+}
+
+function emptyModal() {
+    // Clear header and content
+    jQuery('#modal #header').empty();
+    jQuery('#modal #content').empty();
+}
+
+function hideModal() {
+    // Hide any visible modal element
+    if (lastGameState === GAME_STATE_MENU) {
+        setGameState(GAME_STATE_MENU);
+    }
+    if (gameState === GAME_STATE_OVER) {
+        jQuery('#modal').hide();
+    } else if (gameState !== GAME_STATE_MENU) {
+        setGameState(GAME_STATE_RUNNING);
+    }
+}
+
+function showObjectivesIn(element, markInProgressAsFailed) {
+    var objectivesInProgress, objectivesCompleted, objectivesFailed;
+
+    element.empty();
+
+    if (scenario) {
+        objectivesInProgress = scenario.getObjectivesInProgress();
+        objectivesCompleted = scenario.getObjectivesCompleted();
+        objectivesFailed = scenario.getObjectivesFailed();
+
+        if (markInProgressAsFailed) {
+            objectivesFailed = objectivesFailed.concat(objectivesInProgress);
+            objectivesInProgress = [];
+        }
+
+        if (objectivesInProgress.length > 0) {
+            showObjectives(element, objectivesInProgress, 'Current Objectives');
+        }
+
+        if (objectivesCompleted.length > 0) {
+            showObjectives(element, objectivesCompleted, 'Completed Objectives');
+        }
+
+        if (objectivesFailed.length > 0) {
+            showObjectives(element, objectivesFailed, 'Failed Objectives');
+        }
+    }
+
+    function showObjectives(container, list, header) {
+        var objectiveText;
+
+        container.append('<span class="pause-header bold-colored-text">{0}</span><br>'.format(header));
+        for (objectiveText in list) {
+            if (list.hasOwnProperty(objectiveText)) {
+                container.append('<span>{0}</span><br>'.format(list[objectiveText]));
+            }
+        }
+        container.append('<p>');
+    }
+}
+
+function showInventory() {
+    var i, items, rowTemplate, inventoryItemsContainer, inventoryModal, attrs;
+    // modeled after showConversation's implementation
+    rowTemplate = "<span><img src='web/img/{0}' alt=''{1}> {2}</span>";
+    items = player.inventory.items;
+    inventoryModal = jQuery('#inventory-modal');
+    inventoryItemsContainer = inventoryModal.find('#items-container');
+    inventoryItemsContainer.empty();
+    for (i in items) {
+        if (items.hasOwnProperty(i) && items[i] !== null) {
+            attrs = '';
+            if (items[i].width) {
+                attrs += ' width="' + items[i].width + '"';
+            }
+
+            if (items[i].height) {
+                attrs += ' width="' + items[i].height + '"';
+            }
+
+            inventoryItemsContainer.append(rowTemplate.format(items[i].image, attrs, items[i].name));
+        }
+    }
+    if (inventoryItemsContainer.find('span').length > 0) {
+        inventoryModal.find('#inventory-empty').hide();
+        inventoryModal.find('#inventory-items').show();
+    } else {
+        inventoryModal.find('#inventory-empty').show();
+        inventoryModal.find('#inventory-items').hide();
+    }
+    setGameState(GAME_STATE_SHOW_INVENTORY);
+}
 
 String.prototype.format = function () {
     var args = arguments;
     return this.replace(/\{(\d+)\}/g, function (m, n) { return args[n]; });
-};
+}
 
 jQuery.fn.center = function () {
     return this.css({
@@ -472,4 +432,129 @@ jQuery.fn.center = function () {
         "top" : (jQuery(window).height() - this.height()) / 2 + jQuery(window).scrollTop() + "px",
         "left" : (jQuery(window).width() - this.width()) / 2 + jQuery(window).scrollLeft() + "px"
     });
+}
+
+jQuery.fn.opacity = function (opacity) {
+    return this.css({
+        "filter" : "alpha({0}*100)".format(opacity),
+        "moz opacity" : opacity,
+        "khtml opacity" : opacity,
+        "opacity" : opacity
+    });
+}
+
+/*The remaining functions are all for showConversations. The main showConversation method
+is a bit of a mess but I don't understand the check/inventory check stuff well enough
+to want to mess with it anymore than I have.*/
+function showConversation(conversationName, currentConversationChoice) {
+    var i, conversation, optionRowTemplate, currentOptionId, currentOption, replyChoices, choiceText;
+    optionRowTemplate = "<li class='conversation-option' data-conversation-option='{0}'>{1}</li><br />";
+
+    //fetch the conversation name if we're progressing through a conversation tree.
+    if (!conversationName) {
+        conversationName = jQuery('#modal #header').text();
+    }
+
+    //Now the current contents from the modal.
+    emptyModal();
+
+    //Ensure the conversation exists.
+    conversation = scenario.conversations[conversationName];
+    if (!conversation) {
+        hideModal();
+        return;
+    }
+
+    //If there is no current conversation choice provided then we'll start from the beginning. 0 terminates the conversation.
+    currentOptionId = currentConversationChoice || currentConversationChoice === 0 ? currentConversationChoice : 1;
+
+    //Ensure that this is a valid conversation choice.
+    currentOption = conversation.getOption(currentOptionId);
+    if (!currentOption) {
+        hideModal();
+        return;
+    }
+
+    // checkInventory was the name of this property before I allowed checking other things;
+    // keeping it for now since I don't know if other people are using it in other branches.
+    if (currentOption.checkInventory) {
+        currentOption.check = currentOption.checkInventory;
+    }
+    if (currentOption.check) {
+        for (i = 0; i < currentOption.check.length; i++) {
+            if (checkCondition(currentOption.check[i])) {
+                currentOptionId = currentOption.check[i]['goto'];
+                break;
+            }
+        }
+    }
+
+    currentOption = conversation.getOption(currentOptionId);
+    if (!currentOption) {
+        hideModal();
+        return;
+    }
+
+    if (currentOption.triggers) {
+        for (i = 0; i < currentOption.triggers.length; i++) {
+            startTrigger(currentOption.triggers[i]);
+        }
+        saveGame();
+    }
+
+    if (!currentOption.message) {
+        hideModal();
+        return;
+    }
+
+    //Show the message and reply options.
+    jQuery('#modal #header').html(conversationName);
+    jQuery('#modal #content').append(currentOption.message + '<p /> You Reply: <br /><ul>');
+
+    replyChoices = currentOption.replies;
+    for (choiceText in replyChoices) {
+        if (replyChoices.hasOwnProperty(choiceText) && shouldShowReplyChoice(conversation, replyChoices, choiceText)) {
+            jQuery('#modal #content').append(optionRowTemplate.format(replyChoices[choiceText], choiceText));
+        }
+    }
+    jQuery('#modal #content').append('</ul>');
+
+    showModal();
+}
+
+function shouldShowReplyChoice(conversation, replyChoices, choiceText) {
+    return !(conversation.getOption(replyChoices[choiceText]) &&
+            conversation.getOption(replyChoices[choiceText]).requires &&
+            !checkCondition(conversation.getOption(replyChoices[choiceText]).requires));
+}
+
+function checkCondition(condition) {
+    return checkScenario(doesContain, condition.has, player.inventory.items) &&
+            checkScenario(doesContain, condition.triggersEnabled, scenario.triggers.pool) &&
+            checkScenario(doesContain, condition.objectivesInProgress, scenario.objectives.inProgress) &&
+            checkScenario(doesContain, condition.objectivesCompleted, scenario.objectives.completed) &&
+            checkScenario(doesNotContain, condition.hasNot, player.inventory.items) &&
+            checkScenario(doesNotContain, condition.triggersDisabled, scenario.triggers.pool) &&
+            checkScenario(doesNotContain, condition.objectivesNotInProgress, scenario.objectives.inProgress) &&
+            checkScenario(doesNotContain, condition.objectivesNotCompleted, scenario.objectives.completed);
+}
+
+function doesNotContain(source, contains) {
+    return !source[contains];
+}
+
+function doesContain(source, contains) {
+    return source[contains];
+}
+
+function checkScenario(checkFunction, conditionProperty, secnarioProperty) {
+    var i;
+    if (conditionProperty) {
+        for (i = 0; i < conditionProperty.length; i++) {
+            if (!checkFunction(secnarioProperty, conditionProperty)) {
+                return false;
+            }
+        }
+    }
+    return true;
 }

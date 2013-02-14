@@ -3,7 +3,6 @@ var SCENARIO_STATUS_INACTIVE = 'inactive';
 var SCENARIO_STATUS_DONE = 'done';
 var imageBasePath = "web/img/";
 var imagesToLoad = 0;
-var onImagesLoaded = function () {};
 
 
 Scenario = Class.create({
@@ -49,9 +48,8 @@ Scenario = Class.create({
         imagesToLoad++;
         image.onload = image.onerror = function() {
             imagesToLoad--;
-            if(imagesToLoad == 0) {
-                onImagesLoaded();
-                onImagesLoaded = function() {};
+            if(imagesToLoad === 0) {
+                jQuery(document).trigger('scenario-images-loaded');
             }
         };
         return image

@@ -23,6 +23,38 @@ body {
     .border_radius(@primaryBorderRadius);
     .box_shadow();
 }
+.ui-icon {
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    width: 128px;
+    height: 128px;
+}
+#inventory {
+    .ui-icon;
+    margin-top: -120px;
+    margin-left: -100px;
+    background:transparent url("../img/backpack.png");
+}
+
+#inventory:hover {
+    background:transparent url("../img/backpackHover.png");
+}
+
+#cell-phone {
+    .ui-icon;
+    margin-top: -100px;
+    margin-left: -230px;
+    background:transparent url("../img/phone.png");
+}
+
+#cell-phone:hover {
+    background:transparent url("../img/phoneHover.png");
+}
+
+.ui {
+    z-index: 4;
+}
 
 .bold-colored-text {
     font-weight: bold;
@@ -98,13 +130,14 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     border-color: @primaryBorderColor;
     .border_radius(@primaryBorderRadius - 3);
     .bordered;
+    overflow: hidden;
 }
 #scene-img {
     .border_radius(@primaryBorderRadius - 5);
 }
 
 #controls-overlay {
-    z-index: 1;
+    z-index: 4;
     background: transparent;
     overflow: hidden;
 }
@@ -149,23 +182,25 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
    background-color: transparent;
    background-image: url('../img/right.png');
 }
+.prop {
+    position: absolute;
+    overflow: visible;
+}
 
 .base-prop {
-    position: absolute;
-    z-index: 4; 
+    z-index: 2; 
+}
+
+.hover-prop {
+    z-index: 1;
 }
 
 .base-prop img {
     .opacity(100);
-    &:hover {
-        cursor: pointer;
-        .opacity(0);
-    }
 }
 
-.hover-prop {
-    position: absolute;
-    z-index: 3; 
+.hover-prop img {
+    .opacity(0);
 }
 /*END---------Game viewport controls*/
 
@@ -347,6 +382,7 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
         color: @primaryFontColor;
         text-decoration: none;
     }
+    z-index: 10;
 }
 
 #overlay {
