@@ -6,7 +6,6 @@ var currentScenario;
 Managed by setGameState, so you can override it temporarily without cleaning up
 after yourself (ie, saving and then restoring the original value) */
 var canDismissModal = false;
-var spinner;
 
 jQuery(document).ready(function (jQuery) {
     jQuery(window).resize(function () {
@@ -55,7 +54,7 @@ jQuery(document).ready(function (jQuery) {
 function loadScenario(data) {
     scenario = new Scenario;
     scenario.set(data.name, 'active');
-    spinner = addSpinner();
+    addSpinner();
 
     loadFloors(data);
     loadConversations(data._conversations);
@@ -70,7 +69,7 @@ function loadScenario(data) {
         sizeWindow();
         loadTriggers(data._triggers);
         saveGame();
-        spinner.stop();
+        jQuery('div.spinner').remove();
     });
 
     function loadFloors(scenarioData) {
@@ -188,7 +187,13 @@ function loadScenario(data) {
          // Add spinner to view-modal while loading scenario   
         var spinner = new Spinner({
             color: '#000'
-        }).spin(document.getElementById('overlay'));
+        }).spin(document.getElementById('scenario-select'));
+        jQuery('#overlay').show();
+        jQuery('div.spinner').css({
+            'position' : 'absolute',
+            'top' : '213px',
+            'left' : '213px'
+        })
         return spinner;
     }
 
@@ -478,7 +483,7 @@ function showConversation(conversationName, currentConversationChoice) {
     if (currentOption.check) {
         for (i = 0; i < currentOption.check.length; i++) {
             if (checkCondition(currentOption.check[i])) {
-                currentOptionId = currentOption.check[i].goto;
+                currentOptionId = currentOption.check[i]['goto'];
                 break;
             }
         }
