@@ -1946,7 +1946,6 @@ activeShooterDef = {
         },
         'Hide':{
             '1':{
-                'message' : 'You are now hiding',
                 'triggers': ['foundHidingPlace'],
             }
         },
