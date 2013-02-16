@@ -4,12 +4,12 @@ import re
 
 g_cameras = []
 g_groups = []
+g_use_rgroups = False
 g_render = None
 g_path = '//camera'
 
-
 def proc_args(args):
-    global g_cameras, g_groups, g_render, g_path
+    global g_cameras, g_groups, g_use_rgroups, g_render, g_path
     for arg in args:
         if args == None:
             return
@@ -18,6 +18,14 @@ def proc_args(args):
             break
         elif sarg[0] == 'groups':
             g_groups = sarg[1]
+        elif sarg[0] == 'rgroups':
+            if sarg[1] == 'true':
+                g_use_rgroups = True
+            elif sarg[1] == 'false':
+                g_use_rgroups = False
+            else:
+                print('error: "rgroups" must equal "true" or "false"')
+                return
         elif sarg[0] == 'cameras':
             g_cameras = sarg[1]
         elif sarg[0] == 'render':
@@ -43,11 +51,13 @@ def proc_args(args):
         print('error: bad render argument')
 
 def render(cam):
-    global g_path
+    global g_path, g_use_rgroups
     if cam.type != 'CAMERA':
         return
     if cam.name.startswith('c_') == False:
         return
+    if g_use_rgroups == True:
+        apply_rgroup_status(cam)
     print('\t'+cam.name)
     scene = bpy.data.scenes[0]
     render = scene.render
@@ -86,7 +96,17 @@ def render_cameras():
     for obj in objs:
         if obj.name in g_cameras:
             render(obj)
-    
+
+def apply_rgroup_status(cam):
+    s = re.split(r"_", cam.name)
+    g = re.split(r"-", s[1])[0]
+    g = 'r_' + g
+    # Turn off render on all objects
+    for obj in bpy.data.objects:
+        obj.hide_render = True
+    # Turn on render for objects in correct render group
+    for obj in bpy.data.groups[g].objects:
+        obj.hide_render = False
 '''def render_path(path):
     pl = path.split(',')
     groups = bpy.data.groups
@@ -102,6 +122,5 @@ def render_cameras():
             
 if __name__ == '__main__':
     args = sys.argv
-    #args = ['path=c_n1e2,n2']
     proc_args(args)
     print('rendering: finished')
