@@ -20,43 +20,33 @@ jQuery(document).ready(function($){
         append('<div class="option"><span id="loadTest">' + testDef['name'] + '</span></div>').
         show();
         centerModal(scenarioSelectModal);
-
-        
-        // Load Scenario
-        $("#loadActiveShooter").live("click", function() {
-            currentScenario = "activeShooterDef";
-            loadScenario(activeShooterDef);
-            $("#loadEarthquake").unbind("click");
-            $("#loadTest").unbind("click");
-            $(this).unbind("click");
-            jQuery('#scenario-select').hide();
-        });
-
-        $("#loadEarthquake").live("click", function() {
-            currentScenario = "earthquakeDef";
-            loadScenario(earthquakeDef);
-            $("#loadActiveShooter").unbind("click");
-            $("#loadTest").unbind("click");
-            $(this).unbind("click");
-            jQuery('#scenario-select').hide();
-        });
-
-        $("#loadTest").live("click", function() {
-            currentScenario = "testDef";
-            loadScenario(testDef);
-            $("#loadActiveShooter").unbind("click");
-            $("#loadEarthquake").unbind("click");
-            $(this).unbind("click");
-            jQuery('#scenario-select').hide();
-        });
 	})
 
-        $("#resume-button").click(function() {
-            if(!canLoadGame())
-                alert("You have not yet saved a game.");
-            else
-                loadGame();
-        });
+    // Load Scenario
+    $("#loadActiveShooter").live("click", function() {
+        currentScenario = "activeShooterDef";
+        loadScenario(activeShooterDef);
+        jQuery('#scenario-select').hide();
+    });
+
+    $("#loadEarthquake").live("click", function() {
+        currentScenario = "earthquakeDef";
+        loadScenario(earthquakeDef);
+        jQuery('#scenario-select').hide();
+    });
+
+    $("#loadTest").live("click", function() {
+        currentScenario = "testDef";
+        loadScenario(testDef);
+        jQuery('#scenario-select').hide();
+    });
+
+    $("#resume-button").click(function() {
+        if(!canLoadGame())
+            alert("You have not yet saved a game.");
+        else
+            loadGame();
+    });
 	
     
 	// Brings Up the Info page.
