@@ -86,8 +86,20 @@ jQuery(document).ready(function($) {
         setObjective(name, displayText);
     });
 
+    //Starts an array of objectives where every even (0, 2, 4... n+2) element is an objective name
+    //and every odd (1, 3, 4... n+2) element is an objective description. The first objective
+    //name/description pair is considered the primary objective, and will be displayed in the
+    //current objective window.
+    $(document).on('setObjectives', function (event, objectives) {
+        objectives.reverse();
+        for (var i = 0; objectives[i]; i += 2) {
+            setObjective(objectives[i+1], objectives[i]);
+        }
+    });
+
     $(document).on('completeObjective', function (event, name) {
         completeObjective(name);
+        triggersObjectiveCompletionHandler(name);
     });
 
     $(document).on('failObjective', function (event, name) {
