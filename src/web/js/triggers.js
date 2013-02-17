@@ -4,6 +4,7 @@ scenario.triggers.pool = {};
 scenario.triggers.waitingForSignal = {};
 scenario.triggers.deferredByMoves = {};
 scenario.triggers.deferredByTime = {};
+scenario.triggers.deferredByObjectives = {};
 
 //For use when loading/changing scenarios.
 function clearAllTriggers() {
@@ -13,6 +14,7 @@ function clearAllTriggers() {
     scenario.triggers.waitingForSignal = {};
     scenario.triggers.deferredByMoves = {};
     scenario.triggers.deferredByTime = {};
+    scenario.triggers.deferredByObjectives = {};
 }
 
 //Called when the player class triggers an event signaling that the player has moved.
@@ -25,12 +27,36 @@ function triggersMovementHandler(x, y, z) {
     }
 };
 
+function triggersObjectiveCompletionHandler(objectiveName) {
+	var trigger, triggerName, waitingForObjectives, i;
+	waitingForObjectives = scenario.triggers.deferredByObjectives;
+
+	for (triggerName in waitingForObjectives) {
+		if (waitingForObjectives.hasOwnProperty(triggerName)) {
+			trigger = waitingForObjectives[triggerName];
+
+			for (i in trigger.waitForObjectiveCompletions) {
+				if (trigger.waitForObjectiveCompletions[i] === objectiveName) {
+					trigger.waitForObjectiveCompletions.splice(i,1);
+					break;
+				}
+			}
+
+			if (trigger.waitForObjectiveCompletions.length === 0) {
+				trigger.waitForObjectiveCompletions = null;
+				delete scenario.triggers.deferredByObjectives[triggerName];
+				runTrigger(triggerName, trigger);
+			}
+		}
+	}
+}
+
 //This function can be called by anything that wants to start a trigger. All you need is a trigger name.
 //Currently, only the Room class supports starting triggers from a scenario's defintion file, but you can
 //manually call this with any valid trigger name.
 function startTrigger(triggerName) {
-	var pooledTrigger = scenario.triggers.pool[triggerName];
-	var activeTrigger;
+	var activeTrigger, i, objectives,
+		pooledTrigger = scenario.triggers.pool[triggerName];
 
 	//If the trigger doesn't exist in the pool of available triggers there is nothing to do.
 	if (!pooledTrigger) {
@@ -56,6 +82,11 @@ function startTrigger(triggerName) {
 
 //Processes a trigger, waiting for a singal, for moves, or for time if the trigger is meant to wait, before executing it.
 function runTrigger(triggerName, trigger) {
+	if (trigger.waitForObjectiveCompletions) {
+		scenario.triggers.deferredByObjectives[triggerName] = trigger;
+		return;
+	}
+
     if (trigger.waitForSignal === true) {
 
         //Important, because a signaled trigger will run through this function again to see if it needs to do a move and/or turn wait.
