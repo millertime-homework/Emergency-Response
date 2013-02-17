@@ -515,6 +515,7 @@ activeShooterDef = {
                     'id': 'hall220',
                     'x': 2,
                     'y': 2,
+                    '_triggers' : ['shooterInHallToRight'],
                     '_walls': {
                         'e': {
                             'name': 'EHall220',
@@ -671,14 +672,11 @@ activeShooterDef = {
                     'x': 1,
                     'y': 3,
                     '_walls': {
-                        'e': {
+                        's': {
                             'name': 'EHall130',
                             'image': 'R130-east.jpg',
-                            'destination': {
-                                'x': 2
-                            }
                         },
-                        'w': {
+                        'n': {
                             'name': 'WHall130',
                             'image': 'R130-west.jpg',
                             '_props': {
@@ -696,11 +694,95 @@ activeShooterDef = {
                                 }
                             }
                         },
-                        'n': {
+                        'e': {
                             'name': 'NHall130',
                             'image': 'R130-north.jpg',
+                            '_props': {
+                                'doorShade': {
+                                    'name': 'doorShade',
+                                    'image': 'ASshadeUp.png',
+                                    'hoverImage': 'ASshadeUpHover.png',
+                                    'width': 36,
+                                    'height': 36,
+                                    'left': 1015,
+                                    'top': 281,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'putShadeDown'
+                                    }
+                                },
+                                'doorShadeDown': {
+                                    'name': 'doorShadeDown',
+                                    'image': 'ASshadeDown.png',
+                                    'hoverImage': 'ASshadeDownHover.png',
+                                    'width': 36,
+                                    'height': 36,
+                                    'left': 1015,
+                                    'top': 281,
+                                },
+                                'doorHandle': {
+                                    'name': 'doorHandle',
+                                    'image': 'ASDoorHandle.png',
+                                    'hoverImage': 'ASDoorHandleHover.png',
+                                    'width': 17,
+                                    'height': 25,
+                                    'left': 1007,
+                                    'top': 339,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'lockDoor'
+                                    }
+                                },
+                                'doorHandleDone': {
+                                    'name': 'doorHandle',
+                                    'image': 'ASDoorHandle.png',
+                                    'hoverImage': 'ASDoorHandleHover.png',
+                                    'width': 17,
+                                    'height': 25,
+                                    'left': 1007,
+                                    'top': 339,
+                                },
+                                'lightSwitch': {
+                                    'name': 'lightSwitch',
+                                    'image': 'ASLightSwitch.png',
+                                    'hoverImage': 'ASLightSwitchHover.png',
+                                    'width': 27,
+                                    'height': 21,
+                                    'left': 945,
+                                    'top': 307,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'turnOffLights'
+                                    }
+                                },
+                                'lightSwitchDone': {
+                                    'name': 'lightSwitch',
+                                    'image': 'ASLightSwitch.png',
+                                    'hoverImage': 'ASLightSwitchHover.png',
+                                    'width': 27,
+                                    'height': 21,
+                                    'left': 945,
+                                    'top': 307
+                                },
+                                'hidingSpot': {
+                                    'name': 'hidingSpot',
+                                    'image': 'ASHideSilhouette.png',
+                                    'hoverImage': 'ASHideSilhouetteHover.png',
+                                    'width': 84,
+                                    'height': 89,
+                                    'left': 896,
+                                    'top': 359,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'goIntoHiding'
+                                    }
+                                }
+                            },
+                            'destination': {
+                                'x': 2
+                            }
                         },
-                        's': {
+                        'w': {
                             'name': 'SHall130',
                             'image': 'R130-south.jpg'
                         }
@@ -931,6 +1013,7 @@ activeShooterDef = {
                     'id': 'hall240',
                     'x': 2,                         //Room Location on a grid?
                     'y': 4,
+                    '_triggers' : ['shooterInHallToLeft'],
                     '_walls': {
                         'e': {
                             'name': 'EHall240',
@@ -1731,6 +1814,74 @@ activeShooterDef = {
         }
     },
     '_conversations': {
+        'goIntoHiding' : {
+            '1' : {
+                'message' : 'This looks like it would be a good place to hide. If the shooter were to look into the room it would be difficult to see you here.',
+                'replies': {
+                    'Hide here': '2',
+                    "Don't hide.": '0'
+                }
+            },
+            '2' : {
+                'triggers' : ['hiddenByDoor']
+            }
+        },
+        'putShadeDown' : {
+            '1' : {
+                'requires': {'objectivesNotCompleted':['pulledDownShade']},
+                'message' : 'Put the blinds on this window down?',
+                'replies': {
+                    'Yes, put them down.': '2',
+                    "Leave them alone.": '0'
+                }
+            },
+            '2' : {
+                'requires': {'objectivesInProgress':['pullDownWindowShade']},
+                'triggers' : ['pulledDownShade']
+            }
+        },
+        'lockDoor' : {
+            '1' : {
+                'requires': {'objectivesNotCompleted':['lockedTheDoor']},
+                'message' : 'Lock the door?',
+                'replies': {
+                    'Yes.': '2',
+                    "No.": '0'
+                }
+            },
+            '2' : {
+                'requires': {'objectivesInProgress':['lockTheDoor']},
+                'triggers' : ['lockedTheDoor']
+            }
+        },
+        'turnOffLights' : {
+            '1' : {
+                'message' : 'What do you want to do to the lights?',
+                'replies': {
+                    'Turn them on.': '3',
+                    "Turn them off.": '2',
+                    'Play with the light switch': '4',
+                    'Leave it alone': '5'
+                }
+            },
+            '2' : {
+                'triggers' : ['turnedOffLights'],
+                'requires': {'objectivesInProgress':['turnOffLights']}
+            },
+            '3' : {
+                'requires': {'objectivesInProgress':['turnOffLights']}
+            },
+            '4' : {
+                'requires': {'objectivesNotInProgress':['hideFromShooter']},
+                'message' : 'The professor scolds you for goofing off.',
+                'replies': {
+                    'Stop misbehaving': '0'
+                }
+            },
+            '5' : {
+                'requires': {'objectivesNotInProgress':['hideFromShooter']},
+            }
+        },
         'Fire Extinguisher': {
             '1': {
                 'message': 'This is a fire extinguisher.',
@@ -1795,7 +1946,7 @@ activeShooterDef = {
                 }
             },
             '2': {
-                'triggers': ['getToFrontDoors']
+                'triggers': ['activateShooter']
             },
         },
         'ExitSchool':{
@@ -1808,6 +1959,7 @@ activeShooterDef = {
                 }
             },
             '2':{
+
                 'message' : 'You start to throw yourself against the door. It appears to be locked with a chain from the outside. The door doesn\'t seem to be budging!',
                 'replies':{
                     'Continue to try and break down the door': 3,
@@ -1908,10 +2060,117 @@ activeShooterDef = {
         },
     },
     '_triggers': {
+        'hideFromShooter' : {
+            'events' : {
+                'addToScene': ['hidingSpot'],
+                'setObjectives' : [['hideFromShooter', 'The shooter is very close.', 'turnOffLights', 'Turn off the lights.',
+                        'pullDownWindowShade', 'Pull down the window shade', 'hideByDoor', 'Hide by the door', 'silencePhone',
+                        'Silence your cell phone', 'lockTheDoor', 'Lock the door to the room.']]
+            },
+            'startTriggers' : ['hiddenFromShooter'],
+            'enableTriggers' : ['turnedOffLights', 'pulledDownShade', 'hiddenByDoor', 'silencedPhone', 'lockedTheDoor', 'failedToHide',
+                    'failedToTurnOffLights', 'failedToPullDownShade', 'failedToHideByDoor', 'failedToSilencePhone', 'failedToLockTheDoor',
+                    'shooterInHallToRight', 'shooterInHallToLeft']
+        },
+        'hiddenFromShooter' : {
+            'waitForObjectiveCompletions' : ['turnOffLights', 'pullDownWindowShade', 'hideByDoor', 'silencePhone'],
+            'events' : {
+                'addPoints' : [60],
+                'completeObjective' : ['hideFromShooter'],
+                'endGame' : ['You successfully hid from the shooter', "You took decisive action in preparing yourself and your surroundings to maximize the effectiveness of your hiding spot. The shooter was not able to find you before the police arrived to apprehend him. Nice work!"]
+            },
+            'deleteTriggers' : ['failedToHide']
+        },
+        'turnedOffLights' : {
+            'disabled' : true,
+            'events' : {
+                'addPoints' : [10],
+                'completeObjective' : ['turnOffLights'],
+                'replaceProp': ['lightSwitch', 'lightSwitchDone']
+            },
+            'deleteTriggers' : ['failedToTurnOffLights'],
+        },
+        'pulledDownShade' : {
+            'disabled' : true,
+            'events' : {
+                'addPoints' : [10],
+                'completeObjective' : ['pullDownWindowShade'],
+                'replaceProp': ['doorShade', 'doorShadeDown']
+            },
+            'deleteTriggers' : ['failedToPullDownShade'],
+        },
+        'hiddenByDoor' : {
+            'disabled' : true,
+            'events' : {
+                'addPoints' : [10],
+                'completeObjective' : ['hideByDoor']
+            },
+            'deleteTriggers' : ['failedToHideByDoor'],
+            'startTriggers' : ['failedToTurnOffLights', 'failedToPullDownShade', 'failedToSilencePhone']
+        },
+        'silencedPhone' : {
+            'disabled' : true,
+            'events' : {
+                'addPoints' : [10],
+                'completeObjective' : ['silencePhone']
+            },
+            'deleteTriggers' : ['failedToSilencePhone'],
+        },
+        'lockedTheDoor' : {
+            'disabled' : true,
+            'events' : {
+                'addPoints' : [10],
+                'completeObjective' : ['lockTheDoor'],
+                'replaceProp': ['doorHandle', 'doorHandleDone']
+            },
+            'deleteTriggers' : ['failedToLockTheDoor'],
+        },
+        'failedToTurnOffLights' : {
+            'disabled' : true,
+            'events' : {
+                'endGame': ['Game Over', "Although you took action and attempted to hide, because you did not turn off the lights, the room caught the eye of the shooter, who kicked down the door and stormed into the room. You were critically wounded."],
+            }
+        },
+        'failedToPullDownShade' : {
+            'disabled' : true,
+            'events' : {
+                'endGame': ['Game Over', "You didn't pull down the window shade before attempting to hide within the room. The shooter peered through the window, saw you, and started shooting through the door. You were gravely wounded."],
+            }
+        },
+        'failedToHideByDoor' : {
+            'disabled' : true,
+            'events' : {
+                'endGame': ['Game Over', "You didn't hide against the wall. The shooter was able to see you in the room. You were shot and killed."],
+            }
+        },
+        'failedToSilencePhone' : {
+            'disabled' : true,
+            'events' : {
+                'endGame': ['Game Over', "Although you went into hiding, your forgot to silence your cell phone. When a friend tried to call you to see if you made it out safely, the shooter heard your ringtone, entered the room, and began shooting, seriously wounding you in the process."],
+            }
+        },
+        'failedToLockTheDoor' : {
+            'disabled' : true,
+            'events' : {
+                'endGame': ['Game Over', "You went into hiding but didn't lock the door to the room. THe shooter waltzed in and wasted you."],
+            }
+        },
         'takeFireExtinguisher': {
             'events': {
                 'takeFromScene' : [ {'name': 'Fire Extinguisher', 'image': 'fire-extinguisher.png', 'width':32, 'height':32 },
                                     'Fire-Extinguisher' ]
+            }
+        },
+        'shooterInHallToLeft' : {
+            'disabled' : true,
+            'events' : {
+                'endGame': ['Game Over', "In a tragic display of utter disregard for self-preservation, you charged out into the halls despite the close proximity of the shooter. After rounding a corner you found yourself face to face with a deranged gunman. To say that the encounter did not go well for you would be a grave understatement. You are dead."],
+            }
+        },
+        'shooterInHallToRight' : {
+            'disabled' : true,
+            'events' : {
+                'endGame': ['Game Over', "Despite the sound of nearby gunfire, you opted to run out into the halls rather than attempt to hide. Perhaps you would conclude in retrospect that this decision was unwise; unfortuantely, you were shot in the back by the gunman, and are no longer able to reason."],
             }
         },
         'takeCrowbar': {
@@ -1933,12 +2192,15 @@ activeShooterDef = {
                 'completeObjective': ['getToClass'],
             },
         },
-        'getToFrontDoors': {
+        'activateShooter': {
+            'startRandomTrigger': ['getToFrontDoors', 'hideFromShooter']
+        },
+        'getToFrontDoors' : {
             'events': {
                 'setObjective': ['getToFrontDoors', 'Go to the front doors of the school and get out of the building'],
-                'addToScene': ['UseDoor'],
+                'addToScene': ['UseDoor']
             },
-            'enableTriggers': ['FrontDoorsReached']
+            'enableTriggers' : ['FrontDoorsReached']
         },
         'FrontDoorsReached':{
             'events':{
@@ -1997,7 +2259,9 @@ activeShooterDef = {
             }
         }
     },
-    'inactiveProps': ['UseDoor', 'policeman', 'crowbar', 'shooter', 'shooter-downed', 'HidingPlace'],
+    'inactiveProps': ['UseDoor', 'policeman', 'crowbar', 'shooter', 'shooter-downed',
+            'HidingPlace', 'doorShadeDown', 'hidingSpot', 'doorHandleDone',
+            'lightSwitchDone'],
     '_player': {
         'x': 3,
         'y': 0,
