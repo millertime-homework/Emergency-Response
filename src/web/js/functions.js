@@ -48,10 +48,21 @@ jQuery(document).ready(function (jQuery) {
     jQuery('#game-over-mainmenu-button').live("click", function () {
         setGameState(GAME_STATE_MENU);
     });
+
+    //Allows scenario image loader to signal once all the images are loaded.
+    jQuery(document).on('scenario-images-loaded', function(event) {
+        setGameState(GAME_STATE_RUNNING);
+        renderScene();
+        generateMap(player.x, player.y, scenario.getFloor(player.z));
+        sizeWindow();
+        saveGame();
+        jQuery('div.spinner').remove();
+    });
 });
 
 // Loads the Scenario objects from the data parameter (scenario-definition array)
 function loadScenario(data) {
+    var triggerData;
     scenario = new Scenario;
     scenario.set(data.name, 'active');
     addSpinner();
@@ -61,16 +72,8 @@ function loadScenario(data) {
     initializePlayer(data._player);
     markInactivePropsInactive(data.inactiveProps);
 
-    //Allows scenario image loader to signal once all the images are loaded.
-    jQuery(document).on('scenario-images-loaded', function(event) {
-        setGameState(GAME_STATE_RUNNING);
-        renderScene();
-        generateMap(player.x, player.y, scenario.getFloor(player.z));
-        sizeWindow();
-        loadTriggers(data._triggers);
-        saveGame();
-        jQuery('div.spinner').remove();
-    });
+    triggerData = jQuery.extend(true, {}, data._triggers);
+    loadTriggers(triggerData);
 
     function loadFloors(scenarioData) {
         var currentFloor;
