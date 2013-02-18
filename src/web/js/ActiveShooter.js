@@ -1981,16 +1981,43 @@ activeShooterDef = {
         },
         'Professor Bell': {
             '1': {
-                'triggers': ['gotToClass'],
-                'message': 'Good morning! Class is starting, have a seat. Today we\'re going over... [Bang!]... [Bang! Bang!]. What? What is that. That sounds like gun fire. [Professor Bell goes to the class room door and peers out.] Quickly, everyone get out. I think we can make it to the front doors.',
+                'triggers': ['gotToClass', 'activateShooter'],
+                'message': 'Good morning! Class is starting, have a seat.',
                 'replies': {
-                    'No way! I\'m staying right here.': 0,
-                    'Ok, let\'s go!' : 2,
+                    '[Take a seat]' : '2',
+                    '[Sit down]' : '3',
                 }
             },
             '2': {
-                'triggers': ['activateShooter']
+                'requires': {'objectivesInProgress':['getToFrontDoors']},
+                'message': 'Today we\'re going over... [Bang!]... [Bang! Bang!]. What? What is that? That sounds like gun fire. [Professor Bell goes to the class room door and peers out the window.] Quickly, everyone get out. I think we can make it to the front doors.',
+                'replies': {
+                    'No way! I\'m staying right here.': '0',
+                    'Ok, let\'s go!': '0',
+                }
             },
+            '3':{
+                'requires': {'objectivesInProgress':['hideFromShooter']},
+                'message': 'Today we\'re going over... [Bang!]... [Bang! Bang!]. What? What is that? That sounds like gun fire. [Professor Bell goes to the class room door and peers out the window. Two more gunshots are heard close by. His face suddenly becomes pale.] That sounds really close! Oh my goodness, that\'s really close...',
+                'replies': {
+                    'We better all hide in the classroom. Everyone stay calm and let\'s find hiding places.': '4',
+                    'Get a hold of yourself professor Bell! We have to get out of here! Come on let\'s go!' : '5',
+                }
+            },
+            '4':{
+                'message': 'Ok, ok, you\'re probably right. [Professor Bell seems unsure of what to do and crouches down behind a classroom chair, still plainly in sight. You can hear people screaming in the hallway outside.]',
+                'replies':{
+                    '[Go Hide]' : '0',
+                    '[You say quietly] Hey Professor Bell, Don\'t hide there. Get behind your desk': '6',
+                    '[You whisper to everyone] Ok, everyone stay quiet and turn off your cell phones.': '7',
+                },
+            '5':{
+                'message': 'The shooter seems to be close by, you can hear someone scream in the hallway outside, you better get going.',
+                'replies':{
+                    '[Exit Conversation and run]': '0'
+                }
+            },
+            }
         },
         'ExitSchool':{
             '1':{
