@@ -107,10 +107,10 @@ activeShooterDef = {
                                 'RHF_Poster': {
                                     'name': 'RHF_Poster',
                                     'image': 'RHF_Poster.png',
-                                    'width': 350,
-                                    'height': 438,
-                                    'left': 400,
-                                    'top': 60,
+                                    'width': 250,
+                                    'height': 312,
+                                    'left': 550,
+                                    'top': 180,
                                    
                                 }
                             }
@@ -140,8 +140,8 @@ activeShooterDef = {
                                 'RHF_Poster': {
                                     'name': 'RHF_Poster',
                                     'image': 'RHF_Poster-skew.png',
-                                    'width': 64,
-                                    'height': 103,
+                                    'width': 35,
+                                    'height': 100,
                                     'left': 420,
                                     'top': 250,
                                 },
@@ -353,9 +353,9 @@ activeShooterDef = {
                                 'RHF_Poster': {
                                     'name': 'RHF_Poster',
                                     'image': 'RHF_Poster.png',
-                                    'width': 140,
-                                    'height': 175,
-                                    'left': 500,
+                                    'width': 102,
+                                    'height': 128,
+                                    'left': 550,
                                     'top': 220,
                                    
                                 }
@@ -495,11 +495,26 @@ activeShooterDef = {
                             'image': 'R120-east.jpg',
                             'destination': {
                                 'x': 2
-                            },                            
+                            }
                         },
                         'w': {
                             'name': 'WHall120',
                             'image': 'R120-west.jpg',
+                            '_props': {
+                                'Hide_Curtains': {
+                                    'name': '',
+                                    'image': 'hiding-place.png',
+                                    'hoverImage': 'hiding-place-hover.png',
+                                    'width': 100,
+                                    'height': 120,
+                                    'left': 500,
+                                    'top': 270,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Hide'
+                                    }
+                                }
+                            }
                         },
                         'n': {
                             'name': 'NHall120',
@@ -563,6 +578,15 @@ activeShooterDef = {
                                     'height': 104,
                                     'left': 320,
                                     'top': 190,
+                                },
+                                'RHF_Poster': {
+                                    'name': 'RHF_Poster',
+                                    'image': 'RHF_Poster.png',
+                                    'width': 24,
+                                    'height': 31,
+                                    'left': 550,
+                                    'top': 290,
+                                   
                                 }
                             }
                         }
@@ -669,7 +693,7 @@ activeShooterDef = {
                 */
                 'room130': {
                     'id': 'hall130',
-                    'x': 1,
+                    'x': 1, 
                     'y': 3,
                     '_walls': {
                         's': {
@@ -827,6 +851,17 @@ activeShooterDef = {
                             'image': 'R230-south.jpg',
                             'destination': {
                                 'y': 2
+                            },
+                            '_props' :{
+                                'RHF_Poster': {
+                                    'name': 'RHF_Poster',
+                                    'image': 'RHF_Poster.png',
+                                    'width': 15,
+                                    'height': 17,
+                                    'left': 550,
+                                    'top': 295,
+                                   
+                                }
                             }
                         }
                     }
@@ -1063,6 +1098,14 @@ activeShooterDef = {
                                     'height': 40,
                                     'left': 800,
                                     'top': 350,
+                                },
+                                'RHF_Poster': {
+                                    'name': 'RHF_Poster',
+                                    'image': 'RHF_Poster.png',
+                                    'width': 8,
+                                    'height': 11,
+                                    'left': 554,
+                                    'top': 291,                                   
                                 }
                             }
                         }
