@@ -7,10 +7,10 @@
 
 
 jQuery(document).ready(function($){
-	
-	// Changes Game State from main-menu to Playing
-	$('#play-button').click(function() {
-		// ## MAIN FUNCTION ##
+    
+    // Changes Game State from main-menu to Playing
+    $('#play-button').click(function() {
+        // ## MAIN FUNCTION ##
     
         // Show Scene Selector
         var scenarioSelectModal = jQuery('#scenario-select');
@@ -20,7 +20,7 @@ jQuery(document).ready(function($){
         append('<div class="option"><span id="loadTest">' + testDef['name'] + '</span></div>').
         show();
         centerModal(scenarioSelectModal);
-	})
+    })
 
     // Load Scenario
     $("#loadActiveShooter").live("click", function() {
@@ -47,12 +47,12 @@ jQuery(document).ready(function($){
         else
             loadGame();
     });
-	
     
-	// Brings Up the Info page.
-	$('#info-button').click(function() {
-		displayModal('About this game', 'Team Banana\'s Emergency Response Game<br/>Development Version 0.5', null);
-	})
+    
+    // Brings Up the Info page.
+    $('#info-button').click(function() {
+        displayModal('About this game', 'Team Banana\'s Emergency Response Game<br/>Development Version 0.5', null);
+    })
 
 })
 
