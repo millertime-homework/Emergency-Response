@@ -1340,6 +1340,27 @@ earthquakeDef = {
                         's': {
                             'name': 'SLibrary241',
                             'image': 'R241-south.jpg'
+                            '_props': {
+                                'heavy': {
+                                    'name': 'heavy',
+                                    'image': 'heavy.png',
+                                    'width': 100,
+                                    'height': 100,
+                                    'left': 400,
+                                    'top': 20,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Heavy Object'
+                                    }
+                                },
+                                'heavy-on-floor': {
+                                    'name': 'heavy',
+                                    'image': 'heavy.png',
+                                    'width': 100,
+                                    'height': 100,
+                                    'left': 400,
+                                    'top': 220,
+                                }
                         }
                     }
                 },
@@ -3078,6 +3099,18 @@ earthquakeDef = {
                 'triggers': ['shakeThingsUp'],
             },
         },
+        'Heavy Object': {
+            '1': {
+                'message': 'A big, heavy object is on the top shelf',
+                'replies': {
+                    'Leave it alone': 0,
+                    'Move it to the floor': 2
+                }
+            },
+            '2': {
+                'triggers': ['moveHeavyObject']
+            }
+        }
     },
     '_triggers' : {
         'playtheERG': {
@@ -3095,6 +3128,13 @@ earthquakeDef = {
                 'startEarthquake': [],
             },
         },
+        'moveHeavyObject': {
+            'events': {
+                'removeFromScene': ['heavy'],
+                'addToScene': ['heavy-on-floor'],
+                'addPoints': 10
+            }
+        }
     },
     '_player': {
         'x': 2,
