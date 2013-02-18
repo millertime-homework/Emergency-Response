@@ -32,7 +32,7 @@ scenarioDef = {
                     }
                 },
                 */
-				'room200': {
+                'room200': {
                     'id': 'hall200', 
                     'x': 2, 
                     'y': 0,
@@ -97,7 +97,7 @@ scenarioDef = {
                         }
                     }
                 },
-				'room400': {
+                'room400': {
                     'id': 'hall400', 
                     'x': 4, 
                     'y': 0,
@@ -131,7 +131,7 @@ scenarioDef = {
                     }
                 },
                 /* 5,0,0 no images yet
-				'room500': {
+                'room500': {
                     'id': 'hall500', 
                     'x': 5, 
                     'y': 0,
@@ -161,7 +161,7 @@ scenarioDef = {
                     }
                 },
                 */
-				'room110': {
+                'room110': {
                     'id': 'hall110', 
                     'x': 1, 
                     'y': 1,
@@ -187,7 +187,7 @@ scenarioDef = {
                         }
                     }
                 },
-				'room210': {
+                'room210': {
                     'id': 'hall210', 
                     'x': 2, 
                     'y': 1,
@@ -239,13 +239,13 @@ scenarioDef = {
                         's': {
                             'name': 'SHall310', 
                             'image': 'R310-south.jpg',
-							'destination': {
+                            'destination': {
                                 'y': 0
                             }
                         }
                     }
                 },
-				'room410': {
+                'room410': {
                     'id': 'hall410', 
                     'x': 4, 
                     'y': 1,
@@ -268,14 +268,14 @@ scenarioDef = {
                         's': {
                             'name': 'SHall410', 
                             'image': 'R410-south.jpg',
-							'destination': {
+                            'destination': {
                                 'y': 0
                             }
                         }
                     }
                 },
                 /* 5,1,0 no images yet
-				'room510': {
+                'room510': {
                     'id': 'hall510', 
                     'x': 5, 
                     'y': 1,
@@ -298,14 +298,14 @@ scenarioDef = {
                         's': {
                             'name': 'SHall510', 
                             'image': 'R510-south.jpg',
-							'destination': {
+                            'destination': {
                                 'y': 0
                             }
                         }
                     }
                 },
                 */
-				'room120': {
+                'room120': {
                     'id': 'hall120', 
                     'x': 1, 
                     'y': 2,
@@ -331,7 +331,7 @@ scenarioDef = {
                         }
                     }
                 },
-				'room220': {
+                'room220': {
                     'id': 'hall220', 
                     'x': 2, 
                     'y': 2,
@@ -361,7 +361,7 @@ scenarioDef = {
                         's': {
                             'name': 'SHall220', 
                             'image': 'R220-south.jpg',
-							'destination': {
+                            'destination': {
                                 'y': 1
                             }
                         }
@@ -398,7 +398,7 @@ scenarioDef = {
                     }
                 },
                 */
-				'room420': {
+                'room420': {
                     'id': 'hall420', 
                     'x': 4, 
                     'y': 2,
@@ -429,14 +429,14 @@ scenarioDef = {
                         's': {
                             'name': 'SHall420', 
                             'image': 'R420-south.jpg',
-							'destination': {
+                            'destination': {
                                 'y': 1
                             }
                         }
                     }
                 },
                 /* 5,2,0 no images yet
-				'room520': {
+                'room520': {
                     'id': 'hall520', 
                     'x': 5, 
                     'y': 2,
@@ -459,14 +459,14 @@ scenarioDef = {
                         's': {
                             'name': 'SHall520', 
                             'image': 'R520-south.jpg',
-							'destination': {
+                            'destination': {
                                 'y': 1
                             }
                         }
                     }
                 },
                 */
-				'room130': {
+                'room130': {
                     'id': 'hall130', 
                     'x': 1, 
                     'y': 3,
@@ -492,7 +492,7 @@ scenarioDef = {
                         }
                     }
                 },
-				'room230': {
+                'room230': {
                     'id': 'hall230', 
                     'x': 2, 
                     'y': 3,
@@ -512,7 +512,7 @@ scenarioDef = {
                             'name': 'NHall230',   
                             'image': 'R230-north.jpg',
                             'destination': {
-								'x': 2,
+                                'x': 2,
                                 'y': 4
                             }
                         },
@@ -534,35 +534,35 @@ scenarioDef = {
                         'e': {
                             'name': 'EHall330', 
                             'image': 'R330-east.jpg',
-							'destination': {
+                            'destination': {
                                 'x': 4
                             }
                         },
                         'w': {
                             'name': 'WHall330',
                             'image': 'R330-west.jpg',
-							'destination': {
+                            'destination': {
                                 'x': 2
                             }
                         },
                         'n': {
                             'name': 'NHall330',   
                             'image': 'R330-north.jpg',
-							'destination': {
+                            'destination': {
                                 'y': 4
                             }
                         },
                         's': {
                             'name': 'SHall330', 
                             'image': 'R330-south.jpg',
-							'destination': {
+                            'destination': {
                                 'y': 2
                             }
                         }
                     }
                 },
                 */
-				'room430': {
+                'room430': {
                     'id': 'hall430', 
                     'x': 4, 
                     'y': 3,
@@ -570,7 +570,7 @@ scenarioDef = {
                         'e': {
                             'name': 'EHall430', 
                             'image': 'R430-east.jpg',
-							'destination': {
+                            'destination': {
                                 'x': 5
                             }
                         },
@@ -588,13 +588,13 @@ scenarioDef = {
                         's': {
                             'name': 'SHall430', 
                             'image': 'R430-south.jpg',
-							'destination': {
+                            'destination': {
                                 'y': 2
                             }
                         }
                     }
                 },
-				'room530': {
+                'room530': {
                     'id': 'hall530', 
                     'x': 5, 
                     'y': 3,
@@ -606,15 +606,15 @@ scenarioDef = {
                         'w': {
                             'name': 'WHall530',
                             'image': 'R530-west.jpg',
-							'destination': {
+                            'destination': {
                                 'x': 4
                             }
                         },
                         'n': {
                             'name': 'NHall530',   
                             'image': 'R530-north.jpg' /*, can't go to 5,4,0 it's commented out
-							'destination': {
-								'x': 5,
+                            'destination': {
+                                'x': 5,
                                 'y': 4
                             }
                             */
@@ -626,7 +626,7 @@ scenarioDef = {
                     }
                 },
                 /* 0,4,0 no images yet
-				'room040': {
+                'room040': {
                     'id': 'hall040', 
                     'x': 0, 
                     'y': 4,
@@ -634,7 +634,7 @@ scenarioDef = {
                         'e': {
                             'name': 'EHall040', 
                             'image': 'R040-east.jpg',
-							'destination': {
+                            'destination': {
                                 'x': 1
                             }
                         },
@@ -654,7 +654,7 @@ scenarioDef = {
                 },
                 */
                 /* 1,4,0 no images yet
-				'room140': {
+                'room140': {
                     'id': 'hall140', 
                     'x': 1, 
                     'y': 4,
@@ -714,13 +714,13 @@ scenarioDef = {
                         's': {
                             'name': 'SHall240', 
                             'image': 'R240-south.jpg',
-							'destination': {
+                            'destination': {
                                 'y': 3
                             }
                         }
                     }
                 },
-				'room340': {
+                'room340': {
                     'id': 'hall340', 
                     'x': 3, 
                     'y': 4,
@@ -749,7 +749,7 @@ scenarioDef = {
                         }
                     }
                 },
-				'room440': {
+                'room440': {
                     'id': 'hall440', 
                     'x': 4, 
                     'y': 4,
@@ -757,7 +757,7 @@ scenarioDef = {
                         'e': {
                             'name': 'EHall440', 
                             'image': 'R440-east.jpg' /*, can't go to 5,4,0 it's commented out
-							'destination': {
+                            'destination': {
                                 'x': 5
                             }
                             */
@@ -783,7 +783,7 @@ scenarioDef = {
                     }
                 },
                 /* 5,4,0 no images yet
-				'room540': {
+                'room540': {
                     'id': 'hall540', 
                     'x': 5, 
                     'y': 4,
@@ -812,16 +812,16 @@ scenarioDef = {
                         's': {
                             'name': 'SHall540', 
                             'image': 'R540-south.jpg',
-							'destination': {
+                            'destination': {
                                 'x': 4,
-								'y': 3
+                                'y': 3
                             }
                         }
                     }
                 },
                 */
                 /* 6,4,0 no images yet
-				'room640': {
+                'room640': {
                     'id': 'hall640', 
                     'x': 6, 
                     'y': 4,
@@ -856,6 +856,6 @@ scenarioDef = {
         'y': 0,
         'z': 0,
         '_facing': 'n',
-	'inventory': []
+    'inventory': []
     },
 };
