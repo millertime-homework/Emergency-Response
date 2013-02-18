@@ -2007,16 +2007,30 @@ activeShooterDef = {
             '4':{
                 'message': 'Ok, ok, you\'re probably right. [Professor Bell seems unsure of what to do and crouches down behind a classroom chair, still plainly in sight. You can hear people screaming in the hallway outside.]',
                 'replies':{
-                    '[Go Hide]' : '0',
+                    '[Go Hide]': '0',
                     '[You say quietly] Hey Professor Bell, Don\'t hide there. Get behind your desk': '6',
                     '[You whisper to everyone] Ok, everyone stay quiet and turn off your cell phones.': '7',
                 },
+            },
             '5':{
                 'message': 'The shooter seems to be close by, you can hear someone scream in the hallway outside, you better get going.',
                 'replies':{
-                    '[Exit Conversation and run]': '0'
+                    '[Exit Conversation and run]': '0',
                 }
             },
+            '6':{
+                'message': '[Professor Bell moves to behind is desk.]',
+                'replies':{
+                    '[Exit Conversation]' : '0',
+                    '[You whisper to everyone] Ok, everyone stay quiet and turn off your cell phones. [Exit Conversation]': '0',
+                }
+            },
+            '7':{
+                'message': '[People start putting their cell phones on silent mode as they continue to hide.',
+                'replies':{
+                    'None' : '[Exit Conversation]',
+                    '[You say quietly] Hey Professor Bell, Don\'t hide there. Get behind your desk': '0',
+                }
             }
         },
         'ExitSchool':{
@@ -2260,6 +2274,7 @@ activeShooterDef = {
         },
         'gotToClass': {
             'events': {
+                'removeFromScene': ['prof-bell'],
                 'completeObjective': ['getToClass'],
             },
         },
