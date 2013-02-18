@@ -1339,13 +1339,13 @@ earthquakeDef = {
                         },
                         's': {
                             'name': 'SLibrary241',
-                            'image': 'R241-south.jpg'
+                            'image': 'R241-south.jpg',
                             '_props': {
                                 'heavy': {
                                     'name': 'heavy',
                                     'image': 'heavy.png',
-                                    'width': 100,
-                                    'height': 100,
+                                    'width': 300,
+                                    'height': 300,
                                     'left': 400,
                                     'top': 20,
                                     'action': 'showConversation',
@@ -1356,11 +1356,12 @@ earthquakeDef = {
                                 'heavy-on-floor': {
                                     'name': 'heavy',
                                     'image': 'heavy.png',
-                                    'width': 100,
-                                    'height': 100,
+                                    'width': 300,
+                                    'height': 300,
                                     'left': 400,
-                                    'top': 220,
+                                    'top': 320,
                                 }
+                            }
                         }
                     }
                 },
@@ -3136,6 +3137,7 @@ earthquakeDef = {
             }
         }
     },
+    'inactiveProps': ['heavy-on-floor'],
     '_player': {
         'x': 2,
         'y': 4,
