@@ -2832,7 +2832,25 @@ earthquakeDef = {
                         },
                         's': {
                             'name': 'SLibrary249',
-                            'image': 'R241-south.jpg'
+                            'image': 'R241-south.jpg',
+                            '_props': {
+                                'heavy': {
+                                    'name': 'heavy',
+                                    'image': 'heavy-smashed.png',
+                                    'width': 300,
+                                    'height': 300,
+                                    'left': 400,
+                                    'top': 320
+                                },
+                                'heavy-on-floor': {
+                                    'name': 'heavy',
+                                    'image': 'heavy.png',
+                                    'width': 300,
+                                    'height': 300,
+                                    'left': 400,
+                                    'top': 320,
+                                }
+                            }
                         }
                     }
                 },
