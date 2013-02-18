@@ -3102,7 +3102,7 @@ earthquakeDef = {
         },
         'Heavy Object': {
             '1': {
-                'message': 'A big, heavy object is on the top shelf',
+                'message': 'A big, heavy TV is on the top shelf',
                 'replies': {
                     'Leave it alone': 0,
                     'Move it to the floor': 2
