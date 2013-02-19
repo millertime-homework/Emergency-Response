@@ -26,19 +26,16 @@ jQuery(document).ready(function($){
     $("#loadActiveShooter").live("click", function() {
         currentScenario = "activeShooterDef";
         loadScenario(activeShooterDef);
-        jQuery('#scenario-select').hide();
     });
 
     $("#loadEarthquake").live("click", function() {
         currentScenario = "earthquakeDef";
         loadScenario(earthquakeDef);
-        jQuery('#scenario-select').hide();
     });
 
     $("#loadTest").live("click", function() {
         currentScenario = "testDef";
         loadScenario(testDef);
-        jQuery('#scenario-select').hide();
     });
 
     $("#resume-button").click(function() {

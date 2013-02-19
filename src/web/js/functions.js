@@ -62,6 +62,7 @@ jQuery(document).ready(function (jQuery) {
 
 // Loads the Scenario objects from the data parameter (scenario-definition array)
 function loadScenario(data) {
+    setGameState(GAME_STATE_LOADING);
     var triggerData;
     scenario = new Scenario;
     scenario.set(data.name, 'active');
@@ -190,7 +191,7 @@ function loadScenario(data) {
          // Add spinner to view-modal while loading scenario   
         var spinner = new Spinner({
             color: '#000'
-        }).spin(document.getElementById('scenario-select'));
+        }).spin(document.getElementById('overlay'));
         jQuery('#overlay').show();
         jQuery('div.spinner').css({
             'position' : 'absolute',
@@ -242,8 +243,15 @@ function setGameState(state) {
         allowKeyEvents = false;
         break;
     case GAME_STATE_RUNNING:
+        hideMainMenu();
+        jQuery('#view-modal').show();
         jQuery('.modal').hide();
         jQuery('#overlay').hide();
+        allowKeyEvents = true;
+        break;
+    case GAME_STATE_LOADING:
+        hideMainMenu();
+        jQuery('.modal').hide();
         jQuery('#view-modal').show();
         allowKeyEvents = true;
         break;
