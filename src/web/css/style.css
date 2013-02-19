@@ -403,3 +403,9 @@ textarea:focus {
   opacity: 0.75;
   z-index: 9;
 }
+.phone-menu{position:absolute;cursor:pointer;background-color:#eeeeee;border-style:solid;border-width:3px;border-color:#000000;-webkit-border-radius:7px 7px 7px 7px;-moz-border-radius:7px 7px 7px 7px;border-radius:7px 7px 7px 7px;-webkit-border-radius:10px 10px 10px 10px;-moz-border-radius:10px 10px 10px 10px;border-radius:10px 10px 10px 10px;box-shadow:3px 3px 3px #888888;-webkit-box-shadow:3px 3px 3px #888888;-moz-box-shadow:3px 3px 3px #888888;}
+.phone-context-padder{padding-left:5px;padding-top:5px;padding-right:5px;}
+.phone-menu div{padding-bottom:5px;}
+#phone-context{width:50px;}
+#phone-context-2{width:auto;}
+#phone-context-3{width:auto;max-width:200px;}

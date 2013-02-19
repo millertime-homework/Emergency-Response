@@ -120,7 +120,28 @@
                     <input class="ui viewport-button hidden" id="move-up" type="button" value="Go Up Stairs" />
                     <input class="ui viewport-button hidden" id="move-down" type="button" value="Go Down Stairs" />
                     <div class='ui' id='inventory'></div>
-                    <div class='ui' id='cell-phone'></div>
+                    <div class='ui phone-context' id='cell-phone'></div>
+                    <div class='phone-context phone-menu hidden' id='phone-context'>
+                        <div class='phone-context-padder'>
+                            <div class='phone-visible' id='text'>Text</div>
+                            <div class='phone-visible' id='call'>Call</div>
+                            <div class='phone-visible' id='ringer'>Ringer</div>
+                        </div>
+                    </div>
+                    <div class='phone-context phone-menu' id='phone-context-2'>
+                        <div class='phone-context-padder'>
+                            <div class='text hidden' id='psa'>PSA</div>
+                            <div class='call hidden' id='call-911'>No one to call</div>
+                            <div class='ringer hidden selected' id='ringer-on'>On</div>
+                            <div class='ringer hidden' id='ringer-off'>Off</div>
+                        </div>
+                    </div>
+                    <div class='phone-context phone-menu' id='phone-context-3'>
+                        <div class='phone-context-padder'>
+                            <div class='view-text hidden billy-the-kid'>Did you see Django Uncharted yet?</div>
+                            <div class='view-text hidden psa'><span>This is a public service announcement</span></div>
+                        </div>
+                    </div>
                 </div> 
                 <div class="primary-view main-content-child main-content-viewport" id="view-scene"></div>
                 <div class='main-content-child' id="sidebar">
@@ -176,7 +197,7 @@
         <script type="text/javascript" src="web/js/keyhandler.js"></script>
         <script type="text/javascript" src="web/js/main.js"></script>        <!-- Main code to start game -->
         <script type="text/javascript" src="web/js/minimap.js"></script>
+        <script type="text/javascript" src="web/js/cellphone.js"></script>
     <!-- END JAVASCRIPTS -->
-
 </body>
 </html>
