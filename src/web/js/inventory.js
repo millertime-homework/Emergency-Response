@@ -27,13 +27,15 @@ jQuery(document).ready(function($) {
     $(document).on("removeInventory", function(event, item) {
         player.inventory.remove(item);
     });
-    $(document).on("addToScene", function(event, item) {
-        delete scenario.inactiveProps[item];
+    $(document).on("addToScene", function(event /* items... */) {
+        for (var i = 1; i < arguments.length; i++)
+            delete scenario.inactiveProps[arguments[i]];
         renderScene();
         saveGame();
     });
-    $(document).on("removeFromScene", function(event, item) {
-        scenario.inactiveProps[item] = true;
+    $(document).on("removeFromScene", function(event /* items... */) {
+        for (var i = 1; i < arguments.length; i++)
+            scenario.inactiveProps[arguments[i]] = true;
         renderScene();
         saveGame();
     });

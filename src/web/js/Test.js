@@ -617,6 +617,19 @@ testDef = {
                                     'height': 104,
                                     'left': 320,
                                     'top': 190,
+                                },
+                                'fire2': {
+                                    'name': 'fire2',
+                                    'image': 'fire.png',
+                                    'width': 800,
+                                    'height': 400,
+                                    'left': 100,
+                                    'top': 100,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Fire 2'
+                                    },
+                                    'barrier': true
                                 }
                             }
                         }
@@ -1158,6 +1171,19 @@ testDef = {
                 // or use 'check': [{'has': ['Fire Extinguisher'], 'goto': '2'}]
             }
         },
+        'Fire 2': {
+            '1': {
+                'message': 'Oh no there is a fire in the way!',
+                'replies': {
+                    'Extinguish': '3'
+                }
+            },
+            '3': {
+                'triggers': ['useFireExtinguisher2'],
+                'requires': {'has': ['Fire Extinguisher']}
+                // or use 'check': [{'has': ['Fire Extinguisher'], 'goto': '2'}]
+            }
+        },
         'Info TV': {
             '1': {
                 'message': 'What should you do in emergency situations? Stay tuned!',
@@ -1458,7 +1484,7 @@ testDef = {
         },
         'fireAppears': {
             'events': {
-                'addToScene': ['fire1']
+                'addToScene': ['fire1', 'fire2']
             }
         },
         'takeFireExtinguisher': {
@@ -1471,6 +1497,12 @@ testDef = {
             'events': {
                 //'addToScene': ['Fire-Extinguisher'],
                 'removeFromScene': ['fire1']
+            }
+        },
+        'useFireExtinguisher2': {
+            'events': {
+                //'addToScene': ['Fire-Extinguisher'],
+                'removeFromScene': ['fire2']
             }
         },
         /* Professor Bell gives 'Get to class' objective. Upon arrival at class, the lecture begins. */
@@ -1493,7 +1525,7 @@ testDef = {
             }
         }
     },
-    'inactiveProps': ['fire1', 'prof-bell-on-fire'],
+    'inactiveProps': ['fire1', 'fire2', 'prof-bell-on-fire'],
     '_player': {
         'x': 3,
         'y': 0,
