@@ -1359,7 +1359,7 @@ earthquakeDef = {
                                     'width': 300,
                                     'height': 300,
                                     'left': 400,
-                                    'top': 320,
+                                    'top': 320
                                 }
                             }
                         }
@@ -2848,7 +2848,7 @@ earthquakeDef = {
                                     'width': 300,
                                     'height': 300,
                                     'left': 400,
-                                    'top': 320,
+                                    'top': 320
                                 }
                             }
                         }
