@@ -3153,6 +3153,11 @@ earthquakeDef = {
                 'addToScene': ['heavy-on-floor'],
                 'addPoints': 10
             }
+        },
+        'shakeThingsUp': {
+            'events': {
+                'startEarthquake': [],
+            },
         }
     },
     'inactiveProps': ['heavy-on-floor'],
