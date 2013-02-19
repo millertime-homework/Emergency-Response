@@ -798,7 +798,7 @@ activeShooterDef = {
                                     'top': 359,
                                     'action': 'showConversation',
                                     'actionVariables': {
-                                        'conversationName': 'goIntoHiding'
+                                        'conversationName': 'goIntoHidingByDoor'
                                     }
                                 }
                             },
@@ -808,7 +808,22 @@ activeShooterDef = {
                         },
                         'w': {
                             'name': 'SHall130',
-                            'image': 'R130-south.jpg'
+                            'image': 'R130-south.jpg',
+                            '_props': {
+                                'hidingSpot2': {
+                                    'name': 'hidingSpot2',
+                                    'image': 'ASHideSilhouette.png',
+                                    'hoverImage': 'ASHideSilhouetteHover.png',
+                                    'width': 84,
+                                    'height': 89,
+                                    'left': 896,
+                                    'top': 359,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'goIntoHidingBehindChair'
+                                    }
+                                }
+                            }
                         }
                     }
                 },
@@ -844,6 +859,21 @@ activeShooterDef = {
                             'destination': {
                                 'x': 2,
                                 'y': 4
+                            },
+                            '_props':{
+                                'shooter230North': {
+                                    'name': 'shooter230North',
+                                    'image': 'shooter.png',
+                                    'hoverImage': 'shooter-hover.png',
+                                    'width': 128,
+                                    'height': 256,
+                                    'left': 450,
+                                    'top': 255,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Shooter'
+                                    }
+                                }
                             }
                         },
                         's': {
@@ -861,7 +891,7 @@ activeShooterDef = {
                                     'left': 550,
                                     'top': 295,
                                    
-                                }
+                                },
                             }
                         }
                     }
@@ -1082,7 +1112,7 @@ activeShooterDef = {
                         },
                         'n': {
                             'name': 'NHall240',
-                            'image': 'R240-north.jpg'
+                            'image': 'R240-north.jpg',
                         },
                         's': {
                             'name': 'SHall240',
@@ -1857,9 +1887,21 @@ activeShooterDef = {
         }
     },
     '_conversations': {
-        'goIntoHiding' : {
+        'goIntoHidingByDoor' : {
             '1' : {
-                'message' : 'This looks like it would be a good place to hide. If the shooter were to look into the room it would be difficult to see you here.',
+                'message' : '[Crouch down by the door out of sight? This might be a good place to hide. If the shooter were to look into the room it would be difficult to see you here.',
+                'replies': {
+                    'Hide here': '2',
+                    "Don't hide.": '0'
+                }
+            },
+            '2' : {
+                'triggers' : ['hiddenByDoor']
+            }
+        },
+        'goIntoHidingBehindChair' : {
+            '1' : {
+                'message' : '[Crouch down behind this chair? Who knows this plastic chair might even provide you with some cover from stray bullets, right?]',
                 'replies': {
                     'Hide here': '2',
                     "Don't hide.": '0'
@@ -1992,7 +2034,7 @@ activeShooterDef = {
                 'requires': {'objectivesInProgress':['getToFrontDoors']},
                 'message': 'Today we\'re going over... [Bang!]... [Bang! Bang!]. What? What is that? That sounds like gun fire. [Professor Bell goes to the class room door and peers out the window.] Quickly, everyone get out. I think we can make it to the front doors.',
                 'replies': {
-                    'No way! I\'m staying right here.': '0',
+                    'No way! I\'m staying right here.': '8',
                     'Ok, let\'s go!': '0',
                 }
             },
@@ -2030,6 +2072,12 @@ activeShooterDef = {
                 'replies':{
                     'None' : '[Exit Conversation]',
                     '[You say quietly] Hey Professor Bell, Don\'t hide there. Get behind your desk': '0',
+                }
+            },
+            '8':{
+                'message' : 'Come on, everyone out! [Professor Bell ushers all the student out of the classroom and heads towards the front doors.]',
+                'replies' :{
+                    '[Exit Conversation]' : '0',
                 }
             }
         },
@@ -2146,10 +2194,10 @@ activeShooterDef = {
     '_triggers': {
         'hideFromShooter' : {
             'events' : {
-                'addToScene': ['hidingSpot'],
-                'setObjectives' : [['hideFromShooter', 'The shooter is very close.', 'turnOffLights', 'Turn off the lights.',
+                'addToScene': ['hidingSpot', 'hidingSpot2', 'shooter230North'],
+                'setObjectives' : ['hideFromShooter', 'The shooter is very close.', 'turnOffLights', 'Turn off the lights.',
                         'pullDownWindowShade', 'Pull down the window shade', 'hideByDoor', 'Hide by the door', 'silencePhone',
-                        'Silence your cell phone', 'lockTheDoor', 'Lock the door to the room.']]
+                        'Silence your cell phone', 'lockTheDoor', 'Lock the door to the room.']
             },
             'startTriggers' : ['hiddenFromShooter'],
             'enableTriggers' : ['turnedOffLights', 'pulledDownShade', 'hiddenByDoor', 'silencedPhone', 'lockedTheDoor', 'failedToHide',
@@ -2248,12 +2296,14 @@ activeShooterDef = {
         'shooterInHallToLeft' : {
             'disabled' : true,
             'events' : {
+                'addToScene': ['shooter230North'],
                 'endGame': ['Game Over', "In a tragic display of utter disregard for self-preservation, you charged out into the halls despite the close proximity of the shooter. After rounding a corner you found yourself face to face with a deranged gunman. To say that the encounter did not go well for you would be a grave understatement. You are dead."],
             }
         },
         'shooterInHallToRight' : {
             'disabled' : true,
             'events' : {
+                'addToScene': ['shooter230South'],
                 'endGame': ['Game Over', "Despite the sound of nearby gunfire, you opted to run out into the halls rather than attempt to hide. Perhaps you would conclude in retrospect that this decision was unwise; unfortuantely, you were shot in the back by the gunman, and are no longer able to reason."],
             }
         },
@@ -2282,8 +2332,8 @@ activeShooterDef = {
         },
         'getToFrontDoors' : {
             'events': {
+                'addToScene': ['UseDoor', 'hidingSpot', 'hidingSpot2'],
                 'setObjective': ['getToFrontDoors', 'Go to the front doors of the school and get out of the building'],
-                'addToScene': ['UseDoor']
             },
             'enableTriggers' : ['FrontDoorsReached']
         },
@@ -2344,9 +2394,9 @@ activeShooterDef = {
             }
         }
     },
-    'inactiveProps': ['UseDoor', 'policeman', 'crowbar', 'shooter', 'shooter-downed',
-            'HidingPlace', 'doorShadeDown', 'hidingSpot', 'doorHandleDone',
-            'lightSwitchDone'],
+    'inactiveProps': ['UseDoor', 'policeman', 'crowbar', 'shooter', 'shooter230North', 
+                     'shooter-downed', 'HidingPlace', 'doorShadeDown', 
+                     'hidingSpot', 'hidingSpot2', 'doorHandleDone', 'lightSwitchDone'],
     '_player': {
         'x': 3,
         'y': 0,
