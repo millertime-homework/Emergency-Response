@@ -189,15 +189,10 @@ function loadScenario(data) {
 
     function addSpinner() {
          // Add spinner to view-modal while loading scenario   
+        jQuery('#overlay').show();
         var spinner = new Spinner({
             color: '#000'
         }).spin(document.getElementById('overlay'));
-        jQuery('#overlay').show();
-        jQuery('div.spinner').css({
-            'position' : 'absolute',
-            'top' : '213px',
-            'left' : '213px'
-        })
         return spinner;
     }
 
