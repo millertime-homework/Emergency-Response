@@ -959,6 +959,20 @@ earthquakeDef = {
                         'w': {
                             'name': 'WClass011',
                             'image': 'R011-west.jpg',
+                            '_props': {
+                                'mrsfoo': {
+                                    'name': 'Mrs. Foo',
+                                    'image': 'mrsfoo.png',
+                                    'width': 219,
+                                    'height': 511,
+                                    'left': 100,
+                                    'top': 50,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'mrsfooconvo'
+                                    }
+                                }
+                            }
                         },
                         'n': {
                             'name': 'NClass011',
@@ -2420,6 +2434,16 @@ earthquakeDef = {
                         'w': {
                             'name': 'WClass019',
                             'image': 'R011-west.jpg',
+                            '_props': {
+                                'mrsfooinjured': {
+                                    'name': 'Mrs. Foo Injured',
+                                    'image': 'mrsfooinjured.png',
+                                    'width': 500,
+                                    'height': 104,
+                                    'left': 100,
+                                    'top': 400,
+                                }
+                            }
                         },
                         'n': {
                             'name': 'NClass019',
@@ -3036,7 +3060,7 @@ earthquakeDef = {
                 'triggers': ['playingERG']
             }
         },
-        'Water Bottle': {
+        'mrsfooconvo': {
             '1': {
                 'message': 'Want to shake things up?',
                 'replies': {
