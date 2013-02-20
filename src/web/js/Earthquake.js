@@ -57,6 +57,16 @@ earthquakeDef = {
                             'image': 'R200-north.jpg',
                             'destination': {
                                 'y': 1
+                            },
+                            '_props': {
+                                'xavier': {
+                                    'name': 'xavier',
+                                    'image': 'prof_bell.png',
+                                    'width': 28,
+                                    'height': 50,
+                                    'left': 540,
+                                    'top': 298 
+                                }
                             }
                         },
                         's': {
@@ -209,7 +219,17 @@ earthquakeDef = {
                             'image': 'R210-north.jpg',
                             'destination': {
                                 'y': 2
-                            }
+                            },
+                            '_props': {
+                                'xavier': {
+                                    'name': 'xavier',
+                                    'image': 'prof_bell.png',
+                                    'width': 45,
+                                    'height': 80,
+                                    'left': 540,
+                                    'top': 286
+                                }
+                            }                            
                         },
                         's': {
                             'name': 'SHall210', 
@@ -380,7 +400,7 @@ earthquakeDef = {
                                     'width': 200,
                                     'height': 354,
                                     'left': 600,
-                                    'top': 311,
+                                    'top': 290,
                                     'action': 'showConversation',
                                     'actionVariables': {
                                         'conversationName': 'Professor Xavier'
@@ -558,17 +578,17 @@ earthquakeDef = {
                             'image': 'R230-south.jpg',
                             'destination': {
                                 'y': 2
-                            }/*,
+                            },
                             '_props': {
                                 'xavier': {
                                     'name': 'xavier',
                                     'image': 'prof_bell.png',
-                                    'width': 0,
-                                    'height': 0,
-                                    'top': 0,
-                                    'left': 0
+                                    'width': 45,
+                                    'height': 80,
+                                    'left': 540,
+                                    'top': 281
                                 }
-                            }*/
+                            }
                         }
                     }
                 },
@@ -777,14 +797,17 @@ earthquakeDef = {
                             'image': 'R240-south.jpg',
                             'destination': {
                                 'y': 3
-                            }/*,
+                            },
                             '_props': {
                                 'xavier': {
                                     'name': 'xavier',
-                                    'image': 'prof-bell.png',
-                                    'width': 
+                                    'image': 'prof_bell.png',
+                                    'width': 23,
+                                    'height': 40,
+                                    'left': 548,
+                                    'top': 298 
                                 }
-                            }*/
+                            }
                         }
                     }
                 },
