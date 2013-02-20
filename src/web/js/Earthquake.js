@@ -57,6 +57,16 @@ earthquakeDef = {
                             'image': 'R200-north.jpg',
                             'destination': {
                                 'y': 1
+                            },
+                            '_props': {
+                                'xavier': {
+                                    'name': 'xavier',
+                                    'image': 'prof_bell.png',
+                                    'width': 28,
+                                    'height': 50,
+                                    'left': 540,
+                                    'top': 298 
+                                }
                             }
                         },
                         's': {
@@ -209,7 +219,17 @@ earthquakeDef = {
                             'image': 'R210-north.jpg',
                             'destination': {
                                 'y': 2
-                            }
+                            },
+                            '_props': {
+                                'xavier': {
+                                    'name': 'xavier',
+                                    'image': 'prof_bell.png',
+                                    'width': 45,
+                                    'height': 80,
+                                    'left': 540,
+                                    'top': 286
+                                }
+                            }                            
                         },
                         's': {
                             'name': 'SHall210', 
@@ -328,7 +348,21 @@ earthquakeDef = {
                         },
                         'w': {
                             'name': 'WHall120',
-                            'image': 'R120-west.jpg',                            
+                            'image': 'R120-west.jpg',
+                            '_props': {
+                                'computer': {
+                                    'name': 'computer',
+                                    'image': 'computer.png',
+                                    'width': 250,
+                                    'height': 255,
+                                    'left': 500,
+                                    'top': 200,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Computer'
+                                    }
+                                }
+                            }
                         },
                         'n': {
                             'name': 'NHall120',   
@@ -358,6 +392,20 @@ earthquakeDef = {
                             'image': 'R220-west.jpg',
                             'destination': {
                                 'x': 1
+                            },
+                            '_props': {
+                                'xavier': {
+                                    'name': 'xavier',
+                                    'image': 'prof_bell.png',
+                                    'width': 200,
+                                    'height': 354,
+                                    'left': 600,
+                                    'top': 290,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Professor Xavier'
+                                    }
+                                }
                             }
                         },
                         'n': {
@@ -530,6 +578,16 @@ earthquakeDef = {
                             'image': 'R230-south.jpg',
                             'destination': {
                                 'y': 2
+                            },
+                            '_props': {
+                                'xavier': {
+                                    'name': 'xavier',
+                                    'image': 'prof_bell.png',
+                                    'width': 45,
+                                    'height': 80,
+                                    'left': 540,
+                                    'top': 281
+                                }
                             }
                         }
                     }
@@ -710,13 +768,13 @@ earthquakeDef = {
                     }
                 },
                 */
-                'room240': {                        //Room Name
-                    'id': 'hall240', 
-                    'x': 2,                         //Room Location on a grid?
-                    'y': 4,  
+                'room240': {
+                    'id': 'hall240',
+                    'x': 2,
+                    'y': 4,
                     '_walls': {
                         'e': {
-                            'name': 'EHall240', 
+                            'name': 'EHall240',
                             'image': 'R240-east.jpg',
                             'destination': {
                                 'x': 3
@@ -739,6 +797,16 @@ earthquakeDef = {
                             'image': 'R240-south.jpg',
                             'destination': {
                                 'y': 3
+                            },
+                            '_props': {
+                                'xavier': {
+                                    'name': 'xavier',
+                                    'image': 'prof_bell.png',
+                                    'width': 23,
+                                    'height': 40,
+                                    'left': 548,
+                                    'top': 298 
+                                }
                             }
                         }
                     }
@@ -2939,6 +3007,35 @@ earthquakeDef = {
         }
     },
     '_conversations': {
+        'Professor Xavier': {
+            '1': {
+                'message': 'Hello!',
+                'replies': {
+                    'Hi Professor': 2
+                }
+            },
+            '2': {
+                'message': 'You should really try out the Emergency Response Game on my computer!',
+                'replies': {
+                    'Okay': 3,
+                    'No thanks': 0
+                }
+            },
+            '3': {
+                'triggers': ['playtheERG']
+            }
+        },
+        'Computer': {
+            '1': {
+                'message': 'Emergency Response Game',
+                'replies': {
+                    '[Start Playing]': 2
+                }
+            },
+            '2': {
+                'triggers': ['playingERG']
+            }
+        },
         'Water Bottle': {
             '1': {
                 'message': 'Want to shake things up?',
@@ -2959,6 +3056,16 @@ earthquakeDef = {
         },
     },
     '_triggers' : {
+        'playtheERG': {
+            'events': {
+                'setObjective': ['playtheERG', 'Learn about Emergency Response on the school computer']
+            }
+        },
+        'playingERG': {
+            'events': {
+                'completeObjective': ['playtheERG']
+            }
+        },
         'shakeThingsUp': {
             'events': {
                 'startEarthquake': [],
