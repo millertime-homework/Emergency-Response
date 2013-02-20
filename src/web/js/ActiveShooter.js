@@ -529,7 +529,6 @@ activeShooterDef = {
                     'id': 'hall220',
                     'x': 2,
                     'y': 2,
-                    '_triggers' : ['shooterCloseGetShot'],
                     '_walls': {
                         'e': {
                             'name': 'EHall220',
@@ -701,106 +700,11 @@ activeShooterDef = {
                         },
                         'n': {
                             'name': 'WHall130',
-                            'image': 'R130-west.jpg',
-                            '_props': {
-                                'prof-bell': {
-                                    'name': 'prof-bell',
-                                    'image': 'prof_bell.png',
-                                    'width': 80,
-                                    'height': 150,
-                                    'left': 500,
-                                    'top': 270,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'Professor Bell'
-                                    }
-                                }
-                            }
+                            'image': 'R130-west.jpg'
                         },
                         'e': {
                             'name': 'NHall130',
                             'image': 'R130-north.jpg',
-                            '_props': {
-                                'doorShade': {
-                                    'name': 'doorShade',
-                                    'image': 'ASshadeUp.png',
-                                    'hoverImage': 'ASshadeUpHover.png',
-                                    'width': 36,
-                                    'height': 36,
-                                    'left': 1015,
-                                    'top': 281,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'putShadeDown'
-                                    }
-                                },
-                                'doorShadeDown': {
-                                    'name': 'doorShadeDown',
-                                    'image': 'ASshadeDown.png',
-                                    'hoverImage': 'ASshadeDownHover.png',
-                                    'width': 36,
-                                    'height': 36,
-                                    'left': 1015,
-                                    'top': 281,
-                                },
-                                'doorHandle': {
-                                    'name': 'doorHandle',
-                                    'image': 'ASDoorHandle.png',
-                                    'hoverImage': 'ASDoorHandleHover.png',
-                                    'width': 17,
-                                    'height': 25,
-                                    'left': 1007,
-                                    'top': 339,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'lockDoor'
-                                    }
-                                },
-                                'doorHandleDone': {
-                                    'name': 'doorHandle',
-                                    'image': 'ASDoorHandle.png',
-                                    'hoverImage': 'ASDoorHandleHover.png',
-                                    'width': 17,
-                                    'height': 25,
-                                    'left': 1007,
-                                    'top': 339,
-                                },
-                                'lightSwitch': {
-                                    'name': 'lightSwitch',
-                                    'image': 'ASLightSwitch.png',
-                                    'hoverImage': 'ASLightSwitchHover.png',
-                                    'width': 27,
-                                    'height': 21,
-                                    'left': 945,
-                                    'top': 307,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'turnOffLights'
-                                    }
-                                },
-                                'lightSwitchDone': {
-                                    'name': 'lightSwitch',
-                                    'image': 'ASLightSwitch.png',
-                                    'hoverImage': 'ASLightSwitchHover.png',
-                                    'width': 27,
-                                    'height': 21,
-                                    'left': 945,
-                                    'top': 307
-                                },
-                                'hidingSpot': {
-                                    'name': 'hidingSpot',
-                                    'image': 'ASHideSilhouette.png',
-                                    'hoverImage': 'ASHideSilhouetteHover.png',
-                                    'width': 84,
-                                    'height': 89,
-                                    'left': 896,
-                                    'top': 359,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'goIntoHidingByDoor'
-                                    }
-                                }
-                            },
                             'destination': {
                                 'x': 2
                             }
@@ -875,19 +779,6 @@ activeShooterDef = {
                                     'left': 550,
                                     'top': 295,
                                    
-                                },
-                                'shooter230South': {
-                                    'name': 'shooter230South',
-                                    'image': 'shooter.png',
-                                    'hoverImage': 'shooter-hover.png',
-                                    'width': 32,
-                                    'height': 64,
-                                    'left': 550,
-                                    'top': 300,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'Shooter'
-                                    }
                                 }
                             }
                         }
@@ -1074,7 +965,6 @@ activeShooterDef = {
                     'id': 'hall240',
                     'x': 2,                         //Room Location on a grid?
                     'y': 4,
-                    '_triggers': ['chanceofEscape'],
                     '_walls': {
                         'e': {
                             'name': 'EHall240',
@@ -1291,11 +1181,106 @@ activeShooterDef = {
                             'image': 'R011-east.jpg',
                             'destination': {
                                 'x': 1
+                            },
+                            '_props': {
+                                'doorShade': {
+                                    'name': 'doorShade',
+                                    'image': 'ASshadeUp.png',
+                                    'hoverImage': 'ASshadeUpHover.png',
+                                    'width': 100,
+                                    'height': 100,
+                                    'left': 515,
+                                    'top': 100,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'putShadeDown'
+                                    }
+                                },
+                                'doorShadeDown': {
+                                    'name': 'doorShadeDown',
+                                    'image': 'ASshadeDown.png',
+                                    'hoverImage': 'ASshadeDownHover.png',
+                                    'width': 100,
+                                    'height': 100,
+                                    'left': 515,
+                                    'top': 100,
+                                },
+                                'doorHandle': {
+                                    'name': 'doorHandle',
+                                    'image': 'ASDoorHandle.png',
+                                    'hoverImage': 'ASDoorHandleHover.png',
+                                    'width': 40,
+                                    'height': 52,
+                                    'left': 450,
+                                    'top': 305,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'lockDoor'
+                                    }
+                                },
+                                'doorHandleDone': {
+                                    'name': 'doorHandle',
+                                    'image': 'ASDoorHandle.png',
+                                    'hoverImage': 'ASDoorHandleHover.png',
+                                    'width': 40,
+                                    'height': 52,
+                                    'left': 450,
+                                    'top': 305,
+                                },
+                                'lightSwitch': {
+                                    'name': 'lightSwitch',
+                                    'image': 'ASLightSwitch.png',
+                                    'hoverImage': 'ASLightSwitchHover.png',
+                                    'width': 50,
+                                    'height': 45,
+                                    'left': 345,
+                                    'top': 307,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'turnOffLights'
+                                    }
+                                },
+                                'lightSwitchDone': {
+                                    'name': 'lightSwitch',
+                                    'image': 'ASLightSwitch.png',
+                                    'hoverImage': 'ASLightSwitchHover.png',
+                                    'width': 50,
+                                    'height': 45,
+                                    'left': 345,
+                                    'top': 307
+                                },
+                                'hidingSpot': {
+                                    'name': 'hidingSpot',
+                                    'image': 'ASHideSilhouette.png',
+                                    'hoverImage': 'ASHideSilhouetteHover.png',
+                                    'width': 84,
+                                    'height': 89,
+                                    'left': 496,
+                                    'top': 359,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'goIntoHidingByDoor'
+                                    }
+                                }
                             }
                         },
                         'w': {
                             'name': 'WClass011',
                             'image': 'R011-west.jpg',
+                            '_props': {
+                                'prof-bell': {
+                                    'name': 'prof-bell',
+                                    'image': 'prof_bell.png',
+                                    'width': 200,
+                                    'height': 350,
+                                    'left': 100,
+                                    'top': 270,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Professor Bell'
+                                    }
+                                }
+                            }
                         },
                         'n': {
                             'name': 'NClass011',
@@ -1389,6 +1374,7 @@ activeShooterDef = {
                     'id': 'hall101',
                     'x': 1,
                     'y': 0,
+                    '_triggers' : ['shooterCloseGetShot'],
                     '_walls': {
                         'e': {
                             'name': 'EHall101',
@@ -1442,6 +1428,16 @@ activeShooterDef = {
                             'image': 'R111-south.jpg',
                             'destination': {
                                 'y': 0
+                            },
+                            '_props': {
+                                'shooterR111': {
+                                    'name': 'shooterR111',
+                                    'image': 'shooter.png',
+                                    'width': 96,
+                                    'height': 192,
+                                    'left': 550,
+                                    'top': 300
+                                }
                             }
                         }
                     }
@@ -1450,6 +1446,7 @@ activeShooterDef = {
                     'id': 'hall121',
                     'x': 1,
                     'y': 2,
+                    '_triggers': ['chanceofEscape'],
                     '_walls': {
                         'e': {
                             'name': 'EHall121',
@@ -1479,6 +1476,16 @@ activeShooterDef = {
                             'image': 'R121-south.jpg',
                             'destination': {
                                 'y': 1
+                            },
+                            '_props': {
+                                'shooterR111': {
+                                    'name': 'shooterR111',
+                                    'image': 'shooter.png',
+                                    'width': 32,
+                                    'height': 64,
+                                    'left': 570,
+                                    'top': 310
+                                }
                             }
                         }
                     }
@@ -1511,6 +1518,16 @@ activeShooterDef = {
                             'image': 'R131-south.jpg',
                             'destination': {
                                 'y': 2
+                            },
+                            '_props': {
+                                'shooterR111': {
+                                    'name': 'shooterR111',
+                                    'image': 'shooter.png',
+                                    'width': 16,
+                                    'height': 32,
+                                    'left': 550,
+                                    'top': 290
+                                }
                             }
                         }
                     }
@@ -1546,6 +1563,16 @@ activeShooterDef = {
                             'image': 'R141-south.jpg',
                             'destination': {
                                 'y': 3
+                            },
+                            '_props': {
+                                'shooterR111': {
+                                    'name': 'shooterR111',
+                                    'image': 'shooter.png',
+                                    'width': 8,
+                                    'height': 16,
+                                    'left': 550,
+                                    'top': 270
+                                }
                             }
                         }
                     }
@@ -2194,7 +2221,7 @@ activeShooterDef = {
         },
         'hideFromShooter' : {
             'events' : {
-                'addToScene': ['hidingSpot', 'hidingSpot2', 'shooter230South'],
+                'addToScene': ['hidingSpot', 'hidingSpot2', 'shooterR111'],
                 'setObjectives' : [['hideFromShooter', 'The shooter is very close.', 'turnOffLights', 'Turn off the lights.',
                         'pullDownWindowShade', 'Pull down the window shade', 'hideByDoor', 'Hide by the door', 'silencePhone',
                         'Silence your cell phone', 'lockTheDoor', 'Lock the door to the room.']]
@@ -2299,7 +2326,7 @@ activeShooterDef = {
         'shooterCloseGetShot' : {
             'disabled' : true,
             'events' : {
-                'endGame': ['Game Over', "Despite the sound of nearby gunfire, you opted to run out into the halls rather than attempt to hide. Perhaps you would conclude in retrospect that this decision was unwise; unfortuantely, you were shot in the back by the gunman, and are no longer able to reason."]
+                'endGame': ['Game Over', "Despite the sound of nearby gunfire, you opted to run out into the halls rather than attempt to hide. Perhaps you would conclude in retrospect that this decision was unwise; unfortunately, you were shot in the back by the gunman, and are no longer able to reason."]
             }
         },
         'takeCrowbar': {
@@ -2312,7 +2339,7 @@ activeShooterDef = {
         },
         'getToClass': {
             'events': {
-                'setObjective': ['getToClass', 'Get to class for the lecture in room 130 (click on professor Bell)'],
+                'setObjective': ['getToClass', 'Get to class'],
                 'removeFromScene' : ['UseDoor']
             }
         },
@@ -2389,7 +2416,7 @@ activeShooterDef = {
             }
         }
     },
-    'inactiveProps': ['UseDoor', 'policeman', 'crowbar', 'shooter', 'shooter230South', 
+    'inactiveProps': ['UseDoor', 'policeman', 'crowbar', 'shooter', 'shooterR111', 
                      'shooter-downed', 'HidingPlace', 'doorShadeDown', 
                      'hidingSpot', 'hidingSpot2', 'doorHandleDone', 'lightSwitchDone'],
     '_player': {
