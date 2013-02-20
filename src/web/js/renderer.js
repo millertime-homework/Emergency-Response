@@ -32,7 +32,7 @@ jQuery(document).ready(function($){
     // Renders props on wall
     renderProps = function(wall) {
         var view;
-        view = $('#controls-overlay')
+        view = $('#view-scene')
         $.each(wall.props, function(key, value) {
             if (scenario.inactiveProps[key])
                 return;
