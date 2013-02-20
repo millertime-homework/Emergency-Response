@@ -1339,7 +1339,29 @@ earthquakeDef = {
                         },
                         's': {
                             'name': 'SLibrary241',
-                            'image': 'R241-south.jpg'
+                            'image': 'R241-south.jpg',
+                            '_props': {
+                                'heavy': {
+                                    'name': 'heavy',
+                                    'image': 'heavy.png',
+                                    'width': 300,
+                                    'height': 300,
+                                    'left': 400,
+                                    'top': 20,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Heavy Object'
+                                    }
+                                },
+                                'heavy-on-floor': {
+                                    'name': 'heavy',
+                                    'image': 'heavy.png',
+                                    'width': 300,
+                                    'height': 300,
+                                    'left': 400,
+                                    'top': 320
+                                }
+                            }
                         }
                     }
                 },
@@ -2810,7 +2832,25 @@ earthquakeDef = {
                         },
                         's': {
                             'name': 'SLibrary249',
-                            'image': 'R241-south.jpg'
+                            'image': 'R241-south.jpg',
+                            '_props': {
+                                'heavy': {
+                                    'name': 'heavy',
+                                    'image': 'heavy-smashed.png',
+                                    'width': 300,
+                                    'height': 300,
+                                    'left': 400,
+                                    'top': 320
+                                },
+                                'heavy-on-floor': {
+                                    'name': 'heavy',
+                                    'image': 'heavy.png',
+                                    'width': 300,
+                                    'height': 300,
+                                    'left': 400,
+                                    'top': 320
+                                }
+                            }
                         }
                     }
                 },
@@ -3078,6 +3118,18 @@ earthquakeDef = {
                 'triggers': ['shakeThingsUp'],
             },
         },
+        'Heavy Object': {
+            '1': {
+                'message': 'A big, heavy TV is on the top shelf',
+                'replies': {
+                    'Leave it alone': 0,
+                    'Move it to the floor': 2
+                }
+            },
+            '2': {
+                'triggers': ['moveHeavyObject']
+            }
+        }
     },
     '_triggers' : {
         'playtheERG': {
@@ -3095,7 +3147,20 @@ earthquakeDef = {
                 'startEarthquake': [],
             },
         },
+        'moveHeavyObject': {
+            'events': {
+                'removeFromScene': ['heavy'],
+                'addToScene': ['heavy-on-floor'],
+                'addPoints': 10
+            }
+        },
+        'shakeThingsUp': {
+            'events': {
+                'startEarthquake': [],
+            },
+        }
     },
+    'inactiveProps': ['heavy-on-floor'],
     '_player': {
         'x': 2,
         'y': 4,
