@@ -9,6 +9,7 @@ jQuery(document).ready(function (jQuery) {
     erg.phone.secondContextMenu = jQuery('#phone-context-2');
     erg.phone.thirdContextMenu = jQuery('#phone-context-3');
     erg.controlsOverlay = jQuery('#controls-overlay');
+    erg.phone.events = {};
     erg.phone.element.mouseenter(function() {
         jQuery('#phone-context').show();
         positionFirstContextMenu();
@@ -39,6 +40,10 @@ jQuery(document).ready(function (jQuery) {
         }
     });
 
+    jQuery('.phone-context div div').live('click', function() {
+        executeEvents(jQuery(this).attr('id'));
+    });
+
     erg.phone.allContextMenus.mouseenter(function() {
         window.clearTimeout(erg.phone.menuHider);
     });
@@ -61,22 +66,60 @@ jQuery(document).ready(function (jQuery) {
         erg.phone.firstContextMenu.find('#ringer').show();
     });
 
+    jQuery(document).on('attachEventsToPhone', function (event, menuItemId, triggerEvents) {
+        var events, eventId, i;
+        erg.phone.events[menuItemId] = erg.phone.events[menuItemId] || {};
+        events = erg.phone.events[menuItemId];
+        for (eventId in triggerEvents) {
+            if (triggerEvents.hasOwnProperty(eventId)) {
+                events[eventId] = {};
+                events[eventId].func = triggerEvents[eventId].func;
+                events[eventId].args = triggerEvents[eventId].args;
+            }
+        }
+    });
+
+    jQuery(document).on('detatchEventsFromPhone', function (event, menuItemId, eventIds) {
+        var events, i;
+        erg.phone.events[menuItemId] = erg.phone.events[menuItemId] || null;
+        events = erg.phone.events[menuItemId];
+        if (events) {
+            for (i = 0; eventIds[i]; i++) {
+                if (events[eventIds[i]]) {
+                    delete events[eventIds[i]];
+                }
+            }
+        }
+    });
+
     jQuery('#ringer-on').click(function() {
         erg.phone.firstContextMenu.find('#ringer').show();
-        enabledTrigger('failedToSilencePhone');
         jQuery('#ringer-off').removeClass('selected');
         jQuery(this).addClass('selected');
+        erg.phone.allContextMenus.hide();
     });
 
     jQuery('#ringer-off').click(function() {
         startTrigger('silencedPhone');
-        disableTrigger('failedToSilencePhone');
         jQuery('#ringer-on').removeClass('selected');
         jQuery(this).addClass('selected');
+        erg.phone.allContextMenus.hide();
+
     });
 
 
 });
+
+function executeEvents(menuItemId) {
+    var events = erg.phone.events[menuItemId];
+    if (events) {
+        for (var eventId in events) {
+            if (events.hasOwnProperty(eventId)) {
+                events[eventId].func.apply(this, events[eventId].args);
+            }
+        }
+    }
+}
 
 function positionFirstContextMenu() {
     var contextTop, contextLeft, contextWidth, cellTop, cellLeft, cellMarginTop, cellMarginLeft;
