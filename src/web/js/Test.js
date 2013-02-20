@@ -1412,7 +1412,8 @@ testDef = {
         'sampleObjective' : {
             'events' : {
                 'setObjective' : ['moveTutorial', 'Move somewhere'],
-                'attachEventsToPhone' : ['ringer-on', {'findTheDolphin' : {'func' : startTrigger, 'args' : ['findTheDolphin'] } } ]
+                'attachEventsToPhone' : ['ringer-on', {'findTheDolphin' : {'func' : startTrigger, 'args' : ['findTheDolphin'] } } ],
+                'addTextMessage' : ['Jerome Jackson', 'This is the first text message ever']
             },
             'startTriggers' : ['sampleObjectiveEnd']
         },
@@ -1421,7 +1422,8 @@ testDef = {
         'sampleObjectiveEnd' : {
             'events' : {
                 'completeObjective' : ['moveTutorial'],
-                'addPoints' : [10]
+                'addPoints' : [10],
+                'addTextMessage' : ['Jerome Jackson', 'This is the second text message']
             },
             'moveDelay' : 1
         },
