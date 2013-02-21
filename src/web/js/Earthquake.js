@@ -1971,6 +1971,32 @@ earthquakeDef = {
                         'n': {
                             'name': 'NClassroom008',
                             'image': 'R008-north.jpg',
+                            '_props': {
+                                'mrs-wheelchair': {
+                                    'name': 'mrs_wheelchair',
+                                    'image': 'mrs_wheelchair.png',
+                                    'width': 150,
+                                    'height': 150,
+                                    'left': 250,
+                                    'top': 350,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Mrs Wheelchair'
+                                    }
+                                },
+                                'wheelchair':{
+                                    'name':'the_wheelchair',
+                                    'image':'wheelchair.png',
+                                    'width':150,
+                                    'height':150,
+                                    'left': 450,
+                                    'top': 300,
+                                    'action':'showConversation',
+                                    'actionVariables': {
+                                        'conversationName' : 'wheelchair'
+                                    }
+                                }
+                            }
                         },
                         's': {
                             'name': 'SClassroom008',
@@ -2375,58 +2401,6 @@ earthquakeDef = {
                     }
                 },
                 */
-                'room118': {
-                    'id': 'hall118', 
-                    'x': 1, 
-                    'y': 1,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall118', 
-                            'image': 'R110-east.jpg',
-                            'destination': {
-                                'x': 2
-                            }
-                        },
-                        'w': {
-                            'name': 'WHall118',
-                            'image': 'R110-west.jpg'
-                        },
-                        'n': {
-                            'name': 'NHall118',   
-                            'image': 'R110-north.jpg',
-                            '_props': {
-                                'mrs-wheelchair': {
-                                    'name': 'mrs_wheelchair',
-                                    'image': 'mrs_wheelchair.png',
-                                    'width': 150,
-                                    'height': 150,
-                                    'left': 250,
-                                    'top': 350,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'Mrs Wheelchair'
-                                    }
-                                },
-                                'wheelchair':{
-                                    'name':'the_wheelchair',
-                                    'image':'wheelchair.png',
-                                    'width':150,
-                                    'height':150,
-                                    'left': 450,
-                                    'top': 300,
-                                    'action':'showConversation',
-                                    'actionVariables': {
-                                        'conversationName' : 'wheelchair'
-                                    }
-                                }
-                            }
-                        },
-                        's': {
-                            'name': 'SHall118', 
-                            'image': 'R110-south.jpg'
-                        }
-                    }
-                },
                 'room218': {
                     'id': 'hall218', 
                     'x': 2, 
@@ -2553,32 +2527,6 @@ earthquakeDef = {
                     }
                 },
                 */
-                'room128': {
-                    'id': 'hall128', 
-                    'x': 1, 
-                    'y': 2,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall128', 
-                            'image': 'R120-east.jpg',
-                            'destination': {
-                                'x': 2
-                            }
-                        },
-                        'w': {
-                            'name': 'WHall128',
-                            'image': 'R120-west.jpg',                            
-                        },
-                        'n': {
-                            'name': 'NHall128',   
-                            'image': 'R120-north.jpg'
-                        },
-                        's': {
-                            'name': 'SHall128', 
-                            'image': 'R120-south.jpg'
-                        }
-                    }
-                },
                 'room228': {
                     'id': 'hall228', 
                     'x': 2, 
@@ -2715,32 +2663,6 @@ earthquakeDef = {
                     }
                 },
                 */
-                'room138': {
-                    'id': 'hall138', 
-                    'x': 1, 
-                    'y': 3,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall138', 
-                            'image': 'R130-east.jpg',
-                            'destination': {
-                                'x': 2
-                            }
-                        },
-                        'w': {
-                            'name': 'WHall138',
-                            'image': 'R130-west.jpg'
-                        },
-                        'n': {
-                            'name': 'NHall138',   
-                            'image': 'R130-north.jpg',
-                        },
-                        's': {
-                            'name': 'SHall138', 
-                            'image': 'R130-south.jpg'
-                        }
-                    }
-                },
                 'room238': {
                     'id': 'hall238', 
                     'x': 2, 
@@ -2898,40 +2820,6 @@ earthquakeDef = {
                         's': {
                             'name': 'SHall048', 
                             'image': 'R040-south.jpg'
-                        }
-                    }
-                },
-                */
-                /* 1,4,8 no images yet
-                'room148': {
-                    'id': 'hall148', 
-                    'x': 1, 
-                    'y': 4,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall148', 
-                            'image': 'R140-east.jpg',
-                            'destination': {
-                                'x': 2
-                            }
-                        },
-                        'w': {
-                            'name': 'WHall148',
-                            'image': 'R140-west.jpg',
-                            'destination': {
-                                'x': 0
-                            }
-                        },
-                        'n': {
-                            'name': 'NHall148',   
-                            'image': 'R140-north.jpg',
-                            'destination': {
-                                'y': 5
-                            }
-                        },
-                        's': {
-                            'name': 'SHall148', 
-                            'image': 'R140-south.jpg'
                         }
                     }
                 },
