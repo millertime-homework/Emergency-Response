@@ -389,7 +389,6 @@ earthquakeDef = {
                         'w': {
                             'name': 'WHall120',
                             'image': 'R120-west.jpg',
-                            },
                             '_props': {
                                 'stove': {
                                     'name': 'stove',
@@ -3519,9 +3518,9 @@ earthquakeDef = {
         },
         'packForSchool': {
             'events': {
-                'setObjective': ['packForSchool', 'Select items to take with you. Then head to school'],
-            },
-        },
+                'setObjective': ['packForSchool', 'Select items to take with you. Then head to school']
+            }
+        }
     },
     'inactiveProps': ['heavy-on-floor'],
     '_player': {
