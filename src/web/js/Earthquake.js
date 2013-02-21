@@ -182,6 +182,32 @@ earthquakeDef = {
                             'image': 'R110-east.jpg',
                             'destination': {
                                 'x': 2
+                            },
+                            '_props':{
+                                'screwdriver':{
+                                    'name':'screwdriver',
+                                    'image':'screwdriver.jpg',
+                                    'width': 50,
+                                    'height': 50,
+                                    'left': 250,
+                                    'top': 350,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'screwdriverconvo'
+                                    }
+                                },
+                                'pictureframeid':{
+                                    'name': 'pictureframeprop',
+                                    'image': 'pictureFrame.jpg',
+                                    'width': 67,
+                                    'height': 101,
+                                    'left': 100,
+                                    'top': 100,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'A picture frame'
+                                    }
+                                }
                             }
                         },
                         'w': {
@@ -344,11 +370,7 @@ earthquakeDef = {
                             'image': 'R120-east.jpg',
                             'destination': {
                                 'x': 2
-                            }
-                        },
-                        'w': {
-                            'name': 'WHall120',
-                            'image': 'R120-west.jpg',
+                            },
                             '_props': {
                                 'computer': {
                                     'name': 'computer',
@@ -363,6 +385,52 @@ earthquakeDef = {
                                     }
                                 }
                             }
+                        },
+                        'w': {
+                            'name': 'WHall120',
+                            'image': 'R120-west.jpg',
+                            '_props': {
+                                'stove': {
+                                    'name': 'stove',
+                                    'image': 'stove.jpg',
+                                    'width': 150,
+                                    'height': 150,
+                                    'left': 250,
+                                    'top': 350,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'stoveConvo'
+                                    }
+                                },
+                                'bugSpray':{
+                                    'name':'bugSpray',
+                                    'image':'spray.jpg',
+                                    'width':150,
+                                    'height':150,
+                                    'left': 450,
+                                    'top': 300,
+                                    'action':'showConversation',
+                                    'actionVariables': {
+                                        'conversationName' : 'sprayConvo'
+                                    }
+                                },
+                                'rag':{
+                                    'name':'rag',
+                                    'image':'rag.jpg',
+                                    'width':150,
+                                    'height':150,
+                                    'left': 200,
+                                    'top': 300,
+                                    'action':'showConversation',
+                                    'actionVariables': {
+                                        'conversationName' : 'ragConvo'
+                                    }
+                                }
+                            }
+                        },
+                        'w': {
+                            'name': 'WHall120',
+                            'image': 'R120-west.jpg',                            
                         },
                         'n': {
                             'name': 'NHall120',   
@@ -1580,6 +1648,158 @@ earthquakeDef = {
                 }
             }
         },
+        'Apartment Floor': {
+            'z': 2,
+            '_rooms': {
+                'Apartment': {
+                    'id': 'apartment',
+                    'x': 0,
+                    'y': 0,
+                    '_triggers' : ['packForSchool'],
+                    '_walls': {
+                        'n': {
+                            'name': 'apartment-n',
+                            'image': 'apartment-n.jpg',
+                            'destination': {
+                                'y': 1
+                            }
+                        },
+                        's': {
+                            'name': 'apartment-s',
+                            'image': 'apartment-s.jpg',
+                            '_props': {
+                                'door': {
+                                    'name': 'Exit to School',
+                                    'image': 'blank.png',
+                                    'top': 160,
+                                    'left': 470,
+                                    'width': 180,
+                                    'height': 390,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'travelToSchool'
+                                    }
+                                }
+                            },
+                            'destination': {
+                                'x': 2,
+                                'y': 4,
+                                'z': 0
+                            }
+                        },
+                        'e': {
+                            'name': 'apartment-e',
+                            'image': 'apartment-e.jpg',
+                        },
+                        'w': {
+                            'name': 'apartment-w',
+                            'image': 'apartment-w.jpg',
+                        }
+                    }
+                },
+                'Apartment Desk': {
+                    'id': 'desk',
+                    'x': 0,
+                    'y': 1,
+                    '_walls': {
+                        'n': {
+                            'name': 'desk',
+                            'image': 'desk.jpg',
+                            '_props': {
+                                'flashlight': {
+                                    'name': 'Flashlight',
+                                    'image': 'flashlight.png',
+                                    'width': 248,
+                                    'height': 158,
+                                    'top': 0,
+                                    'left': 100,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'packFlashlight'
+                                    }
+                                },
+                                'water': {
+                                    'name': 'Water Bottle',
+                                    'image': 'waterbottle.png',
+                                    'width': 131,
+                                    'height': 281,
+                                    'top': 0,
+                                    'left': 400,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'packWater'
+                                    }
+                                },
+                                'food': {
+                                    'name': 'Food',
+                                    'image': 'food.png',
+                                    'width': 150,
+                                    'height': 150,
+                                    'top': 0,
+                                    'left': 600,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'packFood'
+                                    }
+                                },
+                                'mask': {
+                                    'name': 'N-95 Breathing Mask',
+                                    'image': 'breathingmask.png',
+                                    'width': 150,
+                                    'height': 150,
+                                    'top': 400,
+                                    'left': 200,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'packMask'
+                                    }
+                                },
+                                'whistle': {
+                                    'name': 'Whistle',
+                                    'image': 'whistle.png',
+                                    'width': 150,
+                                    'height': 150,
+                                    'top': 400,
+                                    'left': 400,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'packWhistle'
+                                    }
+                                },
+                                'firstaidkit': {
+                                    'name': 'First Aid Kit',
+                                    'image': 'firstaidkit.png',
+                                    'width': 150,
+                                    'height': 150,
+                                    'top': 400,
+                                    'left': 600,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'packFirstAidKit'
+                                    }
+                                },
+                                // 'gobackbutton': {
+                                //     'name': 'Go Back Button',
+                                //     'image': 'gobackbutton.png',
+                                //     'hoverImage': 'gobackbuttonhover.png',
+                                //     'width': 150,
+                                //     'height': 150,
+                                //     'top:': 400,
+                                //     'left': 700,
+                                //     'action': 'showConversation',
+                                //     'actionVariables': {
+                                //         'conversationName': 'goBackButton'
+                                //     }
+                                // }
+                            },
+                            'destination': {
+                                'y': 0
+                            }
+                        }
+                    }
+                }
+            }
+        },
         'First Floor Aftermath': {
             'z': 8,
             '_rooms': {
@@ -1760,6 +1980,32 @@ earthquakeDef = {
                         'n': {
                             'name': 'NHall118',   
                             'image': 'R110-north.jpg',
+                            '_props': {
+                                'mrs-wheelchair': {
+                                    'name': 'mrs_wheelchair',
+                                    'image': 'mrs_wheelchair.png',
+                                    'width': 150,
+                                    'height': 150,
+                                    'left': 250,
+                                    'top': 350,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Mrs Wheelchair'
+                                    }
+                                },
+                                'wheelchair':{
+                                    'name':'the_wheelchair',
+                                    'image':'wheelchair.png',
+                                    'width':150,
+                                    'height':150,
+                                    'left': 450,
+                                    'top': 300,
+                                    'action':'showConversation',
+                                    'actionVariables': {
+                                        'conversationName' : 'wheelchair'
+                                    }
+                                }
+                            }
                         },
                         's': {
                             'name': 'SHall118', 
@@ -1923,6 +2169,7 @@ earthquakeDef = {
                     'id': 'hall228', 
                     'x': 2, 
                     'y': 2,
+                    '_triggers': ['checkForFire'],
                     '_walls': {
                         'e': {
                             'name': 'EHall228', 
@@ -3129,6 +3376,256 @@ earthquakeDef = {
             '2': {
                 'triggers': ['moveHeavyObject']
             }
+        },
+        'Water Bottle': {
+            '1': {
+                'message': 'Want to shake things up?',
+                'replies': {
+                    'Sure': 2,
+                    'I am not prepared.': 0,
+                },
+            },
+            '2': {
+                'message': 'OHHHH NOOOO IT\'S AN EARTHQUAKE!!!',
+                'replies': {
+                    '[panic]': 3
+                }
+            },
+            '3': {
+                'triggers': ['shakeThingsUp'],
+            },
+        },
+        'Mrs Wheelchair': {
+            '1': {
+                'check'  :[{'triggersEnabled':['wheelChair00'], 'goto':'3'}],
+                'message': 'You see a woman struggling to get into a wheelchair.',
+                'replies': {
+                    'Rush over and put her back into the wheelchair.': 2,
+                    'Ask the woman if she needs help.': 3,
+                    'Examine the scene.': 0
+                }
+            },
+            '2': {
+                'message': 'Ouch, I think you\' injured my back.  You have' +
+                           'to check with a disabled person before moving them.' +
+                           'be more careful next time (She wheels away from you toward the exit.) ',
+                'replies' : {
+                    '...':0
+                },
+                'triggers': ['wheelChair02']
+            },
+            '3': {
+                
+                
+                'message': 'I could use your help, thank you. '+
+                           ' Please lift me carefully and place me into my wheelchair' +
+                           ' And, please be sure to lock it in place',
+                'replies': {
+                    'Carefully place her into the wheelchair.':4,
+                    'Examine the scene.':0
+                },
+                'triggers': ['wheelChair01']
+            },
+            '4' : {
+                'check'  :[{'triggersEnabled':['chairLocked'], 'goto' :'5'}],
+                'message' : '(She falls to the floor as the chair rolls backwards)' +
+                            'Ouch, that hurts.  I told you the chair has to be locked' +
+                            ' before you can help me into it.',
+                'replies' : {
+                    'Examine the scene.' : 0
+                },
+                'triggers': ['wheelChair03']
+
+            },
+            '5': {
+                'message': 'Thank you for your help' +
+                           ' (She wheels away toward the exit)',
+                'replies': {
+                    'You\'re welcome!':0
+                },
+                'triggers': ['wheelChairPoints','wheelChairEnd']
+            }
+        },
+        'wheelchair':{
+            '1': {
+                'message':'An abanndoned wheelchair',
+                'replies':{
+                    'Lock the wheelchair':2,
+                    'Unlock the wheelchair':0
+                }
+            },
+            '2':{
+                'triggers':['lockChair']
+            }
+
+        },
+        'screwdriverconvo': {
+            '1': {
+                'message': 'This is a screw driver.',
+                'replies': {
+                    'Pick it up': '2',
+                    'Leave it.' : '0'
+                }
+            },
+            '2': {
+                'triggers': ['takeScrewdriver']
+            }
+        },
+        'A picture frame': {
+            '1':{
+                'check':[{'triggersEnabled':['frameFixed'], 'goto':'4'},
+                         {'has':['Screw Driver'],'goto':'2'}],
+                'message':'The screws holding this picture seem loose.',
+                'replies': {
+                    'Leave it' : '0'
+                }
+            },
+            '2':{
+                'message':'The screws holding this picture seem loose.',
+                'replies': {
+                    'Fix it': 3,
+                    'Leave it' : '0'
+                }
+            },
+            '3':{
+               'triggers':['fixingFrame']
+            },
+            '4':{
+                'message':'The picture is now safe and secure.',
+                'replies':{
+                    'Great!':0
+                }
+            }
+        },
+        'packFlashlight': {
+            '1': {
+                'message': 'Flashlights are indispensable tools in emergency situations.',
+                'replies': {
+                    'Pack in Go-Kit': '2',
+                    'Don\'t pack' : '0'
+                }
+            },
+            '2': {
+                'triggers': ['takeFlashlight']
+            }
+        },
+        'packWater': {
+            '1': {
+                'message': 'Water is essential to life.',
+                'replies': {
+                    'Pack in Go-Kit': '2',
+                    'Don\'t pack': '0'
+                }
+            },
+            '2': {
+                'triggers': ['takeWater']
+            }
+        },
+        'packFood': {
+            '1': {
+                'message': 'Food is important.',
+                'replies': {
+                    'Pack in Go-Kit': '2',
+                    'Don\'t pack': '0'
+                }
+            },
+            '2': {
+                'triggers': ['takeFood']
+            }
+        },
+        'packMask': {
+            '1': {
+                'message': 'Many emergency situations can involve airborne debris that can cause serious breathing issues.',
+                'replies': {
+                    'Pack in Go-Kit': '2',
+                    'Don\'t pack': '0'
+                }
+            },
+            '2': {
+                'triggers': ['takeMask']
+            }
+        },
+        'packWhistle': {
+            '1': {
+                'message': 'Sometimes it\'s easier to be heard than seen.',
+                'replies': {
+                    'Pack in Go-Kit': '2',
+                    'Don\'t pack': '0'
+                }
+            },
+            '2': {
+                'triggers': ['takeWhistle']
+            }
+        },
+        'packFirstAidKit': {
+            '1': {
+                'message': 'Even small injuries left untreated can become life-threatening in emergency situations.',
+                'replies': {
+                    'Pack in Go-Kit': '2',
+                    'Don\'t pack': '0'
+                }
+            },
+            '2': {
+                'triggers': ['takeFirstAidKit']
+            }
+        },
+        'goBackButton': {
+            '1': {
+                'message': 'Are you done packing your Go-Kit?',
+                'replies': {
+                    'Yes': '2',
+                    'No': '0'
+                }
+            },
+            '2': {
+                'triggers': ['moveAwayFromDesk']
+            }
+        },
+        'travelToSchool': {
+            '1': {
+                'message': 'Go to school?',
+                'replies': {
+                    'Yes': 2,
+                    'No': 0
+                }
+            },
+            '2': {
+                'triggers':['gotoSchool']
+            }
+        },
+        'stoveConvo': {
+            '1':{
+                'message': 'The stove is hot and feels as though it was just used.',
+                'replies': {
+                    '...': 0
+                }
+            }
+        },
+        'ragConvo': {
+            '1':{
+                'message': 'This rag is lying right over the exhaust of the oven.' +
+                           ' It is hot to the touch.',
+                'replies': {
+                    'Leave it were it is.' : 0,
+                    'Move it to a safer place' : 2
+                }
+            },
+            '2':{
+                'triggers':['moveRag']
+            }
+        },
+        'sprayConvo': {
+            '1':{
+                'message': 'This Bug spray is warm with the heat of the stove.' + 
+                           ' It looks like it should be in the cabinet.',
+                'replies': {
+                    'Leave it for the owner to move': 0,
+                    'Move it into the cabinet.': 2
+                }
+            },
+            '2':{
+                'triggers':['moveSpray']
+            }
         }
     },
     '_triggers' : {
@@ -3158,13 +3655,128 @@ earthquakeDef = {
             'events': {
                 'startEarthquake': [],
             },
-        }
+        },
+                'shakeThingsUp': {
+            'events': {
+                'startEarthquake': [],
+            },
+        },
+        'chairLocked': {
+            'disabled':true
+        },       
+        'takeScrewdriver': {
+            'events': {
+                'takeFromScene' : [ {'name': 'Screw Driver', 'image': 'screwdriver.jpg', 'width':32, 'height':32 },
+                                    'screwdriver' ]
+            }
+        },
+        'fixingFrame': {
+            'events': {
+                'removeInventory' : ['Screw Driver'],
+                'addPoints' : [10],
+            },
+            'enableTriggers':['frameFixed']
+        },
+        'frameFixed':{
+            'disabled':true
+        },
+        'moveRag': {
+             'events':{
+                'removeFromScene':['rag']
+             }
+        },
+        'moveSpray': {
+             'addPoints':[5],
+             'events': {
+                'removeFromScene':['bugSpray']
+             }
+        },
+        'takeFlashlight': {
+            'events': {
+                'takeFromScene' : [ {'name': 'Flashlight', 'image': 'flashlight.png', 'width':32, 'height':32 },
+                                    'flashlight' ]
+            }
+        },
+        'takeWater': {
+            'events': {
+                'takeFromScene' : [ {'name': 'Water', 'image': 'waterbottle.png', 'width':32, 'height':32 },
+                                    'water' ]
+            }
+        },
+        'takeFood': {
+            'events': {
+                'takeFromScene' : [ {'name': 'Food', 'image': 'food.png', 'width':32, 'height':32 },
+                                    'food' ]
+            }
+        },
+        'takeMask': {
+            'events': {
+                'takeFromScene' : [ {'name': 'Breathing Mask', 'image': 'breathingmask.png', 'width':32, 'height':32 },
+                                    'mask' ]
+            }
+        },
+        'takeWhistle': {
+            'events': {
+                'takeFromScene' : [ {'name': 'Whistle', 'image': 'whistle.png', 'width':32, 'height':32 },
+                                    'whistle' ]
+            }
+        },
+        'takeFirstAidKit': {
+            'events': {
+                'takeFromScene' : [ {'name': 'First Aid Kit', 'image': 'firstaidkit.png', 'width':32, 'height':32 },
+                                    'firstaidkit' ]
+            }
+        },
+        'moveAwayFromDesk': {
+            'events': {
+                'player-move': ['move-forward']
+            }
+        },
+        'gotoSchool': {
+            'events': {
+                'player-move':['move-forward'],
+                'completeObjective': ['packForSchool'],
+                'setObjective':['getToClass','It\'s time for class.  Make your way to room 106']
+            }
+
+        },
+        'wheelChair00' : {
+            'disabled':true
+        },
+        'wheelChair01' : {
+            'enableTriggers' :['wheelChair00'] 
+        },
+        'wheelChair02' : {
+            'deleteTriggers':['wheelChairPoints'],
+            'events' : {
+                'removeFromScene' : ['wheelchair','mrs-wheelchair']
+            }
+        },
+        'wheelChair03' : {
+            'deleteTriggers' : ['wheelChairPoints']
+        },
+        'lockChair' : {
+            'enableTriggers' : ['chairLocked']
+        },
+        'wheelChairPoints' : {
+            'addPoints' : [20],
+        },
+        'wheelChairEnd' : {
+            'events' : {
+                'removeFromScene' : ['mrs-wheelchair','wheelchair']
+            }
+        },
+        'packForSchool': {
+            'events': {
+                'setObjective': ['packForSchool', 'Select items to take with you. Then head to school']
+            }
+        },
     },
     'inactiveProps': ['heavy-on-floor'],
     '_player': {
-        'x': 2,
-        'y': 4,
-        'z': 0,
+        'x': 0,
+        'y': 0,
+        'z': 2,
         '_facing': 'n',
         'inventory': []
     },
