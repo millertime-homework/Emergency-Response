@@ -1175,6 +1175,7 @@ activeShooterDef = {
                     'id': 'class011',
                     'x': 0,
                     'y': 1,
+                    '_triggers' : ['abort'],
                     '_walls': {
                         'e': {
                             'name': 'EClass011',
