@@ -986,7 +986,7 @@ activeShooterDef = {
                                     'image': 'crowbar.png',
                                     'hoverImage': 'crowbar-hover.png',
                                     'width': 200,
-                                    'height': 134,
+                                    'height': 135,
                                     'left': 400,
                                     'top': 377,
                                     'action': 'showConversation',
@@ -1296,6 +1296,7 @@ activeShooterDef = {
                     'id': 'class021',
                     'x': 0,
                     'y': 2,
+                    '_triggers' : ['abort'],
                     '_walls': {
                         'e': {
                             'name': 'EClass021',
@@ -1404,6 +1405,7 @@ activeShooterDef = {
                     'id': 'hall111',
                     'x': 1,
                     'y': 1,
+                    '_triggers' : ['timeTillDeath'],
                     '_walls': {
                         'e': {
                             'name': 'EHall111',
@@ -1446,7 +1448,7 @@ activeShooterDef = {
                     'id': 'hall121',
                     'x': 1,
                     'y': 2,
-                    '_triggers': ['chanceofEscape'],
+                    '_triggers': ['chanceofEscape', 'deathIn240'],
                     '_walls': {
                         'e': {
                             'name': 'EHall121',
@@ -1494,6 +1496,7 @@ activeShooterDef = {
                     'id': 'hall131',
                     'x': 1,
                     'y': 3,
+                    '_triggers': ['abort'],
                     '_walls': {
                         'e': {
                             'name': 'EHall131',
@@ -2072,7 +2075,7 @@ activeShooterDef = {
             '4':{
                 'message': 'Ok, ok, you\'re probably right. [Professor Bell seems unsure of what to do and crouches down behind a classroom chair, still plainly in sight. You can hear people screaming in the hallway outside.]',
                 'replies':{
-                    '[Go Hide]': '0',
+                    '[Go Hide]': '9',
                     '[You say quietly] Hey Professor Bell, Don\'t hide there. Get behind your desk': '6',
                     '[You whisper to everyone] Ok, everyone stay quiet and turn off your cell phones.': '7',
                 }
@@ -2080,28 +2083,31 @@ activeShooterDef = {
             '5':{
                 'message': 'The shooter seems to be close by, you can hear someone scream in the hallway outside, you better get going.',
                 'replies':{
-                    '[Exit Conversation and run]': '0',
+                    '[Exit Conversation and run]': '9',
                 }
             },
             '6':{
                 'message': '[Professor Bell moves to behind is desk.]',
                 'replies':{
-                    '[Exit Conversation]' : '0',
-                    '[You whisper to everyone] Ok, everyone stay quiet and turn off your cell phones. [Exit Conversation]': '0',
+                    '[Exit Conversation]' : '9',
+                    '[You whisper to everyone] Ok, everyone stay quiet and turn off your cell phones. [Exit Conversation]': '9',
                 }
             },
             '7':{
                 'message': '[People start putting their cell phones on silent mode as they continue to hide.',
                 'replies':{
                     'None' : '[Exit Conversation]',
-                    '[You say quietly] Hey Professor Bell, Don\'t hide there. Get behind your desk': '0',
+                    '[You say quietly] Hey Professor Bell, Don\'t hide there. Get behind your desk': '9',
                 }
             },
             '8':{
                 'message' : 'Come on, everyone out! [Professor Bell ushers all the student out of the classroom and heads towards the front doors.]',
                 'replies' :{
-                    '[Exit Conversation]' : '0',
+                    '[Exit Conversation]' : '9',
                 }
+            },
+            '9':{
+            
             }
         },
         'ExitSchool':{
@@ -2215,9 +2221,18 @@ activeShooterDef = {
         }
     },
     '_triggers': {
+        'abort':{
+            'disabled' : true,
+            'abortTriggers': ['timeTillDeath'],
+            'enableTriggers': ['deathIn240']
+        },
         'chanceofEscape':{
             'disabled' : true,
-            'startRandomTrigger': ['shooterCloseGetShot', 'escapeShooter']
+            'startRandomTrigger': ['shooterCloseGetShot', 'escapeShooter'],
+        },
+        'deathIn240':{
+            'disabled' : true,
+            'startTriggers' : ['shooterCloseGetShot']
         },
         'hideFromShooter' : {
             'events' : {
@@ -2229,7 +2244,7 @@ activeShooterDef = {
             'startTriggers' : ['hiddenFromShooter'],
             'enableTriggers' : ['turnedOffLights', 'pulledDownShade', 'hiddenByDoor', 'silencedPhone', 'lockedTheDoor', 'failedToHide',
                     'failedToTurnOffLights', 'failedToPullDownShade', 'failedToHideByDoor', 'failedToSilencePhone', 'failedToLockTheDoor',
-                    'shooterCloseGetShot', 'chanceofEscape']
+                    'shooterCloseGetShot', 'chanceofEscape', 'abort', 'timeTillDeath']
         },
         'hiddenFromShooter' : {
             'waitForObjectiveCompletions' : ['turnOffLights', 'pullDownWindowShade', 'hideByDoor', 'silencePhone'],
@@ -2371,6 +2386,13 @@ activeShooterDef = {
                 'endGame': ['Game Over','You desperately try to get the door open, but it is too late. The shooter comes around the corner and sees you out in the open. He shoots you [Game Over]']
             },
         },
+        'timeTillDeath':{
+            'disabled' : true,
+            'timeDelay' : 5000,
+            'events' : {
+                'endGame': ['Game Over', "Despite the sound of nearby gunfire, you opted to run out into the halls rather than attempt to hide. Perhaps you would conclude in retrospect that this decision was unwise; unfortuantely, you were shot in the back by the gunman, and are no longer able to reason."]
+            }
+        },
         'goHide': {
             'events': {
                 'setObjective': ['goHide', 'Find a hiding place'],
@@ -2414,9 +2436,9 @@ activeShooterDef = {
             'events': {
                 'endGame': ['Game Over','Unfortunately your actions caused the police to shoot you, and now you are dead.']
             }
-        }
+        },
     },
-    'inactiveProps': ['UseDoor', 'policeman', 'crowbar', 'shooter', 'shooterR111', 
+    'inactiveProps': ['UseDoor', 'policeman', 'crowbar', 'shooter', 'shooterR111',
                      'shooter-downed', 'HidingPlace', 'doorShadeDown', 
                      'hidingSpot', 'hidingSpot2', 'doorHandleDone', 'lightSwitchDone'],
     '_player': {

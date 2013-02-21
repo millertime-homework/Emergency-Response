@@ -5,28 +5,34 @@
 
 jQuery(document).ready(function($) {
 
-    $(document).on('startEarthquake', function(){
-        // Shakes the scene image - super realistic.
-        var image = $('#scene-img')
-        var speed = 30
-        image.stop(true);
-        for (i = 0; i < 5; i++) {
-            image.animate({
-                left: '-5'
-            }, speed).animate({ 
-                left: '5'
-            }, speed).animate({
-                left: '-5'
-            }).animate({
-                left: '5'
-            }, speed).animate({
-                left: '0'
-            }, speed)
-        }
+    $(document).on('startEarthquake', function() {
+
 
         // Moves the player to aftermath floor
         player.set(player.x, player.y, player.z + 8, player.facing, player.scenario);
-        jQuery(document).trigger('player-moved', [player.x, player.y, player.z]);
+        $(document).trigger('player-moved', [player.x, player.y, player.z]);
+
+        // Shakes the scene image - super realistic.
+        // var image = $('#view-scene');
+        // console.log($(image).attr('src'));
+        // var speed = 30;
+        // image.stop(true);
+        // for (i = 0; i < 5; i++) {
+        //     console.log('animating...')
+        //     image.animate({
+        //         left: '-5'
+        //     }, speed).animate({ 
+        //         left: '10'
+        //     }, speed).animate({
+        //         left: '-5'
+        //     }).animate({
+        //         left: '10'
+        //     }, speed).animate({
+        //         left: '0'
+        //     }, speed)
+        //     image.css('left', '');
+        //     console.log(image.css('left'))
+        // }
     })
 
     // Call renderScene when player moves
