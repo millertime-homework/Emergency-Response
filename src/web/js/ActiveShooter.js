@@ -2045,10 +2045,10 @@ activeShooterDef = {
             },
             '2': {
                 'requires': {'objectivesInProgress':['getToFrontDoors']},
-                'message': 'Today we\'re going over... [Bang!]... [Bang! Bang!]. What? What is that? That sounds like gun fire. [Professor Bell goes to the class room door and peers out the window.] Quickly, everyone get out. I think we can make it to the front doors.',
+                'message': '[Intercom] Alert! There is a gunman in the mall next to the school.',
                 'replies': {
-                    'No way! I\'m staying right here.': '8',
-                    'Ok, let\'s go!': '9',
+                    'We should hide here.': '8',
+                    'We should evacuate.': '0',
                 }
             },
             '3':{
