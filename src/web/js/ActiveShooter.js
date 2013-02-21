@@ -1098,7 +1098,7 @@ activeShooterDef = {
                                     'image': 'crowbar.png',
                                     'hoverImage': 'crowbar-hover.png',
                                     'width': 200,
-                                    'height': 134,
+                                    'height': 135,
                                     'left': 400,
                                     'top': 377,
                                     'action': 'showConversation',
@@ -2423,7 +2423,7 @@ activeShooterDef = {
             'events': {
                 'endGame': ['Game Over','Unfortunately your actions caused the police to shoot you, and now you are dead.']
             }
-        }
+        },
     },
     'inactiveProps': ['UseDoor', 'policeman', 'crowbar', 'shooter', 'shooter230South', 'shooter240South',
                      'shooter-downed', 'HidingPlace', 'doorShadeDown', 
