@@ -547,7 +547,12 @@ function checkCondition(condition) {
 }
 
 function doesNotContain(source, contains) {
-    return !source[contains];
+    for (i = 0; i < contains.length; i++) {
+        if (source[contains[i]]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 function doesContain(source, contains) {
