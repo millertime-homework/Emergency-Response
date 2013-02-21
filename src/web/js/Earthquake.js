@@ -430,27 +430,27 @@ earthquakeDef = {
                     }
                 },
                 'room210': {
-                    'id': 'hall210', 
+                    'id': 'elevator210', 
                     'x': 2, 
                     'y': 1,
                     '_walls': {
                         'e': {
-                            'name': 'EHall210', 
+                            'name': 'EElevator210', 
                             'image': 'R210-east.jpg',
                             'destination': {
                                 'x': 3
                             }
                         },
                         'w': {
-                            'name': 'WHall210',
+                            'name': 'WElevator210',
                             'image': 'R210-west.jpg'
                         },
                         'n': {
-                            'name': 'NHall210',   
+                            'name': 'NElevator210',   
                             'image': 'R210-north.jpg'
                         },
                         's': {
-                            'name': 'SHall210', 
+                            'name': 'SElevator210', 
                             'image': 'R210-south.jpg'
                         }
                     }
@@ -501,7 +501,7 @@ earthquakeDef = {
                             'name': 'WHall300',
                             'image': 'R300-west.jpg',
                             'destination': {
-                                'x': 2
+                                'x': 1
                             }
                         },
                         'n': {
@@ -514,6 +514,132 @@ earthquakeDef = {
                         's': {
                             'name': 'SHall300', 
                             'image': 'R300-south.jpg'
+                        }
+                    }
+                },
+                'room310': {
+                    'id': 'hall310', 
+                    'x': 3, 
+                    'y': 1,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall310', 
+                            'image': 'R310-east.jpg',
+                        },
+                        'w': {
+                            'name': 'WHall310',
+                            'image': 'R310-west.jpg',
+                            'destination': {
+                                'x': 2
+                            },
+                        },
+                        'n': {
+                            'name': 'NHall310',   
+                            'image': 'R310-north.jpg',
+                            'destination': {
+                                'y': 2,
+                            },
+                        },
+                        's': {
+                            'name': 'SHall310', 
+                            'image': 'R310-south.jpg',
+                            'destination': {
+                                'y': 0
+                            }
+                        }
+                    }
+                },
+                'room320': {
+                    'id': 'stairs320',
+                    'x': 4,
+                    'y': 1,
+                    '_walls': {
+                        'e': {
+                            'name': 'EStairs320',
+                            'image': 'R320-east.jpg',
+                            'destination': {
+                                'x': 3,
+                                'y': 2,
+                                'z': 1
+                            }
+                        },
+                        'w': {
+                            'name': 'WStairs320',
+                            'image': 'R320-west.jpg',
+                            'destination': {
+                                'x': 1,
+                                'y': 2,
+                                'z': 1
+                            }
+                        },
+                        'n': {
+                            'name': 'NStairs320',
+                            'image': 'R320-north.jpg'
+                        },
+                        's': {
+                            'name': 'SStairs320',
+                            'image': 'R320-south.jpg',
+                            'destination': {
+                                'y': 0
+                            }
+                        }
+                    }
+                },
+                'room330': {
+                    'id': 'room330',
+                    'x': 3,
+                    'y': 3,
+                    '_walls': {
+                        'e': {
+                            'name': 'ERoom330',
+                            'image': 'R330-east.jpg',
+                            'destination': {
+                                'x': 4
+                            }
+                        },
+                        'w': {
+                            'name': 'WRoom330',
+                            'image': 'R330-west.jpg',
+                            'destination': {
+                                'x': 2
+                            }
+                        },
+                        'n': {
+                            'name': 'NRoom330',
+                            'image': 'R330-north.jpg'
+                        },
+                        's': {
+                            'name': 'SRoom330',
+                            'image': 'R330-south.jpg'
+                        }
+                    }
+                },
+                'room340': {
+                    'id': 'hall340', 
+                    'x': 3, 
+                    'y': 4,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall340', 
+                            'image': 'R340-east.jpg',
+                            'destination': {
+                                'x': 4
+                            }
+                        },
+                        'w': {
+                            'name': 'WHall340',
+                            'image': 'R340-west.jpg',
+                            'destination': {
+                                'x': 2
+                            }
+                        },
+                        'n': {
+                            'name': 'NHall340',   
+                            'image': 'R340-north.jpg'
+                        },
+                        's': {
+                            'name': 'SHall340', 
+                            'image': 'R340-south.jpg'
                         }
                     }
                 },
@@ -581,40 +707,6 @@ earthquakeDef = {
                     }
                 },
                 */
-                'room310': {
-                    'id': 'hall310', 
-                    'x': 3, 
-                    'y': 1,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall310', 
-                            'image': 'R310-east.jpg',
-                        },
-                        'w': {
-                            'name': 'WHall310',
-                            'image': 'R310-west.jpg',
-                            'destination': {
-                                'z': 1
-                            },
-                        },
-                        'n': {
-                            'name': 'NHall310',   
-                            'image': 'R310-north.jpg',
-                            'destination': {
-                                'x': 2,
-                                'y': 3,
-                                'z': 1,
-                            },
-                        },
-                        's': {
-                            'name': 'SHall310', 
-                            'image': 'R310-south.jpg',
-                            'destination': {
-                                'y': 0
-                            }
-                        }
-                    }
-                },
                 'room410': {
                     'id': 'hall410', 
                     'x': 4, 
@@ -916,35 +1008,6 @@ earthquakeDef = {
                     }
                 },
                 */
-                'room340': {
-                    'id': 'hall340', 
-                    'x': 3, 
-                    'y': 4,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall340', 
-                            'image': 'R340-east.jpg',
-                            'destination': {
-                                'x': 4
-                            }
-                        },
-                        'w': {
-                            'name': 'WHall340',
-                            'image': 'R340-west.jpg',
-                            'destination': {
-                                'x': 2
-                            }
-                        },
-                        'n': {
-                            'name': 'NHall340',   
-                            'image': 'R340-north.jpg'
-                        },
-                        's': {
-                            'name': 'SHall340', 
-                            'image': 'R340-south.jpg'
-                        }
-                    }
-                },
                 'room440': {
                     'id': 'hall440', 
                     'x': 4, 
@@ -2161,27 +2224,27 @@ earthquakeDef = {
                     }
                 },
                 'room218': {
-                    'id': 'hall218', 
+                    'id': 'elevator218', 
                     'x': 2, 
                     'y': 1,
                     '_walls': {
                         'e': {
-                            'name': 'EHall218', 
+                            'name': 'EElevator218', 
                             'image': 'R210-east.jpg',
                             'destination': {
                                 'x': 3
                             }
                         },
                         'w': {
-                            'name': 'WHall218',
+                            'name': 'WElevator218',
                             'image': 'R210-west.jpg'
                         },
                         'n': {
-                            'name': 'NHall218',   
+                            'name': 'NElevator218',   
                             'image': 'R210-north.jpg'
                         },
                         's': {
-                            'name': 'SHall218', 
+                            'name': 'SElevator218', 
                             'image': 'R210-south.jpg'
                         }
                     }
@@ -2232,7 +2295,7 @@ earthquakeDef = {
                             'name': 'WHall308',
                             'image': 'R300-west.jpg',
                             'destination': {
-                                'x': 2
+                                'x': 1
                             }
                         },
                         'n': {
@@ -2245,6 +2308,38 @@ earthquakeDef = {
                         's': {
                             'name': 'SHall308', 
                             'image': 'R300-south.jpg'
+                        }
+                    }
+                },
+                'room318': {
+                    'id': 'hall318', 
+                    'x': 3, 
+                    'y': 1,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall318', 
+                            'image': 'R310-east.jpg',
+                        },
+                        'w': {
+                            'name': 'WHall318',
+                            'image': 'R310-west.jpg',
+                            'destination': {
+                                'x': 2
+                            }
+                        },
+                        'n': {
+                            'name': 'NHall318',   
+                            'image': 'R310-north.jpg',
+                            'destination': {
+                                'y': 2,
+                            }
+                        },
+                        's': {
+                            'name': 'SHall318', 
+                            'image': 'R310-south.jpg',
+                            'destination': {
+                                'y': 0
+                            }
                         }
                     }
                 },
@@ -2312,40 +2407,6 @@ earthquakeDef = {
                     }
                 },
                 */
-                'room318': {
-                    'id': 'hall318', 
-                    'x': 3, 
-                    'y': 1,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall318', 
-                            'image': 'R310-east.jpg',
-                        },
-                        'w': {
-                            'name': 'WHall318',
-                            'image': 'R310-west.jpg',
-                            'destination': {
-                                'z': 9
-                            },
-                        },
-                        'n': {
-                            'name': 'NHall318',   
-                            'image': 'R310-north.jpg',
-                            'destination': {
-                                'x': 2,
-                                'y': 3,
-                                'z': 9,
-                            },
-                        },
-                        's': {
-                            'name': 'SHall318', 
-                            'image': 'R310-south.jpg',
-                            'destination': {
-                                'y': 0
-                            }
-                        }
-                    }
-                },
                 'room418': {
                     'id': 'hall418', 
                     'x': 4, 

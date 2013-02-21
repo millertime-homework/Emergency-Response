@@ -494,27 +494,27 @@ activeShooterDef = {
                     }
                 },
                 'room210': {
-                    'id': 'hall210',
+                    'id': 'elevator210',
                     'x': 2,
                     'y': 1,
                     '_walls': {
                         'e': {
-                            'name': 'EHall210',
+                            'name': 'EElevator210',
                             'image': 'R210-east.jpg',
                             'destination': {
                                 'x': 3
                             }
                         },
                         'w': {
-                            'name': 'WHall210',
+                            'name': 'WElevator210',
                             'image': 'R210-west.jpg'
                         },
                         'n': {
-                            'name': 'NHall210',
+                            'name': 'NElevator210',
                             'image': 'R210-north.jpg'
                         },
                         's': {
-                            'name': 'SHall210',
+                            'name': 'SElevator210',
                             'image': 'R210-south.jpg'
                         }
                     }
@@ -536,6 +536,17 @@ activeShooterDef = {
                             'image': 'R240-west.jpg',
                             'destination': {
                                 'x': 1
+                            },
+                            '_props': {
+                                'crowbar': {
+                                    'name': 'crowbar',
+                                    'image': 'crowbar.png',
+                                    'hoverImage': 'crowbar-hover.png',
+                                    'width': 72,
+                                    'height': 48,
+                                    'left': 500,
+                                    'top': 320
+                                }
                             }
                         },
                         'n': {
@@ -565,7 +576,7 @@ activeShooterDef = {
                             'name': 'WHall300',
                             'image': 'R300-west.jpg',
                             'destination': {
-                                'x': 2
+                                'x': 1
                             },
                             '_props': {
                                 'RHF_Poster': {
@@ -637,6 +648,157 @@ activeShooterDef = {
                         }
                     }
                 },
+                'room310': {
+                    'id': 'hall310',
+                    'x': 3,
+                    'y': 1,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall310',
+                            'image': 'R310-east.jpg'
+                        },
+                        'w': {
+                            'name': 'WHall310',
+                            'image': 'R310-west.jpg',
+                            'destination': {
+                                'x': 2
+                            },
+                            '_props': {
+                                'Fire-Extinguisher': {
+                                    'name': 'Fire-Extinguisher',
+                                    'image': 'fire-extinguisher.png',
+                                    'width': 190,
+                                    'height': 190,
+                                    'left': 800,
+                                    'top': 300,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Fire Extinguisher'
+                                    }
+                                }
+                            }
+                        },
+                        'n': {
+                            'name': 'NHall310',
+                            'image': 'R310-north.jpg',
+                            'destination': {
+                                'y': 2,
+                            },
+                            '_props': {
+                                'Fire-Extinguisher': {
+                                    'name': 'Fire-Extinguisher',
+                                    'image': 'fire-extinguisher.png',
+                                    'width': 190,
+                                    'height': 190,
+                                    'left': 100,
+                                    'top': 300,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Fire Extinguisher'
+                                    }
+                                }
+                            }
+                        },
+                        's': {
+                            'name': 'SHall310',
+                            'image': 'R310-south.jpg',
+                            'destination': {
+                                'y': 0
+                            }
+                        }
+                    }
+                },
+                'room320': {
+                    'id': 'stairs320',
+                    'x': 3,
+                    'y': 2,
+                    '_walls': {
+                        'e': {
+                            'name': 'EStairs320',
+                            'image': 'R320-east.jpg',
+                            'destination': {
+                                'z': 1
+                            }
+                        },
+                        'w': {
+                            'name': 'WStairs320',
+                            'image': 'R320-west.jpg',
+                            'destination': {
+                                'x': 1,
+                                'z': 1
+                            }
+                        },
+                        'n': {
+                            'name': 'NStairs320',
+                            'image': 'R320-north.jpg'
+                        },
+                        's': {
+                            'name': 'SStairs320',
+                            'image': 'R320-south.jpg',
+                            'destination': {
+                                'y': 1
+                            }
+                        }
+                    }
+                },
+                'room330': {
+                    'id': 'room330',
+                    'x': 3,
+                    'y': 3,
+                    '_walls': {
+                        'e': {
+                            'name': 'ERoom330',
+                            'image': 'R330-east.jpg',
+                            'destination': {
+                                'x': 4
+                            }
+                        },
+                        'w': {
+                            'name': 'WRoom330',
+                            'image': 'R330-west.jpg',
+                            'destination': {
+                                'x': 2
+                            }
+                        },
+                        'n': {
+                            'name': 'NRoom330',
+                            'image': 'R330-north.jpg'
+                        },
+                        's': {
+                            'name': 'SRoom330',
+                            'image': 'R330-south.jpg'
+                        }
+                    }
+                },
+                'room340': {
+                    'id': 'hall340',
+                    'x': 3,
+                    'y': 4,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall340',
+                            'image': 'R340-east.jpg',
+                            'destination': {
+                                'x': 4
+                            }
+                        },
+                        'w': {
+                            'name': 'WHall340',
+                            'image': 'R340-west.jpg',
+                            'destination': {
+                                'x': 2
+                            }
+                        },
+                        'n': {
+                            'name': 'NHall340',
+                            'image': 'R340-north.jpg'
+                        },
+                        's': {
+                            'name': 'SHall340',
+                            'image': 'R340-south.jpg'
+                        }
+                    }
+                },
                 'room400': {
                     'id': 'hall400',
                     'x': 4,
@@ -701,68 +863,6 @@ activeShooterDef = {
                     }
                 },
                 */
-                'room310': {
-                    'id': 'hall310',
-                    'x': 3,
-                    'y': 1,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall310',
-                            'image': 'R310-east.jpg'
-                        },
-                        'w': {
-                            'name': 'WHall310',
-                            'image': 'R310-west.jpg',
-                            'destination': {
-                                'z': 1
-                            },
-                            '_props': {
-                                'Fire-Extinguisher': {
-                                    'name': 'Fire-Extinguisher',
-                                    'image': 'fire-extinguisher.png',
-                                    'width': 190,
-                                    'height': 190,
-                                    'left': 800,
-                                    'top': 300,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'Fire Extinguisher'
-                                    }
-                                }
-                            }
-                        },
-                        'n': {
-                            'name': 'NHall310',
-                            'image': 'R310-north.jpg',
-                            'destination': {
-                                'x': 2,
-                                'y': 3,
-                                'z': 1
-                            },
-                            '_props': {
-                                'Fire-Extinguisher': {
-                                    'name': 'Fire-Extinguisher',
-                                    'image': 'fire-extinguisher.png',
-                                    'width': 190,
-                                    'height': 190,
-                                    'left': 100,
-                                    'top': 300,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'Fire Extinguisher'
-                                    }
-                                }
-                            }
-                        },
-                        's': {
-                            'name': 'SHall310',
-                            'image': 'R310-south.jpg',
-                            'destination': {
-                                'y': 0
-                            }
-                        }
-                    }
-                },
                 'room410': {
                     'id': 'hall410',
                     'x': 4,
@@ -1066,46 +1166,6 @@ activeShooterDef = {
                     }
                 },
                 */
-                'room340': {
-                    'id': 'hall340',
-                    'x': 3,
-                    'y': 4,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall340',
-                            'image': 'R340-east.jpg',
-                            'destination': {
-                                'x': 4
-                            }
-                        },
-                        'w': {
-                            'name': 'WHall340',
-                            'image': 'R340-west.jpg',
-                            'destination': {
-                                'x': 2
-                            },
-                            '_props': {
-                                'crowbar': {
-                                    'name': 'crowbar',
-                                    'image': 'crowbar.png',
-                                    'hoverImage': 'crowbar-hover.png',
-                                    'width': 72,
-                                    'height': 48,
-                                    'left': 500,
-                                    'top': 320
-                                }
-                            }
-                        },
-                        'n': {
-                            'name': 'NHall340',
-                            'image': 'R340-north.jpg'
-                        },
-                        's': {
-                            'name': 'SHall340',
-                            'image': 'R340-south.jpg'
-                        }
-                    }
-                },
                 'room440': {
                     'id': 'hall440',
                     'x': 4,
