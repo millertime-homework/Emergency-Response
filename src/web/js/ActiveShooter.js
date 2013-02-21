@@ -279,7 +279,7 @@ activeShooterDef = {
                             'image': 'R110-east.jpg',
                             'destination': {
                                 'x': 2
-                            }
+                            },
                         },
                         'w': {
                             'name': 'WHall110',
@@ -493,7 +493,7 @@ activeShooterDef = {
                             'image': 'R120-east.jpg',
                             'destination': {
                                 'x': 2
-                            }
+                            },                            
                         },
                         'w': {
                             'name': 'WHall120',
@@ -880,6 +880,7 @@ activeShooterDef = {
                                     }
                                 }
                             }
+
                         },
                         'n': {
                             'name': 'NHall530',
@@ -2121,7 +2122,6 @@ activeShooterDef = {
                 }
             },
             '2':{
-
                 'message' : 'You start to throw yourself against the door. It appears to be locked with a chain from the outside. The door doesn\'t seem to be budging!',
                 'replies':{
                     'Continue to try and break down the door': 3,
