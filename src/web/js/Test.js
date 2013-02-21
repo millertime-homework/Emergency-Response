@@ -1032,7 +1032,8 @@ testDef = {
                             'name': 'SHall340',
                             'image': 'R340-south.jpg'
                         }
-                    }
+                    },
+                    'abortTriggers': ['dontExtinguish']
                 },
                 'room440': {
                     'id': 'hall440',
