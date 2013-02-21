@@ -71,6 +71,7 @@ function loadScenario(data) {
     loadFloors(data);
     loadConversations(data._conversations);
     initializePlayer(data._player);
+    initializeCellPhone();
     markInactivePropsInactive(data.inactiveProps);
 
     triggerData = jQuery.extend(true, {}, data._triggers);

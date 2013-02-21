@@ -120,7 +120,24 @@
                     <input class="ui viewport-button hidden" id="move-up" type="button" value="Go Up Stairs" />
                     <input class="ui viewport-button hidden" id="move-down" type="button" value="Go Down Stairs" />
                     <div class='ui' id='inventory'></div>
-                    <div class='ui' id='cell-phone'></div>
+                    <div class='ui phone-context' id='cell-phone'></div>
+                    <div class='phone-context phone-menu hidden' id='phone-context'>
+                        <div class='phone-context-padder'>
+                            <div class='phone-visible' id='text'>Text</div>
+                            <div class='phone-visible' id='call'>Call</div>
+                            <div class='phone-visible' id='ringer'>Ringer</div>
+                        </div>
+                    </div>
+                    <div class='phone-context phone-menu hidden' id='phone-context-2'>
+                        <div class='phone-context-padder'>
+                            <div class='ringer hidden selected' id='ringer-on'>On</div>
+                            <div class='ringer hidden' id='ringer-off'>Off</div>
+                        </div>
+                    </div>
+                    <div class='phone-context phone-menu hidden' id='phone-context-3'>
+                        <div class='phone-context-padder'>
+                        </div>
+                    </div>
                 </div> 
                 <div class="primary-view main-content-child main-content-viewport" id="view-scene"></div>
                 <div class='main-content-child' id="sidebar">
@@ -146,6 +163,11 @@
         <div class='directional-indicator' id="directional-indicator-w"><img src="web/img/map-arrow-left.png"></div>
         <div class='x-connector'></div>
         <div class='y-connector'></div>
+        <div class='text hidden' id='text-contact-template'></div>
+        <div class='call hidden' id='call-template'></div>
+        <div class='text hidden' id='no-text-template'>No text messages</div>
+        <div class='call hidden' id='no-call-template'>No one to call</div>
+        <div class='view-text hidden' id='text-message-template'><span></span></div>
     </div>
     
     <!-- BEGIN JAVASCRIPTS -->
@@ -176,7 +198,7 @@
         <script type="text/javascript" src="web/js/keyhandler.js"></script>
         <script type="text/javascript" src="web/js/main.js"></script>        <!-- Main code to start game -->
         <script type="text/javascript" src="web/js/minimap.js"></script>
+        <script type="text/javascript" src="web/js/cellphone.js"></script>
     <!-- END JAVASCRIPTS -->
-
 </body>
 </html>

@@ -1412,7 +1412,9 @@ testDef = {
         //'Move somewhere' is the quest presented to the user.
         'sampleObjective' : {
             'events' : {
-                'setObjective' : ['moveTutorial', 'Move somewhere']
+                'setObjective' : ['moveTutorial', 'Move somewhere'],
+                'attachEventsToPhone' : ['ringer-on', {'findTheDolphin' : {'func' : startTrigger, 'args' : ['findTheDolphin'] } } ],
+                'addTextMessage' : ['Jerome Jackson', 'This is the first text message ever']
             },
             'startTriggers' : ['sampleObjectiveEnd']
         },
@@ -1421,10 +1423,10 @@ testDef = {
         'sampleObjectiveEnd' : {
             'events' : {
                 'completeObjective' : ['moveTutorial'],
-                'addPoints' : [10]
+                'addPoints' : [10],
+                'addTextMessage' : ['Jerome Jackson', 'This is the second text message']
             },
-            'moveDelay' : 1,
-            'startTriggers' : ['findTheDolphin'],
+            'moveDelay' : 1
         },
         //The player is tasked with finding the dolphin. TODO: Add a requirement that the player must face
         //a certain direction to complete a trigger (IE, they must look at the dolphin, not just be on its tile)
