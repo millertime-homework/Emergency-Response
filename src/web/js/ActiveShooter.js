@@ -503,6 +503,21 @@ activeShooterDef = {
                             'image': 'R210-east.jpg',
                             'destination': {
                                 'x': 3
+                            },
+                            '_props': {
+                                'elevator-button': {
+                                    'name': 'elevator-button',
+                                    'image': 'elevator-button.png',
+                                    'hoverImage': 'elevator-button-hover.png',
+                                    'width': 54,
+                                    'height': 55,
+                                    'left': 876,
+                                    'top': 365,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Elevator Button'
+                                    }
+                                }
                             }
                         },
                         'w': {
@@ -1921,6 +1936,18 @@ activeShooterDef = {
         }
     },
     '_conversations': {
+        'Elevator Button': {
+            '1': {
+                'message': 'Go upstairs?',
+                'replies': {
+                    'Yes': 2,
+                    'No': 0
+                }
+            },
+            '2': {
+                'triggers': ['useElevator']
+            }
+        },
         'goIntoHidingByDoor' : {
             '1' : {
                 'message' : '[Crouch down by the door out of sight? This might be a good place to hide. If the shooter were to look into the room it would be difficult to see you here.',
@@ -2231,6 +2258,11 @@ activeShooterDef = {
         }
     },
     '_triggers': {
+        'useElevator': {
+            'events': {
+                'player-move': ['move-up']
+            }
+        },
         'abort':{
             'disabled' : true,
             'abortTriggers': ['timeTillDeath'],
