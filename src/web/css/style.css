@@ -389,9 +389,6 @@ textarea:focus {
 .phone-menu .selected {
   font-weight: bold;
 }
-.phone-menu .hidden {
-  display: none;
-}
 .phone-context-padder {
   padding-left: 5px;
   padding-top: 5px;
