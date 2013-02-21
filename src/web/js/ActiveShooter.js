@@ -2049,13 +2049,16 @@ activeShooterDef = {
         },
         'Professor Bell': {
             '1': {
-                'triggers': ['gotToClass', 'activateShooter'],
                 'message': 'Good morning! Class is starting, have a seat.',
                 'replies': {
-                    '[Take a seat]' : '2',
-                    '[Sit down]' : '3',
+                    '[Sit down]' : 2,
                 }
             },
+            '2': {
+                'triggers': ['gotToClass']
+            }
+
+            /*,
             '2': {
                 'requires': {'objectivesInProgress':['getToFrontDoors']},
                 'message': '[Intercom] Alert! There is a gunman in the mall next to the school.',
@@ -2108,7 +2111,7 @@ activeShooterDef = {
             },
             '9':{
             
-            }
+            }*/
         },
         'ExitSchool':{
             '1':{
@@ -2239,7 +2242,8 @@ activeShooterDef = {
                 'addToScene': ['hidingSpot', 'hidingSpot2', 'shooterR111'],
                 'setObjectives' : [['hideFromShooter', 'The shooter is very close.', 'turnOffLights', 'Turn off the lights.',
                         'pullDownWindowShade', 'Pull down the window shade', 'hideByDoor', 'Hide by the door', 'silencePhone',
-                        'Silence your cell phone', 'lockTheDoor', 'Lock the door to the room.']]
+                        'Silence your cell phone', 'lockTheDoor', 'Lock the door to the room.']],
+                'showModal': ['BANG! BANG!','[You hear nearby gunshots!]']
             },
             'startTriggers' : ['hiddenFromShooter'],
             'enableTriggers' : ['turnedOffLights', 'pulledDownShade', 'hiddenByDoor', 'silencedPhone', 'lockedTheDoor', 'failedToHide',
@@ -2362,7 +2366,9 @@ activeShooterDef = {
             'events': {
                 'removeFromScene': ['prof-bell'],
                 'completeObjective': ['getToClass'],
-            }
+            },
+            'timeDelay': 1000,
+            'startTriggers': ['activateShooter']
         },
         'activateShooter': {
             'startRandomTrigger': ['hideFromShooter', 'getToFrontDoors']
@@ -2370,7 +2376,8 @@ activeShooterDef = {
         'getToFrontDoors' : {
             'events': {
                 'addToScene': ['UseDoor', 'hidingSpot', 'hidingSpot2'],
-                'setObjective': ['getToFrontDoors', 'Go to the front doors of the school and get out of the building']
+                'setObjective': ['getToFrontDoors', 'Go to the front doors of the school and get out of the building'],
+                'showModal': ['[Intercom]', 'Alert! There is a gunman in the mall next to the school.']
             },
             'enableTriggers' : ['FrontDoorsReached']
         },
