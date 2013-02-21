@@ -4,7 +4,110 @@ activeShooterDef = {
         'First Floor': {
             'z': 0,
             '_rooms': {
-                /* 1,0,0 no images yet
+                'room000': {
+                    'id': 'classroom000',
+                    'x': 0,
+                    'y': 0,
+                    '_walls': {
+                        'e': {
+                            'name': 'EClassroom000',
+                            'image': 'R000-east.jpg',
+                            'destination': {
+                                'x': 1
+                            }
+                        },
+                        'w': {
+                            'name': 'WClassroom000',
+                            'image': 'R000-west.jpg'
+                        },
+                        'n': {
+                            'name': 'NClassroom000',
+                            'image': 'R000-north.jpg',
+                        },
+                        's': {
+                            'name': 'SClassroom000',
+                            'image': 'R000-south.jpg'
+                        }
+                    }
+                },
+                'room020': {
+                    'id': 'classroom020',
+                    'x': 0,
+                    'y': 2,
+                    '_walls': {
+                        'e': {
+                            'name': 'EClassroom020',
+                            'image': 'R020-east.jpg',
+                            'destination': {
+                                'x': 1
+                            }
+                        },
+                        'w': {
+                            'name': 'WClassroom020',
+                            'image': 'R020-west.jpg'
+                        },
+                        'n': {
+                            'name': 'NClassroom020',
+                            'image': 'R020-north.jpg',
+                        },
+                        's': {
+                            'name': 'SClassroom020',
+                            'image': 'R020-south.jpg'
+                        }
+                    }
+                },
+                'room030': {
+                    'id': 'classroom030',
+                    'x': 0,
+                    'y': 3,
+                    '_walls': {
+                        'e': {
+                            'name': 'EClassroom030',
+                            'image': 'R030-east.jpg',
+                            'destination': {
+                                'x': 1
+                            }
+                        },
+                        'w': {
+                            'name': 'WClassroom030',
+                            'image': 'R030-west.jpg'
+                        },
+                        'n': {
+                            'name': 'NClassroom030',
+                            'image': 'R030-north.jpg',
+                        },
+                        's': {
+                            'name': 'SClassroom030',
+                            'image': 'R030-south.jpg'
+                        }
+                    }
+                },
+                'room040': {
+                    'id': 'hall040',
+                    'x': 0,
+                    'y': 4,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall040',
+                            'image': 'R040-east.jpg',
+                            'destination': {
+                                'x': 1
+                            }
+                        },
+                        'w': {
+                            'name': 'WHall040',
+                            'image': 'R040-west.jpg'
+                        },
+                        'n': {
+                            'name': 'NHall040',
+                            'image': 'R040-north.jpg',
+                        },
+                        's': {
+                            'name': 'SHall040',
+                            'image': 'R040-south.jpg'
+                        }
+                    }
+                },
                 'room100': {
                     'id': 'hall100',
                     'x': 1,
@@ -31,7 +134,6 @@ activeShooterDef = {
                         }
                     }
                 },
-                */
                 'room200': {
                     'id': 'hall200',
                     'x': 2,
