@@ -157,6 +157,10 @@ function processTriggers(trigger) {
         trigger.enableTriggers.map(enableTrigger);
     }
 
+    if (trigger.disableTriggers) {
+        trigger.disableTriggers.map(disableTrigger);
+    }
+
     if (trigger.startRandomTrigger) {
         index = Math.floor(Math.random() * (trigger.startRandomTrigger.length));
         startTrigger(trigger.startRandomTrigger[index]);
@@ -177,6 +181,15 @@ function enableTrigger(triggerName) {
         trigger['disabled'] = false
         delete scenario.triggers['disabled'][triggerName];
         scenario.triggers.pool[triggerName] = trigger;
+    }
+}
+
+function disableTrigger(triggerName) {
+    var trigger = scenario.triggers.pool[triggerName];
+    if (trigger) {
+        trigger['disabled'] = true
+        delete scenario.triggers.pool[triggerName];
+        scenario.triggers['disabled'][triggerName] = trigger;
     }
 }
 

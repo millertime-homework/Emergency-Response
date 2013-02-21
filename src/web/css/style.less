@@ -372,6 +372,43 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 #modal {
     z-index: 10;
 }
+
+.phone-menu {
+    position: absolute;
+    cursor: pointer;
+    background-color:@sidebarBackgroundColor;
+    border-style: solid;
+    border-width:@borderThickness;
+    border-color: @primaryBorderColor;
+    .border_radius(@primaryBorderRadius - 3);
+    .bordered;
+    .selected {
+        font-weight: bold;
+    }
+}
+
+.phone-context-padder {
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-right: 5px;
+}
+
+.phone-menu div {
+    padding-bottom: 5px;
+}
+#phone-context {
+    width: 50px;
+}
+
+#phone-context-2 {
+    width: auto;
+}
+
+#phone-context-3 {
+    width: auto;
+    max-width: 200px;
+}
+
 .modal {
     position: absolute;
     top: 10%;
