@@ -8,6 +8,8 @@ jQuery(document).ready(function($) {
     $(document).on('startEarthquake', function() {
 
 
+        
+
         // Moves the player to aftermath floor
         player.set(player.x, player.y, player.z + 8, player.facing, player.scenario);
         $(document).trigger('player-moved', [player.x, player.y, player.z]);

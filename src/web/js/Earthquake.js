@@ -738,20 +738,6 @@ earthquakeDef = {
                         'e': {
                             'name': 'EHall530', 
                             'image': 'R530-east.jpg',
-                            '_props': {
-                                'waterbottle': {
-                                    'name': 'waterbottle',
-                                    'image': 'waterbottle.png',
-                                    'width': 262,
-                                    'height': 562,
-                                    'left': 400,
-                                    'top': 20,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'Water Bottle'
-                                    }
-                                }
-                            }
                         },
                         'w': {
                             'name': 'WHall530',
@@ -1017,6 +1003,7 @@ earthquakeDef = {
                     'id': 'class011',
                     'x': 0,
                     'y': 1,
+                    '_triggers': ['enterRoom206'],
                     '_walls': {
                         'e': {
                             'name': 'EClass011',
@@ -1040,6 +1027,14 @@ earthquakeDef = {
                                     'actionVariables': {
                                         'conversationName': 'mrsfooconvo'
                                     }
+                                },
+                                'sturdydesk':{
+                                    'name': 'Sturdy Desk',
+                                    'image':'sturdy-desk.png',
+                                    'width': 389,
+                                    'height': 213,
+                                    'left': 550,
+                                    'top': 300
                                 }
                             }
                         },
@@ -2717,6 +2712,22 @@ earthquakeDef = {
                                     'height': 104,
                                     'left': 100,
                                     'top': 400,
+                                    'action': 'showConversation',
+                                    'actionVariables':{
+                                        'conversationName': 'Help Injured Foo'
+                                    }
+                                },
+                                'sturdydesk':{
+                                    'name': 'Sturdy Desk',
+                                    'image':'sturdy-desk.png',
+                                    'width': 389,
+                                    'height': 213,
+                                    'left': 550,
+                                    'top': 300,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Sturdy Desk'
+                                    }
                                 }
                             }
                         },
@@ -3355,10 +3366,10 @@ earthquakeDef = {
         },
         'mrsfooconvo': {
             '1': {
-                'message': 'Want to shake things up?',
+                'message': 'Did you feel that?',
                 'replies': {
-                    'Sure': 2,
-                    'I am not prepared.': 0,
+                    'Yes.... what was that?': 2,
+                    'I didn\'t feel a thing': 0,
                 },
             },
             '2': {
@@ -3382,24 +3393,6 @@ earthquakeDef = {
             '2': {
                 'triggers': ['moveHeavyObject']
             }
-        },
-        'Water Bottle': {
-            '1': {
-                'message': 'Want to shake things up?',
-                'replies': {
-                    'Sure': 2,
-                    'I am not prepared.': 0,
-                },
-            },
-            '2': {
-                'message': 'OHHHH NOOOO IT\'S AN EARTHQUAKE!!!',
-                'replies': {
-                    '[panic]': 3
-                }
-            },
-            '3': {
-                'triggers': ['shakeThingsUp'],
-            },
         },
         'Mrs Wheelchair': {
             '1': {
@@ -3710,6 +3703,48 @@ earthquakeDef = {
             '2':{
                 'triggers':['moveSpray']
             }
+        },
+        'Help Injured Foo': {
+            '1': {
+                'check': [{'objectivesInProgress': ['surviveEarthquake'], 'goto': 4}],
+                'message': '[Groan] ..... my back!',
+                'replies': {
+                    'Pick her up and help her out of the room.': 2,
+                    'Ask her if she is okay': 3
+                }
+            },
+            '2': {
+                'triggers':['hurtMrsFoo'],
+                'message': 'No! Don\'t pick me up! I\'m hurt! Get help!',
+                'replies': {
+                    'Evacuate and get her help.': 0
+                }
+            },
+            '3': {
+                'triggers':['askedMrsFooIfOkay'],
+                'message': 'I\'m badly hurt! Please get help!',
+                'replies': {
+                    'Evacuate and get her help.': 0
+                }
+            },
+            '4': {
+                'triggers': ['failToTakeCover']
+            }
+        },
+        'Sturdy Desk': {
+            '1': {
+                'message': 'This desk looks nice and sturdy.',
+                'replies': {
+                    'It looks dirty under there...': 2,
+                    'I should crawl underneath and take cover': 3
+                }
+            },
+            '2': {
+                'triggers': ['failToTakeCover']
+            },
+            '3': {
+                'triggers': ['hideUnderDesk']
+            }
         }
     },
     '_triggers' : {
@@ -3723,11 +3758,6 @@ earthquakeDef = {
                 'completeObjective': ['playtheERG']
             }
         },
-        'shakeThingsUp': {
-            'events': {
-                'startEarthquake': [],
-            },
-        },
         'moveHeavyObject': {
             'events': {
                 'removeFromScene': ['heavy'],
@@ -3737,13 +3767,11 @@ earthquakeDef = {
         },
         'shakeThingsUp': {
             'events': {
+                'completeObjective': ['talkToMrsFoo'],
                 'startEarthquake': [],
+                'setObjective': ['surviveEarthquake', 'React and Survive']
             },
-        },
-                'shakeThingsUp': {
-            'events': {
-                'startEarthquake': [],
-            },
+            'enableTriggers': ['timeToTakeCover']
         },
         'chairLocked': {
             'disabled':true
@@ -3876,6 +3904,42 @@ earthquakeDef = {
                 'setObjective':['getToClass','Make your way to room 106. Class has almost begun.'],
                 'disableTriggers': ['enteredSchoolUnprepared'],
                 'failObjective': ['packForSchool']
+            }
+        },
+        'hurtMrsFoo': {
+            'addPoints': [-20]
+        },
+        'askedMrsFooIfOkay': {
+            'addPoints': [20]
+        },
+        'enterRoom206': {
+            'events': {
+                'completeObjective': ['getToClass'],
+                'setObjective': ['talkToMrsFoo', 'Talk to Mrs. Foo']
+            }
+        },
+        'talkedToMrsFoo': {
+            'events': {
+                'completeObjective': ['talkToMrsFoo'],
+            }
+        },
+        'hideUnderDesk': {
+            'events': {
+                'completeObjective': ['surviveEarthquake'],
+                'setObjective': ['evacuateSchool', 'Evacuate the School safely'],
+                'abortTriggers': ['timeToTakeCover']
+            }
+        },
+        'failToTakeCover': {
+            'events': {
+                'endGame': ['Game Over', 'You failed to survive the Earthquake! A large wood beam fell upon you.']
+            }
+        },
+        'timeToTakeCover': {
+            'disabled': true,
+            'timeDelay': 3000,
+            'events': {
+                'endGame': ['Game Over', 'You didn\'t find cover soon enough and a large beam struck your frontal cortext!']
             }
         }
     },
