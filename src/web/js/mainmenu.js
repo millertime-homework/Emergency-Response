@@ -45,7 +45,6 @@ jQuery(document).ready(function($){
             loadGame();
     });
     
-    
     // Brings Up the Info page.
     $('#info-button').click(function() {
         displayModal('About this game', 'Team Banana\'s Emergency Response Game<br/>Development Version 0.5', null);
