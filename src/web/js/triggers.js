@@ -20,10 +20,14 @@ function clearAllTriggers() {
 //Called when the player class triggers an event signaling that the player has moved.
 function triggersMovementHandler(x, y, z) {
     var triggers = scenario.getRoom(x, y, z).triggers;
+    var abortTriggers = scenario.getRoom(x, y, z).abortTriggers;
     processWaitingForMoves();
     
     if (triggers) {
         triggers.map(startTrigger);
+    }
+    if (abortTriggers) {
+        abortTriggers.map(abortTrigger);
     }
 };
 
