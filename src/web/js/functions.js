@@ -547,21 +547,29 @@ function checkCondition(condition) {
 }
 
 function doesNotContain(source, contains) {
-    return !source[contains];
+    for (i = 0; i < contains.length; i++) {
+        if (source[contains[i]]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 function doesContain(source, contains) {
-    return source[contains];
+    for (i = 0; i < contains.length; i++) {
+        if (!source[contains[i]]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 function checkScenario(checkFunction, conditionProperty, secnarioProperty) {
     var i;
     if (conditionProperty) {
-        for (i = 0; i < conditionProperty.length; i++) {
             if (!checkFunction(secnarioProperty, conditionProperty)) {
                 return false;
             }
-        }
     }
     return true;
 }
