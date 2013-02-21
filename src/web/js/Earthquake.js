@@ -372,6 +372,25 @@ earthquakeDef = {
                                 'x': 2
                             },
                             '_props': {
+                                'computer': {
+                                    'name': 'computer',
+                                    'image': 'computer.png',
+                                    'width': 250,
+                                    'height': 255,
+                                    'left': 500,
+                                    'top': 200,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Computer'
+                                    }
+                                }
+                            }
+                        },
+                        'w': {
+                            'name': 'WHall120',
+                            'image': 'R120-west.jpg',
+                            },
+                            '_props': {
                                 'stove': {
                                     'name': 'stove',
                                     'image': 'stove.jpg',
