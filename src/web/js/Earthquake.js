@@ -210,6 +210,16 @@ earthquakeDef = {
                             'image': 'R100-north.jpg',
                             'destination': {
                                 'y': 1
+                            },
+                            '_props': {
+                                'xavier': {
+                                    'name': 'xavier',
+                                    'image': 'prof_bell.png',
+                                    'width': 28,
+                                    'height': 50,
+                                    'left': 540,
+                                    'top': 298 
+                                }
                             }
                         },
                         's': {
@@ -236,6 +246,16 @@ earthquakeDef = {
                             'image': 'R110-north.jpg',
                             'destination': {
                                 'y': 2
+                            },
+                            '_props': {
+                                'xavier': {
+                                    'name': 'xavier',
+                                    'image': 'prof_bell.png',
+                                    'width': 45,
+                                    'height': 80,
+                                    'left': 540,
+                                    'top': 286
+                                }
                             }
                         },
                         's': {
@@ -264,6 +284,20 @@ earthquakeDef = {
                             'image': 'R120-west.jpg',
                             'destination': {
                                 'x': 0
+                            },
+                            '_props': {
+                                'xavier': {
+                                    'name': 'xavier',
+                                    'image': 'prof_bell.png',
+                                    'width': 200,
+                                    'height': 354,
+                                    'left': 600,
+                                    'top': 290,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Professor Xavier'
+                                    }
+                                }
                             }
                         },
                         'n': {
@@ -292,6 +326,16 @@ earthquakeDef = {
                             'image': 'R130-east.jpg',
                             'destination': {
                                 'y': 2
+                            },
+                            '_props': {
+                                'xavier': {
+                                    'name': 'xavier',
+                                    'image': 'prof_bell.png',
+                                    'width': 45,
+                                    'height': 80,
+                                    'left': 540,
+                                    'top': 281
+                                }
                             }
                         },
                         'n': {
@@ -345,6 +389,16 @@ earthquakeDef = {
                             'image': 'R140-south.jpg',
                             'destination': {
                                 'y': 3
+                            },
+                            '_props': {
+                                'xavier': {
+                                    'name': 'xavier',
+                                    'image': 'prof_bell.png',
+                                    'width': 23,
+                                    'height': 40,
+                                    'left': 548,
+                                    'top': 298 
+                                }
                             }
                         }
                     }
@@ -375,46 +429,58 @@ earthquakeDef = {
                         }
                     }
                 },
-                'room200': {
-                    'id': 'hall200', 
+                'room210': {
+                    'id': 'hall210', 
                     'x': 2, 
-                    'y': 0,
+                    'y': 1,
                     '_walls': {
                         'e': {
-                            'name': 'EHall200', 
-                            'image': 'R200-east.jpg',
+                            'name': 'EHall210', 
+                            'image': 'R210-east.jpg',
                             'destination': {
                                 'x': 3
                             }
                         },
                         'w': {
-                            'name': 'WHall200',
-                            'image': 'R200-west.jpg' /*, can't go to 1,0,0 it's commented out
+                            'name': 'WHall210',
+                            'image': 'R210-west.jpg'
+                        },
+                        'n': {
+                            'name': 'NHall210',   
+                            'image': 'R210-north.jpg'
+                        },
+                        's': {
+                            'name': 'SHall210', 
+                            'image': 'R210-south.jpg'
+                        }
+                    }
+                },
+                'room240': {
+                    'id': 'hall240',
+                    'x': 2,
+                    'y': 4,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall240',
+                            'image': 'R240-east.jpg',
+                            'destination': {
+                                'x': 3
+                            }
+                        },
+                        'w': {
+                            'name': 'WHall240',
+                            'image': 'R240-west.jpg',
                             'destination': {
                                 'x': 1
                             }
-                            */
                         },
                         'n': {
-                            'name': 'NHall200',   
-                            'image': 'R200-north.jpg',
-                            'destination': {
-                                'y': 1
-                            },
-                            '_props': {
-                                'xavier': {
-                                    'name': 'xavier',
-                                    'image': 'prof_bell.png',
-                                    'width': 28,
-                                    'height': 50,
-                                    'left': 540,
-                                    'top': 298 
-                                }
-                            }
+                            'name': 'NHall240',   
+                            'image': 'R240-north.jpg'
                         },
                         's': {
-                            'name': 'SHall200', 
-                            'image': 'R200-south.jpg'
+                            'name': 'SHall240', 
+                            'image': 'R240-south.jpg'
                         }
                     }
                 },
@@ -515,48 +581,6 @@ earthquakeDef = {
                     }
                 },
                 */
-                'room210': {
-                    'id': 'hall210', 
-                    'x': 2, 
-                    'y': 1,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall210', 
-                            'image': 'R210-east.jpg',
-                        },
-                        'w': {
-                            'name': 'WHall210',
-                            'image': 'R210-west.jpg',
-                            'destination': {
-                                'x': 1
-                            }
-                        },
-                        'n': {
-                            'name': 'NHall210',   
-                            'image': 'R210-north.jpg',
-                            'destination': {
-                                'y': 2
-                            },
-                            '_props': {
-                                'xavier': {
-                                    'name': 'xavier',
-                                    'image': 'prof_bell.png',
-                                    'width': 45,
-                                    'height': 80,
-                                    'left': 540,
-                                    'top': 286
-                                }
-                            }                            
-                        },
-                        's': {
-                            'name': 'SHall210', 
-                            'image': 'R210-south.jpg',
-                            'destination': {
-                                'y': 0
-                            }
-                        }
-                    }
-                },
                 'room310': {
                     'id': 'hall310', 
                     'x': 3, 
@@ -651,56 +675,6 @@ earthquakeDef = {
                     }
                 },
                 */
-                'room220': {
-                    'id': 'hall220', 
-                    'x': 2, 
-                    'y': 2,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall220', 
-                            'image': 'R220-east.jpg' /*, can't go to 2,2,0 it's commented out
-                            'destination': {
-                                'x': 3
-                            }
-                            */
-                        },
-                        'w': {
-                            'name': 'WHall220',
-                            'image': 'R220-west.jpg',
-                            'destination': {
-                                'x': 1
-                            },
-                            '_props': {
-                                'xavier': {
-                                    'name': 'xavier',
-                                    'image': 'prof_bell.png',
-                                    'width': 200,
-                                    'height': 354,
-                                    'left': 600,
-                                    'top': 290,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'Professor Xavier'
-                                    }
-                                }
-                            }
-                        },
-                        'n': {
-                            'name': 'NHall220',   
-                            'image': 'R220-north.jpg',
-                            'destination': {
-                                'y': 3
-                            }
-                        },
-                        's': {
-                            'name': 'SHall220', 
-                            'image': 'R220-south.jpg',
-                            'destination': {
-                                'y': 1
-                            }
-                        }
-                    }
-                },
                 /* 3,2,0 no images yet
                 'room320': {
                     'id': 'hall320', 
@@ -800,49 +774,6 @@ earthquakeDef = {
                     }
                 },
                 */
-                'room230': {
-                    'id': 'hall230', 
-                    'x': 2, 
-                    'y': 3,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall230', 
-                            'image': 'R230-east.jpg'
-                        },
-                        'w': {
-                            'name': 'WHall230',
-                            'image': 'R230-west.jpg',
-                            'destination': {
-                                'x': 1
-                            }
-                        },
-                        'n': {
-                            'name': 'NHall230',   
-                            'image': 'R230-north.jpg',
-                            'destination': {
-                                'x': 2,
-                                'y': 4
-                            }
-                        },
-                        's': {
-                            'name': 'SHall230', 
-                            'image': 'R230-south.jpg',
-                            'destination': {
-                                'y': 2
-                            },
-                            '_props': {
-                                'xavier': {
-                                    'name': 'xavier',
-                                    'image': 'prof_bell.png',
-                                    'width': 45,
-                                    'height': 80,
-                                    'left': 540,
-                                    'top': 281
-                                }
-                            }
-                        }
-                    }
-                },
                 /* 3,3,0 no images yet
                 'room330': {
                     'id': 'hall330', 
@@ -985,49 +916,6 @@ earthquakeDef = {
                     }
                 },
                 */
-                'room240': {
-                    'id': 'hall240',
-                    'x': 2,
-                    'y': 4,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall240',
-                            'image': 'R240-east.jpg',
-                            'destination': {
-                                'x': 3
-                            }
-                        },
-                        'w': {
-                            'name': 'WHall240',
-                            'image': 'R240-west.jpg' /*, can't go to 1,4,0 it's commented out
-                            'destination': {
-                                'x': 1
-                            }
-                            */
-                        },
-                        'n': {
-                            'name': 'NHall240',   
-                            'image': 'R240-north.jpg'
-                        },
-                        's': {
-                            'name': 'SHall240', 
-                            'image': 'R240-south.jpg',
-                            'destination': {
-                                'y': 3
-                            },
-                            '_props': {
-                                'xavier': {
-                                    'name': 'xavier',
-                                    'image': 'prof_bell.png',
-                                    'width': 23,
-                                    'height': 40,
-                                    'left': 548,
-                                    'top': 298 
-                                }
-                            }
-                        }
-                    }
-                },
                 'room340': {
                     'id': 'hall340', 
                     'x': 3, 
@@ -2147,6 +2035,7 @@ earthquakeDef = {
                     'id': 'hall128', 
                     'x': 1, 
                     'y': 2,
+                    '_triggers': ['checkForFire'],
                     '_walls': {
                         'e': {
                             'name': 'EHall128', 
@@ -2271,36 +2160,58 @@ earthquakeDef = {
                         }
                     }
                 },
-                'room208': {
-                    'id': 'hall208', 
+                'room218': {
+                    'id': 'hall218', 
                     'x': 2, 
-                    'y': 0,
+                    'y': 1,
                     '_walls': {
                         'e': {
-                            'name': 'EHall208', 
-                            'image': 'R200-east.jpg',
+                            'name': 'EHall218', 
+                            'image': 'R210-east.jpg',
                             'destination': {
                                 'x': 3
                             }
                         },
                         'w': {
-                            'name': 'WHall208',
-                            'image': 'R200-west.jpg' /*, can't go to 1,0,0 it's commented out
+                            'name': 'WHall218',
+                            'image': 'R210-west.jpg'
+                        },
+                        'n': {
+                            'name': 'NHall218',   
+                            'image': 'R210-north.jpg'
+                        },
+                        's': {
+                            'name': 'SHall218', 
+                            'image': 'R210-south.jpg'
+                        }
+                    }
+                },
+                'room248': {
+                    'id': 'hall248', 
+                    'x': 2,
+                    'y': 4,  
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall248', 
+                            'image': 'R240-east.jpg',
+                            'destination': {
+                                'x': 3
+                            }
+                        },
+                        'w': {
+                            'name': 'WHall248',
+                            'image': 'R240-west.jpg',
                             'destination': {
                                 'x': 1
                             }
-                            */
                         },
                         'n': {
-                            'name': 'NHall208',   
-                            'image': 'R200-north.jpg',
-                            'destination': {
-                                'y': 1
-                            }
+                            'name': 'NHall248',   
+                            'image': 'R240-north.jpg'
                         },
                         's': {
-                            'name': 'SHall208', 
-                            'image': 'R200-south.jpg'
+                            'name': 'SHall248', 
+                            'image': 'R240-south.jpg'
                         }
                     }
                 },
@@ -2401,38 +2312,6 @@ earthquakeDef = {
                     }
                 },
                 */
-                'room218': {
-                    'id': 'hall218', 
-                    'x': 2, 
-                    'y': 1,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall218', 
-                            'image': 'R210-east.jpg',
-                        },
-                        'w': {
-                            'name': 'WHall218',
-                            'image': 'R210-west.jpg',
-                            'destination': {
-                                'x': 1
-                            }
-                        },
-                        'n': {
-                            'name': 'NHall218',   
-                            'image': 'R210-north.jpg',
-                            'destination': {
-                                'y': 2
-                            }
-                        },
-                        's': {
-                            'name': 'SHall218', 
-                            'image': 'R210-south.jpg',
-                            'destination': {
-                                'y': 0
-                            }
-                        }
-                    }
-                },
                 'room318': {
                     'id': 'hall318', 
                     'x': 3, 
@@ -2527,43 +2406,6 @@ earthquakeDef = {
                     }
                 },
                 */
-                'room228': {
-                    'id': 'hall228', 
-                    'x': 2, 
-                    'y': 2,
-                    '_triggers': ['checkForFire'],
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall228', 
-                            'image': 'R220-east.jpg' /*, can't go to 2,2,8 it's commented out
-                            'destination': {
-                                'x': 3
-                            }
-                            */
-                        },
-                        'w': {
-                            'name': 'WHall228',
-                            'image': 'R220-west.jpg',
-                            'destination': {
-                                'x': 1
-                            }
-                        },
-                        'n': {
-                            'name': 'NHall228',   
-                            'image': 'R220-north.jpg',
-                            'destination': {
-                                'y': 3
-                            }
-                        },
-                        's': {
-                            'name': 'SHall228', 
-                            'image': 'R220-south.jpg',
-                            'destination': {
-                                'y': 1
-                            }
-                        }
-                    }
-                },
                 /* 3,2,8 no images yet
                 'room328': {
                     'id': 'hall328', 
@@ -2663,39 +2505,6 @@ earthquakeDef = {
                     }
                 },
                 */
-                'room238': {
-                    'id': 'hall238', 
-                    'x': 2, 
-                    'y': 3,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall238', 
-                            'image': 'R230-east.jpg'
-                        },
-                        'w': {
-                            'name': 'WHall238',
-                            'image': 'R230-west.jpg',
-                            'destination': {
-                                'x': 1
-                            }
-                        },
-                        'n': {
-                            'name': 'NHall238',   
-                            'image': 'R230-north.jpg',
-                            'destination': {
-                                'x': 2,
-                                'y': 4
-                            }
-                        },
-                        's': {
-                            'name': 'SHall238', 
-                            'image': 'R230-south.jpg',
-                            'destination': {
-                                'y': 2
-                            }
-                        }
-                    }
-                },
                 /* 3,3,8 no images yet
                 'room338': {
                     'id': 'hall338', 
@@ -2824,39 +2633,6 @@ earthquakeDef = {
                     }
                 },
                 */
-                'room248': {
-                    'id': 'hall248', 
-                    'x': 2,
-                    'y': 4,  
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall248', 
-                            'image': 'R240-east.jpg',
-                            'destination': {
-                                'x': 3
-                            }
-                        },
-                        'w': {
-                            'name': 'WHall248',
-                            'image': 'R240-west.jpg' /*, can't go to 1,4,0 it's commented out
-                            'destination': {
-                                'x': 1
-                            }
-                            */
-                        },
-                        'n': {
-                            'name': 'NHall248',   
-                            'image': 'R240-north.jpg'
-                        },
-                        's': {
-                            'name': 'SHall248', 
-                            'image': 'R240-south.jpg',
-                            'destination': {
-                                'y': 3
-                            }
-                        }
-                    }
-                },
                 'room348': {
                     'id': 'hall348', 
                     'x': 3, 
