@@ -79,6 +79,7 @@ earthquakeDef = {
                     'id': 'hall300', 
                     'x': 3, 
                     'y': 0,
+                    '_triggers': ['enteredSchoolUnprepared'],
                     '_walls': {
                         'e': {
                             'name': 'EHall300', 
@@ -1678,12 +1679,17 @@ earthquakeDef = {
                                     'action': 'showConversation',
                                     'actionVariables': {
                                         'conversationName': 'travelToSchool'
+                                    },
+                                    'destination': {
+                                        'x': 3,
+                                        'y': 0,
+                                        'z': 0
                                     }
                                 }
                             },
                             'destination': {
-                                'x': 2,
-                                'y': 4,
+                                'x': 3,
+                                'y': 0,
                                 'z': 0
                             }
                         },
@@ -3499,6 +3505,7 @@ earthquakeDef = {
         },
         'packFlashlight': {
             '1': {
+                'check': [{'has': ['Water', 'Food', 'Breathing Mask', 'Whistle', 'First Aid Kit'], 'goto': 3}],
                 'message': 'Flashlights are indispensable tools in emergency situations.',
                 'replies': {
                     'Pack in Go-Kit': '2',
@@ -3507,10 +3514,22 @@ earthquakeDef = {
             },
             '2': {
                 'triggers': ['takeFlashlight']
+            },
+            '3': {
+                'triggers': ['awardPackingGoKit'],
+                'message': 'Your Go-Kit is almost packed!',
+                'replies': {
+                    'Pack the Flashlight and get to school.': 4
+                }
+            },
+            '4': {
+                'triggers': ['gotoSchool']
             }
+
         },
         'packWater': {
             '1': {
+                'check': [{'has': ['Flashlight', 'Food', 'Breathing Mask', 'Whistle', 'First Aid Kit'], 'goto': 3}],
                 'message': 'Water is essential to life.',
                 'replies': {
                     'Pack in Go-Kit': '2',
@@ -3519,10 +3538,21 @@ earthquakeDef = {
             },
             '2': {
                 'triggers': ['takeWater']
+            },
+            '3': {
+                'triggers': ['awardPackingGoKit'],
+                'message': 'Your Go-Kit is almost packed!',
+                'replies': {
+                    'Pack the Water and get to school.': 4
+                }
+            },
+            '4': {
+                'triggers': ['gotoSchool']
             }
         },
         'packFood': {
             '1': {
+                'check': [{'has': ['Water', 'Flashlight', 'Breathing Mask', 'Whistle', 'First Aid Kit'], 'goto': 3}],
                 'message': 'Food is important.',
                 'replies': {
                     'Pack in Go-Kit': '2',
@@ -3531,10 +3561,21 @@ earthquakeDef = {
             },
             '2': {
                 'triggers': ['takeFood']
+            },
+            '3': {
+                'triggers': ['awardPackingGoKit'],
+                'message': 'Your Go-Kit is almost packed!',
+                'replies': {
+                    'Pack the Food and get to school.': 4
+                }
+            },
+            '4': {
+                'triggers': ['gotoSchool']
             }
         },
         'packMask': {
             '1': {
+                'check': [{'has': ['Water', 'Flashlight', 'Food', 'Whistle', 'First Aid Kit'], 'goto': 3}],
                 'message': 'Many emergency situations can involve airborne debris that can cause serious breathing issues.',
                 'replies': {
                     'Pack in Go-Kit': '2',
@@ -3543,10 +3584,21 @@ earthquakeDef = {
             },
             '2': {
                 'triggers': ['takeMask']
+            },
+            '3': {
+                'triggers': ['awardPackingGoKit'],
+                'message': 'Your Go-Kit is almost packed!',
+                'replies': {
+                    'Pack the N-97 Breathing Mask and get to school.': 4
+                }
+            },
+            '4': {
+                'triggers': ['gotoSchool']
             }
         },
         'packWhistle': {
             '1': {
+                'check': [{'has': ['Water', 'Flashlight', 'Food', 'Breathing Mask', 'First Aid Kit'], 'goto': 3}],
                 'message': 'Sometimes it\'s easier to be heard than seen.',
                 'replies': {
                     'Pack in Go-Kit': '2',
@@ -3555,10 +3607,21 @@ earthquakeDef = {
             },
             '2': {
                 'triggers': ['takeWhistle']
+            },
+            '3': {
+                'triggers': ['awardPackingGoKit'],
+                'message': 'Your Go-Kit is almost packed!',
+                'replies': {
+                    'Pack the Whistle and get to school.': 4
+                }
+            },
+            '4': {
+                'triggers': ['gotoSchool']
             }
         },
         'packFirstAidKit': {
             '1': {
+                'check': [{'has': ['Water','Flashlight', 'Food', 'Breathing Mask', 'Whistle'], 'goto': 3}],
                 'message': 'Even small injuries left untreated can become life-threatening in emergency situations.',
                 'replies': {
                     'Pack in Go-Kit': '2',
@@ -3567,6 +3630,16 @@ earthquakeDef = {
             },
             '2': {
                 'triggers': ['takeFirstAidKit']
+            },
+            '3': {
+                'triggers': ['awardPackingGoKit'],
+                'message': 'Your Go-Kit is almost packed!',
+                'replies': {
+                    'Take First Aid Kit and get to school': 4
+                }
+            },
+            '4': {
+                'triggers': ['gotoSchool']
             }
         },
         'goBackButton': {
@@ -3583,13 +3656,24 @@ earthquakeDef = {
         },
         'travelToSchool': {
             '1': {
-                'message': 'Go to school?',
+                'check': [{'objectivesInProgress': ['getToClass'], 'goto': 3 }],
+                'message': 'Are you ready for school?',
                 'replies': {
                     'Yes': 2,
                     'No': 0
                 }
             },
             '2': {
+                'triggers':['gotoSchool']
+            },
+            '3': {
+                'message': 'You look ready for the world. Would you like to go to school?',
+                'replies': {
+                    'Yes': 4,
+                    'No': 0
+                }
+            },
+            '4': {
                 'triggers':['gotoSchool']
             }
         },
@@ -3691,6 +3775,7 @@ earthquakeDef = {
                 'removeFromScene':['bugSpray']
              }
         },
+        /* GO KIT TRIGGERS */
         'takeFlashlight': {
             'events': {
                 'takeFromScene' : [ {'name': 'Flashlight', 'image': 'flashlight.png', 'width':32, 'height':32 },
@@ -3732,13 +3817,26 @@ earthquakeDef = {
                 'player-move': ['move-forward']
             }
         },
+        'awardPackingGoKit': {
+            'events': {
+                'addPoints': [50]
+            }
+        },
+        /* HEAD TO SCHOOL TRIGGERS */
         'gotoSchool': {
             'events': {
                 'player-move':['move-forward'],
                 'completeObjective': ['packForSchool'],
-                'setObjective':['getToClass','It\'s time for class.  Make your way to room 106']
+                'setObjective':['travelToSchool', 'Exit your room to go to school.'],
+                'disableTriggers': ['enteredSchoolUnprepared']
             }
-
+        },
+        'doorToSchool': {
+            'events': {
+                'player-move': ['move-forward'],
+                'completeObjective': ['travelToSchool'],
+                'setObjective':['getToClass','Make your way to room 106. Class has almost begun.']   
+            }
         },
         'wheelChair00' : {
             'disabled':true
@@ -3771,6 +3869,15 @@ earthquakeDef = {
                 'setObjective': ['packForSchool', 'Select items to take with you. Then head to school']
             }
         },
+        'enteredSchoolUnprepared':{
+            'events': {
+                'setObjective': ['travelToSchool', 'Exit your room to go to school.'],
+                'completeObjective': ['travelToSchool'],
+                'setObjective':['getToClass','Make your way to room 106. Class has almost begun.'],
+                'disableTriggers': ['enteredSchoolUnprepared'],
+                'failObjective': ['packForSchool']
+            }
+        }
     },
     'inactiveProps': ['heavy-on-floor'],
     '_player': {
