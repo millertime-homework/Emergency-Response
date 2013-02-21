@@ -566,7 +566,7 @@ function doesContain(source, contains) {
 
 function checkScenario(checkFunction, conditionProperty, secnarioProperty) {
     var i;
-    if (conditionProperty && conditionProperty.length != 0) {
+    if (conditionProperty) {
             if (!checkFunction(secnarioProperty, conditionProperty)) {
                 return false;
             }
