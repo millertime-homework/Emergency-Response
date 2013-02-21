@@ -3376,152 +3376,8 @@ earthquakeDef = {
             '2': {
                 'triggers': ['moveHeavyObject']
             }
-        }
-    },
-    '_triggers' : {
-        'playtheERG': {
-            'events': {
-                'setObjective': ['playtheERG', 'Learn about Emergency Response on the school computer']
-            }
         },
-        'playingERG': {
-            'events': {
-                'completeObjective': ['playtheERG']
-            }
-        },
-        'shakeThingsUp': {
-            'events': {
-                'startEarthquake': [],
-            },
-        },
-        'moveHeavyObject': {
-            'events': {
-                'removeFromScene': ['heavy'],
-                'addToScene': ['heavy-on-floor'],
-                'addPoints': 10
-            }
-        },
-        'shakeThingsUp': {
-            'events': {
-                'startEarthquake': [],
-            },
-        },
-                'shakeThingsUp': {
-            'events': {
-                'startEarthquake': [],
-            },
-        },
-        'chairLocked': {
-            'disabled':true
-        },       
-        'takeScrewdriver': {
-            'events': {
-                'takeFromScene' : [ {'name': 'Screw Driver', 'image': 'screwdriver.jpg', 'width':32, 'height':32 },
-                                    'screwdriver' ]
-            }
-        },
-        'fixingFrame': {
-            'events': {
-                'removeInventory' : ['Screw Driver'],
-                'addPoints' : [10],
-            },
-            'enableTriggers':['frameFixed']
-        },
-        'frameFixed':{
-            'disabled':true
-        },
-        'moveRag': {
-             'events':{
-                'removeFromScene':['rag']
-             }
-        },
-        'moveSpray': {
-             'addPoints':[5],
-             'events': {
-                'removeFromScene':['bugSpray']
-             }
-        },
-        'takeFlashlight': {
-            'events': {
-                'takeFromScene' : [ {'name': 'Flashlight', 'image': 'flashlight.png', 'width':32, 'height':32 },
-                                    'flashlight' ]
-            }
-        },
-        'takeWater': {
-            'events': {
-                'takeFromScene' : [ {'name': 'Water', 'image': 'waterbottle.png', 'width':32, 'height':32 },
-                                    'water' ]
-            }
-        },
-        'takeFood': {
-            'events': {
-                'takeFromScene' : [ {'name': 'Food', 'image': 'food.png', 'width':32, 'height':32 },
-                                    'food' ]
-            }
-        },
-        'takeMask': {
-            'events': {
-                'takeFromScene' : [ {'name': 'Breathing Mask', 'image': 'breathingmask.png', 'width':32, 'height':32 },
-                                    'mask' ]
-            }
-        },
-        'takeWhistle': {
-            'events': {
-                'takeFromScene' : [ {'name': 'Whistle', 'image': 'whistle.png', 'width':32, 'height':32 },
-                                    'whistle' ]
-            }
-        },
-        'takeFirstAidKit': {
-            'events': {
-                'takeFromScene' : [ {'name': 'First Aid Kit', 'image': 'firstaidkit.png', 'width':32, 'height':32 },
-                                    'firstaidkit' ]
-            }
-        },
-        'moveAwayFromDesk': {
-            'events': {
-                'player-move': ['move-forward']
-            }
-        },
-        'gotoSchool': {
-            'events': {
-                'player-move':['move-forward'],
-                'completeObjective': ['packForSchool'],
-                'setObjective':['getToClass','It\'s time for class.  Make your way to room 106']
-            }
-
-        },
-        'wheelChair00' : {
-            'disabled':true
-        },
-        'wheelChair01' : {
-            'enableTriggers' :['wheelChair00'] 
-        },
-        'wheelChair02' : {
-            'deleteTriggers':['wheelChairPoints'],
-            'events' : {
-                'removeFromScene' : ['wheelchair','mrs-wheelchair']
-            }
-        },
-        'wheelChair03' : {
-            'deleteTriggers' : ['wheelChairPoints']
-        },
-        'lockChair' : {
-            'enableTriggers' : ['chairLocked']
-        },
-        'wheelChairPoints' : {
-            'addPoints' : [20],
-        },
-        'wheelChairEnd' : {
-            'events' : {
-                'removeFromScene' : ['mrs-wheelchair','wheelchair']
-            }
-        },
-        'packForSchool': {
-            'events': {
-                'setObjective': ['packForSchool', 'Select items to take with you. Then head to school']
-            }
-        },
-                'Water Bottle': {
+        'Water Bottle': {
             '1': {
                 'message': 'Want to shake things up?',
                 'replies': {
@@ -3771,6 +3627,150 @@ earthquakeDef = {
                 'triggers':['moveSpray']
             }
         }
+    },
+    '_triggers' : {
+        'playtheERG': {
+            'events': {
+                'setObjective': ['playtheERG', 'Learn about Emergency Response on the school computer']
+            }
+        },
+        'playingERG': {
+            'events': {
+                'completeObjective': ['playtheERG']
+            }
+        },
+        'shakeThingsUp': {
+            'events': {
+                'startEarthquake': [],
+            },
+        },
+        'moveHeavyObject': {
+            'events': {
+                'removeFromScene': ['heavy'],
+                'addToScene': ['heavy-on-floor'],
+                'addPoints': 10
+            }
+        },
+        'shakeThingsUp': {
+            'events': {
+                'startEarthquake': [],
+            },
+        },
+                'shakeThingsUp': {
+            'events': {
+                'startEarthquake': [],
+            },
+        },
+        'chairLocked': {
+            'disabled':true
+        },       
+        'takeScrewdriver': {
+            'events': {
+                'takeFromScene' : [ {'name': 'Screw Driver', 'image': 'screwdriver.jpg', 'width':32, 'height':32 },
+                                    'screwdriver' ]
+            }
+        },
+        'fixingFrame': {
+            'events': {
+                'removeInventory' : ['Screw Driver'],
+                'addPoints' : [10],
+            },
+            'enableTriggers':['frameFixed']
+        },
+        'frameFixed':{
+            'disabled':true
+        },
+        'moveRag': {
+             'events':{
+                'removeFromScene':['rag']
+             }
+        },
+        'moveSpray': {
+             'addPoints':[5],
+             'events': {
+                'removeFromScene':['bugSpray']
+             }
+        },
+        'takeFlashlight': {
+            'events': {
+                'takeFromScene' : [ {'name': 'Flashlight', 'image': 'flashlight.png', 'width':32, 'height':32 },
+                                    'flashlight' ]
+            }
+        },
+        'takeWater': {
+            'events': {
+                'takeFromScene' : [ {'name': 'Water', 'image': 'waterbottle.png', 'width':32, 'height':32 },
+                                    'water' ]
+            }
+        },
+        'takeFood': {
+            'events': {
+                'takeFromScene' : [ {'name': 'Food', 'image': 'food.png', 'width':32, 'height':32 },
+                                    'food' ]
+            }
+        },
+        'takeMask': {
+            'events': {
+                'takeFromScene' : [ {'name': 'Breathing Mask', 'image': 'breathingmask.png', 'width':32, 'height':32 },
+                                    'mask' ]
+            }
+        },
+        'takeWhistle': {
+            'events': {
+                'takeFromScene' : [ {'name': 'Whistle', 'image': 'whistle.png', 'width':32, 'height':32 },
+                                    'whistle' ]
+            }
+        },
+        'takeFirstAidKit': {
+            'events': {
+                'takeFromScene' : [ {'name': 'First Aid Kit', 'image': 'firstaidkit.png', 'width':32, 'height':32 },
+                                    'firstaidkit' ]
+            }
+        },
+        'moveAwayFromDesk': {
+            'events': {
+                'player-move': ['move-forward']
+            }
+        },
+        'gotoSchool': {
+            'events': {
+                'player-move':['move-forward'],
+                'completeObjective': ['packForSchool'],
+                'setObjective':['getToClass','It\'s time for class.  Make your way to room 106']
+            }
+
+        },
+        'wheelChair00' : {
+            'disabled':true
+        },
+        'wheelChair01' : {
+            'enableTriggers' :['wheelChair00'] 
+        },
+        'wheelChair02' : {
+            'deleteTriggers':['wheelChairPoints'],
+            'events' : {
+                'removeFromScene' : ['wheelchair','mrs-wheelchair']
+            }
+        },
+        'wheelChair03' : {
+            'deleteTriggers' : ['wheelChairPoints']
+        },
+        'lockChair' : {
+            'enableTriggers' : ['chairLocked']
+        },
+        'wheelChairPoints' : {
+            'addPoints' : [20],
+        },
+        'wheelChairEnd' : {
+            'events' : {
+                'removeFromScene' : ['mrs-wheelchair','wheelchair']
+            }
+        },
+        'packForSchool': {
+            'events': {
+                'setObjective': ['packForSchool', 'Select items to take with you. Then head to school']
+            }
+        },
     },
     'inactiveProps': ['heavy-on-floor'],
     '_player': {
