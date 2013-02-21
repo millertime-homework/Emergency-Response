@@ -3520,16 +3520,8 @@ earthquakeDef = {
             'events': {
                 'setObjective': ['packForSchool', 'Select items to take with you. Then head to school']
             }
-        }
-    },
-    'inactiveProps': ['heavy-on-floor'],
-    '_player': {
-        'x': 2,
-        'y': 4,
-        'z': 0,
-    },
-    '_conversations' : {
-        'Water Bottle': {
+        },
+                'Water Bottle': {
             '1': {
                 'message': 'Want to shake things up?',
                 'replies': {
@@ -3780,6 +3772,7 @@ earthquakeDef = {
             }
         }
     },
+    'inactiveProps': ['heavy-on-floor'],
     '_player': {
         'x': 0,
         'y': 0,
