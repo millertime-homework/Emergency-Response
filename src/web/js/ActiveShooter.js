@@ -806,11 +806,10 @@ activeShooterDef = {
                     '_walls': {
                         'e': {
                             'name': 'EHall400',
-                            'image': 'R400-east.jpg' /*, can't go to 5,0,0 it's commented out
+                            'image': 'R400-east.jpg',
                             'destination': {
                                 'x': 5
                             }
-                            */
                         },
                         'w': {
                             'name': 'WHall400',
@@ -829,6 +828,160 @@ activeShooterDef = {
                         's': {
                             'name': 'SHall400',
                             'image': 'R400-south.jpg'
+                        }
+                    }
+                },
+                'room410': {
+                    'id': 'hall410',
+                    'x': 4,
+                    'y': 1,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall410',
+                            'image': 'R410-east.jpg'
+                        },
+                        'w': {
+                            'name': 'WHall410',
+                            'image': 'R410-west.jpg'
+                        },
+                        'n': {
+                            'name': 'NHall410',
+                            'image': 'R410-north.jpg',
+                            'destination': {
+                                'y': 2
+                            }
+                        },
+                        's': {
+                            'name': 'SHall410',
+                            'image': 'R410-south.jpg',
+                            'destination': {
+                                'y': 0
+                            }
+                        }
+                    }
+                },
+                'room420': {
+                    'id': 'hall420',
+                    'x': 4,
+                    'y': 2,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall420',
+                            'image': 'R420-east.jpg',
+                            'destination': {
+                                'x': 5
+                            }
+                        },
+                        'w': {
+                            'name': 'WHall420',
+                            'image': 'R420-west.jpg',
+                            'destination': {
+                                'x': 3
+                            }
+                        },
+                        'n': {
+                            'name': 'NHall420',
+                            'image': 'R420-north.jpg',
+                            'destination': {
+                                'y': 3
+                            }
+                        },
+                        's': {
+                            'name': 'SHall420',
+                            'image': 'R420-south.jpg',
+                            'destination': {
+                                'y': 1
+                            }
+                        }
+                    }
+                },
+                'room430': {
+                    'id': 'hall430',
+                    'x': 4,
+                    'y': 3,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall430',
+                            'image': 'R430-east.jpg'
+                        },
+                        'w': {
+                            'name': 'WHall430',
+                            'image': 'R430-west.jpg'
+                        },
+                        'n': {
+                            'name': 'NHall430',
+                            'image': 'R430-north.jpg',
+                            'destination': {
+                                'y': 4
+                            }
+                        },
+                        's': {
+                            'name': 'SHall430',
+                            'image': 'R430-south.jpg',
+                            'destination': {
+                                'y': 2
+                            }
+                        }
+                    }
+                },
+                'room440': {
+                    'id': 'hall440',
+                    'x': 4,
+                    'y': 4,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall440',
+                            'image': 'R440-east.jpg',
+                            'destination': {
+                                'x': 5
+                            }
+                        },
+                        'w': {
+                            'name': 'WHall440',
+                            'image': 'R440-west.jpg',
+                            'destination': {
+                                'x': 3
+                            }
+                        },
+                        'n': {
+                            'name': 'NHall440',
+                            'image': 'R440-north.jpg',
+                            'destination': {
+                                'y': 5
+                            }
+                        },
+                        's': {
+                            'name': 'SHall440',
+                            'image': 'R440-south.jpg',
+                            'destination': {
+                                'y': 3
+                            }
+                        }
+                    }
+                },
+                'room450': {
+                    'id': 'restroom450',
+                    'x': 4,
+                    'y': 5,
+                    '_walls': {
+                        'e': {
+                            'name': 'ERestroom450',
+                            'image': 'R450-east.jpg'
+                        },
+                        'w': {
+                            'name': 'WRestroom450',
+                            'image': 'R450-west.jpg'
+                        },
+                        'n': {
+                            'name': 'NRestroom450',
+                            'image': 'R450-north.jpg'
+                        },
+                        's': {
+                            'name': 'SRestroom450',
+                            'image': 'R450-south.jpg',
+                            'destination': {
+                                'y': 4
+                            }
                         }
                     }
                 },
@@ -863,35 +1016,6 @@ activeShooterDef = {
                     }
                 },
                 */
-                'room410': {
-                    'id': 'hall410',
-                    'x': 4,
-                    'y': 1,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall410',
-                            'image': 'R410-east.jpg'
-                        },
-                        'w': {
-                            'name': 'WHall410',
-                            'image': 'R410-west.jpg'
-                        },
-                        'n': {
-                            'name': 'NHall410',
-                            'image': 'R410-north.jpg',
-                            'destination': {
-                                'y': 2
-                            }
-                        },
-                        's': {
-                            'name': 'SHall410',
-                            'image': 'R410-south.jpg',
-                            'destination': {
-                                'y': 0
-                            }
-                        }
-                    }
-                },
                 /* 5,1,0 no images yet
                 'room510': {
                     'id': 'hall510',
@@ -954,43 +1078,6 @@ activeShooterDef = {
                     }
                 },
                 */
-                'room420': {
-                    'id': 'hall420',
-                    'x': 4,
-                    'y': 2,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall420',
-                            'image': 'R420-east.jpg' /*, can't go to 4,2,0 it's commented out
-                            'destination': {
-                                'x': 4
-                            }
-                            */
-                        },
-                        'w': {
-                            'name': 'WHall420',
-                            'image': 'R420-west.jpg' /*, can't go to 2,2,0 it's commented out
-                            'destination': {
-                                'x': 2
-                            }
-                            */
-                        },
-                        'n': {
-                            'name': 'NHall420',
-                            'image': 'R420-north.jpg',
-                            'destination': {
-                                'y': 3
-                            }
-                        },
-                        's': {
-                            'name': 'SHall420',
-                            'image': 'R420-south.jpg',
-                            'destination': {
-                                'y': 1
-                            }
-                        }
-                    }
-                },
                 /* 5,2,0 no images yet
                 'room520': {
                     'id': 'hall520',
@@ -1059,38 +1146,6 @@ activeShooterDef = {
                     }
                 },
                 */
-                'room430': {
-                    'id': 'hall430',
-                    'x': 4,
-                    'y': 3,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall430',
-                            'image': 'R430-east.jpg',
-                            'destination': {
-                                'x': 5
-                            }
-                        },
-                        'w': {
-                            'name': 'WHall430',
-                            'image': 'R430-west.jpg'
-                        },
-                        'n': {
-                            'name': 'NHall430',
-                            'image': 'R430-north.jpg',
-                            'destination': {
-                                'y': 4
-                            }
-                        },
-                        's': {
-                            'name': 'SHall430',
-                            'image': 'R430-south.jpg',
-                            'destination': {
-                                'y': 2
-                            }
-                        }
-                    }
-                },
                 'room530': {
                     'id': 'hall530',
                     'x': 5,
@@ -1166,39 +1221,6 @@ activeShooterDef = {
                     }
                 },
                 */
-                'room440': {
-                    'id': 'hall440',
-                    'x': 4,
-                    'y': 4,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall440',
-                            'image': 'R440-east.jpg' /*, can't go to 5,4,0 it's commented out
-                            'destination': {
-                                'x': 5
-                            }
-                            */
-                        },
-                        'w': {
-                            'name': 'WHall440',
-                            'image': 'R440-west.jpg',
-                            'destination': {
-                                'x': 3
-                            }
-                        },
-                        'n': {
-                            'name': 'NHall440',
-                            'image': 'R440-north.jpg',
-                        },
-                        's': {
-                            'name': 'SHall440',
-                            'image': 'R440-south.jpg',
-                            'destination': {
-                                'y': 3
-                            }
-                        }
-                    }
-                },
                 /* 5,4,0 no images yet
                 'room540': {
                     'id': 'hall540',
