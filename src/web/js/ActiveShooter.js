@@ -694,6 +694,7 @@ activeShooterDef = {
                     'id': 'hall130',
                     'x': 1, 
                     'y': 3,
+                    '_triggers' : ['abort'],
                     '_walls': {
                         's': {
                             'name': 'EHall130',
@@ -830,6 +831,7 @@ activeShooterDef = {
                     'id': 'hall230',
                     'x': 2,
                     'y': 3,
+                    '_triggers' : ['timeTillDeath'],
                     '_walls': {
                         'e': {
                             'name': 'EHall230',
@@ -1074,7 +1076,7 @@ activeShooterDef = {
                     'id': 'hall240',
                     'x': 2,                         //Room Location on a grid?
                     'y': 4,
-                    '_triggers': ['chanceofEscape'],
+                    '_triggers': ['chanceofEscape', 'deathIn240'],
                     '_walls': {
                         'e': {
                             'name': 'EHall240',
@@ -1132,6 +1134,19 @@ activeShooterDef = {
                                     'height': 11,
                                     'left': 554,
                                     'top': 291,                                   
+                                },
+                                'shooter240South': {
+                                    'name': 'shooter240South',
+                                    'image': 'shooter.png',
+                                    'hoverImage': 'shooter-hover.png',
+                                    'width': 24,
+                                    'height': 48,
+                                    'left': 550,
+                                    'top': 300,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Shooter'
+                                    }
                                 }
                             }
                         }
@@ -1141,6 +1156,8 @@ activeShooterDef = {
                     'id': 'hall340',
                     'x': 3,
                     'y': 4,
+                    '_triggers': ['abort'],
+                    'abortTriggers': ['timeTillDeath'],
                     '_walls': {
                         'e': {
                             'name': 'EHall340',
@@ -2031,7 +2048,7 @@ activeShooterDef = {
                 'message': 'Today we\'re going over... [Bang!]... [Bang! Bang!]. What? What is that? That sounds like gun fire. [Professor Bell goes to the class room door and peers out the window.] Quickly, everyone get out. I think we can make it to the front doors.',
                 'replies': {
                     'No way! I\'m staying right here.': '8',
-                    'Ok, let\'s go!': '0',
+                    'Ok, let\'s go!': '9',
                 }
             },
             '3':{
@@ -2045,7 +2062,7 @@ activeShooterDef = {
             '4':{
                 'message': 'Ok, ok, you\'re probably right. [Professor Bell seems unsure of what to do and crouches down behind a classroom chair, still plainly in sight. You can hear people screaming in the hallway outside.]',
                 'replies':{
-                    '[Go Hide]': '0',
+                    '[Go Hide]': '9',
                     '[You say quietly] Hey Professor Bell, Don\'t hide there. Get behind your desk': '6',
                     '[You whisper to everyone] Ok, everyone stay quiet and turn off your cell phones.': '7',
                 }
@@ -2053,28 +2070,31 @@ activeShooterDef = {
             '5':{
                 'message': 'The shooter seems to be close by, you can hear someone scream in the hallway outside, you better get going.',
                 'replies':{
-                    '[Exit Conversation and run]': '0',
+                    '[Exit Conversation and run]': '9',
                 }
             },
             '6':{
                 'message': '[Professor Bell moves to behind is desk.]',
                 'replies':{
-                    '[Exit Conversation]' : '0',
-                    '[You whisper to everyone] Ok, everyone stay quiet and turn off your cell phones. [Exit Conversation]': '0',
+                    '[Exit Conversation]' : '9',
+                    '[You whisper to everyone] Ok, everyone stay quiet and turn off your cell phones. [Exit Conversation]': '9',
                 }
             },
             '7':{
                 'message': '[People start putting their cell phones on silent mode as they continue to hide.',
                 'replies':{
                     'None' : '[Exit Conversation]',
-                    '[You say quietly] Hey Professor Bell, Don\'t hide there. Get behind your desk': '0',
+                    '[You say quietly] Hey Professor Bell, Don\'t hide there. Get behind your desk': '9',
                 }
             },
             '8':{
                 'message' : 'Come on, everyone out! [Professor Bell ushers all the student out of the classroom and heads towards the front doors.]',
                 'replies' :{
-                    '[Exit Conversation]' : '0',
+                    '[Exit Conversation]' : '9',
                 }
+            },
+            '9':{
+            
             }
         },
         'ExitSchool':{
@@ -2188,13 +2208,22 @@ activeShooterDef = {
         }
     },
     '_triggers': {
+        'abort':{
+            'disabled' : true,
+            'abortTriggers': ['timeTillDeath'],
+            'enableTriggers': ['deathIn240']
+        },
         'chanceofEscape':{
             'disabled' : true,
-            'startRandomTrigger': ['shooterCloseGetShot', 'escapeShooter']
+            'startRandomTrigger': ['shooterCloseGetShot', 'escapeShooter'],
+        },
+        'deathIn240':{
+            'disabled' : true,
+            'startTriggers' : ['shooterCloseGetShot']
         },
         'hideFromShooter' : {
             'events' : {
-                'addToScene': ['hidingSpot', 'hidingSpot2', 'shooter230South'],
+                'addToScene': ['hidingSpot', 'hidingSpot2', 'shooter230South', 'shooter240South'],
                 'setObjectives' : [['hideFromShooter', 'The shooter is very close.', 'turnOffLights', 'Turn off the lights.',
                         'pullDownWindowShade', 'Pull down the window shade', 'hideByDoor', 'Hide by the door', 'silencePhone',
                         'Silence your cell phone', 'lockTheDoor', 'Lock the door to the room.']]
@@ -2202,7 +2231,7 @@ activeShooterDef = {
             'startTriggers' : ['hiddenFromShooter'],
             'enableTriggers' : ['turnedOffLights', 'pulledDownShade', 'hiddenByDoor', 'silencedPhone', 'lockedTheDoor', 'failedToHide',
                     'failedToTurnOffLights', 'failedToPullDownShade', 'failedToHideByDoor', 'failedToSilencePhone', 'failedToLockTheDoor',
-                    'shooterCloseGetShot', 'chanceofEscape']
+                    'shooterCloseGetShot', 'chanceofEscape', 'abort', 'timeTillDeath']
         },
         'hiddenFromShooter' : {
             'waitForObjectiveCompletions' : ['turnOffLights', 'pullDownWindowShade', 'hideByDoor', 'silencePhone'],
@@ -2344,6 +2373,13 @@ activeShooterDef = {
                 'endGame': ['Game Over','You desperately try to get the door open, but it is too late. The shooter comes around the corner and sees you out in the open. He shoots you [Game Over]']
             },
         },
+        'timeTillDeath':{
+            'disabled' : true,
+            'timeDelay' : 5000,
+            'events' : {
+                'endGame': ['Game Over', "Despite the sound of nearby gunfire, you opted to run out into the halls rather than attempt to hide. Perhaps you would conclude in retrospect that this decision was unwise; unfortuantely, you were shot in the back by the gunman, and are no longer able to reason."]
+            }
+        },
         'goHide': {
             'events': {
                 'setObjective': ['goHide', 'Find a hiding place'],
@@ -2389,7 +2425,7 @@ activeShooterDef = {
             }
         }
     },
-    'inactiveProps': ['UseDoor', 'policeman', 'crowbar', 'shooter', 'shooter230South', 
+    'inactiveProps': ['UseDoor', 'policeman', 'crowbar', 'shooter', 'shooter230South', 'shooter240South',
                      'shooter-downed', 'HidingPlace', 'doorShadeDown', 
                      'hidingSpot', 'hidingSpot2', 'doorHandleDone', 'lightSwitchDone'],
     '_player': {
