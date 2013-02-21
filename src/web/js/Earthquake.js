@@ -40,6 +40,32 @@ earthquakeDef = {
                             'image': 'R020-east.jpg',
                             'destination': {
                                 'x': 1
+                            },
+                            '_props':{
+                                'screwdriver':{
+                                    'name':'screwdriver',
+                                    'image':'screwdriver.jpg',
+                                    'width': 50,
+                                    'height': 50,
+                                    'left': 250,
+                                    'top': 350,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'screwdriverconvo'
+                                    }
+                                },
+                                'pictureframeid':{
+                                    'name': 'pictureframeprop',
+                                    'image': 'pictureFrame.jpg',
+                                    'width': 67,
+                                    'height': 101,
+                                    'left': 100,
+                                    'top': 100,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'A picture frame'
+                                    }
+                                }
                             }
                         },
                         'w': {
@@ -70,11 +96,63 @@ earthquakeDef = {
                         },
                         'w': {
                             'name': 'WClassroom030',
-                            'image': 'R030-west.jpg'
+                            'image': 'R030-west.jpg',
+                            '_props': {
+                                'stove': {
+                                    'name': 'stove',
+                                    'image': 'stove.jpg',
+                                    'width': 150,
+                                    'height': 150,
+                                    'left': 250,
+                                    'top': 350,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'stoveConvo'
+                                    }
+                                },
+                                'bugSpray':{
+                                    'name':'bugSpray',
+                                    'image':'spray.jpg',
+                                    'width':150,
+                                    'height':150,
+                                    'left': 450,
+                                    'top': 300,
+                                    'action':'showConversation',
+                                    'actionVariables': {
+                                        'conversationName' : 'sprayConvo'
+                                    }
+                                },
+                                'rag':{
+                                    'name':'rag',
+                                    'image':'rag.jpg',
+                                    'width':150,
+                                    'height':150,
+                                    'left': 200,
+                                    'top': 300,
+                                    'action':'showConversation',
+                                    'actionVariables': {
+                                        'conversationName' : 'ragConvo'
+                                    }
+                                }
+                            }
                         },
                         'n': {
                             'name': 'NClassroom030',
                             'image': 'R030-north.jpg',
+                            '_props': {
+                                'computer': {
+                                    'name': 'computer',
+                                    'image': 'computer.png',
+                                    'width': 250,
+                                    'height': 255,
+                                    'left': 500,
+                                    'top': 200,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Computer'
+                                    }
+                                }
+                            }
                         },
                         's': {
                             'name': 'SClassroom030',
@@ -108,34 +186,195 @@ earthquakeDef = {
                         }
                     }
                 },
-                /* 1,0,0 no images yet
                 'room100': {
-                    'id': 'hall100', 
-                    'x': 1, 
+                    'id': 'hall100',
+                    'x': 1,
                     'y': 0,
                     '_walls': {
                         'e': {
-                            'name': 'EHall100', 
+                            'name': 'EHall100',
                             'image': 'R100-east.jpg',
+                            'destination': {
+                                'x': 3
+                            }
+                        },
+                        'w': {
+                            'name': 'WHall100',
+                            'image': 'R100-west.jpg',
+                            'destination': {
+                                'x': 0
+                            }
+                        },
+                        'n': {
+                            'name': 'NHall100',
+                            'image': 'R100-north.jpg',
+                            'destination': {
+                                'y': 1
+                            }
+                        },
+                        's': {
+                            'name': 'SHall100',
+                            'image': 'R100-south.jpg'
+                        }
+                    }
+                },
+                'room110': {
+                    'id': 'hall110',
+                    'x': 1,
+                    'y': 1,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall110',
+                            'image': 'R110-east.jpg'
+                        },
+                        'w': {
+                            'name': 'WHall110',
+                            'image': 'R110-west.jpg'
+                        },
+                        'n': {
+                            'name': 'NHall110',
+                            'image': 'R110-north.jpg',
+                            'destination': {
+                                'y': 2
+                            }
+                        },
+                        's': {
+                            'name': 'SHall110',
+                            'image': 'R110-south.jpg',
+                            'destination': {
+                                'y': 0
+                            }
+                        }
+                    }
+                },
+                'room120': {
+                    'id': 'hall120', 
+                    'x': 1, 
+                    'y': 2,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall120', 
+                            'image': 'R120-east.jpg',
+                            'destination': {
+                                'x': 3
+                            }
+                        },
+                        'w': {
+                            'name': 'WHall120',
+                            'image': 'R120-west.jpg',
+                            'destination': {
+                                'x': 0
+                            }
+                        },
+                        'n': {
+                            'name': 'NHall120',   
+                            'image': 'R120-north.jpg',
+                            'destination': {
+                                'y': 3
+                            }
+                        },
+                        's': {
+                            'name': 'SHall120', 
+                            'image': 'R120-south.jpg',
+                            'destination': {
+                                'y': 1
+                            }
+                        }
+                    }
+                },
+                'room130': {
+                    'id': 'hall130',
+                    'x': 1, 
+                    'y': 3,
+                    '_walls': {
+                        's': {
+                            'name': 'EHall130',
+                            'image': 'R130-east.jpg',
+                            'destination': {
+                                'y': 2
+                            }
+                        },
+                        'n': {
+                            'name': 'WHall130',
+                            'image': 'R130-west.jpg',
+                            'destination': {
+                                'y': 4
+                            }
+                        },
+                        'e': {
+                            'name': 'NHall130',
+                            'image': 'R130-north.jpg'
+                        },
+                        'w': {
+                            'name': 'SHall130',
+                            'image': 'R130-south.jpg',
+                            'destination': {
+                                'x': 0
+                            }
+                        }
+                    }
+                },
+                'room140': {
+                    'id': 'hall140',
+                    'x': 1,
+                    'y': 4,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall140',
+                            'image': 'R140-east.jpg',
                             'destination': {
                                 'x': 2
                             }
                         },
                         'w': {
-                            'name': 'WHall100',
-                            'image': 'R100-west.jpg'
+                            'name': 'WHall140',
+                            'image': 'R140-west.jpg',
+                            'destination': {
+                                'x': 0
+                            }
                         },
                         'n': {
-                            'name': 'NHall100',   
-                            'image': 'R100-north.jpg',
+                            'name': 'NHall140',
+                            'image': 'R140-north.jpg',
+                            'destination': {
+                                'y': 5
+                            }
                         },
                         's': {
-                            'name': 'SHall100', 
-                            'image': 'R100-south.jpg'
+                            'name': 'SHall140',
+                            'image': 'R140-south.jpg',
+                            'destination': {
+                                'y': 3
+                            }
                         }
                     }
                 },
-                */
+                'room150': {
+                    'id': 'hall150',
+                    'x': 1,
+                    'y': 5,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall150',
+                            'image': 'R150-east.jpg'
+                        },
+                        'w': {
+                            'name': 'WHall150',
+                            'image': 'R150-west.jpg'
+                        },
+                        'n': {
+                            'name': 'NHall150',
+                            'image': 'R150-north.jpg'
+                        },
+                        's': {
+                            'name': 'SHall150',
+                            'image': 'R150-south.jpg',
+                            'destination': {
+                                'y': 4
+                            }
+                        }
+                    }
+                },
                 'room200': {
                     'id': 'hall200', 
                     'x': 2, 
@@ -276,58 +515,6 @@ earthquakeDef = {
                     }
                 },
                 */
-                'room110': {
-                    'id': 'hall110', 
-                    'x': 1, 
-                    'y': 1,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall110', 
-                            'image': 'R110-east.jpg',
-                            'destination': {
-                                'x': 2
-                            },
-                            '_props':{
-                                'screwdriver':{
-                                    'name':'screwdriver',
-                                    'image':'screwdriver.jpg',
-                                    'width': 50,
-                                    'height': 50,
-                                    'left': 250,
-                                    'top': 350,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'screwdriverconvo'
-                                    }
-                                },
-                                'pictureframeid':{
-                                    'name': 'pictureframeprop',
-                                    'image': 'pictureFrame.jpg',
-                                    'width': 67,
-                                    'height': 101,
-                                    'left': 100,
-                                    'top': 100,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'A picture frame'
-                                    }
-                                }
-                            }
-                        },
-                        'w': {
-                            'name': 'WHall110',
-                            'image': 'R110-west.jpg'
-                        },
-                        'n': {
-                            'name': 'NHall110',   
-                            'image': 'R110-north.jpg',
-                        },
-                        's': {
-                            'name': 'SHall110', 
-                            'image': 'R110-south.jpg'
-                        }
-                    }
-                },
                 'room210': {
                     'id': 'hall210', 
                     'x': 2, 
@@ -464,88 +651,6 @@ earthquakeDef = {
                     }
                 },
                 */
-                'room120': {
-                    'id': 'hall120', 
-                    'x': 1, 
-                    'y': 2,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall120', 
-                            'image': 'R120-east.jpg',
-                            'destination': {
-                                'x': 2
-                            },
-                            '_props': {
-                                'computer': {
-                                    'name': 'computer',
-                                    'image': 'computer.png',
-                                    'width': 250,
-                                    'height': 255,
-                                    'left': 500,
-                                    'top': 200,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'Computer'
-                                    }
-                                }
-                            }
-                        },
-                        'w': {
-                            'name': 'WHall120',
-                            'image': 'R120-west.jpg',
-                            '_props': {
-                                'stove': {
-                                    'name': 'stove',
-                                    'image': 'stove.jpg',
-                                    'width': 150,
-                                    'height': 150,
-                                    'left': 250,
-                                    'top': 350,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'stoveConvo'
-                                    }
-                                },
-                                'bugSpray':{
-                                    'name':'bugSpray',
-                                    'image':'spray.jpg',
-                                    'width':150,
-                                    'height':150,
-                                    'left': 450,
-                                    'top': 300,
-                                    'action':'showConversation',
-                                    'actionVariables': {
-                                        'conversationName' : 'sprayConvo'
-                                    }
-                                },
-                                'rag':{
-                                    'name':'rag',
-                                    'image':'rag.jpg',
-                                    'width':150,
-                                    'height':150,
-                                    'left': 200,
-                                    'top': 300,
-                                    'action':'showConversation',
-                                    'actionVariables': {
-                                        'conversationName' : 'ragConvo'
-                                    }
-                                }
-                            }
-                        },
-                        'w': {
-                            'name': 'WHall120',
-                            'image': 'R120-west.jpg',                            
-                        },
-                        'n': {
-                            'name': 'NHall120',   
-                            'image': 'R120-north.jpg'
-                        },
-                        's': {
-                            'name': 'SHall120', 
-                            'image': 'R120-south.jpg'
-                        }
-                    }
-                },
                 'room220': {
                     'id': 'hall220', 
                     'x': 2, 
@@ -695,32 +800,6 @@ earthquakeDef = {
                     }
                 },
                 */
-                'room130': {
-                    'id': 'hall130', 
-                    'x': 1, 
-                    'y': 3,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall130', 
-                            'image': 'R130-east.jpg',
-                            'destination': {
-                                'x': 2
-                            }
-                        },
-                        'w': {
-                            'name': 'WHall130',
-                            'image': 'R130-west.jpg'
-                        },
-                        'n': {
-                            'name': 'NHall130',   
-                            'image': 'R130-north.jpg',
-                        },
-                        's': {
-                            'name': 'SHall130', 
-                            'image': 'R130-south.jpg'
-                        }
-                    }
-                },
                 'room230': {
                     'id': 'hall230', 
                     'x': 2, 
@@ -902,40 +981,6 @@ earthquakeDef = {
                         's': {
                             'name': 'SHall040', 
                             'image': 'R040-south.jpg'
-                        }
-                    }
-                },
-                */
-                /* 1,4,0 no images yet
-                'room140': {
-                    'id': 'hall140', 
-                    'x': 1, 
-                    'y': 4,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall140', 
-                            'image': 'R140-east.jpg',
-                            'destination': {
-                                'x': 2
-                            }
-                        },
-                        'w': {
-                            'name': 'WHall140',
-                            'image': 'R140-west.jpg',
-                            'destination': {
-                                'x': 0
-                            }
-                        },
-                        'n': {
-                            'name': 'NHall140',   
-                            'image': 'R140-north.jpg',
-                            'destination': {
-                                'y': 5
-                            }
-                        },
-                        's': {
-                            'name': 'SHall140', 
-                            'image': 'R140-south.jpg'
                         }
                     }
                 },
@@ -1907,34 +1952,299 @@ earthquakeDef = {
         'First Floor Aftermath': {
             'z': 8,
             '_rooms': {
-                /* 1,0,8 no images yet
-                'room108': {
-                    'id': 'hall108', 
-                    'x': 1, 
+                'room008': {
+                    'id': 'classroom008',
+                    'x': 0,
                     'y': 0,
                     '_walls': {
                         'e': {
-                            'name': 'EHall108', 
-                            'image': 'R100-east.jpg',
+                            'name': 'EClassroom008',
+                            'image': 'R008-east.jpg',
+                            'destination': {
+                                'x': 1
+                            }
+                        },
+                        'w': {
+                            'name': 'WClassroom008',
+                            'image': 'R008-west.jpg'
+                        },
+                        'n': {
+                            'name': 'NClassroom008',
+                            'image': 'R008-north.jpg',
+                        },
+                        's': {
+                            'name': 'SClassroom008',
+                            'image': 'R008-south.jpg'
+                        }
+                    }
+                },
+                'room028': {
+                    'id': 'classroom028',
+                    'x': 0,
+                    'y': 2,
+                    '_walls': {
+                        'e': {
+                            'name': 'EClassroom028',
+                            'image': 'R028-east.jpg',
+                            'destination': {
+                                'x': 1
+                            }
+                        },
+                        'w': {
+                            'name': 'WClassroom028',
+                            'image': 'R028-west.jpg'
+                        },
+                        'n': {
+                            'name': 'NClassroom028',
+                            'image': 'R028-north.jpg',
+                        },
+                        's': {
+                            'name': 'SClassroom028',
+                            'image': 'R028-south.jpg'
+                        }
+                    }
+                },
+                'room038': {
+                    'id': 'classroom038',
+                    'x': 0,
+                    'y': 3,
+                    '_walls': {
+                        'e': {
+                            'name': 'EClassroom038',
+                            'image': 'R038-east.jpg',
+                            'destination': {
+                                'x': 1
+                            }
+                        },
+                        'w': {
+                            'name': 'WClassroom038',
+                            'image': 'R038-west.jpg'
+                        },
+                        'n': {
+                            'name': 'NClassroom038',
+                            'image': 'R038-north.jpg'
+                        },
+                        's': {
+                            'name': 'SClassroom038',
+                            'image': 'R038-south.jpg'
+                        }
+                    }
+                },
+                'room048': {
+                    'id': 'hall048',
+                    'x': 0,
+                    'y': 4,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall048',
+                            'image': 'R048-east.jpg',
+                            'destination': {
+                                'x': 1
+                            }
+                        },
+                        'w': {
+                            'name': 'WHall048',
+                            'image': 'R048-west.jpg'
+                        },
+                        'n': {
+                            'name': 'NHall048',
+                            'image': 'R048-north.jpg',
+                        },
+                        's': {
+                            'name': 'SHall048',
+                            'image': 'R048-south.jpg'
+                        }
+                    }
+                },
+                'room108': {
+                    'id': 'hall108',
+                    'x': 1,
+                    'y': 0,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall108',
+                            'image': 'R108-east.jpg',
+                            'destination': {
+                                'x': 3
+                            }
+                        },
+                        'w': {
+                            'name': 'WHall108',
+                            'image': 'R108-west.jpg',
+                            'destination': {
+                                'x': 0
+                            }
+                        },
+                        'n': {
+                            'name': 'NHall108',
+                            'image': 'R108-north.jpg',
+                            'destination': {
+                                'y': 1
+                            }
+                        },
+                        's': {
+                            'name': 'SHall108',
+                            'image': 'R108-south.jpg'
+                        }
+                    }
+                },
+                'room118': {
+                    'id': 'hall118',
+                    'x': 1,
+                    'y': 1,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall118',
+                            'image': 'R118-east.jpg'
+                        },
+                        'w': {
+                            'name': 'WHall118',
+                            'image': 'R118-west.jpg'
+                        },
+                        'n': {
+                            'name': 'NHall118',
+                            'image': 'R118-north.jpg',
+                            'destination': {
+                                'y': 2
+                            }
+                        },
+                        's': {
+                            'name': 'SHall118',
+                            'image': 'R118-south.jpg',
+                            'destination': {
+                                'y': 0
+                            }
+                        }
+                    }
+                },
+                'room128': {
+                    'id': 'hall128', 
+                    'x': 1, 
+                    'y': 2,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall128', 
+                            'image': 'R128-east.jpg',
+                            'destination': {
+                                'x': 3
+                            }
+                        },
+                        'w': {
+                            'name': 'WHall128',
+                            'image': 'R128-west.jpg',
+                            'destination': {
+                                'x': 0
+                            }
+                        },
+                        'n': {
+                            'name': 'NHall128',   
+                            'image': 'R128-north.jpg',
+                            'destination': {
+                                'y': 3
+                            }
+                        },
+                        's': {
+                            'name': 'SHall128', 
+                            'image': 'R128-south.jpg',
+                            'destination': {
+                                'y': 1
+                            }
+                        }
+                    }
+                },
+                'room138': {
+                    'id': 'hall138',
+                    'x': 1, 
+                    'y': 3,
+                    '_walls': {
+                        's': {
+                            'name': 'EHall138',
+                            'image': 'R138-east.jpg',
+                            'destination': {
+                                'y': 2
+                            }
+                        },
+                        'n': {
+                            'name': 'WHall138',
+                            'image': 'R138-west.jpg',
+                            'destination': {
+                                'y': 4
+                            }
+                        },
+                        'e': {
+                            'name': 'NHall138',
+                            'image': 'R138-north.jpg'
+                        },
+                        'w': {
+                            'name': 'SHall138',
+                            'image': 'R138-south.jpg',
+                            'destination': {
+                                'x': 0
+                            }
+                        }
+                    }
+                },
+                'room148': {
+                    'id': 'hall148',
+                    'x': 1,
+                    'y': 4,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall148',
+                            'image': 'R148-east.jpg',
                             'destination': {
                                 'x': 2
                             }
                         },
                         'w': {
-                            'name': 'WHall108',
-                            'image': 'R100-west.jpg'
+                            'name': 'WHall148',
+                            'image': 'R148-west.jpg',
+                            'destination': {
+                                'x': 0
+                            }
                         },
                         'n': {
-                            'name': 'NHall108',   
-                            'image': 'R100-north.jpg',
+                            'name': 'NHall148',
+                            'image': 'R148-north.jpg',
+                            'destination': {
+                                'y': 5
+                            }
                         },
                         's': {
-                            'name': 'SHall108', 
-                            'image': 'R100-south.jpg'
+                            'name': 'SHall148',
+                            'image': 'R148-south.jpg',
+                            'destination': {
+                                'y': 3
+                            }
                         }
                     }
                 },
-                */
+                'room158': {
+                    'id': 'hall158',
+                    'x': 1,
+                    'y': 5,
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall158',
+                            'image': 'R158-east.jpg'
+                        },
+                        'w': {
+                            'name': 'WHall158',
+                            'image': 'R158-west.jpg'
+                        },
+                        'n': {
+                            'name': 'NHall158',
+                            'image': 'R158-north.jpg'
+                        },
+                        's': {
+                            'name': 'SHall158',
+                            'image': 'R158-south.jpg',
+                            'destination': {
+                                'y': 4
+                            }
+                        }
+                    }
+                },
                 'room208': {
                     'id': 'hall208', 
                     'x': 2, 
