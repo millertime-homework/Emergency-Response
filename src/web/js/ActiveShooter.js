@@ -291,10 +291,7 @@ activeShooterDef = {
                     '_walls': {
                         'e': {
                             'name': 'EHall120',
-                            'image': 'R120-east.jpg',
-                            'destination': {
-                                'x': 2
-                            }
+                            'image': 'R120-east.jpg'
                         },
                         'w': {
                             'name': 'WHall120',
@@ -354,7 +351,10 @@ activeShooterDef = {
                     '_walls': {
                         'e': {
                             'name': 'NHall130',
-                            'image': 'R130-east.jpg'
+                            'image': 'R130-east.jpg',
+                            'destination': {
+                                'x': 2
+                            }
                         },
                         'w': {
                             'name': 'SHall130',
@@ -601,9 +601,6 @@ activeShooterDef = {
                         'w': {
                             'name': 'WHall210',
                             'image': 'R210-west.jpg',
-                            'destination': {
-                                'x': 1
-                            },
                             '_props': {
                                 'elevator-button': {
                                     'name': 'elevator-up',

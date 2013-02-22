@@ -274,10 +274,7 @@ earthquakeDef = {
                     '_walls': {
                         'e': {
                             'name': 'EHall120', 
-                            'image': 'R120-east.jpg',
-                            'destination': {
-                                'x': 2
-                            }
+                            'image': 'R120-east.jpg'
                         },
                         'w': {
                             'name': 'WHall120',
@@ -323,7 +320,10 @@ earthquakeDef = {
                     '_walls': {
                         'e': {
                             'name': 'NHall130',
-                            'image': 'R130-east.jpg'
+                            'image': 'R130-east.jpg',
+                            'destination': {
+                                'x': 2
+                            }
                         },
                         'w': {
                             'name': 'SHall130',
@@ -473,17 +473,14 @@ earthquakeDef = {
                         },
                         'w': {
                             'name': 'WHall210',
-                            'image': 'R210-west.jpg',
-                            'destination': {
-                                'x': 1
-                            },
+                            'image': 'R210-west.jpg'
                         },
                         'n': {
                             'name': 'NHall210',   
                             'image': 'R210-north.jpg',
                             'destination': {
                                 'y': 2,
-                            },
+                            }
                         },
                         's': {
                             'name': 'SHall210', 
@@ -1938,10 +1935,7 @@ earthquakeDef = {
                     '_walls': {
                         'e': {
                             'name': 'EHall128', 
-                            'image': 'R120-east.jpg',
-                            'destination': {
-                                'x': 2
-                            }
+                            'image': 'R120-east.jpg'
                         },
                         'w': {
                             'name': 'WHall128',
@@ -1973,7 +1967,10 @@ earthquakeDef = {
                     '_walls': {
                         'e': {
                             'name': 'NHall138',
-                            'image': 'R130-east.jpg'
+                            'image': 'R130-east.jpg',
+                            'destination': {
+                                'x': 2
+                            }
                         },
                         'w': {
                             'name': 'SHall138',
