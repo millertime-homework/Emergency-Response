@@ -3707,6 +3707,15 @@ earthquakeDef = {
                 'triggers':['gotoSchool']
             }
         },
+        'Unprepared': {
+            '1': {
+                'message': 'You left your house unprepared.',
+                'replies': {
+                    'I\'ll try to be better prepared next time': 0
+                }
+            }
+        },
+        /* PREPARE SCHOOL CONVOS */
         'stoveConvo': {
             '1':{
                 'message': 'The stove is hot and feels as though it was just used.',
@@ -3907,7 +3916,7 @@ earthquakeDef = {
                 'setObjective':['getToClass','Make your way to room 106. Class has almost begun.'],
                 'disableTriggers': ['enteredSchoolUnprepared'],
                 'failObjective': ['packForSchool'],
-                'showModal': ['', 'You left your house unprepared. Maybe next time you will be better prepared for what lies ahead.']
+                'showConversation': ['Unprepared']
             }
         },
         /* Person with wheelchair triggers */
