@@ -2431,7 +2431,7 @@ activeShooterDef = {
                      'shooter-downed', 'HidingPlace', 'doorShadeDown', 
                      'hidingSpot', 'hidingSpot2', 'doorHandleDone', 'lightSwitchDone'],
     '_player': {
-        'x': 3,
+        'x': 2,
         'y': 0,
         'z': 0,
         '_facing': 'n',
