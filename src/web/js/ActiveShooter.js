@@ -587,6 +587,13 @@ activeShooterDef = {
                     'x': 2,
                     'y': 1,
                     '_walls': {
+                        /* To allow player to 'move-up' */
+                        'u': {
+                            'destination': {
+                                'x': 3, // this will change when 2nd floor layout changes
+                                'z': 1
+                            }
+                        },
                         'e': {
                             'name': 'EHall210',
                             'image': 'R210-east.jpg'
@@ -599,16 +606,16 @@ activeShooterDef = {
                             },
                             '_props': {
                                 'elevator-button': {
-                                    'name': 'elevator-button',
-                                    'image': 'elevator-button.png',
-                                    'hoverImage': 'elevator-button-hover.png',
+                                    'name': 'elevator-up',
+                                    'image': 'elevator-up.png',
+                                    'hoverImage': 'elevator-up-hover.png',
                                     'width': 54,
                                     'height': 55,
                                     'left': 876,
                                     'top': 365,
                                     'action': 'showConversation',
                                     'actionVariables': {
-                                        'conversationName': 'Elevator Button'
+                                        'conversationName': 'Elevator Up'
                                     }
                                 },
                                 'Fire-Extinguisher': {
@@ -617,7 +624,7 @@ activeShooterDef = {
                                     'width': 190,
                                     'height': 190,
                                     'left': 800,
-                                    'top': 300,
+                                    'top': 50,
                                     'action': 'showConversation',
                                     'actionVariables': {
                                         'conversationName': 'Fire Extinguisher'
@@ -1879,7 +1886,7 @@ activeShooterDef = {
         }
     },
     '_conversations': {
-        'Elevator Button': {
+        'Elevator Up': {
             '1': {
                 'message': 'Go upstairs?',
                 'replies': {
@@ -1888,7 +1895,7 @@ activeShooterDef = {
                 }
             },
             '2': {
-                'triggers': ['useElevator']
+                'triggers': ['elevatorUp']
             }
         },
         'goIntoHidingByDoor' : {
@@ -2201,9 +2208,10 @@ activeShooterDef = {
         }
     },
     '_triggers': {
-        'useElevator': {
+        'elevatorUp': {
             'events': {
-                'player-move': ['move-up']
+                'player-move': ['move-up'],
+                'player-moved': [3,1,1]
             }
         },
         'abort':{
