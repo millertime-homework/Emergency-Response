@@ -147,7 +147,7 @@ activeShooterDef = {
                             'name': 'EHall100',
                             'image': 'R100-east.jpg',
                             'destination': {
-                                'x': 3
+                                'x': 2
                             }
                         },
                         'w': {
@@ -293,7 +293,7 @@ activeShooterDef = {
                             'name': 'EHall120',
                             'image': 'R120-east.jpg',
                             'destination': {
-                                'x': 3
+                                'x': 2
                             }
                         },
                         'w': {
@@ -493,16 +493,109 @@ activeShooterDef = {
                         }
                     }
                 },
+                'room200': {
+                    'id': 'hall200',
+                    'x': 2,
+                    'y': 0,
+                    '_triggers' : ['getToClass'],
+                    '_walls': {
+                        'e': {
+                            'name': 'EHall200',
+                            'image': 'R200-east.jpg',
+                            'destination': {
+                                'x': 3
+                            }
+                        },
+                        'w': {
+                            'name': 'WHall200',
+                            'image': 'R200-west.jpg',
+                            'destination': {
+                                'x': 1
+                            },
+                            '_props': {
+                                'RHF_Poster': {
+                                    'name': 'RHF_Poster',
+                                    'image': 'RHF_Poster-skew.png',
+                                    'width': 35,
+                                    'height': 100,
+                                    'left': 420,
+                                    'top': 250
+                                },
+                                'Room110Sign' : {
+                                    'name': 'Room110Sign',
+                                    'image': 'sign-room110.png',
+                                    'width': 19,
+                                    'height': 10,
+                                    'left' : 670,
+                                    'top': 305
+                                }
+                            }
+                        },
+                        'n': {
+                            'name': 'NHall200',
+                            'image': 'R200-north.jpg',
+                            'destination': {
+                                'y': 1
+                            },
+                            '_props': {
+                                'Fire-Extinguisher': {
+                                    'name': 'Fire-Extinguisher',
+                                    'image': 'fire-extinguisher.png',
+                                    'width': 20,
+                                    'height': 20,
+                                    'left': 450,
+                                    'top': 300
+                                }
+                            }
+                        },
+                        's': {
+                            'name': 'SHall200',
+                            'image': 'R200-south.jpg',
+                            '_props': {
+                                'UseDoor':{
+                                    'name': 'UseDoor',
+                                    'image': 'UseDoor.png',
+                                    'hoverImage': 'hoverUseDoor.png',
+                                    'width': 78,
+                                    'height': 190,
+                                    'left' : 470,
+                                    'top': 245,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'ExitSchool'
+                                    }
+                                },
+                                'policeman': {
+                                    'name': 'policeman',
+                                    'image': 'policeman.png',
+                                    'hoverImage': 'policeman-hover.png',
+                                    'width': 250,
+                                    'height': 441,
+                                    'left': 500,
+                                    'top': 170,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'policeman'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
                 'room210': {
-                    'id': 'elevator210',
+                    'id': 'hall210',
                     'x': 2,
                     'y': 1,
                     '_walls': {
                         'e': {
-                            'name': 'EElevator210',
-                            'image': 'R210-east.jpg',
+                            'name': 'EHall210',
+                            'image': 'R210-east.jpg'
+                        },
+                        'w': {
+                            'name': 'WHall210',
+                            'image': 'R210-west.jpg',
                             'destination': {
-                                'x': 3
+                                'x': 1
                             },
                             '_props': {
                                 'elevator-button': {
@@ -517,20 +610,111 @@ activeShooterDef = {
                                     'actionVariables': {
                                         'conversationName': 'Elevator Button'
                                     }
+                                },
+                                'Fire-Extinguisher': {
+                                    'name': 'Fire-Extinguisher',
+                                    'image': 'fire-extinguisher.png',
+                                    'width': 190,
+                                    'height': 190,
+                                    'left': 800,
+                                    'top': 300,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Fire Extinguisher'
+                                    }
                                 }
                             }
                         },
-                        'w': {
-                            'name': 'WElevator210',
-                            'image': 'R210-west.jpg'
-                        },
                         'n': {
-                            'name': 'NElevator210',
-                            'image': 'R210-north.jpg'
+                            'name': 'NHall210',
+                            'image': 'R210-north.jpg',
+                            'destination': {
+                                'y': 2,
+                            },
+                            '_props': {
+                                'Fire-Extinguisher': {
+                                    'name': 'Fire-Extinguisher',
+                                    'image': 'fire-extinguisher.png',
+                                    'width': 190,
+                                    'height': 190,
+                                    'left': 100,
+                                    'top': 300,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Fire Extinguisher'
+                                    }
+                                }
+                            }
                         },
                         's': {
-                            'name': 'SElevator210',
-                            'image': 'R210-south.jpg'
+                            'name': 'SHall210',
+                            'image': 'R210-south.jpg',
+                            'destination': {
+                                'y': 0
+                            }
+                        }
+                    }
+                },
+                'room220': {
+                    'id': 'stairs220',
+                    'x': 2,
+                    'y': 2,
+                    '_walls': {
+                        'e': {
+                            'name': 'EStairs220',
+                            'image': 'R220-east.jpg',
+                            'destination': {
+                                'x': 3,
+                                'z': 1
+                            }
+                        },
+                        'w': {
+                            'name': 'WStairs220',
+                            'image': 'R220-west.jpg',
+                            'destination': {
+                                'x': 1,
+                                'z': 1
+                            }
+                        },
+                        'n': {
+                            'name': 'NStairs220',
+                            'image': 'R220-north.jpg'
+                        },
+                        's': {
+                            'name': 'SStairs220',
+                            'image': 'R220-south.jpg',
+                            'destination': {
+                                'y': 1
+                            }
+                        }
+                    }
+                },
+                'room230': {
+                    'id': 'room230',
+                    'x': 2,
+                    'y': 3,
+                    '_walls': {
+                        'e': {
+                            'name': 'ERoom230',
+                            'image': 'R230-east.jpg',
+                            'destination': {
+                                'x': 3
+                            }
+                        },
+                        'w': {
+                            'name': 'WRoom230',
+                            'image': 'R230-west.jpg',
+                            'destination': {
+                                'x': 1
+                            }
+                        },
+                        'n': {
+                            'name': 'NRoom230',
+                            'image': 'R230-north.jpg'
+                        },
+                        's': {
+                            'name': 'SRoom230',
+                            'image': 'R230-south.jpg'
                         }
                     }
                 },
@@ -578,7 +762,6 @@ activeShooterDef = {
                     'id': 'hall300',
                     'x': 3,
                     'y': 0,
-                    '_triggers' : ['getToClass'],
                     '_walls': {
                         'e': {
                             'name': 'EHall300',
@@ -591,25 +774,7 @@ activeShooterDef = {
                             'name': 'WHall300',
                             'image': 'R300-west.jpg',
                             'destination': {
-                                'x': 1
-                            },
-                            '_props': {
-                                'RHF_Poster': {
-                                    'name': 'RHF_Poster',
-                                    'image': 'RHF_Poster-skew.png',
-                                    'width': 35,
-                                    'height': 100,
-                                    'left': 420,
-                                    'top': 250
-                                },
-                                'Room110Sign' : {
-                                    'name': 'Room110Sign',
-                                    'image': 'sign-room110.png',
-                                    'width': 19,
-                                    'height': 10,
-                                    'left' : 670,
-                                    'top': 305
-                                }
+                                'x': 2
                             }
                         },
                         'n': {
@@ -617,49 +782,11 @@ activeShooterDef = {
                             'image': 'R300-north.jpg',
                             'destination': {
                                 'y': 1
-                            },
-                            '_props': {
-                                'Fire-Extinguisher': {
-                                    'name': 'Fire-Extinguisher',
-                                    'image': 'fire-extinguisher.png',
-                                    'width': 20,
-                                    'height': 20,
-                                    'left': 450,
-                                    'top': 300
-                                }
                             }
                         },
                         's': {
                             'name': 'SHall300',
-                            'image': 'R300-south.jpg',
-                            '_props': {
-                                'UseDoor':{
-                                    'name': 'UseDoor',
-                                    'image': 'UseDoor.png',
-                                    'hoverImage': 'hoverUseDoor.png',
-                                    'width': 78,
-                                    'height': 190,
-                                    'left' : 470,
-                                    'top': 245,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'ExitSchool'
-                                    }
-                                },
-                                'policeman': {
-                                    'name': 'policeman',
-                                    'image': 'policeman.png',
-                                    'hoverImage': 'policeman-hover.png',
-                                    'width': 250,
-                                    'height': 441,
-                                    'left': 500,
-                                    'top': 170,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'policeman'
-                                    }
-                                }
-                            }
+                            'image': 'R300-south.jpg'
                         }
                     }
                 },
@@ -674,44 +801,13 @@ activeShooterDef = {
                         },
                         'w': {
                             'name': 'WHall310',
-                            'image': 'R310-west.jpg',
-                            'destination': {
-                                'x': 2
-                            },
-                            '_props': {
-                                'Fire-Extinguisher': {
-                                    'name': 'Fire-Extinguisher',
-                                    'image': 'fire-extinguisher.png',
-                                    'width': 190,
-                                    'height': 190,
-                                    'left': 800,
-                                    'top': 300,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'Fire Extinguisher'
-                                    }
-                                }
-                            }
+                            'image': 'R310-west.jpg'
                         },
                         'n': {
                             'name': 'NHall310',
                             'image': 'R310-north.jpg',
                             'destination': {
-                                'y': 2,
-                            },
-                            '_props': {
-                                'Fire-Extinguisher': {
-                                    'name': 'Fire-Extinguisher',
-                                    'image': 'fire-extinguisher.png',
-                                    'width': 190,
-                                    'height': 190,
-                                    'left': 100,
-                                    'top': 300,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'Fire Extinguisher'
-                                    }
-                                }
+                                'y': 2
                             }
                         },
                         's': {
@@ -724,31 +820,30 @@ activeShooterDef = {
                     }
                 },
                 'room320': {
-                    'id': 'stairs320',
+                    'id': 'hall320',
                     'x': 3,
                     'y': 2,
                     '_walls': {
                         'e': {
-                            'name': 'EStairs320',
+                            'name': 'EHall320',
                             'image': 'R320-east.jpg',
                             'destination': {
-                                'z': 1
+                                'x': 4
                             }
                         },
                         'w': {
-                            'name': 'WStairs320',
-                            'image': 'R320-west.jpg',
-                            'destination': {
-                                'x': 1,
-                                'z': 1
-                            }
+                            'name': 'WHall320',
+                            'image': 'R320-west.jpg'
                         },
                         'n': {
-                            'name': 'NStairs320',
-                            'image': 'R320-north.jpg'
+                            'name': 'NHall320',
+                            'image': 'R320-north.jpg',
+                            'destination': {
+                                'y': 3
+                            }
                         },
                         's': {
-                            'name': 'SStairs320',
+                            'name': 'SHall320',
                             'image': 'R320-south.jpg',
                             'destination': {
                                 'y': 1
@@ -757,31 +852,34 @@ activeShooterDef = {
                     }
                 },
                 'room330': {
-                    'id': 'room330',
+                    'id': 'hall330',
                     'x': 3,
                     'y': 3,
                     '_walls': {
                         'e': {
-                            'name': 'ERoom330',
-                            'image': 'R330-east.jpg',
-                            'destination': {
-                                'x': 4
-                            }
+                            'name': 'EHall330',
+                            'image': 'R330-east.jpg'
                         },
                         'w': {
-                            'name': 'WRoom330',
+                            'name': 'WHall330',
                             'image': 'R330-west.jpg',
                             'destination': {
                                 'x': 2
                             }
                         },
                         'n': {
-                            'name': 'NRoom330',
-                            'image': 'R330-north.jpg'
+                            'name': 'NHall330',
+                            'image': 'R330-north.jpg',
+                            'destination': {
+                                'y': 4
+                            }
                         },
                         's': {
-                            'name': 'SRoom330',
-                            'image': 'R330-south.jpg'
+                            'name': 'SHall330',
+                            'image': 'R330-south.jpg',
+                            'destination': {
+                                'y': 2
+                            }
                         }
                     }
                 },
@@ -806,11 +904,43 @@ activeShooterDef = {
                         },
                         'n': {
                             'name': 'NHall340',
-                            'image': 'R340-north.jpg'
+                            'image': 'R340-north.jpg',
+                            'destination': {
+                                'y': 5
+                            }
                         },
                         's': {
                             'name': 'SHall340',
-                            'image': 'R340-south.jpg'
+                            'image': 'R340-south.jpg',
+                            'destination': {
+                                'y': 3
+                            }
+                        }
+                    }
+                },
+                'room350': {
+                    'id': 'restroom350',
+                    'x': 3,
+                    'y': 5,
+                    '_walls': {
+                        'e': {
+                            'name': 'ERestroom350',
+                            'image': 'R350-east.jpg'
+                        },
+                        'w': {
+                            'name': 'WRestroom350',
+                            'image': 'R350-west.jpg'
+                        },
+                        'n': {
+                            'name': 'NRestroom350',
+                            'image': 'R350-north.jpg'
+                        },
+                        's': {
+                            'name': 'SRestroom350',
+                            'image': 'R350-south.jpg',
+                            'destination': {
+                                'y': 4
+                            }
                         }
                     }
                 },
@@ -822,9 +952,6 @@ activeShooterDef = {
                         'e': {
                             'name': 'EHall400',
                             'image': 'R400-east.jpg',
-                            'destination': {
-                                'x': 5
-                            }
                         },
                         'w': {
                             'name': 'WHall400',
@@ -853,7 +980,7 @@ activeShooterDef = {
                     '_walls': {
                         'e': {
                             'name': 'EHall410',
-                            'image': 'R410-east.jpg'
+                            'image': 'R410-east.jpg',
                         },
                         'w': {
                             'name': 'WHall410',
@@ -882,10 +1009,7 @@ activeShooterDef = {
                     '_walls': {
                         'e': {
                             'name': 'EHall420',
-                            'image': 'R420-east.jpg',
-                            'destination': {
-                                'x': 5
-                            }
+                            'image': 'R420-east.jpg'
                         },
                         'w': {
                             'name': 'WHall420',
@@ -896,10 +1020,7 @@ activeShooterDef = {
                         },
                         'n': {
                             'name': 'NHall420',
-                            'image': 'R420-north.jpg',
-                            'destination': {
-                                'y': 3
-                            }
+                            'image': 'R420-north.jpg'
                         },
                         's': {
                             'name': 'SHall420',
@@ -921,7 +1042,23 @@ activeShooterDef = {
                         },
                         'w': {
                             'name': 'WHall430',
-                            'image': 'R430-west.jpg'
+                            'image': 'R430-west.jpg',
+                            '_props': {
+                                'HidingPlace' : {
+                                    'name': 'HidingPlace',
+                                    'image': 'hiding-place.png',
+                                    'hoverImage': 'hiding-place-hover.png',
+                                    'width': 90,
+                                    'height': 40,
+                                    'left' : 470,
+                                    'top': 335,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Hide'
+                                    }
+                                }
+                            }
+
                         },
                         'n': {
                             'name': 'NHall430',
@@ -932,10 +1069,7 @@ activeShooterDef = {
                         },
                         's': {
                             'name': 'SHall430',
-                            'image': 'R430-south.jpg',
-                            'destination': {
-                                'y': 2
-                            }
+                            'image': 'R430-south.jpg'
                         }
                     }
                 },
@@ -960,10 +1094,7 @@ activeShooterDef = {
                         },
                         'n': {
                             'name': 'NHall440',
-                            'image': 'R440-north.jpg',
-                            'destination': {
-                                'y': 5
-                            }
+                            'image': 'R440-north.jpg'
                         },
                         's': {
                             'name': 'SHall440',
@@ -971,162 +1102,6 @@ activeShooterDef = {
                             'destination': {
                                 'y': 3
                             }
-                        }
-                    }
-                },
-                'room450': {
-                    'id': 'restroom450',
-                    'x': 4,
-                    'y': 5,
-                    '_walls': {
-                        'e': {
-                            'name': 'ERestroom450',
-                            'image': 'R450-east.jpg'
-                        },
-                        'w': {
-                            'name': 'WRestroom450',
-                            'image': 'R450-west.jpg'
-                        },
-                        'n': {
-                            'name': 'NRestroom450',
-                            'image': 'R450-north.jpg'
-                        },
-                        's': {
-                            'name': 'SRestroom450',
-                            'image': 'R450-south.jpg',
-                            'destination': {
-                                'y': 4
-                            }
-                        }
-                    }
-                },
-                'room500': {
-                    'id': 'hall500',
-                    'x': 5,
-                    'y': 0,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall500',
-                            'image': 'R500-east.jpg',
-                        },
-                        'w': {
-                            'name': 'WHall500',
-                            'image': 'R500-west.jpg',
-                            'destination': {
-                                'x': 4
-                            }
-                        },
-                        'n': {
-                            'name': 'NHall500',
-                            'image': 'R500-north.jpg',
-                            'destination': {
-                                'y': 1
-                            }
-                        },
-                        's': {
-                            'name': 'SHall500',
-                            'image': 'R500-south.jpg'
-                        }
-                    }
-                },
-                'room510': {
-                    'id': 'hall510',
-                    'x': 5,
-                    'y': 1,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall510',
-                            'image': 'R510-east.jpg',
-                        },
-                        'w': {
-                            'name': 'WHall510',
-                            'image': 'R510-west.jpg'
-                        },
-                        'n': {
-                            'name': 'NHall510',
-                            'image': 'R510-north.jpg',
-                            'destination': {
-                                'y': 2
-                            }
-                        },
-                        's': {
-                            'name': 'SHall510',
-                            'image': 'R510-south.jpg',
-                            'destination': {
-                                'y': 0
-                            }
-                        }
-                    }
-                },
-                'room520': {
-                    'id': 'hall520',
-                    'x': 5,
-                    'y': 2,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall520',
-                            'image': 'R520-east.jpg'
-                        },
-                        'w': {
-                            'name': 'WHall520',
-                            'image': 'R520-west.jpg',
-                            'destination': {
-                                'x': 4
-                            }
-                        },
-                        'n': {
-                            'name': 'NHall520',
-                            'image': 'R520-north.jpg'
-                        },
-                        's': {
-                            'name': 'SHall520',
-                            'image': 'R520-south.jpg',
-                            'destination': {
-                                'y': 1
-                            }
-                        }
-                    }
-                },
-                'room530': {
-                    'id': 'hall530',
-                    'x': 5,
-                    'y': 3,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall530',
-                            'image': 'R530-east.jpg'
-                        },
-                        'w': {
-                            'name': 'WHall530',
-                            'image': 'R530-west.jpg',
-                            '_props': {
-                                'HidingPlace' : {
-                                    'name': 'HidingPlace',
-                                    'image': 'hiding-place.png',
-                                    'hoverImage': 'hiding-place-hover.png',
-                                    'width': 90,
-                                    'height': 40,
-                                    'left' : 470,
-                                    'top': 335,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'Hide'
-                                    }
-                                }
-                            }
-
-                        },
-                        'n': {
-                            'name': 'NHall530',
-                            'image': 'R530-north.jpg',
-                            'destination': {
-                                'x': 5,
-                                'y': 4
-                            }
-                        },
-                        's': {
-                            'name': 'SHall530',
-                            'image': 'R530-south.jpg'
                         }
                     }
                 },
@@ -1138,9 +1113,6 @@ activeShooterDef = {
                         'e': {
                             'name': 'EHall540',
                             'image': 'R540-east.jpg',
-                            'destination': {
-                                'x': 6
-                            }
                         },
                         'w': {
                             'name': 'WHall540',
@@ -1151,40 +1123,11 @@ activeShooterDef = {
                         },
                         'n': {
                             'name': 'NHall540',
-                            'image': 'R540-north.jpg'
+                            'image': 'R540-north.jpg',
                         },
                         's': {
                             'name': 'SHall540',
-                            'image': 'R540-south.jpg',
-                            'destination': {
-                                'y': 3
-                            }
-                        }
-                    }
-                },
-                'room640': {
-                    'id': 'hall640',
-                    'x': 6,
-                    'y': 4,
-                    '_walls': {
-                        'e': {
-                            'name': 'EHall640',
-                            'image': 'R640-east.jpg',
-                        },
-                        'w': {
-                            'name': 'WHall640',
-                            'image': 'R640-west.jpg',
-                            'destination': {
-                                'x': 5
-                            }
-                        },
-                        'n': {
-                            'name': 'NHall640',
-                            'image': 'R640-north.jpg',
-                        },
-                        's': {
-                            'name': 'SHall640',
-                            'image': 'R640-south.jpg'
+                            'image': 'R540-south.jpg'
                         }
                     }
                 }
