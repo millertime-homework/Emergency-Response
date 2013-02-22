@@ -1845,6 +1845,43 @@ earthquakeDef = {
                     }
                 },
                 */
+                'outsideBuilding': {
+                    'id': 'outside',
+                    'x': 3,
+                    'y': -1,
+                    '_walls': {
+                        'e': {
+                            'name': 'EOutside',
+                            'image': 'outside-east.jpg'
+                        },
+                        'w': {
+                            'name': 'WOutside',
+                            'image': 'outside-west.jpg'
+                        },
+                        'n': {
+                            'name': 'NOutside',
+                            'image': 'outside-north.jpg'
+                        },
+                        's': {
+                            'name': 'SOutside',
+                            'image': 'outside-south.jpg',
+                            '_props': {
+                                'coordinator': {
+                                    'name': 'coordinator',
+                                    'image': 'policeman.png',
+                                    'width': 350,
+                                    'height': 441,
+                                    'left': 200,
+                                    'top': 300,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'coordinatorConvo'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
                 'room208': {
                     'id': 'hall208', 
                     'x': 2, 
@@ -1907,7 +1944,11 @@ earthquakeDef = {
                         },
                         's': {
                             'name': 'SHall308', 
-                            'image': 'R300-south.jpg'
+                            'image': 'R300-south.jpg',
+                            'destination': {
+                                'y': -1
+                            },
+                            'triggers': ['exitedBuilding']
                         }
                     }
                 },
@@ -3791,6 +3832,17 @@ earthquakeDef = {
             '3': {
                 'triggers': ['hideUnderDesk']
             }
+        },
+        'coordinatorConvo': {
+            '1': {
+                'message': 'Hey! Over here! Are you alright?',
+                'replies': {
+                    'Yes, but there are people that need help!': 2
+                }
+            },
+            '2': {
+                'triggers': ['spokeToCoordinator']
+            }
         }
     },
     '_triggers' : {
@@ -4010,6 +4062,18 @@ earthquakeDef = {
             },
             'disabled': true,
             'timeDelay': 3000
+        },
+        'exitedBuilding': {
+            'events': {
+                'completeObjective': ['evacuateSchool'],
+                'setObjective': ['talktoCoordinator', 'Talk to Emergency Building Coordinator']
+            }
+        },
+        'spokeToCoordinator': {
+            'events': {
+                'completeObjective': ['talktoCoordinator'],
+                'endGame': ['Congratulations!', 'You survived the Earthquake and reached safety!']
+            }
         }
     },
     'inactiveProps': ['heavy-on-floor'],
