@@ -1035,6 +1035,18 @@ earthquakeDef = {
                                     'height': 213,
                                     'left': 550,
                                     'top': 300
+                                },
+                                'chalk': {
+                                    'name':'Chalk',
+                                    'image': 'chalk.png',
+                                    'width': 79,
+                                    'height': 107,
+                                    'left': 720,
+                                    'top': 220,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Chalk on Sturdy Desk'
+                                    }
                                 }
                             }
                         },
@@ -1678,7 +1690,8 @@ earthquakeDef = {
                                     'destination': {
                                         'x': 3,
                                         'y': 0,
-                                        'z': 0
+                                        'z': 0,
+                                        '_facing': 'n'
                                     }
                                 }
                             },
@@ -3366,21 +3379,45 @@ earthquakeDef = {
         },
         'mrsfooconvo': {
             '1': {
-                'message': 'Did you feel that?',
+                'check': [
+                    {'has':['Chalk'], 'goto': 2},
+                    {'objectivesCompleted':['getChalkForTeacher'], 'goto': '3'}
+                ],
+                'message': 'Welcome! Before we get started, could you please hand me my chalk from that VERY sturdy and safe desk?',
                 'replies': {
-                    'Yes.... what was that?': 2,
-                    'I didn\'t feel a thing': 0,
+                    'Of course.': 0,
                 },
+                'triggers': ['getChalkObjective']
             },
             '2': {
-                'message': 'OHHHH NOOOO IT\'S AN EARTHQUAKE!!!',
+                'triggers': ['completeChalkObjective'],
+                'message': 'Thank you! Okay, so today we\'ll be covering chapter.... wait, did you feel that?',
                 'replies': {
-                    '[panic]': 3
+                    'Yes.... what was that?': 3,
                 }
             },
             '3': {
+                'message': 'OHHHH NOOOO IT\'S AN EARTHQUAKE!!!',
+                'replies': {
+                    '[stay calm]': 0
+                },
                 'triggers': ['shakeThingsUp'],
+            }
+        },
+        'Chalk on Sturdy Desk': {
+            '1': {
+                'requires': {
+                    'objectivesInProgress': ['getChalkForTeacher']
+                },
+                'message': 'A nice box of Chalk',
+                'replies': {
+                    'Pick up Chalk': 2,
+                    'Leave Chalk': 0
+                }
             },
+            '2': {
+                'triggers': ['takeChalk']
+            }
         },
         'Heavy Object': {
             '1': {
@@ -3765,14 +3802,6 @@ earthquakeDef = {
                 'addPoints': 10
             }
         },
-        'shakeThingsUp': {
-            'events': {
-                'completeObjective': ['talkToMrsFoo'],
-                'startEarthquake': [],
-                'setObjective': ['surviveEarthquake', 'React and Survive']
-            },
-            'enableTriggers': ['timeToTakeCover']
-        },
         'chairLocked': {
             'disabled':true
         },       
@@ -3850,7 +3879,7 @@ earthquakeDef = {
                 'addPoints': [50]
             }
         },
-        /* HEAD TO SCHOOL TRIGGERS */
+        /* GO KIT/PREPARE-FOR-SCHOOL TRIGGERS */
         'gotoSchool': {
             'events': {
                 'player-move':['move-forward'],
@@ -3866,6 +3895,22 @@ earthquakeDef = {
                 'setObjective':['getToClass','Make your way to room 106. Class has almost begun.']   
             }
         },
+        'packForSchool': {
+            'events': {
+                'setObjective': ['packForSchool', 'Select items to take with you. Then head to school']
+            }
+        },
+        'enteredSchoolUnprepared':{
+            'events': {
+                'setObjective': ['travelToSchool', 'Exit your room to go to school.'],
+                'completeObjective': ['travelToSchool'],
+                'setObjective':['getToClass','Make your way to room 106. Class has almost begun.'],
+                'disableTriggers': ['enteredSchoolUnprepared'],
+                'failObjective': ['packForSchool'],
+                'showModal': ['', 'You left your house unprepared. Maybe next time you will be better prepared for what lies ahead.']
+            }
+        },
+        /* Person with wheelchair triggers */
         'wheelChair00' : {
             'disabled':true
         },
@@ -3892,20 +3937,7 @@ earthquakeDef = {
                 'removeFromScene' : ['mrs-wheelchair','wheelchair']
             }
         },
-        'packForSchool': {
-            'events': {
-                'setObjective': ['packForSchool', 'Select items to take with you. Then head to school']
-            }
-        },
-        'enteredSchoolUnprepared':{
-            'events': {
-                'setObjective': ['travelToSchool', 'Exit your room to go to school.'],
-                'completeObjective': ['travelToSchool'],
-                'setObjective':['getToClass','Make your way to room 106. Class has almost begun.'],
-                'disableTriggers': ['enteredSchoolUnprepared'],
-                'failObjective': ['packForSchool']
-            }
-        },
+        /* MRS FOO TRIGGERS */
         'hurtMrsFoo': {
             'addPoints': [-20]
         },
@@ -3923,6 +3955,34 @@ earthquakeDef = {
                 'completeObjective': ['talkToMrsFoo'],
             }
         },
+        'getChalkObjective': {
+            'events': {
+                'completeObjective': ['talkToMrsFoo'],
+                'setObjective': ['getChalkForTeacher', 'Get the chalk from the sturdy desk.']
+            }
+        },
+        'takeChalk': {
+            'events': {
+                'takeFromScene' : [ {'name': 'Chalk', 'image': 'chalk.png', 'width':32, 'height':32 },
+                                    'chalk' ]
+            }
+        },
+        'completeChalkObjective': {
+            'events': {
+                'completeObjective': ['getChalkForTeacher'],
+                'removeInventory': ['Chalk']
+            }
+        },
+        /* EARTHQUAKE TRIGGERS */
+        'shakeThingsUp': {
+            'events': {
+                'completeObjective': ['talkToMrsFoo'],
+                'startEarthquake': [],
+                'setObjective': ['surviveEarthquake', 'React and Survive']
+            },
+            'enableTriggers': ['timeToTakeCover'],
+            'signalTriggers': ['timeToTakeCover']
+        },
         'hideUnderDesk': {
             'events': {
                 'completeObjective': ['surviveEarthquake'],
@@ -3932,15 +3992,15 @@ earthquakeDef = {
         },
         'failToTakeCover': {
             'events': {
-                'endGame': ['Game Over', 'You failed to survive the Earthquake! A large wood beam fell upon you.']
+                'endGame': ['Game Over', 'You failed to survive the Earthquake!\n A large wood beam fell upon you.']
             }
         },
         'timeToTakeCover': {
-            'disabled': true,
-            'timeDelay': 3000,
             'events': {
-                'endGame': ['Game Over', 'You didn\'t find cover soon enough and a large beam struck your frontal cortext!']
-            }
+                'endGame': ['Game Over', 'You didn\'t find cover soon enough and a large beam struck your frontal cortex!']
+            },
+            'disabled': true,
+            'timeDelay': 3000
         }
     },
     'inactiveProps': ['heavy-on-floor'],
