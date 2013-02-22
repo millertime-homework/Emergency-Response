@@ -115,8 +115,8 @@ earthquakeDef = {
                                     'image':'spray.jpg',
                                     'width':150,
                                     'height':150,
-                                    'left': 350,
-                                    'top': 200,
+                                    'left': 450,
+                                    'top': 300,
                                     'action':'showConversation',
                                     'actionVariables': {
                                         'conversationName' : 'sprayConvo'
@@ -128,7 +128,7 @@ earthquakeDef = {
                                     'width':150,
                                     'height':150,
                                     'left': 200,
-                                    'top': 200,
+                                    'top': 300,
                                     'action':'showConversation',
                                     'actionVariables': {
                                         'conversationName' : 'ragConvo'
@@ -145,7 +145,7 @@ earthquakeDef = {
                                     'image': 'computer.png',
                                     'width': 250,
                                     'height': 255,
-                                    'left': 400,
+                                    'left': 500,
                                     'top': 200,
                                     'action': 'showConversation',
                                     'actionVariables': {
@@ -217,7 +217,7 @@ earthquakeDef = {
                                     'image': 'prof_bell.png',
                                     'width': 28,
                                     'height': 50,
-                                    'left': 440,
+                                    'left': 540,
                                     'top': 298 
                                 }
                             }
@@ -253,7 +253,7 @@ earthquakeDef = {
                                     'image': 'prof_bell.png',
                                     'width': 45,
                                     'height': 80,
-                                    'left': 440,
+                                    'left': 540,
                                     'top': 286
                                 }
                             }
@@ -351,7 +351,7 @@ earthquakeDef = {
                                     'image': 'prof_bell.png',
                                     'width': 45,
                                     'height': 80,
-                                    'left': 440,
+                                    'left': 540,
                                     'top': 281
                                 }
                             }
@@ -583,160 +583,160 @@ earthquakeDef = {
                         }
                     }
                 },
-                'room200': {
-                    'id': 'hall200', 
+                'room300': {
+                    'id': 'hall300', 
                     'x': 3, 
                     'y': 0,
                     '_walls': {
                         'e': {
-                            'name': 'EHall200', 
-                            'image': 'R200-east.jpg',
+                            'name': 'EHall300', 
+                            'image': 'R300-east.jpg',
                             'destination': {
                                 'x': 4
                             }
                         },
                         'w': {
-                            'name': 'WHall200',
-                            'image': 'R200-west.jpg',
+                            'name': 'WHall300',
+                            'image': 'R300-west.jpg',
                             'destination': {
                                 'x': 2
                             }
                         },
                         'n': {
-                            'name': 'NHall200',   
-                            'image': 'R200-north.jpg',
+                            'name': 'NHall300',   
+                            'image': 'R300-north.jpg',
                             'destination': {
                                 'y': 1
                             }
                         },
                         's': {
-                            'name': 'SHall200', 
-                            'image': 'R200-south.jpg'
+                            'name': 'SHall300', 
+                            'image': 'R300-south.jpg'
                         }
                     }
                 },
-                'room210': {
-                    'id': 'hall210', 
+                'room310': {
+                    'id': 'hall310', 
                     'x': 3, 
                     'y': 1,
                     '_walls': {
                         'e': {
-                            'name': 'EHall210', 
-                            'image': 'R210-east.jpg',
+                            'name': 'EHall310', 
+                            'image': 'R310-east.jpg',
                         },
                         'w': {
-                            'name': 'WHall210',
-                            'image': 'R210-west.jpg'
+                            'name': 'WHall310',
+                            'image': 'R310-west.jpg'
                         },
                         'n': {
-                            'name': 'NHall210',   
-                            'image': 'R210-north.jpg',
+                            'name': 'NHall310',   
+                            'image': 'R310-north.jpg',
                             'destination': {
                                 'y': 2
                             }
                         },
                         's': {
-                            'name': 'SHall210', 
-                            'image': 'R210-south.jpg',
+                            'name': 'SHall310', 
+                            'image': 'R310-south.jpg',
                             'destination': {
                                 'y': 0
                             }
                         }
                     }
                 },
-                'room220': {
-                    'id': 'hall220', 
+                'room320': {
+                    'id': 'hall320', 
                     'x': 3, 
                     'y': 2,
                     '_walls': {
                         'e': {
-                            'name': 'EHall220', 
-                            'image': 'R220-east.jpg',
+                            'name': 'EHall320', 
+                            'image': 'R320-east.jpg',
                             'destination': {
                                 'x': 4
                             }
                         },
                         'w': {
-                            'name': 'WHall220',
-                            'image': 'R220-west.jpg'
+                            'name': 'WHall320',
+                            'image': 'R320-west.jpg'
                         },
                         'n': {
-                            'name': 'NHall220',   
-                            'image': 'R220-north.jpg',
+                            'name': 'NHall320',   
+                            'image': 'R320-north.jpg',
                             'destination': {
                                 'y': 3
                             }
                         },
                         's': {
-                            'name': 'SHall220', 
-                            'image': 'R220-south.jpg',
+                            'name': 'SHall320', 
+                            'image': 'R320-south.jpg',
                             'destination': {
                                 'y': 1
                             }
                         }
                     }
                 },
-                'room230': {
-                    'id': 'hall230', 
+                'room330': {
+                    'id': 'hall330', 
                     'x': 3, 
                     'y': 3,
                     '_walls': {
                         'e': {
-                            'name': 'EHall230', 
-                            'image': 'R230-east.jpg'
+                            'name': 'EHall330', 
+                            'image': 'R330-east.jpg'
                         },
                         'w': {
-                            'name': 'WHall230',
-                            'image': 'R230-west.jpg',
+                            'name': 'WHall330',
+                            'image': 'R330-west.jpg',
                             'destination': {
                                 'x': 2
                             }
                         },
                         'n': {
-                            'name': 'NHall230',   
-                            'image': 'R230-north.jpg',
+                            'name': 'NHall330',   
+                            'image': 'R330-north.jpg',
                             'destination': {
                                 'y': 4
                             }
                         },
                         's': {
-                            'name': 'SHall230', 
-                            'image': 'R230-south.jpg',
+                            'name': 'SHall330', 
+                            'image': 'R330-south.jpg',
                             'destination': {
                                 'y': 2
                             }
                         }
                     }
                 },
-                'room240': {
-                    'id': 'hall240', 
+                'room340': {
+                    'id': 'hall340', 
                     'x': 3, 
                     'y': 4,
                     '_walls': {
                         'e': {
-                            'name': 'EHall240', 
-                            'image': 'R240-east.jpg',
+                            'name': 'EHall340', 
+                            'image': 'R340-east.jpg',
                             'destination': {
                                 'x': 4
                             }
                         },
                         'w': {
-                            'name': 'WHall240',
-                            'image': 'R240-west.jpg',
+                            'name': 'WHall340',
+                            'image': 'R340-west.jpg',
                             'destination': {
                                 'x': 2
                             }
                         },
                         'n': {
-                            'name': 'NHall240',   
-                            'image': 'R240-north.jpg',
+                            'name': 'NHall340',   
+                            'image': 'R340-north.jpg',
                             'destination': {
                                 'y': 5
                             }
                         },
                         's': {
-                            'name': 'SHall240', 
-                            'image': 'R240-south.jpg',
+                            'name': 'SHall340', 
+                            'image': 'R340-south.jpg',
                             'destination': {
                                 'y': 3
                             }
@@ -769,174 +769,174 @@ earthquakeDef = {
                         }
                     }
                 },
-                'room300': {
-                    'id': 'hall300', 
+                'room400': {
+                    'id': 'hall400', 
                     'x': 4, 
                     'y': 0,
                     '_walls': {
                         'e': {
-                            'name': 'EHall300', 
-                            'image': 'R300-east.jpg',
+                            'name': 'EHall400', 
+                            'image': 'R400-east.jpg',
                         },
                         'w': {
-                            'name': 'WHall300',
-                            'image': 'R300-west.jpg',
+                            'name': 'WHall400',
+                            'image': 'R400-west.jpg',
                             'destination': {
                                 'x': 3
                             }
                         },
                         'n': {
-                            'name': 'NHall300',   
-                            'image': 'R300-north.jpg',
+                            'name': 'NHall400',   
+                            'image': 'R400-north.jpg',
                             'destination': {
                                 'y': 1
                             }
                         },
                         's': {
-                            'name': 'SHall300', 
-                            'image': 'R300-south.jpg'
+                            'name': 'SHall400', 
+                            'image': 'R400-south.jpg'
                         }
                     }
                 },
-                'room310': {
-                    'id': 'hall310', 
+                'room410': {
+                    'id': 'hall410', 
                     'x': 4, 
                     'y': 1,
                     '_walls': {
                         'e': {
-                            'name': 'EHall310', 
-                            'image': 'R310-east.jpg',
+                            'name': 'EHall410', 
+                            'image': 'R410-east.jpg',
                         },
                         'w': {
-                            'name': 'WHall310',
-                            'image': 'R310-west.jpg'
+                            'name': 'WHall410',
+                            'image': 'R410-west.jpg'
                         },
                         'n': {
-                            'name': 'NHall310',   
-                            'image': 'R310-north.jpg',
+                            'name': 'NHall410',   
+                            'image': 'R410-north.jpg',
                             'destination': {
                                 'y': 2
                             }
                         },
                         's': {
-                            'name': 'SHall310', 
-                            'image': 'R310-south.jpg',
+                            'name': 'SHall410', 
+                            'image': 'R410-south.jpg',
                             'destination': {
                                 'y': 0
                             }
                         }
                     }
                 },
-                'room320': {
-                    'id': 'hall320', 
+                'room420': {
+                    'id': 'hall420', 
                     'x': 4, 
                     'y': 2,
                     '_walls': {
                         'e': {
-                            'name': 'EHall320', 
-                            'image': 'R320-east.jpg'
+                            'name': 'EHall420', 
+                            'image': 'R420-east.jpg'
                         },
                         'w': {
-                            'name': 'WHall320',
-                            'image': 'R320-west.jpg',
+                            'name': 'WHall420',
+                            'image': 'R420-west.jpg',
                             'destination': {
                                 'x': 3
                             }
                         },
                         'n': {
-                            'name': 'NHall320',   
-                            'image': 'R320-north.jpg'
+                            'name': 'NHall420',   
+                            'image': 'R420-north.jpg'
                         },
                         's': {
-                            'name': 'SHall320', 
-                            'image': 'R320-south.jpg',
+                            'name': 'SHall420', 
+                            'image': 'R420-south.jpg',
                             'destination': {
                                 'y': 1
                             }
                         }
                     }
                 },
-                'room330': {
-                    'id': 'hall330', 
+                'room430': {
+                    'id': 'hall430', 
                     'x': 4, 
                     'y': 3,
                     '_walls': {
                         'e': {
-                            'name': 'EHall330', 
-                            'image': 'R330-east.jpg'
+                            'name': 'EHall430', 
+                            'image': 'R430-east.jpg'
                         },
                         'w': {
-                            'name': 'WHall330',
-                            'image': 'R330-west.jpg'
+                            'name': 'WHall430',
+                            'image': 'R430-west.jpg'
                         },
                         'n': {
-                            'name': 'NHall330',   
-                            'image': 'R330-north.jpg',
+                            'name': 'NHall430',   
+                            'image': 'R430-north.jpg',
                             'destination': {
                                 'y': 4
                             }
                         },
                         's': {
-                            'name': 'SHall330', 
-                            'image': 'R330-south.jpg'
+                            'name': 'SHall430', 
+                            'image': 'R430-south.jpg'
                         }
                     }
                 },
-                'room340': {
-                    'id': 'hall340', 
+                'room440': {
+                    'id': 'hall440', 
                     'x': 4, 
                     'y': 4,
                     '_walls': {
                         'e': {
-                            'name': 'EHall340', 
-                            'image': 'R340-east.jpg',
+                            'name': 'EHall440', 
+                            'image': 'R440-east.jpg',
                             'destination': {
                                 'x': 5
                             }
                         },
                         'w': {
-                            'name': 'WHall340',
-                            'image': 'R340-west.jpg',
+                            'name': 'WHall440',
+                            'image': 'R440-west.jpg',
                             'destination': {
                                 'x': 3
                             }
                         },
                         'n': {
-                            'name': 'NHall340',   
-                            'image': 'R340-north.jpg'
+                            'name': 'NHall440',   
+                            'image': 'R440-north.jpg'
                         },
                         's': {
-                            'name': 'SHall340', 
-                            'image': 'R340-south.jpg',
+                            'name': 'SHall440', 
+                            'image': 'R440-south.jpg',
                             'destination': {
                                 'y': 3
                             }
                         }
                     }
                 },
-                'room440': {
-                    'id': 'hall440', 
+                'room540': {
+                    'id': 'hall540', 
                     'x': 5, 
                     'y': 4,
                     '_walls': {
                         'e': {
-                            'name': 'EHall440', 
-                            'image': 'R440-east.jpg',
+                            'name': 'EHall540', 
+                            'image': 'R540-east.jpg',
                         },
                         'w': {
-                            'name': 'WHall440',
-                            'image': 'R440-west.jpg',
+                            'name': 'WHall540',
+                            'image': 'R540-west.jpg',
                             'destination': {
                                 'x': 4
                             }
                         },
                         'n': {
-                            'name': 'NHall440',   
-                            'image': 'R440-north.jpg',
+                            'name': 'NHall540',   
+                            'image': 'R540-north.jpg',
                         },
                         's': {
-                            'name': 'SHall440', 
-                            'image': 'R440-south.jpg'
+                            'name': 'SHall540', 
+                            'image': 'R540-south.jpg'
                         }
                     }
                 }
@@ -1345,9 +1345,9 @@ earthquakeDef = {
                                 'heavy': {
                                     'name': 'heavy',
                                     'image': 'heavy.png',
-                                    'width': 200,
-                                    'height': 200,
-                                    'left': 300,
+                                    'width': 300,
+                                    'height': 300,
+                                    'left': 400,
                                     'top': 20,
                                     'action': 'showConversation',
                                     'actionVariables': {
@@ -1357,10 +1357,10 @@ earthquakeDef = {
                                 'heavy-on-floor': {
                                     'name': 'heavy',
                                     'image': 'heavy.png',
-                                    'width': 200,
-                                    'height': 200,
-                                    'left': 300,
-                                    'top': 220
+                                    'width': 300,
+                                    'height': 300,
+                                    'left': 400,
+                                    'top': 320
                                 }
                             }
                         }
@@ -1657,7 +1657,7 @@ earthquakeDef = {
                                     'width': 131,
                                     'height': 281,
                                     'top': 0,
-                                    'left': 300,
+                                    'left': 400,
                                     'action': 'showConversation',
                                     'actionVariables': {
                                         'conversationName': 'packWater'
@@ -1680,7 +1680,7 @@ earthquakeDef = {
                                     'image': 'breathingmask.png',
                                     'width': 150,
                                     'height': 150,
-                                    'top': 300,
+                                    'top': 400,
                                     'left': 200,
                                     'action': 'showConversation',
                                     'actionVariables': {
@@ -1692,8 +1692,8 @@ earthquakeDef = {
                                     'image': 'whistle.png',
                                     'width': 150,
                                     'height': 150,
-                                    'top': 300,
-                                    'left': 300,
+                                    'top': 400,
+                                    'left': 400,
                                     'action': 'showConversation',
                                     'actionVariables': {
                                         'conversationName': 'packWhistle'
@@ -1704,7 +1704,7 @@ earthquakeDef = {
                                     'image': 'firstaidkit.png',
                                     'width': 150,
                                     'height': 150,
-                                    'top': 300,
+                                    'top': 400,
                                     'left': 600,
                                     'action': 'showConversation',
                                     'actionVariables': {
@@ -1717,7 +1717,7 @@ earthquakeDef = {
                                 //     'hoverImage': 'gobackbuttonhover.png',
                                 //     'width': 150,
                                 //     'height': 150,
-                                //     'top:': 300,
+                                //     'top:': 400,
                                 //     'left': 700,
                                 //     'action': 'showConversation',
                                 //     'actionVariables': {
@@ -2594,10 +2594,10 @@ earthquakeDef = {
                                 'mrsfooinjured': {
                                     'name': 'Mrs. Foo Injured',
                                     'image': 'mrsfooinjured.png',
-                                    'width': 400,
+                                    'width': 500,
                                     'height': 104,
                                     'left': 100,
-                                    'top': 300,
+                                    'top': 400
                                 }
                             }
                         },
@@ -2971,18 +2971,18 @@ earthquakeDef = {
                                 'heavy': {
                                     'name': 'heavy',
                                     'image': 'heavy-smashed.png',
-                                    'width': 200,
-                                    'height': 200,
-                                    'left': 300,
-                                    'top': 220
+                                    'width': 300,
+                                    'height': 300,
+                                    'left': 400,
+                                    'top': 320
                                 },
                                 'heavy-on-floor': {
                                     'name': 'heavy',
                                     'image': 'heavy.png',
-                                    'width': 200,
-                                    'height': 200,
-                                    'left': 300,
-                                    'top': 220
+                                    'width': 300,
+                                    'height': 300,
+                                    'left': 400,
+                                    'top': 320
                                 }
                             }
                         }
