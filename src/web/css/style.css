@@ -344,6 +344,11 @@ textarea:focus {
   color: #77f;
   text-decoration: none;
 }
+#pause-objective-list,
+#game-over-objective-list {
+  height: 125px;
+  overflow: scroll;
+}
 #menu-header {
   text-align: center;
   font-size: 1.8em;

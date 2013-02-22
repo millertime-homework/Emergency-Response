@@ -267,7 +267,7 @@ function setGameState(state) {
 
 function setObjective(name, displayText) {
     scenario.objectives.inProgress[name] = displayText || name;
-    jQuery('#objective').find('#' + name).remove();
+    jQuery('#objective ul').empty();
     jQuery('#objective ul').append('<li id="{0}">{1}</li>'.format(name, scenario.objectives.inProgress[name]));
 }
 
