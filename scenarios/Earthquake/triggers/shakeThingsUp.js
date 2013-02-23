@@ -1,0 +1,5 @@
+'shakeThingsUp': {
+    'events': {
+        'startEarthquake': [],
+    },
+}
