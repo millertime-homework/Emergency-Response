@@ -233,6 +233,14 @@ testDef = {
                         's': {
                             'name': 'SHall400',
                             'image': 'R400-south.jpg'
+                        },
+                        'custom': {
+                            'name': 'customWall',
+                            'image': 'R351-west.jpg',
+                            'fakeDirection': 'e',
+                            'destination': {
+                                'f': 'e'
+                            }
                         }
                     }
                 },

@@ -100,7 +100,7 @@ function loadScenario(data) {
         var currentWall;
 
         jQuery.each(roomData._walls, function (key, wallData) {
-            currentWall = room.addWall(wallData.name, key, wallData.image);
+            currentWall = room.addWall(wallData.name, key, wallData.image, wallData.fakeDirection);
 
             if (wallData._props) {
                 loadProps(currentWall, wallData);
