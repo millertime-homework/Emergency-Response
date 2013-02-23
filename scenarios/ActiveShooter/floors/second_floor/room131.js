@@ -1,29 +1,32 @@
 'room131': {
-    'id': 'hall131',
+    'id': 'library131',
     'x': 1,
     'y': 3,
     '_triggers': ['abort'],
     '_walls': {
         'e': {
-            'name': 'EHall131',
+            'name': 'ELibrary131',
             'image': 'R131-east.jpg',
             'destination': {
                 'x': 2
             }
         },
         'w': {
-            'name': 'WHall131',
-            'image': 'R131-west.jpg'
+            'name': 'WLibrary131',
+            'image': 'R131-west.jpg',
+            'destination': {
+                'x': 0
+            }
         },
         'n': {
-            'name': 'NHall131',
+            'name': 'NLibrary131',
             'image': 'R131-north.jpg',
             'destination': {
                 'y': 4
             }
         },
         's': {
-            'name': 'SHall131',
+            'name': 'SLibrary131',
             'image': 'R131-south.jpg',
             'destination': {
                 'y': 2

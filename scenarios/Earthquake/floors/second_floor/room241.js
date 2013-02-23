@@ -5,10 +5,7 @@
     '_walls': {
         'e': {
             'name': 'ELibrary241',
-            'image': 'R241-east.jpg',
-            'destination': {
-                'x': 3
-            }
+            'image': 'R241-east.jpg'
         },
         'w': {
             'name': 'WLibrary241',
@@ -19,14 +16,14 @@
         },
         'n': {
             'name': 'NLibrary241',
-            'image': 'R241-north.jpg',
-            'destination': {
-                'y': 5
-            }
+            'image': 'R241-north.jpg'
         },
         's': {
             'name': 'SLibrary241',
             'image': 'R241-south.jpg',
+            'destination': {
+                'y': 3
+            },
             '_props': {
                 'heavy': {
                     'name': 'heavy',

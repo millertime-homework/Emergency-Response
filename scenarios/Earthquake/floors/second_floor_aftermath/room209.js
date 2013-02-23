@@ -1,25 +1,28 @@
 'room209': {
-    'id': 'restroom209',
+    'id': 'hall209',
     'x': 2,
     'y': 0,
     '_walls': {
         'e': {
-            'name': 'ERestroom209',
+            'name': 'EHall209',
             'image': 'R201-east.jpg'
         },
         'w': {
-            'name': 'WRestroom209',
+            'name': 'WHall209',
             'image': 'R201-west.jpg',
             'destination': {
                 'x': 1
             }
         },
         'n': {
-            'name': 'NRestroom209',
-            'image': 'R201-north.jpg'
+            'name': 'NHall209',
+            'image': 'R201-north.jpg',
+            'destination': {
+                'y': 1
+            }
         },
         's': {
-            'name': 'SRestroom209',
+            'name': 'SHall209',
             'image': 'R201-south.jpg'
         }
     }

@@ -5,13 +5,16 @@
     '_walls': {
         'e': {
             'name': 'EHall311',
-            'image': 'R311-east.jpg'
+            'image': 'R311-east.jpg',
+            'destination': {
+                'x': 4
+            }
         },
         'w': {
             'name': 'WHall311',
             'image': 'R311-west.jpg',
             'destination': {
-                'z': 0
+                'x': 2
             }
         },
         'n': {
@@ -23,10 +26,7 @@
         },
         's': {
             'name': 'SHall311',
-            'image': 'R311-south.jpg',
-            'destination': {
-                'y': 0
-            }
+            'image': 'R311-south.jpg'
         }
     }
 }

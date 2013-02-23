@@ -1,31 +1,28 @@
 'room149': {
-    'id': 'hall149',
+    'id': 'library149',
     'x': 1,
     'y': 4,
     '_walls': {
         'e': {
-            'name': 'EHall149',
+            'name': 'ELibrary149',
             'image': 'R141-east.jpg',
             'destination': {
                 'x': 2
             }
         },
         'w': {
-            'name': 'WHall149',
+            'name': 'WLibrary149',
             'image': 'R141-west.jpg',
             'destination': {
                 'x': 0
             }
         },
         'n': {
-            'name': 'NHall149',
-            'image': 'R141-north.jpg',
-            'destination': {
-                'y': 5
-            }
+            'name': 'NLibrary149',
+            'image': 'R141-north.jpg'
         },
         's': {
-            'name': 'SHall149',
+            'name': 'SLibrary149',
             'image': 'R141-south.jpg',
             'destination': {
                 'y': 3

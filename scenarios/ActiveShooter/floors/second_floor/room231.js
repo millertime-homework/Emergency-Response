@@ -1,28 +1,31 @@
 'room231': {
-    'id': 'hall231',
+    'id': 'library231',
     'x': 2,
     'y': 3,
     '_walls': {
         'e': {
-            'name': 'EHall231',
+            'name': 'ELibrary231',
             'image': 'R231-east.jpg',
             'destination': {
                 'x': 3
             }
         },
         'w': {
-            'name': 'WHall231',
+            'name': 'WLibrary231',
             'image': 'R231-west.jpg',
             'destination': {
                 'x': 1
             }
         },
         'n': {
-            'name': 'NHall231',
-            'image': 'R231-north.jpg'
+            'name': 'NLibrary231',
+            'image': 'R231-north.jpg',
+            'destination': {
+                'y': 4
+            }
         },
         's': {
-            'name': 'SHall231',
+            'name': 'SLibrary231',
             'image': 'R231-south.jpg'
         }
     }

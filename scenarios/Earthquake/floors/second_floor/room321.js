@@ -11,7 +11,7 @@
             'name': 'WHall321',
             'image': 'R321-west.jpg',
             'destination': {
-                'y': 1,
+                'x': 2,
                 'z': 0,
             }
         },
