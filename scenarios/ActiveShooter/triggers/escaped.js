@@ -1,0 +1,5 @@
+'escaped': {
+    'events': {
+        'completeObjective': ['escape']
+    }
+}
