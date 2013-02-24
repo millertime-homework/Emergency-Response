@@ -38,8 +38,8 @@
                     'hoverImage': 'ASDoorHandleHover.png',
                     'width': 40,
                     'height': 52,
-                    'left': 450,
-                    'top': 305,
+                    'left': 495,
+                    'top': 370,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'lockDoor'
@@ -50,8 +50,8 @@
                     'image': 'ASDoorHandle.png',
                     'width': 40,
                     'height': 52,
-                    'left': 450,
-                    'top': 305
+                    'left': 495,
+                    'top': 370
                 },
                 'lightSwitch': {
                     'name': 'lightSwitch',
@@ -81,8 +81,8 @@
                     'hoverImage': 'ASHideSilhouetteHover.png',
                     'width': 84,
                     'height': 89,
-                    'left': 496,
-                    'top': 359,
+                    'left': 196,
+                    'top': 459,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'goIntoHidingByDoor'
