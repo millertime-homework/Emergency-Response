@@ -15,10 +15,10 @@
                     'name': 'doorShade',
                     'image': 'ASshadeUp.png',
                     'hoverImage': 'ASshadeUpHover.png',
-                    'width': 100,
-                    'height': 100,
-                    'left': 515,
-                    'top': 100,
+                    'width': 52,
+                    'height': 72,
+                    'left': 532,
+                    'top': 277,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'putShadeDown'
@@ -27,11 +27,10 @@
                 'doorShadeDown': {
                     'name': 'doorShadeDown',
                     'image': 'ASshadeDown.png',
-                    'hoverImage': 'ASshadeDownHover.png',
-                    'width': 100,
-                    'height': 100,
-                    'left': 515,
-                    'top': 100
+                    'width': 52,
+                    'height': 72,
+                    'left': 532,
+                    'top': 277
                 },
                 'doorHandle': {
                     'name': 'doorHandle',
@@ -49,7 +48,6 @@
                 'doorHandleDone': {
                     'name': 'doorHandle',
                     'image': 'ASDoorHandle.png',
-                    'hoverImage': 'ASDoorHandleHover.png',
                     'width': 40,
                     'height': 52,
                     'left': 450,
