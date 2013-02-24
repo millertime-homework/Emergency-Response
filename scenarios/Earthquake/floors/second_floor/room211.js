@@ -3,6 +3,12 @@
     'x': 2,
     'y': 1,
     '_walls': {
+        /* to allow player to 'move-down' */
+        'd': {
+            'destination': {
+                'z': 0
+            }
+        },
         'e': {
             'name': 'EHall211',
             'image': 'R211-east.jpg',
@@ -12,7 +18,22 @@
         },
         'w': {
             'name': 'WHall211',
-            'image': 'R211-west.jpg'
+            'image': 'R211-west.jpg',
+            '_props': {
+                'elevator-down': {
+                    'name': 'elevator-down',
+                    'image': 'elevator-down.png',
+                    'hoverImage': 'elevator-down-hover.png',
+                    'width': 43,
+                    'height': 24,
+                    'left': 330,
+                    'top': 360,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Elevator Down'
+                    }
+                }
+            }
         },
         'n': {
             'name': 'NHall211',

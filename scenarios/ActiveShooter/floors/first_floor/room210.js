@@ -6,7 +6,6 @@
         /* To allow player to 'move-up' */
         'u': {
             'destination': {
-                'x': 3, // this will change when 2nd floor layout changes
                 'z': 1
             }
         },
@@ -18,14 +17,14 @@
             'name': 'WHall210',
             'image': 'R210-west.jpg',
             '_props': {
-                'elevator-button': {
+                'elevator-up': {
                     'name': 'elevator-up',
                     'image': 'elevator-up.png',
                     'hoverImage': 'elevator-up-hover.png',
-                    'width': 54,
-                    'height': 55,
-                    'left': 876,
-                    'top': 365,
+                    'width': 43,
+                    'height': 24,
+                    'left': 830,
+                    'top': 360,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Elevator Up'

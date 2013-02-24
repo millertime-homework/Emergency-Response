@@ -3,6 +3,12 @@
     'x': 2, 
     'y': 1,
     '_walls': {
+        /* To allow player to 'move-up' */
+        'u': {
+            'destination': {
+                'z': 1
+            }
+        },
         'e': {
             'name': 'EHall218', 
             'image': 'R210-east.jpg',
@@ -12,6 +18,21 @@
             'image': 'R210-west.jpg',
             'destination': {
                 'x': 1
+            },
+            '_props': {
+                'elevator-up': {
+                    'name': 'elevator-up',
+                    'image': 'elevator-up.png',
+                    'hoverImage': 'elevator-up-hover.png',
+                    'width': 43,
+                    'height': 24,
+                    'left': 830,
+                    'top': 360,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Elevator Up'
+                    }
+                }
             }
         },
         'n': {
