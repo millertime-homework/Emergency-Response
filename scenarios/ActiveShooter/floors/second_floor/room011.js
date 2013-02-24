@@ -59,8 +59,8 @@
                     'hoverImage': 'ASLightSwitchHover.png',
                     'width': 50,
                     'height': 45,
-                    'left': 345,
-                    'top': 307,
+                    'left': 365,
+                    'top': 357,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'turnOffLights'
@@ -69,11 +69,10 @@
                 'lightSwitchDone': {
                     'name': 'lightSwitch',
                     'image': 'ASLightSwitch.png',
-                    'hoverImage': 'ASLightSwitchHover.png',
                     'width': 50,
                     'height': 45,
-                    'left': 345,
-                    'top': 307
+                    'left': 365,
+                    'top': 357
                 },
                 'hidingSpot': {
                     'name': 'hidingSpot',
