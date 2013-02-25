@@ -20,7 +20,23 @@
                     'width': 500,
                     'height': 104,
                     'left': 100,
-                    'top': 400
+                    'top': 400,
+                    'action': 'showConversation',
+                    'actionVariables':{
+                        'conversationName': 'Help Injured Foo'
+                    }
+                },
+                'sturdydesk':{
+                    'name': 'Sturdy Desk',
+                    'image':'sturdy-desk.png',
+                    'width': 389,
+                    'height': 213,
+                    'left': 550,
+                    'top': 300,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Sturdy Desk'
+                    }
                 }
             }
         },

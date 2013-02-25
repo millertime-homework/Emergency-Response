@@ -25,13 +25,20 @@
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'travelToSchool'
+                    },
+                    'destination': {
+                        'x': 2,
+                        'y': 0,
+                        'z': 0,
+                        '_facing': 'n'
                     }
                 }
             },
             'destination': {
                 'x': 2,
-                'y': 4,
-                'z': 0
+                'y': 0,
+                'z': 0,
+                '_facing': 'n'
             }
         },
         'e': {

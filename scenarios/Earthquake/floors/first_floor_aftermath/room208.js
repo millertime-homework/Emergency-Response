@@ -26,7 +26,11 @@
         },
         's': {
             'name': 'SHall208', 
-            'image': 'R200-south.jpg'
+            'image': 'R200-south.jpg',
+            'destination': {
+                'y': -1
+            },
+            'triggers': ['exitedBuilding']
         }
     }
 }

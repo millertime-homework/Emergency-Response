@@ -1,18 +1,27 @@
 'mrsfooconvo': {
     '1': {
-        'message': 'Want to shake things up?',
+        'check': [
+            {'has':['Chalk'], 'goto': 2},
+            {'objectivesCompleted':['getChalkForTeacher'], 'goto': '3'}
+        ],
+        'message': 'Welcome! Before we get started, could you please hand me my chalk from that VERY sturdy and safe desk?',
         'replies': {
-            'Sure': 2,
-            'I am not prepared.': 0,
+            'Of course.': 0
         },
+        'triggers': ['getChalkObjective']
     },
     '2': {
-        'message': 'OHHHH NOOOO IT\'S AN EARTHQUAKE!!!',
+        'triggers': ['completeChalkObjective'],
+        'message': 'Thank you! Okay, so today we\'ll be covering chapter.... wait, did you feel that?',
         'replies': {
-            '[panic]': 3
+            'Yes.... what was that?': 3,
         }
     },
     '3': {
+        'message': 'OHHHH NOOOO IT\'S AN EARTHQUAKE!!!',
+        'replies': {
+            '[stay calm]': 0
+        },
         'triggers': ['shakeThingsUp'],
-    },
+    }
 }

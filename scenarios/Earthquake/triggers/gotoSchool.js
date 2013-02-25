@@ -2,7 +2,7 @@
     'events': {
         'player-move':['move-forward'],
         'completeObjective': ['packForSchool'],
-        'setObjective':['getToClass','It\'s time for class.  Make your way to room 106']
+        'setObjective':['travelToSchool', 'Exit your room to go to school.'],
+        'disableTriggers': ['enteredSchoolUnprepared']
     }
-
 }

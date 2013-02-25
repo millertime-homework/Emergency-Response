@@ -1,0 +1,3 @@
+'hurtMrsFoo': {
+    'addPoints': [-20]
+}

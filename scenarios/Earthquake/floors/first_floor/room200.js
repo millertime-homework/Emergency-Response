@@ -2,6 +2,7 @@
     'id': 'hall200', 
     'x': 2, 
     'y': 0,
+    '_triggers': ['enteredSchoolUnprepared'],
     '_walls': {
         'e': {
             'name': 'EHall200', 
