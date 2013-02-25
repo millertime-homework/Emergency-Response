@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import sys,os,shutil
+from argparse import ArgumentParser
 
 """ 
 
@@ -27,7 +28,7 @@ scenarios/
 """
 
 def help():
-    print "Usage:\npython build_scenario.py [-h | --help | scenario_name]"
+    print "Usage:\npython build_scenario.py [-i | --interactive] [-h | --help] [scenario_name]"
 
 def pretty(name):
     return name.replace('_',' ').title()
@@ -45,43 +46,55 @@ def print_error(err):
     print "[Error] " + err
     exit(1)
 
-def ship(scenario_name, scenario):
-    request = raw_input("[w]rite, [s]kip > ")
-    if request != None:
-        request = request.lower()
-        if request == 'w':
-            f = open(scenario_name+'.js', 'w')
-            f.write(scenario)
-            f.close()
-            request2 = raw_input("View [d]iff, [m]ove into 'js' directory, [s]kip > ")
-            if request2 == 'd':
-                os.system("diff {0}.js src/web/js/{0}.js".format(scenario_name))
-                move_it = raw_input("Move? ")
-                if move_it.lower().startswith("y"):
+def ship(scenario_name, scenario, interactive):
+    if interactive:
+        request = raw_input("[w]rite, [s]kip > ")
+        if request != None:
+            request = request.lower()
+            if request == 'w':
+                f = open(scenario_name+'.js', 'w')
+                f.write(scenario)
+                f.close()
+                request2 = raw_input("View [d]iff, [m]ove into 'js' directory, [s]kip > ")
+                if request2 == 'd':
+                    os.system("diff {0}.js src/web/js/{0}.js".format(scenario_name))
+                    move_it = raw_input("Move? ")
+                    if move_it.lower().startswith("y"):
+                        path_to_scenario = "src/web/js/%s.js" % scenario_name
+                        if os.path.exists(path_to_scenario):
+                            if os.path.exists(path_to_scenario+".backup"):
+                                os.remove(path_to_scenario+".backup")
+                            print "Creating backup: " + path_to_scenario + ".backup"
+                            os.rename(path_to_scenario, path_to_scenario+".backup")
+                        shutil.move(scenario_name+".js", path_to_scenario)
+                    else:
+                        return
+                elif request2 == 'm':
                     path_to_scenario = "src/web/js/%s.js" % scenario_name
                     if os.path.exists(path_to_scenario):
                         if os.path.exists(path_to_scenario+".backup"):
                             os.remove(path_to_scenario+".backup")
                         print "Creating backup: " + path_to_scenario + ".backup"
                         os.rename(path_to_scenario, path_to_scenario+".backup")
-                    shutil.move(scenario_name+".js", path_to_scenario)
+                    shutil.move(scenario_name+".js", "src/web/js/")
                 else:
                     return
-            elif request2 == 'm':
-                path_to_scenario = "src/web/js/%s.js" % scenario_name
-                if os.path.exists(path_to_scenario):
-                    if os.path.exists(path_to_scenario+".backup"):
-                        os.remove(path_to_scenario+".backup")
-                    print "Creating backup: " + path_to_scenario + ".backup"
-                    os.rename(path_to_scenario, path_to_scenario+".backup")
-                shutil.move(scenario_name+".js", "src/web/js/")
             else:
                 return
-        else:
-            return
+    else:
+        f = open(scenario_name+'.js', 'w')
+        f.write(scenario)
+        f.close()
+        path_to_scenario = "src/web/js/%s.js" % scenario_name
+        if os.path.exists(path_to_scenario):
+            if os.path.exists(path_to_scenario+".backup"):
+                os.remove(path_to_scenario+".backup")
+            os.rename(path_to_scenario, path_to_scenario+".backup")
+        shutil.move(scenario_name+".js", path_to_scenario)
 
-def build_scenario(scenario_name):
-    print "Building %s..." % scenario_name
+def build_scenario(scenario_name, interactive):
+    if interactive:
+        print "Building %s..." % scenario_name
     path_to_scenario = os.path.join("scenarios",scenario_name)
     check_dir(path_to_scenario)
     scenario = (
@@ -181,20 +194,21 @@ def build_scenario(scenario_name):
 
     scenario += "}\n"
 
-    ship(scenario_name, scenario)
+    ship(scenario_name, scenario, interactive)
 
 def main():
-    if len(sys.argv) == 2:
-        # display help message and exit
-        if sys.argv[1] == "-h" or sys.argv[1] == "--help":
-            help()
-            exit(0)
+    parser = ArgumentParser(description="Compile scenario files.")
+    parser.add_argument('-i', '--interactive', action='store_true', default=False,
+                        help='Prompt before replacing files.')
+    parser.add_argument('scenario', nargs='?', help='Scenario to build (ActiveShooter/Earthquake).')
+    args = parser.parse_args()
+    if args.scenario != None:
         # build scenario with given name
-        build_scenario(sys.argv[1])
+        build_scenario(args.scenario, args.interactive)
     else:
         # build all scenarios found in scenarios directory
         for scenario_name in os.listdir("scenarios"):
-            build_scenario(scenario_name)
+            build_scenario(scenario_name, args.interactive)
 
 if __name__=="__main__":
     main()
