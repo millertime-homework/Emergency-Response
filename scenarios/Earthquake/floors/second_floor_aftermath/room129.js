@@ -7,8 +7,7 @@
             'name': 'EHall129',
             'image': 'R121-east.jpg',
             'destination': {
-                'x': 3,
-                'y': 1,
+                'x': 2,
                 'z': 8
             }
         },
