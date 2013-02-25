@@ -26,16 +26,6 @@
             'image': 'R141-south.jpg',
             'destination': {
                 'y': 3
-            },
-            '_props': {
-                'shooterR111': {
-                    'name': 'shooterR111',
-                    'image': 'shooter.png',
-                    'width': 8,
-                    'height': 16,
-                    'left': 550,
-                    'top': 270
-                }
             }
         }
     }

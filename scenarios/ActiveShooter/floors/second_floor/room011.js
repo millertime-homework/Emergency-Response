@@ -15,10 +15,10 @@
                     'name': 'doorShade',
                     'image': 'ASshadeUp.png',
                     'hoverImage': 'ASshadeUpHover.png',
-                    'width': 100,
-                    'height': 100,
-                    'left': 515,
-                    'top': 100,
+                    'width': 52,
+                    'height': 72,
+                    'left': 532,
+                    'top': 277,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'putShadeDown'
@@ -27,11 +27,10 @@
                 'doorShadeDown': {
                     'name': 'doorShadeDown',
                     'image': 'ASshadeDown.png',
-                    'hoverImage': 'ASshadeDownHover.png',
-                    'width': 100,
-                    'height': 100,
-                    'left': 515,
-                    'top': 100
+                    'width': 52,
+                    'height': 72,
+                    'left': 532,
+                    'top': 277
                 },
                 'doorHandle': {
                     'name': 'doorHandle',
@@ -39,8 +38,8 @@
                     'hoverImage': 'ASDoorHandleHover.png',
                     'width': 40,
                     'height': 52,
-                    'left': 450,
-                    'top': 305,
+                    'left': 495,
+                    'top': 370,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'lockDoor'
@@ -49,11 +48,10 @@
                 'doorHandleDone': {
                     'name': 'doorHandle',
                     'image': 'ASDoorHandle.png',
-                    'hoverImage': 'ASDoorHandleHover.png',
                     'width': 40,
                     'height': 52,
-                    'left': 450,
-                    'top': 305
+                    'left': 495,
+                    'top': 370
                 },
                 'lightSwitch': {
                     'name': 'lightSwitch',
@@ -61,8 +59,8 @@
                     'hoverImage': 'ASLightSwitchHover.png',
                     'width': 50,
                     'height': 45,
-                    'left': 345,
-                    'top': 307,
+                    'left': 365,
+                    'top': 357,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'turnOffLights'
@@ -71,11 +69,10 @@
                 'lightSwitchDone': {
                     'name': 'lightSwitch',
                     'image': 'ASLightSwitch.png',
-                    'hoverImage': 'ASLightSwitchHover.png',
                     'width': 50,
                     'height': 45,
-                    'left': 345,
-                    'top': 307
+                    'left': 365,
+                    'top': 357
                 },
                 'hidingSpot': {
                     'name': 'hidingSpot',
@@ -83,8 +80,8 @@
                     'hoverImage': 'ASHideSilhouetteHover.png',
                     'width': 84,
                     'height': 89,
-                    'left': 496,
-                    'top': 359,
+                    'left': 196,
+                    'top': 459,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'goIntoHidingByDoor'
