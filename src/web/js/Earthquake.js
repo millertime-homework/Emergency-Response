@@ -1635,7 +1635,7 @@ earthquakeDef = {
                                         'conversationName': 'travelToSchool'
                                     },
                                     'destination': {
-                                        'x': 3,
+                                        'x': 2,
                                         'y': 0,
                                         'z': 0,
                                         '_facing': 'n'
@@ -1643,9 +1643,10 @@ earthquakeDef = {
                                 }
                             },
                             'destination': {
-                                'x': 3,
+                                'x': 2,
                                 'y': 0,
-                                'z': 0
+                                'z': 0,
+                                '_facing': 'n'
                             }
                         },
                         'e': {
@@ -2601,7 +2602,7 @@ earthquakeDef = {
                             'image': 'R540-south.jpg'
                         }
                     }
-                }
+                },
                 'outsideBuilding': {
                     'id': 'outside',
                     'x': 2,
