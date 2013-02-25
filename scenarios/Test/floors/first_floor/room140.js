@@ -1,0 +1,36 @@
+'room140': {
+    'id': 'hall140',
+    'x': 1,
+    'y': 4,
+    '_triggers' : ['sampleObjective'],
+    '_walls': {
+        'e': {
+            'name': 'EHall140',
+            'image': 'R140-east.jpg',
+            'destination': {
+                'x': 2
+            }
+        },
+        'w': {
+            'name': 'WHall140',
+            'image': 'R140-west.jpg',
+            'destination': {
+                'x': 0
+            }
+        },
+        'n': {
+            'name': 'NHall140',
+            'image': 'R140-north.jpg',
+            'destination': {
+                'y': 5
+            }
+        },
+        's': {
+            'name': 'SHall140',
+            'image': 'R140-south.jpg',
+            'destination': {
+                'y': 3
+            }
+        }
+    }
+}

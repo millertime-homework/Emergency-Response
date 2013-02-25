@@ -1,0 +1,3 @@
+'activateShooter': {
+    'startRandomTrigger': ['hideFromShooter', 'getToFrontDoors']
+}

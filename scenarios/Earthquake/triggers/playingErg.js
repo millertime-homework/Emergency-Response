@@ -1,0 +1,5 @@
+'playingERG': {
+    'events': {
+        'completeObjective': ['playtheERG']
+    }
+}
