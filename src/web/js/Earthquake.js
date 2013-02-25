@@ -79,7 +79,6 @@ earthquakeDef = {
                     'id': 'hall300', 
                     'x': 3, 
                     'y': 0,
-                    '_triggers': ['enteredSchoolUnprepared'],
                     '_walls': {
                         'e': {
                             'name': 'EHall300', 
@@ -738,6 +737,20 @@ earthquakeDef = {
                         'e': {
                             'name': 'EHall530', 
                             'image': 'R530-east.jpg',
+                            '_props': {
+                                'waterbottle': {
+                                    'name': 'waterbottle',
+                                    'image': 'waterbottle.png',
+                                    'width': 262,
+                                    'height': 562,
+                                    'left': 400,
+                                    'top': 20,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Water Bottle'
+                                    }
+                                }
+                            }
                         },
                         'w': {
                             'name': 'WHall530',
@@ -1003,7 +1016,6 @@ earthquakeDef = {
                     'id': 'class011',
                     'x': 0,
                     'y': 1,
-                    '_triggers': ['enterRoom206'],
                     '_walls': {
                         'e': {
                             'name': 'EClass011',
@@ -1026,26 +1038,6 @@ earthquakeDef = {
                                     'action': 'showConversation',
                                     'actionVariables': {
                                         'conversationName': 'mrsfooconvo'
-                                    }
-                                },
-                                'sturdydesk':{
-                                    'name': 'Sturdy Desk',
-                                    'image':'sturdy-desk.png',
-                                    'width': 389,
-                                    'height': 213,
-                                    'left': 550,
-                                    'top': 300
-                                },
-                                'chalk': {
-                                    'name':'Chalk',
-                                    'image': 'chalk.png',
-                                    'width': 79,
-                                    'height': 107,
-                                    'left': 720,
-                                    'top': 220,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'Chalk on Sturdy Desk'
                                     }
                                 }
                             }
@@ -1686,18 +1678,12 @@ earthquakeDef = {
                                     'action': 'showConversation',
                                     'actionVariables': {
                                         'conversationName': 'travelToSchool'
-                                    },
-                                    'destination': {
-                                        'x': 3,
-                                        'y': 0,
-                                        'z': 0,
-                                        '_facing': 'n'
                                     }
                                 }
                             },
                             'destination': {
-                                'x': 3,
-                                'y': 0,
+                                'x': 2,
+                                'y': 4,
                                 'z': 0
                             }
                         },
@@ -1845,43 +1831,6 @@ earthquakeDef = {
                     }
                 },
                 */
-                'outsideBuilding': {
-                    'id': 'outside',
-                    'x': 3,
-                    'y': -1,
-                    '_walls': {
-                        'e': {
-                            'name': 'EOutside',
-                            'image': 'outside-east.jpg'
-                        },
-                        'w': {
-                            'name': 'WOutside',
-                            'image': 'outside-west.jpg'
-                        },
-                        'n': {
-                            'name': 'NOutside',
-                            'image': 'outside-north.jpg'
-                        },
-                        's': {
-                            'name': 'SOutside',
-                            'image': 'outside-south.jpg',
-                            '_props': {
-                                'coordinator': {
-                                    'name': 'coordinator',
-                                    'image': 'policeman.png',
-                                    'width': 350,
-                                    'height': 441,
-                                    'left': 200,
-                                    'top': 300,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'coordinatorConvo'
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 'room208': {
                     'id': 'hall208', 
                     'x': 2, 
@@ -1944,11 +1893,7 @@ earthquakeDef = {
                         },
                         's': {
                             'name': 'SHall308', 
-                            'image': 'R300-south.jpg',
-                            'destination': {
-                                'y': -1
-                            },
-                            'triggers': ['exitedBuilding']
+                            'image': 'R300-south.jpg'
                         }
                     }
                 },
@@ -2766,22 +2711,6 @@ earthquakeDef = {
                                     'height': 104,
                                     'left': 100,
                                     'top': 400,
-                                    'action': 'showConversation',
-                                    'actionVariables':{
-                                        'conversationName': 'Help Injured Foo'
-                                    }
-                                },
-                                'sturdydesk':{
-                                    'name': 'Sturdy Desk',
-                                    'image':'sturdy-desk.png',
-                                    'width': 389,
-                                    'height': 213,
-                                    'left': 550,
-                                    'top': 300,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'Sturdy Desk'
-                                    }
                                 }
                             }
                         },
@@ -3420,45 +3349,21 @@ earthquakeDef = {
         },
         'mrsfooconvo': {
             '1': {
-                'check': [
-                    {'has':['Chalk'], 'goto': 2},
-                    {'objectivesCompleted':['getChalkForTeacher'], 'goto': '3'}
-                ],
-                'message': 'Welcome! Before we get started, could you please hand me my chalk from that VERY sturdy and safe desk?',
+                'message': 'Want to shake things up?',
                 'replies': {
-                    'Of course.': 0,
+                    'Sure': 2,
+                    'I am not prepared.': 0,
                 },
-                'triggers': ['getChalkObjective']
             },
             '2': {
-                'triggers': ['completeChalkObjective'],
-                'message': 'Thank you! Okay, so today we\'ll be covering chapter.... wait, did you feel that?',
+                'message': 'OHHHH NOOOO IT\'S AN EARTHQUAKE!!!',
                 'replies': {
-                    'Yes.... what was that?': 3,
+                    '[panic]': 3
                 }
             },
             '3': {
-                'message': 'OHHHH NOOOO IT\'S AN EARTHQUAKE!!!',
-                'replies': {
-                    '[stay calm]': 0
-                },
                 'triggers': ['shakeThingsUp'],
-            }
-        },
-        'Chalk on Sturdy Desk': {
-            '1': {
-                'requires': {
-                    'objectivesInProgress': ['getChalkForTeacher']
-                },
-                'message': 'A nice box of Chalk',
-                'replies': {
-                    'Pick up Chalk': 2,
-                    'Leave Chalk': 0
-                }
             },
-            '2': {
-                'triggers': ['takeChalk']
-            }
         },
         'Heavy Object': {
             '1': {
@@ -3471,6 +3376,24 @@ earthquakeDef = {
             '2': {
                 'triggers': ['moveHeavyObject']
             }
+        },
+        'Water Bottle': {
+            '1': {
+                'message': 'Want to shake things up?',
+                'replies': {
+                    'Sure': 2,
+                    'I am not prepared.': 0,
+                },
+            },
+            '2': {
+                'message': 'OHHHH NOOOO IT\'S AN EARTHQUAKE!!!',
+                'replies': {
+                    '[panic]': 3
+                }
+            },
+            '3': {
+                'triggers': ['shakeThingsUp'],
+            },
         },
         'Mrs Wheelchair': {
             '1': {
@@ -3576,7 +3499,6 @@ earthquakeDef = {
         },
         'packFlashlight': {
             '1': {
-                'check': [{'has': ['Water', 'Food', 'Breathing Mask', 'Whistle', 'First Aid Kit'], 'goto': 3}],
                 'message': 'Flashlights are indispensable tools in emergency situations.',
                 'replies': {
                     'Pack in Go-Kit': '2',
@@ -3585,22 +3507,10 @@ earthquakeDef = {
             },
             '2': {
                 'triggers': ['takeFlashlight']
-            },
-            '3': {
-                'triggers': ['awardPackingGoKit'],
-                'message': 'Your Go-Kit is almost packed!',
-                'replies': {
-                    'Pack the Flashlight and get to school.': 4
-                }
-            },
-            '4': {
-                'triggers': ['gotoSchool']
             }
-
         },
         'packWater': {
             '1': {
-                'check': [{'has': ['Flashlight', 'Food', 'Breathing Mask', 'Whistle', 'First Aid Kit'], 'goto': 3}],
                 'message': 'Water is essential to life.',
                 'replies': {
                     'Pack in Go-Kit': '2',
@@ -3609,21 +3519,10 @@ earthquakeDef = {
             },
             '2': {
                 'triggers': ['takeWater']
-            },
-            '3': {
-                'triggers': ['awardPackingGoKit'],
-                'message': 'Your Go-Kit is almost packed!',
-                'replies': {
-                    'Pack the Water and get to school.': 4
-                }
-            },
-            '4': {
-                'triggers': ['gotoSchool']
             }
         },
         'packFood': {
             '1': {
-                'check': [{'has': ['Water', 'Flashlight', 'Breathing Mask', 'Whistle', 'First Aid Kit'], 'goto': 3}],
                 'message': 'Food is important.',
                 'replies': {
                     'Pack in Go-Kit': '2',
@@ -3632,21 +3531,10 @@ earthquakeDef = {
             },
             '2': {
                 'triggers': ['takeFood']
-            },
-            '3': {
-                'triggers': ['awardPackingGoKit'],
-                'message': 'Your Go-Kit is almost packed!',
-                'replies': {
-                    'Pack the Food and get to school.': 4
-                }
-            },
-            '4': {
-                'triggers': ['gotoSchool']
             }
         },
         'packMask': {
             '1': {
-                'check': [{'has': ['Water', 'Flashlight', 'Food', 'Whistle', 'First Aid Kit'], 'goto': 3}],
                 'message': 'Many emergency situations can involve airborne debris that can cause serious breathing issues.',
                 'replies': {
                     'Pack in Go-Kit': '2',
@@ -3655,21 +3543,10 @@ earthquakeDef = {
             },
             '2': {
                 'triggers': ['takeMask']
-            },
-            '3': {
-                'triggers': ['awardPackingGoKit'],
-                'message': 'Your Go-Kit is almost packed!',
-                'replies': {
-                    'Pack the N-97 Breathing Mask and get to school.': 4
-                }
-            },
-            '4': {
-                'triggers': ['gotoSchool']
             }
         },
         'packWhistle': {
             '1': {
-                'check': [{'has': ['Water', 'Flashlight', 'Food', 'Breathing Mask', 'First Aid Kit'], 'goto': 3}],
                 'message': 'Sometimes it\'s easier to be heard than seen.',
                 'replies': {
                     'Pack in Go-Kit': '2',
@@ -3678,21 +3555,10 @@ earthquakeDef = {
             },
             '2': {
                 'triggers': ['takeWhistle']
-            },
-            '3': {
-                'triggers': ['awardPackingGoKit'],
-                'message': 'Your Go-Kit is almost packed!',
-                'replies': {
-                    'Pack the Whistle and get to school.': 4
-                }
-            },
-            '4': {
-                'triggers': ['gotoSchool']
             }
         },
         'packFirstAidKit': {
             '1': {
-                'check': [{'has': ['Water','Flashlight', 'Food', 'Breathing Mask', 'Whistle'], 'goto': 3}],
                 'message': 'Even small injuries left untreated can become life-threatening in emergency situations.',
                 'replies': {
                     'Pack in Go-Kit': '2',
@@ -3701,16 +3567,6 @@ earthquakeDef = {
             },
             '2': {
                 'triggers': ['takeFirstAidKit']
-            },
-            '3': {
-                'triggers': ['awardPackingGoKit'],
-                'message': 'Your Go-Kit is almost packed!',
-                'replies': {
-                    'Take First Aid Kit and get to school': 4
-                }
-            },
-            '4': {
-                'triggers': ['gotoSchool']
             }
         },
         'goBackButton': {
@@ -3727,8 +3583,7 @@ earthquakeDef = {
         },
         'travelToSchool': {
             '1': {
-                'check': [{'objectivesInProgress': ['getToClass'], 'goto': 3 }],
-                'message': 'Are you ready for school?',
+                'message': 'Go to school?',
                 'replies': {
                     'Yes': 2,
                     'No': 0
@@ -3736,27 +3591,8 @@ earthquakeDef = {
             },
             '2': {
                 'triggers':['gotoSchool']
-            },
-            '3': {
-                'message': 'You look ready for the world. Would you like to go to school?',
-                'replies': {
-                    'Yes': 4,
-                    'No': 0
-                }
-            },
-            '4': {
-                'triggers':['gotoSchool']
             }
         },
-        'Unprepared': {
-            '1': {
-                'message': 'You left your house unprepared.',
-                'replies': {
-                    'I\'ll try to be better prepared next time': 0
-                }
-            }
-        },
-        /* PREPARE SCHOOL CONVOS */
         'stoveConvo': {
             '1':{
                 'message': 'The stove is hot and feels as though it was just used.',
@@ -3790,59 +3626,6 @@ earthquakeDef = {
             '2':{
                 'triggers':['moveSpray']
             }
-        },
-        'Help Injured Foo': {
-            '1': {
-                'check': [{'objectivesInProgress': ['surviveEarthquake'], 'goto': 4}],
-                'message': '[Groan] ..... my back!',
-                'replies': {
-                    'Pick her up and help her out of the room.': 2,
-                    'Ask her if she is okay': 3
-                }
-            },
-            '2': {
-                'triggers':['hurtMrsFoo'],
-                'message': 'No! Don\'t pick me up! I\'m hurt! Get help!',
-                'replies': {
-                    'Evacuate and get her help.': 0
-                }
-            },
-            '3': {
-                'triggers':['askedMrsFooIfOkay'],
-                'message': 'I\'m badly hurt! Please get help!',
-                'replies': {
-                    'Evacuate and get her help.': 0
-                }
-            },
-            '4': {
-                'triggers': ['failToTakeCover']
-            }
-        },
-        'Sturdy Desk': {
-            '1': {
-                'message': 'This desk looks nice and sturdy.',
-                'replies': {
-                    'It looks dirty under there...': 2,
-                    'I should crawl underneath and take cover': 3
-                }
-            },
-            '2': {
-                'triggers': ['failToTakeCover']
-            },
-            '3': {
-                'triggers': ['hideUnderDesk']
-            }
-        },
-        'coordinatorConvo': {
-            '1': {
-                'message': 'Hey! Over here! Are you alright?',
-                'replies': {
-                    'Yes, but there are people that need help!': 2
-                }
-            },
-            '2': {
-                'triggers': ['spokeToCoordinator']
-            }
         }
     },
     '_triggers' : {
@@ -3856,12 +3639,27 @@ earthquakeDef = {
                 'completeObjective': ['playtheERG']
             }
         },
+        'shakeThingsUp': {
+            'events': {
+                'startEarthquake': [],
+            },
+        },
         'moveHeavyObject': {
             'events': {
                 'removeFromScene': ['heavy'],
                 'addToScene': ['heavy-on-floor'],
                 'addPoints': 10
             }
+        },
+        'shakeThingsUp': {
+            'events': {
+                'startEarthquake': [],
+            },
+        },
+                'shakeThingsUp': {
+            'events': {
+                'startEarthquake': [],
+            },
         },
         'chairLocked': {
             'disabled':true
@@ -3893,7 +3691,6 @@ earthquakeDef = {
                 'removeFromScene':['bugSpray']
              }
         },
-        /* GO KIT TRIGGERS */
         'takeFlashlight': {
             'events': {
                 'takeFromScene' : [ {'name': 'Flashlight', 'image': 'flashlight.png', 'width':32, 'height':32 },
@@ -3935,43 +3732,14 @@ earthquakeDef = {
                 'player-move': ['move-forward']
             }
         },
-        'awardPackingGoKit': {
-            'events': {
-                'addPoints': [50]
-            }
-        },
-        /* GO KIT/PREPARE-FOR-SCHOOL TRIGGERS */
         'gotoSchool': {
             'events': {
                 'player-move':['move-forward'],
                 'completeObjective': ['packForSchool'],
-                'setObjective':['travelToSchool', 'Exit your room to go to school.'],
-                'disableTriggers': ['enteredSchoolUnprepared']
+                'setObjective':['getToClass','It\'s time for class.  Make your way to room 106']
             }
+
         },
-        'doorToSchool': {
-            'events': {
-                'player-move': ['move-forward'],
-                'completeObjective': ['travelToSchool'],
-                'setObjective':['getToClass','Make your way to room 106. Class has almost begun.']   
-            }
-        },
-        'packForSchool': {
-            'events': {
-                'setObjective': ['packForSchool', 'Select items to take with you. Then head to school']
-            }
-        },
-        'enteredSchoolUnprepared':{
-            'events': {
-                'setObjective': ['travelToSchool', 'Exit your room to go to school.'],
-                'completeObjective': ['travelToSchool'],
-                'setObjective':['getToClass','Make your way to room 106. Class has almost begun.'],
-                'disableTriggers': ['enteredSchoolUnprepared'],
-                'failObjective': ['packForSchool'],
-                'showConversation': ['Unprepared']
-            }
-        },
-        /* Person with wheelchair triggers */
         'wheelChair00' : {
             'disabled':true
         },
@@ -3998,83 +3766,11 @@ earthquakeDef = {
                 'removeFromScene' : ['mrs-wheelchair','wheelchair']
             }
         },
-        /* MRS FOO TRIGGERS */
-        'hurtMrsFoo': {
-            'addPoints': [-20]
-        },
-        'askedMrsFooIfOkay': {
-            'addPoints': [20]
-        },
-        'enterRoom206': {
+        'packForSchool': {
             'events': {
-                'completeObjective': ['getToClass'],
-                'setObjective': ['talkToMrsFoo', 'Talk to Mrs. Foo']
+                'setObjective': ['packForSchool', 'Select items to take with you. Then head to school']
             }
         },
-        'talkedToMrsFoo': {
-            'events': {
-                'completeObjective': ['talkToMrsFoo'],
-            }
-        },
-        'getChalkObjective': {
-            'events': {
-                'completeObjective': ['talkToMrsFoo'],
-                'setObjective': ['getChalkForTeacher', 'Get the chalk from the sturdy desk.']
-            }
-        },
-        'takeChalk': {
-            'events': {
-                'takeFromScene' : [ {'name': 'Chalk', 'image': 'chalk.png', 'width':32, 'height':32 },
-                                    'chalk' ]
-            }
-        },
-        'completeChalkObjective': {
-            'events': {
-                'completeObjective': ['getChalkForTeacher'],
-                'removeInventory': ['Chalk']
-            }
-        },
-        /* EARTHQUAKE TRIGGERS */
-        'shakeThingsUp': {
-            'events': {
-                'completeObjective': ['talkToMrsFoo'],
-                'startEarthquake': [],
-                'setObjective': ['surviveEarthquake', 'React and Survive']
-            },
-            'enableTriggers': ['timeToTakeCover'],
-            'signalTriggers': ['timeToTakeCover']
-        },
-        'hideUnderDesk': {
-            'events': {
-                'completeObjective': ['surviveEarthquake'],
-                'setObjective': ['evacuateSchool', 'Evacuate the School safely'],
-                'abortTriggers': ['timeToTakeCover']
-            }
-        },
-        'failToTakeCover': {
-            'events': {
-                'endGame': ['Game Over', 'You failed to survive the Earthquake!\n A large wood beam fell upon you.']
-            }
-        },
-        'timeToTakeCover': {
-            'events': {
-                'endGame': ['Game Over', 'You didn\'t find cover soon enough and a large beam struck your frontal cortex!']
-            },
-            'disabled': true,
-            'timeDelay': 3000
-        },
-        'exitedBuilding': {
-            'events': {
-                'completeObjective': ['evacuateSchool'],
-                'setObjective': ['talktoCoordinator', 'Talk to Emergency Building Coordinator']
-            }
-        },
-        'spokeToCoordinator': {
-            'events': {
-                'completeObjective': ['talktoCoordinator'],
-                'endGame': ['Congratulations!', 'You survived the Earthquake and reached safety!']
-            }
-        }
     },
     'inactiveProps': ['heavy-on-floor'],
     '_player': {
