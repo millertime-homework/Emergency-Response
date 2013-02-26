@@ -9,6 +9,7 @@ jQuery(document).ready(function (jQuery) {
     erg.phone.thirdContextMenu = jQuery('#phone-context-3');
     erg.controlsOverlay = jQuery('#controls-overlay');
     erg.phone.events = {};
+    erg.phone.contextIterator = 0;
 
     erg.phone.element.mouseenter(function () {
         jQuery('#phone-context').show();
@@ -50,9 +51,7 @@ jQuery(document).ready(function (jQuery) {
 
     erg.phone.allContextMenus.mouseleave(function () {
         erg.phone.menuHider = setTimeout(function () {
-            erg.phone.firstContextMenu.hide();
-            erg.phone.secondContextMenu.hide();
-            erg.phone.thirdContextMenu.hide();
+            closePhoneMenu();
         }, 500);
     });
 
@@ -93,25 +92,51 @@ jQuery(document).ready(function (jQuery) {
         removePhoneCall(contactName);
     });
 
+    jQuery('.clear-highlight').live('mouseenter', function() {
+        erg.phone.shouldClearHighlight = true;
+    });
+
     jQuery('#ringer-on').click(function () {
         erg.phone.firstContextMenu.find('#ringer').show();
         jQuery('#ringer-off').removeClass('selected');
         jQuery(this).addClass('selected');
-        jQuery('.phone-menu').hide();
+        closePhoneMenu();
     });
 
     jQuery('#ringer-off').click(function () {
         startTrigger('silencedPhone');
         jQuery('#ringer-on').removeClass('selected');
         jQuery(this).addClass('selected');
-        jQuery('.phone-menu').hide();
+        closePhoneMenu();
 
     });
 });
 
+function closePhoneMenu() {
+    erg.phone.firstContextMenu.hide();
+    erg.phone.secondContextMenu.hide();
+    erg.phone.thirdContextMenu.hide();
+    if (erg.phone.shouldClearHighlight) {
+        jQuery(this).removeClass('clear-highlight');
+        jQuery('.highlighted').removeClass('highlighted');
+        jQuery('#cell-phone').css('background', 'transparent url("web/img/phone.png")');
+        erg.phone.shouldClearHighlight = false;
+    }
+}
+
+function addContextHighlight(removeHighlightSelector, contextSelector, context2Selector, context3Selector) {
+    jQuery('#cell-phone').css('background', 'transparent url("web/img/phoneAlert.png")');
+    jQuery(contextSelector).addClass('highlighted');
+    jQuery(context2Selector).addClass('highlighted');
+    jQuery(context3Selector).addClass('highlighted');
+    jQuery(removeHighlightSelector).addClass('clear-highlight highlighted');
+}
+
 function addTextMessage(contactName, message) {
-    var selector, contactId = contactName.replace(' ', '');
-    selector = ".text#" + contactId;
+    var contactId = contactName.replace(/ /g,"_"),
+        selector = ".text#" + contactId,
+        messageId = "content" + erg.phone.contextIterator++;
+    
 
     erg.phone.secondContextMenu.find('div.text#none').remove();
 
@@ -122,12 +147,15 @@ function addTextMessage(contactName, message) {
                 attr('id', contactId).
                 text(contactName);
     }
+
     jQuery('#text-message-template').
             clone().appendTo(jQuery('#phone-context-3 div.phone-context-padder')).
-            removeAttr('id').
+            attr('id', messageId).
             addClass(contactId).
             find('span').
             text(message);
+
+    addContextHighlight(selector, '.phone-context #text', selector, "#" + messageId);
 }
 
 function addPhoneCall(contactName, conversationName) {
@@ -143,7 +171,7 @@ function addPhoneCall(contactName, conversationName) {
             text(contactName);
 
     attachEvents(contactId, {'showConversation' : {'func' : showConversation, 'args': [conversationName]}});
-
+    addContextHighlight(selector, '.phone-context #call', selector);
 }
 
 function removePhoneCall(contactName) {
