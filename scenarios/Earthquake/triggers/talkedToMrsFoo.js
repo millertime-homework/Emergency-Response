@@ -1,0 +1,5 @@
+'talkedToMrsFoo': {
+    'events': {
+        'completeObjective': ['talkToMrsFoo']
+    }
+}

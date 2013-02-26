@@ -1,0 +1,3 @@
+'chairLocked': {
+    'disabled':true
+}

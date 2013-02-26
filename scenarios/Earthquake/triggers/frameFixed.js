@@ -1,0 +1,3 @@
+'frameFixed':{
+    'disabled':true
+}

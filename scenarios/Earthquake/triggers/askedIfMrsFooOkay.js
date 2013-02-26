@@ -1,0 +1,3 @@
+'askedMrsFooIfOkay': {
+    'addPoints': [20]
+}
