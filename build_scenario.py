@@ -46,6 +46,9 @@ def print_error(err):
     print "[Error] " + err
     exit(1)
 
+def validFileName(name):
+    return not name.startswith('.') and name.endswith('.js')
+
 def ship(scenario_name, scenario, interactive):
     if interactive:
         request = raw_input("[w]rite, [s]kip > ")
@@ -124,6 +127,8 @@ def build_scenario(scenario_name, interactive):
 
         # look up each room in the directory for each floor   
         for room in os.listdir(path_to_floor):
+            if not validFileName(room):
+                continue
             if room == "z.js":
                 continue
             # add comma between rooms
@@ -153,6 +158,8 @@ def build_scenario(scenario_name, interactive):
     path_to_conversations = os.path.join(path_to_scenario,"conversations")
     check_dir(path_to_conversations)
     for conversation in os.listdir(path_to_conversations):
+        if not validFileName(conversation):
+            continue
         # add comma between conversations
         if scenario.endswith("}\n"):
             scenario = scenario.rstrip("\n")
@@ -171,6 +178,8 @@ def build_scenario(scenario_name, interactive):
     path_to_triggers = os.path.join(path_to_scenario,"triggers")
     check_dir(path_to_triggers)
     for trigger in os.listdir(path_to_triggers):
+        if not validFileName(trigger):
+            continue
         # add comma between triggers
         if scenario.endswith("}\n"):
             scenario = scenario.rstrip("\n")
@@ -195,7 +204,6 @@ def build_scenario(scenario_name, interactive):
     scenario += "}\n"
 
     ship(scenario_name, scenario, interactive)
-
 def main():
     parser = ArgumentParser(description="Compile scenario files.")
     parser.add_argument('-i', '--interactive', action='store_true', default=False,
