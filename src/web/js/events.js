@@ -8,9 +8,24 @@ jQuery(document).ready(function($) {
     $(document).on('startEarthquake', function() {
 
 
-        // Moves the player to aftermath floor
-        player.set(player.x, player.y, player.z + 8, player.facing, player.scenario);
-        $(document).trigger('player-moved', [player.x, player.y, player.z]);
+
+
+
+        $('#main-content').append('<img id="dust" src="web/img/dust.png" style="z-index: 100; width: 791px; height: 143px; position: absolute; display:block; top: 0; left:0;">');
+
+        var speed = 100;
+        $('#dust')
+            .animate({ top: '2', left: '-5'}, speed)
+            .animate({ top: '2', left: '5'}, speed)
+            .animate({ top: '5', left: '-4'}, speed)
+            .animate({ left: '8'}, speed)
+            .animate({ top: '10', left: '0'}, speed)
+            .animate({ top: '20', left: '10'}, speed)
+            .fadeOut('fast', function () {
+                // Moves the player to aftermath floor
+                player.set(player.x, player.y, player.z + 8, player.facing, player.scenario);
+                $(document).trigger('player-moved', [player.x, player.y, player.z]);
+            })
 
         // Shakes the scene image - super realistic.
         // var image = $('#view-scene');
