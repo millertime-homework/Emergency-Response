@@ -13,6 +13,13 @@ jQuery(document).ready(function($){
         var room = scenario.getRoom(player.x, player.y, player.z);
         if (scenario.isValidRoom(player.x, player.y, player.z)) {
             var wall = room.walls[player.facing];
+
+            if (wall.isCutscene) {
+                jQuery('.ui.viewport-button').addClass('disabled').removeClass('enabled').attr('disabled', 'disabled');
+                startTrigger('cutsceneTutorial');
+            } else {
+                jQuery('.ui.viewport-button').addClass('enabled').removeClass('disabled').removeAttr('disabled');
+            }
             var sceneImage = wall.image;
             $.attr(sceneImage, 'id', 'scene-img');
             var viewScene = $("#view-scene");

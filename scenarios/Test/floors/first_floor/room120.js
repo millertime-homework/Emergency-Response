@@ -21,6 +21,15 @@
                 'y': 3
             }
         },
+        'custom': {
+            'name': 'custom',
+            'image': 'apartment-e.jpg',
+            'fakeDirection' : 'e',
+            'destination': {
+                'f': 'w'
+            },
+            'isCutscene' : true
+        },
         's': {
             'name': 'SHall120',
             'image': 'R120-south.jpg',

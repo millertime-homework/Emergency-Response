@@ -6,12 +6,14 @@ Wall = Class.create({
         this.image = null;
         this.props = {};
         this.destination = null;
+        this.isCutscene = null;
         this.barriers = [];
     },
-    set: function(name, direction, image, fakeDirection) {
+    set: function(name, direction, image, fakeDirection, isCutscene) {
         this.name = name;
         this.direction = direction;
         this.fakeDirection = fakeDirection;
+        this.isCutscene = isCutscene;
         this.image = scenario.addImage(image);
     },
     addProp: function(id, name, image, hoverImage, width, height, left, right, action, actionVariables) {
