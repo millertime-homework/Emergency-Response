@@ -5,49 +5,46 @@
 
 jQuery(document).ready(function($) {
 
-    $(document).on('startEarthquake', function() {
 
-
-
-
-
-        $('#view-scene').append('<img id="dust" src="web/img/dust.png" style="z-index: 100; width: 791px; height: 143px; position: absolute; display:block; top: 0; left:0;">');
+    function shakeScene(count) {
+        if (count <= 0) return;
 
         var speed = 100;
-        $('#dust')
-            .animate({ top: '2', left: '-5'}, speed)
-            .animate({ top: '2', left: '5'}, speed)
-            .animate({ top: '5', left: '-4'}, speed)
-            .animate({ left: '8'}, speed)
-            .animate({ top: '10', left: '0'}, speed)
-            .animate({ top: '20', left: '10'}, speed)
-            .fadeOut('fast', function () {
-                // Moves the player to aftermath floor
-                player.set(player.x, player.y, player.z + 8, player.facing, player.scenario);
-                $(document).trigger('player-moved', [player.x, player.y, player.z]);
-            })
 
-        // Shakes the scene image - super realistic.
-        // var image = $('#view-scene');
-        // console.log($(image).attr('src'));
-        // var speed = 30;
-        // image.stop(true);
-        // for (i = 0; i < 5; i++) {
-        //     console.log('animating...')
-        //     image.animate({
-        //         left: '-5'
-        //     }, speed).animate({ 
-        //         left: '10'
-        //     }, speed).animate({
-        //         left: '-5'
-        //     }).animate({
-        //         left: '10'
-        //     }, speed).animate({
-        //         left: '0'
-        //     }, speed)
-        //     image.css('left', '');
-        //     console.log(image.css('left'))
-        // }
+        $('#view-scene')
+            .animate({ left: '2' }, speed)
+            .animate({ left: '-2' }, speed)
+            .animate({ left: '0' }, speed, shakeScene(count-1))
+    }
+
+    $(document).on('startEarthquake', function() {
+        var speed = 100;
+
+        $('#view-scene')
+            .animate({ left: '2' }, speed)
+            .animate({ left: '-2' }, speed)
+            .animate({ left: '2' }, speed)
+            .animate({ left: '-2' }, speed)
+            .animate({ left: '2' }, speed)
+            .animate({ left: '-2' }, speed)
+            .animate({ left: '2' }, speed)
+            .animate({ left: '-2' }, speed)
+            .animate({ left: '2' }, speed)
+            .animate({ left: '-2' }, speed)
+            .animate({ left: '2' }, speed)
+            .animate({ left: '-2' }, speed, function() {
+                $('#view-scene').append('<img id="dust" src="web/img/dust.png" style="z-index: 100; width: 791px; height: 143px; position: absolute; display:block; top: 0; left:0;">');
+                $('#dust')
+                    .animate({ top: '25', left: '-5' }, 200)
+                    .animate({ top: '50', left: '5' }, 200)
+                    .animate({ top: '75', left: '-5' }, 200)
+                    .animate({ top: '100', left: '5' }, 200)
+                    .fadeOut('fast', function() {
+                        // Moves the player to aftermath floor
+                        player.set(player.x, player.y, player.z + 8, player.facing, player.scenario);
+                        $(document).trigger('player-moved', [player.x, player.y, player.z]);
+                    })
+            })
     })
 
     // Call renderScene when player moves
