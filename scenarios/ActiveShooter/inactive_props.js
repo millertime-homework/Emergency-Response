@@ -6,5 +6,5 @@
     'y': 0,
     'z': 0,
     '_facing': 'n',
-    'inventory': []
+    'inventory': [{'name':'Lab Work', 'image':'labwork.png', 'width':40, 'height':60}]
 }
