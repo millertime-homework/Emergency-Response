@@ -40,6 +40,7 @@ jQuery(document).ready(function($) {
                     .animate({ top: '75', left: '-5' }, 200)
                     .animate({ top: '100', left: '5' }, 200)
                     .fadeOut('fast', function() {
+                        $('#dust').remove();
                         // Moves the player to aftermath floor
                         player.set(player.x, player.y, player.z + 8, player.facing, player.scenario);
                         $(document).trigger('player-moved', [player.x, player.y, player.z]);
