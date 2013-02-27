@@ -53,7 +53,7 @@ body {
 }
 
 .ui {
-    z-index: 4;
+    z-index: 7;
 }
 
 .bold-colored-text {
@@ -137,7 +137,6 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 }
 
 #controls-overlay {
-    z-index: 4;
     background: transparent;
     overflow: hidden;
 }
@@ -411,6 +410,7 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     border-style: solid;
     border-width:@borderThickness;
     border-color: @primaryBorderColor;
+    z-index: 7;
     .border_radius(@primaryBorderRadius - 3);
     .bordered;
     .selected {
@@ -419,13 +419,17 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 }
 
 .phone-context-padder {
-    padding-left: 5px;
-    padding-top: 5px;
-    padding-right: 5px;
+    padding-left: 3px;
+    padding-top: 3px;
+    padding-right: 3px;
 }
 
-.phone-menu div {
-    padding-bottom: 5px;
+.phone-menu div div {
+    padding-left: 2px;
+    padding-right: 2px;
+    border-bottom: 3px;
+    border-style: solid;
+    border-color: @sidebarBackgroundColor;
 }
 #phone-context {
     width: 50px;
@@ -433,6 +437,10 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 
 #phone-context-2 {
     width: auto;
+}
+
+.highlighted {
+    background-color : #ffc4c4;
 }
 
 #phone-context-3 {
