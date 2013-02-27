@@ -114,11 +114,13 @@ textarea:focus {
   padding-bottom: 10px;
 }
 /*--------Game viewport*/
-.primary-view {
+#view-wrapper {
   display: block;
   position: absolute;
   height: 611px;
   width: 1115px;
+  overflow: hidden;
+  overflow: hidden;
   border-style: solid;
   border-width: 3px;
   border-color: #000000;
@@ -131,6 +133,12 @@ textarea:focus {
   box-shadow: 3px 3px 3px #888888;
   -webkit-box-shadow: 3px 3px 3px #888888;
   -moz-box-shadow: 3px 3px 3px #888888;
+}
+.primary-view {
+  display: block;
+  position: absolute;
+  height: 611px;
+  width: 1115px;
   overflow: hidden;
 }
 #scene-img {
@@ -141,7 +149,6 @@ textarea:focus {
 #controls-overlay {
   z-index: 4;
   background: transparent;
-  overflow: hidden;
 }
 #view-scene {
   position: absolute;
@@ -403,7 +410,7 @@ textarea:focus {
   padding-bottom: 5px;
 }
 #phone-context {
-  width: 50px;
+  whiteidth: 50px;
 }
 #phone-context-2 {
   width: auto;

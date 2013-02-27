@@ -47,6 +47,7 @@ function reisizeSidebar(sidebar) {
 
 function applyCurrentWidths(sidebarWidth) {
     "use strict";
+    jQuery('#view-wrapper').width(erg.CurrentBodyWidth);
     jQuery('.main-content-viewport').width(erg.CurrentBodyWidth);
     jQuery('#main-content').width(erg.CurrentBodyWidth + sidebarWidth);
 }
@@ -59,6 +60,7 @@ function applyCurrentHeights() {
 
     //Resize the body's children, leaving some space for the margins. TODO: Remove hardcoded value.
     jQuery('.main-content-child').height(erg.CurrentBodyHeight - 30);
+    jQuery('#view-wrapper').height(erg.CurrentBodyHeight - 30);
 }
 
 function resolveBodySizeConstraints() {

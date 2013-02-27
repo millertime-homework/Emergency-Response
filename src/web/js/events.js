@@ -11,7 +11,7 @@ jQuery(document).ready(function($) {
 
 
 
-        $('#main-content').append('<img id="dust" src="web/img/dust.png" style="z-index: 100; width: 791px; height: 143px; position: absolute; display:block; top: 0; left:0;">');
+        $('#view-scene').append('<img id="dust" src="web/img/dust.png" style="z-index: 100; width: 791px; height: 143px; position: absolute; display:block; top: 0; left:0;">');
 
         var speed = 100;
         $('#dust')

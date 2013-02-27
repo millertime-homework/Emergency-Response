@@ -120,16 +120,25 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 }
 
 /*--------Game viewport*/
-.primary-view {
+#view-wrapper {
     display: block;
     position: absolute;
     height: @viewportHeight;
     width: @viewportWidth;
+    overflow: hidden;
+    overflow: hidden;
     border-style: solid;
     border-width:@borderThickness;
     border-color: @primaryBorderColor;
     .border_radius(@primaryBorderRadius - 3);
     .bordered;
+}
+
+.primary-view {
+    display: block;
+    position: absolute;
+    height: @viewportHeight;
+    width: @viewportWidth;
     overflow: hidden;
 }
 #scene-img {
@@ -139,7 +148,6 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 #controls-overlay {
     z-index: 4;
     background: transparent;
-    overflow: hidden;
 }
 
 #view-scene {
@@ -402,7 +410,7 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     padding-bottom: 5px;
 }
 #phone-context {
-    width: 50px;
+    whiteidth: 50px;
 }
 
 #phone-context-2 {
