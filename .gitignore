@@ -1,3 +1,9 @@
 *.swp
 .DS_Store
 Thumbs.db
+Earthquake.js
+Earthquake.js.backup
+ActiveShooter.js
+ActiveShooter.js.backup
+Test.js
+Test.js.backup

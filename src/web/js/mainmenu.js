@@ -15,27 +15,27 @@ jQuery(document).ready(function($){
         // Show Scene Selector
         var scenarioSelectModal = jQuery('#scenario-select');
         scenarioSelectModal.find('.option').remove();
-        scenarioSelectModal.append('<div class="option"><span id="loadActiveShooter">' + activeShooterDef['name'] + '</span></div>').
-        append('<div class="option"><span id="loadEarthquake">' + earthquakeDef['name'] + '</span></div>').
-        append('<div class="option"><span id="loadTest">' + testDef['name'] + '</span></div>').
+        scenarioSelectModal.append('<div class="option"><span id="loadActiveShooter">' + ActiveShooterDef['name'] + '</span></div>').
+        append('<div class="option"><span id="loadEarthquake">' + EarthquakeDef['name'] + '</span></div>').
+        append('<div class="option"><span id="loadTest">' + TestDef['name'] + '</span></div>').
         show();
         centerModal(scenarioSelectModal);
     })
 
     // Load Scenario
     $("#loadActiveShooter").live("click", function() {
-        currentScenario = "activeShooterDef";
-        loadScenario(activeShooterDef);
+        currentScenario = "ActiveShooterDef";
+        loadScenario(ActiveShooterDef);
     });
 
     $("#loadEarthquake").live("click", function() {
-        currentScenario = "earthquakeDef";
-        loadScenario(earthquakeDef);
+        currentScenario = "EarthquakeDef";
+        loadScenario(EarthquakeDef);
     });
 
     $("#loadTest").live("click", function() {
-        currentScenario = "testDef";
-        loadScenario(testDef);
+        currentScenario = "TestDef";
+        loadScenario(TestDef);
     });
 
     $("#resume-button").click(function() {
@@ -44,7 +44,6 @@ jQuery(document).ready(function($){
         else
             loadGame();
     });
-    
     
     // Brings Up the Info page.
     $('#info-button').click(function() {
