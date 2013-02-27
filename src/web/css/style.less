@@ -53,7 +53,7 @@ body {
 }
 
 .ui {
-    z-index: 4;
+    z-index: 7;
 }
 
 .bold-colored-text {
@@ -137,7 +137,6 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 }
 
 #controls-overlay {
-    z-index: 4;
     background: transparent;
     overflow: hidden;
 }
@@ -162,9 +161,12 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     }
 }
 
+
 #turn-left {
    top: 50%;
    background-color: transparent;
+}
+#turn-left.enabled {
    background-image: url('../img/left.png');
 }
 
@@ -173,10 +175,27 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     margin-top: -27px;
 }
 
+#turn-left.enabled {
+   background-image: url('../img/left.png');
+}
+
+#turn-left.disabled {
+   background-image: url('../img/leftDisabled.png');
+}
+
 #move-forward {
    margin-left: 50%;
    background-color: transparent;
+}
+#move-forward.enabled {
    background-image: url('../img/up.png');
+}
+
+#move-forward.enabled {
+   background-image: url('../img/up.png');
+}
+#move-forward.disabled {
+   background-image: url('../img/upDisabled.png');
 }
 
 #turn-right {
@@ -184,7 +203,13 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
    left: 100%;
    margin-left: -31px;
    background-color: transparent;
+}
+
+#turn-right.enabled {
    background-image: url('../img/right.png');
+}
+#turn-right.disabled {
+   background-image: url('../img/rightDisabled.png');
 }
 .prop {
     position: absolute;
@@ -385,6 +410,7 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     border-style: solid;
     border-width:@borderThickness;
     border-color: @primaryBorderColor;
+    z-index: 7;
     .border_radius(@primaryBorderRadius - 3);
     .bordered;
     .selected {
@@ -393,13 +419,17 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 }
 
 .phone-context-padder {
-    padding-left: 5px;
-    padding-top: 5px;
-    padding-right: 5px;
+    padding-left: 3px;
+    padding-top: 3px;
+    padding-right: 3px;
 }
 
-.phone-menu div {
-    padding-bottom: 5px;
+.phone-menu div div {
+    padding-left: 2px;
+    padding-right: 2px;
+    border-bottom: 3px;
+    border-style: solid;
+    border-color: @sidebarBackgroundColor;
 }
 #phone-context {
     width: 50px;
@@ -407,6 +437,10 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 
 #phone-context-2 {
     width: auto;
+}
+
+.highlighted {
+    background-color : #ffc4c4;
 }
 
 #phone-context-3 {

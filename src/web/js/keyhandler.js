@@ -20,7 +20,7 @@ jQuery(document).ready(function ($) {
         keypressed = true;
         try {
             //These are key events that should only be triggered when the game is in the correct state.
-        if (allowKeyEvents) {
+        if (allowKeyEvents && !erg.inCutscene) {
             if (event.keyCode == KEY_LEFT) {
                 // left arrow key
                 keyEvent = 'player-move';

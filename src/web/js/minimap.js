@@ -1,5 +1,4 @@
 var erg = erg || {};
-
 jQuery(document).ready(function ($) {
     "use strict";
     erg.MAP_CELL_TEMPLATE = jQuery('#templates').children('.map-cell');
@@ -13,6 +12,7 @@ jQuery(document).ready(function ($) {
     erg.Y_CONNECTOR_TEMPLATE = jQuery('#templates').children('.y-connector');
     erg.CONNECTOR_WIDTH = erg.Y_CONNECTOR_TEMPLATE.width();
     erg.CONNECTOR_LENGTH = erg.Y_CONNECTOR_TEMPLATE.height();
+    erg.VALID_CONNECTING_WALLS = ['n', 'e', 's', 'w'];
 });
 
 function generateMap() {
@@ -44,11 +44,14 @@ function generateMap() {
  * connection between them if necessary.*/
 function generateConnections(room, cell, connectionsBuilt) {
     "use strict";
-    var wall, walls, destination;
+    var wall, walls, destination, i, wallsToCheck;
+
+    wallsToCheck = erg.VALID_CONNECTING_WALLS;
     walls = scenario.getRoom(room.x, room.y, room.z).walls;
-    for (wall in walls) {
-        if (walls.hasOwnProperty(wall) && walls[wall].destination) {
-            destination = walls[wall].destination;
+
+    for (i = 0; wallsToCheck[i]; i++) {
+        if (walls[wallsToCheck[i]] && walls[wallsToCheck[i]].destination) {
+            destination = walls[wallsToCheck[i]].destination;
 
             //We only draw the connection if it hasn't been rendered already.
             if (shouldAddConnection(destination, room, connectionsBuilt)) {
@@ -138,8 +141,10 @@ function centerMap() {
 
 function showDirectionalIndicator() {
     "use strict";
+
+    var direction = player.fakeFacing || player.facing;
     jQuery(erg.MAP_CONTAINER)
         .children('.occupied')
         .empty()
-        .append(jQuery(erg.DIRECTIONAL_INDICATOR_SELECTOR_TEMPLATE.format(player.facing)).clone());
+        .append(jQuery(erg.DIRECTIONAL_INDICATOR_SELECTOR_TEMPLATE.format(direction)).clone());
 }

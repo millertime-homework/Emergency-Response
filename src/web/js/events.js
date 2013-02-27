@@ -68,6 +68,11 @@ jQuery(document).ready(function($) {
         saveGame();
     });
 
+     $(document).on('warpPlayer', function (event, f, x, y, z) {
+        player.warp(f, x, y, z);
+
+    });
+
     $(document).on('showModal', function (event, header, body, image) {
         displayModal(header, body, image);
     });

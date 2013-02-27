@@ -18,13 +18,13 @@ Room = Class.create({
         this.y = y;
         this.z = z;
     },
-    addWall: function(name, direction, image) {
+    addWall: function(name, direction, image, fakeDirection, isCutscene) {
         if (typeof this.walls[direction] !== 'undefined') {
             console.log('Room.addWall - direction ' + direction + ' already defined')
             return;
         }
         var newWall = new Wall;
-        newWall.set(name, direction, image)
+        newWall.set(name, direction, image, fakeDirection, isCutscene)
         this.walls[direction] = newWall;
         return newWall;
     },
@@ -43,8 +43,9 @@ Room = Class.create({
             wallList.push({
                 'direction': key,
                 'name': value.name,
-            })
-        })
+                'fakeDirection': value.fakeDirection
+            });
+        });
         return wallList;
     },
     getWallByDir: function(direction) {
