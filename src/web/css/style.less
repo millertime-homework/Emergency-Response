@@ -65,10 +65,6 @@ body {
     cursor: pointer;
 }
 
-.conversation-option {
-    cursor: pointer;
-}
-
 input:hover, input:active, input:focus, textarea:hover, textarea:active, textarea:focus {
     border-color: @primaryHighlightColor;
     border-style: solid;
@@ -416,6 +412,50 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 
 #modal {
     z-index: 10;
+
+    #modal-close {
+        position: absolute;
+        left: -12px;
+        top: -12px;
+        z-index: 11;
+        width: 26px;
+        height: 26px;
+        .border_radius(12px);
+        background-color: white;
+        overflow: none; 
+        #icon {
+            position: absolute;
+            left: 1px;
+            top: 1px;
+            width: 24px;
+            height: 24px;
+            background-image: url('../img/closebutton_small.png');
+            cursor: pointer;
+            &:hover {
+                .opacity(50);
+                cursor: pointer;
+            }
+        }
+    }
+
+    #header {}
+    #content {
+        ul {
+            padding: 0;
+            list-style-type: none;
+            .conversation-option {
+                padding: 2px 4px 2px 4px;
+                text-align: center;
+                cursor: pointer;
+                border: 1px solid black;
+                .border_radius(3px);
+                background-color: #81C6F7;
+                &:hover {
+                    background-color: #C2E4FC;
+                }
+            }
+        }
+    }
 }
 
 .phone-menu {
