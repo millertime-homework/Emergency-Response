@@ -1,6 +1,9 @@
-function renderScene() {};
-function renderProps() {};
-function clearProps() {};
+var erg = erg || {};
+erg.inCutscene = false;
+function renderScene() {}
+function renderProps() {}
+function clearProps() {}
+
 
 
 jQuery(document).ready(function($){
@@ -13,6 +16,15 @@ jQuery(document).ready(function($){
         var room = scenario.getRoom(player.x, player.y, player.z);
         if (scenario.isValidRoom(player.x, player.y, player.z)) {
             var wall = room.walls[player.facing];
+
+            if (wall.isCutscene) {
+                jQuery('.ui.viewport-button').addClass('disabled').removeClass('enabled').attr('disabled', 'disabled');
+                erg.inCutscene = true;
+                startTrigger('cutsceneTutorial');
+            } else {
+                jQuery('.ui.viewport-button').addClass('enabled').removeClass('disabled').removeAttr('disabled');
+                erg.inCutscene = false;
+            }
             var sceneImage = wall.image;
             $.attr(sceneImage, 'id', 'scene-img');
             var viewScene = $("#view-scene");

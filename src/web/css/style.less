@@ -161,9 +161,12 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     }
 }
 
+
 #turn-left {
    top: 50%;
    background-color: transparent;
+}
+#turn-left.enabled {
    background-image: url('../img/left.png');
 }
 
@@ -172,10 +175,27 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     margin-top: -27px;
 }
 
+#turn-left.enabled {
+   background-image: url('../img/left.png');
+}
+
+#turn-left.disabled {
+   background-image: url('../img/leftDisabled.png');
+}
+
 #move-forward {
    margin-left: 50%;
    background-color: transparent;
+}
+#move-forward.enabled {
    background-image: url('../img/up.png');
+}
+
+#move-forward.enabled {
+   background-image: url('../img/up.png');
+}
+#move-forward.disabled {
+   background-image: url('../img/upDisabled.png');
 }
 
 #turn-right {
@@ -183,7 +203,13 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
    left: 100%;
    margin-left: -31px;
    background-color: transparent;
+}
+
+#turn-right.enabled {
    background-image: url('../img/right.png');
+}
+#turn-right.disabled {
+   background-image: url('../img/rightDisabled.png');
 }
 .prop {
     position: absolute;

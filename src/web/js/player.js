@@ -19,17 +19,19 @@ Player = Class.create({
         this.y = null;
         this.z = null;
         this.facing = null;
+        this.fakeFacing = null;
         this.health = null;
         this.status = null;
         this.scenario = null;
         this.inventory = null;
         this.score = 0;
     },
-    set: function(x, y, z, facing, scenario) {
+    set: function(x, y, z, facing, scenario, fakeFacing) {
         this.x = x;
         this.y = y;
         this.z = z;
         this.facing = facing;
+        this.fakeFacing = fakeFacing;
         this.health = PLAYER_HEALTH_DEFAULT;
         this.status = PLAYER_STATUS_ALIVE;
         this.scenario = scenario;
@@ -37,8 +39,10 @@ Player = Class.create({
         this.score = 0;
     },
     move: function(direction) { 
-        var currRoom = scenario.getRoom(this.x, this.y, this.z)
-        var currWall = currRoom.getWallByDir(direction)
+        var currRoom = scenario.getRoom(this.x, this.y, this.z);
+        var currWall = currRoom.getWallByDir(direction);
+
+        player.fakeFacing = null;
         if (currWall && currWall.hasDestination()) {
             destination = currWall['destination']
             this.x = destination['x']
@@ -53,6 +57,8 @@ Player = Class.create({
     turn: function (direction) {
         var currentDirectionIndex = DIRECTION_INDEX.indexOf(player.facing);
         var newDirectionIndex;
+
+        player.fakeFacing = null;
         if (direction === DIRECTION_LEFT) {
             newDirectionIndex = (currentDirectionIndex - 1 + 4) % 4;
         } else if (direction === DIRECTION_RIGHT) {
@@ -64,6 +70,42 @@ Player = Class.create({
             return true;
         }
         return false;
+    },
+
+    warp: function (f, x, y, z) {
+        var room, wall;
+
+        if(!f) {
+            f = this.facing;
+        }
+        //Intentional use of == over === to check null/undefined but not zero
+        if (x == null) {
+            x = this.x;
+        }
+        if (y == null) {
+            y = this.y;
+        }
+        if (z == null) {
+            z = this.z;
+        }
+
+        if (!scenario.isValidRoom(x,y,z)) {
+            return;
+        }
+
+        room = scenario.getRoom(x, y, z);
+        wall = room.getWallByDir(f);
+        if (!wall) {
+            return;
+        }
+
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        this.facing = f;
+        this.fakeFacing = wall.fakeDirection;
+
+        jQuery(document).trigger('player-moved', [x, y, z]);
     },
     
     canMoveUp: function() {
