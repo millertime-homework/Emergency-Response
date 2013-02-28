@@ -33,17 +33,18 @@ jQuery(document).ready(function($) {
             .animate({ left: '-2' }, speed)
             .animate({ left: '2' }, speed)
             .animate({ left: '-2' }, speed, function() {
-                $('#view-scene').append('<img id="dust" src="web/img/dust.png" style="z-index: 100; width: 791px; height: 143px; position: absolute; display:block; top: 0; left:0;">');
-                $('#dust')
-                    .animate({ top: '25', left: '-5' }, 200)
-                    .animate({ top: '50', left: '5' }, 200)
-                    .animate({ top: '75', left: '-5' }, 200)
-                    .animate({ top: '100', left: '5' }, 200)
-                    .fadeOut('fast', function() {
-                        $('#dust').remove();
-                        // Moves the player to aftermath floor
-                        player.set(player.x, player.y, player.z + 8, player.facing, player.scenario);
-                        $(document).trigger('player-moved', [player.x, player.y, player.z]);
+                $('#view-scene').append('<img id="_dust" src="web/img/dust.png" style="z-index: 100; left: 100; width: 791px; height: 143px; position: absolute; display:block; top: 0; left:0;">');
+                $("#_dust")
+                    .animate({ top: '60', width: '900', opacity: 0}, 300, function() {
+                        $('#view-scene').append('<img id="_dust2" src="web/img/dust.png" style="z-index: 100; left: 100; width: 791px; height: 143px; position: absolute; display:block; top: 0; left:0;">');
+                        $('#_dust2')
+                            .animate({ top: '100', width: '1200', opacity: 0 }, 600, function() {
+                                $('#_dust').remove();
+                                $('#_dust2').remove();
+                                // Moves the player to aftermath floor
+                                player.set(player.x, player.y, player.z + 8, player.facing, player.scenario);
+                                $(document).trigger('player-moved', [player.x, player.y, player.z]);
+                            })
                     })
             })
     })
