@@ -2,7 +2,7 @@
     'id': 'class019',
     'x': 0,
     'y': 1,
-    'triggers': ['checkIfSurvivedEarthquake'],
+    '_triggers': ['checkIfSurvivedEarthquake'],
     '_walls': {
         'e': {
             'name': 'EClass019',
