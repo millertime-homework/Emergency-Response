@@ -116,4 +116,8 @@ jQuery(document).ready(function($) {
     $(document).on('failObjective', function (event, name) {
         failObjective(name);
     });
+
+    $(document).on('showConversation', function (event, conversationName) {
+        showConversation(conversationName);
+    });
 });
