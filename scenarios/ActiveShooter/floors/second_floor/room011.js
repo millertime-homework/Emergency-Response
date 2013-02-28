@@ -11,6 +11,20 @@
                 'x': 1
             },
             '_props': {
+                'door': {
+                    'name': 'door',
+                    'image': 'UseDoor.png',
+                    'openImage': 'blank.png',
+                    'width': 280,
+                    'height': 500,
+                    'left': 420,
+                    'top': 160,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'door'
+                    }
+                },
                 'doorShade': {
                     'name': 'doorShade',
                     'image': 'ASshadeUp.png',

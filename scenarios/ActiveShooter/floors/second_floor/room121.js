@@ -24,6 +24,22 @@
             'image': 'R121-north.jpg',
             'destination': {
                 'y': 3
+            },
+            '_props': {
+                'door': {
+                    'name': 'door',
+                    'image': 'UseDoor.png',
+                    'openImage': 'blank.png',
+                    'width': 280,
+                    'height': 500,
+                    'left': 420,
+                    'top': 160,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'door'
+                    }
+                }
             }
         },
         's': {
