@@ -19,6 +19,43 @@
             'image': 'R120-north.jpg',
             'destination': {
                 'y': 3
+            },
+            '_props': {
+                'prof-bell': {
+                    'name': 'prof-bell',
+                    'image': 'prof_bell.png',
+                    'width': 200,
+                    'height': 354,
+                    'left': 100,
+                    'top': 257,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'enterLoveDungeon'
+                    }
+                }
+            }
+        },
+        'custom': {
+            'name': 'custom',
+            'image': 'apartment-e.jpg',
+            'fakeDirection' : 'e',
+            'destination': {
+                'f': 'w'
+            },
+            'isCutscene' : true,
+            '_props': {
+                'prof-bell': {
+                    'name': 'prof-bell',
+                    'image': 'prof_bell.png',
+                    'width': 200,
+                    'height': 354,
+                    'left': 100,
+                    'top': 257,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'exitLoveDungeon'
+                    }
+                }
             }
         },
         's': {

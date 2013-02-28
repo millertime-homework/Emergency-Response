@@ -92,6 +92,7 @@ function loadScenario(data) {
         jQuery.each(floorData._rooms, function (key, roomData) {
             currentRoom = floor.addRoom(key, roomData.id, roomData.x, roomData.y, floorData.z);
             currentRoom.addTriggers(roomData._triggers);
+            currentRoom.abortTriggers = roomData.abortTriggers;
             loadWalls(currentRoom, roomData);
         });
     }
@@ -100,7 +101,7 @@ function loadScenario(data) {
         var currentWall;
 
         jQuery.each(roomData._walls, function (key, wallData) {
-            currentWall = room.addWall(wallData.name, key, wallData.image);
+            currentWall = room.addWall(wallData.name, key, wallData.image, wallData.fakeDirection, wallData.isCutscene);
 
             if (wallData._props) {
                 loadProps(currentWall, wallData);

@@ -6,7 +6,8 @@
         /* to allow player to 'move-down' */
         'd': {
             'destination': {
-                'z': 0
+                'z': 0,
+                'f': 'w'
             }
         },
         'e': {

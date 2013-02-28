@@ -54,7 +54,7 @@ body {
   background: transparent url("../img/phoneHover.png");
 }
 .ui {
-  z-index: 4;
+  z-index: 7;
 }
 .bold-colored-text {
   font-weight: bold;
@@ -147,7 +147,6 @@ textarea:focus {
   border-radius: 5px 5px 5px 5px;
 }
 #controls-overlay {
-  z-index: 4;
   background: transparent;
 }
 #view-scene {
@@ -178,23 +177,44 @@ textarea:focus {
 #turn-left {
   top: 50%;
   background-color: transparent;
+}
+#turn-left.enabled {
   background-image: url('../img/left.png');
 }
 #move-down {
   top: 100%;
   margin-top: -27px;
 }
+#turn-left.enabled {
+  background-image: url('../img/left.png');
+}
+#turn-left.disabled {
+  background-image: url('../img/leftDisabled.png');
+}
 #move-forward {
   margin-left: 50%;
   background-color: transparent;
+}
+#move-forward.enabled {
   background-image: url('../img/up.png');
+}
+#move-forward.enabled {
+  background-image: url('../img/up.png');
+}
+#move-forward.disabled {
+  background-image: url('../img/upDisabled.png');
 }
 #turn-right {
   top: 50%;
   left: 100%;
   margin-left: -31px;
   background-color: transparent;
+}
+#turn-right.enabled {
   background-image: url('../img/right.png');
+}
+#turn-right.disabled {
+  background-image: url('../img/rightDisabled.png');
 }
 .prop {
   position: absolute;
@@ -388,6 +408,7 @@ textarea:focus {
   border-style: solid;
   border-width: 3px;
   border-color: #000000;
+  z-index: 7;
   -webkit-border-radius: 7px 7px 7px 7px;
   -moz-border-radius: 7px 7px 7px 7px;
   border-radius: 7px 7px 7px 7px;
@@ -402,18 +423,25 @@ textarea:focus {
   font-weight: bold;
 }
 .phone-context-padder {
-  padding-left: 5px;
-  padding-top: 5px;
-  padding-right: 5px;
+  padding-left: 3px;
+  padding-top: 3px;
+  padding-right: 3px;
 }
-.phone-menu div {
-  padding-bottom: 5px;
+.phone-menu div div {
+  padding-left: 2px;
+  padding-right: 2px;
+  border-bottom: 3px;
+  border-style: solid;
+  border-color: #eeeeee;
 }
 #phone-context {
   whiteidth: 50px;
 }
 #phone-context-2 {
   width: auto;
+}
+.highlighted {
+  background-color: #ffc4c4;
 }
 #phone-context-3 {
   width: auto;

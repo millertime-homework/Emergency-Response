@@ -1,8 +1,6 @@
 'elevatorUp': {
     'events': {
-        'player-move': ['move-up'],
-        'player-moved': [3,1,1]
+        'player-move': ['move-up']
     },
-    'lives': Infinity,
-    'timeDelay': 500
+    'lives': Infinity
 }
