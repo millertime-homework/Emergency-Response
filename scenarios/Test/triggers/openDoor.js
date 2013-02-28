@@ -2,5 +2,6 @@
     'events' : {
         'replaceProp': ['door', 'door-open']
     },
-    'lives': Infinity
+    'lives': Infinity,
+    'startTriggers': ['autoCloseDoor']
 }

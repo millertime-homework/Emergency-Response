@@ -22,6 +22,7 @@
                     'height': 354,
                     'left': 300,
                     'top': 200,
+                    'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'door'
