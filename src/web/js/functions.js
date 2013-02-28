@@ -136,6 +136,20 @@ function loadScenario(data) {
             if (prop.barrier) {
                 wall.barriers[wall.barriers.length] = key;
             }
+            if (prop.openImage) {
+                wall.addProp(
+                    key+"-open",
+                    prop.name,
+                    prop.openImage,
+                    prop.openHoverImage,
+                    prop.width,
+                    prop.height,
+                    prop.left,
+                    prop.top,
+                    prop.action,
+                    prop.actionVariables
+                );
+            }
         });
     }
 
@@ -541,10 +555,12 @@ function checkCondition(condition) {
             checkScenario(doesContain, condition.triggersEnabled, scenario.triggers.pool) &&
             checkScenario(doesContain, condition.objectivesInProgress, scenario.objectives.inProgress) &&
             checkScenario(doesContain, condition.objectivesCompleted, scenario.objectives.completed) &&
+            checkScenario(doesContain, condition.doesntExist, scenario.inactiveProps) &&
             checkScenario(doesNotContain, condition.hasNot, player.inventory.items) &&
             checkScenario(doesNotContain, condition.triggersDisabled, scenario.triggers.pool) &&
             checkScenario(doesNotContain, condition.objectivesNotInProgress, scenario.objectives.inProgress) &&
-            checkScenario(doesNotContain, condition.objectivesNotCompleted, scenario.objectives.completed);
+            checkScenario(doesNotContain, condition.objectivesNotCompleted, scenario.objectives.completed) &&
+            checkScenario(doesNotContain, condition.exists, scenario.inactiveProps);
 }
 
 function doesNotContain(source, contains) {
