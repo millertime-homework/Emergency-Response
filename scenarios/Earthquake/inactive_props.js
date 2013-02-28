@@ -1,4 +1,4 @@
-'inactiveProps': ['heavy-on-floor', 'door-open'],
+'inactiveProps': ['heavy-on-floor', 'door-open', 'door2-open'],
 '_player': {
     'x': 0,
     'y': 0,

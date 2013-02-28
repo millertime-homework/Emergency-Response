@@ -1,7 +1,7 @@
 'inactiveProps': ['UseDoor', 'policeman', 'crowbar', 'shooter', 'shooterR111',
                   'shooter-downed', 'HidingPlace', 'doorShadeDown', 
                   'hidingSpot', 'hidingSpot2', 'doorHandleDone', 'lightSwitchDone',
-                  'door-open'],
+                  'door-open', 'door2-open'],
 '_player': {
     'x': 2,
     'y': 0,
