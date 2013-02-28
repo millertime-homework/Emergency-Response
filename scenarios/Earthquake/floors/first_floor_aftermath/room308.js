@@ -22,7 +22,27 @@
             'image': 'R300-north.jpg',
             'destination': {
                 'y': 1
-            }
+            },        
+            '_props' : {			
+		        'puddle': {
+                    'name': 'puddle',
+                    'image': 'puddle.png',
+                    'width': 100,
+                    'height': 50,
+                    'left': 515,
+                    'top': 325,
+                    'action': 'showConversation',
+                },
+				'smokeSafe': {
+                    'name': 'smokeSafe',
+                    'image': 'smokeScreen.png',
+                    'width': 150,
+                    'height': 90,
+                    'left': 485,
+                    'top': 250,
+                    'action': 'showConversation',
+                }
+		    }
         },
         's': {
             'name': 'SHall308', 
