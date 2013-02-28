@@ -5,5 +5,5 @@
         'setObjective': ['surviveEarthquake', 'React and Survive']
     },
     'enableTriggers': ['timeToTakeCover'],
-    'signalTriggers': ['timeToTakeCover']
+    // 'signalTriggers': ['timeToTakeCover']
 }
