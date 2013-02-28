@@ -8,7 +8,25 @@
             'image': 'R140-east.jpg',
             'destination': {
                 'x': 2
-            }
+            },
+			'_props': {
+                'brokenGlass': {
+                    'name': 'brokenGlass',
+                    'image': 'brokenGlass.png',
+                    'width': 150,
+                    'height': 25,
+                    'left': 500,
+                    'top': 270
+			    },
+				'bridgeDoor': {
+                    'name': 'bridgeDoor',
+                    'image': 'doordown.png',
+                    'width': 100,
+                    'height': 60,
+                    'left': 505,
+                    'top': 240
+                }
+			}
         },
         'w': {
             'name': 'WHall148',
