@@ -371,6 +371,7 @@ function showOnScreenMessage(message, duration) {
             appendTo(erg.onScreenMessageContainer).
             removeAttr('id').
             text(message).
+            show().
             delay(duration).
             fadeOut(300, function () { jQuery(this).remove(); });
 }
