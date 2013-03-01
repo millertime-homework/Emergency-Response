@@ -13,18 +13,18 @@
                 'brokenGlass': {
                     'name': 'brokenGlass',
                     'image': 'brokenGlass.png',
-                    'width': 150,
-                    'height': 25,
-                    'left': 500,
-                    'top': 270
+                    'width': 80,
+                    'height': 30,
+                    'left': 520,
+                    'top': 310
 			    },
 				'bridgeDoor': {
                     'name': 'bridgeDoor',
                     'image': 'doordown.png',
-                    'width': 100,
-                    'height': 60,
-                    'left': 505,
-                    'top': 240
+                    'width': 40,
+                    'height': 40,
+                    'left': 540,
+                    'top': 310
                 }
 			}
         },
