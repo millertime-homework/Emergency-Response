@@ -6,6 +6,9 @@ var currentScenario;
 Managed by setGameState, so you can override it temporarily without cleaning up
 after yourself (ie, saving and then restoring the original value) */
 var canDismissModal = false;
+var erg = erg || {};
+erg.onScreenMessageContainer = jQuery('#on-screen-message-container');
+erg.onScreenMessageTemplate = jQuery('#on-sreen-message-template');
 
 jQuery(document).ready(function (jQuery) {
     jQuery(window).resize(function () {
@@ -354,6 +357,22 @@ function hideModal() {
     } else if (gameState !== GAME_STATE_MENU) {
         setGameState(GAME_STATE_RUNNING);
     }
+}
+
+/**
+* Show a message via large text that overlays the middle of the viewport.
+* @param {string} message The message to be displayed.
+* @param {int} duration The number of seconds that the message should remain 
+*     on screen.
+*/
+function showOnScreenMessage(message, duration) {
+    duration = duration * 1000 || 5000;
+    erg.onScreenMessageTemplate.clone().
+            appendTo(erg.onScreenMessageContainer).
+            removeAttr('id').
+            text(message).
+            delay(duration).
+            fadeOut(300, function () { jQuery(this).remove(); });
 }
 
 function showObjectivesIn(element, markInProgressAsFailed) {
