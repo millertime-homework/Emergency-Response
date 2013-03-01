@@ -1439,7 +1439,7 @@ EarthquakeDef = {
                                     'width': 80,
                                     'height': 30,
                                     'left': 520,
-                                    'top': 320
+                                    'top': 310
                 			    },
                 				'bridgeDoor': {
                                     'name': 'bridgeDoor',
