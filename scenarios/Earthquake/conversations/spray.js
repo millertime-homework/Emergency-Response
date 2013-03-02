@@ -1,10 +1,9 @@
-'sprayConvo': {
+'Spray': {
     '1':{
-        'message': 'This Bug spray is warm with the heat of the stove.' + 
-            ' It looks like it should be in the cabinet.',
+        'message': 'This cleaning spray is warm with the heat of the burner.',
         'replies': {
             'Leave it for the owner to move': 0,
-            'Move it into the cabinet.': 2
+            'Move it to the cabinets.': 2
         }
     },
     '2':{

@@ -13,44 +13,6 @@
         'w': {
             'name': 'WClassroom030',
             'image': 'R030-west.jpg',
-            '_props': {
-                'stove': {
-                    'name': 'stove',
-                    'image': 'stove.jpg',
-                    'width': 150,
-                    'height': 150,
-                    'left': 250,
-                    'top': 350,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'stoveConvo'
-                    }
-                },
-                'bugSpray':{
-                    'name':'bugSpray',
-                    'image':'spray.jpg',
-                    'width':150,
-                    'height':150,
-                    'left': 350,
-                    'top': 200,
-                    'action':'showConversation',
-                    'actionVariables': {
-                        'conversationName' : 'sprayConvo'
-                    }
-                },
-                'rag':{
-                    'name':'rag',
-                    'image':'rag.jpg',
-                    'width':150,
-                    'height':150,
-                    'left': 200,
-                    'top': 200,
-                    'action':'showConversation',
-                    'actionVariables': {
-                        'conversationName' : 'ragConvo'
-                    }
-                }
-            }
         },
         'n': {
             'name': 'NClassroom030',
