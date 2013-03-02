@@ -8,6 +8,45 @@
             'image': 'R340-east.jpg',
             'destination': {
                 'x': 4
+            },
+			'_props': {
+                'brokenGlass': {
+                    'name': 'brokenGlass',
+                    'image': 'brokenGlass.png',
+                    'width': 300,
+                    'height': 200,
+                    'left': 415,
+                    'top': 380,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Broken glass'
+                    }
+			    },
+                'brokenDoor': {
+                    'name': 'brokenDoor',
+                    'image': 'dooraskew.png',
+                    'width': 80,
+                    'height': 320,
+                    'left': 700,
+                    'top': 205,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Unhinged door'
+                    },
+                    'barrier' : true
+                },
+                'bridgeDoor': {
+                    'name': 'bridgeDoor',
+                    'image': 'doordown.png',
+                    'width': 200,
+                    'height': 150,
+                    'left': 435,
+                    'top': 380,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Broken glass'
+                    }
+                }
             }
         },
         'w': {
