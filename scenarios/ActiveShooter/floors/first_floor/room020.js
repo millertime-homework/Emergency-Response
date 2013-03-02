@@ -14,17 +14,16 @@
             'name': 'WClassroom020',
             'image': 'R020-west.jpg',
             '_props': {
-                'Hide_Curtains': {
-                    'name': '',
-                    'image': 'hiding-place.png',
-                    'hoverImage': 'hiding-place-hover.png',
-                    'width': 100,
-                    'height': 120,
+                'science-teacher': {
+                    'name': 'science-teacher',
+                    'image': 'science-teacher.png',
+                    'width': 120,
+                    'height': 200,
                     'left': 500,
-                    'top': 270,
+                    'top': 200,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'Hide'
+                        'conversationName': 'Science Teacher'
                     }
                 }
             }

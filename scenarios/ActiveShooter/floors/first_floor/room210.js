@@ -2,6 +2,7 @@
     'id': 'hall210',
     'x': 2,
     'y': 1,
+    '_triggers' : ['shotInStairwell'],
     '_walls': {
         /* To allow player to 'move-up' */
         'u': {
