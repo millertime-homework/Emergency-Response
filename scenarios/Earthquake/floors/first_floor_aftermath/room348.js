@@ -29,7 +29,18 @@
             'image': 'R340-south.jpg',
             'destination': {
                 'y': 3
-            }
+            },
+			'_props':{
+				'smokeSafe': {
+                    'name': 'smokeSafe',
+                    'image': 'smokeScreen.png',
+                    'width': 150,
+                    'height': 90,
+                    'left': 485,
+                    'top': 250,
+                    'action': 'showConversation',
+                }
+			}
         }
     }
 }

@@ -20,7 +20,7 @@
             'image': 'R350-south.jpg',
             'destination': {
                 'y': 4
-            }
+            },
         }
     }
 }
