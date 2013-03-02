@@ -8,7 +8,17 @@
             'image': 'R040-east.jpg',
             'destination': {
                 'x': 1
-            }
+            },
+			'_props' : {
+				'wheelchair':{
+                    'name':'the_wheelchair',
+                    'image':'wheelchair.png',
+                    'width':50,
+                    'height':50,
+                    'left': 530,
+                    'top': 290,
+                }
+			}
         },
         'w': {
             'name': 'WHall048',
