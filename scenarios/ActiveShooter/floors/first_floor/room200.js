@@ -2,7 +2,7 @@
     'id': 'hall200',
     'x': 2,
     'y': 0,
-    '_triggers' : ['getToClass'],
+    '_triggers' : ['dropOffLabWork', 'getShotAt'],
     '_walls': {
         'e': {
             'name': 'EHall200',

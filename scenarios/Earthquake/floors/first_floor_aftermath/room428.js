@@ -12,7 +12,34 @@
             'image': 'R420-west.jpg',
             'destination': {
                 'x': 3
-            }
+            },
+			'_props' : {
+                'smoke': {
+                    'name': 'smoke',
+                    'image': 'smokeScreen.png',
+                    'width': 1300,
+                    'height': 600,
+                    'left': 0,
+                    'top': 0,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Smoke'
+                    },
+                    'barrier' : true
+                },
+                'smokeSafe': {
+                    'name': 'smokeSafe',
+                    'image': 'smokeScreen.png',
+                    'width': 1300,
+                    'height': 600,
+                    'left': 0,
+                    'top': 0,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Smoke'
+                    }
+                }
+			}
         },
         'n': {
             'name': 'NHall428',   

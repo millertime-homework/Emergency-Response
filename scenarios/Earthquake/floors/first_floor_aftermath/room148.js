@@ -33,8 +33,24 @@
                     'actionVariables': {
                         'conversationName' : 'wheelchair'
                     }
+                },
+                'brokenGlass': {
+                    'name': 'brokenGlass',
+                    'image': 'brokenGlass.png',
+                    'width': 80,
+                    'height': 30,
+                    'left': 520,
+                    'top': 310
+			    },
+				'bridgeDoor': {
+                    'name': 'bridgeDoor',
+                    'image': 'doordown.png',
+                    'width': 40,
+                    'height': 40,
+                    'left': 540,
+                    'top': 310
                 }
-            }
+			}
         },
         'w': {
             'name': 'WHall148',
