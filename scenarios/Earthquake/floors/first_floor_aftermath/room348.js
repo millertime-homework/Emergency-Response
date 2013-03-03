@@ -54,7 +54,17 @@
             'image': 'R340-west.jpg',
             'destination': {
                 'x': 2
-            }
+            },
+			'_props' : {
+			    'wheelchair':{
+                    'name':'the_wheelchair',
+                    'image':'wheelchair.png',
+                    'width':100,
+                    'height':100,
+                    'left': 530,
+                    'top': 300,
+                }
+			}
         },
         'n': {
             'name': 'NHall348',   

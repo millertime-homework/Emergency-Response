@@ -42,6 +42,32 @@
             'image': 'R240-west.jpg',
             'destination': {
                 'x': 1
+            },
+			'_props': {
+                'mrs-wheelchair': {
+                    'name': 'mrs_wheelchair',
+                    'image': 'mrs_wheelchair.png',
+                    'width': 150,
+                    'height': 150,
+                    'left': 300,
+                    'top': 400,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Mrs Lydia'
+                    }
+                },
+                'wheelchair':{
+                    'name':'the_wheelchair',
+                    'image':'wheelchair.png',
+                    'width':150,
+                    'height':150,
+                    'left': 500,
+                    'top': 300,
+                    'action':'showConversation',
+                    'actionVariables': {
+                        'conversationName' : 'wheelchair'
+                    }
+                }
             }
         },
         'n': {
