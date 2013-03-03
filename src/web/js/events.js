@@ -188,10 +188,15 @@ jQuery(document).ready(function($) {
 
     /**
     * Shows a conversation in a standardized conversation modal.
-    * @param {string} conversationName The name of the conversation to be displayed..
+    * @param {string} conversationName The name of the conversation to be 
+          displayed.
+    * @param {string} entryPoint The key of the first message to display. 
+          Default is '1'
+    * @param {boolean} cannotSkip If true, the player cannot close the 
+          conversation before it is over.
     */
-    $(document).on('showConversation', function (event, conversationName) {
-        showConversation(conversationName);
+    $(document).on('showConversation', function (event, conversationName, entryPoint, cannotSkip) {
+        showConversation(conversationName, entryPoint, cannotSkip);
     });
 
     /**
