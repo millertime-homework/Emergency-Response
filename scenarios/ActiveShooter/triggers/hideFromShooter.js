@@ -8,7 +8,7 @@
                             
         'showModal': ['BANG! BANG!','[You hear gunshots right outside the classroom door!]']
         
-   },
+    },
     'enableTriggers' : ['turnedOffLights', 'pulledDownShade', 'hiddenByDoor', 'silencedPhone', 'lockedTheDoor', 'failedToHide',
                         'failedToTurnOffLights', 'failedToPullDownShade', 'failedToHideByDoor', 'failedToSilencePhone', 'failedToLockTheDoor',
                         'shooterCloseGetShot', 'chanceofEscape', 'abort', 'shooterEnters011'],
