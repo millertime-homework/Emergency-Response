@@ -2,7 +2,7 @@
     'id': 'hall200',
     'x': 2,
     'y': 0,
-    '_triggers' : ['goPickUpBook'],
+    '_triggers' : ['dropOffLabWork', 'getShotAt', 'goPickUpBook'],
     '_walls': {
         'e': {
             'name': 'EHall200',

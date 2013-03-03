@@ -15,7 +15,17 @@
             'image': 'R440-west.jpg',
             'destination': {
                 'x': 3
-            }
+            },
+			'_props' : {
+			    'wheelchair':{
+                    'name':'the_wheelchair',
+                    'image':'wheelchair.png',
+                    'width':50,
+                    'height':50,
+                    'left': 540,
+                    'top': 300,
+                }
+			}
         },
         'n': {
             'name': 'NHall448',   
