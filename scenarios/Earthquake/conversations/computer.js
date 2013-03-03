@@ -10,7 +10,8 @@
 		'replies' : {
 			'Preparing the home for an earthquake.' : 3,
 			'Responding to an earthquake.' : 12,
-			'Creating a family reunification plan.' : 0
+			'Creating a family reunification plan.' : 21,
+			'I\'m done for now.' : 0
 		}
 	},
 	'3' : {
@@ -140,6 +141,72 @@
 	},
 	'20' : {
 		'message' : 'Incorrect: Pull your car over in a safe place',
+		'replies' : {
+			'Back to the menu' : 2,
+			'I\'m done for now' : 0			
+		}
+	},
+	'21' : {
+		'message' : 'Question 1: The disaster plans of your family\'s school and jobs should...',
+		'replies' : {
+			'be a mystery' : 23,
+			'be known incase a disaster strikes.' : 22,
+			'be left to the professionals.' : 23
+		}
+	},
+	'22' : { 
+		'message' : 'Correct: You should know the disaster plans of your family\'s work and school.',
+		'replies' : {
+			'Keep playing.' : 24,
+			'I\'m done for now' : 0	
+		}
+	},
+	'23' : {
+		'message' : 'Incorrect: You should know the disaster plans of your family\'s work and school.',
+		'replies' : {
+			'Keep playing.' : 24,
+			'I\'m done for now' : 0	
+		}
+	},
+	'24' : {
+		'message' : 'Question 2: Emergency rendevous points should be...',
+		'replies' : {
+			'designated ahead of time and given to all family members.' : 25,
+			'ignored.' : 26,
+			'assigned by the emergency personel.' : 26
+		}
+	},
+	'25' : {
+		'message' : 'Correct: Family gathering points should be designated in case of a disaster.',
+		'replies' : {
+			'Keep playing.' : 27,
+			'I\'m done for now' : 0	
+		}
+	},
+	'26' : {
+		'message' : 'Incorrect: Family gathering points should be designated in case of a disaster.',
+		'replies' : {
+			'Keep playing.' : 27,
+			'I\'m done for now' : 0	
+		}
+	},
+	'27' : {
+		'message' : 'Question 3: Communicating durning an emergency should...',
+		'replies' : {
+			'be done using only cell phones because the phone lines will be down.' : 29,
+			'be through a designated out of town relative or friend.' : 28,
+			'not be worried about, everyone will be able to communicate.' : 29
+		}	
+	},
+	'28' : {
+		'message' : 'Correct: Designate an out of town relative or friend to coordinate family communications.',
+		'replies' : {
+			'Back to the menu' : 2,
+			'I\'m done for now' : 0			
+		}
+	},
+	'29' : {
+		'message' : 'Incorrect: Designate an out of town relative or friend to coordinate family communications.',
 		'replies' : {
 			'Back to the menu' : 2,
 			'I\'m done for now' : 0			
