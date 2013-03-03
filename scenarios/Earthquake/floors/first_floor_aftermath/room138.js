@@ -29,6 +29,29 @@
             'image': 'R130-south.jpg',
             'destination': {
                 'y': 2
+            },
+		    '_props' : {
+                'Downedwire': {
+                    'name': 'Downedwire',
+                    'image': 'downwiresNew.png',
+                    'width': 160,
+                    'height': 138,
+                    'left': 483,
+                    'top': 220,
+			        'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Hanging wires'
+                    },
+                    'barrier' : true
+                },
+				'Movedwire': {
+                    'name': 'Movedwire',
+                    'image': 'movedwiresNew.png',
+                    'width': 120,
+                    'height': 122,
+                    'left': 490,
+                    'top': 240
+                }
             }
         }
     }
