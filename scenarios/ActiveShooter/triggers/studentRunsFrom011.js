@@ -7,5 +7,6 @@
     },
     'enableTriggers' : ['lockedTheDoorAgain', , 'shooterEnters011'],
     'startTriggers' : ['WinIn011'],
+    'startRandomTrigger': ['getOutOfBuilding', 'getToFrontDoors'],
     'disableTriggers' : ['shooterCloseGetShot']
 }
