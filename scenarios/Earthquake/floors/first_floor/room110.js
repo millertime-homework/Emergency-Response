@@ -21,9 +21,9 @@
                 'xavier': {
                     'name': 'xavier',
                     'image': 'prof_bell.png',
-                    'width': 45,
-                    'height': 80,
-                    'left': 440,
+                    'width': 24,
+                    'height': 44,
+                    'left': 530,
                     'top': 286
                 }
             }
