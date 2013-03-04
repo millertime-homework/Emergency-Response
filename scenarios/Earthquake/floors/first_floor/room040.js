@@ -35,7 +35,7 @@
                     'top': 300,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'A Bike'
+                        'conversationName': 'A Bike against the wall'
                     }
 				}
 			}
