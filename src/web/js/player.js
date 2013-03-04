@@ -75,10 +75,18 @@ Player = Class.create({
     warp: function (f, x, y, z) {
         var room, wall;
 
-        f = f || this.f;
-        x = x || this.x;
-        y = y || this.y;
-        z = z || this.z;
+        if (f == null) {
+            f = this.f;
+        }
+        if (x == null) {
+            x = this.x;
+        }
+        if (y == null) {
+            y = this.y;
+        }
+        if (z == null) {
+            z = this.z;
+        }
 
         if (!scenario.isValidRoom(x,y,z)) {
             return;
