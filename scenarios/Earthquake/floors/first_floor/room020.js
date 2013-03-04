@@ -8,32 +8,6 @@
             'image': 'R020-east.jpg',
             'destination': {
                 'x': 1
-            },
-            '_props':{
-                'screwdriver':{
-                    'name':'screwdriver',
-                    'image':'screwdriver.jpg',
-                    'width': 50,
-                    'height': 50,
-                    'left': 250,
-                    'top': 350,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'screwdriverconvo'
-                    }
-                },
-                'pictureframeid':{
-                    'name': 'pictureframeprop',
-                    'image': 'pictureFrame.jpg',
-                    'width': 67,
-                    'height': 101,
-                    'left': 100,
-                    'top': 100,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'A picture frame'
-                    }
-                }
             }
         },
         'w': {
