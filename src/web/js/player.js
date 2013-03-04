@@ -75,19 +75,10 @@ Player = Class.create({
     warp: function (f, x, y, z) {
         var room, wall;
 
-        if(!f) {
-            f = this.facing;
-        }
-        //Intentional use of == over === to check null/undefined but not zero
-        if (x == null) {
-            x = this.x;
-        }
-        if (y == null) {
-            y = this.y;
-        }
-        if (z == null) {
-            z = this.z;
-        }
+        f = f || this.f;
+        x = x || this.x;
+        y = y || this.y;
+        z = z || this.z;
 
         if (!scenario.isValidRoom(x,y,z)) {
             return;

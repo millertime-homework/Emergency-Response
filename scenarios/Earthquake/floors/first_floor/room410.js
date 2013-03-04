@@ -6,6 +6,20 @@
         'e': {
             'name': 'EHall410', 
             'image': 'R410-east.jpg',
+			'_props':{
+                'screwdriver':{
+                    'name':'screwdriver',
+                    'image':'screwdriver.png',
+                    'width': 50,
+                    'height': 50,
+                    'left': 255,
+                    'top': 470,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'screwdriverconvo'
+                    }
+                },
+            }
         },
         'w': {
             'name': 'WHall410',

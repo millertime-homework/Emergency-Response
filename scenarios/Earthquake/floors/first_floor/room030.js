@@ -8,6 +8,28 @@
             'image': 'R030-east.jpg',
             'destination': {
                 'x': 1
+            },
+			'_props': {
+				'desk' : {
+					'name' : 'desk',
+					'image' : 'sturdy-desk.png',
+					'width': 340,
+                    'height': 185,
+                    'left': 550,
+                    'top': 400
+				},
+                'computer': {
+                    'name': 'computer',
+                    'image': 'computer.png',
+                    'width': 125,
+                    'height': 140,
+                    'left': 660,
+                    'top': 295,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Computer'
+                    }
+                }
             }
         },
         'w': {
@@ -17,20 +39,6 @@
         'n': {
             'name': 'NClassroom030',
             'image': 'R030-north.jpg',
-            '_props': {
-                'computer': {
-                    'name': 'computer',
-                    'image': 'computer.png',
-                    'width': 250,
-                    'height': 255,
-                    'left': 400,
-                    'top': 200,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'Computer'
-                    }
-                }
-            }
         },
         's': {
             'name': 'SClassroom030',
