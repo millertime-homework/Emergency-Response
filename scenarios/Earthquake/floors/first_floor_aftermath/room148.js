@@ -58,6 +58,32 @@
             'destination': {
                 'x': 0
             },
+			'_props' : {
+				'bikeMangled' : {
+					'named' : 'bikeMangled',
+					'image' : 'bikeMangle.png',
+					'width': 50,
+                    'height': 65,
+                    'left': 532,
+                    'top': 277,
+				},
+				'beam' : {
+					'named' : 'beam',
+					'image' : 'beam.png',
+					'width': 18,
+                    'height': 85,
+                    'left': 528,
+                    'top': 275
+				},
+				'bikeMoved' : {
+					'named' : 'bikeMoved',
+					'image' : 'bikeMoved.png',
+					'width': 35,
+                    'height': 75,
+                    'left': 575,
+                    'top': 275,
+				}
+			}
         },
         'n': {
             'name': 'NHall148',

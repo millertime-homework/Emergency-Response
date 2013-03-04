@@ -24,10 +24,6 @@
                     'height': 27,
                     'left': 537,
                     'top': 287,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'A Bike'
-                    }
 				},
 				'bikeMoved' : {
 					'named' : 'bikeMoved',
@@ -36,10 +32,6 @@
                     'height': 27,
                     'left': 570,
                     'top': 287,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'A Bike'
-                    }
 				}
 			}
         },
