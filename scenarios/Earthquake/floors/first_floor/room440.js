@@ -15,7 +15,33 @@
             'image': 'R440-west.jpg',
             'destination': {
                 'x': 3
-            }
+            },
+			'_props' : {
+				'bike' : {
+					'named' : 'bike',
+					'image' : 'bike.png',
+					'width': 39,
+                    'height': 27,
+                    'left': 537,
+                    'top': 287,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'A Bike'
+                    }
+				},
+				'bikeMoved' : {
+					'named' : 'bikeMoved',
+					'image' : 'bikeMoved.png',
+					'width': 13,
+                    'height': 27,
+                    'left': 570,
+                    'top': 287,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'A Bike'
+                    }
+				}
+			}
         },
         'n': {
             'name': 'NHall440',   

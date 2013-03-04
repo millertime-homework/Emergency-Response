@@ -15,7 +15,33 @@
             'image': 'R340-west.jpg',
             'destination': {
                 'x': 2
-            }
+            },
+			'_props' : {
+				'bike' : {
+					'named' : 'bike',
+					'image' : 'bike.png',
+					'width': 40,
+                    'height': 28,
+                    'left': 535,
+                    'top': 288,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'A Bike'
+                    }
+				},
+				'bikeMoved' : {
+					'named' : 'bikeMoved',
+					'image' : 'bikeMoved.png',
+					'width': 14,
+                    'height': 28,
+                    'left': 580,
+                    'top': 288,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'A Bike'
+                    }
+				}
+			}
         },
         'n': {
             'name': 'NHall340',   
