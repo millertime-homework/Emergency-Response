@@ -4,6 +4,5 @@
         'addPoints' : [10],
         'completeObjective' : ['hideByDoor']
     },
-    'deleteTriggers' : ['failedToHideByDoor'],
-    'startTriggers' : ['failedToTurnOffLights', 'failedToPullDownShade', 'failedToSilencePhone']
+    'deleteTriggers' : ['failedToHideByDoor']
 }

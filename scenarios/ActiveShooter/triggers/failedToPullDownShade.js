@@ -1,6 +1,6 @@
 'failedToPullDownShade' : {
     'disabled' : true,
     'events' : {
-        'endGame': ['Game Over', "You didn't pull down the window shade before attempting to hide within the room. The shooter peered through the window, saw you, and started shooting through the door. You were gravely wounded."]
+        'showModal': ["The shooter spotted someone through the classroom door's window and shot at them, seriously wounding them. He then attempted to get into the classroom, but since you locked the door he eventually gave up and left. The students condition is serious and no one is sure if he will survive. Next time lower the shades on the classroom door to prevent the shooter from seeing inside."]
     }
 }

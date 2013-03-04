@@ -26,7 +26,34 @@
             'image': 'R330-south.jpg',
             'destination': {
                 'y': 2
-            }
+            },
+			'_props' : {
+                'smoke': {
+                    'name': 'smoke',
+                    'image': 'smokeScreen.png',
+                    'width': 1300,
+                    'height': 400,
+                    'left': 0,
+                    'top': 0,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Smoke'
+                    },
+                    'barrier' : true
+                },
+                'smokeSafe': {
+                    'name': 'smokeSafe',
+                    'image': 'smokeScreen.png',
+                    'width': 1300,
+                    'height': 400,
+                    'left': 0,
+                    'top': 0,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Smoke'
+                    }
+                }
+			}
         }
     }
 }

@@ -16,7 +16,33 @@
             'image': 'R310-north.jpg',
             'destination': {
                 'y': 2
-            }
+            },
+			'_props' : {
+                'puddle': {
+                    'name': 'puddle',
+                    'image': 'puddle.png',
+                    'width': 267,
+                    'height': 139,
+                    'left': 435,
+                    'top': 380,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Puddle'
+                    }
+                },
+				'smokeSafe': {
+                    'name': 'smokeSafe',
+                    'image': 'smokeScreen.png',
+                    'width': 225,
+                    'height': 125,
+                    'left': 455,
+                    'top': 215,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Smoke'
+                    }
+                }
+		    }
         },
         's': {
             'name': 'SHall318', 
