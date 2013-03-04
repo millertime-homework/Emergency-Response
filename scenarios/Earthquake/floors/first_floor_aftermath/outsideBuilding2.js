@@ -1,15 +1,11 @@
-'outsideBuilding': {
-     'id': 'outside',
-     'x': -1,
+'outsideBuilding2': {
+     'id': 'outside2',
+     'x': 6,
      'y': 4,
      '_walls': {
           'e': {
                'name': 'EOutside',
-               'image': 'outside-east.jpg'
-          },
-          'w': {
-               'name': 'WOutside',
-               'image': 'outside-west.jpg',
+               'image': 'outside-east.jpg',
                '_props': {
                     'coordinator': {
                          'name': 'coordinator',
@@ -25,6 +21,10 @@
                     }
                }
           },
+          'w': {
+               'name': 'WOutside',
+               'image': 'outside-west.jpg'
+          },
           'n': {
                'name': 'NOutside',
                'image': 'outside-north.jpg'
@@ -32,6 +32,6 @@
           's': {
                'name': 'SOutside',
                'image': 'outside-south.jpg'
-			}
+          }
      }
 }
