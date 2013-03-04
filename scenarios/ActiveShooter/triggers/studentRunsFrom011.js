@@ -5,8 +5,7 @@
         'replaceProp': ['doorHandleDone', 'doorHandle'],
         'setObjective' : ['lockTheDoorAgain', 'Lock the door to the room again.'],
     },
-    'enableTriggers' : ['lockedTheDoorAgain', , 'shooterEnters011'],
+    'enableTriggers' : ['lockedTheDoorAgain', , 'shooterEnters011', 'playerRuns'],
     'startTriggers' : ['WinIn011'],
-    'startRandomTrigger': ['getOutOfBuilding', 'getToFrontDoors'],
     'disableTriggers' : ['shooterCloseGetShot']
 }
