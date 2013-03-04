@@ -1,4 +1,4 @@
 'activateShooter': {
-    'startRandomTrigger': ['hideFromShooter', 'getToFrontDoors']
+    'startRandomTrigger': ['hideFromShooter', 'getToFrontDoors'],
     'enableTriggers': ['groupAttack411']
 }
