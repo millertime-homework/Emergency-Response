@@ -8,7 +8,7 @@ after yourself (ie, saving and then restoring the original value) */
 var canDismissModal = false;
 var erg = erg || {};
 erg.onScreenMessageContainer = jQuery('#on-screen-message-container');
-erg.onScreenMessageTemplate = jQuery('#on-sreen-message-template');
+erg.onScreenMessageTemplate = jQuery('#on-screen-message-template');
 
 jQuery(document).ready(function (jQuery) {
     jQuery(window).resize(function () {
