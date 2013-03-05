@@ -2,6 +2,7 @@
     'id': 'stairs220',
     'x': 2,
     'y': 2,
+    '_triggers' : ['getShotAt', 'abort'],
     '_walls': {
         'e': {
             'name': 'EStairs220',
@@ -28,6 +29,16 @@
             'image': 'R220-south.jpg',
             'destination': {
                 'y': 1
+            },
+            '_props': {
+                'shooter220S': {
+                    'name': 'shooter220S',
+                    'image': 'shooter.png',
+                    'width': 50,
+                    'height': 100,
+                    'left': 520,
+                    'top': 400
+                }
             }
         }
     }

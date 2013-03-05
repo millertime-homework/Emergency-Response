@@ -86,6 +86,22 @@
                     'actionVariables': {
                         'conversationName': 'goIntoHidingByDoor'
                     }
+                },
+                'hidingStudent1': {
+                    'name': 'hidingStudent1',
+                    'image': 'personHiding.png',
+                    'width': 200,
+                    'height': 100,
+                    'left': 750,
+                    'top': 380
+                },
+                'hidingStudent2': {
+                    'name': 'hidingStudent2',
+                    'image': 'personHiding.png',
+                    'width': 200,
+                    'height': 100,
+                    'left': 750,
+                    'top': 230
                 }
             }
         },
@@ -104,12 +120,46 @@
                     'actionVariables': {
                         'conversationName': 'Professor Bell'
                     }
+                },
+                'student1':{
+                    'name': 'student1',
+                    'image': 'student.png',
+                    'width': 200,
+                    'height': 100,
+                    'left': 300,
+                    'top': 270,
+                },
+                'student2':{
+                    'name': 'student2',
+                    'image': 'student.png',
+                    'width': 200,
+                    'height': 100,
+                    'left': 500,
+                    'top': 270,
+                },
+                'student3':{
+                    'name': 'student3',
+                    'image': 'student.png',
+                    'width': 200,
+                    'height': 100,
+                    'left': 700,
+                    'top': 270,
                 }
             }
         },
         'n': {
             'name': 'NClass011',
-            'image': 'R011-north.jpg'
+            'image': 'R011-north.jpg',
+            '_props':{
+                'hidingStudent3': {
+                        'name': 'hidingStudent3',
+                        'image': 'personHiding.png',
+                        'width': 200,
+                        'height': 100,
+                        'left': 350,
+                        'top': 380
+                }
+            }
         },
         's': {
             'name': 'SClass011',

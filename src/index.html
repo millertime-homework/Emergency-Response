@@ -113,21 +113,20 @@
             <!-- END MENU -->
             <!-- BEGIN MAIN -->
             <div id="view-modal">
-                <div id="view-wrapper">
-                    <div class="primary-view main-content-child main-content-viewport" id="controls-overlay">
-                        <input class="ui viewport-button" id="turn-left" type="button" />
-                        <input class="ui viewport-button" id="turn-right" type="button" />
-                        <input class="ui viewport-button" id="move-forward" type="button" />
-                        <input class="ui viewport-button hidden" id="move-up" type="button" value="Go Up Stairs" />
-                        <input class="ui viewport-button hidden" id="move-down" type="button" value="Go Down Stairs" />
-                        <div class='ui' id='inventory'></div>
-                        <div class='ui phone-context' id='cell-phone'></div>
-                        <div class='phone-context phone-menu hidden' id='phone-context'>
-                            <div class='phone-context-padder'>
-                                <div class='phone-visible' id='text'>Text</div>
-                                <div class='phone-visible' id='call'>Call</div>
-                                <div class='phone-visible' id='ringer'>Ringer</div>
-                            </div>
+                <div class="primary-view main-content-child main-content-viewport" id="controls-overlay">
+                    <input class="ui viewport-button enabled" id="turn-left" type="button" />
+                    <input class="ui viewport-button enabled" id="turn-right" type="button" />
+                    <input class="ui viewport-button enabled" id="move-forward" type="button" />
+                    <input class="ui viewport-button hidden" id="move-up" type="button" value="Go Up Stairs" />
+                    <input class="ui viewport-button hidden" id="move-down" type="button" value="Go Down Stairs" />
+                    <div class='ul' id='on-screen-message-container'></div>
+                    <div class='ui' id='inventory'></div>
+                    <div class='ui phone-context' id='cell-phone'></div>
+                    <div class='phone-context phone-menu hidden' id='phone-context'>
+                        <div class='phone-context-padder'>
+                            <div class='phone-visible' id='text'>Text</div>
+                            <div class='phone-visible' id='call'>Call</div>
+                            <div class='phone-visible' id='ringer'>Ringer</div>
                         </div>
                         <div class='phone-context phone-menu hidden' id='phone-context-2'>
                             <div class='phone-context-padder'>
@@ -171,6 +170,7 @@
         <div class='text hidden' id='no-text-template'>No text messages</div>
         <div class='call hidden' id='no-call-template'>No one to call</div>
         <div class='view-text hidden' id='text-message-template'><span></span></div>
+        <div class='on-screen-message hidden' id='on-sreen-message-template'></div>
     </div>
     
     <!-- BEGIN JAVASCRIPTS -->

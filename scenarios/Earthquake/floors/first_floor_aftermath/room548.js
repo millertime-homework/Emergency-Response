@@ -12,7 +12,17 @@
             'image': 'R540-west.jpg',
             'destination': {
                 'x': 4
-            }
+            },
+			'_props' : {
+	            'wheelchair':{
+                    'name':'the_wheelchair',
+                    'image':'wheelchair.png',
+                    'width':30,
+                    'height':30,
+                    'left': 545,
+                    'top': 300,
+                }
+			}
         },
         'n': {
             'name': 'NHall548',   

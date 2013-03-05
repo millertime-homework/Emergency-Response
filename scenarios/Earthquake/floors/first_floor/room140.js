@@ -34,10 +34,10 @@
                 'xavier': {
                     'name': 'xavier',
                     'image': 'prof_bell.png',
-                    'width': 23,
-                    'height': 40,
-                    'left': 548,
-                    'top': 298 
+                    'width': 219,
+                    'height': 391,
+                    'left': 600,
+                    'top': 210 
                 }
             }
         }

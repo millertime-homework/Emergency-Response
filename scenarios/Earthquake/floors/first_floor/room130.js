@@ -15,6 +15,20 @@
             'image': 'R130-west.jpg',
             'destination': {
                 'x': 0
+            },
+            '_props': {
+                'xavier': {
+                    'name': 'xavier',
+                    'image': 'prof_bell.png',
+                    'width': 270,
+                    'height': 480,
+                    'left': 340,
+                    'top': 181,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Professor Xavier'
+                    }
+                }
             }
         },
         'n': {
@@ -29,16 +43,6 @@
             'image': 'R130-south.jpg',
             'destination': {
                 'y': 2
-            },
-            '_props': {
-                'xavier': {
-                    'name': 'xavier',
-                    'image': 'prof_bell.png',
-                    'width': 45,
-                    'height': 80,
-                    'left': 440,
-                    'top': 281
-                }
             }
         }
     }

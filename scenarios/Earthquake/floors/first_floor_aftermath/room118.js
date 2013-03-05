@@ -16,8 +16,26 @@
             'image': 'R110-north.jpg',
             'destination': {
                 'y': 2
+            },
+			'_props' : {
+                'Downedwire': {
+                    'name': 'Downedwire',
+                    'image': 'downwiresNew.png',
+                    'width': 160,
+                    'height': 138,
+                    'left': 483,
+                    'top': 220
+                },
+				'Movedwire': {
+                    'name': 'Movedwire',
+                    'image': 'movedwiresNew.png',
+                    'width': 160,
+                    'height': 138,
+                    'left': 483,
+                    'top': 220
+                }
             }
-        },
+		},
         's': {
             'name': 'SHall118',
             'image': 'R110-south.jpg',
