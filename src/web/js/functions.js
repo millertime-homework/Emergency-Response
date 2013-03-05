@@ -646,10 +646,10 @@ function showConversation(conversationName, currentConversationChoice, cannotSki
         jQuery('#modal #header').html(conversationName + " says:");
     }
     contentContainer = jQuery('#modal #content');
-    contentContainer.append(currentOption.message + '<p />');
+    contentContainer.append('<span id="option-message">' + currentOption.message + '</span><p />');
 
     if (!isAnAction) {
-        contentContainer.append(' You Reply: <br />');
+        contentContainer.append('<span id="you-reply"> You Reply: </span><br />');
     }
     contentContainer.append('<ul>');
 

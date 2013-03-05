@@ -6,7 +6,8 @@
 /*Shadows*/
 /*Transformations*/
 body {
-  font-family: "Helvetica-Neue-Light", "Helvetica Neue Light";
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 300;
   font-size: 1em;
   margin: 0px;
   background-color: gray;
@@ -461,9 +462,16 @@ textarea:focus {
   opacity: 0.5;
   cursor: pointer;
 }
+#modal #header {
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
+}
 #modal #content {
   overflow-y: auto;
   height: 400px;
+}
+#modal #content #you-reply {
+  font-weight: bold;
 }
 #modal #content ul {
   padding: 0;
@@ -484,9 +492,9 @@ textarea:focus {
   /* Cool new button stylings */
 
   border: 1px solid #25729a;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
   font-family: arial, helvetica, sans-serif;
   padding: 10px 10px 10px 10px;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
@@ -496,6 +504,11 @@ textarea:focus {
   background: #3090c7;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#3090c7), to(#1c5a85));
   background-image: -moz-linear-gradient(top, #3090c7, #1c5a85);
+  background-image: -ms-linear-gradient(top, #0c93c0, #ffffff);
+  background-image: -o-linear-gradient(top, #0c93c0, #ffffff);
+  background-image: linear-gradient(top, #0c93c0, #ffffff);
+  /* standard, but currently unimplemented */
+
   filter: formatstring("progid:DXImageTransform.Microsoft.gradient(startColorstr='{0}', endColorstr='{1}')", #3090c7, #1c5a85);
   /* IE6,IE7 */
 
@@ -508,6 +521,11 @@ textarea:focus {
   background: #26759e;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#26759e), to(#133d5b));
   background-image: -moz-linear-gradient(top, #26759e, #133d5b);
+  background-image: -ms-linear-gradient(top, #0c93c0, #ffffff);
+  background-image: -o-linear-gradient(top, #0c93c0, #ffffff);
+  background-image: linear-gradient(top, #0c93c0, #ffffff);
+  /* standard, but currently unimplemented */
+
   filter: formatstring("progid:DXImageTransform.Microsoft.gradient(startColorstr='{0}', endColorstr='{1}')", #26759e, #133d5b);
   /* IE6,IE7 */
 
@@ -570,7 +588,20 @@ textarea:focus {
   -webkit-border-radius: 10px 10px 10px 10px;
   -moz-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
-  background-color: white;
+  background: #ffffff;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#dddddd));
+  background-image: -moz-linear-gradient(top, #ffffff, #dddddd);
+  background-image: -ms-linear-gradient(top, #0c93c0, #ffffff);
+  background-image: -o-linear-gradient(top, #0c93c0, #ffffff);
+  background-image: linear-gradient(top, #0c93c0, #ffffff);
+  /* standard, but currently unimplemented */
+
+  filter: formatstring("progid:DXImageTransform.Microsoft.gradient(startColorstr='{0}', endColorstr='{1}')", #ffffff, #dddddd);
+  /* IE6,IE7 */
+
+  -ms-filter: formatstring("\"progid:DXImageTransform.Microsoft.gradient(startColorStr='{0}', EndColorStr='{1}')\"", #ffffff, #dddddd);
+  /* IE8 */
+
   border: 2px solid #000000;
   box-shadow: 3px 3px 3px #888888;
   -webkit-box-shadow: 3px 3px 3px #888888;
