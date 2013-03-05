@@ -545,6 +545,10 @@ function showConversation(conversationName, currentConversationChoice, cannotSki
         return;
     }
 
+    if (!currentOption.message) {
+         hideModal();
+    }
+    
     if (currentOption.triggers) {
         for (i = 0; i < currentOption.triggers.length; i++) {
             startTrigger(currentOption.triggers[i]);
@@ -553,7 +557,6 @@ function showConversation(conversationName, currentConversationChoice, cannotSki
     }
 
     if (!currentOption.message) {
-        hideModal();
         return;
     }
     //Save whether the conversation can be skipped or not to the modal.
