@@ -3,7 +3,8 @@
         'warpPlayer': ['entryScene'],
         'showOnScreenMessage': ['You enter the room, turn to face the door, and see a group of people.']
     },
-    'startTriggers': ['shooterEnters']
+    'startTriggers': ['shooterEnters'],
+    'disabled': true
 },
 'shooterEnters': {
     'timeDelay': 6000,
