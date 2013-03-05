@@ -1,5 +1,5 @@
 'checkIfSurvivedEarthquake': {
     'events': {
-        'showConversation': ['firstEarthquakeConvo']
+        'showConversation': ['Survived Earthquake']
     }
 }

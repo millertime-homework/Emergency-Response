@@ -1,9 +1,9 @@
 'hideUnderDesk': {
+    'abortTriggers': ['timeToTakeCover'],
+    'deleteTriggers': ['timeToTakeCover'],
     'events': {
         'completeObjective': ['surviveEarthquake'],
-        'abortTriggers': ['timeToTakeCover'],
-        'deleteTriggers': ['timeToTakeCover'],
         'setObjective': ['evacuateSchool', 'Evacuate the School safely']
     },
-    'lives': 1
+    'lives': Infinity
 }
