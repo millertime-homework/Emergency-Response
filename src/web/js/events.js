@@ -225,4 +225,12 @@ jQuery(document).ready(function($) {
     $(document).on('showOnScreenMessage', function (event, message, duration) {
         showOnScreenMessage(message, duration);
     });
+
+    $(document).on('disableLights', function (event) {
+        $('#flashlight-overlay').removeClass('hidden');
+    });
+
+    $(document).on('enableLights', function (event) {
+        $('#flashlightOverlay').addClass('hidden');
+    });
 });

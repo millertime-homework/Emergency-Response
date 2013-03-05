@@ -244,6 +244,43 @@ TestDef = {
                             'image': 'R120-north.jpg',
                             'destination': {
                                 'y': 3
+                            },
+                            '_props': {
+                                'prof-bell': {
+                                    'name': 'prof-bell',
+                                    'image': 'prof_bell.png',
+                                    'width': 200,
+                                    'height': 354,
+                                    'left': 100,
+                                    'top': 257,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'enterLoveDungeon'
+                                    }
+                                }
+                            }
+                        },
+                        'custom': {
+                            'name': 'custom',
+                            'image': 'apartment-e.jpg',
+                            'fakeDirection' : 'e',
+                            'destination': {
+                                'f': 'w'
+                            },
+                            'isCutscene' : true,
+                            '_props': {
+                                'prof-bell': {
+                                    'name': 'prof-bell',
+                                    'image': 'prof_bell.png',
+                                    'width': 200,
+                                    'height': 354,
+                                    'left': 100,
+                                    'top': 257,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'exitLoveDungeon'
+                                    }
+                                }
                             }
                         },
                         's': {
@@ -1035,6 +1072,28 @@ TestDef = {
         }
     },
     '_conversations': {
+        'enterLoveDungeon':{
+            '1': {
+                'message':'Where do you want to go?',
+                'replies':{
+                    'Take me to the secret love dungeon':2,
+                }
+            },
+            '2':{
+                'triggers':['enterLoveDungeon']
+            }
+        },
+        'exitLoveDungeon':{
+            '1': {
+                'message':'What do you think of my bed?',
+                'replies':{
+                    "This is really creepy. I'm out.":2,
+                }
+            },
+            '2':{
+                'triggers':['exitLoveDungeon']
+            }
+        },
         'Fire': {
             '1': {
                 'message': 'Oh no there is a fire in the way!',
@@ -1194,6 +1253,18 @@ TestDef = {
             },
             'moveDelay': 5,
             'lives': Infinity,
+        },
+        'enterLoveDungeon': {
+            'lives' : Infinity,
+            'events': {
+                'warpPlayer': ['custom',1,2,0]
+            }
+        },
+        'exitLoveDungeon': {
+            'lives' : Infinity,
+            'events': {
+                'warpPlayer': ['n',1,2,0]
+            }
         },
         'extinguishProf': {
             'events' : {

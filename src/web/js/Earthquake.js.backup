@@ -123,7 +123,7 @@ EarthquakeDef = {
                                     'left': 400,
                                     'action': 'showConversation',
                                     'actionVariables': {
-                                        'conversationName': 'Pack Whistle?'
+                                        'conversationName': 'packWhistle'
                                     }
                                 },
                                 'firstaidkit': {
@@ -200,32 +200,6 @@ EarthquakeDef = {
                             'destination': {
                                 'x': 1
                             },
-                            '_props':{
-                                'screwdriver':{
-                                    'name':'screwdriver',
-                                    'image':'screwdriver.jpg',
-                                    'width': 50,
-                                    'height': 50,
-                                    'left': 250,
-                                    'top': 350,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'screwdriverconvo'
-                                    }
-                                },
-                                'pictureframeid':{
-                                    'name': 'pictureframeprop',
-                                    'image': 'pictureFrame.jpg',
-                                    'width': 67,
-                                    'height': 101,
-                                    'left': 100,
-                                    'top': 100,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'A picture frame'
-                                    }
-                                }
-                            }
                         },
                         'w': {
                             'name': 'WClassroom020',
@@ -251,6 +225,28 @@ EarthquakeDef = {
                             'image': 'R030-east.jpg',
                             'destination': {
                                 'x': 1
+                            },
+                			'_props': {
+                				'desk' : {
+                					'name' : 'desk',
+                					'image' : 'sturdy-desk.png',
+                					'width': 340,
+                                    'height': 185,
+                                    'left': 550,
+                                    'top': 400
+                				},
+                                'computer': {
+                                    'name': 'computer',
+                                    'image': 'computer.png',
+                                    'width': 125,
+                                    'height': 140,
+                                    'left': 660,
+                                    'top': 295,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Computer'
+                                    }
+                                }
                             }
                         },
                         'w': {
@@ -298,20 +294,6 @@ EarthquakeDef = {
                         'n': {
                             'name': 'NClassroom030',
                             'image': 'R030-north.jpg',
-                            '_props': {
-                                'computer': {
-                                    'name': 'computer',
-                                    'image': 'computer.png',
-                                    'width': 250,
-                                    'height': 255,
-                                    'left': 400,
-                                    'top': 200,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'Computer'
-                                    }
-                                }
-                            }
                         },
                         's': {
                             'name': 'SClassroom030',
@@ -374,9 +356,9 @@ EarthquakeDef = {
                                 'xavier': {
                                     'name': 'xavier',
                                     'image': 'prof_bell.png',
-                                    'width': 28,
-                                    'height': 50,
-                                    'left': 440,
+                                    'width': 16,
+                                    'height': 25,
+                                    'left': 540,
                                     'top': 298 
                                 }
                             }
@@ -410,9 +392,9 @@ EarthquakeDef = {
                                 'xavier': {
                                     'name': 'xavier',
                                     'image': 'prof_bell.png',
-                                    'width': 45,
-                                    'height': 80,
-                                    'left': 440,
+                                    'width': 24,
+                                    'height': 44,
+                                    'left': 530,
                                     'top': 286
                                 }
                             }
@@ -441,26 +423,22 @@ EarthquakeDef = {
                             'destination': {
                                 'x': 0
                             },
-                            '_props': {
-                                'xavier': {
-                                    'name': 'xavier',
-                                    'image': 'prof_bell.png',
-                                    'width': 200,
-                                    'height': 354,
-                                    'left': 600,
-                                    'top': 290,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'Professor Xavier'
-                                    }
-                                }
-                            }
                         },
                         'n': {
                             'name': 'NHall120',   
                             'image': 'R120-north.jpg',
                             'destination': {
                                 'y': 3
+                            },
+                            '_props': {
+                                'xavier': {
+                                    'name': 'xavier',
+                                    'image': 'prof_bell.png',
+                                    'width': 40,
+                                    'height': 68,
+                                    'left': 520,
+                                    'top': 280
+                                }
                             }
                         },
                         's': {
@@ -489,6 +467,20 @@ EarthquakeDef = {
                             'image': 'R130-west.jpg',
                             'destination': {
                                 'x': 0
+                            },
+                            '_props': {
+                                'xavier': {
+                                    'name': 'xavier',
+                                    'image': 'prof_bell.png',
+                                    'width': 270,
+                                    'height': 480,
+                                    'left': 340,
+                                    'top': 181,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Professor Xavier'
+                                    }
+                                }
                             }
                         },
                         'n': {
@@ -503,16 +495,6 @@ EarthquakeDef = {
                             'image': 'R130-south.jpg',
                             'destination': {
                                 'y': 2
-                            },
-                            '_props': {
-                                'xavier': {
-                                    'name': 'xavier',
-                                    'image': 'prof_bell.png',
-                                    'width': 45,
-                                    'height': 80,
-                                    'left': 440,
-                                    'top': 281
-                                }
                             }
                         }
                     }
@@ -553,10 +535,10 @@ EarthquakeDef = {
                                 'xavier': {
                                     'name': 'xavier',
                                     'image': 'prof_bell.png',
-                                    'width': 23,
-                                    'height': 40,
-                                    'left': 548,
-                                    'top': 298 
+                                    'width': 219,
+                                    'height': 391,
+                                    'left': 600,
+                                    'top': 210 
                                 }
                             }
                         }
@@ -629,7 +611,8 @@ EarthquakeDef = {
                         /* To allow player to 'move-up' */
                         'u': {
                             'destination': {
-                                'z': 1
+                                'z': 1,
+                                'f': 'w'
                             }
                         },
                         'e': {
@@ -970,6 +953,20 @@ EarthquakeDef = {
                             'image': 'R400-north.jpg',
                             'destination': {
                                 'y': 1
+                            },
+                			'_props':{
+                                'screwdriver':{
+                                    'name':'screwdriver',
+                                    'image':'screwdriver.png',
+                                    'width': 35,
+                                    'height': 35,
+                                    'left': 725,
+                                    'top': 380,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'screwdriverconvo'
+                                    }
+                                },
                             }
                         },
                         's': {
@@ -986,6 +983,20 @@ EarthquakeDef = {
                         'e': {
                             'name': 'EHall410', 
                             'image': 'R410-east.jpg',
+                			'_props':{
+                                'screwdriver':{
+                                    'name':'screwdriver',
+                                    'image':'screwdriver.png',
+                                    'width': 50,
+                                    'height': 50,
+                                    'left': 255,
+                                    'top': 470,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'screwdriverconvo'
+                                    }
+                                },
+                            }
                         },
                         'w': {
                             'name': 'WHall410',
@@ -1014,14 +1025,28 @@ EarthquakeDef = {
                     '_walls': {
                         'e': {
                             'name': 'EHall420', 
-                            'image': 'R420-east.jpg'
+                            'image': 'R420-east.jpg',
                         },
                         'w': {
                             'name': 'WHall420',
                             'image': 'R420-west.jpg',
                             'destination': {
                                 'x': 3
-                            }
+                            },
+                			'_props' : {
+                			    'pictureframeid':{
+                                    'name': 'pictureframeprop',
+                                    'image': 'picture.png',
+                                    'width': 100,
+                                    'height': 200,
+                                    'left': 300,
+                                    'top': 200,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'A picture frame'
+                                    }
+                                }
+                			}
                         },
                         'n': {
                             'name': 'NHall420',   
@@ -1181,32 +1206,6 @@ EarthquakeDef = {
                         'n': {
                             'name': 'NClassroom008',
                             'image': 'R000-north.jpg',
-                            '_props': {
-                                'mrs-wheelchair': {
-                                    'name': 'mrs_wheelchair',
-                                    'image': 'mrs_wheelchair.png',
-                                    'width': 150,
-                                    'height': 150,
-                                    'left': 250,
-                                    'top': 350,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'Mrs Wheelchair'
-                                    }
-                                },
-                                'wheelchair':{
-                                    'name':'the_wheelchair',
-                                    'image':'wheelchair.png',
-                                    'width':150,
-                                    'height':150,
-                                    'left': 350,
-                                    'top': 200,
-                                    'action':'showConversation',
-                                    'actionVariables': {
-                                        'conversationName' : 'wheelchair'
-                                    }
-                                }
-                            }
                         },
                         's': {
                             'name': 'SClassroom008',
@@ -1276,7 +1275,17 @@ EarthquakeDef = {
                             'image': 'R040-east.jpg',
                             'destination': {
                                 'x': 1
-                            }
+                            },
+                			'_props' : {
+                				'wheelchair':{
+                                    'name':'the_wheelchair',
+                                    'image':'wheelchair.png',
+                                    'width':50,
+                                    'height':50,
+                                    'left': 530,
+                                    'top': 290,
+                                }
+                			}
                         },
                         'w': {
                             'name': 'WHall048',
@@ -1316,6 +1325,24 @@ EarthquakeDef = {
                             'image': 'R100-north.jpg',
                             'destination': {
                                 'y': 1
+                            },			
+                			'_props' : {
+                                'Downedwire': {
+                                    'name': 'Downedwire',
+                                    'image': 'downwiresNew.png',
+                                    'width': 50,
+                                    'height': 50,
+                                    'left': 530,
+                                    'top': 275
+                                },
+                				'Movedwire': {
+                                    'name': 'Movedwire',
+                                    'image': 'movedwiresNew.png',
+                                    'width': 50,
+                                    'height': 50,
+                                    'left': 530,
+                                    'top': 275
+                                }
                             }
                         },
                         's': {
@@ -1342,8 +1369,26 @@ EarthquakeDef = {
                             'image': 'R110-north.jpg',
                             'destination': {
                                 'y': 2
+                            },
+                			'_props' : {
+                                'Downedwire': {
+                                    'name': 'Downedwire',
+                                    'image': 'downwiresNew.png',
+                                    'width': 160,
+                                    'height': 138,
+                                    'left': 483,
+                                    'top': 220
+                                },
+                				'Movedwire': {
+                                    'name': 'Movedwire',
+                                    'image': 'movedwiresNew.png',
+                                    'width': 160,
+                                    'height': 138,
+                                    'left': 483,
+                                    'top': 220
+                                }
                             }
-                        },
+                		},
                         's': {
                             'name': 'SHall118',
                             'image': 'R110-south.jpg',
@@ -1368,6 +1413,20 @@ EarthquakeDef = {
                             'image': 'R120-west.jpg',
                             'destination': {
                                 'x': 0
+                            },
+                            '_props' : {
+                                'doorFrame': {
+                                    'name': 'doorFrame',
+                                    'image': 'doorframe.png',
+                                    'width': 50,
+                                    'height': 440,
+                                    'left': 405,
+                                    'top': 125,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'A door frame'
+                                    }
+                                }
                             }
                         },
                         'n': {
@@ -1375,6 +1434,29 @@ EarthquakeDef = {
                             'image': 'R120-north.jpg',
                             'destination': {
                                 'y': 3
+                            },
+                			'_props' : {
+                                'Downedwire': {
+                                    'name': 'Downedwire',
+                                    'image': 'downwiresNew.png',
+                                    'width': 400,
+                                    'height': 300,
+                                    'left': 380,
+                                    'top': 150,
+                                    'action': 'showConversation',
+                                        'actionVariables': {
+                                            'conversationName': 'Hanging wires'
+                                        },
+                                    'barrier' : true
+                                },
+                                'Movedwire': {
+                                    'name': 'Movedwire',
+                                    'image': 'movedwiresNew.png',
+                                    'width': 400,
+                                    'height': 300,
+                                    'left': 380,
+                                    'top': 150
+                                }
                             }
                         },
                         's': {
@@ -1417,6 +1499,29 @@ EarthquakeDef = {
                             'image': 'R130-south.jpg',
                             'destination': {
                                 'y': 2
+                            },
+                		    '_props' : {
+                                'Downedwire': {
+                                    'name': 'Downedwire',
+                                    'image': 'downwiresNew.png',
+                                    'width': 160,
+                                    'height': 138,
+                                    'left': 483,
+                                    'top': 220,
+                			        'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Hanging wires'
+                                    },
+                                    'barrier' : true
+                                },
+                				'Movedwire': {
+                                    'name': 'Movedwire',
+                                    'image': 'movedwiresNew.png',
+                                    'width': 120,
+                                    'height': 122,
+                                    'left': 490,
+                                    'top': 240
+                                }
                             }
                         }
                     }
@@ -1431,14 +1536,56 @@ EarthquakeDef = {
                             'image': 'R140-east.jpg',
                             'destination': {
                                 'x': 2
-                            }
+                            },
+                			'_props': {
+                                'mrs-wheelchair': {
+                                    'name': 'mrs_wheelchair',
+                                    'image': 'mrs_wheelchair.png',
+                                    'width': 150,
+                                    'height': 150,
+                                    'left': 600,
+                                    'top': 350,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Mrs Lydia'
+                                    }
+                                },
+                                'wheelchair':{
+                                    'name':'the_wheelchair',
+                                    'image':'wheelchair.png',
+                                    'width':150,
+                                    'height':150,
+                                    'left': 450,
+                                    'top': 300,
+                                    'action':'showConversation',
+                                    'actionVariables': {
+                                        'conversationName' : 'wheelchair'
+                                    }
+                                },
+                                'brokenGlass': {
+                                    'name': 'brokenGlass',
+                                    'image': 'brokenGlass.png',
+                                    'width': 80,
+                                    'height': 30,
+                                    'left': 520,
+                                    'top': 310
+                			    },
+                				'bridgeDoor': {
+                                    'name': 'bridgeDoor',
+                                    'image': 'doordown.png',
+                                    'width': 40,
+                                    'height': 40,
+                                    'left': 540,
+                                    'top': 310
+                                }
+                			}
                         },
                         'w': {
                             'name': 'WHall148',
                             'image': 'R140-west.jpg',
                             'destination': {
                                 'x': 0
-                            }
+                            },
                         },
                         'n': {
                             'name': 'NHall148',
@@ -1452,6 +1599,24 @@ EarthquakeDef = {
                             'image': 'R140-south.jpg',
                             'destination': {
                                 'y': 3
+                            },
+                			'_props' : {
+                                'Downedwire': {
+                                    'name': 'Downedwire',
+                                    'image': 'downwiresNew.png',
+                                    'width': 50,
+                                    'height': 50,
+                                    'left': 530,
+                                    'top': 275
+                                },
+                				'Movedwire': {
+                                    'name': 'Movedwire',
+                                    'image': 'movedwiresNew.png',
+                                    'width': 50,
+                                    'height': 50,
+                                    'left': 530,
+                                    'top': 275
+                                }
                             }
                         }
                     }
@@ -1526,7 +1691,8 @@ EarthquakeDef = {
                         /* To allow player to 'move-up' */
                         'u': {
                             'destination': {
-                                'z': 1
+                                'z': 1,
+                                'f': 'w'
                             }
                         },
                         'e': {
@@ -1644,6 +1810,33 @@ EarthquakeDef = {
                             'image': 'R240-east.jpg',
                             'destination': {
                                 'x': 3
+                            },
+                			'_props': {
+                                'brokenGlass': {
+                                    'name': 'brokenGlass',
+                                    'image': 'brokenGlass.png',
+                                    'width': 150,
+                                    'height': 25,
+                                    'left': 500,
+                                    'top': 340
+                			    },
+                                'brokenDoor': {
+                                    'name': 'brokenDoor',
+                                    'image': 'dooraskew.png',
+                                    'width': 28,
+                                    'height': 180,
+                                    'left': 625,
+                                    'top': 230
+                                },
+                                'bridgeDoor': {
+                                    'name': 'bridgeDoor',
+                                    'image': 'doordown.png',
+                                    'width': 100,
+                                    'height': 60,
+                                    'left': 505,
+                                    'top': 320
+                                }
+                       
                             }
                         },
                         'w': {
@@ -1651,6 +1844,32 @@ EarthquakeDef = {
                             'image': 'R240-west.jpg',
                             'destination': {
                                 'x': 1
+                            },
+                			'_props': {
+                                'mrs-wheelchair': {
+                                    'name': 'mrs_wheelchair',
+                                    'image': 'mrs_wheelchair.png',
+                                    'width': 150,
+                                    'height': 150,
+                                    'left': 300,
+                                    'top': 400,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Mrs Lydia'
+                                    }
+                                },
+                                'wheelchair':{
+                                    'name':'the_wheelchair',
+                                    'image':'wheelchair.png',
+                                    'width':150,
+                                    'height':150,
+                                    'left': 500,
+                                    'top': 300,
+                                    'action':'showConversation',
+                                    'actionVariables': {
+                                        'conversationName' : 'wheelchair'
+                                    }
+                                }
                             }
                         },
                         'n': {
@@ -1687,7 +1906,27 @@ EarthquakeDef = {
                             'image': 'R300-north.jpg',
                             'destination': {
                                 'y': 1
-                            }
+                            },        
+                            '_props' : {			
+                		        'puddle': {
+                                    'name': 'puddle',
+                                    'image': 'puddle.png',
+                                    'width': 100,
+                                    'height': 50,
+                                    'left': 515,
+                                    'top': 325,
+                                    'action': 'showConversation',
+                                },
+                				'smokeSafe': {
+                                    'name': 'smokeSafe',
+                                    'image': 'smokeScreen.png',
+                                    'width': 150,
+                                    'height': 90,
+                                    'left': 485,
+                                    'top': 250,
+                                    'action': 'showConversation',
+                                }
+                		    }
                         },
                         's': {
                             'name': 'SHall308', 
@@ -1713,7 +1952,33 @@ EarthquakeDef = {
                             'image': 'R310-north.jpg',
                             'destination': {
                                 'y': 2
-                            }
+                            },
+                			'_props' : {
+                                'puddle': {
+                                    'name': 'puddle',
+                                    'image': 'puddle.png',
+                                    'width': 267,
+                                    'height': 139,
+                                    'left': 435,
+                                    'top': 380,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Puddle'
+                                    }
+                                },
+                				'smokeSafe': {
+                                    'name': 'smokeSafe',
+                                    'image': 'smokeScreen.png',
+                                    'width': 225,
+                                    'height': 125,
+                                    'left': 455,
+                                    'top': 215,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Smoke'
+                                    }
+                                }
+                		    }
                         },
                         's': {
                             'name': 'SHall318', 
@@ -1734,17 +1999,85 @@ EarthquakeDef = {
                             'image': 'R320-east.jpg',
                             'destination': {
                                 'x': 4
-                            }
+                            },
+                			'_props' : {
+                                'smoke': {
+                                    'name': 'smoke',
+                                    'image': 'smokeScreen.png',
+                                    'width': 1300,
+                                    'height': 600,
+                                    'left': 0,
+                                    'top': 0,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Smoke'
+                                    },
+                                    'barrier' : true
+                                },
+                                'smokeSafe': {
+                                    'name': 'smokeSafe',
+                                    'image': 'smokeScreen.png',
+                                    'width': 1300,
+                                    'height': 600,
+                                    'left': 0,
+                                    'top': 0,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Smoke'
+                                    }
+                                }
+                			}
                         },
                         'w': {
                             'name': 'WHall328',
-                            'image': 'R320-west.jpg'
+                            'image': 'R320-west.jpg',
+                			'_props' : {
+                				'smokeSafe': {
+                                    'name': 'smokeSafe',
+                                    'image': 'smokeScreen.png',
+                                    'width': 1300,
+                                    'height': 600,
+                                    'left': 0,
+                                    'top': 0,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Smoke'
+                                    }
+                                }
+                			}
                         },
                         'n': {
                             'name': 'NHall328',   
                             'image': 'R320-north.jpg',
                             'destination': {
                                 'y': 3
+                            },
+                			'_props' : {
+                                'smoke': {
+                                    'name': 'smoke',
+                                    'image': 'smokeScreen.png',
+                                    'width': 1300,
+                                    'height': 600,
+                                    'left': 0,
+                                    'top': 0,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Smoke'
+                                    },
+                                    'barrier' : true
+                                },
+                                'smokeSafe': {
+                                    'name': 'smokeSafe',
+                                    'image': 'smokeScreen.png',
+                                    'width': 1300,
+                                    'height': 600,
+                                    'left': 0,
+                                    'top': 0,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Smoke'
+                                    }
+                                }
                             }
                         },
                         's': {
@@ -1752,6 +2085,44 @@ EarthquakeDef = {
                             'image': 'R320-south.jpg',
                             'destination': {
                                 'y': 1
+                            },
+                            '_props' : {
+                			'smokeSafe': {
+                                    'name': 'smokeSafe',
+                                    'image': 'smokeScreen.png',
+                                    'width': 1300,
+                                    'height': 150,
+                                    'left': 0,
+                                    'top': 0,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Smoke'
+                                    }
+                                },
+                                'puddle': {
+                                    'name': 'puddle',
+                                    'image': 'puddle.png',
+                                    'width': 267,
+                                    'height': 139,
+                                    'left': 435,
+                                    'top': 380,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Puddle'
+                                    }
+                                },
+                                'cloth': {
+                                    'name': 'cloth',
+                                    'image': 'cloth.png',
+                                    'width': 100,
+                                    'height': 75,
+                                    'left': 350,
+                                    'top': 480,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'A cloth'
+                                    }
+                                }
                             }
                         }
                     }
@@ -1784,7 +2155,34 @@ EarthquakeDef = {
                             'image': 'R330-south.jpg',
                             'destination': {
                                 'y': 2
-                            }
+                            },
+                			'_props' : {
+                                'smoke': {
+                                    'name': 'smoke',
+                                    'image': 'smokeScreen.png',
+                                    'width': 1300,
+                                    'height': 400,
+                                    'left': 0,
+                                    'top': 0,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Smoke'
+                                    },
+                                    'barrier' : true
+                                },
+                                'smokeSafe': {
+                                    'name': 'smokeSafe',
+                                    'image': 'smokeScreen.png',
+                                    'width': 1300,
+                                    'height': 400,
+                                    'left': 0,
+                                    'top': 0,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Smoke'
+                                    }
+                                }
+                			}
                         }
                     }
                 },
@@ -1798,6 +2196,45 @@ EarthquakeDef = {
                             'image': 'R340-east.jpg',
                             'destination': {
                                 'x': 4
+                            },
+                			'_props': {
+                                'brokenGlass': {
+                                    'name': 'brokenGlass',
+                                    'image': 'brokenGlass.png',
+                                    'width': 300,
+                                    'height': 200,
+                                    'left': 415,
+                                    'top': 380,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Broken glass'
+                                    }
+                			    },
+                                'brokenDoor': {
+                                    'name': 'brokenDoor',
+                                    'image': 'dooraskew.png',
+                                    'width': 80,
+                                    'height': 320,
+                                    'left': 700,
+                                    'top': 205,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Unhinged door'
+                                    },
+                                    'barrier' : true
+                                },
+                                'bridgeDoor': {
+                                    'name': 'bridgeDoor',
+                                    'image': 'doordown.png',
+                                    'width': 200,
+                                    'height': 150,
+                                    'left': 435,
+                                    'top': 380,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Broken glass'
+                                    }
+                                }
                             }
                         },
                         'w': {
@@ -1805,7 +2242,17 @@ EarthquakeDef = {
                             'image': 'R340-west.jpg',
                             'destination': {
                                 'x': 2
-                            }
+                            },
+                			'_props' : {
+                			    'wheelchair':{
+                                    'name':'the_wheelchair',
+                                    'image':'wheelchair.png',
+                                    'width':100,
+                                    'height':100,
+                                    'left': 530,
+                                    'top': 300,
+                                }
+                			}
                         },
                         'n': {
                             'name': 'NHall348',   
@@ -1819,7 +2266,18 @@ EarthquakeDef = {
                             'image': 'R340-south.jpg',
                             'destination': {
                                 'y': 3
-                            }
+                            },
+                			'_props':{
+                				'smokeSafe': {
+                                    'name': 'smokeSafe',
+                                    'image': 'smokeScreen.png',
+                                    'width': 150,
+                                    'height': 90,
+                                    'left': 485,
+                                    'top': 250,
+                                    'action': 'showConversation',
+                                }
+                			}
                         }
                     }
                 },
@@ -1845,7 +2303,7 @@ EarthquakeDef = {
                             'image': 'R350-south.jpg',
                             'destination': {
                                 'y': 4
-                            }
+                            },
                         }
                     }
                 },
@@ -1921,7 +2379,34 @@ EarthquakeDef = {
                             'image': 'R420-west.jpg',
                             'destination': {
                                 'x': 3
-                            }
+                            },
+                			'_props' : {
+                                'smoke': {
+                                    'name': 'smoke',
+                                    'image': 'smokeScreen.png',
+                                    'width': 1300,
+                                    'height': 600,
+                                    'left': 0,
+                                    'top': 0,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Smoke'
+                                    },
+                                    'barrier' : true
+                                },
+                                'smokeSafe': {
+                                    'name': 'smokeSafe',
+                                    'image': 'smokeScreen.png',
+                                    'width': 1300,
+                                    'height': 600,
+                                    'left': 0,
+                                    'top': 0,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Smoke'
+                                    }
+                                }
+                			}
                         },
                         'n': {
                             'name': 'NHall428',   
@@ -1979,7 +2464,17 @@ EarthquakeDef = {
                             'image': 'R440-west.jpg',
                             'destination': {
                                 'x': 3
-                            }
+                            },
+                			'_props' : {
+                			    'wheelchair':{
+                                    'name':'the_wheelchair',
+                                    'image':'wheelchair.png',
+                                    'width':50,
+                                    'height':50,
+                                    'left': 540,
+                                    'top': 300,
+                                }
+                			}
                         },
                         'n': {
                             'name': 'NHall448',   
@@ -2008,7 +2503,17 @@ EarthquakeDef = {
                             'image': 'R540-west.jpg',
                             'destination': {
                                 'x': 4
-                            }
+                            },
+                			'_props' : {
+                	            'wheelchair':{
+                                    'name':'the_wheelchair',
+                                    'image':'wheelchair.png',
+                                    'width':30,
+                                    'height':30,
+                                    'left': 545,
+                                    'top': 300,
+                                }
+                			}
                         },
                         'n': {
                             'name': 'NHall548',   
@@ -2060,7 +2565,11 @@ EarthquakeDef = {
                                     'width': 389,
                                     'height': 213,
                                     'left': 550,
-                                    'top': 300
+                                    'top': 300,
+                                    'action': 'showConversation',
+                                    'actionVariables': {
+                                        'conversationName': 'Sturdy Desk'
+                                    }
                                 },
                                 'chalk': {
                                     'name':'Chalk',
@@ -2365,7 +2874,8 @@ EarthquakeDef = {
                         /* to allow player to 'move-down' */
                         'd': {
                             'destination': {
-                                'z': 0
+                                'z': 0,
+                                'f': 'w'
                             }
                         },
                         'e': {
@@ -2677,6 +3187,7 @@ EarthquakeDef = {
                     'id': 'class019',
                     'x': 0,
                     'y': 1,
+                    '_triggers': ['checkIfSurvivedEarthquake', 'brokenLights'],
                     '_walls': {
                         'e': {
                             'name': 'EClass019',
@@ -2707,11 +3218,7 @@ EarthquakeDef = {
                                     'width': 389,
                                     'height': 213,
                                     'left': 550,
-                                    'top': 300,
-                                    'action': 'showConversation',
-                                    'actionVariables': {
-                                        'conversationName': 'Sturdy Desk'
-                                    }
+                                    'top': 300
                                 }
                             }
                         },
@@ -3004,7 +3511,8 @@ EarthquakeDef = {
                         /* to allow player to 'move-down' */
                         'd': {
                             'destination': {
-                                'z': 0
+                                'z': 0,
+                                'f': 'w'
                             }
                         },
                         'e': {
@@ -3307,6 +3815,35 @@ EarthquakeDef = {
         }
     },
     '_conversations': {
+                'Broken glass' : {
+                    '1':    {             
+                        'check'   : [{'triggersEnabled':['doorMoved'], 'goto': '2' }],
+                        'message' : 'Large shards of broken glass cover the hallway ahead.\n' +
+                                     'I can\'t walk over that in my sandals.',
+                        'replies' : {
+                                    'I\'ll need to figure out a way to cross' : '0'
+                                }
+                        },
+                    '2' : {
+                        'message' : 'With the door covering the broken' + 
+                        ' glass you can now traverse the hallway safely.',
+                        'replies' : {
+                            'Onward to the area of rescue.' : '0'
+                        }
+                    }
+                },
+                'Unhinged door' : {
+                    '1':{
+                        'message' : 'This door has come off of it\'s hinges in the earthquake',
+                        'replies' : {
+                            'Move it to cover the glass.' : '2'
+                        }
+                    },
+                    '2':{
+                        'triggers':['moveDoor']
+                    }
+        
+                },
         'Chalk on Sturdy Desk': {
              '1': {
                   'requires': {
@@ -3330,8 +3867,212 @@ EarthquakeDef = {
                 }
             },
             '2': {
-                'triggers': ['playingERG']
-            }
+                'message' : 'Choose a category',
+        		'replies' : {
+        			'Preparing the home for an earthquake.' : 3,
+        			'Responding to an earthquake.' : 12,
+        			'Creating a family reunification plan.' : 21,
+        			'I\'m done for now.' : 0
+        		}
+        	},
+        	'3' : {
+        		'message' : 'Question 1: Large and/or heavy objects should be ...',
+        		'replies' : {
+        			'placed on the top shelf to keep from bumping into them.' : 5,
+        			'placed on the bottom shelf or secured to keep them from falling.' : 4,
+        			'placed into storage so they can never hurt anybody.' : 5
+        		}
+            },
+        	'4' : {
+        		'message' : 'Correct: Heavy object should be stored on low shelves or secured with a strap.',
+        		'replies' : {
+        			'Keep playing' : 6,
+        			'I\'m done for now' : 0
+        		},
+        	},
+        	'5' : {
+        		'message' : 'Incorrect: Heavy object should be stored on low shelves or secured with a strap.',
+        		'replies' : {
+        			'Keep playing' : 6,
+        			'I\'m done for now' : 0
+        		}
+        	},
+        	'6' : {
+        		'message' : 'Question 2: Flammable objects should be stored... ',
+        		'replies' : {
+        			'In a yellow locking cabinet with acids.' : 8,
+        			'Near the stove or fireplace.' : 8,
+        			'In a dry place away from heat sources.' : 7
+        		}
+        	},
+        	'7' : {
+        		'message' : 'Correct: Flammable objects should be kept away from heat sources.',
+        		'replies' : {
+        			'Keep playing' : 9,
+        			'I\'m done for now' : 0
+        		}
+        	},
+        	'8' : {
+        		'message' : 'Incorrect: Flammable objects should be kept away from heat sources.',
+        		'replies' : {
+        			'Keep playing' : 9,
+        			'I\'m done for now' : 0
+        		}
+        	},
+        	'9' : {
+        		'message' : 'It is important to have professionals...',
+        		'replies' : {
+        			'clean and repair chimmies, vents, and electrical wiring.' : 10,
+        			'look over your car for hazardous material.' : 11,
+        			'I can do it myself, professionals aren\'t important.' : 11
+        		}
+        	},
+        	'10' : {
+        		'message' : 'Correct: Use professionals to repair major or dangerous items in the home.',
+        		'replies' : {
+        			'Back to the menu' : 2,
+        			'I\'m done for now' : 0			
+        		}
+        	},
+        	'11' : {
+        		'message' : 'Incorrect: Use professionals to repair major or dangerous items in the home.',
+        		'replies' : {
+        			'Back to the menu' : 2,
+        			'I\'m done for now' : 0			
+        		}
+        	},
+        	'12' : {
+        		'message' : 'Question 1: If you are in your office or school during an earthquake you should ... ',
+        		'replies' : {
+        			'Hide under a big sturdy object and hold on until the quake stops.' : 13,
+        			'Run as fast as you can toward the exit.' : 14,
+        			'Stand perfectly still and hope the earthquake doesn\'t see you.' : 14
+        		}
+        	},
+        	'13' : {
+        		'message' : 'Correct: Take cover under a study object, hold on, and wait it out.',
+        		'replies' : {
+        			'Keep playing.' : 15,
+        			'I\'m done for now' : 0	
+        		}
+        	},
+        	'14' : {
+        		'message' : 'Incorrect: Take cover under a study object, hold on, and wait it out.',
+        		'replies' : {
+        			'Keep playing.' : 15,
+        			'I\'m done for now' : 0	
+        		}
+        	},
+        	'15' : {
+        		'message' : 'Question 2: When lying in bed and an earthquake occurs you should... ',
+        		'replies' : {
+        			'Head outside as quickly as you can' : 17,
+        			'Continue to sleep through it.' : 17,
+        			'Roll onto your stomach and place a pillow over your head.' : 16
+        		}
+        	},
+        	'16' : {
+        		'message' : 'Correct: If in bed during an earthquake lay on your back and use a pillow to cover your head.',
+        		'replies' : {
+        			'Keep playing.' : 18,
+        			'I\'m done for now' : 0	
+        		}
+        	},
+        	'17' : {
+        		'message' : 'Incorrect: If in bed during an earthquake lay on your back and use a pillow to cover your head.',
+        		'replies' : {
+        			'Keep playing.' : 18,
+        			'I\'m done for now' : 0	
+        		}
+        	},
+        	'18' : {
+        		'message' : 'Question 3: You\'re in your car when an earthquak hits, you ...',
+        		'replies' : {
+        			'Pull over away from overpasses or power lines and hold on.' : 19,
+        			'Drive faster so you can escape the quake.' : 20,
+        			'Get out of the car and run.' : 20
+        		}
+        	},
+        	'19' : {
+        		'message' : 'Correct: Pull your car over in a safe place',
+        		'replies' : {
+        			'Back to the menu' : 2,
+        			'I\'m done for now' : 0			
+        		}
+        	},
+        	'20' : {
+        		'message' : 'Incorrect: Pull your car over in a safe place',
+        		'replies' : {
+        			'Back to the menu' : 2,
+        			'I\'m done for now' : 0			
+        		}
+        	},
+        	'21' : {
+        		'message' : 'Question 1: The disaster plans of your family\'s school and jobs should...',
+        		'replies' : {
+        			'be a mystery' : 23,
+        			'be known incase a disaster strikes.' : 22,
+        			'be left to the professionals.' : 23
+        		}
+        	},
+        	'22' : { 
+        		'message' : 'Correct: You should know the disaster plans of your family\'s work and school.',
+        		'replies' : {
+        			'Keep playing.' : 24,
+        			'I\'m done for now' : 0	
+        		}
+        	},
+        	'23' : {
+        		'message' : 'Incorrect: You should know the disaster plans of your family\'s work and school.',
+        		'replies' : {
+        			'Keep playing.' : 24,
+        			'I\'m done for now' : 0	
+        		}
+        	},
+        	'24' : {
+        		'message' : 'Question 2: Emergency rendevous points should be...',
+        		'replies' : {
+        			'designated ahead of time and given to all family members.' : 25,
+        			'ignored.' : 26,
+        			'assigned by the emergency personel.' : 26
+        		}
+        	},
+        	'25' : {
+        		'message' : 'Correct: Family gathering points should be designated in case of a disaster.',
+        		'replies' : {
+        			'Keep playing.' : 27,
+        			'I\'m done for now' : 0	
+        		}
+        	},
+        	'26' : {
+        		'message' : 'Incorrect: Family gathering points should be designated in case of a disaster.',
+        		'replies' : {
+        			'Keep playing.' : 27,
+        			'I\'m done for now' : 0	
+        		}
+        	},
+        	'27' : {
+        		'message' : 'Question 3: Communicating durning an emergency should...',
+        		'replies' : {
+        			'be done using only cell phones because the phone lines will be down.' : 29,
+        			'be through a designated out of town relative or friend.' : 28,
+        			'not be worried about, everyone will be able to communicate.' : 29
+        		}	
+        	},
+        	'28' : {
+        		'message' : 'Correct: Designate an out of town relative or friend to coordinate family communications.',
+        		'replies' : {
+        			'Back to the menu' : 2,
+        			'I\'m done for now' : 0			
+        		}
+        	},
+        	'29' : {
+        		'message' : 'Incorrect: Designate an out of town relative or friend to coordinate family communications.',
+        		'replies' : {
+        			'Back to the menu' : 2,
+        			'I\'m done for now' : 0			
+        		}
+        	}
         },
         'coordinatorConvo': {
             '1': {
@@ -3366,6 +4107,18 @@ EarthquakeDef = {
             },
             '2': {
                 'triggers': ['elevatorUp']
+            }
+        },
+        'firstEarthquakeConvo' : {
+            '1': {
+                'check': [{'objectivesInProgress': ['surviveEarthquake'], 'goto': '2'}],
+                'message': 'You crawl out from under the desk once the shaking stops.',
+                'replies': {
+                    'Continue..': 0
+                }
+            },
+            '2': {
+                'endGame': ['Game Over', 'You didn\'t find cover soon enough and a large beam struck fell on you!']
             }
         },
         'goBackButton': {
@@ -3435,18 +4188,14 @@ EarthquakeDef = {
                 'triggers': ['completeChalkObjective'],
                 'message': 'Thank you! Okay, so today we\'ll be covering chapter.... wait, did you feel that?',
                 'replies': {
-                    'Yes.... what was that?': 3,
+                    'Yes.... what was that?': 3
                 }
             },
             '3': {
-                'message': 'OHHHH NOOOO IT\'S AN EARTHQUAKE!!!',
-                'replies': {
-                    '[stay calm]': 0
-                },
-                'triggers': ['shakeThingsUp'],
+                'triggers': ['shakeThingsUp']
             }
         },
-        'Mrs Wheelchair': {
+        'Mrs Lydia': {
             '1': {
                 'check'  :[{'triggersEnabled':['wheelChair00'], 'goto':'3'}],
                 'message': 'You see a woman struggling to get into a wheelchair.',
@@ -3609,7 +4358,7 @@ EarthquakeDef = {
                 'triggers': ['gotoSchool']
             }
         },
-        'Pack Whistle?': {
+        'packWhistle': {
             '1': {
                 'check': [{'has': ['Water', 'Flashlight', 'Food', 'Breathing Mask', 'First Aid Kit'], 'goto': 3}],
                 'message': 'Sometimes it\'s easier to be heard than seen.',
@@ -3658,6 +4407,40 @@ EarthquakeDef = {
                 }
             }
         },
+        'Hanging wires' : {
+            '1' : {
+                'check'   : [{'has':['A door frame'], 'goto' : '2'}],
+                'message' : 'Some wires have come out of the ceiling and block the hall.',
+                'replies' : {
+                    'I should be careful.' : '0'
+                }
+            },
+            '2' : {
+                'message' : 'Some wires have come out of the ceiling and block the hall.',
+                'replies' : {
+                    'I should be careful.' : '0',
+                    'I could move them out of the way with this long door frame.' : '3'
+                }
+            },
+            '3' : {
+                'message' : 'The path is now cleared',
+                'replies' : {'Good, I\'d beter get out of here.' : '0'},
+                'triggers': ['moveDownedWires']
+            }
+        },
+        'A door frame' : {
+            '1' : {
+                'message' :  'A part of the door frame has come loose in the earthquake.',
+                'replies' : {
+                    'Umm, ok...' : '0',
+                    'Break the door frame off and carry it for a while' : '2'
+                }
+            },
+            '2' : {
+                'triggers' : ['takeDoorFrame']
+            }
+        },
+                
         'Professor Xavier': {
             '1': {
                 'message': 'Hello!',
@@ -3701,6 +4484,74 @@ EarthquakeDef = {
                 'triggers': ['takeScrewdriver']
             }
         },
+                'Smoke' : {
+                    '1' : {
+                        'check'   : [{'has':['Breathing Mask'], 'goto' : '2'},
+                                     {'triggersEnabled' : ['clothIsWet'], 'goto' : '3'}],
+                        'message' : 'The hallway ahead is filled with smoke.' +
+                                    'You will need something to protect you from the smoke to pass.',
+                        'replies' : {
+                            'Cough... Cough' : '0'
+                        }
+                    },
+                    '2' : {
+                        'message' : 'The hallway ahead is filled with smoke.',
+                        'replies' : {
+                            'Good thing my go kit has a breathing mask.  I can crawl while wearing it and be safe.' : '4'
+                        }
+                    },
+                    '3' : {
+                        'message' : 'The hallway ahead is filled with smoke.',
+                        'replies' : {
+                            'I can use this wet cloth to protect me as I crawl under the smoke.' : '4'
+                        }
+                    },
+                    '4' : {
+                        'triggers' : ['clearSmoke']
+                    }
+                },
+                'Puddle' : { 
+                    '1': {
+                        'check'   : [{'has':['A cloth'], 'goto' : '2'}],
+                        'message' : 'A pipe has burst through the floor.  It\'s leaking has created a puddle.',
+                        'replies' : {
+                              'Eww, I don\'t know where that water has been.' : '0'
+                        }
+                    },
+                    '2': {
+                        'message' : 'A pipe has burst through the floor.  It\'s leaking has created a puddle.',
+                        'replies' : {
+                              'Eww, I don\'t know where that water has been.' : '0',
+                              'I could use the water to soak this cloth to protect from the smoke.' : '3'
+                        } 
+                    },
+                    '3' : {
+                        'triggers' : ['wetTheCloth']
+                    }
+                },
+                'A cloth' : {
+                    '1': {
+                        'check' : [{'has':['Water'], 'goto': '3'}],
+                        'message' : 'A cloth lies on the ground nearby.  Perhaps it will be of use later',
+                        'replies' : {
+                            'Nope a random piece of cloth is always usless.' : '0',
+                            'I\'ll take it, it may come in handy.' : '2'
+                        }
+                    },
+                    '2' : {
+                        'triggers' : ['takeCloth']
+                    },
+                    '3' : {
+                        'message' : 'A cloth lies on the ground nearby.',
+                        'replies' : {
+                            'Nope a random piece of cloth is always usless.' : '0',
+                            'I could put water on it to protect me from the smoke' : '4'
+                        }
+                    },
+                    '4' : {
+                        'triggers' : ['wetTheCloth']
+                    }
+                },
         'sprayConvo': {
             '1':{
                 'message': 'This Bug spray is warm with the heat of the stove.' + 
@@ -3723,17 +4574,8 @@ EarthquakeDef = {
             }
         },
         'Sturdy Desk': {
+             'requires': {'objectivesInProgress': ['surviveEarthquake']},
              '1': {
-                  'message': 'This desk looks nice and sturdy.',
-                  'replies': {
-                       'It looks dirty under there...': 2,
-                       'I should crawl underneath and take cover': 3
-                  }
-             },
-             '2': {
-                  'triggers': ['failToTakeCover']
-             },
-             '3': {
                   'triggers': ['hideUnderDesk']
              }
         },
@@ -3791,8 +4633,22 @@ EarthquakeDef = {
                 'addPoints': [50]
             }
         },
+                'moveDoor': {
+                    'events': {
+                        'replaceProp': ['brokenDoor', 'bridgeDoor']
+                    },
+                    'enableTriggers':['doorMoved']
+                },
+                'doorMoved' : {
+                    'disabled' : true
+                },
         'chairLocked': {
             'disabled':true
+        },
+        'checkIfSurvivedEarthquake': {
+            'events': {
+                'showConversation': ['firstEarthquakeConvo']
+            }
         },
         'completeChalkObjective': {
             'events': {
@@ -3809,19 +4665,15 @@ EarthquakeDef = {
         },
         'elevatorDown': {
             'events': {
-                'player-move': ['move-down'],
-                'player-moved': [3,1,0]
+                'player-move': ['move-down']
             },
-            'lives': Infinity,
-            'timeDelay': 500
+            'lives': Infinity
         },
         'elevatorUp': {
             'events': {
-                'player-move': ['move-up'],
-                'player-moved': [3,1,1]
+                'player-move': ['move-up']
             },
-            'lives': Infinity,
-            'timeDelay': 500
+            'lives': Infinity
         },
         'enteredSchoolUnprepared':{
             'events': {
@@ -3925,6 +4777,17 @@ EarthquakeDef = {
                 'setObjective': ['playtheERG', 'Learn about Emergency Response on the school computer']
             }
         },
+            'takeDoorFrame' : {
+                    'events' : {
+                        'takeFromScene' : [ {'name': 'A door frame','image':'doorframe.png', 'width':32, 'height':32 },
+                        'doorFrame']
+                    }
+                },
+                'moveDownedWires' : {
+                    'events' : {
+                        'replaceProp': ['Downedwire', 'Movedwire']
+                    }
+                },
         'shakeThingsUp': {
             'events': {
                 'completeObjective': ['talkToMrsFoo'],
@@ -3932,8 +4795,30 @@ EarthquakeDef = {
                 'setObjective': ['surviveEarthquake', 'React and Survive']
             },
             'enableTriggers': ['timeToTakeCover'],
-            'signalTriggers': ['timeToTakeCover']
+            // 'signalTriggers': ['timeToTakeCover']
         },
+                'clearSmoke' :{
+                    'events' : {
+                        'replaceProp': ['smoke', 'smokeSafe']
+                    }
+                },
+                'takeCloth' : {
+                    'events' : {
+                        'takeFromScene' : [{'name' : 'A cloth', 'image': 'cloth.png', 'width':32, 'height':32 },
+                                        'cloth']
+                    }
+                },
+                'wetTheCloth' : {
+                    'events' : {
+                        'removeInventory' : ['A cloth'],
+                        'removeFromScene' : ['cloth'],
+                        'addInventory' : [{'name' : 'A wet cloth', 'image': 'cloth.png', 'width':32, 'height':32 }]
+                    },
+                    'enableTriggers' : ['clothIsWet']
+                },
+                'clothIsWet' : {
+                    'disabled' : true
+                },
         'spokeToCoordinator': {
             'events': {
                 'completeObjective': ['talktoCoordinator'],
@@ -3994,11 +4879,17 @@ EarthquakeDef = {
             }
         },
         'timeToTakeCover': {
-            'events': {
-                'endGame': ['Game Over', 'You didn\'t find cover soon enough and a large beam struck your frontal cortex!']
-            },
+            'lives': Infinity,
             'disabled': true,
-            'timeDelay': 3000
+            'timeDelay': 300,
+            'events': {
+                'endGame': ['Game Over', 'You didn\'t find cover soon enough and a large beam struck fell on you!']
+            }
+        },
+        'brokenLights': {
+            'events': {
+                'disableLights': []
+            }
         },
         'wheelChair00' : {
             'disabled':true
@@ -4024,7 +4915,7 @@ EarthquakeDef = {
             'addPoints' : [20],
         }
     },
-    'inactiveProps': ['heavy-on-floor'],
+    'inactiveProps': ['heavy-on-floor','Movedwire','bridgeDoor'],
     '_player': {
         'x': 0,
         'y': 0,

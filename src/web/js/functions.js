@@ -632,11 +632,3 @@ function checkScenario(checkFunction, conditionProperty, secnarioProperty) {
     }
     return true;
 }
-
-function disableLights() {
-    $('#flashlight-overlay').removeClass('hidden');
-}
-
-function enableLights() {
-    $('#flashlightOverlay').addClass('hidden');
-}

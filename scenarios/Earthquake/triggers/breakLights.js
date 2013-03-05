@@ -1,4 +1,4 @@
-'turnOffLights': {
+'breakLights': {
     'events': {
         'disableLights': []
     }
