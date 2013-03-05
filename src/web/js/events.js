@@ -1,5 +1,5 @@
 // GLOBALS
-
+var lightsOn = true;
 /* ######################################## */
 /* ######################################## */
 
@@ -231,10 +231,12 @@ jQuery(document).ready(function($) {
     });
 
     $(document).on('disableLights', function (event) {
+        lightsOn = false;
         $('#flashlight-overlay').removeClass('hidden');
     });
 
     $(document).on('enableLights', function (event) {
+        lightsOn = true;
         $('#flashlightOverlay').addClass('hidden');
     });
 });
