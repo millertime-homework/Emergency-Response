@@ -55,7 +55,7 @@ body {
 }
 
 .ui {
-    z-index: 7;
+    z-index: 8;
 }
 
 .bold-colored-text {
@@ -164,16 +164,21 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 
 #controls-overlay {
     background: transparent;
+    //z-index: 8;
 }
 
 #flashlight-overlay {
-    z-index: 1; 
+    z-index: 7; 
     background-size: contain;
     &.flashlight-off {
         background-image: url('../img/flashlight-off.png');
     }
     &.flashlight-on {
         background-image: url('../img/flashlight-on.png');
+    }
+
+    .prop {
+        cursor: pointer;
     }
 }
 
