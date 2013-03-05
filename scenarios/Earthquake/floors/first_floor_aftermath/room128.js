@@ -13,6 +13,20 @@
             'image': 'R120-west.jpg',
             'destination': {
                 'x': 0
+            },
+            '_props' : {
+                'doorFrame': {
+                    'name': 'doorFrame',
+                    'image': 'doorframe.png',
+                    'width': 50,
+                    'height': 440,
+                    'left': 405,
+                    'top': 125,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'A door frame'
+                    }
+                }
             }
         },
         'n': {
@@ -20,6 +34,29 @@
             'image': 'R120-north.jpg',
             'destination': {
                 'y': 3
+            },
+			'_props' : {
+                'Downedwire': {
+                    'name': 'Downedwire',
+                    'image': 'downwiresNew.png',
+                    'width': 400,
+                    'height': 300,
+                    'left': 380,
+                    'top': 150,
+                    'action': 'showConversation',
+                        'actionVariables': {
+                            'conversationName': 'Hanging wires'
+                        },
+                    'barrier' : true
+                },
+                'Movedwire': {
+                    'name': 'Movedwire',
+                    'image': 'movedwiresNew.png',
+                    'width': 400,
+                    'height': 300,
+                    'left': 380,
+                    'top': 150
+                }
             }
         },
         's': {

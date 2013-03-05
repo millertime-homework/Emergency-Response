@@ -22,6 +22,24 @@
             'image': 'R100-north.jpg',
             'destination': {
                 'y': 1
+            },			
+			'_props' : {
+                'Downedwire': {
+                    'name': 'Downedwire',
+                    'image': 'downwiresNew.png',
+                    'width': 50,
+                    'height': 50,
+                    'left': 530,
+                    'top': 275
+                },
+				'Movedwire': {
+                    'name': 'Movedwire',
+                    'image': 'movedwiresNew.png',
+                    'width': 50,
+                    'height': 50,
+                    'left': 530,
+                    'top': 275
+                }
             }
         },
         's': {

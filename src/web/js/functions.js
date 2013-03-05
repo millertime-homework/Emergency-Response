@@ -6,6 +6,9 @@ var currentScenario;
 Managed by setGameState, so you can override it temporarily without cleaning up
 after yourself (ie, saving and then restoring the original value) */
 var canDismissModal = false;
+var erg = erg || {};
+erg.onScreenMessageContainer = jQuery('#on-screen-message-container');
+erg.onScreenMessageTemplate = jQuery('#on-sreen-message-template');
 
 jQuery(document).ready(function (jQuery) {
     jQuery(window).resize(function () {
@@ -275,6 +278,9 @@ function setGameState(state) {
     case GAME_STATE_MODAL:
         showNamedModal(jQuery('#modal'), false, true);
         break;
+    case GAME_STATE_FORCED_MODAL:
+        showNamedModal(jQuery('#modal'), false, false);
+        break;
     case GAME_STATE_OVER:
         showNamedModal(jQuery('#game-over-menu'), false, false);
     }
@@ -368,6 +374,23 @@ function hideModal() {
     } else if (gameState !== GAME_STATE_MENU) {
         setGameState(GAME_STATE_RUNNING);
     }
+}
+
+/**
+* Show a message via large text that overlays the middle of the viewport.
+* @param {string} message The message to be displayed.
+* @param {int} duration The number of seconds that the message should remain 
+*     on screen.
+*/
+function showOnScreenMessage(message, duration) {
+    duration = duration * 1000 || 5000;
+    erg.onScreenMessageTemplate.clone().
+            appendTo(erg.onScreenMessageContainer).
+            removeAttr('id').
+            text(message).
+            show().
+            delay(duration).
+            fadeOut(300, function () { jQuery(this).remove(); });
 }
 
 function showObjectivesIn(element, markInProgressAsFailed) {
@@ -465,11 +488,16 @@ jQuery.fn.opacity = function (opacity) {
     });
 }
 
-/*The remaining functions are all for showConversations. The main showConversation method
-is a bit of a mess but I don't understand the check/inventory check stuff well enough
-to want to mess with it anymore than I have.*/
-function showConversation(conversationName, currentConversationChoice) {
+/**
+* Shows a defined conversation with the specified name.
+* @param {string} conversationName The name of the conversation to show.
+* @param {string} currentConversationChoice The conversation choice to enter. If not provided, '1' is used.
+* @param {boolean} cannotSkip If true, the player cannot close the conversation early.
+*/
+function showConversation(conversationName, currentConversationChoice, cannotSkip) {
     var i, conversation, optionRowTemplate, currentOptionId, currentOption, replyChoices, choiceText;
+    cannotSkip = cannotSkip || jQuery('#modal').data('cannotSkip');
+    
     optionRowTemplate = "<li class='conversation-option' data-conversation-option='{0}'>{1}</li><br />";
 
     //fetch the conversation name if we're progressing through a conversation tree.
@@ -528,7 +556,8 @@ function showConversation(conversationName, currentConversationChoice) {
         hideModal();
         return;
     }
-
+    //Save whether the conversation can be skipped or not to the modal.
+    jQuery('#modal').data('cannotSkip', cannotSkip);
     //Show the message and reply options.
     jQuery('#modal #header').html(conversationName);
     jQuery('#modal #content').append(currentOption.message + '<p /> You Reply: <br /><ul>');
@@ -542,6 +571,9 @@ function showConversation(conversationName, currentConversationChoice) {
     jQuery('#modal #content').append('</ul>');
 
     showModal();
+    if (cannotSkip) {
+        setGameState(GAME_STATE_FORCED_MODAL);
+    }
 }
 
 function shouldShowReplyChoice(conversation, replyChoices, choiceText) {

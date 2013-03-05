@@ -1,4 +1,4 @@
-'Mrs Wheelchair': {
+'Mrs Lydia': {
     '1': {
         'check'  :[{'triggersEnabled':['wheelChair00'], 'goto':'3'}],
         'message': 'You see a woman struggling to get into a wheelchair.',

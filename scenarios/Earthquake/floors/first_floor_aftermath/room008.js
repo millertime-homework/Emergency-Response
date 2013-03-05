@@ -17,32 +17,6 @@
         'n': {
             'name': 'NClassroom008',
             'image': 'R000-north.jpg',
-            '_props': {
-                'mrs-wheelchair': {
-                    'name': 'mrs_wheelchair',
-                    'image': 'mrs_wheelchair.png',
-                    'width': 150,
-                    'height': 150,
-                    'left': 250,
-                    'top': 350,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'Mrs Wheelchair'
-                    }
-                },
-                'wheelchair':{
-                    'name':'the_wheelchair',
-                    'image':'wheelchair.png',
-                    'width':150,
-                    'height':150,
-                    'left': 350,
-                    'top': 200,
-                    'action':'showConversation',
-                    'actionVariables': {
-                        'conversationName' : 'wheelchair'
-                    }
-                }
-            }
         },
         's': {
             'name': 'SClassroom008',

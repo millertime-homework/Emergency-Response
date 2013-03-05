@@ -2,7 +2,7 @@
     'id': 'hall111',
     'x': 1,
     'y': 1,
-    '_triggers' : ['timeTillDeath'],
+    '_triggers' : ['shooterCloseGetShot'],
     '_walls': {
         'e': {
             'name': 'EHall111',
