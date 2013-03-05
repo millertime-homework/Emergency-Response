@@ -263,9 +263,11 @@ function setGameState(state) {
         break;
     case GAME_STATE_MODAL:
         showNamedModal(jQuery('#modal'), false, true);
+        jQuery('#modal-close').show();
         break;
     case GAME_STATE_FORCED_MODAL:
         showNamedModal(jQuery('#modal'), false, false);
+        jQuery('#modal-close').hide();
         break;
     case GAME_STATE_OVER:
         showNamedModal(jQuery('#game-over-menu'), false, false);
