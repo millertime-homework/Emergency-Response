@@ -198,13 +198,10 @@ jQuery(document).ready(function($) {
     $(document).on('failObjective', function (event, name) {
         failObjective(name);
     });
-<<<<<<< HEAD
 
     $(document).on('showConversation', function (event, conversationName) {
         showConversation(conversationName);
     });
-||||||| merged common ancestors
-=======
 
     /**
     * Shows a conversation in a standardized conversation modal.
@@ -228,5 +225,4 @@ jQuery(document).ready(function($) {
     $(document).on('showOnScreenMessage', function (event, message, duration) {
         showOnScreenMessage(message, duration);
     });
->>>>>>> 7c50e05e9f6ff916bc4122e5dc4a77382eb4c583
 });
