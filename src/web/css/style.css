@@ -9,8 +9,8 @@ body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Arial, sans-serif;
   font-weight: 300;
   font-size: 1em;
-  margin: 0px;
-  background-color: gray;
+  margin: 0;
+  padding: 0;
 }
 /* General/Misc */
 .bordered {
@@ -87,10 +87,14 @@ textarea:focus {
   height: 100px;
   min-height: 100px;
   width: 100%;
-  background-color: gray;
+  background-color: black;
+  background-image: url('../img/striped-background.jpg');
+  background-position: left bottom;
 }
 #main-header h1 {
   vertical-align: middle;
+  color: white;
+  text-shadow: 0 1px 0 #000000;
 }
 #main-content {
   width: 1265px;
@@ -100,11 +104,16 @@ textarea:focus {
   margin-right: auto;
 }
 #main-footer {
+  position: absolute;
+  top: 100%;
+  margin-top: -100px;
   height: 100px;
   min-height: 100px;
   width: 100%;
-  background-color: gray;
-  margin-bottom: 0px;
+  background-color: black;
+  background-image: url('../img/striped-background.jpg');
+  background-position: left top;
+  z-index: -1;
 }
 /*----Game viewport container*/
 #view-modal {

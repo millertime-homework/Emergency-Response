@@ -16,8 +16,8 @@ body {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Arial, sans-serif;
     font-weight: 300;
     font-size: 1em;
-    margin:0px;
-    background-color:gray;
+    margin:0;
+    padding:0;
 }
 
 /* General/Misc */
@@ -88,11 +88,14 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     height:100px;
     min-height:100px;
     width:100%;
-    background-color:gray;
-}
-
-#main-header h1 {
-    vertical-align: middle;
+    background-color: black;
+    background-image: url('../img/striped-background.jpg');
+    background-position: left bottom;
+    h1 {
+        vertical-align: middle;
+        color: white;
+        .text_shadow(#000);
+    }
 }
 
 #main-content {
@@ -104,11 +107,16 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 }
 
 #main-footer {
-    height:100px;
-    min-height:100px;
+    position: absolute;
+    top: 100%;
+    margin-top: -100px;
+    height: 100px;
+    min-height: 100px;
     width:100%;
-    background-color:gray;
-    margin-bottom:0px;
+    background-color:black;
+    background-image: url('../img/striped-background.jpg');
+    background-position: left top;
+    z-index: -1;
 }
 
 /*----Game viewport container*/
