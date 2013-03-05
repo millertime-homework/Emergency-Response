@@ -121,7 +121,7 @@ function timeDelayedStep(triggerName) {
     if(trigger.timeLeft <= 0)
          executeTimeDelayedTriggerEvent(triggerName);
     else if(trigger.timeLeft < 1000)
-         setTimeout(function () { executeTimeDelayedTriggerEvent(triggerName) }, trigger.timeDelay);
+         setTimeout(function () { executeTimeDelayedTriggerEvent(triggerName) }, trigger.timeLeft);
     else {
          showOnScreenMessage(Math.floor(trigger.timeLeft/1000), 0.5);
          trigger.timeLeft -= 1000;
