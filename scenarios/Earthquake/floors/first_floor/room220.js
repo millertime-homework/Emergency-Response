@@ -27,7 +27,7 @@
             'name': 'SStairs220',
             'image': 'R220-south.jpg',
             'destination': {
-                'y': 0
+                'y': 1
             }
         }
     }
