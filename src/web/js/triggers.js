@@ -106,7 +106,10 @@ function runTrigger(triggerName, trigger) {
     if (trigger.timeDelay > 0 && !isNaN(trigger.timeDelay)) {
         scenario.triggers.deferredByTime[triggerName] = trigger;
         trigger.timeLeft = trigger.timeDelay;
-        timeDelayedStep(triggerName);
+        if (trigger.showCountdown)
+                timeDelayedStep(triggerName);
+        else
+                setTimeout(function () { executeTimeDelayedTriggerEvent(triggerName) }, trigger.timeDelay);
     } else {
         executeTriggerEvent(trigger);
     }
