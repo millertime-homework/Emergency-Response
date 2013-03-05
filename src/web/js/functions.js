@@ -354,6 +354,8 @@ function emptyModal() {
 
 function hideModal() {
     // Hide any visible modal element
+    jQuery('#modal').data('conversationName', null);
+    jQuery('#modal').data('cannotSkip', null);
     if (lastGameState === GAME_STATE_MENU) {
         setGameState(GAME_STATE_MENU);
     }
@@ -481,16 +483,18 @@ jQuery.fn.opacity = function (opacity) {
 * @param {string} conversationName The name of the conversation to show.
 * @param {string} currentConversationChoice The conversation choice to enter. If not provided, '1' is used.
 * @param {boolean} cannotSkip If true, the player cannot close the conversation early.
+* @param {boolean} isAnAction If true, 'x says' and 'you reply' are not visible.
 */
-function showConversation(conversationName, currentConversationChoice, cannotSkip) {
-    var i, conversation, optionRowTemplate, currentOptionId, currentOption, replyChoices, choiceText;
+function showConversation(conversationName, currentConversationChoice, cannotSkip, isAnAction) {
+    var i, conversation, optionRowTemplate, currentOptionId, currentOption, 
+            replyChoices, choiceText, contentContainer;
     cannotSkip = cannotSkip || jQuery('#modal').data('cannotSkip');
     
     optionRowTemplate = "<li class='conversation-option' data-conversation-option='{0}'>{1}</li><br />";
 
     //fetch the conversation name if we're progressing through a conversation tree.
     if (!conversationName) {
-        conversationName = jQuery('#modal #header').text();
+        conversationName = jQuery('#modal').data('conversationName');
     }
 
     //Now the current contents from the modal.
@@ -547,8 +551,18 @@ function showConversation(conversationName, currentConversationChoice, cannotSki
     //Save whether the conversation can be skipped or not to the modal.
     jQuery('#modal').data('cannotSkip', cannotSkip);
     //Show the message and reply options.
-    jQuery('#modal #header').html(conversationName);
-    jQuery('#modal #content').append(currentOption.message + '<p /> You Reply: <br /><ul>');
+    jQuery('#modal').data('conversationName', conversationName);
+
+    if (!isAnAction) {
+        jQuery('#modal #header').html(conversationName + " says:");
+    }
+    contentContainer = jQuery('#modal #content');
+    contentContainer.append(currentOption.message + '<p />');
+
+    if (!isAnAction) {
+        contentContainer.append(' You Reply: <br />');
+    }
+    contentContainer.append('<ul>');
 
     replyChoices = currentOption.replies;
     for (choiceText in replyChoices) {
@@ -556,7 +570,7 @@ function showConversation(conversationName, currentConversationChoice, cannotSki
             jQuery('#modal #content ul').append(optionRowTemplate.format(replyChoices[choiceText], choiceText));
         }
     }
-    jQuery('#modal #content').append('</ul>');
+    contentContainer.append('</ul>');
 
     showModal();
     if (cannotSkip) {
