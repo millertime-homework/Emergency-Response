@@ -26,7 +26,7 @@
                     'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'door'
+                        'conversationName': 'lockableDoor2'
                     }
                 }
             }
