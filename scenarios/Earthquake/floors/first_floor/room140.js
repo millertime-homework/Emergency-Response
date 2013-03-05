@@ -15,7 +15,25 @@
             'image': 'R140-west.jpg',
             'destination': {
                 'x': 0
-            }
+            },
+			'_props' : {
+				'bike' : {
+					'named' : 'bike',
+					'image' : 'bike.png',
+					'width': 75,
+                    'height': 60,
+                    'left': 515,
+                    'top': 275,
+				},
+				'bikeMoved' : {
+					'named' : 'bikeMoved',
+					'image' : 'bikeMoved.png',
+					'width': 35,
+                    'height': 75,
+                    'left': 575,
+                    'top': 275,
+				}
+			}
         },
         'n': {
             'name': 'NHall140',

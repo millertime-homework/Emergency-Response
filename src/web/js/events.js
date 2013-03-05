@@ -74,6 +74,10 @@ jQuery(document).ready(function($) {
         showInventory();
     });
 
+    $('#modal-close, #modal-close #icon').click(function(){
+        hideModal();
+    })
+
     /** 
     * Should be triggered by any function that moves the player. Any functions
     * that should run after the player moves can react accordingly.

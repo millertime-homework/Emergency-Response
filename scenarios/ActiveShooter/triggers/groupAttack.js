@@ -3,7 +3,8 @@
         'warpPlayer': ['entryScene'],
         'showOnScreenMessage': ['You enter the room, turn to face the door, and see a group of people.']
     },
-    'startTriggers': ['shooterEnters']
+    'startTriggers': ['shooterEnters'],
+    'disabled': true
 },
 'shooterEnters': {
     'timeDelay': 6000,
@@ -47,7 +48,7 @@
 },
 'playerLivesShouldHaveHelped': {
     'events': {
-        'endGame': ['You survived', "Trapped in a room with no place to hide, the other students quickly decided to attack the shooter. The succeeded, but your help could have been the deciding factor. You should have helped your fellow students."]
+        'endGame': ['You survived', "Trapped in a room with no place to hide, the other students quickly decided to attack the shooter. They succeeded, but your help could have been the deciding factor. You should have helped your fellow students."]
     }
 },
 'deathToCowards': {

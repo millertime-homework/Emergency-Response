@@ -22,7 +22,42 @@
         },
         'w': {
             'name': 'WHall048',
-            'image': 'R040-west.jpg'
+            'image': 'R040-west.jpg',
+			'_props' : {
+				'bikeMangled' : {
+					'named' : 'bikeMangled',
+					'image' : 'bikeMangle.png',
+					'width': 350,
+                    'height': 425,
+                    'left': 355,
+                    'top': 140,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'A Mangled Bike'
+                    },
+					'barrier' : true
+				},
+				'beam' : {
+					'named' : 'beam',
+					'image' : 'beam.png',
+					'width': 60,
+                    'height': 450,
+                    'left': 385,
+                    'top': 130,
+				},
+				'bikeMoved' : {
+					'named' : 'bikeMoved',
+					'image' : 'bikeMoved.png',
+					'width': 100,
+                    'height': 300,
+                    'left': 750,
+                    'top': 300,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'A Bike against the wall.'
+                    }
+				}
+			}
         },
         'n': {
             'name': 'NHall048',
