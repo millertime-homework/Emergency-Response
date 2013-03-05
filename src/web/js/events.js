@@ -33,6 +33,7 @@ jQuery(document).ready(function($) {
             .animate({ left: '-2' }, speed)
             .animate({ left: '2' }, speed)
             .animate({ left: '-2' }, speed, function() {
+                $('#view-scene').css('left', ''); // clear left value
                 $('#view-scene').append('<img id="_dust" src="web/img/dust.png" style="z-index: 100; left: 100; width: 791px; height: 143px; position: absolute; display:block; top: 0; left:0;">');
                 $("#_dust")
                     .animate({ top: '60', width: '900', opacity: 0}, 300, function() {
@@ -42,6 +43,7 @@ jQuery(document).ready(function($) {
                                 $('#_dust').remove();
                                 $('#_dust2').remove();
                                 // Moves the player to aftermath floor
+                                $(document).trigger('disableLights');
                                 player.warp(player.facing, player.x, player.y, player.z + 8);
                             })
                     })
