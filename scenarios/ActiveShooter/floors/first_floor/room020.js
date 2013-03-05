@@ -12,21 +12,7 @@
         },
         'w': {
             'name': 'WClassroom020',
-            'image': 'R020-west.jpg',
-            '_props': {
-                'science-teacher': {
-                    'name': 'science-teacher',
-                    'image': 'science-teacher.png',
-                    'width': 120,
-                    'height': 200,
-                    'left': 500,
-                    'top': 200,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'Science Teacher'
-                    }
-                }
-            }
+            'image': 'R020-west.jpg'
         },
         'n': {
             'name': 'NClassroom020',
