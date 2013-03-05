@@ -239,6 +239,7 @@ function setGameState(state) {
         jQuery('#view-modal').hide();
         jQuery('.modal').hide();
         jQuery('#overlay').hide();
+        resetLights();
         showMainMenu();
         allowKeyEvents = false;
         break;
@@ -364,6 +365,11 @@ function hideModal() {
     }
 }
 
+
+function resetLights() {
+    lightsOn = true;
+    jQuery('#flashlight-overlay').addClass('hidden');
+}
 /**
 * Show a message via large text that overlays the middle of the viewport.
 * @param {string} message The message to be displayed.
