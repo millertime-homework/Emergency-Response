@@ -135,7 +135,8 @@ textarea:focus {
   -moz-box-shadow: 3px 3px 3px #888888;
 }
 .primary-view {
-  display: block;
+  /*display: block;*/
+
   position: absolute;
   height: 611px;
   width: 1115px;
@@ -148,6 +149,16 @@ textarea:focus {
 }
 #controls-overlay {
   background: transparent;
+}
+#flashlight-overlay {
+  z-index: 1;
+  background-size: contain;
+}
+#flashlight-overlay.flashlight-off {
+  background-image: url('../img/flashlight-off.png');
+}
+#flashlight-overlay.flashlight-on {
+  background-image: url('../img/flashlight-on.png');
 }
 #view-scene {
   position: absolute;

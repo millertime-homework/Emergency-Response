@@ -400,7 +400,7 @@ function showObjectivesIn(element, markInProgressAsFailed) {
 function showInventory() {
     var i, items, rowTemplate, inventoryItemsContainer, inventoryModal, attrs;
     // modeled after showConversation's implementation
-    rowTemplate = "<span><img src='web/img/{0}' alt=''{1}> {2}</span>";
+    rowTemplate = "<span class='inventory-item' id='{0}' onclick='inventoryItemClick(\"{0}\")'><img src='web/img/{1}' alt=''{2}> {3}</span>";
     items = player.inventory.items;
     inventoryModal = jQuery('#inventory-modal');
     inventoryItemsContainer = inventoryModal.find('#items-container');
@@ -415,8 +415,10 @@ function showInventory() {
             if (items[i].height) {
                 attrs += ' width="' + items[i].height + '"';
             }
-
-            inventoryItemsContainer.append(rowTemplate.format(items[i].image, attrs, items[i].name));
+            // Converts whitespace blocks into single dash
+            var itemId = items[i].name;
+            itemId = itemId.replace(' ', '-');
+            inventoryItemsContainer.append(rowTemplate.format(itemId, items[i].image, attrs, items[i].name));
         }
     }
     if (inventoryItemsContainer.find('span').length > 0) {
@@ -427,6 +429,30 @@ function showInventory() {
         inventoryModal.find('#inventory-items').hide();
     }
     setGameState(GAME_STATE_SHOW_INVENTORY);
+}
+
+function inventoryItemClick(itemId) {
+
+    validItemClicked = false;
+
+    if (itemId == 'Flashlight') {
+        validItemClicked = true;
+        flashlightOverlay = jQuery('#flashlight-overlay');
+        if (!flashlightOverlay.hasClass('hidden')) {
+            if (flashlightOverlay.hasClass('flashlight-on')) {
+                flashlightOverlay.removeClass('flashlight-on');
+                flashlightOverlay.addClass('flashlight-off');
+            } else {
+                flashlightOverlay.removeClass('flashlight-off');
+                flashlightOverlay.addClass('flashlight-on');
+            }
+        }
+    }
+
+    // Hide inventory modal if valid item clicked
+    if (validItemClicked) {
+        hideModal();
+    }
 }
 
 String.prototype.format = function () {
@@ -573,4 +599,12 @@ function checkScenario(checkFunction, conditionProperty, secnarioProperty) {
             }
     }
     return true;
+}
+
+function disableLights() {
+    $('#flashlight-overlay').removeClass('hidden');
+}
+
+function enableLights() {
+    $('#flashlightOverlay').addClass('hidden');
 }
