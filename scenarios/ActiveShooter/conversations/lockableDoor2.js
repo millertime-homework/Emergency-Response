@@ -7,6 +7,6 @@
         'triggers': ['closeDoor']
     },
     '3': {
-        'message': 'This door is locked.'
+        'triggers': ['doorIsLocked']
     }
 }
