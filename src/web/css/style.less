@@ -40,6 +40,7 @@ body {
 
 #inventory:hover {
     background:transparent url("../img/backpackHover.png");
+    cursor: pointer;
 }
 
 #cell-phone {
@@ -169,21 +170,11 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     padding: 2px 5px;
     outline-width: 0;
     position: absolute;
-    width: 30px;
-    height: 30px;
-    .opacity(100);
+    cursor: pointer;
+    .opacity(25);
     &:hover {
-        .opacity(50);
+        .opacity(100);
     }
-}
-
-
-#turn-left {
-   top: 50%;
-   background-color: transparent;
-}
-#turn-left.enabled {
-   background-image: url('../img/left.png');
 }
 
 #move-down {
@@ -191,42 +182,56 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     margin-top: -27px;
 }
 
+#turn-left {
+   top: 50%;
+   width: 52px;
+   height: 122px;
+   margin-top: -61px;
+   background-color: transparent;
+}
+
 #turn-left.enabled {
    background-image: url('../img/left.png');
 }
 
 #turn-left.disabled {
-   background-image: url('../img/leftDisabled.png');
+   display: none;
 }
 
 #move-forward {
-   margin-left: 50%;
-   background-color: transparent;
-}
-#move-forward.enabled {
-   background-image: url('../img/up.png');
+    width: 122px;
+    height: 52px;
+    left: 50%;
+    margin-left: -61px;
+    background-color: transparent;
 }
 
 #move-forward.enabled {
-   background-image: url('../img/up.png');
+    background-image: url('../img/up.png');
 }
+
 #move-forward.disabled {
-   background-image: url('../img/upDisabled.png');
+    display: none;
 }
 
 #turn-right {
-   top: 50%;
-   left: 100%;
-   margin-left: -31px;
-   background-color: transparent;
+    width: 52px;
+    height: 122px;
+    top: 50%;
+    left: 100%;
+    margin-left: -52px;
+    margin-top: -61px;
+    background-color: transparent;
 }
 
 #turn-right.enabled {
-   background-image: url('../img/right.png');
+    background-image: url('../img/right.png');
 }
+
 #turn-right.disabled {
-   background-image: url('../img/rightDisabled.png');
+    display: none;
 }
+
 .prop {
     position: absolute;
     overflow: visible;
