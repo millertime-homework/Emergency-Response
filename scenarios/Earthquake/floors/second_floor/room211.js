@@ -3,13 +3,6 @@
     'x': 2,
     'y': 1,
     '_walls': {
-        /* to allow player to 'move-down' */
-        'd': {
-            'destination': {
-                'z': 0,
-                'f': 'w'
-            }
-        },
         'e': {
             'name': 'EHall211',
             'image': 'R211-east.jpg',

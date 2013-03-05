@@ -568,7 +568,7 @@ function showConversation(conversationName, currentConversationChoice, cannotSki
     replyChoices = currentOption.replies;
     for (choiceText in replyChoices) {
         if (replyChoices.hasOwnProperty(choiceText) && shouldShowReplyChoice(conversation, replyChoices, choiceText)) {
-            jQuery('#modal #content').append(optionRowTemplate.format(replyChoices[choiceText], choiceText));
+            jQuery('#modal #content ul').append(optionRowTemplate.format(replyChoices[choiceText], choiceText));
         }
     }
     jQuery('#modal #content').append('</ul>');

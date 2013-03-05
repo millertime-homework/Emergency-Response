@@ -63,9 +63,6 @@ body {
 .pointer-cursor {
   cursor: pointer;
 }
-.conversation-option {
-  cursor: pointer;
-}
 input:hover,
 input:active,
 input:focus,
@@ -411,6 +408,52 @@ textarea:focus {
 }
 #modal {
   z-index: 10;
+}
+#modal #modal-close {
+  position: absolute;
+  left: -12px;
+  top: -12px;
+  z-index: 11;
+  width: 26px;
+  height: 26px;
+  -webkit-border-radius: 12px 12px 12px 12px;
+  -moz-border-radius: 12px 12px 12px 12px;
+  border-radius: 12px 12px 12px 12px;
+  background-color: white;
+  overflow: none;
+}
+#modal #modal-close #icon {
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  width: 24px;
+  height: 24px;
+  background-image: url('../img/closebutton_small.png');
+  cursor: pointer;
+}
+#modal #modal-close #icon:hover {
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  opacity: 0.5;
+  cursor: pointer;
+}
+#modal #content ul {
+  padding: 0;
+  list-style-type: none;
+}
+#modal #content ul .conversation-option {
+  padding: 2px 4px 2px 4px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid black;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+  background-color: #81C6F7;
+}
+#modal #content ul .conversation-option:hover {
+  background-color: #C2E4FC;
 }
 .phone-menu {
   position: absolute;
