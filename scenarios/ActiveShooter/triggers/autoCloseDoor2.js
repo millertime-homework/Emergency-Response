@@ -2,6 +2,6 @@
     'events' : {
         'replaceProp': ['door2-open', 'door2']
     },
-    'lives': Infinity,
+    'lives': -1,
     'moveDelay': 1
 }
