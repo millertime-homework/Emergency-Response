@@ -118,6 +118,8 @@ function runTrigger(triggerName, trigger) {
 
 function timeDelayedStep(triggerName) {
     var trigger = scenario.triggers.deferredByTime[triggerName];
+    if (trigger == null)
+        return;
     if(trigger.timeLeft <= 0)
          executeTimeDelayedTriggerEvent(triggerName);
     else if(trigger.timeLeft < 1000)
