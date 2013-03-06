@@ -16,11 +16,11 @@
             '_props': {
                 'mrsfooinjured': {
                     'name': 'Mrs. Foo Injured',
-                    'image': 'mrsfooinjured.png',
-                    'width': 500,
-                    'height': 104,
-                    'left': 100,
-                    'top': 400,
+                    'image': 'fooWounded.png',
+                    'width': 300,
+                    'height': 150,
+                    'left': 130,
+                    'top': 350,
                     'action': 'showConversation',
                     'actionVariables':{
                         'conversationName': 'Help Injured Foo'

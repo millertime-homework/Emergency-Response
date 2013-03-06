@@ -19,7 +19,7 @@
             '_props': {
                 'xavier': {
                     'name': 'xavier',
-                    'image': 'prof_bell.png',
+                    'image': 'XavierFront.png',
                     'width': 270,
                     'height': 480,
                     'left': 340,

@@ -51,11 +51,11 @@
             '_props': {
                 'xavier': {
                     'name': 'xavier',
-                    'image': 'prof_bell.png',
-                    'width': 219,
-                    'height': 391,
-                    'left': 600,
-                    'top': 210 
+                    'image': 'XavierLeft.png',
+                    'width': 200,
+                    'height': 380,
+                    'left': 575,
+                    'top': 190
                 }
             }
         }
