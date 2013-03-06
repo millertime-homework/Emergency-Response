@@ -64,7 +64,22 @@
             'image': 'R120-south.jpg',
             'destination': {
                 'y': 1
-            }
-        }
+            },
+			'_props' : {
+				'GirlRunner2' : {    
+					'name': 'GirlRunner2',
+                    'image': 'girlRunning.png',
+                    'width': 100,
+                    'height': 100,
+                    'left': 250,
+                    'top': 250,
+					'action': 'showConversation',
+					'actionVariables': {
+                        'conversationName': 'Lindsey'
+                    }
+
+				}
+			}
+		}
     }
 }
