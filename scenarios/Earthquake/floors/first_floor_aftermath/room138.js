@@ -2,6 +2,7 @@
     'id': 'hall138',
     'x': 1, 
     'y': 3,
+	'_triggers': ['girlRunspast','removeRunner'],
     '_walls': {
         'e': {
             'name': 'NHall138',
@@ -51,8 +52,34 @@
                     'height': 122,
                     'left': 490,
                     'top': 240
-                }
+                },
+				'GirlRunner2' : {    
+					'name': 'GirlRunner',
+                    'image': 'girlRunning.png',
+                    'width': 50,
+                    'height': 50,
+                    'left': 275,
+                    'top': 275
+				}
             }
-        }
+        },
+		'Runscene': {
+            'name': 'Runscene',
+            'image': 'R130-north.jpg',
+			'isCutscene': true,
+            'destination': {
+                'x': 2
+            },
+			'_props' : {
+			    'GirlRunner' : {    
+					'name': 'GirlRunner',
+                    'image': 'girlRunning.png',
+                    'width': 100,
+                    'height': 100,
+                    'left': 250,
+                    'top': 250,
+				}
+			}
+        },
     }
 }
