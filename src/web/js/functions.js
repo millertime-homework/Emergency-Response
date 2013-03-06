@@ -8,7 +8,7 @@ after yourself (ie, saving and then restoring the original value) */
 var canDismissModal = false;
 var erg = erg || {};
 erg.onScreenMessageContainer = jQuery('#on-screen-message-container');
-erg.onScreenMessageTemplate = jQuery('#on-sreen-message-template');
+erg.onScreenMessageTemplate = jQuery('#on-screen-message-template');
 
 jQuery(document).ready(function (jQuery) {
     jQuery(window).resize(function () {
@@ -263,9 +263,11 @@ function setGameState(state) {
         break;
     case GAME_STATE_MODAL:
         showNamedModal(jQuery('#modal'), false, true);
+        jQuery('#modal-close').show();
         break;
     case GAME_STATE_FORCED_MODAL:
         showNamedModal(jQuery('#modal'), false, false);
+        jQuery('#modal-close').hide();
         break;
     case GAME_STATE_OVER:
         showNamedModal(jQuery('#game-over-menu'), false, false);
@@ -551,7 +553,7 @@ function showConversation(conversationName, currentConversationChoice, cannotSki
     replyChoices = currentOption.replies;
     for (choiceText in replyChoices) {
         if (replyChoices.hasOwnProperty(choiceText) && shouldShowReplyChoice(conversation, replyChoices, choiceText)) {
-            jQuery('#modal #content').append(optionRowTemplate.format(replyChoices[choiceText], choiceText));
+            jQuery('#modal #content ul').append(optionRowTemplate.format(replyChoices[choiceText], choiceText));
         }
     }
     jQuery('#modal #content').append('</ul>');

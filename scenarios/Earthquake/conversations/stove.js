@@ -1,8 +1,9 @@
-'stoveConvo': {
+'Bunsen Burner': {
     '1':{
-        'message': 'The stove is hot and feels as though it was just used.',
+        'message': 'There is an unattended experiment in progress.' + 
+		           'The bunsen burner has be left on to cook',
         'replies': {
-            '...': 0
+            'I don\'t want to disrupt the experiment': 0
         }
     }
 }
