@@ -25,14 +25,6 @@
                     'height': 100,
                     'left': 420,
                     'top': 250
-                },
-                'Room110Sign' : {
-                    'name': 'Room110Sign',
-                    'image': 'sign-room110.png',
-                    'width': 19,
-                    'height': 10,
-                    'left' : 670,
-                    'top': 305
                 }
             }
         },

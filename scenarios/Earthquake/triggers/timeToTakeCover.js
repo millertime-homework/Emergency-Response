@@ -1,7 +1,8 @@
 'timeToTakeCover': {
     'events': {
-        'endGame': ['Game Over', 'You didn\'t find cover soon enough and a large beam struck your frontal cortex!']
+        'endGame': ['Game Over', 'You didn\'t find cover soon enough and you were struck by falling debris!']
     },
-    'disabled': true,
-    'timeDelay': 3000
+    'timeDelay': 4000,
+    'showCountdown': true,
+    'lives': Infinity
 }

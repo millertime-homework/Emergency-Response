@@ -12,16 +12,6 @@
             'image': 'R120-west.jpg',
             'destination': {
                 'x': 0
-            },
-            '_props': {
-                'Room120Sign' : {
-                    'name': 'Room120Sign',
-                    'image': 'sign-room120.png',
-                    'width': 80,
-                    'height': 43,
-                    'left' : 585,
-                    'top': 365
-                }
             }
         },
         'n': {
