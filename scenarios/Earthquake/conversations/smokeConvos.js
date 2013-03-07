@@ -48,7 +48,7 @@
                 'check' : [{'has':['Water'], 'goto': '3'}],
                 'message' : 'A cloth lies on the ground nearby.  Perhaps it will be of use later',
                 'replies' : {
-                    'Nope a random piece of cloth is always usless.' : '0',
+                    'Nope a random piece of cloth is always useless.' : '0',
                     'I\'ll take it, it may come in handy.' : '2'
                 }
             },
@@ -58,7 +58,7 @@
             '3' : {
                 'message' : 'A cloth lies on the ground nearby.',
                 'replies' : {
-                    'Nope a random piece of cloth is always usless.' : '0',
+                    'Nope a random piece of cloth is always useless.' : '0',
                     'I could put water on it to protect me from the smoke' : '4'
                 }
             },

@@ -23,28 +23,6 @@
             'image': 'R241-south.jpg',
             'destination': {
                 'y': 3
-            },
-            '_props': {
-                'heavy': {
-                    'name': 'heavy',
-                    'image': 'heavy.png',
-                    'width': 300,
-                    'height': 300,
-                    'left': 400,
-                    'top': 20,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'Heavy Object'
-                    }
-                },
-                'heavy-on-floor': {
-                    'name': 'heavy',
-                    'image': 'heavy.png',
-                    'width': 300,
-                    'height': 300,
-                    'left': 400,
-                    'top': 320
-                }
             }
         }
     }
