@@ -3,11 +3,15 @@ function saveGame() {
         document.cookie = 'emergencySave=; expires=Sat, 1-Jan-2000 00:00:00 GMT'; // expire in the past to delete
         return;
     }
+    var inactList = [];
+    for (var i in scenario.inactiveProps) 
+        if (scenario.inactiveProps.hasOwnProperty(i))
+            inactList[inactList.length] = i;
     var saveable = {
-        "player": {"x": player.x, "y": player.y, "z": player.z, "facing": player.facing},
+        "x": player.x, "y": player.y, "z": player.z, "facing": player.facing,
         "scenario": currentScenario,
         "objectives": scenario.objectives,
-        "inactiveProps": scenario.inactiveProps,
+        "inactiveProps": inactList,
         "inventory": player.inventory.items,
         "triggers": scenario.triggers
     };
@@ -27,15 +31,16 @@ function loadGame() {
     currentScenario = saveable.scenario;
     loadScenario(window[currentScenario]);
     
-    player.x = saveable.player.x;
-    player.y = saveable.player.y;
-    player.z = saveable.player.z;
-    player.facing = saveable.player.facing;
+    player.x = saveable.x;
+    player.y = saveable.y;
+    player.z = saveable.z;
+    player.facing = saveable.facing;
     player.inventory.items = saveable.inventory;
     scenario.objectives = saveable.objectives;
     scenario.triggers = saveable.triggers;
     // restore timed triggers
-    scenario.inactiveProps = saveable.inactiveProps;
+    for (var i = 0; i < saveable.inactiveProps.length; i++)
+        scenario.inactiveProps[saveable.inactiveProps[i]] = true;
     renderScene();
     updateMap();
     for (var name in scenario.objectives.inProgress) {
