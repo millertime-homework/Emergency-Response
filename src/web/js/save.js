@@ -21,11 +21,11 @@ function saveGame() {
         var input = scenario.triggers[name];
         var result = {};
         for (var i in input) {
-            result[i] = {'lives': input[i].lives};
+            result[i] = [input[i].lives];
             if (!Number.isFinite(result[i].lives))
-                result[i].lives = -1; // JSON doesn't have Infinity
+                result[i][0] = -1; // JSON doesn't have Infinity
             if (input[i].timeLeft != null && name == 'deferredByTime')
-                result[i].timeLeft = input[i].timeLeft;
+                result[i][1] = input[i].timeLeft;
         }
         saveable[saveableVars.triggers+j] = result;
     }
@@ -61,9 +61,9 @@ function loadGame() {
         var result = {};
         for (var i in input) {
             result[i] = allTriggers[i];
-            result[i].lives = input[i].lives;
-            if (input[i].timeLeft != null)
-                result[i].timeLeft = input[i].timeLeft;
+            result[i][0] = input[i].lives;
+            if (input[i][1] != null)
+                result[i][1] = input[i].timeLeft;
         }
         scenario.triggers[name] = result;
     }
