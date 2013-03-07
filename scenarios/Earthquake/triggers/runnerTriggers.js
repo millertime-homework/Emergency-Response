@@ -1,7 +1,7 @@
 'girlRunspast' : {
 	'events' : {
 		'warpPlayer' : ['Runscene'],
-		'showOnScreenMessage' : ['As your moving down the hallway a woman comes out of a nearby classroom and runs past you.']
+		'showOnScreenMessage' : ['As you move down the hallway a woman comes out of a nearby classroom and runs past you.']
 	},
 	'startTriggers': ['ShePasses'],
 },
