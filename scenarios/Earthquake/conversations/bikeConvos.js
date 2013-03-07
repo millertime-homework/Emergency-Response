@@ -12,7 +12,7 @@
 },
 'A Bike against the wall' : {
 	'1' : {
-		'message' : 'The bike now rests proped up against the wall.',
+		'message' : 'The bike now rests propped up against the wall.',
 		'replies' : {
 			'Excellent, it\'s all safe now.' : 0
 		}
