@@ -54,14 +54,6 @@
                     'height': 104,
                     'left': 650,
                     'top': 190
-                },
-                'Room110Sign': {
-                    'name': 'Room110Sign',
-                    'image': 'sign-room110-skew.png',
-                    'width': 47,
-                    'height': 39,
-                    'left': 340,
-                    'top': 320
                 }
             }
         },

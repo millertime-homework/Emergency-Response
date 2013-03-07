@@ -44,6 +44,30 @@
                 'x': 1
             },
 			'_props': {
+				'bikeMangled' : {
+					'named' : 'bikeMangled',
+					'image' : 'bikeMangle.png',
+					'width': 35,
+                    'height': 50,
+                    'left': 540,
+                    'top': 280,
+				},
+				'beam' : {
+					'named' : 'beam',
+					'image' : 'beam.png',
+					'width': 13,
+                    'height': 55,
+                    'left': 535,
+                    'top': 280
+				},
+				'bikeMoved' : {
+					'named' : 'bikeMoved',
+					'image' : 'bikeMoved.png',
+					'width': 15,
+                    'height': 30,
+                    'left': 580,
+                    'top': 294,
+				},
                 'mrs-wheelchair': {
                     'name': 'mrs_wheelchair',
                     'image': 'mrs_wheelchair.png',

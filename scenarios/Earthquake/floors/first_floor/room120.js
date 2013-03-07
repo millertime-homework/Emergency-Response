@@ -13,26 +13,22 @@
             'destination': {
                 'x': 0
             },
-            '_props': {
-                'xavier': {
-                    'name': 'xavier',
-                    'image': 'prof_bell.png',
-                    'width': 200,
-                    'height': 354,
-                    'left': 600,
-                    'top': 290,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'Professor Xavier'
-                    }
-                }
-            }
         },
         'n': {
             'name': 'NHall120',   
             'image': 'R120-north.jpg',
             'destination': {
                 'y': 3
+            },
+            '_props': {
+                'xavier': {
+                    'name': 'xavier',
+                    'image': 'prof_bell.png',
+                    'width': 40,
+                    'height': 68,
+                    'left': 520,
+                    'top': 280
+                }
             }
         },
         's': {

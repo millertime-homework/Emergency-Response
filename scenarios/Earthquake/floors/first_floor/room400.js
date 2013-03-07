@@ -19,6 +19,20 @@
             'image': 'R400-north.jpg',
             'destination': {
                 'y': 1
+            },
+			'_props':{
+                'screwdriver':{
+                    'name':'screwdriver',
+                    'image':'screwdriver.png',
+                    'width': 35,
+                    'height': 35,
+                    'left': 725,
+                    'top': 380,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'screwdriverconvo'
+                    }
+                },
             }
         },
         's': {

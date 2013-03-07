@@ -6,6 +6,9 @@ var currentScenario;
 Managed by setGameState, so you can override it temporarily without cleaning up
 after yourself (ie, saving and then restoring the original value) */
 var canDismissModal = false;
+var erg = erg || {};
+erg.onScreenMessageContainer = jQuery('#on-screen-message-container');
+erg.onScreenMessageTemplate = jQuery('#on-screen-message-template');
 
 jQuery(document).ready(function (jQuery) {
     jQuery(window).resize(function () {
@@ -236,6 +239,7 @@ function setGameState(state) {
         jQuery('#view-modal').hide();
         jQuery('.modal').hide();
         jQuery('#overlay').hide();
+        resetLights();
         showMainMenu();
         allowKeyEvents = false;
         break;
@@ -260,6 +264,11 @@ function setGameState(state) {
         break;
     case GAME_STATE_MODAL:
         showNamedModal(jQuery('#modal'), false, true);
+        jQuery('#modal-close').show();
+        break;
+    case GAME_STATE_FORCED_MODAL:
+        showNamedModal(jQuery('#modal'), false, false);
+        jQuery('#modal-close').hide();
         break;
     case GAME_STATE_OVER:
         showNamedModal(jQuery('#game-over-menu'), false, false);
@@ -356,6 +365,28 @@ function hideModal() {
     }
 }
 
+
+function resetLights() {
+    lightsOn = true;
+    jQuery('#flashlight-overlay').addClass('hidden');
+}
+/**
+* Show a message via large text that overlays the middle of the viewport.
+* @param {string} message The message to be displayed.
+* @param {int} duration The number of seconds that the message should remain 
+*     on screen.
+*/
+function showOnScreenMessage(message, duration) {
+    duration = duration * 1000 || 5000;
+    erg.onScreenMessageTemplate.clone().
+            appendTo(erg.onScreenMessageContainer).
+            removeAttr('id').
+            text(message).
+            show().
+            delay(duration).
+            fadeOut(300, function () { jQuery(this).remove(); });
+}
+
 function showObjectivesIn(element, markInProgressAsFailed) {
     var objectivesInProgress, objectivesCompleted, objectivesFailed;
 
@@ -400,7 +431,7 @@ function showObjectivesIn(element, markInProgressAsFailed) {
 function showInventory() {
     var i, items, rowTemplate, inventoryItemsContainer, inventoryModal, attrs;
     // modeled after showConversation's implementation
-    rowTemplate = "<span><img src='web/img/{0}' alt=''{1}> {2}</span>";
+    rowTemplate = "<span class='inventory-item' id='{0}' onclick='inventoryItemClick(\"{0}\")'><img src='web/img/{1}' alt=''{2}> {3}</span>";
     items = player.inventory.items;
     inventoryModal = jQuery('#inventory-modal');
     inventoryItemsContainer = inventoryModal.find('#items-container');
@@ -415,8 +446,10 @@ function showInventory() {
             if (items[i].height) {
                 attrs += ' width="' + items[i].height + '"';
             }
-
-            inventoryItemsContainer.append(rowTemplate.format(items[i].image, attrs, items[i].name));
+            // Converts whitespace blocks into single dash
+            var itemId = items[i].name;
+            itemId = itemId.replace(' ', '-');
+            inventoryItemsContainer.append(rowTemplate.format(itemId, items[i].image, attrs, items[i].name));
         }
     }
     if (inventoryItemsContainer.find('span').length > 0) {
@@ -427,6 +460,30 @@ function showInventory() {
         inventoryModal.find('#inventory-items').hide();
     }
     setGameState(GAME_STATE_SHOW_INVENTORY);
+}
+
+function inventoryItemClick(itemId) {
+
+    validItemClicked = false;
+
+    if (itemId == 'Flashlight') {
+        validItemClicked = true;
+        flashlightOverlay = jQuery('#flashlight-overlay');
+        if (!flashlightOverlay.hasClass('hidden')) {
+            if (flashlightOverlay.hasClass('flashlight-on')) {
+                flashlightOverlay.removeClass('flashlight-on');
+                flashlightOverlay.addClass('flashlight-off');
+            } else {
+                flashlightOverlay.removeClass('flashlight-off');
+                flashlightOverlay.addClass('flashlight-on');
+            }
+        }
+    }
+
+    // Hide inventory modal if valid item clicked
+    if (validItemClicked) {
+        hideModal();
+    }
 }
 
 String.prototype.format = function () {
@@ -451,11 +508,16 @@ jQuery.fn.opacity = function (opacity) {
     });
 }
 
-/*The remaining functions are all for showConversations. The main showConversation method
-is a bit of a mess but I don't understand the check/inventory check stuff well enough
-to want to mess with it anymore than I have.*/
-function showConversation(conversationName, currentConversationChoice) {
+/**
+* Shows a defined conversation with the specified name.
+* @param {string} conversationName The name of the conversation to show.
+* @param {string} currentConversationChoice The conversation choice to enter. If not provided, '1' is used.
+* @param {boolean} cannotSkip If true, the player cannot close the conversation early.
+*/
+function showConversation(conversationName, currentConversationChoice, cannotSkip) {
     var i, conversation, optionRowTemplate, currentOptionId, currentOption, replyChoices, choiceText;
+    cannotSkip = cannotSkip || jQuery('#modal').data('cannotSkip');
+    
     optionRowTemplate = "<li class='conversation-option' data-conversation-option='{0}'>{1}</li><br />";
 
     //fetch the conversation name if we're progressing through a conversation tree.
@@ -514,7 +576,8 @@ function showConversation(conversationName, currentConversationChoice) {
         hideModal();
         return;
     }
-
+    //Save whether the conversation can be skipped or not to the modal.
+    jQuery('#modal').data('cannotSkip', cannotSkip);
     //Show the message and reply options.
     jQuery('#modal #header').html(conversationName);
     jQuery('#modal #content').append(currentOption.message + '<p /> You Reply: <br /><ul>');
@@ -522,12 +585,15 @@ function showConversation(conversationName, currentConversationChoice) {
     replyChoices = currentOption.replies;
     for (choiceText in replyChoices) {
         if (replyChoices.hasOwnProperty(choiceText) && shouldShowReplyChoice(conversation, replyChoices, choiceText)) {
-            jQuery('#modal #content').append(optionRowTemplate.format(replyChoices[choiceText], choiceText));
+            jQuery('#modal #content ul').append(optionRowTemplate.format(replyChoices[choiceText], choiceText));
         }
     }
     jQuery('#modal #content').append('</ul>');
 
     showModal();
+    if (cannotSkip) {
+        setGameState(GAME_STATE_FORCED_MODAL);
+    }
 }
 
 function shouldShowReplyChoice(conversation, replyChoices, choiceText) {

@@ -105,11 +105,30 @@ function runTrigger(triggerName, trigger) {
 
     if (trigger.timeDelay > 0 && !isNaN(trigger.timeDelay)) {
         scenario.triggers.deferredByTime[triggerName] = trigger;
-        setTimeout(function () { executeTimeDelayedTriggerEvent(triggerName) }, trigger.timeDelay);
+        trigger.timeLeft = trigger.timeDelay;
+        if (trigger.showCountdown)
+                timeDelayedStep(triggerName);
+        else
+                setTimeout(function () { executeTimeDelayedTriggerEvent(triggerName) }, trigger.timeDelay);
     } else {
         executeTriggerEvent(trigger);
     }
 
+}
+
+function timeDelayedStep(triggerName) {
+    var trigger = scenario.triggers.deferredByTime[triggerName];
+    if (trigger == null)
+        return;
+    if(trigger.timeLeft <= 0)
+         executeTimeDelayedTriggerEvent(triggerName);
+    else if(trigger.timeLeft < 1000)
+         setTimeout(function () { executeTimeDelayedTriggerEvent(triggerName) }, trigger.timeLeft);
+    else {
+         showOnScreenMessage(Math.floor(trigger.timeLeft/1000), 0.5);
+         trigger.timeLeft -= 1000;
+         setTimeout(function () { timeDelayedStep(triggerName) }, 1000);
+    }
 }
 
 //A simple wrapper around executeTriggerEvent. Purpose is to ensure that the time-delayed triggers

@@ -7,10 +7,6 @@
         }
     },
     '2': {
-        'check': [{'objectivesCompleted': ['dropOffLabWork'], 'goto': 3}],
-        'triggers': ['pickUpBook']
-    },
-    '3': {
         'triggers': ['pickUpBook', 'getToClass']
     }
 }
