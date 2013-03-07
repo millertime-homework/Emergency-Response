@@ -8,8 +8,7 @@
             'image': 'R540-east.jpg',
 			'destination': {
                 'x': 6
-            },
-			'triggers': ['exitedBuilding']
+            }
         },
         'w': {
             'name': 'WHall548',

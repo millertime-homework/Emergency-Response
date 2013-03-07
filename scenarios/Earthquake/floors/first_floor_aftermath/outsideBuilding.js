@@ -2,6 +2,7 @@
      'id': 'outside',
      'x': -1,
      'y': 4,
+     '_triggers': ['exitedBuilding'],
      '_walls': {
           'e': {
                'name': 'EOutside',

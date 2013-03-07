@@ -22,8 +22,6 @@
         },
         'w': {
             'name': 'WHall048',
-
-			'triggers': ['exitedBuilding'
             'image': 'R040-west.jpg',
 			'destination': {
                 'x': -1
