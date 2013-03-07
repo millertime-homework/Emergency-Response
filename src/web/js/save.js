@@ -1,3 +1,4 @@
+var triggerTypes = ['disabled', 'pool', 'waitingForSignal', 'deferredByMoves', 'deferredByTime', 'deferredByObjectives'];
 function saveGame() {
     if (gameState == GAME_STATE_OVER) {
         document.cookie = 'emergencySave=; expires=Sat, 1-Jan-2000 00:00:00 GMT'; // expire in the past to delete
@@ -13,9 +14,23 @@ function saveGame() {
         "objectives": scenario.objectives,
         "inactiveProps": inactList,
         "inventory": player.inventory.items,
-        "triggers": scenario.triggers
+        "triggers": {}
     };
+    for (var j = 0; j < triggerTypes.length; j++) {
+        var name = triggerTypes[j];
+        var input = scenario.triggers[name];
+        var result = {};
+        for (var i in input) {
+            result[i] = {'lives': input[i].lives};
+            if (!Number.isFinite(result[i].lives))
+                result[i].lives = -1; // JSON doesn't have Infinity
+            if (input[i].timeLeft != null && name == 'deferredByTime')
+                result[i].timeLeft = input[i].timeLeft;
+        }
+        saveable.triggers[name] = result;
+    }
     var str = escape(JSON.stringify(saveable));
+    console.log(JSON.stringify(saveable));
     // TODO expire
     document.cookie = "emergencySave="+str+"";
 }
@@ -31,14 +46,28 @@ function loadGame() {
     currentScenario = saveable.scenario;
     loadScenario(window[currentScenario]);
     
+    var allTriggers = jQuery.extend(true, {}, window[currentScenario]._triggers);
+    
     player.x = saveable.x;
     player.y = saveable.y;
     player.z = saveable.z;
     player.facing = saveable.facing;
     player.inventory.items = saveable.inventory;
     scenario.objectives = saveable.objectives;
-    scenario.triggers = saveable.triggers;
-    // restore timed triggers
+    clearAllTriggers();
+    for (var j = 0; j < triggerTypes.length; j++) {
+        var name = triggerTypes[j];
+        var input = saveable.triggers[name];
+        var result = {};
+        for (var i in input) {
+            result[i] = allTriggers[i];
+            result[i].lives = input[i].lives;
+            if (input[i].timeLeft != null)
+                result[i].timeLeft = input[i].timeLeft;
+        }
+        scenario.triggers[name] = result;
+    }
+    scenario.inactiveProps = {};
     for (var i = 0; i < saveable.inactiveProps.length; i++)
         scenario.inactiveProps[saveable.inactiveProps[i]] = true;
     renderScene();
