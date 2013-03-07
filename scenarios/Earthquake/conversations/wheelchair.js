@@ -1,6 +1,6 @@
 'wheelchair':{
     '1': {
-        'message':'An abanndoned wheelchair',
+        'message':'An abandoned wheelchair',
         'replies':{
             'Lock the wheelchair':2,
             'Unlock the wheelchair':0
