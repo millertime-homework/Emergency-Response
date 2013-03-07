@@ -1,38 +1,53 @@
 // GLOBALS
-
+var lightsOn = true;
 /* ######################################## */
 /* ######################################## */
 
 jQuery(document).ready(function($) {
 
+
+    function shakeScene(count) {
+        if (count <= 0) return;
+
+        var speed = 100;
+
+        $('#view-scene')
+            .animate({ left: '2' }, speed)
+            .animate({ left: '-2' }, speed)
+            .animate({ left: '0' }, speed, shakeScene(count-1))
+    }
+
     $(document).on('startEarthquake', function() {
+        var speed = 100;
 
-
-        // Moves the player to aftermath floor
-        player.set(player.x, player.y, player.z + 8, player.facing, player.scenario);
-        $(document).trigger('player-moved', [player.x, player.y, player.z]);
-
-        // Shakes the scene image - super realistic.
-        // var image = $('#view-scene');
-        // console.log($(image).attr('src'));
-        // var speed = 30;
-        // image.stop(true);
-        // for (i = 0; i < 5; i++) {
-        //     console.log('animating...')
-        //     image.animate({
-        //         left: '-5'
-        //     }, speed).animate({ 
-        //         left: '10'
-        //     }, speed).animate({
-        //         left: '-5'
-        //     }).animate({
-        //         left: '10'
-        //     }, speed).animate({
-        //         left: '0'
-        //     }, speed)
-        //     image.css('left', '');
-        //     console.log(image.css('left'))
-        // }
+        $('#view-scene')
+            .animate({ left: '2' }, speed)
+            .animate({ left: '-2' }, speed)
+            .animate({ left: '2' }, speed)
+            .animate({ left: '-2' }, speed)
+            .animate({ left: '2' }, speed)
+            .animate({ left: '-2' }, speed)
+            .animate({ left: '2' }, speed)
+            .animate({ left: '-2' }, speed)
+            .animate({ left: '2' }, speed)
+            .animate({ left: '-2' }, speed)
+            .animate({ left: '2' }, speed)
+            .animate({ left: '-2' }, speed, function() {
+                $('#view-scene').css('left', ''); // clear left value
+                $('#view-scene').append('<img id="_dust" src="web/img/dust.png" style="z-index: 100; left: 100; width: 791px; height: 143px; position: absolute; display:block; top: 0; left:0;">');
+                $("#_dust")
+                    .animate({ top: '60', width: '900', opacity: 0}, 300, function() {
+                        $('#view-scene').append('<img id="_dust2" src="web/img/dust.png" style="z-index: 100; left: 100; width: 791px; height: 143px; position: absolute; display:block; top: 0; left:0;">');
+                        $('#_dust2')
+                            .animate({ top: '100', width: '1200', opacity: 0 }, 600, function() {
+                                $('#_dust').remove();
+                                $('#_dust2').remove();
+                                // Moves the player to aftermath floor
+                                $(document).trigger('disableLights');
+                                player.warp(player.facing, player.x, player.y, player.z + 8);
+                            })
+                    })
+            })
     });
 
     // Call renderScene when player moves
@@ -190,6 +205,10 @@ jQuery(document).ready(function($) {
         failObjective(name);
     });
 
+    $(document).on('showConversation', function (event, conversationName) {
+        showConversation(conversationName);
+    });
+
     /**
     * Shows a conversation in a standardized conversation modal.
     * @param {string} conversationName The name of the conversation to be 
@@ -211,5 +230,15 @@ jQuery(document).ready(function($) {
     */
     $(document).on('showOnScreenMessage', function (event, message, duration) {
         showOnScreenMessage(message, duration);
+    });
+
+    $(document).on('disableLights', function (event) {
+        lightsOn = false;
+        $('#flashlight-overlay').removeClass('hidden');
+    });
+
+    $(document).on('enableLights', function (event) {
+        lightsOn = true;
+        $('#flashlightOverlay').addClass('hidden');
     });
 });

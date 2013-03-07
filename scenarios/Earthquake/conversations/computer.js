@@ -61,7 +61,7 @@
 	'9' : {
 		'message' : 'It is important to have professionals...',
 		'replies' : {
-			'clean and repair chimmies, vents, and electrical wiring.' : 10,
+			'clean and repair chimneys, vents, and electrical wiring.' : 10,
 			'look over your car for hazardous material.' : 11,
 			'I can do it myself, professionals aren\'t important.' : 11
 		}
@@ -125,7 +125,7 @@
 		}
 	},
 	'18' : {
-		'message' : 'Question 3: You\'re in your car when an earthquak hits, you ...',
+		'message' : 'Question 3: You\'re in your car when an earthquake hits, you ...',
 		'replies' : {
 			'Pull over away from overpasses or power lines and hold on.' : 19,
 			'Drive faster so you can escape the quake.' : 20,
@@ -150,7 +150,7 @@
 		'message' : 'Question 1: The disaster plans of your family\'s school and jobs should...',
 		'replies' : {
 			'be a mystery' : 23,
-			'be known incase a disaster strikes.' : 22,
+			'be known in case a disaster strikes.' : 22,
 			'be left to the professionals.' : 23
 		}
 	},
@@ -169,11 +169,11 @@
 		}
 	},
 	'24' : {
-		'message' : 'Question 2: Emergency rendevous points should be...',
+		'message' : 'Question 2: Emergency rendezvous points should be...',
 		'replies' : {
 			'designated ahead of time and given to all family members.' : 25,
 			'ignored.' : 26,
-			'assigned by the emergency personel.' : 26
+			'assigned by the emergency personnel.' : 26
 		}
 	},
 	'25' : {
@@ -191,7 +191,7 @@
 		}
 	},
 	'27' : {
-		'message' : 'Question 3: Communicating durning an emergency should...',
+		'message' : 'Question 3: Communicating during an emergency should...',
 		'replies' : {
 			'be done using only cell phones because the phone lines will be down.' : 29,
 			'be through a designated out of town relative or friend.' : 28,
