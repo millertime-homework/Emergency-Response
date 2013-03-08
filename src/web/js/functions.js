@@ -139,6 +139,9 @@ function loadScenario(data) {
             if (prop.barrier) {
                 wall.barriers[wall.barriers.length] = key;
             }
+            if (prop.barrierMessage) {
+                wall.barrierMessages[key] = prop.barrierMessage;
+            }
         });
     }
 

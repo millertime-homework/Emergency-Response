@@ -84,7 +84,8 @@
                     'actionVariables': {
                         'conversationName': 'Fire 2'
                     },
-                    'barrier': true
+                    'barrier': true,
+                    'barrierMessage': 'There is a fire in the way'
                 }
             }
         }

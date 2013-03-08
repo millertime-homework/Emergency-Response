@@ -6,6 +6,21 @@
         'e': {
             'name': 'EHall548', 
             'image': 'R540-east.jpg',
+            '_props': {
+                'east-exit': {
+                    'name': 'east-exit',
+                    'image': 'UseDoor.png',
+                    'hoverImage': 'hoverUseDoor.png',
+                    'width': 126,
+                    'height': 297,
+                    'left': 460,
+                    'top': 196,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Exit Building'
+                    }
+                }
+            }
         },
         'w': {
             'name': 'WHall548',
