@@ -1,5 +1,5 @@
 'hideFromShooter' : {
-    'events' : {
+ /*   'events' : {
         'addToScene': ['hidingSpot', 'shooterR111', 'hidingStudent1', 'hidingStudent2', 'hidingStudent3'],
         
         'setObjectives' : [['hideFromShooter', 'The shooter is very close.', 'turnOffLights', 'Turn off the lights.',
@@ -14,4 +14,4 @@
                         'shooterCloseGetShot', 'chanceofEscape', 'abort', 'shooterEnters011'],
     
     'startTriggers' : ['ShootsThroughWalls011', 'shooterEnters011', 'hiddenFromShooter']
-}
+*/}

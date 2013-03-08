@@ -1,4 +1,4 @@
-'WinIn011' : {
+'WinIn40Seconds' : {
     'waitForObjectiveCompletions' : ['lockTheDoorAgain'],
     'timeDelay' : 1000,
     'events' : {
