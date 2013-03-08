@@ -59,7 +59,7 @@
                     'top': 245,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'ExitSchool'
+                        'conversationName': 'exit_school'
                     }
                 },
                 'policeman': {
