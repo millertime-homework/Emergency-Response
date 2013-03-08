@@ -8,6 +8,7 @@ Wall = Class.create({
         this.destination = null;
         this.isCutscene = null;
         this.barriers = [];
+        this.barrierMessages = {};
     },
     set: function(name, direction, image, fakeDirection, isCutscene) {
         this.name = name;
@@ -54,6 +55,12 @@ Wall = Class.create({
             if (!scenario.inactiveProps[this.barriers[i]])
                 return false;
         return (this.destination != null);
+    },
+    getBarrierMessage: function () {
+        for (var i = 0; i < this.barriers.length; i++)
+            if (!scenario.inactiveProps[this.barriers[i]])
+                return this.barrierMessages[this.barriers[i]];
+        return null;
     },
     setName: function (name) {
         this.name = name;
