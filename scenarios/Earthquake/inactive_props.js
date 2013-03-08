@@ -1,4 +1,4 @@
-'inactiveProps': ['heavy-on-floor','Movedwire','bridgeDoor','bikeMoved','beam'],
+'inactiveProps': ['heavy-on-floor','Movedwire','bridgeDoor','bikeMoved','beam','west-exit'],
 '_player': {
     'x': 0,
     'y': 0,
