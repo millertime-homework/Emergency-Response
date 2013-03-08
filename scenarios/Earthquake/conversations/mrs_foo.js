@@ -1,4 +1,4 @@
-'mrsfooconvo': {
+'Mrs Foo': {
     '1': {
         'check': [
             {'has':['Chalk'], 'goto': 2},
