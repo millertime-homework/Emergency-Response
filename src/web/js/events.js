@@ -97,6 +97,7 @@ jQuery(document).ready(function($) {
     */
     $(document).on('player-turned', function (event) {
         renderScene();
+        triggersTurnHandler(player.facing, player.x, player.y, player.z);
         saveGame();
         showDirectionalIndicator();
     });
