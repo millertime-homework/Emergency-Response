@@ -3,11 +3,7 @@ var allowKeyEvents = false; //Will be enabled/disabled by methods in functions.j
 var KEY_LEFT = 37;
 var KEY_UP = 38;
 var KEY_RIGHT = 39;
-var KEY_DOWN = 40;
 var KEY_ESC = 27;
-var KEY_E = 69;
-/* ######################################## */
-/* ######################################## */
 
 jQuery(document).ready(function ($) {
     // Key is pressed.
@@ -33,11 +29,6 @@ jQuery(document).ready(function ($) {
                 // right arrow key
                 keyEvent = 'player-move';
                 keyEventArg = 'turn-right';
-            } else if (event.keyCode == KEY_DOWN) {
-                // down arrow key
-            } else if (event.keyCode == KEY_E) {
-                // start earthquake
-                keyEvent = 'startEarthquake';
             }
         }
         //The remaining events can be triggered at all times.
