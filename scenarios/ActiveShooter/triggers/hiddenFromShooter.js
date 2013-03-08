@@ -6,5 +6,5 @@
     },
     'deleteTriggers' : ['failedToHide'],
     'abortTriggers': ['ShootsThroughWalls011'],
-    'startTriggers' : ['studentRunsFrom011(NoWait)']
+    'startTriggers' : ['studentRunsFrom011']
 }

@@ -1,6 +1,7 @@
 'lockedTheDoor' : {
     'disabled' : true,
-    'abortTriggers': ['shooterEnters011'],
+    'abortTriggers': ['failedToLockTheDoor'],
+    'startTriggers' : ['ShootsThroughWalls011'],
     'events' : {
         'addPoints' : [10],
         'completeObjective' : ['lockTheDoor'],
