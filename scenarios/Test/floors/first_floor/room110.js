@@ -2,6 +2,7 @@
     'id': 'hall110',
     'x': 1,
     'y': 1,
+    '_triggers': ['infoTvConvo'],
     '_walls': {
         'e': {
             'name': 'EHall110',
