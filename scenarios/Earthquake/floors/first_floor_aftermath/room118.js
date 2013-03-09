@@ -34,8 +34,8 @@
                     'left': 483,
                     'top': 220
                 },
-		        'Luke' : {    
-					'name': 'Luke',
+		        'Luke2' : {    
+					'name': 'Luke2',
                     'image': 'RunnerFront.png',
                     'width': 150,
                     'height': 300,

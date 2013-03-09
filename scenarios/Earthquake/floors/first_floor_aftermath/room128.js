@@ -1,4 +1,4 @@
-k'room128': {
+'room128': {
     'id': 'hall128', 
     'x': 1, 
     'y': 2,
@@ -65,8 +65,8 @@ k'room128': {
                 'y': 1
             },
 			'_props' : {
-				'Luke' : {
-					'name': 'Luke',
+				'Luke2' : {
+					'name': 'Luke2',
                     'image': 'RunnerBack.png',
                     'width': 125,
                     'height': 250,

@@ -10,7 +10,7 @@
 	'events' : {
 		'warpPlayer': ['n'],
         'showOnScreenMessage': ['If you hurry you can catch him back down the hall.'],
-		'addToScene' : ['Luke']
+		'addToScene' : ['Luke2']
 	},
 	'startTriggers' : ['RunnerTimer']
 },
@@ -18,7 +18,7 @@
     'lives': Infinity,
 	'timeDelay' : 20000,
 	'events' : {
-		'removeFromScene' : ['Luke'],
+		'removeFromScene' : ['Luke2'],
 		'showOnScreenMessage': ['He\'s gone too far to catch now.'] 
 	}
 },
@@ -28,6 +28,6 @@
 'removeRunner' : {
     'lives': Infinity,
 	'events' : {
-		'removeFromScene' : ['Luke'],
+		'removeFromScene' : ['Luke2'],
 	}
 }

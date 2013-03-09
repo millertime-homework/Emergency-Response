@@ -53,8 +53,8 @@
                     'left': 490,
                     'top': 240
                 },
-				'GirlRunner2' : {    
-					'name': 'GirlRunner',
+				'Luke' : {    
+					'name': 'Luke',
                     'image': 'RunnerBack.png',
                     'width': 75,
                     'height': 125,
