@@ -1,6 +1,6 @@
 'studentsGetWeapons031' : {
     'events' : {
-        'addPoints' : [25],
+        'addPoints' : [15],
         'completeObjective' : ['studentsGatherWeapons031']
     }
 }

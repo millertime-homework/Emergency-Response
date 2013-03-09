@@ -9,13 +9,15 @@ Wall = Class.create({
         this.isCutscene = null;
         this.barriers = [];
         this.barrierMessages = {};
+        this.triggers;
     },
-    set: function(name, direction, image, fakeDirection, isCutscene) {
+    set: function(name, direction, image, fakeDirection, isCutscene, triggers) {
         this.name = name;
         this.direction = direction;
         this.fakeDirection = fakeDirection;
         this.isCutscene = isCutscene;
         this.image = scenario.addImage(image);
+        this.triggers = triggers;
     },
     addProp: function(id, name, image, hoverImage, width, height, left, right, action, actionVariables) {
         var newProp = new Prop;

@@ -25,4 +25,21 @@
     '5' : {
         'requires': {'objectivesNotInProgress':['hideFromShooter']},
     }
+},
+
+'turnOffLights031' : {
+    '1' : {
+        'message' : 'Turn off lights?',
+        'replies': {
+            'Leave them alone.': '0',
+            "Turn them off.": '2',
+        }
+    },
+    '2':{ 
+        'message': '[Oh no!, the shooter must have noticed the light switch go off, he is comming in the room!]',
+        'replies': {
+            '[Get ready!]' : 0
+        },
+        'triggers': ['abort031', 'shooterApproaches031']
+    }
 }
