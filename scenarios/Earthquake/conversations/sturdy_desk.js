@@ -1,15 +1,12 @@
 'Sturdy Desk': {
      '1': {
-          'message': 'This desk looks nice and sturdy.',
-          'replies': {
-               'It looks dirty under there...': 2,
-               'I should crawl underneath and take cover': 3
-          }
+        'check': [{'objectivesInProgress': ['surviveEarthquake'], 'goto': '2'}],
+        'message': 'A very nice and sturdy desk',
+        'replies': {
+            'I\'ll remember that when I need it.': 0
+        }
      },
      '2': {
-          'triggers': ['failToTakeCover']
-     },
-     '3': {
-          'triggers': ['hideUnderDesk']
+        'triggers': ['hideUnderDesk']
      }
 }

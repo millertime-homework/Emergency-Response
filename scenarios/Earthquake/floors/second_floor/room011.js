@@ -33,7 +33,11 @@
                     'width': 389,
                     'height': 213,
                     'left': 550,
-                    'top': 300
+                    'top': 300,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Sturdy Desk'
+                    }
                 },
                 'chalk': {
                     'name':'Chalk',

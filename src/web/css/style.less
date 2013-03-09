@@ -55,7 +55,7 @@ body {
 }
 
 .ui {
-    z-index: 7;
+    z-index: 8;
 }
 
 .bold-colored-text {
@@ -118,16 +118,25 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 }
 
 /*--------Game viewport*/
-.primary-view {
+#view-wrapper {
     display: block;
     position: absolute;
     height: @viewportHeight;
     width: @viewportWidth;
+    overflow: hidden;
+    overflow: hidden;
     border-style: solid;
     border-width:@borderThickness;
     border-color: @primaryBorderColor;
     .border_radius(@primaryBorderRadius - 3);
     .bordered;
+}
+
+.primary-view {
+    /*display: block;*/
+    position: absolute;
+    height: @viewportHeight;
+    width: @viewportWidth;
     overflow: hidden;
 }
 #scene-img {
@@ -155,7 +164,22 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 
 #controls-overlay {
     background: transparent;
-    overflow: hidden;
+    //z-index: 8;
+}
+
+#flashlight-overlay {
+    z-index: 7; 
+    background-size: contain;
+    &.flashlight-off {
+        background-image: url('../img/flashlight-off.png');
+    }
+    &.flashlight-on {
+        background-image: url('../img/flashlight-on.png');
+    }
+
+    .prop {
+        cursor: pointer;
+    }
 }
 
 #view-scene {

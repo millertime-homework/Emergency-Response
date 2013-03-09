@@ -5,6 +5,7 @@
 },
 'moveBeam' : {
 	'events' : {
-		'replaceProp' : ['bikeMangled','beam']
+		'replaceProp': ['bikeMangled','beam'],
+        'addToScene': ['west-exit']
 	}
 }

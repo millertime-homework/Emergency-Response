@@ -46,14 +46,6 @@
                 'y': 3
             },
             '_props': {
-                'Room130Sign': {
-                    'name': 'Room130Sign',
-                    'image': 'sign-room130-skew.png',
-                    'width': 50,
-                    'height': 40,
-                    'left': 800,
-                    'top': 350
-                },
                 'RHF_Poster': {
                     'name': 'RHF_Poster',
                     'image': 'RHF_Poster.png',
