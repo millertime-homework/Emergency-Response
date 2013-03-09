@@ -20,7 +20,7 @@
                 'xavier': {
                     'name': 'xavier',
                     'image': 'XavFront.png',
-                    'width': 260,
+                    'width': 160,
                     'height': 480,
                     'left': 340,
                     'top': 200,

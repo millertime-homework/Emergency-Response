@@ -24,7 +24,7 @@
                 'xavier': {
                     'name': 'xavier',
                     'image': 'XavRight.png',
-                    'width': 35,
+                    'width': 18,
                     'height': 63,
                     'left': 520,
                     'top': 290
