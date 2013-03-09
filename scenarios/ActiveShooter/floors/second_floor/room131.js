@@ -16,6 +16,22 @@
             'image': 'R131-west.jpg',
             'destination': {
                 'x': 0
+            },
+            '_props': {
+                'door2': {
+                    'name': 'door',
+                    'image': 'UseDoor.png',
+                    'openImage': 'blank.png',
+                    'width': 120,
+                    'height': 250,
+                    'left': 780,
+                    'top': 240,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'door2'
+                    }
+                }
             }
         },
         'n': {
@@ -30,6 +46,22 @@
             'image': 'R131-south.jpg',
             'destination': {
                 'y': 2
+            },
+            '_props': {
+                'door': {
+                    'name': 'door',
+                    'image': 'UseDoor.png',
+                    'openImage': 'blank.png',
+                    'width': 120,
+                    'height': 250,
+                    'left': 660,
+                    'top': 240,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'door'
+                    }
+                }
             }
         }
     }

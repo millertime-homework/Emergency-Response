@@ -19,8 +19,9 @@ function clearAllTriggers() {
 
 //Called when the player class triggers an event signaling that the player has moved.
 function triggersMovementHandler(x, y, z) {
-    var triggers = scenario.getRoom(x, y, z).triggers;
-    var abortTriggers = scenario.getRoom(x, y, z).abortTriggers;
+    var room = scenario.getRoom(x, y, z);
+    var triggers = room.triggers;
+    var abortTriggers = room.abortTriggers;
     processWaitingForMoves();
     
     if (triggers) {
@@ -29,7 +30,21 @@ function triggersMovementHandler(x, y, z) {
     if (abortTriggers) {
         abortTriggers.map(abortTrigger);
     }
-};
+
+    checkWallTriggers(player.facing, room);
+}
+
+function triggersTurnHandler(facing, x, y, z) {
+    checkWallTriggers(facing, scenario.getRoom(x, y, z));
+}
+
+function checkWallTriggers(facing, room) {
+    var wall = room.getWallByDir(facing);
+
+    if (wall.triggers) {
+        wall.triggers.map(startTrigger);
+    }
+}
 
 function triggersObjectiveCompletionHandler(objectiveName) {
     var trigger, triggerName, waitingForObjectives, i;

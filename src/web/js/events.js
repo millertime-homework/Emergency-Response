@@ -97,6 +97,7 @@ jQuery(document).ready(function($) {
     */
     $(document).on('player-turned', function (event) {
         renderScene();
+        triggersTurnHandler(player.facing, player.x, player.y, player.z);
         saveGame();
         showDirectionalIndicator();
     });
@@ -217,9 +218,12 @@ jQuery(document).ready(function($) {
           Default is '1'
     * @param {boolean} cannotSkip If true, the player cannot close the 
           conversation before it is over.
+    * @param {boolean} isAnAction If true, 'x says' and 'you reply' are not 
+          displayed.
     */
-    $(document).on('showConversation', function (event, conversationName, entryPoint, cannotSkip) {
-        showConversation(conversationName, entryPoint, cannotSkip);
+    $(document).on('showConversation', function (
+            event, conversationName, entryPoint, cannotSkip, isAnAction) {
+        showConversation(conversationName, entryPoint, cannotSkip, isAnAction);
     });
 
     /**
@@ -230,6 +234,26 @@ jQuery(document).ready(function($) {
     */
     $(document).on('showOnScreenMessage', function (event, message, duration) {
         showOnScreenMessage(message, duration);
+    });
+
+    /**
+    * Shows the annotation, if it exists, for the specified cell.
+    * @param {int} x The x coordinate for this annotation.
+    * @param {int} y The y coordinate for this annotation.
+    * @param {int} z The z coordinate for this annotation.
+    */
+    $(document).on('showMapAnnotation', function (event, x, y ,z) {
+        showAnnotation(x, y, z);
+    });
+
+    /**
+    * Hides the annotation, if it exists, for the specified cell.
+    * @param {int} x The x coordinate for this annotation.
+    * @param {int} y The y coordinate for this annotation.
+    * @param {int} z The z coordinate for this annotation.
+    */
+    $(document).on('hideMapAnnotation', function (event, x, y ,z) {
+        hideAnnotation(x, y, z);
     });
 
     $(document).on('disableLights', function (event) {

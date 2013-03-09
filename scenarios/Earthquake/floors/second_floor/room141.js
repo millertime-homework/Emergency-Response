@@ -15,6 +15,22 @@
             'image': 'R141-west.jpg',
             'destination': {
                 'x': 0
+            },
+            '_props': {
+                'door': {
+                    'name': 'door',
+                    'image': 'UseDoor.png',
+                    'openImage': 'blank.png',
+                    'width': 160,
+                    'height': 340,
+                    'left': 480,
+                    'top': 200,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'door'
+                    }
+                }
             }
         },
         'n': {
