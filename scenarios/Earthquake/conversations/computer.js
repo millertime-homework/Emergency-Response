@@ -155,14 +155,14 @@
 		}
 	},
 	'22' : { 
-		'message' : 'Correct: You should know the disaster plans of your family\'s work and school and practice using them.',
+		'message' : 'Correct: You should know the disaster plans of all your family member\'s work or school. Practice using them frequently.',
 		'replies' : {
 			'Keep playing.' : 24,
 			'I\'m done for now' : 0	
 		}
 	},
 	'23' : {
-		'message' : 'Incorrect: You should know the disaster plans of your family\'s work and school and practice using them.',
+		'message' : 'Incorrect: You should know the disaster plans of all your family member\'s work or school. Practice using them frequently.',
 		'replies' : {
 			'Keep playing.' : 24,
 			'I\'m done for now' : 0	
@@ -177,14 +177,14 @@
 		}
 	},
 	'25' : {
-		'message' : 'Correct: Family gathering points should be designated incase of a disaster.',
+		'message' : 'Correct: Family gathering points should be designated in case of a disaster.',
 		'replies' : {
 			'Keep playing.' : 27,
 			'I\'m done for now' : 0	
 		}
 	},
 	'26' : {
-		'message' : 'Incorrect: Family gathering points should be designated incase of a disaster.',
+		'message' : 'Incorrect: Family gathering points should be designated in case of a disaster.',
 		'replies' : {
 			'Keep playing.' : 27,
 			'I\'m done for now' : 0	
