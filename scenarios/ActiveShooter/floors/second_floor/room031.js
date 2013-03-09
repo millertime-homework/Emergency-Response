@@ -114,7 +114,22 @@
         },
         's': {
             'name': 'SOffice031',
-            'image': 'R031-south.jpg'
+            'image': 'R031-south.jpg',
+            '_props': {
+                'screwdriver031':{
+                        'name': 'screwdriver031',
+                        'image':      'screwdriver.png',
+                        'hoverImage': 'screwdriver.png',
+                        'width' : 100,
+                        'height': 66,
+                        'left'  : 500,
+                        'top' :   300,
+                        'action': 'showConversation',
+                        'actionVariables': {
+                            'conversationName': 'Pick up screw driver?'
+                        }
+                }
+            }
         }
     }
 }

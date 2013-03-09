@@ -48,13 +48,13 @@
         'replies':{
             '[Exit Conversation]' : 0
         },
-        'triggers': ['studentsGetWeapons031', 'shooterApproaches031']
+        'triggers': ['shooterApproaches031']
     },
     '8':{
         'message' : '[The Shooter Is Approaching!]',
         'replies':{
             '[Exit Conversation]' : 0
         },
-        'triggers': ['shooterApproaches031']
+        'triggers': ['studentsGetWeapons031', 'shooterApproaches031']
     }
 }
