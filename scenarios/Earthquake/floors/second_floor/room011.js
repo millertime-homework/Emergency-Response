@@ -17,11 +17,11 @@
             '_props': {
                 'mrsfoo': {
                     'name': 'Mrs. Foo',
-                    'image': 'fooStanding.png',
-                    'width': 205,
-                    'height': 400,
-                    'left': 165,
-                    'top': 150,
+                    'image': 'FooUp.png',
+                    'width': 180,
+                    'height': 370,
+                    'left': 200,
+                    'top': 160,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'mrsfooconvo'

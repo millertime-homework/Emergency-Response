@@ -23,11 +23,11 @@
             '_props': {
                 'xavier': {
                     'name': 'xavier',
-                    'image': 'XavierRight.png',
-                    'width': 40,
-                    'height': 68,
+                    'image': 'XavRight.png',
+                    'width': 35,
+                    'height': 63,
                     'left': 520,
-                    'top': 280
+                    'top': 290
                 }
             }
         },

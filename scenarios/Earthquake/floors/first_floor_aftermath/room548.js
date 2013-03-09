@@ -16,10 +16,10 @@
 			'_props' : {
 	            'wheelchair':{
                     'name':'the_wheelchair',
-                    'image':'wheelchair.png',
+                    'image':'manLeft.png',
                     'width':30,
                     'height':30,
-                    'left': 545,
+                    'left': 540,
                     'top': 300,
                 }
 			}

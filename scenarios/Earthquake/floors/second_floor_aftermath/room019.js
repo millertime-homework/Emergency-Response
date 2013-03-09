@@ -19,7 +19,7 @@
                     'image': 'fooWounded.png',
                     'width': 300,
                     'height': 150,
-                    'left': 130,
+                    'left': 150,
                     'top': 350,
                     'action': 'showConversation',
                     'actionVariables':{

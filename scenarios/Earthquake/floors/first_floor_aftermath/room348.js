@@ -82,10 +82,10 @@
 				},
 			    'wheelchair':{
                     'name':'the_wheelchair',
-                    'image':'wheelchair.png',
+                    'image':'manLeft.png',
                     'width':100,
                     'height':100,
-                    'left': 530,
+                    'left': 510,
                     'top': 300,
                 }
 			}

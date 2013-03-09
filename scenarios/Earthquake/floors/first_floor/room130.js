@@ -19,11 +19,11 @@
             '_props': {
                 'xavier': {
                     'name': 'xavier',
-                    'image': 'XavierFront.png',
-                    'width': 270,
+                    'image': 'XavFront.png',
+                    'width': 260,
                     'height': 480,
                     'left': 340,
-                    'top': 181,
+                    'top': 200,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Professor Xavier'
