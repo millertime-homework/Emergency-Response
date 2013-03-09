@@ -236,6 +236,26 @@ jQuery(document).ready(function($) {
         showOnScreenMessage(message, duration);
     });
 
+    /**
+    * Shows the annotation, if it exists, for the specified cell.
+    * @param {int} x The x coordinate for this annotation.
+    * @param {int} y The y coordinate for this annotation.
+    * @param {int} z The z coordinate for this annotation.
+    */
+    $(document).on('showMapAnnotation', function (event, x, y ,z) {
+        showAnnotation(x, y, z);
+    });
+
+    /**
+    * Hides the annotation, if it exists, for the specified cell.
+    * @param {int} x The x coordinate for this annotation.
+    * @param {int} y The y coordinate for this annotation.
+    * @param {int} z The z coordinate for this annotation.
+    */
+    $(document).on('hideMapAnnotation', function (event, x, y ,z) {
+        hideAnnotation(x, y, z);
+    });
+
     $(document).on('disableLights', function (event) {
         lightsOn = false;
         $('#flashlight-overlay').removeClass('hidden');
