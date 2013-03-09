@@ -1,15 +1,15 @@
 'girlRunspast' : {
 	'events' : {
 		'warpPlayer' : ['Runscene'],
-		'showOnScreenMessage' : ['As your moving down the hallway a woman comes out of a nearby classroom and runs past you.']
+		'showOnScreenMessage' : ['As your moving down the hallway a man comes out of a nearby classroom and runs past you.']
 	},
 	'startTriggers': ['ShePasses'],
 },
 'ShePasses' : {
-	'timeDelay' : 5000,
+	'timeDelay' : 4000,
 	'events' : {
 		'warpPlayer': ['n'],
-        'showOnScreenMessage': ['If you hurry you can catch her back down the hall.'],
+        'showOnScreenMessage': ['If you hurry you can catch him back down the hall.'],
 		'addToScene' : ['GirlRunner2']
 	},
 	'startTriggers' : ['RunnerTimer']
@@ -18,7 +18,8 @@
     'lives': Infinity,
 	'timeDelay' : 20000,
 	'events' : {
-		'removeFromScene' : ['GirlRunner2']
+		'removeFromScene' : ['GirlRunner2'],
+		'showOnScreenMessage': ['He\'s gone too far to catch now.'] 
 	}
 },
 'TalktoRunner' : {
@@ -27,6 +28,6 @@
 'removeRunner' : {
     'lives': Infinity,
 	'events' : {
-		'removeFromScene' : ['GirlRunner2']
+		'removeFromScene' : ['GirlRunner2'],
 	}
 }

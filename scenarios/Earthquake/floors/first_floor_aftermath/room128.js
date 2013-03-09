@@ -2,7 +2,6 @@
     'id': 'hall128', 
     'x': 1, 
     'y': 2,
-    '_triggers': ['checkForFire'],
     '_walls': {
         'e': {
             'name': 'EHall128', 
@@ -68,16 +67,15 @@
 			'_props' : {
 				'GirlRunner2' : {    
 					'name': 'GirlRunner2',
-                    'image': 'girlRunning.png',
-                    'width': 100,
-                    'height': 100,
-                    'left': 250,
+                    'image': 'RunnerBack.png',
+                    'width': 125,
+                    'height': 250,
+                    'left': 435,
                     'top': 250,
 					'action': 'showConversation',
 					'actionVariables': {
-                        'conversationName': 'Lindsey'
+                        'conversationName': 'Luke'
                     }
-
 				}
 			}
 		}

@@ -39,7 +39,19 @@
                     'height': 50,
                     'left': 530,
                     'top': 275
-                }
+                },
+				'GirlRunner2' : {    
+					'name': 'GirlRunner2',
+                    'image': 'RunnerFront.png',
+                    'width': 100,
+                    'height': 250,
+                    'left': 475,
+                    'top': 250,
+					'action': 'showConversation',
+					'actionVariables': {
+                        'conversationName': 'Luke'
+                    }
+				}
             }
         },
         's': {

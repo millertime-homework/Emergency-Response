@@ -114,7 +114,15 @@
                     'height': 50,
                     'left': 530,
                     'top': 275
-                }
+                },
+				'GirlRunner2' : {    
+					'name': 'GirlRunner',
+                    'image': 'RunnerBack.png',
+                    'width': 45,
+                    'height': 100,
+                    'left': 500,
+                    'top': 275
+				}
             }
         }
     }

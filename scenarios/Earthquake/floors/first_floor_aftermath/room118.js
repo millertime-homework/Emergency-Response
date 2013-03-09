@@ -2,7 +2,6 @@
     'id': 'hall118',
     'x': 1,
     'y': 1,
-	'_triggers' : ['removeRunner'],
     '_walls': {
         'e': {
             'name': 'EHall118',
@@ -34,7 +33,19 @@
                     'height': 138,
                     'left': 483,
                     'top': 220
-                }
+                },
+		        'GirlRunner2' : {    
+					'name': 'GirlRunner2',
+                    'image': 'RunnerFront.png',
+                    'width': 150,
+                    'height': 300,
+                    'left': 475,
+                    'top': 250,
+					'action': 'showConversation',
+					'actionVariables': {
+                        'conversationName': 'Luke'
+                    }
+				}
             }
 		},
         's': {
