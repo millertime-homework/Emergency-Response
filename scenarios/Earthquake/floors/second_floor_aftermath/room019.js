@@ -2,12 +2,29 @@
     'id': 'class019',
     'x': 0,
     'y': 1,
+    '_triggers': ['checkIfSurvivedEarthquake'],
     '_walls': {
         'e': {
             'name': 'EClass019',
             'image': 'R011-east.jpg',
             'destination': {
                 'x': 1
+            },
+            '_props': {
+                'door': {
+                    'name': 'door',
+                    'image': 'UseDoor.png',
+                    'openImage': 'blank.png',
+                    'width': 160,
+                    'height': 340,
+                    'left': 480,
+                    'top': 200,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'door'
+                    }
+                }
             }
         },
         'w': {
@@ -32,11 +49,7 @@
                     'width': 389,
                     'height': 213,
                     'left': 550,
-                    'top': 300,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'Sturdy Desk'
-                    }
+                    'top': 300
                 }
             }
         },

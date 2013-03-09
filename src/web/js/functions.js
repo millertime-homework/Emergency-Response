@@ -104,7 +104,9 @@ function loadScenario(data) {
         var currentWall;
 
         jQuery.each(roomData._walls, function (key, wallData) {
-            currentWall = room.addWall(wallData.name, key, wallData.image, wallData.fakeDirection, wallData.isCutscene);
+            currentWall = room.addWall(wallData.name, key, wallData.image, 
+                    wallData.fakeDirection, wallData.isCutscene, 
+                    wallData._triggers);
 
             if (wallData._props) {
                 loadProps(currentWall, wallData);
@@ -138,6 +140,23 @@ function loadScenario(data) {
             );
             if (prop.barrier) {
                 wall.barriers[wall.barriers.length] = key;
+            }
+            if (prop.openImage) {
+                wall.addProp(
+                    key+"-open",
+                    prop.name,
+                    prop.openImage,
+                    prop.openHoverImage,
+                    prop.width,
+                    prop.height,
+                    prop.left,
+                    prop.top,
+                    prop.action,
+                    prop.actionVariables
+                );
+            }
+            if (prop.barrierMessage) {
+                wall.barrierMessages[key] = prop.barrierMessage;
             }
         });
     }
@@ -239,6 +258,7 @@ function setGameState(state) {
         jQuery('#view-modal').hide();
         jQuery('.modal').hide();
         jQuery('#overlay').hide();
+        resetLights();
         showMainMenu();
         allowKeyEvents = false;
         break;
@@ -354,6 +374,8 @@ function emptyModal() {
 
 function hideModal() {
     // Hide any visible modal element
+    jQuery('#modal').data('conversationName', null);
+    jQuery('#modal').data('cannotSkip', null);
     if (lastGameState === GAME_STATE_MENU) {
         setGameState(GAME_STATE_MENU);
     }
@@ -364,6 +386,11 @@ function hideModal() {
     }
 }
 
+
+function resetLights() {
+    lightsOn = true;
+    jQuery('#flashlight-overlay').addClass('hidden');
+}
 /**
 * Show a message via large text that overlays the middle of the viewport.
 * @param {string} message The message to be displayed.
@@ -425,7 +452,7 @@ function showObjectivesIn(element, markInProgressAsFailed) {
 function showInventory() {
     var i, items, rowTemplate, inventoryItemsContainer, inventoryModal, attrs;
     // modeled after showConversation's implementation
-    rowTemplate = "<span><img src='web/img/{0}' alt=''{1}> {2}</span>";
+    rowTemplate = "<span class='inventory-item' id='{0}' onclick='inventoryItemClick(\"{0}\")'><img src='web/img/{1}' alt=''{2}> {3}</span>";
     items = player.inventory.items;
     inventoryModal = jQuery('#inventory-modal');
     inventoryItemsContainer = inventoryModal.find('#items-container');
@@ -440,8 +467,10 @@ function showInventory() {
             if (items[i].height) {
                 attrs += ' width="' + items[i].height + '"';
             }
-
-            inventoryItemsContainer.append(rowTemplate.format(items[i].image, attrs, items[i].name));
+            // Converts whitespace blocks into single dash
+            var itemId = items[i].name;
+            itemId = itemId.replace(' ', '-');
+            inventoryItemsContainer.append(rowTemplate.format(itemId, items[i].image, attrs, items[i].name));
         }
     }
     if (inventoryItemsContainer.find('span').length > 0) {
@@ -452,6 +481,30 @@ function showInventory() {
         inventoryModal.find('#inventory-items').hide();
     }
     setGameState(GAME_STATE_SHOW_INVENTORY);
+}
+
+function inventoryItemClick(itemId) {
+
+    validItemClicked = false;
+
+    if (itemId == 'Flashlight') {
+        validItemClicked = true;
+        flashlightOverlay = jQuery('#flashlight-overlay');
+        if (!flashlightOverlay.hasClass('hidden')) {
+            if (flashlightOverlay.hasClass('flashlight-on')) {
+                flashlightOverlay.removeClass('flashlight-on');
+                flashlightOverlay.addClass('flashlight-off');
+            } else {
+                flashlightOverlay.removeClass('flashlight-off');
+                flashlightOverlay.addClass('flashlight-on');
+            }
+        }
+    }
+
+    // Hide inventory modal if valid item clicked
+    if (validItemClicked) {
+        hideModal();
+    }
 }
 
 String.prototype.format = function () {
@@ -481,16 +534,18 @@ jQuery.fn.opacity = function (opacity) {
 * @param {string} conversationName The name of the conversation to show.
 * @param {string} currentConversationChoice The conversation choice to enter. If not provided, '1' is used.
 * @param {boolean} cannotSkip If true, the player cannot close the conversation early.
+* @param {boolean} isAnAction If true, 'x says' and 'you reply' are not visible.
 */
-function showConversation(conversationName, currentConversationChoice, cannotSkip) {
-    var i, conversation, optionRowTemplate, currentOptionId, currentOption, replyChoices, choiceText;
+function showConversation(conversationName, currentConversationChoice, cannotSkip, isAnAction) {
+    var i, conversation, optionRowTemplate, currentOptionId, currentOption, 
+            replyChoices, choiceText, contentContainer;
     cannotSkip = cannotSkip || jQuery('#modal').data('cannotSkip');
     
     optionRowTemplate = "<li class='conversation-option' data-conversation-option='{0}'>{1}</li><br />";
 
     //fetch the conversation name if we're progressing through a conversation tree.
     if (!conversationName) {
-        conversationName = jQuery('#modal #header').text();
+        conversationName = jQuery('#modal').data('conversationName');
     }
 
     //Now the current contents from the modal.
@@ -533,6 +588,16 @@ function showConversation(conversationName, currentConversationChoice, cannotSki
         return;
     }
 
+    // hideModal() and return need to be in separate if statements here.
+    // hideModal needs to be called before the triggers run; otherwise, if the
+    // trigger shows a modal, the modal will immediately be hidden.  Of
+    // course, if we return here then triggers won't get executed (and
+    // allowing triggers to execute without showing a message was the whole
+    // point of checking for the message).
+    if (!currentOption.message) {
+         hideModal();
+    }
+    
     if (currentOption.triggers) {
         for (i = 0; i < currentOption.triggers.length; i++) {
             startTrigger(currentOption.triggers[i]);
@@ -541,14 +606,23 @@ function showConversation(conversationName, currentConversationChoice, cannotSki
     }
 
     if (!currentOption.message) {
-        hideModal();
         return;
     }
     //Save whether the conversation can be skipped or not to the modal.
     jQuery('#modal').data('cannotSkip', cannotSkip);
     //Show the message and reply options.
-    jQuery('#modal #header').html(conversationName);
-    jQuery('#modal #content').append(currentOption.message + '<p /> You Reply: <br /><ul>');
+    jQuery('#modal').data('conversationName', conversationName);
+
+    if (!isAnAction) {
+        jQuery('#modal #header').html(conversationName + " says:");
+    }
+    contentContainer = jQuery('#modal #content');
+    contentContainer.append(currentOption.message + '<p />');
+
+    if (!isAnAction) {
+        contentContainer.append(' You Reply: <br />');
+    }
+    contentContainer.append('<ul>');
 
     replyChoices = currentOption.replies;
     for (choiceText in replyChoices) {
@@ -556,7 +630,7 @@ function showConversation(conversationName, currentConversationChoice, cannotSki
             jQuery('#modal #content ul').append(optionRowTemplate.format(replyChoices[choiceText], choiceText));
         }
     }
-    jQuery('#modal #content').append('</ul>');
+    contentContainer.append('</ul>');
 
     showModal();
     if (cannotSkip) {
@@ -575,10 +649,12 @@ function checkCondition(condition) {
             checkScenario(doesContain, condition.triggersEnabled, scenario.triggers.pool) &&
             checkScenario(doesContain, condition.objectivesInProgress, scenario.objectives.inProgress) &&
             checkScenario(doesContain, condition.objectivesCompleted, scenario.objectives.completed) &&
+            checkScenario(doesContain, condition.doesntExist, scenario.inactiveProps) &&
             checkScenario(doesNotContain, condition.hasNot, player.inventory.items) &&
             checkScenario(doesNotContain, condition.triggersDisabled, scenario.triggers.pool) &&
             checkScenario(doesNotContain, condition.objectivesNotInProgress, scenario.objectives.inProgress) &&
-            checkScenario(doesNotContain, condition.objectivesNotCompleted, scenario.objectives.completed);
+            checkScenario(doesNotContain, condition.objectivesNotCompleted, scenario.objectives.completed) &&
+            checkScenario(doesNotContain, condition.exists, scenario.inactiveProps);
 }
 
 function doesNotContain(source, contains) {
