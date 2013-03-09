@@ -43,7 +43,7 @@
 				'Luke2' : {    
 					'name': 'Luke2',
                     'image': 'RunnerFront.png',
-                    'width': 100,
+                    'width': 94,
                     'height': 250,
                     'left': 475,
                     'top': 250,

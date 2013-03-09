@@ -118,7 +118,7 @@
 				'Luke' : {    
 					'name': 'Luke',
                     'image': 'RunnerBack.png',
-                    'width': 45,
+                    'width': 33,
                     'height': 100,
                     'left': 500,
                     'top': 275

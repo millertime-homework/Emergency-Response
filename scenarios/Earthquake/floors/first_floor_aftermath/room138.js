@@ -56,7 +56,7 @@
 				'Luke' : {    
 					'name': 'Luke',
                     'image': 'RunnerBack.png',
-                    'width': 75,
+                    'width': 41,
                     'height': 125,
                     'left': 500,
                     'top': 275
@@ -74,7 +74,7 @@
 			    'Luke' : {    
 					'name': 'Luke',
                     'image': 'RunnerFront.png',
-                    'width': 175,
+                    'width': 113,
                     'height': 300,
                     'left': 475,
                     'top': 250
