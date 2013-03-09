@@ -582,6 +582,12 @@ function showConversation(conversationName, currentConversationChoice, cannotSki
         return;
     }
 
+    // hideModal() and return need to be in separate if statements here.
+    // hideModal needs to be called before the triggers run; otherwise, if the
+    // trigger shows a modal, the modal will immediately be hidden.  Of
+    // course, if we return here then triggers won't get executed (and
+    // allowing triggers to execute without showing a message was the whole
+    // point of checking for the message).
     if (!currentOption.message) {
          hideModal();
     }
