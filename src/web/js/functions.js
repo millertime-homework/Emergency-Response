@@ -97,6 +97,9 @@ function loadScenario(data) {
             currentRoom.addTriggers(roomData._triggers);
             currentRoom.abortTriggers = roomData.abortTriggers;
             loadWalls(currentRoom, roomData);
+            if (roomData.annotation) {
+                addMinimapAnnotation(roomData.annotation, roomData.x, roomData.y, floorData.z);
+            }
         });
     }
 
@@ -140,6 +143,20 @@ function loadScenario(data) {
             );
             if (prop.barrier) {
                 wall.barriers[wall.barriers.length] = key;
+            }
+            if (prop.openImage) {
+                wall.addProp(
+                    key+"-open",
+                    prop.name,
+                    prop.openImage,
+                    prop.openHoverImage,
+                    prop.width,
+                    prop.height,
+                    prop.left,
+                    prop.top,
+                    prop.action,
+                    prop.actionVariables
+                );
             }
             if (prop.barrierMessage) {
                 wall.barrierMessages[key] = prop.barrierMessage;
@@ -574,6 +591,16 @@ function showConversation(conversationName, currentConversationChoice, cannotSki
         return;
     }
 
+    // hideModal() and return need to be in separate if statements here.
+    // hideModal needs to be called before the triggers run; otherwise, if the
+    // trigger shows a modal, the modal will immediately be hidden.  Of
+    // course, if we return here then triggers won't get executed (and
+    // allowing triggers to execute without showing a message was the whole
+    // point of checking for the message).
+    if (!currentOption.message) {
+         hideModal();
+    }
+    
     if (currentOption.triggers) {
         for (i = 0; i < currentOption.triggers.length; i++) {
             startTrigger(currentOption.triggers[i]);
@@ -582,7 +609,6 @@ function showConversation(conversationName, currentConversationChoice, cannotSki
     }
 
     if (!currentOption.message) {
-        hideModal();
         return;
     }
     //Save whether the conversation can be skipped or not to the modal.
@@ -626,10 +652,12 @@ function checkCondition(condition) {
             checkScenario(doesContain, condition.triggersEnabled, scenario.triggers.pool) &&
             checkScenario(doesContain, condition.objectivesInProgress, scenario.objectives.inProgress) &&
             checkScenario(doesContain, condition.objectivesCompleted, scenario.objectives.completed) &&
+            checkScenario(doesContain, condition.doesntExist, scenario.inactiveProps) &&
             checkScenario(doesNotContain, condition.hasNot, player.inventory.items) &&
             checkScenario(doesNotContain, condition.triggersDisabled, scenario.triggers.pool) &&
             checkScenario(doesNotContain, condition.objectivesNotInProgress, scenario.objectives.inProgress) &&
-            checkScenario(doesNotContain, condition.objectivesNotCompleted, scenario.objectives.completed);
+            checkScenario(doesNotContain, condition.objectivesNotCompleted, scenario.objectives.completed) &&
+            checkScenario(doesNotContain, condition.exists, scenario.inactiveProps);
 }
 
 function doesNotContain(source, contains) {
