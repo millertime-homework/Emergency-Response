@@ -147,29 +147,29 @@
 		}
 	},
 	'21' : {
-		'message' : 'Question 1: The disaster plans of your family\'s school and jobs should...',
+		'message' : 'Question 1: Disaster plans should...',
 		'replies' : {
 			'be a mystery' : 23,
-			'be known in case a disaster strikes.' : 22,
+			'be known and practiced before disaster strikes.' : 22,
 			'be left to the professionals.' : 23
 		}
 	},
 	'22' : { 
-		'message' : 'Correct: You should know the disaster plans of your family\'s work and school.',
+		'message' : 'Correct: You should know the disaster plans of all your family members\' work or school. Practice using them frequently.',
 		'replies' : {
 			'Keep playing.' : 24,
 			'I\'m done for now' : 0	
 		}
 	},
 	'23' : {
-		'message' : 'Incorrect: You should know the disaster plans of your family\'s work and school.',
+		'message' : 'Incorrect: You should know the disaster plans of all your family members\' work or school. Practice using them frequently.',
 		'replies' : {
 			'Keep playing.' : 24,
 			'I\'m done for now' : 0	
 		}
 	},
 	'24' : {
-		'message' : 'Question 2: Emergency rendezvous points should be...',
+		'message' : 'Question 2: A family reunification location should be...',
 		'replies' : {
 			'designated ahead of time and given to all family members.' : 25,
 			'ignored.' : 26,
