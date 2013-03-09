@@ -2,7 +2,7 @@
     'id': 'hall138',
     'x': 1, 
     'y': 3,
-	'_triggers': ['girlRunspast'],
+	'_triggers': ['lukeRunsPast'],
     '_walls': {
         'e': {
             'name': 'NHall138',
@@ -71,8 +71,8 @@
                 'x': 2
             },
 			'_props' : {
-			    'GirlRunner' : {    
-					'name': 'GirlRunner',
+			    'Luke' : {    
+					'name': 'Luke',
                     'image': 'RunnerFront.png',
                     'width': 175,
                     'height': 300,
