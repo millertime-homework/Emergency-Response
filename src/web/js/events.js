@@ -217,9 +217,12 @@ jQuery(document).ready(function($) {
           Default is '1'
     * @param {boolean} cannotSkip If true, the player cannot close the 
           conversation before it is over.
+    * @param {boolean} isAnAction If true, 'x says' and 'you reply' are not 
+          displayed.
     */
-    $(document).on('showConversation', function (event, conversationName, entryPoint, cannotSkip) {
-        showConversation(conversationName, entryPoint, cannotSkip);
+    $(document).on('showConversation', function (
+            event, conversationName, entryPoint, cannotSkip, isAnAction) {
+        showConversation(conversationName, entryPoint, cannotSkip, isAnAction);
     });
 
     /**
