@@ -12,6 +12,22 @@
             'image': 'R120-west.jpg',
             'destination': {
                 'x': 0
+            },
+            '_props': {
+                'door': {
+                    'name': 'door',
+                    'image': 'UseDoor.png',
+                    'openImage': 'up.png',
+                    'width': 200,
+                    'height': 354,
+                    'left': 300,
+                    'top': 200,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'door'
+                    }
+                }
             }
         },
         'n': {
