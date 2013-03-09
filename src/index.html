@@ -122,7 +122,7 @@
                     <input class="ui viewport-button enabled" id="move-forward" type="button" />
                     <input class="ui viewport-button hidden" id="move-up" type="button" value="Go Up Stairs" />
                     <input class="ui viewport-button hidden" id="move-down" type="button" value="Go Down Stairs" />
-                    <div class='ul' id='on-screen-message-container'></div>
+                    <div class='ui' id='on-screen-message-container'></div>
                     <div class='ui' id='inventory'></div>
                     <div class='ui phone-context' id='cell-phone'></div>
                     <div class='phone-context phone-menu hidden' id='phone-context'>
@@ -142,7 +142,8 @@
                         <div class='phone-context-padder'>
                         </div>
                     </div>
-                </div> 
+                </div>
+                <div class="primary-view main-content-child main-content-viewport flashlight-off hidden" id="flashlight-overlay"></div>
                 <div class="primary-view main-content-child main-content-viewport" id="view-scene"></div>
                 <div class='main-content-child' id="sidebar">
                     <div class="bordered" id="objective"><span id='objective-header'>Objective</span><hr><ul></ul></div>
@@ -172,7 +173,7 @@
         <div class='text hidden' id='no-text-template'>No text messages</div>
         <div class='call hidden' id='no-call-template'>No one to call</div>
         <div class='view-text hidden' id='text-message-template'><span></span></div>
-        <div class='on-screen-message hidden' id='on-sreen-message-template'></div>
+        <div class='on-screen-message hidden' id='on-screen-message-template'></div>
     </div>
     
     <!-- BEGIN JAVASCRIPTS -->

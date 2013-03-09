@@ -15,7 +15,7 @@
     },
     '3' : {
         'message' : 'The path is now cleared',
-        'replies' : {'Good, I\'d beter get out of here.' : '0'},
+        'replies' : {'Good, I\'d better get out of here.' : '0'},
         'triggers': ['moveDownedWires']
     }
 },

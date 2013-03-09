@@ -15,16 +15,6 @@
             'image': 'R130-west.jpg',
             'destination': {
                 'x': 0
-            },
-            '_props': {
-                'Room130Sign' : {
-                    'name': 'Room130Sign',
-                    'image': 'sign-room130.png',
-                    'width': 79,
-                    'height': 42,
-                    'left' : 725,
-                    'top': 375
-                }
             }
         },
         'n': {

@@ -14,14 +14,10 @@
         'triggers': ['completeChalkObjective'],
         'message': 'Thank you! Okay, so today we\'ll be covering chapter.... wait, did you feel that?',
         'replies': {
-            'Yes.... what was that?': 3,
+            'Yes.... what was that?': 3
         }
     },
     '3': {
-        'message': 'OHHHH NOOOO IT\'S AN EARTHQUAKE!!!',
-        'replies': {
-            '[stay calm]': 0
-        },
-        'triggers': ['shakeThingsUp'],
+        'triggers': ['shakeThingsUp']
     }
 }

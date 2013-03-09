@@ -2,6 +2,7 @@
     'id': 'class019',
     'x': 0,
     'y': 1,
+    '_triggers': ['checkIfSurvivedEarthquake'],
     '_walls': {
         'e': {
             'name': 'EClass019',
@@ -48,11 +49,7 @@
                     'width': 389,
                     'height': 213,
                     'left': 550,
-                    'top': 300,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'Sturdy Desk'
-                    }
+                    'top': 300
                 }
             }
         },

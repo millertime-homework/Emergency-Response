@@ -23,17 +23,7 @@
         },
         'w': {
             'name': 'WHall110',
-            'image': 'R110-west.jpg',
-            '_props': {
-                'Room110Sign' : {
-                    'name': 'Room110Sign',
-                    'image': 'sign-room110.png',
-                    'width': 78,
-                    'height': 39,
-                    'left' : 650,
-                    'top': 375
-                }
-            }
+            'image': 'R110-west.jpg'
         },
         'n': {
             'name': 'NHall110',

@@ -43,20 +43,40 @@ jQuery(document).ready(function($){
 
     // Renders props on wall
     renderProps = function(wall) {
-        var view;
-        view = $('#view-scene')
+        var view, flashlightOverlay;
+
+        if (lightsOn) {
+            view = $('#view-scene')
+        } else {
+            view = $('#flashlight-overlay');
+            behindView = $('#view-scene');
+        }
+
         $.each(wall.props, function(key, value) {
             if (scenario.inactiveProps[key])
                 return;
             
             data = { 'left': value.left, 'top': value.top, 'width': value.width, 'height': value.height };
-            view.append('<div id="' + key + '" class="prop base-prop"></div>')
+
+            // Append prop container div to view
+            view.append('<div id="' + key + '" class="prop base-prop"></div>');
             var viewProp = $('#' + key);
+
+            // Set prop's position and store original values as data attributes
             viewProp.css({ 
                 'left': value.left,
                 'top': value.top,
             }).data(data);
 
+            if (!lightsOn) {
+                behindView.append('<div id="' + key + '-behind" class="prop base-prop"></div>');
+                $('#' + key + '-behind').css({
+                    'left': value.left,
+                    'top': value.top
+                }).data(data);
+            }
+
+            // Set props hover image
             if (value.hoverImage) {
                 viewProp.clone().
                 appendTo(view).
@@ -83,7 +103,19 @@ jQuery(document).ready(function($){
                 //This will make the base prop image display at all times.
                 viewProp.removeClass('base-prop').addClass('permanent-prop');
             }
-            viewProp.append(value['image']);
+
+            // Add image to prop container
+            if (!lightsOn) {
+                $('#' + key + '-behind').append(value['image']);
+                // Insert transparent image
+                viewProp.append('<img src="' +imageBasePath+ 'trans.png">');
+                viewProp.find('img').attr({
+                    width: value.width,
+                    height: value.height
+                });
+            } else {
+                viewProp.append(value['image']);
+            }
 
             var eventParams = {
                 'imageElement': null,
@@ -107,6 +139,7 @@ jQuery(document).ready(function($){
 
     clearProps = function() {
         $('#view-modal .prop').remove()
+        $('#flashlightOverlay .prop').remove()
     }
 
 })
