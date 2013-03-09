@@ -2,7 +2,6 @@
     'id': 'hall130',
     'x': 1, 
     'y': 3,
-	'_triggers' : ['hiXavier'],
     '_walls': {
         'e': {
             'name': 'NHall130',
@@ -17,7 +16,7 @@
 			'destination': {
                 'x': 0
             },
-
+	        '_triggers' : ['hiXavier'],
             '_props': {
                 'xavier': {
                     'name': 'xavier',
