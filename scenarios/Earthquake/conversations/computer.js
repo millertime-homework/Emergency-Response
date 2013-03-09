@@ -155,14 +155,14 @@
 		}
 	},
 	'22' : { 
-		'message' : 'Correct: You should know the disaster plans of all your family member\'s work or school. Practice using them frequently.',
+		'message' : 'Correct: You should know the disaster plans of all your family members\' work or school. Practice using them frequently.',
 		'replies' : {
 			'Keep playing.' : 24,
 			'I\'m done for now' : 0	
 		}
 	},
 	'23' : {
-		'message' : 'Incorrect: You should know the disaster plans of all your family member\'s work or school. Practice using them frequently.',
+		'message' : 'Incorrect: You should know the disaster plans of all your family members\' work or school. Practice using them frequently.',
 		'replies' : {
 			'Keep playing.' : 24,
 			'I\'m done for now' : 0	
