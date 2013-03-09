@@ -63,6 +63,23 @@ jQuery(document).ready(function (jQuery) {
     });
 });
 
+/**
+* Loads annotations from the scenario file. 
+*/
+function loadAnnodations(annotations) {
+    var key;
+
+    if (!annotations) {
+        return;
+    }
+    
+    for (key in annotations) {
+        if (annotations.hasOwnProperty(key)) {
+            addMinimapAnnotationByKey(annotations[key], key);
+        }
+    }
+}
+
 // Loads the Scenario objects from the data parameter (scenario-definition array)
 function loadScenario(data) {
     setGameState(GAME_STATE_LOADING);
@@ -75,6 +92,7 @@ function loadScenario(data) {
     loadConversations(data._conversations);
     initializePlayer(data._player);
     initializeCellPhone();
+    loadAnnodations(data.annotations);
     markInactivePropsInactive(data.inactiveProps);
 
     triggerData = jQuery.extend(true, {}, data._triggers);
