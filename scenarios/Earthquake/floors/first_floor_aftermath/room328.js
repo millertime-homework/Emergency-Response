@@ -1,7 +1,7 @@
 'room328': {
     'id': 'hall328', 
     'x': 3, 
-    'y': 2,
+    'y': 2, 
     '_walls': {
         'e': {
             'name': 'EHall328', 
@@ -20,8 +20,7 @@
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Smoke'
-                    },
-                    'barrier' : true
+                    }
                 },
                 'smokeSafe': {
                     'name': 'smokeSafe',
@@ -61,6 +60,7 @@
             'destination': {
                 'y': 3
             },
+			'_triggers' : ['activatePassout','dangerwarningSmoke','passout'],
 			'_props' : {
                 'smoke': {
                     'name': 'smoke',
@@ -72,8 +72,7 @@
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Smoke'
-                    },
-                    'barrier' : true
+                    }
                 },
                 'smokeSafe': {
                     'name': 'smokeSafe',
@@ -118,18 +117,6 @@
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Puddle'
-                    }
-                },
-                'cloth': {
-                    'name': 'cloth',
-                    'image': 'cloth.png',
-                    'width': 100,
-                    'height': 75,
-                    'left': 350,
-                    'top': 480,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'A cloth'
                     }
                 }
             }

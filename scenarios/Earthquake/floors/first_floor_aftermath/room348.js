@@ -9,6 +9,7 @@
             'destination': {
                 'x': 4
             },
+			'_triggers' : ['dangerwarningGlass'],
 			'_props': {
                 'brokenGlass': {
                     'name': 'brokenGlass',

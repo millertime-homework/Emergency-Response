@@ -30,6 +30,7 @@
             'destination': {
                 'y': 2
             },
+			'_triggers' : ['dangerwarningPowerLines'],
 		    '_props' : {
                 'Downedwire': {
                     'name': 'Downedwire',

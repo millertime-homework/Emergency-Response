@@ -27,6 +27,7 @@
             'destination': {
                 'y': 2
             },
+			'_triggers' : ['dangerwarningSmoke','activatePassout','passout'],
 			'_props' : {
                 'smoke': {
                     'name': 'smoke',
@@ -38,8 +39,7 @@
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Smoke'
-                    },
-                    'barrier' : true
+                    }
                 },
                 'smokeSafe': {
                     'name': 'smokeSafe',
