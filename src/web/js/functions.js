@@ -97,6 +97,9 @@ function loadScenario(data) {
             currentRoom.addTriggers(roomData._triggers);
             currentRoom.abortTriggers = roomData.abortTriggers;
             loadWalls(currentRoom, roomData);
+            if (roomData.annotation) {
+                addMinimapAnnotation(roomData.annotation, roomData.x, roomData.y, floorData.z);
+            }
         });
     }
 
