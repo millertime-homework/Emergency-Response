@@ -104,7 +104,9 @@ function loadScenario(data) {
         var currentWall;
 
         jQuery.each(roomData._walls, function (key, wallData) {
-            currentWall = room.addWall(wallData.name, key, wallData.image, wallData.fakeDirection, wallData.isCutscene);
+            currentWall = room.addWall(wallData.name, key, wallData.image, 
+                    wallData.fakeDirection, wallData.isCutscene, 
+                    wallData._triggers);
 
             if (wallData._props) {
                 loadProps(currentWall, wallData);
