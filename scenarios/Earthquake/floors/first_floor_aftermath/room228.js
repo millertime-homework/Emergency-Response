@@ -2,6 +2,7 @@
     'id': 'stairs228',
     'x': 2,
     'y': 2,
+    'annotation': 'AnnotationStairs.png',
     '_walls': {
         'e': {
             'name': 'EStairs228',

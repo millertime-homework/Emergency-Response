@@ -2,6 +2,7 @@
     'id': 'stairs220',
     'x': 2,
     'y': 2,
+    'annotation': 'AnnotationStairs.png',
     '_triggers' : ['getShotAt', 'abort'],
     '_walls': {
         'e': {

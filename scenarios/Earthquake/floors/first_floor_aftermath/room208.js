@@ -2,6 +2,7 @@
     'id': 'hall208', 
     'x': 2, 
     'y': 0,
+    'annotation': 'AnnotationExit.png',
     '_walls': {
         'e': {
             'name': 'EHall208', 

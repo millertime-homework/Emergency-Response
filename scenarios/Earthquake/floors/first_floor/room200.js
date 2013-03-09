@@ -2,6 +2,7 @@
     'id': 'hall200', 
     'x': 2, 
     'y': 0,
+    'annotation': 'AnnotationExit.png',
     '_triggers': ['enteredSchoolUnprepared'],
     '_walls': {
         'e': {
