@@ -11,7 +11,7 @@
         'triggers': ['takeFood']
     },
     '3': {
-        'triggers': ['awardPackingGoKit'],
+        'triggers': ['awardPackingGoKit', 'takeFood'],
         'message': 'Your Go-Kit is almost packed!',
         'replies': {
             'Pack the Food and get to school.': 4

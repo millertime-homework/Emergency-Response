@@ -11,7 +11,7 @@
         'triggers': ['takeFlashlight']
     },
     '3': {
-        'triggers': ['awardPackingGoKit'],
+        'triggers': ['awardPackingGoKit', 'takeFlashlight'],
         'message': 'Your Go-Kit is almost packed!',
         'replies': {
             'Pack the Flashlight and get to school.': 4

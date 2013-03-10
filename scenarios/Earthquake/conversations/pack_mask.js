@@ -11,7 +11,7 @@
         'triggers': ['takeMask']
     },
     '3': {
-        'triggers': ['awardPackingGoKit'],
+        'triggers': ['awardPackingGoKit', 'takeMask'],
         'message': 'Your Go-Kit is almost packed!',
         'replies': {
             'Pack the N-97 Breathing Mask and get to school.': 4

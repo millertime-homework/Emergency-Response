@@ -1,4 +1,4 @@
-'packWater': {
+'Pack Water Bottle?': {
     '1': {
         'check': [{'has': ['Flashlight', 'Food', 'Breathing Mask', 'Whistle', 'First Aid Kit'], 'goto': 3}],
         'message': 'Water is essential to life.',
@@ -11,7 +11,7 @@
         'triggers': ['takeWater']
     },
     '3': {
-        'triggers': ['awardPackingGoKit'],
+        'triggers': ['awardPackingGoKit', 'takeWater'],
         'message': 'Your Go-Kit is almost packed!',
         'replies': {
             'Pack the Water and get to school.': 4

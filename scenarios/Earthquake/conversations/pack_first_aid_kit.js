@@ -1,4 +1,4 @@
-'packFirstAidKit': {
+'Pack First Aid Kit?': {
     '1': {
         'check': [{'has': ['Water','Flashlight', 'Food', 'Breathing Mask', 'Whistle'], 'goto': 3}],
         'message': 'Even small injuries left untreated can become life-threatening in emergency situations.',
@@ -11,7 +11,7 @@
         'triggers': ['takeFirstAidKit']
     },
     '3': {
-        'triggers': ['awardPackingGoKit'],
+        'triggers': ['awardPackingGoKit', 'takeFirstAidKit'],
         'message': 'Your Go-Kit is almost packed!',
         'replies': {
             'Take First Aid Kit and get to school': 4
