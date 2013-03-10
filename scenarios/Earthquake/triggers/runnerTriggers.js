@@ -1,4 +1,5 @@
 'girlRunspast' : {
+    'disabled' : true,
 	'events' : {
 		'warpPlayer' : ['Runscene'],
 		'showOnScreenMessage' : ['As your moving down the hallway a man comes out of a nearby classroom and runs past you.']
