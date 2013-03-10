@@ -2,6 +2,7 @@
     'id': 'hall338', 
     'x': 3, 
     'y': 3,
+	'_triggers' : ['aftershock'],
     '_walls': {
         'e': {
             'name': 'EHall338', 
