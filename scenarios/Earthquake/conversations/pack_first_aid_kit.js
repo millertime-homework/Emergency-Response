@@ -1,4 +1,4 @@
-'Pack First Aid Kit?': {
+'packFirstAidKit': {
     '1': {
         'check': [{'has': ['Water','Flashlight', 'Food', 'Breathing Mask', 'Whistle'], 'goto': 3}],
         'message': 'Even small injuries left untreated can become life-threatening in emergency situations.',
