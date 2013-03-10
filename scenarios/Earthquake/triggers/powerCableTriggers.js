@@ -8,5 +8,6 @@
             'events' : {
                 'replaceProp': ['Downedwire', 'Movedwire']
             },
-			'enableTriggers' : ['lukeRunsPast']
+			'enableTriggers' : ['lukeRunsPast'],
+			'disableTriggers' : ['activateElectrocute','electrocute']
         }

@@ -2,7 +2,7 @@
     'id': 'hall148',
     'x': 1,
     'y': 4,
-	'_triggers' : ['deactivateElectrocute'],
+	'_triggers' : ['deactivateElectrocute','footInjury'],
     '_walls': {
         'e': {
             'name': 'EHall148',

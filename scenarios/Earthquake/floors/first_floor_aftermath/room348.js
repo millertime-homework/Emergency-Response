@@ -34,8 +34,7 @@
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Unhinged door'
-                    },
-                    'barrier' : true
+                    }
                 },
                 'bridgeDoor': {
                     'name': 'bridgeDoor',

@@ -2,6 +2,7 @@
             'events' : {
                 'replaceProp': ['smoke', 'smokeSafe']
             },
+			'enableTriggers' : ['aftershock'],
 			'disableTriggers' : ['activatePassout','passout']
         },
         'wetTheCloth' : {
