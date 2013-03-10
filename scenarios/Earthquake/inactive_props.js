@@ -5,4 +5,4 @@
     'z': 8,
     '_facing': 'n',
     'inventory': []
-}
+},

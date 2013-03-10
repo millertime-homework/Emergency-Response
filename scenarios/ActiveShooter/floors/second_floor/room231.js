@@ -8,6 +8,21 @@
             'image': 'R231-east.jpg',
             'destination': {
                 'x': 3
+            },
+            '_props' : {
+                'lockedDoor': {
+                    'name': 'lockedDoor',
+                    'image': 'trans.png',
+                    'width': 150,
+                    'height': 350,
+                    'left': 875,
+                    'top': 200,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                    'conversationName': 'lockedDoor'
+                    },
+                'barrier' : true
+                }
             }
         },
         'w': {

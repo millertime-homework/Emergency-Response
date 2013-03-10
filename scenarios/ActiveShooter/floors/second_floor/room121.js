@@ -18,6 +18,21 @@
             'image': 'R121-west.jpg',
             'destination': {
                 'x': 0
+            },
+            '_props' : {
+                'lockedDoor': {
+                    'name': 'lockedDoor',
+                    'image': 'trans.png',
+                    'width': 235,
+                    'height': 450,
+                    'left': 450,
+                    'top': 170,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                    'conversationName': 'lockedDoor'
+                    },
+                'barrier' : true
+                }
             }
         },
         'n': {
