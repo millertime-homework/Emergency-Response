@@ -3,7 +3,7 @@
     'x': 2, 
     'y': 0,
     'annotation': 'AnnotationExit.png',
-    '_triggers': ['prepSchoolObjectives','enteredSchoolUnprepared'],
+    '_triggers': ['prepSchoolObjectives','enteredSchoolUnprepared','startSpeakwithFoo'],
     '_walls': {
         'e': {
             'name': 'EHall200', 

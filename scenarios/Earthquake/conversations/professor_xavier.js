@@ -3,7 +3,8 @@
         'message': 'Hello!',
         'replies': {
             'Hi Professor': 2
-        }
+        },
+		'triggers' : ['completeSpeakWithFoo']
     },
     '2': {
         'message': 'You should really try out the Emergency Response Game on my computer!',
