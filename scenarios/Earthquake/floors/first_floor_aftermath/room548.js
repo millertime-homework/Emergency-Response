@@ -38,6 +38,30 @@
                     'height':30,
                     'left': 545,
                     'top': 300,
+                },
+                'brokenGlass': {
+                    'name': 'brokenGlass',
+                    'image': 'brokenGlass.png',
+                    'width': 130,
+                    'height': 75,
+                    'left': 490,
+                    'top': 330,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Broken glass'
+                    }
+			    },
+				'bridgeDoor': {
+                    'name': 'bridgeDoor',
+                    'image': 'doordown.png',
+                    'width': 78,
+                    'height': 65,
+                    'left': 505,
+                    'top': 330,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Broken glass'
+                    }
                 }
 			}
         },
