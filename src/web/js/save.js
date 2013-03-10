@@ -69,7 +69,7 @@ function loadGame() {
     }
     scenario.inactiveProps = {};
     for (var i = 0; i < saveable[saveableVars.inactiveProps].length; i++)
-        scenario.inactiveProps[saveable[saveableVars.inactiveProps[i]]] = true;
+        scenario.inactiveProps[saveable[saveableVars.inactiveProps][i]] = true;
     renderScene();
     updateMap();
     jQuery('#objective ul').empty();
