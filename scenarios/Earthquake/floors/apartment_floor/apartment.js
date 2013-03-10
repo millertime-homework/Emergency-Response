@@ -11,10 +11,10 @@
                 'mask': {
                     'name': 'N-95 Breathing Mask',
                     'image': 'breathingmask.png',
-                    'width': 142,
-                    'height': 120,
-                    'top': 400,
-                    'left': 200,
+                    'width': 71,
+                    'height': 60,
+                    'top': 390,
+                    'left': 400,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'packMask',
@@ -24,10 +24,10 @@
                 'whistle': {
                     'name': 'Whistle',
                     'image': 'whistle.png',
-                    'width': 183,
-                    'height': 91,
-                    'top': 400,
-                    'left': 400,
+                    'width': 91,
+                    'height': 45,
+                    'top': 410,
+                    'left': 600,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'packWhistle',
