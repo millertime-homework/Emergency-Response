@@ -1,42 +1,46 @@
 var saveableVars = {'x':0,'y':1,'z':2,'facing':3,'scenario':4,'objectives':5,'inactiveProps':6,'inventory':7,'lightsOn':8,'triggers':9};
 var triggerTypes = ['disabled', 'pool', 'waitingForSignal', 'deferredByMoves', 'deferredByTime', 'deferredByObjectives'];
 function saveGame() {
-    if (gameState == GAME_STATE_OVER) {
-        document.cookie = 'emergencySave=; expires=Sat, 1-Jan-2000 00:00:00 GMT'; // expire in the past to delete
-        return;
-    }
-    var inactList = [];
-    for (var i in scenario.inactiveProps) 
-        if (scenario.inactiveProps.hasOwnProperty(i))
-            inactList[inactList.length] = i;
-    var flashlightOverlay = jQuery('#flashlight-overlay');
-    var saveable = [
-        /*"x":*/ player.x, /*"y":*/ player.y, /*"z":*/ player.z, /*"facing":*/ player.facing,
-        /*"scenario":*/ currentScenario,
-        /*"objectives":*/ scenario.objectives,
-        /*"inactiveProps":*/ inactList,
-        /*"inventory":*/ player.inventory.items,
-        /*"lightsOn":*/ lightsOn ? 'on' : flashlightOverlay.hasClass('flashlight-on')
-    ];
-    for (var j = 0; j < triggerTypes.length; j++) {
-        var name = triggerTypes[j];
-        var input = scenario.triggers[name];
-        var result = {};
-        for (var i in input) {
-            result[i] = [input[i].lives];
-            if (!Number.isFinite(result[i].lives))
-                result[i][0] = -1; // JSON doesn't have Infinity
-            if (input[i].timeLeft != null && name == 'deferredByTime')
-                result[i][1] = input[i].timeLeft;
+    try {
+        if (gameState == GAME_STATE_OVER) {
+            document.cookie = 'emergencySave=; expires=Sat, 1-Jan-2000 00:00:00 GMT'; // expire in the past to delete
+            return;
         }
-        saveable[saveableVars.triggers+j] = result;
+        var inactList = [];
+        for (var i in scenario.inactiveProps) 
+            if (scenario.inactiveProps.hasOwnProperty(i))
+                inactList[inactList.length] = i;
+        var flashlightOverlay = jQuery('#flashlight-overlay');
+        var saveable = [
+            /*"x":*/ player.x, /*"y":*/ player.y, /*"z":*/ player.z, /*"facing":*/ player.facing,
+            /*"scenario":*/ currentScenario,
+            /*"objectives":*/ scenario.objectives,
+            /*"inactiveProps":*/ inactList,
+            /*"inventory":*/ player.inventory.items,
+            /*"lightsOn":*/ lightsOn ? 'on' : flashlightOverlay.hasClass('flashlight-on')
+        ];
+        for (var j = 0; j < triggerTypes.length; j++) {
+            var name = triggerTypes[j];
+            var input = scenario.triggers[name];
+            var result = {};
+            for (var i in input) {
+                result[i] = [input[i].lives];
+                if (!Number.isFinite(result[i].lives))
+                    result[i][0] = -1; // JSON doesn't have Infinity
+                if (input[i].timeLeft != null && name == 'deferredByTime')
+                    result[i][1] = input[i].timeLeft;
+            }
+            saveable[saveableVars.triggers+j] = result;
+        }
+        var str = escape(JSON.stringify(saveable));
+        var cookieStr = "emergencySave="+str+"";
+        if(cookieStr.length >= 4096)
+            console.log("Cookie is too long again ("+cookieStr.length+"): "+JSON.stringify(saveable));
+        // TODO expire
+        document.cookie = cookieStr;
+    } catch (e) {
+        console.log("Error while saving: " + e);
     }
-    var str = escape(JSON.stringify(saveable));
-    var cookieStr = "emergencySave="+str+"";
-    if(cookieStr.length >= 4096)
-        console.log("Cookie is too long again ("+cookieStr.length+"): "+JSON.stringify(saveable));
-    // TODO expire
-    document.cookie = cookieStr;
 }
 
 // I can use this from the console if further testing or debugging is needed
