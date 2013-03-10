@@ -3,12 +3,12 @@
 },
 'plaqueObjective' : {
 	'events' : {
-		'setObjective' : ['fixPlaque', 'Secure a loose sign']
+		'setObjective' : ['fixPlaque', 'Secure a loose sign.']
 	}
 },
 'moveBikeObjective' : {
 	'events' : {
-		'setObjective' : ['moveBike' , 'Unblock an exit']
+		'setObjective' : ['moveBike' , 'Unblock an exit.']
 	}
 },
 'heatObjective' : {
