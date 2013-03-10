@@ -2,7 +2,7 @@
     'id': 'hall138',
     'x': 1, 
     'y': 3,
-	'_triggers': ['girlRunspast'],
+	'_triggers': ['lukeRunsPast'],
     '_walls': {
         'e': {
             'name': 'NHall138',
@@ -53,10 +53,10 @@
                     'left': 490,
                     'top': 240
                 },
-				'GirlRunner2' : {    
-					'name': 'GirlRunner',
+				'Luke2' : {    
+					'name': 'Luke2',
                     'image': 'RunnerBack.png',
-                    'width': 75,
+                    'width': 41,
                     'height': 125,
                     'left': 500,
                     'top': 275
@@ -71,10 +71,10 @@
                 'x': 2
             },
 			'_props' : {
-			    'GirlRunner' : {    
-					'name': 'GirlRunner',
+			    'Luke' : {    
+					'name': 'Luke',
                     'image': 'RunnerFront.png',
-                    'width': 175,
+                    'width': 113,
                     'height': 300,
                     'left': 475,
                     'top': 250

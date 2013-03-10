@@ -8,5 +8,5 @@
             'events' : {
                 'replaceProp': ['Downedwire', 'Movedwire']
             },
-			'enableTriggers' : ['girlRunspast']
+			'enableTriggers' : ['lukeRunsPast']
         }

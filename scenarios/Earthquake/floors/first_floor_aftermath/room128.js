@@ -65,10 +65,10 @@
                 'y': 1
             },
 			'_props' : {
-				'GirlRunner2' : {    
-					'name': 'GirlRunner2',
+				'Luke2' : {
+					'name': 'Luke2',
                     'image': 'RunnerBack.png',
-                    'width': 125,
+                    'width': 81,
                     'height': 250,
                     'left': 435,
                     'top': 250,
