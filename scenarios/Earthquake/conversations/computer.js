@@ -3,8 +3,7 @@
         'message': 'Emergency Response Game',
         'replies': {
             '[Start Playing]': 2
-        },
-		'triggers' : ['scoreERGpoints']
+        }
     },
     '2': {
         'message' : 'Choose a category',
