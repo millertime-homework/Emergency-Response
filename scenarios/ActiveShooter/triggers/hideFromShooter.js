@@ -1,7 +1,8 @@
 'hideFromShooter' : {
     'events' : {
-        'addToScene': ['UseDoor', 'hidingSpot011'],
-        'setObjectives' : [['hideFromShooter', 'Run Hide Fight', 'turnOffLights', 'Turn off the lights.',
+        'addToScene': ['hidingSpot', 'hidingStudent1', 'hidingStudent2', 'hidingStudent3'],
+        
+        'setObjectives' : [['hideFromShooter', 'The shooter is very close.', 'turnOffLights', 'Turn off the lights.',
                             'pullDownWindowShade', 'Pull down the window shade', 'hideByDoor', 'Hide by the door', 'silencePhone',
                             'Silence your cell phone', 'lockTheDoor', 'Lock the door to the room.']],
                             
