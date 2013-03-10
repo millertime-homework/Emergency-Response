@@ -32,9 +32,17 @@ function saveGame() {
         saveable[saveableVars.triggers+j] = result;
     }
     var str = escape(JSON.stringify(saveable));
-    console.log(JSON.stringify(saveable));
+    var cookieStr = "emergencySave="+str+"";
+    if(cookieStr.length >= 4096)
+        console.log("Cookie is too long again ("+cookieStr.length+"): "+JSON.stringify(saveable));
     // TODO expire
-    document.cookie = "emergencySave="+str+"";
+    document.cookie = cookieStr;
+}
+
+// I can use this from the console if further testing or debugging is needed
+function logSavedGame() {
+    document.cookie.match(/emergencySave=([^;]+)/);
+    console.log(unescape(RegExp.$1));
 }
 
 function canLoadGame() {
