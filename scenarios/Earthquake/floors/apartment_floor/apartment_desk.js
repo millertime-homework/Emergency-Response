@@ -10,9 +10,9 @@
                 'flashlight': {
                     'name': 'Flashlight',
                     'image': 'flashlight.png',
-                    'width': 248,
-                    'height': 158,
-                    'top': 0,
+                    'width': 124,
+                    'height': 79,
+                    'top': 40,
                     'left': 100,
                     'action': 'showConversation',
                     'actionVariables': {
@@ -24,7 +24,7 @@
                     'image': 'waterbottle.png',
                     'width': 131,
                     'height': 281,
-                    'top': 0,
+                    'top': 40,
                     'left': 400,
                     'action': 'showConversation',
                     'actionVariables': {
@@ -34,10 +34,10 @@
                 'food': {
                     'name': 'Food',
                     'image': 'food.png',
-                    'width': 150,
-                    'height': 150,
-                    'top': 0,
-                    'left': 600,
+                    'width': 81,
+                    'height': 175,
+                    'top': 40,
+                    'left': 700,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'packFood'
@@ -46,8 +46,8 @@
                 'mask': {
                     'name': 'N-95 Breathing Mask',
                     'image': 'breathingmask.png',
-                    'width': 150,
-                    'height': 150,
+                    'width': 142,
+                    'height': 120,
                     'top': 400,
                     'left': 200,
                     'action': 'showConversation',
@@ -58,8 +58,8 @@
                 'whistle': {
                     'name': 'Whistle',
                     'image': 'whistle.png',
-                    'width': 150,
-                    'height': 150,
+                    'width': 183,
+                    'height': 91,
                     'top': 400,
                     'left': 400,
                     'action': 'showConversation',
@@ -70,8 +70,8 @@
                 'firstaidkit': {
                     'name': 'First Aid Kit',
                     'image': 'firstaidkit.png',
-                    'width': 150,
-                    'height': 150,
+                    'width': 124,
+                    'height': 102,
                     'top': 400,
                     'left': 600,
                     'action': 'showConversation',
