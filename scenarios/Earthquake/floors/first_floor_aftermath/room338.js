@@ -2,6 +2,7 @@
     'id': 'hall338', 
     'x': 3, 
     'y': 3,
+	'_triggers' : ['passout'],
     '_walls': {
         'e': {
             'name': 'EHall338', 
@@ -27,7 +28,7 @@
             'destination': {
                 'y': 2
             },
-			'_triggers' : ['dangerwarningSmoke','activatePassout','passout'],
+			'_triggers' : ['dangerwarningSmoke','activatePassout'],
 			'_props' : {
                 'smoke': {
                     'name': 'smoke',
@@ -54,6 +55,11 @@
                     }
                 }
 			}
-        }
+        },
+		'blackout': {
+            'name': 'SHall338', 
+            'image': 'blackout.jpg',
+			'isCutscene': true,
+		}
     }
 }

@@ -2,6 +2,7 @@
     'id': 'hall318', 
     'x': 3, 
     'y': 1,
+	'_triggers' : ['deactivatePassout'],
     '_walls': {
         'e': {
             'name': 'EHall318', 
@@ -37,10 +38,6 @@
                     'height': 125,
                     'left': 455,
                     'top': 215,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'Smoke'
-                    }
                 }
 		    }
         },

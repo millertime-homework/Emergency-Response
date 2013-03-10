@@ -2,6 +2,7 @@
     'id': 'hall328', 
     'x': 3, 
     'y': 2, 
+	'_triggers' : ['passout'],
     '_walls': {
         'e': {
             'name': 'EHall328', 
@@ -60,7 +61,7 @@
             'destination': {
                 'y': 3
             },
-			'_triggers' : ['activatePassout','dangerwarningSmoke','passout'],
+			'_triggers' : ['activatePassout','dangerwarningSmoke'],
 			'_props' : {
                 'smoke': {
                     'name': 'smoke',
