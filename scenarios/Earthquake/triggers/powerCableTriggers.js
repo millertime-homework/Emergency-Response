@@ -7,5 +7,6 @@
         'moveDownedWires' : {
             'events' : {
                 'replaceProp': ['Downedwire', 'Movedwire']
-            }
+            },
+			'enableTriggers' : ['lukeRunsPast']
         }

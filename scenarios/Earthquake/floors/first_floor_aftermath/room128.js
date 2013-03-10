@@ -2,7 +2,6 @@
     'id': 'hall128', 
     'x': 1, 
     'y': 2,
-    '_triggers': ['checkForFire'],
     '_walls': {
         'e': {
             'name': 'EHall128', 
@@ -65,7 +64,21 @@
             'image': 'R120-south.jpg',
             'destination': {
                 'y': 1
-            }
-        }
+            },
+			'_props' : {
+				'Luke2' : {
+					'name': 'Luke2',
+                    'image': 'RunnerBack.png',
+                    'width': 81,
+                    'height': 250,
+                    'left': 435,
+                    'top': 250,
+					'action': 'showConversation',
+					'actionVariables': {
+                        'conversationName': 'Luke'
+                    }
+				}
+			}
+		}
     }
 }
