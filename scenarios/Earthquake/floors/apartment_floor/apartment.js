@@ -127,7 +127,7 @@
                     'height': 102,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'Pack First Aid Kit?',
+                        'conversationName': 'packFirstAidKit',
                         'isAnAction': true
                     }
                 },
@@ -140,7 +140,7 @@
                     'height': 140,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'Pack Water Bottle?',
+                        'conversationName': 'packWater',
                         'isAnAction': true
                     }
                 }
