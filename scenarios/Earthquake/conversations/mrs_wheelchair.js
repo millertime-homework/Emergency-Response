@@ -43,6 +43,6 @@
         'replies': {
             'You\'re welcome!':0
         },
-        'triggers': ['wheelChairPoints','wheelChairEnd']
+        'triggers': ['wheelChairEnd','savedJames']
     }
 }

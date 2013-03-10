@@ -2,7 +2,7 @@
     'id': 'class019',
     'x': 0,
     'y': 1,
-    '_triggers': ['checkIfSurvivedEarthquake'],
+    '_triggers': ['failprepSchoolObjectives','setAftermathObjectives','checkIfSurvivedEarthquake'],
     '_walls': {
         'e': {
             'name': 'EClass019',
