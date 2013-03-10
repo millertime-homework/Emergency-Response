@@ -114,7 +114,15 @@
                     'height': 50,
                     'left': 530,
                     'top': 275
-                }
+                },
+				'Luke2' : {    
+					'name': 'Luke2',
+                    'image': 'RunnerBack.png',
+                    'width': 33,
+                    'height': 100,
+                    'left': 500,
+                    'top': 275
+				}
             }
         }
     }

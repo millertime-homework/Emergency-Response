@@ -25,7 +25,7 @@
             '_props' : {
                 'lockedDoor': {
                     'name': 'lockedDoor',
-                    'image': 'lockedDoor.png',
+                    'image': 'trans.png',
                     'width': 550,
                     'height': 500,
                     'left': 220,
