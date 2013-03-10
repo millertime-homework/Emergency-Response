@@ -11,4 +11,3 @@
                         'shooterCloseGetShot', 'chanceofEscape', 'abort', 'shooterEnters011'],
     'startTriggers' : ['ShootsThroughWalls011', 'shooterEnters011', 'hiddenFromShooter']
 }
-
