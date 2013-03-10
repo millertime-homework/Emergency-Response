@@ -50,6 +50,8 @@ Player = Class.create({
             this.z = destination['z']
             this.facing = destination['f']
             jQuery(document).trigger('player-moved', [this.x, this.y, this.z]);
+        } else if (currWall.getBarrierMessage() != null) {
+            showOnScreenMessage(currWall.getBarrierMessage(), 3);
         }
         return false;
     },

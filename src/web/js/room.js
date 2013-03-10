@@ -18,13 +18,13 @@ Room = Class.create({
         this.y = y;
         this.z = z;
     },
-    addWall: function(name, direction, image, fakeDirection, isCutscene) {
+    addWall: function(name, direction, image, fakeDirection, isCutscene, triggers) {
         if (typeof this.walls[direction] !== 'undefined') {
             console.log('Room.addWall - direction ' + direction + ' already defined')
             return;
         }
         var newWall = new Wall;
-        newWall.set(name, direction, image, fakeDirection, isCutscene)
+        newWall.set(name, direction, image, fakeDirection, isCutscene, triggers)
         this.walls[direction] = newWall;
         return newWall;
     },

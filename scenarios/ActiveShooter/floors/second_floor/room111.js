@@ -2,7 +2,7 @@
     'id': 'hall111',
     'x': 1,
     'y': 1,
-    '_triggers' : ['shooterCloseGetShot'],
+    '_triggers' : ['shooterCloseGetShot', 'playerRuns'],
     '_walls': {
         'e': {
             'name': 'EHall111',
@@ -13,6 +13,22 @@
             'image': 'R111-west.jpg',
             'destination': {
                 'x': 0
+            },
+            '_props': {
+                'door': {
+                    'name': 'door',
+                    'image': 'UseDoor.png',
+                    'openImage': 'blank.png',
+                    'width': 280,
+                    'height': 500,
+                    'left': 420,
+                    'top': 160,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'lockableDoor2'
+                    }
+                }
             }
         },
         'n': {

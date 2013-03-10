@@ -2,6 +2,7 @@
     'id': 'hall208', 
     'x': 2, 
     'y': 0,
+    'annotation': 'AnnotationExit.png',
     '_walls': {
         'e': {
             'name': 'EHall208', 
@@ -26,11 +27,7 @@
         },
         's': {
             'name': 'SHall208', 
-            'image': 'R200-south.jpg',
-            'destination': {
-                'y': -1
-            },
-            'triggers': ['exitedBuilding']
+            'image': 'R200-south.jpg'
         }
     }
 }

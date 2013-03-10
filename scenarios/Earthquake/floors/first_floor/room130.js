@@ -13,9 +13,10 @@
         'w': {
             'name': 'SHall130',
             'image': 'R130-west.jpg',
-            'destination': {
+			'destination': {
                 'x': 0
             },
+	        '_triggers' : ['hiXavier'],
             '_props': {
                 'xavier': {
                     'name': 'xavier',

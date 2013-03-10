@@ -8,13 +8,16 @@ Wall = Class.create({
         this.destination = null;
         this.isCutscene = null;
         this.barriers = [];
+        this.barrierMessages = {};
+        this.triggers;
     },
-    set: function(name, direction, image, fakeDirection, isCutscene) {
+    set: function(name, direction, image, fakeDirection, isCutscene, triggers) {
         this.name = name;
         this.direction = direction;
         this.fakeDirection = fakeDirection;
         this.isCutscene = isCutscene;
         this.image = scenario.addImage(image);
+        this.triggers = triggers;
     },
     addProp: function(id, name, image, hoverImage, width, height, left, right, action, actionVariables) {
         var newProp = new Prop;
@@ -54,6 +57,12 @@ Wall = Class.create({
             if (!scenario.inactiveProps[this.barriers[i]])
                 return false;
         return (this.destination != null);
+    },
+    getBarrierMessage: function () {
+        for (var i = 0; i < this.barriers.length; i++)
+            if (!scenario.inactiveProps[this.barriers[i]])
+                return this.barrierMessages[this.barriers[i]];
+        return null;
     },
     setName: function (name) {
         this.name = name;

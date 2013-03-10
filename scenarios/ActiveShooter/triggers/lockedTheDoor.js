@@ -6,5 +6,6 @@
         'completeObjective' : ['lockTheDoor'],
         'replaceProp': ['doorHandle', 'doorHandleDone']
     },
-    'deleteTriggers' : ['failedToLockTheDoor']
+    'deleteTriggers' : ['failedToLockTheDoor'],
+    'startTriggers': ['lockDoor2']
 }

@@ -33,7 +33,19 @@
                     'height': 138,
                     'left': 483,
                     'top': 220
-                }
+                },
+		        'Luke2' : {    
+					'name': 'Luke2',
+                    'image': 'RunnerFront.png',
+                    'width': 113,
+                    'height': 300,
+                    'left': 475,
+                    'top': 250,
+					'action': 'showConversation',
+					'actionVariables': {
+                        'conversationName': 'Luke'
+                    }
+				}
             }
 		},
         's': {

@@ -2,6 +2,7 @@
     'id': 'hall138',
     'x': 1, 
     'y': 3,
+	'_triggers': ['lukeRunsPast'],
     '_walls': {
         'e': {
             'name': 'NHall138',
@@ -51,8 +52,34 @@
                     'height': 122,
                     'left': 490,
                     'top': 240
-                }
+                },
+				'Luke2' : {    
+					'name': 'Luke2',
+                    'image': 'RunnerBack.png',
+                    'width': 41,
+                    'height': 125,
+                    'left': 500,
+                    'top': 275
+				}
             }
-        }
+        },
+		'Runscene': {
+            'name': 'Runscene',
+            'image': 'R130-north.jpg',
+			'isCutscene': true,
+            'destination': {
+                'x': 2
+            },
+			'_props' : {
+			    'Luke' : {    
+					'name': 'Luke',
+                    'image': 'RunnerFront.png',
+                    'width': 113,
+                    'height': 300,
+                    'left': 475,
+                    'top': 250
+				}
+			}
+        },
     }
 }

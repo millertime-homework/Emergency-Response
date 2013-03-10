@@ -17,13 +17,13 @@
 'playerInitiatesAttack': {
     'timeDelay': 5000,
     'events': {
-        'showConversation': ['playerInitiatesAttack', null, true]
+        'showConversation': ['playerInitiatesAttack', null, true, true]
     }
 },
 'groupInitiatesAttack': {
     'timeDelay': 5000,
     'events': {
-        'showConversation': ['groupInitiatesAttack', null, true]
+        'showConversation': ['groupInitiatesAttack', null, true, true]
     }
 },
 'shooterSubduedPlayerInitiated': {

@@ -2,13 +2,29 @@
     'id': 'class011',
     'x': 0,
     'y': 1,
-    '_triggers': ['enterRoom206'],
+    '_triggers': ['enterRoom206','hiMrsFoo'],
     '_walls': {
         'e': {
             'name': 'EClass011',
             'image': 'R011-east.jpg',
             'destination': {
                 'x': 1
+            },
+            '_props': {
+                'door': {
+                    'name': 'door',
+                    'image': 'UseDoor.png',
+                    'openImage': 'blank.png',
+                    'width': 160,
+                    'height': 340,
+                    'left': 480,
+                    'top': 200,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'door'
+                    }
+                }
             }
         },
         'w': {
@@ -24,7 +40,7 @@
                     'top': 50,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'mrsfooconvo'
+                        'conversationName': 'Mrs Foo'
                     }
                 },
                 'sturdydesk':{
