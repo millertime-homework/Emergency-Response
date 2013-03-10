@@ -6,11 +6,7 @@
     '_walls': {
         'e': {
             'name': 'EStairs228',
-            'image': 'R220-east.jpg',
-            'destination': {
-                'x': 3,
-                'z': 9
-            }
+            'image': 'R220-east.jpg'
         },
         'w': {
             'name': 'WStairs228',
