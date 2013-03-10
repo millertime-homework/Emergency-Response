@@ -62,19 +62,6 @@
                     'actionVariables': {
                         'conversationName': 'exit_school'
                     }
-                },
-                'policeman': {
-                    'name': 'policeman',
-                    'image': 'policeman.png',
-                    'hoverImage': 'policeman-hover.png',
-                    'width': 250,
-                    'height': 441,
-                    'left': 500,
-                    'top': 170,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'policeman'
-                    }
                 }
             }
         }
