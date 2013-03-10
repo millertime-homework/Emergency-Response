@@ -1,20 +1,10 @@
         'clearSmoke' :{
             'events' : {
                 'replaceProp': ['smoke', 'smokeSafe']
-            }
-        },
-        'takeCloth' : {
-            'events' : {
-                'takeFromScene' : [{'name' : 'A cloth', 'image': 'cloth.png', 'width':32, 'height':32 },
-                                'cloth']
-            }
+            },
+			'disableTriggers' : ['activatePassout','passout']
         },
         'wetTheCloth' : {
-            'events' : {
-                'removeInventory' : ['A cloth'],
-                'removeFromScene' : ['cloth'],
-                'addInventory' : [{'name' : 'A wet cloth', 'image': 'cloth.png', 'width':32, 'height':32 }]
-            },
             'enableTriggers' : ['clothIsWet']
         },
         'clothIsWet' : {

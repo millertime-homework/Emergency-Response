@@ -2,6 +2,7 @@
     'id': 'hall118',
     'x': 1,
     'y': 1,
+	'_triggers' : ['deactivateElectrocute'],
     '_walls': {
         'e': {
             'name': 'EHall118',

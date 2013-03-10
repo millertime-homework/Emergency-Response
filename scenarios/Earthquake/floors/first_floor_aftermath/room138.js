@@ -2,7 +2,7 @@
     'id': 'hall138',
     'x': 1, 
     'y': 3,
-	'_triggers': ['lukeRunsPast'],
+	'_triggers': ['lukeRunsPast','electrocute'],
     '_walls': {
         'e': {
             'name': 'NHall138',
@@ -31,7 +31,7 @@
             'destination': {
                 'y': 2
             },
-			'_triggers' : ['dangerwarningPowerLines'],
+			'_triggers' : ['dangerwarningPowerLines','activateElectrocute'],
 		    '_props' : {
                 'Downedwire': {
                     'name': 'Downedwire',
@@ -43,8 +43,7 @@
 			        'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Hanging wires'
-                    },
-                    'barrier' : true
+                    }
                 },
 				'Movedwire': {
                     'name': 'Movedwire',

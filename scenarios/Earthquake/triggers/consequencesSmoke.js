@@ -1,14 +1,17 @@
 'activatePassout' : {
 	'enableTriggers' : ['passout'],
+	'disableTriggers' : ['aftershock'],
 	'lives' : Infinity
 },
 'deactivatePassout' : {
 	'disableTriggers' : ['passout'],
+	'enableTriggers' : ['aftershock'],
 	'lives' : Infinity
 },
 'passout' : {
-	'timeDelay' : 500,
-	'startTriggers' : ['playerInjured','wakeup'],
+	'timeDelay' : 250,
+	'enableTriggers' : ['playerInjured'],
+	'startTriggers' : ['wakeup'],
     'events' : {
 	    'warpPlayer' : ['blackout',3,3,8],
 		'showOnScreenMessage' : ['The smoke clouds your vision as you wade through it.  Your lungs heave.  You colaspe to the floor and blackout.']

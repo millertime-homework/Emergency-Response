@@ -17,7 +17,7 @@
             '3' : {
                 'message' : 'The hallway ahead is filled with smoke.',
                 'replies' : {
-                    'I can use this wet cloth to protect me as I crawl under the smoke.' : '4'
+                    'I can use my wet shirt to protect me as I crawl under the smoke.' : '4'
                 }
             },
             '4' : {
@@ -26,43 +26,13 @@
         },
         'Puddle' : { 
             '1': {
-                'check'   : [{'has':['A cloth'], 'goto' : '2'}],
-                'message' : 'A pipe has burst through the floor.  It\'s leaking has created a puddle.',
-                'replies' : {
-                      'Eww, I don\'t know where that water has been.' : '0'
-                }
-            },
-            '2': {
                 'message' : 'A pipe has burst through the floor.  It\'s leaking has created a puddle.',
                 'replies' : {
                       'Eww, I don\'t know where that water has been.' : '0',
-                      'I could use the water to soak this cloth to protect from the smoke.' : '3'
+                      'I could use the water to soak my shirt. The I could cover my face with it to protect me from the smoke.' : '2'
                 } 
             },
-            '3' : {
-                'triggers' : ['wetTheCloth']
-            }
-        },
-        'A cloth' : {
-            '1': {
-                'check' : [{'has':['Water'], 'goto': '3'}],
-                'message' : 'A cloth lies on the ground nearby.  Perhaps it will be of use later',
-                'replies' : {
-                    'Nope a random piece of cloth is always useless.' : '0',
-                    'I\'ll take it, it may come in handy.' : '2'
-                }
-            },
             '2' : {
-                'triggers' : ['takeCloth']
-            },
-            '3' : {
-                'message' : 'A cloth lies on the ground nearby.',
-                'replies' : {
-                    'Nope a random piece of cloth is always useless.' : '0',
-                    'I could put water on it to protect me from the smoke' : '4'
-                }
-            },
-            '4' : {
                 'triggers' : ['wetTheCloth']
             }
         }
