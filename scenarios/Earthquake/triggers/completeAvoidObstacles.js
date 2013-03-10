@@ -1,0 +1,5 @@
+'completeAvoidObstacles' : {
+	'events' : {
+		'completeObjective' : ['avoidObstacles']
+	}
+}

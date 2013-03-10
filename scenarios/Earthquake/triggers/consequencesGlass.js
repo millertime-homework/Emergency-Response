@@ -1,7 +1,8 @@
 'activateFootInjury' : {
 	'enableTriggers' : ['playerInjured','footInjury'],
 	'events' : {
-		'showOnScreenMessage' : ['Ouch! Glass cuts through the sandals slicing your feet.']
+		'showOnScreenMessage' : ['Ouch! Glass cuts through the sandals slicing your feet.'],
+		'failObjective' : ['avoidObstacles']
 	}
 } ,
 'footInjury' : {

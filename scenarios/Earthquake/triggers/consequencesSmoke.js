@@ -14,7 +14,8 @@
 	'startTriggers' : ['wakeup'],
     'events' : {
 	    'warpPlayer' : ['blackout',3,3,8],
-		'showOnScreenMessage' : ['The smoke clouds your vision as you wade through it.  Your lungs heave.  You colaspe to the floor and blackout.']
+		'showOnScreenMessage' : ['The smoke clouds your vision as you wade through it.  Your lungs heave.  You colaspe to the floor and blackout.'],
+		'failObjective' : ['avoidObstacles']
 	},
 	'disabled' : true,
 	'disableTriggers' : ['passout'],
