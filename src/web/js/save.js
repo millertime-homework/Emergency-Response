@@ -72,6 +72,7 @@ function loadGame() {
         scenario.inactiveProps[saveable[saveableVars.inactiveProps[i]]] = true;
     renderScene();
     updateMap();
+    jQuery('#objective ul').empty();
     for (var name in scenario.objectives.inProgress) {
         console.log(name);
         if(scenario.objectives.inProgress.hasOwnProperty(name))
