@@ -33,6 +33,14 @@
             },
 			'_triggers' : ['dangerwarningPowerLines','activateElectrocute'],
 		    '_props' : {
+			    'doorFrame': {
+					'name': 'doorFrame',
+					'image': 'doorframe2.png',
+					'width': 25,
+					'height': 25,
+					'left': 540,
+					'top': 325
+				},
                 'Downedwire': {
                     'name': 'Downedwire',
                     'image': 'downwiresNew.png',

@@ -35,6 +35,18 @@
                     'left': 483,
                     'top': 220
                 },
+				'doorFrame': {
+                    'name': 'doorFrame',
+                    'image': 'doorframe2.png',
+                    'width': 75,
+                    'height': 75,
+                    'left': 534,
+                    'top': 400,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'A door frame'
+                    }
+                },
 		        'Luke2' : {    
 					'name': 'Luke2',
                     'image': 'RunnerFront.png',

@@ -40,6 +40,14 @@
                     'left': 530,
                     'top': 275
                 },
+				'doorFrame': {
+                    'name': 'doorFrame',
+                    'image': 'doorframe2.png',
+                    'width': 35,
+                    'height': 35,
+                    'left': 534,
+                    'top': 355,
+                },
 				'Luke2' : {    
 					'name': 'Luke2',
                     'image': 'RunnerFront.png',
