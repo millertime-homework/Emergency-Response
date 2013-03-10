@@ -21,10 +21,10 @@
 },
 'A door frame' : {
     '1' : {
-        'message' :  'A part of the door frame has come loose in the earthquake.',
+        'message' :  'A part of the door frame has fallen off in the earthquake.',
         'replies' : {
             'Umm, ok...' : '0',
-            'Break the door frame off and carry it for a while' : '2'
+            'Take the long door frame and carry it for a while' : '2'
         }
     },
     '2' : {

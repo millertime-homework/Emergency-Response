@@ -2,6 +2,7 @@
     'id': 'hall418', 
     'x': 4, 
     'y': 1,
+	'_triggers' : ['deactivatePassout'],
     '_walls': {
         'e': {
             'name': 'EHall418', 

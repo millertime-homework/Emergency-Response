@@ -2,6 +2,7 @@
     'id': 'hall118',
     'x': 1,
     'y': 1,
+	'_triggers' : ['deactivateElectrocute','footInjury'],
     '_walls': {
         'e': {
             'name': 'EHall118',
@@ -33,6 +34,18 @@
                     'height': 138,
                     'left': 483,
                     'top': 220
+                },
+				'doorFrame': {
+                    'name': 'doorFrame',
+                    'image': 'doorframe2.png',
+                    'width': 75,
+                    'height': 75,
+                    'left': 534,
+                    'top': 400,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'A door frame'
+                    }
                 },
 		        'Luke2' : {    
 					'name': 'Luke2',
