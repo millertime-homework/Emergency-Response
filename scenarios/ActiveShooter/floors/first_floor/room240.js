@@ -15,17 +15,6 @@
             'image': 'R240-west.jpg',
             'destination': {
                 'x': 1
-            },
-            '_props': {
-                'crowbar': {
-                    'name': 'crowbar',
-                    'image': 'crowbar.png',
-                    'hoverImage': 'crowbar-hover.png',
-                    'width': 72,
-                    'height': 48,
-                    'left': 500,
-                    'top': 320
-                }
             }
         },
         'n': {
