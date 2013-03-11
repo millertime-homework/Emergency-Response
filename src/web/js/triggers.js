@@ -121,10 +121,7 @@ function runTrigger(triggerName, trigger) {
     if (trigger.timeDelay > 0 && !isNaN(trigger.timeDelay)) {
         scenario.triggers.deferredByTime[triggerName] = trigger;
         trigger.timeLeft = trigger.timeDelay;
-        if (trigger.showCountdown)
-                timeDelayedStep(triggerName);
-        else
-                setTimeout(function () { executeTimeDelayedTriggerEvent(triggerName) }, trigger.timeDelay);
+        timeDelayedStep(triggerName);
     } else {
         executeTriggerEvent(trigger);
     }
@@ -140,9 +137,10 @@ function timeDelayedStep(triggerName) {
     else if(trigger.timeLeft < 1000)
          setTimeout(function () { executeTimeDelayedTriggerEvent(triggerName) }, trigger.timeLeft);
     else {
-         showOnScreenMessage(Math.floor(trigger.timeLeft/1000), 0.5);
-         trigger.timeLeft -= 1000;
-         setTimeout(function () { timeDelayedStep(triggerName) }, 1000);
+        if (trigger.showCountdown)
+            showOnScreenMessage(Math.floor(trigger.timeLeft/1000), 0.5);
+        trigger.timeLeft -= 1000;
+        setTimeout(function () { timeDelayedStep(triggerName) }, 1000);
     }
 }
 
