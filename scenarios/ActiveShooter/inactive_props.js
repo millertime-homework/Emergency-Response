@@ -2,7 +2,8 @@
                   'shooter-downed', 'HidingPlace', 'doorShadeDown', 
                   'door-open', 'door2-open', 'lock1', 'lock2',
                   'hidingSpot', 'hidingSpot2', 'doorHandleDone', 'lightSwitchDone',
-                  'hidingStudent1', 'hidingStudent2', 'hidingStudent3', 'shooter220S'],
+                  'hidingStudent1', 'hidingStudent2', 'hidingStudent3', 'shooter220S',
+                  'shooter121E', 'shooter321W'],
 '_player': {
     'x': 2,
     'y': 0,

@@ -3,7 +3,7 @@
     'x': 2,
     'y': 2,
     'annotation': 'AnnotationStairs.png',
-    '_triggers' : ['getShotAt', 'abort'],
+    '_triggers' : ['getShotAt', 'abort', 'shotOnStairPlatform'],
     '_walls': {
         'e': {
             'name': 'EStairs220',
