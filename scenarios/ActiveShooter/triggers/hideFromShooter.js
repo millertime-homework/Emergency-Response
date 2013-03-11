@@ -8,6 +8,6 @@
     },
     'enableTriggers' : ['turnedOffLights', 'pulledDownShade', 'hiddenByDoor', 'silencedPhone', 'lockedTheDoor', 'failedToHide',
                         'failedToTurnOffLights', 'failedToPullDownShade', 'failedToHideByDoor', 'failedToSilencePhone', 'failedToLockTheDoor',
-                        'shooterCloseGetShot', 'chanceofEscape', 'abort', 'shooterEnters011'],
-    'startTriggers' : ['ShootsThroughWalls011', 'shooterEnters011', 'hiddenFromShooter']
+                        'shooterCloseGetShot', 'chanceofEscape', 'abort'],
+    'startTriggers' : ['ShootsThroughWalls011', 'hiddenFromShooter']
 }

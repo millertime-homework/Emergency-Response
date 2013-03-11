@@ -9,22 +9,7 @@
         },
         'w': {
             'name': 'WHall430',
-            'image': 'R430-west.jpg',
-            '_props': {
-                'HidingPlace' : {
-                    'name': 'HidingPlace',
-                    'image': 'hiding-place.png',
-                    'hoverImage': 'hiding-place-hover.png',
-                    'width': 90,
-                    'height': 40,
-                    'left' : 470,
-                    'top': 335,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'Hide'
-                    }
-                }
-            }
+            'image': 'R430-west.jpg'
         },
         'n': {
             'name': 'NHall430',

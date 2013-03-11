@@ -15,29 +15,6 @@
             'image': 'R100-west.jpg',
             'destination': {
                 'x': 0
-            },
-            '_props': {
-                'shooter': {
-                    'name': 'shooter',
-                    'image': 'shooter.png',
-                    'hoverImage': 'shooter-hover.png',
-                    'width': 128,
-                    'height': 256,
-                    'left': 450,
-                    'top': 255,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'Shooter'
-                    }
-                },
-                'shooter-downed': {
-                    'name': 'shooter-downed',
-                    'image': 'shooter-downed.png',
-                    'width': 256,
-                    'height': 128,
-                    'left': 420,
-                    'top': 325
-                }
             }
         },
         'n': {
