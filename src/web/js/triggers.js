@@ -121,26 +121,30 @@ function runTrigger(triggerName, trigger) {
     if (trigger.timeDelay > 0 && !isNaN(trigger.timeDelay)) {
         scenario.triggers.deferredByTime[triggerName] = trigger;
         trigger.timeLeft = trigger.timeDelay;
-        timeDelayedStep(triggerName);
+        timeDelayedStep(triggerName, scenario);
     } else {
         executeTriggerEvent(trigger);
     }
 
 }
 
-function timeDelayedStep(triggerName) {
+function timeDelayedStep(triggerName, triggerScenario) {
+    if (triggerScenario != scenario || gameState == GAME_STATE_MENU || gameState == GAME_STATE_OVER) {
+        return;
+    }
     var trigger = scenario.triggers.deferredByTime[triggerName];
     if (trigger == null)
         return;
     if(trigger.timeLeft <= 0)
          executeTimeDelayedTriggerEvent(triggerName);
-    else if(trigger.timeLeft < 1000)
-         setTimeout(function () { executeTimeDelayedTriggerEvent(triggerName) }, trigger.timeLeft);
-    else {
+    else if(trigger.timeLeft < 1000) {
+        setTimeout(function () { timeDelayedStep(triggerName, triggerScenario) }, trigger.timeLeft);
+        trigger.timeLeft = 0;
+    } else {
         if (trigger.showCountdown)
             showOnScreenMessage(Math.floor(trigger.timeLeft/1000), 0.5);
         trigger.timeLeft -= 1000;
-        setTimeout(function () { timeDelayedStep(triggerName) }, 1000);
+        setTimeout(function () { timeDelayedStep(triggerName, triggerScenario) }, 1000);
     }
 }
 
