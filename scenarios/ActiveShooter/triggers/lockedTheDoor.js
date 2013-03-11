@@ -1,14 +1,13 @@
 'lockedTheDoor' : {
     'disabled' : true,
     'abortTriggers': ['failedToLockTheDoor'],
-    'startTriggers' : ['ShootsThroughWalls011'],
     'events' : {
         'addPoints' : [10],
         'completeObjective' : ['lockTheDoor'],
         'replaceProp': ['doorHandle', 'doorHandleDone']
     },
     'deleteTriggers' : ['failedToLockTheDoor'],
-    'startTriggers': ['lockDoor2']
+    'startTriggers': ['lockDoor2', 'ShootsThroughWalls011']
 },
 
 'lockedTheDoor041' : {

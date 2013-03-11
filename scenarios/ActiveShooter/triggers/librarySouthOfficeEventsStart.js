@@ -1,4 +1,5 @@
 'librarySouthOfficeEventsStart' : {
+    'disabled': true,
     'timeDelay' : 800,
     'events': {
         'setObjectives' : [['findWeapon', 'Find a weapon', 
