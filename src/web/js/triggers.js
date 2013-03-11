@@ -131,6 +131,11 @@ function runTrigger(triggerName, trigger) {
 function timeDelayedStep(triggerName, triggerScenario) {
     if (triggerScenario != scenario || gameState == GAME_STATE_MENU || gameState == GAME_STATE_OVER) {
         return;
+    } else if (gameState == GAME_STATE_PAUSED || gameState == GAME_STATE_LOADING) { // only paused
+    // } else if (gameState != GAME_STATE_RUNNING) { // also in conversations, inventory
+        // paused, try again later
+        setTimeout(function() { timeDelayedStep(triggerName, triggerScenario) }, 1000);
+        return;
     }
     var trigger = scenario.triggers.deferredByTime[triggerName];
     if (trigger == null)
