@@ -14,10 +14,7 @@
         'triggers': ['awardPackingGoKit', 'takeWater'],
         'message': 'Your Go-Kit is almost packed!',
         'replies': {
-            'Pack the Water and get to school.': 4
+            'Pack the Water and get to school.': 0
         }
-    },
-    '4': {
-        'triggers': ['gotoSchool']
     }
 }
