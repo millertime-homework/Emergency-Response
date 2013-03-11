@@ -1,4 +1,4 @@
-'inactiveProps': ['UseDoor', 'shooterR111',
+'inactiveProps': ['UseDoor', 'shooterR111', 'bell-hiding',
                   'HidingPlace', 'doorShadeDown', 
                   'door-open', 'door2-open', 'lock1', 'lock2',
                   'hidingSpot', 'hidingSpot2', 'doorHandleDone', 'lightSwitchDone',
