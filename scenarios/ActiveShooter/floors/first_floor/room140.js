@@ -15,21 +15,6 @@
             'image': 'R140-west.jpg',
             'destination': {
                 'x': 0
-            },
-            '_props': {
-                'crowbar': {
-                    'name': 'crowbar',
-                    'image': 'crowbar.png',
-                    'hoverImage': 'crowbar-hover.png',
-                    'width': 200,
-                    'height': 135,
-                    'left': 400,
-                    'top': 377,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'Crowbar'
-                    }
-                }
             }
         },
         'n': {

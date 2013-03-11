@@ -16,6 +16,21 @@
             'image': 'R321-north.jpg',
             'destination': {
                 'y': 3
+            },
+            '_props' : {
+                'lockedDoor': {
+                    'name': 'lockedDoor',
+                    'image': 'trans.png',
+                    'width': 550,
+                    'height': 500,
+                    'left': 220,
+                    'top': 150,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                    'conversationName': 'lockedDoor'
+                    },
+                'barrier' : true
+                }
             }
         },
         's': {

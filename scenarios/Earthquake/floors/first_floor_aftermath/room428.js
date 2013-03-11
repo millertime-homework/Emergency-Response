@@ -2,6 +2,7 @@
     'id': 'hall428', 
     'x': 4, 
     'y': 2,
+	'_triggers' : ['passout'],
     '_walls': {
         'e': {
             'name': 'EHall428', 
@@ -13,6 +14,7 @@
             'destination': {
                 'x': 3
             },
+			'_triggers' : ['dangerwarningSmoke','activatePassout'],
 			'_props' : {
                 'smoke': {
                     'name': 'smoke',
@@ -24,8 +26,7 @@
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Smoke'
-                    },
-                    'barrier' : true
+                    }
                 },
                 'smokeSafe': {
                     'name': 'smokeSafe',

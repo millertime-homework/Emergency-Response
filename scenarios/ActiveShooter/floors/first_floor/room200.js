@@ -3,7 +3,7 @@
     'x': 2,
     'y': 0,
     'annotation': 'AnnotationExit.png',
-    '_triggers' : ['dropOffLabWork', 'getShotAt', 'goPickUpBook'],
+    '_triggers' : ['getShotAt', 'goPickUpBook'],
     '_walls': {
         'e': {
             'name': 'EHall200',
@@ -60,20 +60,7 @@
                     'top': 245,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'ExitSchool'
-                    }
-                },
-                'policeman': {
-                    'name': 'policeman',
-                    'image': 'policeman.png',
-                    'hoverImage': 'policeman-hover.png',
-                    'width': 250,
-                    'height': 441,
-                    'left': 500,
-                    'top': 170,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'policeman'
+                        'conversationName': 'exit_school'
                     }
                 }
             }

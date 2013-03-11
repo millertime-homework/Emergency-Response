@@ -2,6 +2,7 @@
     'id': 'hall348', 
     'x': 3, 
     'y': 4,
+	'_triggers' : ['deactivatePassout'],
     '_walls': {
         'e': {
             'name': 'EHall348', 
@@ -9,6 +10,7 @@
             'destination': {
                 'x': 4
             },
+			'_triggers' : ['dangerwarningGlass'],
 			'_props': {
                 'brokenGlass': {
                     'name': 'brokenGlass',
@@ -32,8 +34,7 @@
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Unhinged door'
-                    },
-                    'barrier' : true
+                    }
                 },
                 'bridgeDoor': {
                     'name': 'bridgeDoor',

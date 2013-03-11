@@ -2,6 +2,7 @@
     'id': 'office041',
     'x': 0,
     'y': 4,
+    '_triggers' : ['hideFromShooter041'],
     '_walls': {
         'e': {
             'name': 'EOffice041',
