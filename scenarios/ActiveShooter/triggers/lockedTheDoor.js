@@ -18,7 +18,7 @@
         'replaceProp': ['doorHandle', 'doorHandleDone']
     },
     'deleteTriggers' : ['failedToLockTheDoor'],
-    'startTriggers': ['lockDoor2', 'WinAloneIn011']
+    'startTriggers': ['lockDoor2']
 },
 'lockedTheDoor041' : {
     'disabled' : true,

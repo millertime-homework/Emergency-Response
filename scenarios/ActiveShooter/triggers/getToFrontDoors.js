@@ -8,5 +8,5 @@
     },
     'enableTriggers' : ['turnedOffLights', 'pulledDownShade', 'hiddenByDoor', 'silencedPhone', 'lockedTheDoorAlone'],
     'startRandomTrigger': ['pathNotClear', 'pathClear'],
-    'startTriggers' : ['hiddenFromShooter']
+    'startTriggers' : ['hiddenFromShooter', 'WinAloneIn011']
 }
