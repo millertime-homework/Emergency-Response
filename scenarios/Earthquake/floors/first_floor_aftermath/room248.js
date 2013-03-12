@@ -70,26 +70,14 @@
 				},
                 'mrs-wheelchair': {
                     'name': 'mrs_wheelchair',
-                    'image': 'mrs_wheelchair.png',
-                    'width': 150,
-                    'height': 150,
-                    'left': 300,
-                    'top': 400,
+                    'image': 'manLeft.png',
+                    'width': 275,
+                    'height': 275,
+                    'left': 400,
+                    'top': 300,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'Mrs Lydia'
-                    }
-                },
-                'wheelchair':{
-                    'name':'the_wheelchair',
-                    'image':'wheelchair.png',
-                    'width':150,
-                    'height':150,
-                    'left': 500,
-                    'top': 300,
-                    'action':'showConversation',
-                    'actionVariables': {
-                        'conversationName' : 'wheelchair'
+                        'conversationName': 'James'
                     }
                 }
             }

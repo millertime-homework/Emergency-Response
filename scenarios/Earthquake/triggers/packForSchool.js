@@ -1,5 +1,5 @@
 'packForSchool': {
     'events': {
-        'setObjective': ['packForSchool', 'Select items to take with you. Then head to school']
+        'setObjective': ['packForSchool', 'Pack your go-kit. Then head to school']
     }
 }

@@ -2,7 +2,7 @@
     'id': 'hall118',
     'x': 1,
     'y': 1,
-	'_triggers' : ['deactivateElectrocute','footInjury'],
+    '_triggers' : ['deactivateElectrocute','footInjury'],
     '_walls': {
         'e': {
             'name': 'EHall118',
@@ -18,7 +18,7 @@
             'destination': {
                 'y': 2
             },
-			'_props' : {
+            '_props' : {
                 'Downedwire': {
                     'name': 'Downedwire',
                     'image': 'downwiresNew.png',
@@ -27,7 +27,7 @@
                     'left': 483,
                     'top': 220
                 },
-				'Movedwire': {
+                'Movedwire': {
                     'name': 'Movedwire',
                     'image': 'movedwiresNew.png',
                     'width': 160,
@@ -35,7 +35,7 @@
                     'left': 483,
                     'top': 220
                 },
-				'doorFrame': {
+                'doorFrame': {
                     'name': 'doorFrame',
                     'image': 'doorframe2.png',
                     'width': 75,
@@ -47,20 +47,20 @@
                         'conversationName': 'A door frame'
                     }
                 },
-		        'Luke2' : {    
-					'name': 'Luke2',
+                'Luke2' : {
+                    'name': 'Luke2',
                     'image': 'RunnerFront.png',
                     'width': 113,
                     'height': 300,
                     'left': 475,
                     'top': 250,
-					'action': 'showConversation',
-					'actionVariables': {
+                    'action': 'showConversation',
+                    'actionVariables': {
                         'conversationName': 'Luke'
                     }
-				}
+                }
             }
-		},
+        },
         's': {
             'name': 'SHall118',
             'image': 'R110-south.jpg',
