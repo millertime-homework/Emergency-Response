@@ -130,7 +130,12 @@ jQuery(document).ready(function($){
             } else if (value.action === 'showConversation' && value.actionVariables && value.actionVariables.conversationName) {
                 eventParams.conversationName = value.actionVariables.conversationName;
                 viewProp.find('img').bind('click', eventParams, function (event) {
-                    showConversation(event.data.conversationName);
+                    showConversation(
+                        event.data.conversationName, 
+                        value.actionVariables.currentConversationChoice, 
+                        value.actionVariables.cannotSkip, 
+                        value.actionVariables.isAnAction
+                    );
                 });
             }
         })

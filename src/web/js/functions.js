@@ -52,6 +52,14 @@ jQuery(document).ready(function (jQuery) {
         setGameState(GAME_STATE_MENU);
     });
 
+    jQuery('#help').click(function() {
+        displayModal('', '', null);
+        jQuery('#help-template').clone().
+                appendTo(jQuery('#modal').
+                children('#content')).
+                removeAttr('id');
+    });
+
     //Allows scenario image loader to signal once all the images are loaded.
     jQuery(document).on('scenario-images-loaded', function(event) {
         setGameState(GAME_STATE_RUNNING);

@@ -1,0 +1,3 @@
+'enteredSchool': {
+    'signalTriggers': ['enteredSchoolUnprepared']    
+}

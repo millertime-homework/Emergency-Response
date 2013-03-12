@@ -2,7 +2,7 @@
     'disabled' : true,
     'events' : {
         'addPoints' : [10],
-        'completeObjective' : ['silencePhone']
+        'completeObjectives' : ['silencePhone']
     },
     'deleteTriggers' : ['failedToSilencePhone']
 }

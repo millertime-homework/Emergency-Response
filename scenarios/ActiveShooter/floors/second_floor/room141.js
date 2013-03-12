@@ -2,13 +2,11 @@
     'id': 'library141',
     'x': 1,
     'y': 4,
+    '_triggers': ['shooterCloseGetShot041'],
     '_walls': {
         'e': {
             'name': 'ELibrary141',
-            'image': 'R141-east.jpg',
-            'destination': {
-                'x': 2
-            }
+            'image': 'R141-east.jpg'
         },
         'w': {
             'name': 'WLibrary141',
