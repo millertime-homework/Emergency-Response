@@ -1,7 +1,7 @@
 'travelToSchool': {
     '1': {
-        'check': [{'objectivesInProgress': ['getToClass'], 'goto': 3 }],
-        'message': 'Are you ready for school?',
+        'check': [{'objectivesInProgress': ['travelToSchool'], 'goto': 3 }],
+        'message': 'Are you ready to leave for school?',
         'replies': {
             'Yes': 2,
             'No': 0

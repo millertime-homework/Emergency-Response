@@ -1,5 +1,8 @@
 'awardPackingGoKit': {
     'events': {
-        'addPoints': [50]
-    }
+        'completeObjective': ['packForSchool'],
+        'setObjective': ['travelToSchool', 'Exit your room to go to school.'],
+        'addPoints': [50],
+    },
+    'disableTriggers': ['enteredSchoolUnprepared']
 }

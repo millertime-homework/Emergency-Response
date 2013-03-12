@@ -49,13 +49,8 @@
                     'height': 390,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'travelToSchool'
-                    },
-                    'destination': {
-                        'x': 2,
-                        'y': 0,
-                        'z': 0,
-                        '_facing': 'n'
+                        'conversationName': 'travelToSchool',
+                        'isAnAction': true
                     }
                 }
             },
@@ -63,7 +58,7 @@
                 'x': 2,
                 'y': 0,
                 'z': 0,
-                '_facing': 'n'
+                'f': 'n'
             }
         },
         'e': {
