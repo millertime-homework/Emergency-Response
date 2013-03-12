@@ -201,7 +201,15 @@ def build_scenario(scenario_name, interactive):
         scenario += (" "*4) + line
     f.close()
 
-    scenario += "}\n"
+    # look up annotations
+    path_to_annotations = os.path.join(path_to_scenario,"annotations.js")
+    check_path(path_to_annotations)
+    f = open(path_to_annotations)
+    for line in f.readlines():
+        scenario += (" "*4) + line
+    f.close()
+
+    scenario += "\n}\n"
 
     ship(scenario_name, scenario, interactive)
 def main():

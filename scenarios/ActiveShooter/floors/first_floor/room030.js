@@ -12,22 +12,7 @@
         },
         'w': {
             'name': 'WClassroom030',
-            'image': 'R030-west.jpg',
-            '_props': {
-                'hidingSpot2': {
-                    'name': 'hidingSpot2',
-                    'image': 'ASHideSilhouette.png',
-                    'hoverImage': 'ASHideSilhouetteHover.png',
-                    'width': 84,
-                    'height': 89,
-                    'left': 896,
-                    'top': 359,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'goIntoHidingBehindChair'
-                    }
-                }
-            }
+            'image': 'R030-west.jpg'
         },
         'n': {
             'name': 'NClassroom030',

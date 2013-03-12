@@ -2,6 +2,7 @@
     'id': 'hall148',
     'x': 1,
     'y': 4,
+	'_triggers' : ['deactivateElectrocute','footInjury'],
     '_walls': {
         'e': {
             'name': 'EHall148',
@@ -114,7 +115,15 @@
                     'height': 50,
                     'left': 530,
                     'top': 275
-                }
+                },
+				'Luke2' : {    
+					'name': 'Luke2',
+                    'image': 'RunnerBack.png',
+                    'width': 33,
+                    'height': 100,
+                    'left': 500,
+                    'top': 275
+				}
             }
         }
     }

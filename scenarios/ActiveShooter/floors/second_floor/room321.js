@@ -2,7 +2,6 @@
     'id': 'hall321',
     'x': 3,
     'y': 2,
-    'annotation': 'AnnotationStairs.png',
     '_walls': {
         'e': {
             'name': 'EHall321',
@@ -10,11 +9,7 @@
         },
         'w': {
             'name': 'WHall321',
-            'image': 'R321-west.jpg',
-            'destination': {
-                'x': 2,
-                'z': 0
-            }
+            'image': 'R321-west.jpg'
         },
         'n': {
             'name': 'NHall321',
@@ -25,7 +20,7 @@
             '_props' : {
                 'lockedDoor': {
                     'name': 'lockedDoor',
-                    'image': 'lockedDoor.png',
+                    'image': 'trans.png',
                     'width': 550,
                     'height': 500,
                     'left': 220,

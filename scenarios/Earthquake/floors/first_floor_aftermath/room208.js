@@ -16,7 +16,8 @@
             'image': 'R200-west.jpg',
             'destination': {
                 'x': 1
-            }
+            },
+			'_triggers' : ['aftershock'],
         },
         'n': {
             'name': 'NHall208',   

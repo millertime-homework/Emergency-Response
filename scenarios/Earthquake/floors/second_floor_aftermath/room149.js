@@ -5,10 +5,7 @@
     '_walls': {
         'e': {
             'name': 'ELibrary149',
-            'image': 'R141-east.jpg',
-            'destination': {
-                'x': 2
-            }
+            'image': 'R141-east.jpg'
         },
         'w': {
             'name': 'WLibrary149',
