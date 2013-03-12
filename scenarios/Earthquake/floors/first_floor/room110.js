@@ -18,10 +18,10 @@
                 'y': 2
             },
             '_props': {
-                'xavier': {
-                    'name': 'xavier',
-                    'image': 'XavRight.png',
-                    'width': 11,
+                'foo': {
+                    'name': 'foo',
+                    'image': 'fooRight.png',
+                    'width': 16,
                     'height': 40,
                     'left': 530,
                     'top': 295

@@ -1,10 +1,10 @@
-'Professor Xavier': {
+'Mrs Foo': {
     '1': {
         'message': 'Hello!',
         'replies': {
-            'Hi Professor': 2
+            'Hi, Mrs. Foo.': 2
         },
-		'triggers' : ['completeSpeakWithFoo']
+		'triggers' : ['completeSpeakWithFoo','stopHiFoo']
     },
     '2': {
         'message': 'You should really try out the Emergency Response Game on my computer!',

@@ -3,7 +3,8 @@
         'message': 'Emergency Response Game',
         'replies': {
             '[Start Playing]': 2
-        }
+        },
+		'triggers' : ['stopHiComputer']
     },
     '2': {
         'message' : 'Choose a category',

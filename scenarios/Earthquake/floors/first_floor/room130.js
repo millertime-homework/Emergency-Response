@@ -16,18 +16,18 @@
 			'destination': {
                 'x': 0
             },
-	        '_triggers' : ['hiXavier'],
+	        '_triggers' : ['hiMrsFoo'],
             '_props': {
-                'xavier': {
-                    'name': 'xavier',
-                    'image': 'XavFront.png',
-                    'width': 160,
+                'foo': {
+                    'name': 'foo',
+                    'image': 'fooFront.png',
+                    'width': 285,
                     'height': 480,
-                    'left': 340,
+                    'left': 200,
                     'top': 200,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'Professor Xavier'
+                        'conversationName': 'Mrs Foo'
                     }
                 }
             }

@@ -24,10 +24,10 @@
                 'y': 1
             },
             '_props': {
-                'xavier': {
-                    'name': 'xavier',
-                    'image': 'XavRight.png',
-                    'width': 7,
+                'foo': {
+                    'name': 'foo',
+                    'image': 'fooRight.png',
+                    'width': 10,
                     'height': 25,
                     'left': 540,
                     'top': 300 

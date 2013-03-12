@@ -31,16 +31,16 @@
             'name': 'WClass019',
             'image': 'R011-west.jpg',
             '_props': {
-                'mrsfooinjured': {
-                    'name': 'Mrs. Foo Injured',
-                    'image': 'fooWounded.png',
+                'ProfXavInjured': {
+                    'name': 'ProfXavInjured',
+                    'image': 'XavHurt.png',
                     'width': 300,
                     'height': 150,
                     'left': 150,
                     'top': 350,
                     'action': 'showConversation',
                     'actionVariables':{
-                        'conversationName': 'Help Injured Foo'
+                        'conversationName': 'Help Injured Professor'
                     }
                 },
                 'sturdydesk':{
