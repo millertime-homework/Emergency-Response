@@ -2,6 +2,7 @@
     'id': 'hall448', 
     'x': 4, 
     'y': 4,
+	'_triggers' : ['activateFootInjury'],
     '_walls': {
         'e': {
             'name': 'EHall448', 
@@ -43,10 +44,10 @@
 				},
 			    'wheelchair':{
                     'name':'the_wheelchair',
-                    'image':'wheelchair.png',
+                    'image':'manLeft.png',
                     'width':50,
                     'height':50,
-                    'left': 540,
+                    'left': 530,
                     'top': 300,
                 }
 			}

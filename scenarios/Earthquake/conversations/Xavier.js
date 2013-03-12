@@ -1,4 +1,4 @@
-'mrsfooconvo': {
+'Professor Xavier': {
     '1': {
         'check': [
             {'has':['Chalk'], 'goto': 2},
@@ -8,14 +8,15 @@
         'replies': {
             'Of course.': 0
         },
-        'triggers': ['getChalkObjective']
+        'triggers': ['getChalkObjective','stopHiXavier']
     },
     '2': {
         'triggers': ['completeChalkObjective'],
         'message': 'Thank you! Okay, so today we\'ll be covering chapter.... wait, did you feel that?',
         'replies': {
             'Yes.... what was that?': 3
-        }
+        },
+		'triggers':['stopHiXavier']
     },
     '3': {
         'triggers': ['shakeThingsUp']

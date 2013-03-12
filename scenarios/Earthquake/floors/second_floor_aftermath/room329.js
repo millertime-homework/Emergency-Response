@@ -2,7 +2,6 @@
     'id': 'hall329',
     'x': 3,
     'y': 2,
-    'annotation': 'AnnotationStairs.png',
     '_walls': {
         'e': {
             'name': 'EHall329',
@@ -10,11 +9,7 @@
         },
         'w': {
             'name': 'WHall329',
-            'image': 'R321-west.jpg',
-            'destination': {
-                'x': 2,
-                'z': 8,
-            }
+            'image': 'R321-west.jpg'
         },
         'n': {
             'name': 'NHall329',

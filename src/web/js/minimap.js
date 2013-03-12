@@ -18,6 +18,42 @@ jQuery(document).ready(function ($) {
 });
 
 /**
+* Shows the annotations, if they exist, for the specified cells.
+* @param {Array<string>} keys An array of strings of the form "x,y,z" where
+*     x,y,z are the coordinates of each annotation that should be shown.
+*/
+function showAnnotations(keys) {
+    forEachAnnotation(keys, showAnnotation);
+}
+
+/**
+* Hides the annotations, if they exist, for the specified cells.
+* @param {Array<string>} keys An array of strings of the form "x,y,z" where
+*     x,y,z are the coordinates of each annotation that should be hidden.
+*/
+function hideAnnotations(keys) {
+    forEachAnnotation(keys, hideAnnotation);
+}
+
+/**
+* Calls the specified function for each annotation in keys.
+* @param {Array<string>} keys An array of strings of the form "x,y,z" where
+*     x,y,z are the coordinates of each annotation that should be acted upon.
+* @param {Function} action The function that should be called for each
+*     annotaiton key in keys.
+*/
+function forEachAnnotation(keys, action) {
+    var i, x, y, z, coords;
+    for (i = 0; keys[i]; i++) {
+        coords = keys[i].split(',');
+        x = parseInt(coords[0]);
+        y = parseInt(coords[1]);
+        z = parseInt(coords[2]);
+        action(x, y, z);
+    }
+}
+
+/**
 * Shows the annotation, if it exists, for the specified cell.
 * @param {int} x The x coordinate for this annotation.
 * @param {int} y The y coordinate for this annotation.
@@ -222,6 +258,21 @@ function showDirectionalIndicator() {
 */
 function addMinimapAnnotation(imageName, x, y, z) {
     erg.map.annotations["{0},{1},{2}".format(x, y, z)] = {
+        'path': imageName, 
+        visible: true
+    };
+}
+
+/**
+* Adds a mini-map annotation to the list of known mini-map annotations during
+* scenario loading. Not meant to be used outside of the scenario loader in
+* functions.js
+* @param {string} imagePath The name+extension of the image to use
+* @param {string} coordinates A string of the form "x,y,z" where x, y, z are
+*     the coordinates for this annotation
+*/
+function addMinimapAnnotationByKey(imageName, coordinates) {
+    erg.map.annotations[coordinates] = {
         'path': imageName, 
         visible: true
     };

@@ -26,7 +26,6 @@
         'requires': {'objectivesNotInProgress':['hideFromShooter']},
     }
 },
-
 'turnOffLights031' : {
     '1' : {
         'message' : 'Turn off lights?',
@@ -41,5 +40,21 @@
             '[Get ready!]' : 0
         },
         'triggers': ['abort031', 'shooterApproaches031']
+    }
+},
+'turnOffLights041' : {
+    '1' : {
+        'message' : 'What do you want to do to the lights?',
+        'replies': {
+            'Turn them on.': '3',
+            "Turn them off.": '2',
+        }
+    },
+    '2' : {
+        'triggers' : ['turnedOffLights041'],
+        'requires': {'objectivesInProgress':['turnOffLights041']}
+    },
+    '3' : {
+        'requires': {'objectivesInProgress':['turnOffLights041']}
     }
 }

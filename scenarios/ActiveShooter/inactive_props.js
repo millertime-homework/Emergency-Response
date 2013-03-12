@@ -1,6 +1,6 @@
 'inactiveProps': ['UseDoor', 'policeman', 'crowbar', 'shooter', 'shooterR111',
                   'shooter-downed', 'HidingPlace', 'doorShadeDown', 
-                  'door-open', 'door2-open', 'lock1', 'lock2',
+                  'door-open', 'door2-open', 'lock1', 'lock2', 'doorShadeDown041',
                   'hidingSpot', 'hidingSpot2', 'doorHandleDone', 'lightSwitchDone',
                   'hidingStudent1', 'hidingStudent2', 'hidingStudent3', 'shooter220S'],
 '_player': {
@@ -9,4 +9,4 @@
     'z': 0,
     '_facing': 'n',
     'inventory': []
-}
+},

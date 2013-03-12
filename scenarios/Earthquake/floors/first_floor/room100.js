@@ -24,13 +24,13 @@
                 'y': 1
             },
             '_props': {
-                'xavier': {
-                    'name': 'xavier',
-                    'image': 'prof_bell.png',
-                    'width': 16,
+                'foo': {
+                    'name': 'foo',
+                    'image': 'fooRight.png',
+                    'width': 10,
                     'height': 25,
                     'left': 540,
-                    'top': 298 
+                    'top': 300 
                 }
             }
         },

@@ -52,6 +52,14 @@ jQuery(document).ready(function (jQuery) {
         setGameState(GAME_STATE_MENU);
     });
 
+    jQuery('#help').click(function() {
+        displayModal('', '', null);
+        jQuery('#help-template').clone().
+                appendTo(jQuery('#modal').
+                children('#content')).
+                removeAttr('id');
+    });
+
     //Allows scenario image loader to signal once all the images are loaded.
     jQuery(document).on('scenario-images-loaded', function(event) {
         setGameState(GAME_STATE_RUNNING);
@@ -62,6 +70,23 @@ jQuery(document).ready(function (jQuery) {
         jQuery('div.spinner').remove();
     });
 });
+
+/**
+* Loads annotations from the scenario file. 
+*/
+function loadAnnodations(annotations) {
+    var key;
+
+    if (!annotations) {
+        return;
+    }
+    
+    for (key in annotations) {
+        if (annotations.hasOwnProperty(key)) {
+            addMinimapAnnotationByKey(annotations[key], key);
+        }
+    }
+}
 
 // Loads the Scenario objects from the data parameter (scenario-definition array)
 function loadScenario(data) {
@@ -75,6 +100,7 @@ function loadScenario(data) {
     loadConversations(data._conversations);
     initializePlayer(data._player);
     initializeCellPhone();
+    loadAnnodations(data.annotations);
     markInactivePropsInactive(data.inactiveProps);
 
     triggerData = jQuery.extend(true, {}, data._triggers);

@@ -11,13 +11,10 @@
         'triggers': ['takeWhistle']
     },
     '3': {
-        'triggers': ['awardPackingGoKit'],
+        'triggers': ['awardPackingGoKit', 'takeWhistle'],
         'message': 'Your Go-Kit is almost packed!',
         'replies': {
-            'Pack the Whistle and get to school.': 4
+            'Pack the Whistle and get to school.': 0
         }
-    },
-    '4': {
-        'triggers': ['gotoSchool']
     }
 }

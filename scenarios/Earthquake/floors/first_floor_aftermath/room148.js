@@ -2,6 +2,7 @@
     'id': 'hall148',
     'x': 1,
     'y': 4,
+	'_triggers' : ['deactivateElectrocute','footInjury'],
     '_walls': {
         'e': {
             'name': 'EHall148',
@@ -12,26 +13,14 @@
 			'_props': {
                 'mrs-wheelchair': {
                     'name': 'mrs_wheelchair',
-                    'image': 'mrs_wheelchair.png',
-                    'width': 150,
-                    'height': 150,
-                    'left': 600,
-                    'top': 350,
+                    'image': 'manFront.png',
+                    'width': 275,
+                    'height': 275,
+                    'left': 400,
+                    'top': 300,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'Mrs Lydia'
-                    }
-                },
-                'wheelchair':{
-                    'name':'the_wheelchair',
-                    'image':'wheelchair.png',
-                    'width':150,
-                    'height':150,
-                    'left': 450,
-                    'top': 300,
-                    'action':'showConversation',
-                    'actionVariables': {
-                        'conversationName' : 'wheelchair'
+                        'conversationName': 'James'
                     }
                 },
                 'brokenGlass': {
@@ -114,7 +103,15 @@
                     'height': 50,
                     'left': 530,
                     'top': 275
-                }
+                },
+				'Luke2' : {    
+					'name': 'Luke2',
+                    'image': 'RunnerBack.png',
+                    'width': 33,
+                    'height': 100,
+                    'left': 500,
+                    'top': 275
+				}
             }
         }
     }

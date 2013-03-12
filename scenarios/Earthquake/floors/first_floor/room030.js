@@ -9,6 +9,7 @@
             'destination': {
                 'x': 1
             },
+			'_triggers' : ['hiComputer'],
 			'_props': {
 				'desk' : {
 					'name' : 'desk',
