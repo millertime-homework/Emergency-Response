@@ -1,5 +1,6 @@
 'playingERG': {
     'events': {
-        'completeObjective': ['playtheERG']
+        'completeObjective': ['playtheERG'],
+		'setObjective' : ['getToClass' , 'Class will start soon. Head to room 210.']
     }
 }

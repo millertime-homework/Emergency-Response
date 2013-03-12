@@ -9,10 +9,7 @@
         },
         'w': {
             'name': 'WLibrary249',
-            'image': 'R241-west.jpg',
-            'destination': {
-                'x': 1
-            }
+            'image': 'R241-west.jpg'
         },
         'n': {
             'name': 'NLibrary249',

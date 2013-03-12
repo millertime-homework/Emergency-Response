@@ -2,7 +2,7 @@
     'id': 'class019',
     'x': 0,
     'y': 1,
-    '_triggers': ['checkIfSurvivedEarthquake'],
+    '_triggers': ['failprepSchoolObjectives','setAftermathObjectives','checkIfSurvivedEarthquake'],
     '_walls': {
         'e': {
             'name': 'EClass019',
@@ -31,16 +31,16 @@
             'name': 'WClass019',
             'image': 'R011-west.jpg',
             '_props': {
-                'mrsfooinjured': {
-                    'name': 'Mrs. Foo Injured',
-                    'image': 'mrsfooinjured.png',
-                    'width': 500,
-                    'height': 104,
-                    'left': 100,
-                    'top': 400,
+                'ProfXavInjured': {
+                    'name': 'ProfXavInjured',
+                    'image': 'XavHurt.png',
+                    'width': 300,
+                    'height': 150,
+                    'left': 150,
+                    'top': 350,
                     'action': 'showConversation',
                     'actionVariables':{
-                        'conversationName': 'Help Injured Foo'
+                        'conversationName': 'Help Injured Professor'
                     }
                 },
                 'sturdydesk':{

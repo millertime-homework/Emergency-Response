@@ -6,6 +6,8 @@
 'moveBeam' : {
 	'events' : {
 		'replaceProp': ['bikeMangled','beam'],
-        'addToScene': ['west-exit']
+        'addToScene': ['west-exit'],
+		'completeObjective': ['moveBike'],
+		'addPoints' : [15]
 	}
 }

@@ -1,8 +1,5 @@
 'gotoSchool': {
     'events': {
-        'player-move':['move-forward'],
-        'completeObjective': ['packForSchool'],
-        'setObjective':['travelToSchool', 'Exit your room to go to school.'],
-        'disableTriggers': ['enteredSchoolUnprepared']
+        'warpPlayer': ['n', 2, 0, 0]
     }
 }

@@ -2,6 +2,7 @@
      'id': 'outside',
      'x': 0,
      'y': 0,
+	 '_triggers' : ['completeAvoidObstacles'],
      '_walls': {
           'facingSchool': {
               'name': 'facingSchool',
