@@ -2,6 +2,7 @@
     'id': 'hall448', 
     'x': 4, 
     'y': 4,
+	'_triggers' : ['activateFootInjury'],
     '_walls': {
         'e': {
             'name': 'EHall448', 

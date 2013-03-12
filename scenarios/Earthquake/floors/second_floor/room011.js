@@ -2,7 +2,7 @@
     'id': 'class011',
     'x': 0,
     'y': 1,
-    '_triggers': ['enterRoom206'],
+    '_triggers': ['enterRoom206','hiMrsFoo'],
     '_walls': {
         'e': {
             'name': 'EClass011',
@@ -40,7 +40,7 @@
                     'top': 160,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'mrsfooconvo'
+                        'conversationName': 'Mrs Foo'
                     }
                 },
                 'sturdydesk':{

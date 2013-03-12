@@ -2,6 +2,7 @@
     'id': 'hall548', 
     'x': 5, 
     'y': 4,
+	'_triggers' : ['footInjury'],
     'annotation': 'AnnotationExit.png',
     '_walls': {
         'e': {
@@ -37,6 +38,30 @@
                     'height':30,
                     'left': 540,
                     'top': 300,
+                },
+                'brokenGlass': {
+                    'name': 'brokenGlass',
+                    'image': 'brokenGlass.png',
+                    'width': 130,
+                    'height': 75,
+                    'left': 490,
+                    'top': 330,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Broken glass'
+                    }
+			    },
+				'bridgeDoor': {
+                    'name': 'bridgeDoor',
+                    'image': 'doordown.png',
+                    'width': 78,
+                    'height': 65,
+                    'left': 505,
+                    'top': 330,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Broken glass'
+                    }
                 }
 			}
         },

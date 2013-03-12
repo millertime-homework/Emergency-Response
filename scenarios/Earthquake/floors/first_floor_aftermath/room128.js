@@ -2,7 +2,7 @@
     'id': 'hall128', 
     'x': 1, 
     'y': 2,
-    '_triggers': ['checkForFire'],
+	'_triggers' : ['electrocute'],
     '_walls': {
         'e': {
             'name': 'EHall128', 
@@ -14,20 +14,6 @@
             'destination': {
                 'x': 0
             },
-            '_props' : {
-                'doorFrame': {
-                    'name': 'doorFrame',
-                    'image': 'doorframe.png',
-                    'width': 50,
-                    'height': 440,
-                    'left': 405,
-                    'top': 125,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'A door frame'
-                    }
-                }
-            }
         },
         'n': {
             'name': 'NHall128',   
@@ -35,6 +21,7 @@
             'destination': {
                 'y': 3
             },
+			'_triggers' : ['dangerwarningPowerLines','activateElectrocute'],
 			'_props' : {
                 'Downedwire': {
                     'name': 'Downedwire',
@@ -46,8 +33,7 @@
                     'action': 'showConversation',
                         'actionVariables': {
                             'conversationName': 'Hanging wires'
-                        },
-                    'barrier' : true
+                        }
                 },
                 'Movedwire': {
                     'name': 'Movedwire',
@@ -64,7 +50,33 @@
             'image': 'R120-south.jpg',
             'destination': {
                 'y': 1
-            }
-        }
+            },
+			'_props' : {
+				'doorFrame': {
+					'name': 'doorFrame',
+					'image': 'doorframe2.png',
+					'width': 75,
+					'height': 75,
+					'left': 515,
+					'top': 400,
+					'action': 'showConversation',
+					'actionVariables': {
+						'conversationName': 'A door frame'
+					}
+				},
+				'Luke2' : {
+					'name': 'Luke2',
+                    'image': 'RunnerBack.png',
+                    'width': 81,
+                    'height': 250,
+                    'left': 435,
+                    'top': 250,
+					'action': 'showConversation',
+					'actionVariables': {
+                        'conversationName': 'Luke'
+                    }
+				}
+			},
+		}
     }
 }

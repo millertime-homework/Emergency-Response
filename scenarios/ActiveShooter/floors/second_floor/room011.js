@@ -80,18 +80,9 @@
                         'conversationName': 'turnOffLights'
                     }
                 },
-                'lightSwitchDone': {
-                    'name': 'lightSwitch',
-                    'image': 'ASLightSwitch.png',
-                    'width': 50,
-                    'height': 45,
-                    'left': 365,
-                    'top': 357
-                },
-                'hidingSpot': {
-                    'name': 'hidingSpot',
+                'hidingSpot011':{
+                    'name':  'hidingSpot011',
                     'image': 'ASHideSilhouette.png',
-                    'hoverImage': 'ASHideSilhouetteHover.png',
                     'width': 84,
                     'height': 89,
                     'left': 196,
@@ -100,6 +91,14 @@
                     'actionVariables': {
                         'conversationName': 'goIntoHidingByDoor'
                     }
+                },
+                'lightSwitchDone': {
+                    'name': 'lightSwitch',
+                    'image': 'ASLightSwitch.png',
+                    'width': 50,
+                    'height': 45,
+                    'left': 365,
+                    'top': 357
                 },
                 'hidingStudent1': {
                     'name': 'hidingStudent1',

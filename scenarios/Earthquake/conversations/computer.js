@@ -12,7 +12,8 @@
 			'Responding to an earthquake.' : 12,
 			'Creating a family reunification plan.' : 21,
 			'I\'m done for now.' : 0
-		}
+		},
+		'triggers' : ['playingERG']
 	},
 	'3' : {
 		'message' : 'Question 1: Large and/or heavy objects should be ...',
@@ -28,6 +29,7 @@
 			'Keep playing' : 6,
 			'I\'m done for now' : 0
 		},
+		'triggers' : ['scoreERGpoints']
 	},
 	'5' : {
 		'message' : 'Incorrect: Heavy object should be stored on low shelves or secured with a strap.',
@@ -49,7 +51,8 @@
 		'replies' : {
 			'Keep playing' : 9,
 			'I\'m done for now' : 0
-		}
+		},
+		'triggers' : ['scoreERGpoints']
 	},
 	'8' : {
 		'message' : 'Incorrect: Flammable objects should be kept away from heat sources.',
@@ -71,7 +74,8 @@
 		'replies' : {
 			'Back to the menu' : 2,
 			'I\'m done for now' : 0			
-		}
+		},
+		'triggers' : ['scoreERGpoints']
 	},
 	'11' : {
 		'message' : 'Incorrect: Use professionals to repair major or dangerous items in the home.',
@@ -93,7 +97,8 @@
 		'replies' : {
 			'Keep playing.' : 15,
 			'I\'m done for now' : 0	
-		}
+		},
+		'triggers' : ['scoreERGpoints']
 	},
 	'14' : {
 		'message' : 'Incorrect: Take cover under a study object, hold on, and wait it out.',
@@ -115,7 +120,8 @@
 		'replies' : {
 			'Keep playing.' : 18,
 			'I\'m done for now' : 0	
-		}
+		},
+		'triggers' : ['scoreERGpoints']
 	},
 	'17' : {
 		'message' : 'Incorrect: If in bed during an earthquake lay on your back and use a pillow to cover your head.',
@@ -137,7 +143,8 @@
 		'replies' : {
 			'Back to the menu' : 2,
 			'I\'m done for now' : 0			
-		}
+		},
+		'triggers' : ['scoreERGpoints']
 	},
 	'20' : {
 		'message' : 'Incorrect: Pull your car over in a safe place',
@@ -159,7 +166,8 @@
 		'replies' : {
 			'Keep playing.' : 24,
 			'I\'m done for now' : 0	
-		}
+		},
+		'triggers' : ['scoreERGpoints']
 	},
 	'23' : {
 		'message' : 'Incorrect: You should know the disaster plans of all your family members\' work or school. Practice using them frequently.',
@@ -181,7 +189,8 @@
 		'replies' : {
 			'Keep playing.' : 27,
 			'I\'m done for now' : 0	
-		}
+		},
+		'triggers' : ['scoreERGpoints']
 	},
 	'26' : {
 		'message' : 'Incorrect: Family gathering points should be designated in case of a disaster.',
@@ -203,7 +212,8 @@
 		'replies' : {
 			'Back to the menu' : 2,
 			'I\'m done for now' : 0			
-		}
+		},
+		'triggers' : ['scoreERGpoints']
 	},
 	'29' : {
 		'message' : 'Incorrect: Designate an out of town relative or friend to coordinate family communications.',

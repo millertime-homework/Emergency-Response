@@ -256,6 +256,24 @@ jQuery(document).ready(function($) {
         hideAnnotation(x, y, z);
     });
 
+    /**
+    * Shows the annotations, if they exist, for the specified cells.
+    * @param {Array<string>} keys An array of strings of the form "x,y,z" where
+    *     x,y,z are the coordinates of each annotation that should be shown.
+    */
+    $(document).on('showMapAnnotations', function (event, keys) {
+        showAnnotations(keys, showAnnotation);
+    });
+
+    /**
+    * Hides the annotations, if they exist, for the specified cells.
+    * @param {Array<string>} keys An array of strings of the form "x,y,z" where
+    *     x,y,z are the coordinates of each annotation that should be hidden.
+    */
+    $(document).on('hideMapAnnotations', function (event, keys) {
+        hideAnnotations(keys, showAnnotation);
+    });
+
     $(document).on('disableLights', function (event) {
         lightsOn = false;
         $('#flashlight-overlay').removeClass('hidden');
