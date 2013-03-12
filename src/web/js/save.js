@@ -44,7 +44,7 @@ function saveGame() {
                 var trigger = scenario.triggers[type][tname];
                 console.log(type+','+tname+'='+trigger);
                 if (trigger != null) {
-                    result[saveableVars.triggerTypes][result[0].length] = j;
+                    result[saveableVars.triggerTypes][result[saveableVars.triggerTypes].length] = j;
                     if (Number.isFinite(trigger.lives))
                         result[saveableVars.lives] = trigger.lives;
                     else
@@ -84,6 +84,7 @@ function loadGame() {
     loadScenario(window[currentScenario]);
     
     var allTriggers = jQuery.extend(true, {}, window[currentScenario]._triggers);
+    var triggerNames = getAllTriggerNames();
     
     player.x = saveable[saveableVars.x];
     player.y = saveable[saveableVars.y];
@@ -92,17 +93,17 @@ function loadGame() {
     player.inventory.items = saveable[saveableVars.inventory];
     scenario.objectives = saveable[saveableVars.objectives];
     clearAllTriggers();
-    for (var j = 0; j < triggerTypes.length; j++) {
-        var name = triggerTypes[j];
-        var input = saveable[saveableVars.triggers+j];
-        var result = {};
-        for (var i in input) {
-            result[i] = allTriggers[i];
-            result[i][0] = input[i].lives;
-            if (input[i][1] != null)
-                result[i][1] = input[i].timeLeft;
-        }
-        scenario.triggers[name] = result;
+    if (triggerNames.length != saveable[saveableVars.triggers].length)
+        console.log("Incompatible save: number of triggers changed from "+triggerNames.length+" to "+saveable[saveableVars.triggers].length);
+    for(var i = 0; i < triggerNames.length; i++) {
+        var tname = triggerNames[i];
+        var input = saveable[saveableVars.triggers][i];
+        var trigger = allTriggers[tname];
+        for (var j = 0; j < input[saveableVars.triggerTypes].length; j++)
+            scenario.triggers[triggerTypes[input[saveableVars.triggerTypes][j]]][tname] = trigger;
+        trigger.lives = input[saveableVars.lives];
+        if(input[saveableVars.timeLeft] != null)
+            trigger.timeLeft = input[saveableVars.timeLeft];
     }
     scenario.inactiveProps = {};
     for (var i = 0; i < saveable[saveableVars.inactiveProps].length; i++)
