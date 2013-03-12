@@ -1,5 +1,19 @@
-var saveableVars = {'x':0,'y':1,'z':2,'facing':3,'scenario':4,'objectives':5,'inactiveProps':6,'inventory':7,'lightsOn':8,'triggers':9};
+var saveableVars = {
+    'x':0,'y':1,'z':2,'facing':3,'scenario':4,'objectives':5,'inactiveProps':6,'inventory':7,'lightsOn':8,'triggers':9,
+    'triggerTypes':0, 'lives':1, 'timeLeft': 2
+};
 var triggerTypes = ['disabled', 'pool', 'waitingForSignal', 'deferredByMoves', 'deferredByTime', 'deferredByObjectives'];
+function getAllTriggerNames() { // needs to be the same for save and load
+    var triggerNames = [];
+    var allTriggers = window[currentScenario]._triggers;
+    for (var i in allTriggers) {
+        if (allTriggers.hasOwnProperty(i))
+            triggerNames[triggerNames.length] = i;
+    }
+    triggerNames.sort();
+    return triggerNames;
+}
+
 function saveGame() {
     try {
         if (gameState == GAME_STATE_OVER) {
@@ -11,26 +25,35 @@ function saveGame() {
             if (scenario.inactiveProps.hasOwnProperty(i))
                 inactList[inactList.length] = i;
         var flashlightOverlay = jQuery('#flashlight-overlay');
+        var triggersSaveable = [];
         var saveable = [
             /*"x":*/ player.x, /*"y":*/ player.y, /*"z":*/ player.z, /*"facing":*/ player.facing,
             /*"scenario":*/ currentScenario,
             /*"objectives":*/ scenario.objectives,
             /*"inactiveProps":*/ inactList,
             /*"inventory":*/ player.inventory.items,
-            /*"lightsOn":*/ lightsOn ? 'on' : flashlightOverlay.hasClass('flashlight-on')
+            /*"lightsOn":*/ lightsOn ? 'on' : flashlightOverlay.hasClass('flashlight-on'),
+            /*"triggers":*/ triggersSaveable
         ];
-        for (var j = 0; j < triggerTypes.length; j++) {
-            var name = triggerTypes[j];
-            var input = scenario.triggers[name];
-            var result = {};
-            for (var i in input) {
-                result[i] = [input[i].lives];
-                if (!Number.isFinite(result[i].lives))
-                    result[i][0] = -1; // JSON doesn't have Infinity
-                if (input[i].timeLeft != null && name == 'deferredByTime')
-                    result[i][1] = input[i].timeLeft;
+        var triggerNames = getAllTriggerNames();
+        for (i = 0; i < triggerNames.length; i++) {
+            var tname = triggerNames[i];
+            var result = [[]];
+            for (var j = 0; j < triggerTypes.length; j++) {
+                var type = triggerTypes[j];
+                var trigger = scenario.triggers[type][tname];
+                console.log(type+','+tname+'='+trigger);
+                if (trigger != null) {
+                    result[saveableVars.triggerTypes][result[0].length] = j;
+                    if (Number.isFinite(trigger.lives))
+                        result[saveableVars.lives] = trigger.lives;
+                    else
+                        result[saveableVars.lives] = -1;
+                    if (trigger.timeLeft != null && type == 'deferredByTime')
+                        result[saveableVars.timeLeft] = trigger.timeLeft;
+                }
             }
-            saveable[saveableVars.triggers+j] = result;
+            triggersSaveable[i] = result;
         }
         var str = escape(JSON.stringify(saveable));
         var cookieStr = "emergencySave="+str+"";
