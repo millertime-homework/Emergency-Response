@@ -50,7 +50,21 @@
                     'height': 213,
                     'left': 550,
                     'top': 300
+                },
+                'flashlight': {
+                    'name': 'Flashlight',
+                    'image': 'flashlight.png',
+                    'width': 62,
+                    'height': 40,
+                    'left': 500,
+                    'top': 200,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'pickupExtraFlashlight',
+                        'isAnAction': true
+                    }
                 }
+
             }
         },
         'n': {
