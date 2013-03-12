@@ -1,6 +1,6 @@
 'getChalkObjective': {
     'events': {
-        'completeObjective': ['talkToMrsFoo'],
+        'completeObjective': ['getToClass'],
         'setObjective': ['getChalkForTeacher', 'Get the chalk from the sturdy desk.']
     }
 }

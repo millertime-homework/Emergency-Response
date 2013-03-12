@@ -1,7 +1,7 @@
 'shooterApproaches031': {
-    'timeDelay' : 9000,
+    'timeDelay' : 15000,
     'showCountdown': true,
     'events': {
-        'showConversation' : ['The Shooter Has Entered the Room']
+        'showConversation' : ['shooterEntersRoom', null, true, true]
     }
 }

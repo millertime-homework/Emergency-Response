@@ -11,7 +11,7 @@
 'passout' : {
 	'timeDelay' : 250,
 	'enableTriggers' : ['playerInjured'],
-	'startTriggers' : ['wakeup'],
+	'startTriggers' : ['wakeup','failAvoidObstacles'],
     'events' : {
 	    'warpPlayer' : ['blackout',3,3,8],
 		'showOnScreenMessage' : ['The smoke clouds your vision as you wade through it.  Your lungs heave.  You collaspe to the floor and black out.']
