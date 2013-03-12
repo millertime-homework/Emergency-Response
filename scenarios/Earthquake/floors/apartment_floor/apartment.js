@@ -2,7 +2,7 @@
     'id': 'apartment',
     'x': 0,
     'y': 0,
-    '_triggers' : ['packForSchool'],
+    '_triggers' : ['packForSchool', 'enteredSchoolUnprepared'],
     '_walls': {
         'n': {
             'name': 'apartment-n',
