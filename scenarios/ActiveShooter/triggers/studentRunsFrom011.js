@@ -7,6 +7,6 @@
         'setObjective' : ['lockTheDoorAgain', 'Lock the door to the room again.'],
     },
     'enableTriggers' : ['lockedTheDoorAgain', , 'shooterEnters011', 'playerRuns'],
-    'startTriggers' : ['WinIn011'],
+    'startTriggers' : ['WinIn011', 'unlockDoor2'],
     'disableTriggers' : ['shooterCloseGetShot']
 }
