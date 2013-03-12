@@ -11,13 +11,10 @@
         'triggers': ['takeFirstAidKit']
     },
     '3': {
-        'triggers': ['awardPackingGoKit'],
+        'triggers': ['awardPackingGoKit', 'takeFirstAidKit'],
         'message': 'Your Go-Kit is almost packed!',
         'replies': {
-            'Take First Aid Kit and get to school': 4
+            'Take First Aid Kit and get to school': 0
         }
-    },
-    '4': {
-        'triggers': ['gotoSchool']
     }
 }
