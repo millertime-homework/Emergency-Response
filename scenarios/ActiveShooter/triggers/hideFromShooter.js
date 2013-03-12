@@ -8,7 +8,7 @@
     },
     'enableTriggers' : ['turnedOffLights', 'pulledDownShade', 'hiddenByDoor', 'silencedPhone', 'lockedTheDoor', 'failedToHide',
                         'failedToTurnOffLights', 'failedToPullDownShade', 'failedToHideByDoor', 'failedToSilencePhone', 'failedToLockTheDoor',
-                        'shooterCloseGetShot', 'chanceofEscape', 'abort', 'shooterEnters011'],
+                        'shooterCloseGetShot', 'chanceofEscape', 'abort', 'shooterEnters011', 'studentRunsFrom011'],
     
     'startTriggers' : ['failedToLockTheDoor', 'hiddenFromShooter']
 },
