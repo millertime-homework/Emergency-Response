@@ -13,7 +13,7 @@
 },
 'saveXavierObjective' : {
 	'events' : {
-		'setObjective' : ['saveXavier', 'Move those badly injured to the area of resue.']
+		'setObjective' : ['saveXavier', 'Move those badly injured to the area of rescue.']
 	}
 },
 'avoidObstaclesObjective' : {
