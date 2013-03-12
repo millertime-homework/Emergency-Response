@@ -40,7 +40,7 @@
                 },
                 'doorShadeDown041': {
                     'name': 'doorShadeDown041',
-                    'image': 'ASshadeDown.png',
+                    'image': 'ASShadeDown.png',
                     'width': 52,
                     'height': 72,
                     'left': 532,

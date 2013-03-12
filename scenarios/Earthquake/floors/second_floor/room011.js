@@ -2,7 +2,7 @@
     'id': 'class011',
     'x': 0,
     'y': 1,
-    '_triggers': ['enterRoom206','hiMrsFoo'],
+    '_triggers': ['enterRoom206','hiXavier'],
     '_walls': {
         'e': {
             'name': 'EClass011',
@@ -31,25 +31,25 @@
             'name': 'WClass011',
             'image': 'R011-west.jpg',
             '_props': {
-                'mrsfoo': {
-                    'name': 'Mrs. Foo',
-                    'image': 'mrsfoo.png',
-                    'width': 219,
-                    'height': 511,
-                    'left': 100,
-                    'top': 50,
+                'profXav': {
+                    'name': 'profXav',
+                    'image': 'XavFront.png',
+                    'width': 113,
+                    'height': 340,
+                    'left': 440,
+                    'top': 230,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'Mrs Foo'
+                        'conversationName': 'Professor Xavier'
                     }
                 },
                 'sturdydesk':{
                     'name': 'Sturdy Desk',
-                    'image':'sturdy-desk.png',
-                    'width': 389,
-                    'height': 213,
-                    'left': 550,
-                    'top': 300,
+                    'image':'rectangleGlow.png',
+                    'width': 410,
+                    'height': 190,
+                    'left': 620,
+                    'top': 385,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Sturdy Desk'
@@ -58,10 +58,10 @@
                 'chalk': {
                     'name':'Chalk',
                     'image': 'chalk.png',
-                    'width': 79,
-                    'height': 107,
-                    'left': 720,
-                    'top': 220,
+                    'width': 35,
+                    'height': 60,
+                    'left': 760,
+                    'top': 355,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Chalk on Sturdy Desk'

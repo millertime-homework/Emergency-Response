@@ -75,9 +75,9 @@ function loadGame() {
         var result = {};
         for (var i in input) {
             result[i] = allTriggers[i];
-            result[i][0] = input[i].lives;
+            result[i].lives = input[i][0];
             if (input[i][1] != null)
-                result[i][1] = input[i].timeLeft;
+                result[i].timeLeft = input[i][1];
         }
         scenario.triggers[name] = result;
     }
@@ -102,5 +102,9 @@ function loadGame() {
         console.log(name);
         if(scenario.objectives.inProgress.hasOwnProperty(name))
             jQuery('#objective ul').append('<li id="{0}">{1}</li>'.format(name, scenario.objectives.inProgress[name]));
+    }
+    for (var i in scenario.triggers.deferredByTime) {
+        if (scenario.triggers.deferredByTime.hasOwnProperty(i))
+            timeDelayedStep(i, scenario);
     }
 }
