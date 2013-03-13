@@ -43,10 +43,12 @@
 	'disabled' : true,
 	'events' : {
 		'endGame': ['Game Over', 'You got badly injured during the evacuation.  But, after some time in the hospital you\'ll be ok.']
-	}
+	},
+    'lives' : Infinity
 },
 'inBestEnding' : {
 	'events' : {
 		'endGame': ['Game Over', 'You successfully survived the earthquake and evacuated the building without injury. Good job!']
-	}
+	},
+	'lives' : Infinity
 }

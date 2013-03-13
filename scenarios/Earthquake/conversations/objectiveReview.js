@@ -95,12 +95,12 @@
 			'I\'m done with this review' : 9
 		}	
 	},
-	'9' : {
-		'check' : [{'triggersDisabled':['inFailedEarthquake'], 'goto': '10'}],
-		'triggers' : ['failedToTakeCover']
-	},
 	'10' : {
-		'check' : [{'triggersDisabled':['inFailedPowerLines'], 'goto': '11'}],
+		'check' : [{'triggersDisabled':['inFailedEarthquake'], 'goto': '11'}],
+		'triggers' : ['failedToTakeCover'],
+	},
+	'9' : {
+		'check' : [{'triggersDisabled':['inFailedPowerLines'], 'goto': '10'}],
 		'triggers' : ['gameOverPowerLines']
 	},
 	'11' : {
