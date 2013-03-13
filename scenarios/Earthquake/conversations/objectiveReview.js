@@ -1,3 +1,18 @@
+'Review Prompt' : {
+	'1' : {
+		'message' : 'You survived the earthquake!',
+		'replies' : {
+			'I would like to know what I could do better for next time.' : 2,
+			'I\'m ready to play again.' : 3
+		},
+	},
+	'2' :{
+		'triggers' : ['startObjectiveReview']
+	},
+	'3' : {
+		'triggers' : ['inInjuredEnding','inBestEnding']
+	}
+},
 'Objective Review' : {
 	'1' : {
 	    'check' : [ {'objectivesCompleted':['packForSchool'], 'goto': '2'}],
@@ -87,5 +102,12 @@
 	'10' : {
 		'check' : [{'triggersDisabled':['inFailedPowerLines'], 'goto': '11'}],
 		'triggers' : ['gameOverPowerLines']
+	},
+	'11' : {
+		'check' : [{'triggersDisabled':['inInjuredEnding'], 'goto': '12'}],
+		'triggers' : ['inInjuredEnding']
+	},
+	'12' : {
+		'triggers' : ['inBestEnding']
 	}
 }

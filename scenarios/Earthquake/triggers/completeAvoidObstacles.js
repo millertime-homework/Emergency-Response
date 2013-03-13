@@ -8,5 +8,6 @@
 	'events' : {
 		'failObjective' : ['avoidObstacles']
 	},
-	'disableTriggers' : ['completeAvoidObstacles']
+	'disableTriggers' : ['completeAvoidObstacles','inBestEnding'],
+	'enableTriggers'  : ['inInjuredEnding']
 }

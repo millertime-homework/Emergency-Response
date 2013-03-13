@@ -8,17 +8,18 @@
               'name': 'facingSchool',
               'image': 'facingSchool.jpg',
               'isCutscene': true,
+			  '_triggers' : ['startEBCconvo'],
               '_props': {
                   'coordinator': {
                       'name': 'coordinator',
-                      'image': 'policeman.png',
+                      'image': 'responder4.png',
                       'width': 350,
-                      'height': 441,
-                      'left': 200,
-                      'top': 300,
+                      'height': 734,
+                      'left': 125,
+                      'top': 250,
                       'action': 'showConversation',
                       'actionVariables': {
-                           'conversationName': 'coordinatorConvo'
+                           'conversationName': 'Emergency Building Coordinator'
                       }
                   }
               }
