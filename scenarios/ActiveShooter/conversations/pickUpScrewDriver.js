@@ -7,7 +7,7 @@
         }
     },
     '2': {
-        'check': [{'triggersEnabled': ['librarySouthOfficeEventsStart'], 'goto': 3}],
+        'check': [{'objectivesInProgress': ['findWeapon'], 'goto': 3}],
         'triggers': ['takeScrewDriver']
     },
     '3': {
