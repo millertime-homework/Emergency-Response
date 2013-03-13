@@ -1,5 +1,5 @@
 'hiddenFromShooter' : {
-    'waitForObjectiveCompletions' : ['turnOffLights', 'pullDownWindowShade', 'hideByDoor', 'lockTheDoor'],//'silencePhone', 
+    'waitForObjectiveCompletions' : ['turnOffLights', 'pullDownWindowShade', 'hideByDoor', 'lockTheDoor'],//, 'silencePhone'
     'events' : {
         'addPoints' : [60],
         'completeObjective' : ['hideFromShooter']

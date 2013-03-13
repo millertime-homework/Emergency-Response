@@ -6,7 +6,7 @@
         'replaceProp': ['doorHandleDone', 'doorHandle'],
         'setObjective' : ['lockTheDoorAgain', 'Choose what to do: Run Hide or Fight'],
     },
-    'enableTriggers' : ['lockedTheDoorAgain', , 'shooterEnters011', 'playerRuns'],
-    'startTriggers' : ['WinIn011', 'unlockDoor2'],
+    'enableTriggers' : ['lockedTheDoorAgain', 'shooterEnters011', 'playerRuns'],
+    'startTriggers' : ['WinIn011', 'unlockDoor2', 'getOutOfBuilding'],
     'disableTriggers' : ['shooterCloseGetShot']
 }
