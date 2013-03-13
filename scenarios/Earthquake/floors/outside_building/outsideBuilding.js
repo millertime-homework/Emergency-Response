@@ -13,9 +13,9 @@
                     'name': 'coordinator',
                     'image': 'Responder4.png',
                     'width': 350,
-                    'height': 441,
+                    'height': 736,
                     'left': 200,
-                    'top': 300,
+                    'top': 150,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Emergency Building Coordinator'
