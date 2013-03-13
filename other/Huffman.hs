@@ -48,3 +48,9 @@ emergencyResponseCompression =
 		Map.toList $ codeToMap $ createCode representativeSample
 	in putStrLn $ "var hencode = " ++ toJSON code ++
 		";\nvar hdecode = " ++ toJSON (map (\(x,y)->(y,x)) code) ++ ";"
+
+base64 = zip (['A'..'Z']++['a'..'z']++['0'..'9']++"-.")
+	[[a,b,c,d,e,f] | a <- "01", b <- "01", c <- "01", d <- "01", e <- "01", f <- "01"]
+base64JS =
+	putStrLn $ "var b64encode = " ++ toJSON base64 ++
+		";\nvar b64decode = " ++ toJSON (map (\(x,y)->(y,x)) base64) ++ ";"
