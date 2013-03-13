@@ -10,6 +10,7 @@
                 'Info-TV': {
                     'name': 'Info-TV',
                     'image': 'info-tv.png',
+                    'hoverImage': 'info-tvHover.png',
                     'width': 370,
                     'height': 217,
                     'left': 200,

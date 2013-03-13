@@ -18,6 +18,7 @@
 				'bike' : {
 					'named' : 'bike',
 					'image' : 'bike.png',
+                    'hoverImage' : 'bikeHover.png',
 					'width': 350,
                     'height': 300,
                     'left': 325,

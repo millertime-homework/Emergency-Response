@@ -58,6 +58,7 @@
                 'chalk': {
                     'name':'Chalk',
                     'image': 'chalk.png',
+                    'hoverImage': 'chalkHover.png',
                     'width': 35,
                     'height': 60,
                     'left': 760,

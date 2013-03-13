@@ -11,6 +11,7 @@
                 'mask': {
                     'name': 'N-95 Breathing Mask',
                     'image': 'breathingmask.png',
+                    'hoverImage': 'breathingmaskHover.png',
                     'width': 71,
                     'height': 60,
                     'top': 390,
@@ -24,6 +25,7 @@
                 'whistle': {
                     'name': 'Whistle',
                     'image': 'whistle.png',
+                    'hoverImage': 'whistleHover.png',
                     'width': 91,
                     'height': 45,
                     'top': 410,
@@ -68,6 +70,7 @@
                 'food': {
                     'name': 'Food',
                     'image': 'food.png',
+                    'hoverImage': 'foodHover.png',
                     'width': 60,
                     'height': 130,
                     'top': 350,
@@ -81,6 +84,7 @@
                 'flashlight': {
                     'name': 'Flashlight',
                     'image': 'flashlight.png',
+                    'hoverImage': 'flashlightHover.png',
                     'width': 62,
                     'height': 40,
                     'top': 420,
@@ -116,6 +120,7 @@
                 'firstaidkit': {
                     'name': 'First Aid Kit',
                     'image': 'firstaidkit.png',
+                    'hoverImage': 'firstaidkitHover.png',
                     'top': 323,
                     'left': 800,
                     'width': 124,
@@ -129,6 +134,7 @@
                 'water': {
                     'name': 'Water Bottle',
                     'image': 'waterbottle.png',
+                    'hoverImage': 'waterbottleHover.png',
                     'top': 265,
                     'left': 220,
                     'width': 75,
