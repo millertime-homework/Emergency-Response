@@ -2,8 +2,6 @@
     'id': 'hall321',
     'x': 3,
     'y': 2,
-    'annotation': 'AnnotationStairs.png',
-    '_triggers' : ['getShotAtYopOfStairs'],
     '_walls': {
         'e': {
             'name': 'EHall321',
@@ -15,16 +13,6 @@
             'destination': {
                 'x': 2,
                 'z': 0
-            },
-            '_props': {
-                'shooter121E': {
-                    'name': 'shooter121E',
-                    'image': 'shooter.png',
-                    'width': 50,
-                    'height': 100,
-                    'left': 520,
-                    'top': 400
-                }
             }
         },
         'n': {

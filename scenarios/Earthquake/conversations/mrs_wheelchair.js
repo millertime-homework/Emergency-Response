@@ -1,17 +1,16 @@
-'Mrs Lydia': {
+'James': {
     '1': {
         'check'  :[{'triggersEnabled':['wheelChair00'], 'goto':'3'}],
-        'message': 'You see a woman struggling to get into a wheelchair.',
+        'message': 'You see a man attempting to get into a wheelchair.',
         'replies': {
-            'Rush over and put her back into the wheelchair.': 2,
-            'Ask the woman if she needs help.': 3,
-            'Examine the scene.': 0
+            'Rush over and assist him back into the wheelchair.': 2,
+            'Ask the man if he needs help.': 3
         }
     },
     '2': {
         'message': 'Ouch, I think you\' injured my back.  You have' +
-            'to check with a disabled person before moving them.' +
-            'be more careful next time (She wheels away from you toward the exit.) ',
+            'to check with a person before moving them.' +
+            'be more careful next time (He heads away from you toward the exit.) ',
         'replies' : {
             '...':0
         },
@@ -19,30 +18,36 @@
     },
     '3': {
         'message': 'I could use your help, thank you. '+
-            ' Please lift me carefully and place me into my wheelchair' +
-            ' And, please be sure to lock it in place',
+            ' Please lock my chair and then help me into it.',
         'replies': {
-            'Carefully place her into the wheelchair.':4,
-            'Examine the scene.':0
+            'Carefully help him into the wheelchair.':4,
+            'Lock the wheelchair.': 6
         },
         'triggers': ['wheelChair01']
     },
     '4' : {
         'check'  :[{'triggersEnabled':['chairLocked'], 'goto' :'5'}],
-        'message' : '(She falls to the floor as the chair rolls backwards)' +
+        'message' : '(He falls to the floor as the chair rolls backwards)' +
             'Ouch, that hurts.  I told you the chair has to be locked' +
             ' before you can help me into it.',
         'replies' : {
-            'Examine the scene.' : 0
+            'Lock the wheelchair.': 6
         },
         'triggers': ['wheelChair03']
     },
     '5': {
         'message': 'Thank you for your help' +
-            ' (She wheels away toward the exit)',
+            ' (He heads off toward the exit)',
         'replies': {
             'You\'re welcome!':0
         },
-        'triggers': ['wheelChairPoints','wheelChairEnd']
-    }
+        'triggers': ['wheelChairEnd','savedJames']
+    },
+	'6' : {
+		'message' : 'The wheelchair is now locked.',
+		'replies' : {
+			'Carefully help him into the wheelchair.':4
+		},
+		'triggers': ['lockChair']
+	}
 }

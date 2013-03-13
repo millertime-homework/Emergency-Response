@@ -4,6 +4,6 @@
     'events': {
         'setObjectives' : [['findWeapon', 'Find a weapon', 
                             'studentsGatherWeapons031', 'Get students to gather weapons in room 031']],
-        'showConversation' : ['You Enter a Small Office']
+        'showConversation' : ['Suzie']
     }
 }
