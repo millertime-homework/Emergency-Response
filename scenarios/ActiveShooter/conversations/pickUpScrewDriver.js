@@ -7,6 +7,10 @@
         }
     },
     '2': {
+        'check': [{'triggersEnabled': ['librarySouthOfficeEventsStart'], 'goto': 3}],
         'triggers': ['takeScrewDriver']
+    },
+    '3': {
+        'triggers': ['takeScrewDriverAndFight']
     }
 }
