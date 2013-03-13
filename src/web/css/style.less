@@ -101,6 +101,8 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     background-image: url('../img/striped-background.jpg');
     background-position: left bottom;
     h1 {
+        margin: 0;
+        padding-top: 20px;  
         vertical-align: middle;
         color: white;
         .text_shadow(#000);
@@ -491,8 +493,15 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     }
 
     #header {
+        width: 100%;
         margin-bottom: 10px;
-        border-bottom: 1px solid black;
+        span#conversation-name {
+            font-weight: bold;
+            display: block;
+            width: 100%;
+            text-align: left;
+            border-bottom: 1px solid black;
+        }
     }
     #content {
         overflow-y: auto;
@@ -501,7 +510,7 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 
         }
         #you-reply {
-            font-weight: bold;
+            font-style: italic;
         }
         ul {
             padding: 0;

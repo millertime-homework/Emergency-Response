@@ -98,6 +98,8 @@ textarea:focus {
   background-position: left bottom;
 }
 #main-header h1 {
+  margin: 0;
+  padding-top: 20px;
   vertical-align: middle;
   color: white;
   text-shadow: 0 1px 0 #000000;
@@ -478,7 +480,14 @@ textarea:focus {
   cursor: pointer;
 }
 #modal #header {
+  width: 100%;
   margin-bottom: 10px;
+}
+#modal #header span#conversation-name {
+  font-weight: bold;
+  display: block;
+  width: 100%;
+  text-align: left;
   border-bottom: 1px solid black;
 }
 #modal #content {
@@ -486,7 +495,7 @@ textarea:focus {
   height: 400px;
 }
 #modal #content #you-reply {
-  font-weight: bold;
+  font-style: italic;
 }
 #modal #content ul {
   padding: 0;

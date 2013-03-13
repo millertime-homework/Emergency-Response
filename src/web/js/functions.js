@@ -643,7 +643,7 @@ function showConversation(conversationName, currentConversationChoice, cannotSki
     jQuery('#modal').data('conversationName', conversationName);
 
     if (!isAnAction) {
-        jQuery('#modal #header').html(conversationName + " says:");
+        jQuery('#modal #header').html('<span id="conversation-name">' + conversationName + " says:</span>");
     }
     contentContainer = jQuery('#modal #content');
     contentContainer.append('<span id="option-message">' + currentOption.message + '</span><p />');
