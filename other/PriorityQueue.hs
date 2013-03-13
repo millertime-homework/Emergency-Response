@@ -1,3 +1,4 @@
+-- Used by Huffman.hs
 module PriorityQueue (PriorityQueue, pempty, penqueue, pdequeue, ppeek, pisEmpty, listToPriorityQueue, priorityQueueToList) where
 heaploc_add :: (Integer,Integer) -> (Integer,Integer)
 heaploc_add (row,col) | col+1 == 2^row = (row+1,0)

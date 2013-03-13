@@ -1,3 +1,5 @@
+-- Used to generate tables for compressing the save file.  Its output was
+-- copied into save.js.
 module Huffman where
 
 import PriorityQueue
