@@ -110,7 +110,7 @@
                 'screwdriver031':{
                         'name': 'screwdriver031',
                         'image':      'screwdriver.png',
-                        'hoverImage': 'screwdriver.png',
+                        'hoverImage': 'screwdriverHover.png',
                         'width' : 55,
                         'height': 33,
                         'left'  : 350,

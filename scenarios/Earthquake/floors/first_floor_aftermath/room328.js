@@ -111,6 +111,7 @@
                 'puddle': {
                     'name': 'puddle',
                     'image': 'puddle.png',
+                    'hoverImage': 'puddleHover.png',
                     'width': 267,
                     'height': 139,
                     'left': 435,
