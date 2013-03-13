@@ -3,7 +3,7 @@
     'x': 2, 
     'y': 0,
     'annotation': 'AnnotationExit.png',
-    '_triggers': ['enteredSchool', 'getToClass'],
+    '_triggers': ['enteredSchool','prepSchoolObjectives', 'getToClass'],
     '_walls': {
         'e': {
             'name': 'EHall200', 
