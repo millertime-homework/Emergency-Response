@@ -42,7 +42,6 @@ function saveGame() {
             for (var j = 0; j < triggerTypes.length; j++) {
                 var type = triggerTypes[j];
                 var trigger = scenario.triggers[type][tname];
-                console.log(type+','+tname+'='+trigger);
                 if (trigger != null) {
                     result[saveableVars.triggerTypes][result[saveableVars.triggerTypes].length] = j;
                     if (Number.isFinite(trigger.lives))
@@ -123,7 +122,6 @@ function loadGame() {
     updateMap();
     jQuery('#objective ul').empty();
     for (var name in scenario.objectives.inProgress) {
-        console.log(name);
         if(scenario.objectives.inProgress.hasOwnProperty(name))
             jQuery('#objective ul').append('<li id="{0}">{1}</li>'.format(name, scenario.objectives.inProgress[name]));
     }
