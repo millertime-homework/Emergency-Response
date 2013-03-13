@@ -502,17 +502,6 @@ textarea:focus {
   list-style-type: none;
 }
 #modal #content ul .conversation-option {
-  /*
-                padding: 2px 4px 2px 4px;
-                text-align: center;
-                cursor: pointer;
-                border: 1px solid black;
-                .border_radius(3px);
-                background-color: #81C6F7;
-                &:hover {
-                    background-color: #C2E4FC;
-                }*/
-
   /* Cool new button stylings */
 
   border: 1px solid #25729a;
@@ -539,6 +528,7 @@ textarea:focus {
   -ms-filter: formatstring("\"progid:DXImageTransform.Microsoft.gradient(startColorStr='{0}', EndColorStr='{1}')\"", #3090c7, #1c5a85);
   /* IE8 */
 
+  cursor: pointer;
 }
 #modal #content ul .conversation-option:hover {
   border: 1px solid #1c5675;
