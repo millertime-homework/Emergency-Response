@@ -8,6 +8,6 @@
         'replaceProp': ['prof-bell', 'bell-hiding']
     },
     'enableTriggers' : ['turnedOffLights', 'pulledDownShade', 'hiddenByDoor', 'silencedPhone', 'lockedTheDoorAlone'],
-    'startRandomTrigger': ['pathNotClear', 'pathClear'],
+    'startRandomTrigger': ['pathNotClear', 'pathClear'], 
     'startTriggers' : ['hiddenFromShooter', 'WinAloneIn011']
 }

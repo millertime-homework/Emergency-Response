@@ -12,7 +12,6 @@
     
     'startTriggers' : ['failedToLockTheDoor', 'hiddenFromShooter']
 },
-
 'hideFromShooter_041' : {
     'disabled': true,
     'events' : {
