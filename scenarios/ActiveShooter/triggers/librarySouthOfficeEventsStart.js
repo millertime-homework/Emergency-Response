@@ -4,7 +4,7 @@
     'events': {
         'setObjectives' : [['findWeapon', 'Find a weapon', 
                             'studentsGatherWeapons031', 'Get students to gather weapons in room 031']],
-        'showConversation' : ['Suzie', null, true, false]
+        'showConversation' : ['Suzie', 1, true, false]
     },
     'enableTriggers' : ['shooterCloseGetShot']
 }
