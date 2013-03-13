@@ -30,5 +30,7 @@
     'lives': Infinity,
 	'events' : {
 		'removeFromScene' : ['Luke2'],
+		'completeObjective' : ['saveLuke'],
+		'addpoints' : [15]
 	}
 }

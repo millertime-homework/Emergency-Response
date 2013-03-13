@@ -2,7 +2,7 @@
     'id': 'hall210',
     'x': 2,
     'y': 1,
-    '_triggers' : ['shotInStairwell'],
+    '_triggers' : ['shotInStairwell', 'shotAtBottomOfElevator'],
     '_walls': {
         'e': {
             'name': 'EHall210',

@@ -3,15 +3,11 @@
     'x': 2,
     'y': 2,
     'annotation': 'AnnotationStairs.png',
-    '_triggers' : ['getShotAt', 'abort'],
+    '_triggers' : ['getShotAt', 'abort', 'shotOnStairPlatform'],
     '_walls': {
         'e': {
             'name': 'EStairs220',
-            'image': 'R220-east.jpg',
-            'destination': {
-                'x': 3,
-                'z': 1
-            }
+            'image': 'R220-east.jpg'
         },
         'w': {
             'name': 'WStairs220',
@@ -35,7 +31,7 @@
                 'shooter220S': {
                     'name': 'shooter220S',
                     'image': 'shooter.png',
-                    'width': 50,
+                    'width': 35,
                     'height': 100,
                     'left': 520,
                     'top': 400

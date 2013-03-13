@@ -72,7 +72,7 @@
                 'da-shootah': {
                     'name': 'da-shootah',
                     'image': 'shooter.png',
-                    'width': 128,
+                    'width': 90,
                     'height': 256,
                     'left': 460,
                     'top': 285

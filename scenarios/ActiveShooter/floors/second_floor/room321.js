@@ -2,7 +2,6 @@
     'id': 'hall321',
     'x': 3,
     'y': 2,
-    'annotation': 'AnnotationStairs.png',
     '_walls': {
         'e': {
             'name': 'EHall321',

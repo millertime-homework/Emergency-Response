@@ -127,4 +127,8 @@ function loadGame() {
         if(scenario.objectives.inProgress.hasOwnProperty(name))
             jQuery('#objective ul').append('<li id="{0}">{1}</li>'.format(name, scenario.objectives.inProgress[name]));
     }
+    for (var i in scenario.triggers.deferredByTime) {
+        if (scenario.triggers.deferredByTime.hasOwnProperty(i))
+            timeDelayedStep(i, scenario);
+    }
 }
