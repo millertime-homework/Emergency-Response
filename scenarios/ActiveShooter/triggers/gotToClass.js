@@ -3,5 +3,6 @@
         'completeObjective': ['getToClass'],
     },
     'timeDelay': 1000,
-    'startTriggers': ['activateShooter']
+    'startTriggers': ['activateShooter'],
+    'abortTriggers': ['playerEnters011']
 }
