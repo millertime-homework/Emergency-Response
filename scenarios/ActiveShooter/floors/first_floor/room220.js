@@ -31,7 +31,7 @@
                 'shooter220S': {
                     'name': 'shooter220S',
                     'image': 'shooter.png',
-                    'width': 50,
+                    'width': 35,
                     'height': 100,
                     'left': 520,
                     'top': 400

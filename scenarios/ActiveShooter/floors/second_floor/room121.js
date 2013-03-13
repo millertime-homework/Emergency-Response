@@ -16,10 +16,10 @@
                 'shooter121E': {
                     'name': 'shooter121E',
                     'image': 'shooter.png',
-                    'width': 50,
-                    'height': 100,
+                    'width': 61,
+                    'height': 175,
                     'left': 520,
-                    'top': 400
+                    'top': 366
                 }
             }
         },
