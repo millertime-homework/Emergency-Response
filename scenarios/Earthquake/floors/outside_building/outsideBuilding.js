@@ -22,6 +22,11 @@
                       }
                   }
               }
-          }
+          },
+		  'badEnding' : {
+		      'name' : 'badEnding',
+			  'image' : 'blackout.jpg',
+			  'isCutscene' : true
+		  }
      }
 }

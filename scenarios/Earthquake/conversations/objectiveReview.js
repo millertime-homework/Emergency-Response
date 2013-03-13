@@ -7,7 +7,7 @@
 					' Keep one accessible to you in your normal daily routine and you’ll always be prepared.',
 		'replies' : {
 			'To do better in this simulation; Pack a complete Go-Kit before heading to school.' : 2,
-			'I\'m done with this review' : 0
+			'I\'m done with this review' : 9
 		}
 	},
 	'2' : {
@@ -16,7 +16,7 @@
 		            'the ground so they do not become hazards should you need to evacuate. ',
 		'replies' : {
 			'To do better in this simulation; Help prepare the school for an earthquake by making a heavy object safer.' : 3,
-			'I\'m done with this review' : 0
+			'I\'m done with this review' : 9
 		}			
 	},
 	'3' : {
@@ -27,7 +27,7 @@
 					'with just after an earthquake.',
 		'replies' : {
 			'To do better in this simulation; Help prepare the school for an earthquake by moving flammable objects away from heat sources.' : 4,
-			'I\'m done with this review' : 0
+			'I\'m done with this review' : 9
 		}			
 	},
 	'4' : {
@@ -38,7 +38,7 @@
 					'to the stud in the wall.',
 		'replies' : {
 			'To do better in this simulation; Help prepare the school for an earthquake by making sure a plaque is secure.' : 5,
-			'I\'m done with this review' : 0
+			'I\'m done with this review' : 9
 		}					
 	},
     '5' : {
@@ -47,7 +47,7 @@
 		            'Avoid blocking exits to ensure the easiest evacuation possible. ',
 	    'replies' : {
 			'To do better in this simulation; Help prepare the school for an earthquake by moving objects blocking the exits.' : 6,
-			'I\'m done with this review' : 0
+			'I\'m done with this review' : 9
 		}
 	},
 	'6' : {
@@ -56,7 +56,7 @@
 		            'if it is safe to do so.',
         'replies' : {
 			'To do better in this simulation; Assist another survivor when it is safe to do so.' : 7,
-			'I\'m done with this review' : 0
+			'I\'m done with this review' : 9
 		}
 	},
     '7' : {
@@ -67,7 +67,7 @@
 					'When no area of rescue is available move them to the landing of a stair case.',
 		'replies' : {
 			'To do better in this simulation; Help a fellow survivor to the area of rescue.' : 8,
-			'I\'m done with this review' : 0
+			'I\'m done with this review' : 9
 		}
 	},
 	'8' : {
@@ -77,7 +77,15 @@
 						'know is blocked, try to calm them down and finish evacuating together.',
 		'replies' : {
 			'To do better in this simulation; Point direct other survivors towards exits that may be usable.' : 9,
-			'I\'m done with this review' : 0
+			'I\'m done with this review' : 9
 		}	
+	},
+	'9' : {
+		'check' : [{'triggersDisabled':['inFailedEarthquake'], 'goto': '10'}],
+		'triggers' : ['failedToTakeCover']
+	},
+	'10' : {
+		'check' : [{'triggersDisabled':['inFailedPowerLines'], 'goto': '11'}],
+		'triggers' : ['gameOverPowerLines']
 	}
 }
