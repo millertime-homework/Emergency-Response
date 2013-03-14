@@ -1,4 +1,4 @@
 'playerRuns':{
-    'disabled' : true,
-    'startRandomTrigger': ['getOutOfBuilding', 'getToFrontDoors'],
+ //   'disabled' : true,
+    'startTrigger': ['getOutOfBuilding'],
 }

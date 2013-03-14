@@ -97,7 +97,7 @@
                     'top': 480,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'goIntoHidingByDoor041'
+                        'conversationName': 'Crouch down by the door?'
                     }
                 }
             }

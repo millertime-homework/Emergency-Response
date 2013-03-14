@@ -2,7 +2,7 @@
     'id': 'library131',
     'x': 1,
     'y': 3,
-    '_triggers': ['abort'],
+    '_triggers': ['abort', 'shooterCloseGetShot'],
     '_walls': {
         'e': {
             'name': 'ELibrary131',
