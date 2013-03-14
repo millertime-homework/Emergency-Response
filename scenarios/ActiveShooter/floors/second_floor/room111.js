@@ -48,7 +48,7 @@
                 'shooterR111': {
                     'name': 'shooterR111',
                     'image': 'shooter.png',
-                    'width': 96,
+                    'width': 67,
                     'height': 192,
                     'left': 550,
                     'top': 300

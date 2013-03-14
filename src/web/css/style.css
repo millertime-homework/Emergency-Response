@@ -63,6 +63,7 @@ body {
 }
 .ui {
   z-index: 8;
+  cursor: pointer;
 }
 .bold-colored-text {
   font-weight: bold;
@@ -272,6 +273,7 @@ textarea:focus {
 }
 .base-prop {
   z-index: 6;
+  cursor: pointer;
 }
 .hover-prop {
   z-index: 5;

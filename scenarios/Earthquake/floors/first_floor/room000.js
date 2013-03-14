@@ -59,6 +59,7 @@
                 'heavy': {
                     'name': 'heavy',
                     'image': 'largeTV.png',
+                    'hoverImage': 'largeTVHover.png',
                     'width': 175,
                     'height': 150,
                     'left': 720,

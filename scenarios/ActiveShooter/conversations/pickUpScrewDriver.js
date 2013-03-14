@@ -7,6 +7,10 @@
         }
     },
     '2': {
+        'check': [{'objectivesInProgress': ['findWeapon'], 'goto': 3}],
         'triggers': ['takeScrewDriver']
+    },
+    '3': {
+        'triggers': ['takeScrewDriverAndFight']
     }
 }

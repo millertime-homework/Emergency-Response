@@ -2,6 +2,7 @@
     'events': {
         'warpPlayer': ['w',2,1,0]
     },
+    'disableTriggers': ['shotInStairwell'],
     'lives': Infinity
 },
 'elevatorUp': {

@@ -22,6 +22,7 @@
                 'computer': {
                     'name': 'computer',
                     'image': 'computer.png',
+                    'hoverImage': 'computerHover.png',
                     'width': 125,
                     'height': 140,
                     'left': 660,

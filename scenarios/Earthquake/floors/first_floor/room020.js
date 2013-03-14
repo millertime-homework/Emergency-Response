@@ -21,6 +21,7 @@
                 'burner':{
                     'name':'burner',
                     'image':'bburner.png',
+                    'hoverImage':'bburnerHover.png',
                     'width': 130,
                     'height': 225,
                     'left': 565,
@@ -33,6 +34,7 @@
 		        'rag':{
                     'name':'rag',
                     'image':'rag.png',
+                    'hoverImage':'ragHover.png',
                     'width':160,
                     'height':50,
                     'left': 650,
@@ -45,6 +47,7 @@
 				'bugSpray':{
                     'name':'bugSpray',
                     'image':'spray.png',
+                    'hoverImage':'sprayHover.png',
                     'width':42,
                     'height':140,
                     'left': 525,

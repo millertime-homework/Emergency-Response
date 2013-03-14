@@ -26,6 +26,7 @@
                 'Downedwire': {
                     'name': 'Downedwire',
                     'image': 'downwiresNew.png',
+                    'hoverImage': 'downwiresNewHover.png',
                     'width': 400,
                     'height': 300,
                     'left': 380,
@@ -55,6 +56,7 @@
 				'doorFrame': {
 					'name': 'doorFrame',
 					'image': 'doorframe2.png',
+                    'hoverImage': 'doorframe2Hover.png',
 					'width': 75,
 					'height': 75,
 					'left': 515,
