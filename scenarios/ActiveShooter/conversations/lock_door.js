@@ -10,7 +10,7 @@
     },
     '2' : {
         'requires': {'objectivesInProgress':['lockTheDoor']},
-        'triggers' : ['lockedTheDoor']
+        'triggers' : ['lockedTheDoor', 'lockedTheDoorAlone']
     },
     '3' : {
         'requires': {'objectivesInProgress':['lockTheDoorAgain']},

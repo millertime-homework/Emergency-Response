@@ -418,7 +418,10 @@ function hideModal() {
 
 function resetLights() {
     lightsOn = true;
-    jQuery('#flashlight-overlay').addClass('hidden');
+    var flashlightOverlay = jQuery('#flashlight-overlay');
+    flashlightOverlay.addClass('hidden');
+    flashlightOverlay.removeClass('flashlight-on');
+    flashlightOverlay.addClass('flashlight-off');
 }
 /**
 * Show a message via large text that overlays the middle of the viewport.
@@ -643,13 +646,13 @@ function showConversation(conversationName, currentConversationChoice, cannotSki
     jQuery('#modal').data('conversationName', conversationName);
 
     if (!isAnAction) {
-        jQuery('#modal #header').html(conversationName + " says:");
+        jQuery('#modal #header').html('<span id="conversation-name">' + conversationName + " says:</span>");
     }
     contentContainer = jQuery('#modal #content');
-    contentContainer.append(currentOption.message + '<p />');
+    contentContainer.append('<span id="option-message">' + currentOption.message + '</span><p />');
 
     if (!isAnAction) {
-        contentContainer.append(' You Reply: <br />');
+        contentContainer.append('<span id="you-reply"> You Reply: </span><br />');
     }
     contentContainer.append('<ul>');
 

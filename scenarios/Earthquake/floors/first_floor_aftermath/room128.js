@@ -55,6 +55,7 @@
 				'doorFrame': {
 					'name': 'doorFrame',
 					'image': 'doorframe2.png',
+                    'hoverImage': 'doorframe2Hover.png',
 					'width': 75,
 					'height': 75,
 					'left': 515,

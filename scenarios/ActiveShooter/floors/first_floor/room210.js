@@ -28,6 +28,7 @@
                 'Fire-Extinguisher': {
                     'name': 'Fire-Extinguisher',
                     'image': 'fire-extinguisher.png',
+                    'hoverImage': 'fire-extinguisherHover.png',
                     'width': 190,
                     'height': 190,
                     'left': 800,

@@ -2,7 +2,7 @@
     'id': 'hall111',
     'x': 1,
     'y': 1,
-    '_triggers' : ['shooterCloseGetShot', 'playerRuns'],
+    '_triggers' : ['playerRuns', 'shooterCloseGetShot'],
     '_walls': {
         'e': {
             'name': 'EHall111',
