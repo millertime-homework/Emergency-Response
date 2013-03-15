@@ -310,6 +310,19 @@ function setGameState(state) {
     case GAME_STATE_SHOW_INVENTORY:
         showNamedModal(jQuery('#inventory-modal'), false, true);
         break;
+    case GAME_STATE_SHOW_OBJECTIVES:
+        jQuery('#objectives-modal .option').hide();
+        if (lastGameState === GAME_STATE_RUNNING) {
+            jQuery('#objectives-modal-close').show();
+
+        } else if (lastGameState === GAME_STATE_PAUSED) {
+            jQuery('#objectives-modal-go-back-paused').show();
+        } else {
+            jQuery('#objectives-modal-go-back-game-over').show();
+        }
+
+        showNamedModal(jQuery('#objectives-modal'), false, false);
+        break;
     case GAME_STATE_MODAL:
         showNamedModal(jQuery('#modal'), false, true);
         jQuery('#modal-close').show();
@@ -364,12 +377,15 @@ function showGameOver(header, body) {
     gameOverMenu.find('#game-over-header').text(header);
     gameOverMenu.find('#game-over-message').text(body);
     gameOverMenu.find('#game-over-score span').text(player.score);
-    showObjectivesIn(jQuery('#game-over-objective-list'), true);
     setGameState(GAME_STATE_OVER);
 }
 
+function showObjectives() {
+    showObjectivesIn(jQuery('#objectives-modal #objectives-list'));
+    setGameState(GAME_STATE_SHOW_OBJECTIVES);
+}
+
 function showPauseMenu() {
-    showObjectivesIn(jQuery('#pause-objective-list'));
     setGameState(GAME_STATE_PAUSED);
 }
 

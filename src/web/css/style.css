@@ -1,3 +1,4 @@
+/*Border Radius Functions*/
 /*
     Developed by anthonyvscode.com
     This solution is to be used in the dotless implemention of less css: http://www.dotlesscss.org/
@@ -289,6 +290,12 @@ textarea:focus {
   width: 100%;
   margin-bottom: 5px;
 }
+#objectives-modal {
+  z-index: 12;
+}
+#objectives-list {
+  max-height: 380px;
+}
 #objective {
   border: 3px;
   border-style: solid;
@@ -343,33 +350,34 @@ textarea:focus {
   display: block;
 }
 .map-cell.visited {
-  background-color: #2b4b9e;
+  background-color: #abcbfe;
 }
 .map-cell.occupied {
-  background-color: #6881ff;
+  background-color: #6e8bdc;
 }
 .map-cell {
   height: 30px;
   width: 30px;
   position: absolute;
-  background-color: #4b4b4b;
+  background-color: #bbbbbb;
   border: 1px;
   border-style: solid;
   border-color: #000;
+  z-index: 5;
 }
 .x-connector {
   position: absolute;
   height: 4px;
   width: 10px;
   background-color: #4b4b4b;
-  z-index: 5;
+  z-index: 4;
 }
 .y-connector {
   position: absolute;
   height: 10px;
   width: 4px;
   background-color: #4b4b4b;
-  z-index: 5;
+  z-index: 4;
 }
 /*END---Game sidebar*/
 /* Editor */
