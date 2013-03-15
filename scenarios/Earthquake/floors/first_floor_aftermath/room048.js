@@ -28,6 +28,7 @@
 				'bikeMangled' : {
 					'name' : 'bikeMangled',
 					'image' : 'bikeMangle.png',
+                    'hoverImage' : 'bikeMangleHover.png',
 					'width': 350,
                     'height': 425,
                     'left': 355,

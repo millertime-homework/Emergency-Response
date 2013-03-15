@@ -15,6 +15,7 @@
                 'brokenGlass': {
                     'name': 'brokenGlass',
                     'image': 'brokenGlass.png',
+                    'hoverImage': 'brokenGlassHover.png',
                     'width': 300,
                     'height': 200,
                     'left': 415,
@@ -27,6 +28,7 @@
                 'brokenDoor': {
                     'name': 'brokenDoor',
                     'image': 'dooraskew.png',
+                    'hoverImage': 'dooraskewHover.png',
                     'width': 80,
                     'height': 320,
                     'left': 700,
@@ -39,6 +41,7 @@
                 'bridgeDoor': {
                     'name': 'bridgeDoor',
                     'image': 'doordown.png',
+                    'hoverImage': 'doordownHover.png',
                     'width': 200,
                     'height': 150,
                     'left': 435,

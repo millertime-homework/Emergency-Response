@@ -10,6 +10,7 @@
                 'screwdriver':{
                     'name':'screwdriver',
                     'image':'screwdriver.png',
+                    'hoverImage':'screwdriverHover.png',
                     'width': 50,
                     'height': 50,
                     'left': 255,

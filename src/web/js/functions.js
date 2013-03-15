@@ -418,7 +418,10 @@ function hideModal() {
 
 function resetLights() {
     lightsOn = true;
-    jQuery('#flashlight-overlay').addClass('hidden');
+    var flashlightOverlay = jQuery('#flashlight-overlay');
+    flashlightOverlay.addClass('hidden');
+    flashlightOverlay.removeClass('flashlight-on');
+    flashlightOverlay.addClass('flashlight-off');
 }
 /**
 * Show a message via large text that overlays the middle of the viewport.

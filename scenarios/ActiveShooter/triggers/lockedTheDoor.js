@@ -9,11 +9,20 @@
     'deleteTriggers' : ['failedToLockTheDoor'],
     'startTriggers': ['lockDoor2', 'ShootsThroughWalls011']
 },
-
+'lockedTheDoorAlone' : {
+    'disabled' : true,
+    'abortTriggers': ['failedToLockTheDoor'],
+    'events' : {
+        'addPoints' : [10],
+        'completeObjective' : ['lockTheDoor'],
+        'replaceProp': ['doorHandle', 'doorHandleDone']
+    },
+    'deleteTriggers' : ['failedToLockTheDoor'],
+    'startTriggers': ['lockDoor2']
+},
 'lockedTheDoor041' : {
     'disabled' : true,
     'abortTriggers': ['failedToLockTheDoor041'],
-    //'startTriggers' : ['ShootsThroughWalls011'],
     'events' : {
         'addPoints' : [75],
         'completeObjective' : ['lockTheDoor041'],
