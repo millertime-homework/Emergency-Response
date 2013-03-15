@@ -4,12 +4,20 @@
      'y': 0,
 	 '_triggers' : ['completeAvoidObstacles'],
      '_walls': {
-          'facingSchool': {
+          'outsideBuilding': {
               'name': 'facingSchool',
               'image': 'facingSchool.jpg',
               'isCutscene': true,
 			  '_triggers' : ['startEBCconvo'],
               '_props': {
+				  'ambulance': { 
+					  'name': 'ambulance', 
+					  'image': 'ambulance.jpg', 
+					  'width': 634, 
+					  'height': 500, 
+					  'left': 200, 
+					  'top': 200 
+                  },
                   'coordinator': {
                       'name': 'coordinator',
                       'image': 'responder4.png',
@@ -24,7 +32,7 @@
                   }
               }
           },
-		  'badEnding' : {
+		  'died' : {
 		      'name' : 'badEnding',
 			  'image' : 'blackout.jpg',
 			  'isCutscene' : true

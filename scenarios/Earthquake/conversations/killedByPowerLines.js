@@ -11,6 +11,6 @@
 		'triggers' : ['startObjectiveReview']
 	},
 	'3' : {
-		'triggers' : ['gameOverPowerLines']
+		'triggers' : ['inFailedPowerLines']
 	}
 }

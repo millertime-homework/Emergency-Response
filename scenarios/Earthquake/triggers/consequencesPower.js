@@ -9,5 +9,5 @@
 'electrocute' : {
 	'disabled' : true,
 	'lives' : Infinity,
-	'startTriggers' : ['failAvoidObstacles','failedPowerLines']
+	'startTriggers' : ['failAvoidObstacles','beginFailedPowerLinesEnding']
 }

@@ -10,6 +10,6 @@
 		'triggers' : ['startObjectiveReview']
 	},
 	'3' : {
-		'triggers' : ['failedToTakeCover']
+		'triggers' : ['inFailedEarthquake']
 	}
 }
