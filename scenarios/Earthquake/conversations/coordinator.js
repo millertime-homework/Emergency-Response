@@ -1,4 +1,4 @@
-'coordinatorConvo': {
+'Emergency Building Coordinator': {
     '1': {
         'message': 'Hey! Over here! Are you alright?',
         'replies': {
