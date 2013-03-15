@@ -90,19 +90,19 @@
 			'_props' : {
                 'Downedwire': {
                     'name': 'Downedwire',
-                    'image': 'downwiresNew.png',
-                    'width': 50,
-                    'height': 50,
-                    'left': 530,
-                    'top': 275
+                    'image': 'wire.png',
+                    'width': 160,
+                    'height': 102,
+                    'left': 483,
+                    'top': 220
                 },
 				'Movedwire': {
                     'name': 'Movedwire',
-                    'image': 'movedwiresNew.png',
-                    'width': 50,
-                    'height': 50,
-                    'left': 530,
-                    'top': 275
+                    'image': 'wire-moved.png',
+                    'width': 160,
+                    'height': 102,
+                    'left': 483,
+                    'top': 220
                 },
 				'Luke2' : {    
 					'name': 'Luke2',

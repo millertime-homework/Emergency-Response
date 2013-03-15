@@ -616,24 +616,30 @@ function showConversation(conversationName, currentConversationChoice, cannotSki
         return;
     }
 
-    // checkInventory was the name of this property before I allowed checking other things;
-    // keeping it for now since I don't know if other people are using it in other branches.
-    if (currentOption.checkInventory) {
-        currentOption.check = currentOption.checkInventory;
-    }
-    if (currentOption.check) {
-        for (i = 0; i < currentOption.check.length; i++) {
-            if (checkCondition(currentOption.check[i])) {
-                currentOptionId = currentOption.check[i]['goto'];
-                break;
+    var shouldCheck = true;
+
+    while (shouldCheck) {
+        shouldCheck = false;
+        // checkInventory was the name of this property before I allowed checking other things;
+        // keeping it for now since I don't know if other people are using it in other branches.
+        if (currentOption.checkInventory) {
+            currentOption.check = currentOption.checkInventory;
+        }
+        if (currentOption.check) {
+            for (i = 0; i < currentOption.check.length; i++) {
+                if (checkCondition(currentOption.check[i])) {
+                    currentOptionId = currentOption.check[i]['goto'];
+                    shouldCheck = true;
+                    break;
+                }
             }
         }
-    }
 
-    currentOption = conversation.getOption(currentOptionId);
-    if (!currentOption) {
-        hideModal();
-        return;
+        currentOption = conversation.getOption(currentOptionId);
+        if (!currentOption) {
+            hideModal();
+            return;
+        }
     }
 
     // hideModal() and return need to be in separate if statements here.
@@ -662,13 +668,13 @@ function showConversation(conversationName, currentConversationChoice, cannotSki
     jQuery('#modal').data('conversationName', conversationName);
 
     if (!isAnAction) {
-        jQuery('#modal #header').html(conversationName + " says:");
+        jQuery('#modal #header').html('<span id="conversation-name">' + conversationName + " says:</span>");
     }
     contentContainer = jQuery('#modal #content');
-    contentContainer.append(currentOption.message + '<p />');
+    contentContainer.append('<span id="option-message">' + currentOption.message + '</span><p />');
 
     if (!isAnAction) {
-        contentContainer.append(' You Reply: <br />');
+        contentContainer.append('<span id="you-reply"> You Reply: </span><br />');
     }
     contentContainer.append('<ul>');
 

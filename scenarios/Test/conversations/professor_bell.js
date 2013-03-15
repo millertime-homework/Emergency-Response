@@ -1,7 +1,8 @@
 'Professor Bell': {
     '1': {
         'triggers': ['fireAppears'],
-        'check': [{'objectivesCompleted': ['takeTheQuiz'], 'goto': '10'}],
+        'check': [{'objectivesCompleted': ['takeTheQuiz'], 'goto': '10'},
+                {'has':['Fire Extinguisher'], 'goto':'11'}],
         'message': 'Good morning! Class is starting soon!.',
         'replies': {
             'Where is the fire extinguisher': 5,
@@ -28,5 +29,12 @@
     },
     '10': {
         'message': 'Congratulations!  You have completed the quiz!'
+    },
+    '11': {
+        'check': [{'objectivesCompleted':['moveTutorial'], 'goto':'12'}],
+        'message': 'You have the fire extinguisher but have not gotten the "move somewhere" objective'
+    },
+    '12': {
+        'message': "You've already moved somewhere."
     }
 }

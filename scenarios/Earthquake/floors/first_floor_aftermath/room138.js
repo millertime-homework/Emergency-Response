@@ -43,11 +43,11 @@
 				},
                 'Downedwire': {
                     'name': 'Downedwire',
-                    'image': 'downwiresNew.png',
-                    'width': 160,
-                    'height': 138,
-                    'left': 483,
-                    'top': 220,
+                    'image': 'wire.png',
+                    'width': 385,
+                    'height': 250,
+                    'left': 370,
+                    'top': 120,
 			        'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Hanging wires'
@@ -55,11 +55,11 @@
                 },
 				'Movedwire': {
                     'name': 'Movedwire',
-                    'image': 'movedwiresNew.png',
-                    'width': 120,
-                    'height': 122,
-                    'left': 490,
-                    'top': 240
+                    'image': 'wire-moved.png',
+                    'width': 385,
+                    'height': 250,
+                    'left': 370,
+                    'top': 120
                 },
 				'Luke2' : {    
 					'name': 'Luke2',
