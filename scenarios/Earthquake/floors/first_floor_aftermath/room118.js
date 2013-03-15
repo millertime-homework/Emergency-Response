@@ -21,17 +21,17 @@
             '_props' : {
                 'Downedwire': {
                     'name': 'Downedwire',
-                    'image': 'downwiresNew.png',
+                    'image': 'wire.png',
                     'width': 160,
-                    'height': 138,
+                    'height': 102,
                     'left': 483,
                     'top': 220
                 },
                 'Movedwire': {
                     'name': 'Movedwire',
-                    'image': 'movedwiresNew.png',
+                    'image': 'wire-moved.png',
                     'width': 160,
-                    'height': 138,
+                    'height': 102,
                     'left': 483,
                     'top': 220
                 },

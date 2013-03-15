@@ -25,12 +25,11 @@
 			'_props' : {
                 'Downedwire': {
                     'name': 'Downedwire',
-                    'image': 'downwiresNew.png',
-                    'hoverImage': 'downwiresNewHover.png',
-                    'width': 400,
-                    'height': 300,
-                    'left': 380,
-                    'top': 150,
+                    'image': 'wire.png',
+                    'width': 390,
+                    'height': 250,
+                    'left': 370,
+                    'top': 120,
                     'action': 'showConversation',
                         'actionVariables': {
                             'conversationName': 'Hanging wires'
@@ -38,11 +37,11 @@
                 },
                 'Movedwire': {
                     'name': 'Movedwire',
-                    'image': 'movedwiresNew.png',
-                    'width': 400,
-                    'height': 300,
-                    'left': 380,
-                    'top': 150
+                    'image': 'wire-moved.png',
+                    'width': 390,
+                    'height': 250,
+                    'left': 370,
+                    'top': 120
                 }
             }
         },
