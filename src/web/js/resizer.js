@@ -54,8 +54,8 @@ function applyCurrentWidths(sidebarWidth) {
 
 function applyCurrentHeights() {
     "use strict";
-    jQuery('#main-header').height(erg.CurrentHeaderHeight).css('min-height', erg.CurrentHeaderHeight + 'px');
-    jQuery('#main-footer').height(erg.CurrentFooterHeight).css('min-height', erg.CurrentFooterHeight + 'px');
+    // jQuery('#main-header').height(erg.CurrentHeaderHeight).css('min-height', erg.CurrentHeaderHeight + 'px');
+    // jQuery('#main-footer').height(erg.CurrentFooterHeight).css('min-height', erg.CurrentFooterHeight + 'px');
     jQuery('#main-content').height(erg.CurrentBodyHeight).css('min-height', erg.CurrentBodyHeight + 'px');
 
     //Resize the body's children, leaving some space for the margins. TODO: Remove hardcoded value.

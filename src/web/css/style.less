@@ -7,16 +7,17 @@
 @primaryFontColor: #000000;
 @primaryHighlightColor: #4493F3;
 @redWarningColor: #C00;
-@borderThickness: 3px;
-@primaryBorderRadius: 10px;
+@borderThickness: 2px;
+@primaryBorderRadius: 12px;
 @sidebarWidth: 150px;
 @margin: 5px;
 
 body {
-    font-family: "Helvetica-Neue-Light", "Helvetica Neue Light";
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 300;
     font-size: 1em;
-    margin:0px;
-    background-color:gray;
+    margin:0;
+    padding:0;
 }
 
 /* General/Misc */
@@ -41,6 +42,15 @@ body {
 #inventory:hover {
     background:transparent url("../img/backpackHover.png");
     cursor: pointer;
+}
+
+#items-container {
+    span {
+        position: relative;
+        float: left;
+        width: 100%;
+        margin: 5px 0 5px 0;
+    }
 }
 
 #cell-phone {
@@ -88,11 +98,16 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     height:100px;
     min-height:100px;
     width:100%;
-    background-color:gray;
-}
-
-#main-header h1 {
-    vertical-align: middle;
+    background-color: black;
+    background-image: url('../img/striped-background.jpg');
+    background-position: left bottom;
+    h1 {
+        margin: 0;
+        padding-top: 20px;  
+        vertical-align: middle;
+        color: white;
+        .text_shadow(#000);
+    }
 }
 
 #main-content {
@@ -104,11 +119,16 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 }
 
 #main-footer {
-    height:100px;
-    min-height:100px;
+    position: absolute;
+    top: 100%;
+    margin-top: -100px;
+    height: 100px;
+    min-height: 100px;
     width:100%;
-    background-color:gray;
-    margin-bottom:0px;
+    background-color:black;
+    background-image: url('../img/striped-background.jpg');
+    background-position: left top;
+    z-index: -1;
 }
 
 /*----Game viewport container*/
@@ -474,23 +494,45 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
         }
     }
 
-    #header {}
+    #header {
+        width: 100%;
+        margin-bottom: 10px;
+        span#conversation-name {
+            font-weight: bold;
+            display: block;
+            width: 100%;
+            text-align: left;
+            border-bottom: 1px solid black;
+        }
+    }
     #content {
         overflow-y: auto;
         height:400px;
+        #option-message {
+
+        }
+        #you-reply {
+            font-style: italic;
+        }
         ul {
             padding: 0;
             list-style-type: none;
             .conversation-option {
-                padding: 2px 4px 2px 4px;
-                text-align: center;
-                cursor: pointer;
-                border: 1px solid black;
+                /* Cool new button stylings */
+                border:1px solid #25729a; 
                 .border_radius(3px);
-                background-color: #81C6F7;
+                font-family:arial, helvetica, sans-serif; 
+                padding: 10px 10px 10px 10px; 
+                text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
+                font-weight:bold; 
+                text-align: center; 
+                color: #FFFFFF; 
+                .background_gradient(#3090c7, #1c5a85);
                 &:hover {
-                    background-color: #C2E4FC;
+                    border:1px solid #1c5675; 
+                    .background_gradient(#26759e, #133d5b);
                 }
+                cursor: pointer;
             }
         }
     }
@@ -548,7 +590,7 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     width: 400px;
     height: 400px;
     .border_radius(10px);
-    background-color: white;
+    .background_gradient(#fff, #ddd);
     border: @borderThickness solid black;
     .box_shadow();
     padding: 10px;
