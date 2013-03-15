@@ -8,6 +8,7 @@ var GAME_STATE_MODAL = "modal";
 var GAME_STATE_FORCED_MODAL = 'forcedModal';
 var GAME_STATE_SHOW_INVENTORY = "inventory";
 var GAME_STATE_LOADING = 'Loading';
+var GAME_STATE_SHOW_OBJECTIVES = "objectives";
 var gameState;
 var lastGameState;
 

@@ -318,6 +318,14 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     width: 100%;
     margin-bottom: 5px;
 }
+
+#objectives-modal {
+    z-index: 12;
+}
+
+#objectives-list {
+    max-height: 380px;
+}
 #objective {
     .sidebar;
     text-align: center;
@@ -365,21 +373,22 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 
 
 .map-cell.visited {
-    background-color:#2b4b9e;
+    background-color:#abcbfe;
 }
 
 .map-cell.occupied {
-    background-color: #6881ff;
+    background-color: #6e8bdc;
 }
 
 .map-cell {
     height: 30px;
     width: 30px;
     position: absolute;
-    background-color: #4b4b4b;
+    background-color: #bbbbbb;
     border: 1px;
     border-style: solid;
     border-color: #000;
+    z-index: 5;
 }
 
 .x-connector {
@@ -387,7 +396,7 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     height: 4px;
     width: 10px;
     background-color: #4b4b4b;
-    z-index: 5;
+    z-index: 4;
 }
 
 .y-connector {
@@ -395,7 +404,7 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     height: 10px;
     width: 4px;
     background-color: #4b4b4b;
-    z-index: 5;
+    z-index: 4;
 }
 /*END---Game sidebar*/
 
