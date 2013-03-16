@@ -28,7 +28,7 @@
 	'2' : {
 	    'check' : [ {'objectivesCompleted':['moveHeavyObjects'], 'goto': '3'}],
 		'message' : 'Things fall in an earthquake.  Make sure the heavy objects are stored close to ' +
-		            'the ground so they do not become hazardous during and evacuation. ',
+		            'the ground so they do not become hazardous during an evacuation. ',
 		'replies' : {
 			'To do better in this simulation; Help prepare the school for an earthquake by moving a heavy  object' : 3,
 			'I\'m done with this review' : 9
