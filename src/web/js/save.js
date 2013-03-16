@@ -83,7 +83,7 @@ function saveGame() {
                 var trigger = scenario.triggers[type][tname];
                 if (trigger != null) {
                     result[saveableVars.triggerTypes][result[saveableVars.triggerTypes].length] = j;
-                    if (Number.isFinite(trigger.lives))
+                    if (isFinite(trigger.lives))
                         result[saveableVars.lives] = trigger.lives;
                     else
                         result[saveableVars.lives] = -1;
