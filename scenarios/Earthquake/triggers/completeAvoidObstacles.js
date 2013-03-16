@@ -6,7 +6,9 @@
 },
 'failAvoidObstacles' : {
 	'events' : {
-		'failObjective' : ['avoidObstacles']
+		'failObjective' : ['avoidObstacles'],
+		'addToScene' : ['ambulance']
 	},
-	'disableTriggers' : ['completeAvoidObstacles']
-}
+	'disableTriggers' : ['completeAvoidObstacles','inBestEnding'],
+	'enableTriggers'  : ['inInjuredEnding']
+},
