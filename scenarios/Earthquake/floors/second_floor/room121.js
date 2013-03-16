@@ -17,7 +17,17 @@
             'image': 'R121-west.jpg',
             'destination': {
                 'x': 0
-            }
+            },
+			'_props' : {
+				'aorSign' : {
+				    'name' : 'aorSign',
+					'image' : 'AreaRescueSign.png',
+					'width' : 125,
+					'height': 75,
+                    'left': 280,
+                    'top': 325
+				}
+			}
         },
         'n': {
             'name': 'NHall121',
