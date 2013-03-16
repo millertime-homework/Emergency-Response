@@ -2,7 +2,7 @@
      'id': 'outside',
      'x': 0,
      'y': 0,
-	 '_triggers' : ['completeAvoidObstacles'],
+	 '_triggers' : ['completeAvoidObstacles','failAftermathObjectives'],
      '_walls': {
           'outsideBuilding': {
               'name': 'facingSchool',
@@ -35,7 +35,8 @@
 		  'died' : {
 		      'name' : 'badEnding',
 			  'image' : 'blackout.jpg',
-			  'isCutscene' : true
+			  'isCutscene' : true,
+			  '_triggers' : ['failEvacuate']
 		  }
      }
 }
