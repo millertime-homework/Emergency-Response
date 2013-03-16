@@ -21,7 +21,7 @@
 					' a face mask, first aid plus items like a flashlight and a whistle.' +
 					' Keep one accessible to you in your normal daily routine and you\'ll always be prepared.',
 		'replies' : {
-			'To do better in this simulation; Pack a complete Go-Kit before heading to school.' : 2,
+			'To do better in this simulation: pack a complete Go-Kit before heading to school.' : 2,
 			'I\'m done with this review' : 9
 		}
 	},
@@ -30,7 +30,7 @@
 		'message' : 'Things fall in an earthquake.  Make sure the heavy objects are stored close to ' +
 		            'the ground so they do not become hazardous during an evacuation. ',
 		'replies' : {
-			'To do better in this simulation; Help prepare the school for an earthquake by moving a heavy  object' : 3,
+			'To do better in this simulation: help prepare the school for an earthquake by moving a heavy  object' : 3,
 			'I\'m done with this review' : 9
 		}			
 	},
@@ -39,7 +39,7 @@
 		'message' : 'Flammable objects should never be stored near a heat source.  '+
 		            'Whan an earthquake strikes, they can create a fire hazard.  ',
 		'replies' : {
-			'To do better in this simulation; Help prepare the school for an earthquake by moving flammable objects away from heat sources.' : 4,
+			'To do better in this simulation: help prepare the school for an earthquake by moving flammable objects away from heat sources.' : 4,
 			'I\'m done with this review' : 9
 		}			
 	},
@@ -50,7 +50,7 @@
 					'Make sure your evacuation route is as clear as possible by fastening pictures and bookcase straps '+
 					'to the stud in the wall.',
 		'replies' : {
-			'To challenge yourself in this simulation; Help prepare the school for an earthquake by securing a large wall plaque.' : 5,
+			'To challenge yourself in this simulation: help prepare the school for an earthquake by securing a large wall plaque.' : 5,
 			'I\'m done with this review' : 9
 		}					
 	},
@@ -59,7 +59,7 @@
 		'message' : 'Evacuating from the building after an earthquake is critical.  '+
 		            'Avoid blocking exits to ensure the easiest evacuation possible. ',
 	    'replies' : {
-			'To master in this simulation; Help prepare the school for an earthquake by moving objects blocking the exits.' : 6,
+			'To master in this simulation: help prepare the school for an earthquake by moving objects blocking the exits.' : 6,
 			'I\'m done with this review' : 9
 		}
 	},
@@ -68,7 +68,7 @@
 		'message' : 'Earthquakes create victims.  Help people who are in need of assistance '+
 		            'if it is safe to do so.',
         'replies' : {
-			'To improve in this simulation; Assist another survivor when it is safe to do so.' : 7,
+			'To improve in this simulation: assist another survivor when it is safe to do so.' : 7,
 			'I\'m done with this review' : 9
 		}
 	},
@@ -79,7 +79,7 @@
 					'If you can, help these people to a clearly marked Area of Rescue,  '+
 					'usually located at the top of a stair case.',
 		'replies' : {
-			'To do better in this simulation; Help a fellow survivor to the Area of Rescue.' : 8,
+			'To do better in this simulation: help a fellow survivor to the Area of Rescue.' : 8,
 			'I\'m done with this review' : 9
 		}
 	},
@@ -89,7 +89,7 @@
 			            'If you see someone panicked or heading toward a blocked exit, '+
 						'try to calm them down and help them evacuating.',
 		'replies' : {
-			'To improve your performance by directing others towards exits.' : 9,
+			'To improve your performance: direct others towards exits.' : 9,
 			'I\'m done with this review' : 9
 		}	
 	},
