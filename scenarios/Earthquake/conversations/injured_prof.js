@@ -13,7 +13,7 @@
           }
      },
      '3': {
-          'message': 'I\'m badly hurt! Please just help me out to the Area or Rescue.',
+          'message': 'I\'m badly hurt! Please just help me out to the Area of Rescue.',
           'replies': {
                'Help him to the Area of Rescue.': 4,
 			   'Save yourself.' : 0
