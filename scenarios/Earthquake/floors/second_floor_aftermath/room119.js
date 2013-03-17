@@ -36,7 +36,21 @@
             'image': 'R111-north.jpg',
             'destination': {
                 'y': 2
-            }
+            },
+			'_props' : {
+                'ProfXavAoR': {
+                    'name': 'ProfXavAoR',
+                    'image': 'XavHurt.png',
+                    'width': 300,
+                    'height': 150,
+                    'left': 400,
+                    'top': 400,
+                    'action': 'showConversation',
+                    'actionVariables':{
+                        'conversationName': 'Injured Professor'
+                    }
+                }
+			}
         },
         's': {
             'name': 'SHall119',

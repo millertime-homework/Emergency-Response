@@ -37,8 +37,8 @@
                     'image': 'XavHurt.png',
                     'width': 300,
                     'height': 150,
-                    'left': 150,
-                    'top': 350,
+                    'left': 400,
+                    'top': 400,
                     'action': 'showConversation',
                     'actionVariables':{
                         'conversationName': 'Help Injured Professor'
