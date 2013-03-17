@@ -49,8 +49,8 @@
                     'image': 'flashlight.png',
                     'width': 62,
                     'height': 40,
-                    'left': 500,
-                    'top': 200,
+                    'left': 700,
+                    'top': 400,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'pickupExtraFlashlight',
