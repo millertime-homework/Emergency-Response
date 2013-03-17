@@ -46,7 +46,8 @@
                 },
                 'sturdydesk':{
                     'name': 'Sturdy Desk',
-                    'image':'rectangleGlow.png',
+                    'image': 'rectangle.png',
+                    'hoverImage':'rectangleGlow.png',
                     'width': 410,
                     'height': 190,
                     'left': 620,
