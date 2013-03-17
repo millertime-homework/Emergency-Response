@@ -19,7 +19,7 @@
 		'message' : 'A Go-Kit is an important tool to have in case a disaster strikes.' +  
 		            ' A Go-Kit should contain first aid, basic supplies like food and water,' +
 					' a face mask, first aid plus items like a flashlight and a whistle.' +
-					' Keep one accessible to you in your normal daily routine and you\’ll always be prepared.',
+					' Keep one accessible to you in your normal daily routine and you\'ll always be prepared.',
 		'replies' : {
 			'To do better in this simulation; Pack a complete Go-Kit before heading to school.' : 2,
 			'I\'m done with this review' : 9
@@ -75,7 +75,7 @@
     '7' : {
 	    'check' : [{'objectivesCompleted':['saveXavier'], 'goto': '8'}],
 		'message' : 'Some people get so badly injured in an earthquake that evacuating them ' +
-		            'outside the building isn\’t possible without proper training and equipment.  '+
+		            'outside the building isn\'t possible without proper training and equipment.  '+
 					'If you can, help these people to a clearly marked Area of Rescue,  '+
 					'usually located at the top of a stair case.',
 		'replies' : {
