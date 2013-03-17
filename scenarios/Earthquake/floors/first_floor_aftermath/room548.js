@@ -11,8 +11,8 @@
             '_props': {
                 'east-exit': {
                     'name': 'east-exit',
-                    'image': 'UseDoor.png',
-                    'hoverImage': 'hoverUseDoor.png',
+                    'image': 'door.png',
+                    'hoverImage': 'doorHover.png',
                     'width': 126,
                     'height': 297,
                     'left': 460,

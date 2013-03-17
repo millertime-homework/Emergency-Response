@@ -13,8 +13,9 @@
             '_props': {
                 'door': {
                     'name': 'door',
-                    'image': 'UseDoor.png',
-                    'openImage': 'blank.png',
+                    'image': 'door.png',
+                    'openImage': 'trans.png',
+                    'hoverImage': 'doorHover.png',
                     'width': 160,
                     'height': 340,
                     'left': 480,
@@ -42,14 +43,6 @@
                     'actionVariables':{
                         'conversationName': 'Help Injured Professor'
                     }
-                },
-                'sturdydesk':{
-                    'name': 'Sturdy Desk',
-                    'image':'sturdy-desk.png',
-                    'width': 389,
-                    'height': 213,
-                    'left': 550,
-                    'top': 300
                 }
             }
         },

@@ -44,7 +44,8 @@
             '_props': {
                 'door': {
                     'name': 'Exit to School',
-                    'image': 'blank.png',
+                    'image': 'door.png',
+                    'hoverImage': 'doorHover.png',
                     'top': 160,
                     'left': 470,
                     'width': 180,

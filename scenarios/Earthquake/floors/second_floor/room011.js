@@ -2,7 +2,7 @@
     'id': 'class011',
     'x': 0,
     'y': 1,
-    '_triggers': ['enterRoom206','hiXavier'],
+    '_triggers': ['enterRoom206','hiXavier','walkedAwayFromConversation'],
     '_walls': {
         'e': {
             'name': 'EClass011',
@@ -13,8 +13,9 @@
             '_props': {
                 'door': {
                     'name': 'door',
-                    'image': 'UseDoor.png',
-                    'openImage': 'blank.png',
+                    'image': 'door.png',
+                    'openImage': 'trans.png',
+                    'hoverImage': 'doorHover.png',
                     'width': 160,
                     'height': 340,
                     'left': 480,
@@ -45,7 +46,8 @@
                 },
                 'sturdydesk':{
                     'name': 'Sturdy Desk',
-                    'image':'rectangleGlow.png',
+                    'image': 'rectangle.png',
+                    'hoverImage':'rectangleGlow.png',
                     'width': 410,
                     'height': 190,
                     'left': 620,

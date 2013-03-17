@@ -2,8 +2,8 @@
      '1': {
           'message': '[Groan] ..... my back!',
           'replies': {
-               'Pick him up and help her out of the room.': 2,
-               'Ask him if she is okay': 3
+               'Pick him up and help him out of the room.': 2,
+               'Ask him if he is okay': 3
           }
      },
      '2': {

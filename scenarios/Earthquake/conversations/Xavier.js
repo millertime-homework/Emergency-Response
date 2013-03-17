@@ -1,6 +1,7 @@
 'Professor Xavier': {
     '1': {
         'check': [
+            {'objectivesInProgress': ['surviveEarthquake'], 'goto': '0'},
             {'has':['Chalk'], 'goto': 2},
             {'objectivesCompleted':['getChalkForTeacher'], 'goto': '3'}
         ],
