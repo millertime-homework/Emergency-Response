@@ -9,17 +9,17 @@
 'failedEarthquake' : {
 	'timeDelay' : 2000,
 	'events' : {
-		'showConversation' : ['Did not survive.',null,true],
+		'showConversation' : ['Did not survive.',null,true,true],
 	}
 },
 'startReviewPrompt' : {
 	'events' : {
-		'showConversation' : ['Review Prompt',null,true]
+		'showConversation' : ['Review Prompt',null,true,true]
 	}
 },
 'startObjectiveReview' : {
 	'events' : {
-		'showConversation' : ['Objective Review',null,true]
+		'showConversation' : ['Objective Review',null,true,true]
 	}
 },
 'inFailedEarthquake' : {
@@ -39,7 +39,7 @@
 'failedPowerLines' : {
 	'timeDelay' : 2000,
 	'events' : {
-		'showConversation' : ['Killed by power lines.',null,true],
+		'showConversation' : ['Killed by power lines.',null,true,true],
 	}
 },
 'inFailedPowerLines' : {
