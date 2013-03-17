@@ -1,7 +1,7 @@
 'hiComputer' : {
     'timeDelay' : 2000,
 	'events' : {
-		'showConversation' : ['Computer',null,true]
+		'showConversation' : ['Computer',null,true,true]
 	},
 	'startTriggers' : ['scoreERGpoints'],
     'deleteTriggers': ['hiComputer'],
