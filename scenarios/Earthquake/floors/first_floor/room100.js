@@ -27,10 +27,10 @@
                 'foo': {
                     'name': 'foo',
                     'image': 'fooRight.png',
-                    'width': 10,
-                    'height': 25,
-                    'left': 540,
-                    'top': 300 
+                    'width': 12,
+                    'height': 30,
+                    'left': 532,
+                    'top': 305
                 }
             }
         },
