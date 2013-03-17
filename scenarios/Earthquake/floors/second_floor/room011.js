@@ -2,7 +2,7 @@
     'id': 'class011',
     'x': 0,
     'y': 1,
-    '_triggers': ['enterRoom206','hiXavier'],
+    '_triggers': ['enterRoom206','hiXavier','walkedAwayFromConversation'],
     '_walls': {
         'e': {
             'name': 'EClass011',

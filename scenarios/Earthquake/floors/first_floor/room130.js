@@ -16,7 +16,7 @@
 			'destination': {
                 'x': 0
             },
-	        '_triggers' : ['hiMrsFoo'],
+	        '_triggers' : ['hiMrsFoo', 'walkedAwayFromConversation'],
             '_props': {
                 'foo': {
                     'name': 'foo',

@@ -9,7 +9,7 @@
             'destination': {
                 'x': 1
             },
-			'_triggers' : ['hiComputer'],
+			'_triggers' : ['hiComputer', 'walkedAwayFromConversation'],
 			'_props': {
 				'desk' : {
 					'name' : 'desk',

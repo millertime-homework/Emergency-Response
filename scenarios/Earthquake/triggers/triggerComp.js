@@ -3,7 +3,9 @@
 	'events' : {
 		'showConversation' : ['Computer',null,true]
 	},
-	'startTriggers' : ['scoreERGpoints']
+	'startTriggers' : ['scoreERGpoints'],
+    'deleteTriggers': ['hiComputer'],
+    'lives': Infinity
 },
 'stopHiComputer' : {
 	'abortTriggers' : ['hiComputer']
