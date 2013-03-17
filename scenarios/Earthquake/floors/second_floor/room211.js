@@ -20,8 +20,8 @@
                     'hoverImage': 'elevator-down-hover.png',
                     'width': 43,
                     'height': 24,
-                    'left': 330,
-                    'top': 360,
+                    'left': 715,
+                    'top': 375,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Elevator Down'
