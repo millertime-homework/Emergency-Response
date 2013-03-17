@@ -2,7 +2,7 @@
     'id': 'office041',
     'x': 0,
     'y': 4,
-    '_triggers' : ['hideFromShooter041'],
+    '_triggers' : ['hideFromShooter_041'],
     '_walls': {
         'e': {
             'name': 'EOffice041',
@@ -23,6 +23,81 @@
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'lockableDoor1'
+                    }
+                },
+                'doorShade041': {
+                    'name': 'doorShade041',
+                    'image': 'ASshadeUp.png',
+                    'hoverImage': 'ASshadeUpHover.png',
+                    'width': 52,
+                    'height': 72,
+                    'left': 532,
+                    'top': 277,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'putShadeDown041'
+                    }
+                },
+                'doorShadeDown041': {
+                    'name': 'doorShadeDown041',
+                    'image': 'ASShadeDown.png',
+                    'width': 52,
+                    'height': 72,
+                    'left': 532,
+                    'top': 277
+                },
+                'doorHandle041': {
+                    'name': 'doorHandle041',
+                    'image': 'ASDoorHandle.png',
+                    'hoverImage': 'ASDoorHandleHover.png',
+                    'width': 45,
+                    'height': 83,
+                    'left': 476,
+                    'top': 380,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'lockDoor041'
+                    }
+                },
+                'doorHandleDone041': {
+                    'name': 'doorHandle041',
+                    'image': 'ASDoorHandle.png',
+                    'width': 45,
+                    'height': 83,
+                    'left': 476,
+                    'top': 380
+                },
+                'lightSwitch041': {
+                    'name': 'lightSwitch041',
+                    'image': 'ASLightSwitch.png',
+                    'hoverImage': 'ASLightSwitchHover.png',
+                    'width': 50,
+                    'height': 45,
+                    'left': 365,
+                    'top': 357,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'turnOffLights041'
+                    }
+                },
+                'lightSwitchDone041': {
+                    'name': 'lightSwitch041',
+                    'image': 'ASLightSwitch.png',
+                    'width': 50,
+                    'height': 45,
+                    'left': 365,
+                    'top': 357
+                },
+                'hidingSpot041':{
+                    'name':  'hidingSpot041',
+                    'image': 'ASHideSilhouette.png',
+                    'width': 84,
+                    'height': 89,
+                    'left': 240,
+                    'top': 480,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Crouch down by the door?'
                     }
                 }
             }

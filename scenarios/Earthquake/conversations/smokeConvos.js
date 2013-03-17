@@ -24,9 +24,9 @@
                 'triggers' : ['clearSmoke']
             }
         },
-        'Puddle' : { 
+        'WallWater' : { 
             '1': {
-                'message' : 'A pipe has burst through the floor.  It\'s leaking has created a puddle.',
+                'message' : 'A pipe must have burst in the ceiling. The water is leaking down the wall.',
                 'replies' : {
                       'Eww, I don\'t know where that water has been.' : '0',
                       'I could use the water to soak my shirt. The I could cover my face with it to protect me from the smoke.' : '2'

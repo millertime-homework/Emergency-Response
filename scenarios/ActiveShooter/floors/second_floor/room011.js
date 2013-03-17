@@ -2,7 +2,7 @@
     'id': 'class011',
     'x': 0,
     'y': 1,
-    '_triggers' : ['abort'],
+    '_triggers' : ['abort', 'playerEnters011'],
     '_walls': {
         'e': {
             'name': 'EClass011',
@@ -13,11 +13,12 @@
             '_props': {
                 'door': {
                     'name': 'door',
-                    'image': 'UseDoor.png',
-                    'openImage': 'blank.png',
-                    'width': 160,
-                    'height': 340,
-                    'left': 480,
+                    'image': 'door.png',
+                    'hoverImage': 'doorHover.png',
+                    'openImage': 'trans.png',
+                    'width': 162,
+                    'height': 360,
+                    'left': 478,
                     'top': 200,
                     'barrier': true,
                     'action': 'showConversation',
@@ -48,10 +49,10 @@
                 },
                 'doorHandle': {
                     'name': 'doorHandle',
-                    'image': 'ASDoorHandle.png',
-                    'hoverImage': 'ASDoorHandleHover.png',
-                    'width': 40,
-                    'height': 52,
+                    'image': 'rectangle.png',
+                    'hoverImage': 'rectangleGlow.png',
+                    'width': 20,
+                    'height': 62,
                     'left': 495,
                     'top': 370,
                     'action': 'showConversation',
@@ -61,44 +62,32 @@
                 },
                 'doorHandleDone': {
                     'name': 'doorHandle',
-                    'image': 'ASDoorHandle.png',
-                    'width': 40,
-                    'height': 52,
+                    'image': 'rectangle.png',
+                    'width': 20,
+                    'height': 62,
                     'left': 495,
                     'top': 370
                 },
                 'lightSwitch': {
                     'name': 'lightSwitch',
-                    'image': 'ASLightSwitch.png',
-                    'hoverImage': 'ASLightSwitchHover.png',
-                    'width': 50,
-                    'height': 45,
-                    'left': 365,
-                    'top': 357,
+                    'image': 'rectangle.png',
+                    'hoverImage': 'rectangleGlow.png',
+                    'width': 51,
+                    'height': 25,
+                    'left': 673,
+                    'top': 385,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'turnOffLights'
                     }
                 },
-                'hidingSpot011':{
-                    'name':  'hidingSpot011',
-                    'image': 'ASHideSilhouette.png',
-                    'width': 84,
-                    'height': 89,
-                    'left': 196,
-                    'top': 459,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'goIntoHidingByDoor'
-                    }
-                },
                 'lightSwitchDone': {
                     'name': 'lightSwitch',
-                    'image': 'ASLightSwitch.png',
-                    'width': 50,
-                    'height': 45,
-                    'left': 365,
-                    'top': 357
+                    'image': 'trans.png',
+                    'width': 51,
+                    'height': 25,
+                    'left': 673,
+                    'top': 385
                 },
                 'hidingStudent1': {
                     'name': 'hidingStudent1',
@@ -115,6 +104,18 @@
                     'height': 100,
                     'left': 750,
                     'top': 230
+                },
+                'bell-hiding': {
+                    'name': 'bell-hiding',
+                    'image': 'XavDuck.png',
+                    'width': 207,
+                    'height': 200,
+                    'left': 180,
+                    'top': 370,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Professor Bell is hiding'
+                    }
                 }
             }
         },
@@ -124,55 +125,21 @@
             '_props': {
                 'prof-bell': {
                     'name': 'prof-bell',
-                    'image': 'prof_bell.png',
-                    'width': 200,
-                    'height': 350,
-                    'left': 100,
-                    'top': 270,
+                    'image': 'XavFront.png',
+                    'width': 80,
+                    'height': 240,
+                    'left': 500,
+                    'top': 225,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Professor Bell'
                     }
-                },
-                'student1':{
-                    'name': 'student1',
-                    'image': 'student.png',
-                    'width': 200,
-                    'height': 100,
-                    'left': 300,
-                    'top': 270,
-                },
-                'student2':{
-                    'name': 'student2',
-                    'image': 'student.png',
-                    'width': 200,
-                    'height': 100,
-                    'left': 500,
-                    'top': 270,
-                },
-                'student3':{
-                    'name': 'student3',
-                    'image': 'student.png',
-                    'width': 200,
-                    'height': 100,
-                    'left': 700,
-                    'top': 270,
                 }
             }
         },
         'n': {
             'name': 'NClass011',
-            'image': 'R011-north.jpg',
-            '_props':{
-                'hidingStudent3': {
-                        'name': 'hidingStudent3',
-                        'image': 'personHiding.png',
-                        'width': 200,
-                        'height': 100,
-                        'left': 350,
-                        'top': 380
-                }
-            }
+            'image': 'R011-north.jpg'
         },
         's': {
             'name': 'SClass011',

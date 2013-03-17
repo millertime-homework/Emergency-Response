@@ -24,6 +24,7 @@
                 'screwdriver':{
                     'name':'screwdriver',
                     'image':'screwdriver.png',
+                    'hoverImage':'screwdriverHover.png',
                     'width': 35,
                     'height': 35,
                     'left': 725,

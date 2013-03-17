@@ -2,7 +2,7 @@
     'id': 'hall111',
     'x': 1,
     'y': 1,
-    '_triggers' : ['shooterCloseGetShot', 'playerRuns'],
+    '_triggers' : ['playerRuns', 'shooterCloseGetShot'],
     '_walls': {
         'e': {
             'name': 'EHall111',
@@ -48,7 +48,7 @@
                 'shooterR111': {
                     'name': 'shooterR111',
                     'image': 'shooter.png',
-                    'width': 96,
+                    'width': 67,
                     'height': 192,
                     'left': 550,
                     'top': 300

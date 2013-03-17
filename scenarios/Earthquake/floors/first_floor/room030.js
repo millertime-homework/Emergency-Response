@@ -9,26 +9,28 @@
             'destination': {
                 'x': 1
             },
-			'_triggers' : ['hiComputer'],
+			'_triggers' : ['hiComputer', 'walkedAwayFromConversation'],
 			'_props': {
 				'desk' : {
 					'name' : 'desk',
 					'image' : 'sturdy-desk.png',
 					'width': 340,
                     'height': 185,
-                    'left': 550,
+                    'left': 150,
                     'top': 400
 				},
                 'computer': {
                     'name': 'computer',
                     'image': 'computer.png',
+                    'hoverImage': 'computerHover.png',
                     'width': 125,
                     'height': 140,
-                    'left': 660,
+                    'left': 260,
                     'top': 295,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'Computer'
+                        'conversationName': 'Computer',
+                        'isAnAction': true
                     }
                 }
             }

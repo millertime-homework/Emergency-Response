@@ -1,4 +1,4 @@
-'goIntoHidingByDoor' : {
+'Crouch down by the door?': {
     '1' : {
         'message' : '[Crouch down by the door out of sight? This might be a good place to hide. If the shooter were to look into the room it would be difficult to see you here.',
         'replies': {
@@ -7,6 +7,6 @@
         }
     },
     '2' : {
-        'triggers' : ['hiddenByDoor']
+        'triggers' : ['hiddenByDoor041']
     }
 }

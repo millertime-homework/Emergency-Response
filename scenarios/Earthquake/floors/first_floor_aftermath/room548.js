@@ -11,8 +11,8 @@
             '_props': {
                 'east-exit': {
                     'name': 'east-exit',
-                    'image': 'UseDoor.png',
-                    'hoverImage': 'hoverUseDoor.png',
+                    'image': 'door.png',
+                    'hoverImage': 'doorHover.png',
                     'width': 126,
                     'height': 297,
                     'left': 460,
@@ -33,10 +33,10 @@
 			'_props' : {
 	            'wheelchair':{
                     'name':'the_wheelchair',
-                    'image':'wheelchair.png',
+                    'image':'manLeft.png',
                     'width':30,
                     'height':30,
-                    'left': 545,
+                    'left': 540,
                     'top': 300,
                 },
                 'brokenGlass': {

@@ -20,10 +20,10 @@
 				'bike' : {
 					'named' : 'bike',
 					'image' : 'bike.png',
-					'width': 75,
-                    'height': 60,
+					'width': 65,
+                    'height': 50,
                     'left': 515,
-                    'top': 275,
+                    'top': 300,
 				},
 				'bikeMoved' : {
 					'named' : 'bikeMoved',
@@ -49,13 +49,17 @@
                 'y': 3
             },
             '_props': {
-                'xavier': {
-                    'name': 'xavier',
-                    'image': 'prof_bell.png',
-                    'width': 219,
-                    'height': 391,
-                    'left': 600,
-                    'top': 210 
+                'foo': {
+                    'name': 'foo',
+                    'image': 'fooLeft.png',
+                    'width': 35,
+                    'height': 90,
+                    'left': 585,
+                    'top': 290,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Mrs Foo'
+                    }
                 }
             }
         }

@@ -108,18 +108,19 @@
                         'conversationName': 'Smoke'
                     }
                 },
-                'puddle': {
-                    'name': 'puddle',
-                    'image': 'puddle.png',
-                    'width': 267,
-                    'height': 139,
-                    'left': 435,
-                    'top': 380,
+                'wallwater': {
+                    'name': 'wallwater',
+                    'image': 'wallwater-reversed.png',
+                    'width': 78,
+                    'height': 308,
+                    'top': 172,
+                    'left': 654,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'Puddle'
+                        'conversationName': 'WallWater',
+                        'isAnAction': true
                     }
-                }
+                },
             }
         }
     }

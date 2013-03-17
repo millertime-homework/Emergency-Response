@@ -19,8 +19,9 @@
             '_props': {
                 'door2': {
                     'name': 'door',
-                    'image': 'UseDoor.png',
-                    'openImage': 'blank.png',
+                    'image': 'door.png',
+                    'openImage': 'trans.png',
+                    'hoverImage': 'doorHover.png',
                     'width': 120,
                     'height': 250,
                     'left': 780,
@@ -49,8 +50,9 @@
             '_props': {
                 'door': {
                     'name': 'door',
-                    'image': 'UseDoor.png',
-                    'openImage': 'blank.png',
+                    'image': 'door.png',
+                    'openImage': 'trans.png',
+                    'hoverImage': 'doorHover.png',
                     'width': 120,
                     'height': 250,
                     'left': 660,

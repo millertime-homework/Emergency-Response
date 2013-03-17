@@ -310,6 +310,19 @@ function setGameState(state) {
     case GAME_STATE_SHOW_INVENTORY:
         showNamedModal(jQuery('#inventory-modal'), false, true);
         break;
+    case GAME_STATE_SHOW_OBJECTIVES:
+        jQuery('#objectives-modal .option').hide();
+        if (lastGameState === GAME_STATE_RUNNING) {
+            jQuery('#objectives-modal-close').show();
+
+        } else if (lastGameState === GAME_STATE_PAUSED) {
+            jQuery('#objectives-modal-go-back-paused').show();
+        } else {
+            jQuery('#objectives-modal-go-back-game-over').show();
+        }
+
+        showNamedModal(jQuery('#objectives-modal'), false, false);
+        break;
     case GAME_STATE_MODAL:
         showNamedModal(jQuery('#modal'), false, true);
         jQuery('#modal-close').show();
@@ -364,12 +377,15 @@ function showGameOver(header, body) {
     gameOverMenu.find('#game-over-header').text(header);
     gameOverMenu.find('#game-over-message').text(body);
     gameOverMenu.find('#game-over-score span').text(player.score);
-    showObjectivesIn(jQuery('#game-over-objective-list'), true);
     setGameState(GAME_STATE_OVER);
 }
 
+function showObjectives() {
+    showObjectivesIn(jQuery('#objectives-modal #objectives-list'));
+    setGameState(GAME_STATE_SHOW_OBJECTIVES);
+}
+
 function showPauseMenu() {
-    showObjectivesIn(jQuery('#pause-objective-list'));
     setGameState(GAME_STATE_PAUSED);
 }
 
@@ -418,7 +434,10 @@ function hideModal() {
 
 function resetLights() {
     lightsOn = true;
-    jQuery('#flashlight-overlay').addClass('hidden');
+    var flashlightOverlay = jQuery('#flashlight-overlay');
+    flashlightOverlay.addClass('hidden');
+    flashlightOverlay.removeClass('flashlight-on');
+    flashlightOverlay.addClass('flashlight-off');
 }
 /**
 * Show a message via large text that overlays the middle of the viewport.
@@ -597,24 +616,30 @@ function showConversation(conversationName, currentConversationChoice, cannotSki
         return;
     }
 
-    // checkInventory was the name of this property before I allowed checking other things;
-    // keeping it for now since I don't know if other people are using it in other branches.
-    if (currentOption.checkInventory) {
-        currentOption.check = currentOption.checkInventory;
-    }
-    if (currentOption.check) {
-        for (i = 0; i < currentOption.check.length; i++) {
-            if (checkCondition(currentOption.check[i])) {
-                currentOptionId = currentOption.check[i]['goto'];
-                break;
+    var shouldCheck = true;
+
+    while (shouldCheck) {
+        shouldCheck = false;
+        // checkInventory was the name of this property before I allowed checking other things;
+        // keeping it for now since I don't know if other people are using it in other branches.
+        if (currentOption.checkInventory) {
+            currentOption.check = currentOption.checkInventory;
+        }
+        if (currentOption.check) {
+            for (i = 0; i < currentOption.check.length; i++) {
+                if (checkCondition(currentOption.check[i])) {
+                    currentOptionId = currentOption.check[i]['goto'];
+                    shouldCheck = true;
+                    break;
+                }
             }
         }
-    }
 
-    currentOption = conversation.getOption(currentOptionId);
-    if (!currentOption) {
-        hideModal();
-        return;
+        currentOption = conversation.getOption(currentOptionId);
+        if (!currentOption) {
+            hideModal();
+            return;
+        }
     }
 
     // hideModal() and return need to be in separate if statements here.
@@ -643,13 +668,13 @@ function showConversation(conversationName, currentConversationChoice, cannotSki
     jQuery('#modal').data('conversationName', conversationName);
 
     if (!isAnAction) {
-        jQuery('#modal #header').html(conversationName + " says:");
+        jQuery('#modal #header').html('<span id="conversation-name">' + conversationName + " says:</span>");
     }
     contentContainer = jQuery('#modal #content');
-    contentContainer.append(currentOption.message + '<p />');
+    contentContainer.append('<span id="option-message">' + currentOption.message + '</span><p />');
 
     if (!isAnAction) {
-        contentContainer.append(' You Reply: <br />');
+        contentContainer.append('<span id="you-reply"> You Reply: </span><br />');
     }
     contentContainer.append('<ul>');
 

@@ -13,26 +13,14 @@
 			'_props': {
                 'mrs-wheelchair': {
                     'name': 'mrs_wheelchair',
-                    'image': 'mrs_wheelchair.png',
-                    'width': 150,
-                    'height': 150,
-                    'left': 600,
-                    'top': 350,
+                    'image': 'manFront.png',
+                    'width': 275,
+                    'height': 275,
+                    'left': 400,
+                    'top': 300,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'Mrs Lydia'
-                    }
-                },
-                'wheelchair':{
-                    'name':'the_wheelchair',
-                    'image':'wheelchair.png',
-                    'width':150,
-                    'height':150,
-                    'left': 450,
-                    'top': 300,
-                    'action':'showConversation',
-                    'actionVariables': {
-                        'conversationName' : 'wheelchair'
+                        'conversationName': 'James'
                     }
                 },
                 'brokenGlass': {
@@ -102,19 +90,19 @@
 			'_props' : {
                 'Downedwire': {
                     'name': 'Downedwire',
-                    'image': 'downwiresNew.png',
-                    'width': 50,
-                    'height': 50,
-                    'left': 530,
-                    'top': 275
+                    'image': 'wire.png',
+                    'width': 160,
+                    'height': 102,
+                    'left': 483,
+                    'top': 220
                 },
 				'Movedwire': {
                     'name': 'Movedwire',
-                    'image': 'movedwiresNew.png',
-                    'width': 50,
-                    'height': 50,
-                    'left': 530,
-                    'top': 275
+                    'image': 'wire-moved.png',
+                    'width': 160,
+                    'height': 102,
+                    'left': 483,
+                    'top': 220
                 },
 				'Luke2' : {    
 					'name': 'Luke2',

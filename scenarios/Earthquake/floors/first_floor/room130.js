@@ -16,18 +16,18 @@
 			'destination': {
                 'x': 0
             },
-	        '_triggers' : ['hiXavier'],
+	        '_triggers' : ['hiMrsFoo', 'walkedAwayFromConversation'],
             '_props': {
-                'xavier': {
-                    'name': 'xavier',
-                    'image': 'prof_bell.png',
-                    'width': 270,
+                'foo': {
+                    'name': 'foo',
+                    'image': 'fooFront.png',
+                    'width': 285,
                     'height': 480,
-                    'left': 340,
-                    'top': 181,
+                    'left': 20,
+                    'top': 200,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'Professor Xavier'
+                        'conversationName': 'Mrs Foo'
                     }
                 }
             }

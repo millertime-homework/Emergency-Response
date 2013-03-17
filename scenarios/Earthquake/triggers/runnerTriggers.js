@@ -2,7 +2,7 @@
     'disabled' : true,
 	'events' : {
 		'warpPlayer' : ['Runscene'],
-		'showOnScreenMessage' : ['As your moving down the hallway a man comes out of a nearby classroom and runs past you.']
+		'showOnScreenMessage' : ['As you\'re moving down the hallway a man comes out of a nearby classroom and runs past you.']
 	},
 	'startTriggers': ['HePasses'],
 },
@@ -30,5 +30,7 @@
     'lives': Infinity,
 	'events' : {
 		'removeFromScene' : ['Luke2'],
+		'completeObjective' : ['saveLuke'],
+		'addpoints' : [15]
 	}
 }

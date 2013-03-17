@@ -2,6 +2,7 @@
     'id': 'library141',
     'x': 1,
     'y': 4,
+    '_triggers': ['shooterCloseGetShot'],
     '_walls': {
         'e': {
             'name': 'ELibrary141',

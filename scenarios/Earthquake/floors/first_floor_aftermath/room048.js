@@ -13,11 +13,11 @@
 			'_props' : {
 				'wheelchair':{
                     'name':'the_wheelchair',
-                    'image':'wheelchair.png',
-                    'width':50,
-                    'height':50,
-                    'left': 530,
-                    'top': 290,
+                    'image':'manFront.png',
+                    'width':45,
+                    'height':45,
+                    'left': 535,
+                    'top': 305,
                 }
 			}
         },
@@ -28,6 +28,7 @@
 				'bikeMangled' : {
 					'name' : 'bikeMangled',
 					'image' : 'bikeMangle.png',
+                    'hoverImage' : 'bikeMangleHover.png',
 					'width': 350,
                     'height': 425,
                     'left': 355,
@@ -59,8 +60,8 @@
 				},
                 'west-exit': {
                     'name': 'west-exit',
-                    'image': 'UseDoor.png',
-                    'hoverImage': 'hoverUseDoor.png',
+                    'image': 'door.png',
+                    'hoverImage': 'doorHover.png',
                     'width': 123,
                     'height': 296,
                     'left': 461,
