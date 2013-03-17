@@ -42,14 +42,6 @@
                     'actionVariables':{
                         'conversationName': 'Help Injured Professor'
                     }
-                },
-                'sturdydesk':{
-                    'name': 'Sturdy Desk',
-                    'image':'sturdy-desk.png',
-                    'width': 389,
-                    'height': 213,
-                    'left': 550,
-                    'top': 300
                 }
             }
         },
