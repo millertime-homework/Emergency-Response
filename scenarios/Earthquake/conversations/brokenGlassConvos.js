@@ -11,7 +11,7 @@
                 'message' : 'With the door covering the broken' + 
                 ' glass you can now traverse the hallway safely.',
                 'replies' : {
-                    'Onward to the area of rescue.' : '0'
+                    'Onward to the Area of Rescue.' : '0'
                 }
             }
         },
