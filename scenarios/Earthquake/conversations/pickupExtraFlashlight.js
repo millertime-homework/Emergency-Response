@@ -1,6 +1,6 @@
 'pickupExtraFlashlight': {
     '1': {
-        'checkInventory': [{'has': ['flashlight'], 'goto': '2'}]
+        'checkInventory': [{'has': ['flashlight'], 'goto': '2'}],
         'triggers': ['takeFlashlight'],
         'message': 'Luckily an old flashlight fell from the ceiling. You now have a flashlight.',
         'replies': {
