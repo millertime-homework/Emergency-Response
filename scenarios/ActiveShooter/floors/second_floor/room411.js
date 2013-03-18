@@ -48,9 +48,9 @@
                 'group-of-people': {
                     'name': 'group-of-people',
                     'image': 'GroupOfPeople.png',
-                    'width': 650,
-                    'height': 315,
-                    'left': 280,
+                    'width': 199,
+                    'height': 249,
+                    'left': 600,
                     'top': 230
                 }
             }
@@ -61,12 +61,12 @@
             'fakeDirection' : 'w',
             'isCutscene': true,
             '_props': {
-                'group-of-people': {
-                    'name': 'group-of-people',
-                    'image': 'GroupOfPeople.png',
-                    'width': 650,
-                    'height': 315,
-                    'left': 280,
+                'group-of-people-reacting': {
+                    'name': 'group-of-people-reacting',
+                    'image': 'GroupOfPeopleReacting.png',
+                    'width': 172,
+                    'height': 265,
+                    'left': 600,
                     'top': 230
                 },
                 'da-shootah': {
@@ -75,7 +75,7 @@
                     'width': 90,
                     'height': 256,
                     'left': 460,
-                    'top': 285
+                    'top': 250
                 }
             }
         }
