@@ -2,7 +2,7 @@
 '_player': {
     'x': 0,
     'y': 0,
-    'z': 2,
+    'z': 8,
     '_facing': 'n',
     'inventory': []
 },
