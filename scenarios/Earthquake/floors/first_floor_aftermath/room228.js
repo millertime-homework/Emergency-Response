@@ -25,6 +25,16 @@
             'image': 'R220-south.jpg',
             'destination': {
                 'y': 1
+            },
+            '_props': {
+                'rubble': {
+                    'name': 'rubble',
+                    'image': 'rubble.png',
+                    'width': 150,
+                    'height': 87,
+                    'left': 475,
+                    'top': 315
+                }
             }
         }
     }

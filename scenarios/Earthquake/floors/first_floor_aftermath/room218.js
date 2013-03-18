@@ -38,6 +38,16 @@
             'image': 'R210-south.jpg',
             'destination': {
                 'y': 0
+            },
+            '_props': {
+                'rubble': {
+                    'name': 'rubble',
+                    'image': 'rubble.png',
+                    'width': 550,
+                    'height': 317,
+                    'top': 200,
+                    'left': 270
+                }
             }
         }
     }

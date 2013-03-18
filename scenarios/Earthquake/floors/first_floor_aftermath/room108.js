@@ -8,6 +8,16 @@
             'image': 'R100-east.jpg',
             'destination': {
                 'x': 2
+            },
+            '_props': {
+                'rubble': {
+                    'name': 'rubble',
+                    'image': 'rubble.png',
+                    'width': 500,
+                    'height': 289,
+                    'left': 500,
+                    'top': 280
+                }
             }
         },
         'w': {
