@@ -38,16 +38,6 @@
             'image': 'R110-south.jpg',
             'destination': {
                 'y': 0
-            },
-            '_props': {
-                'RHF_Poster': {
-                    'name': 'RHF_Poster',
-                    'image': 'RHF_Poster.png',
-                    'width': 102,
-                    'height': 128,
-                    'left': 550,
-                    'top': 220
-                }
             }
         }
     }

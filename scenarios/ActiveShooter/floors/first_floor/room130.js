@@ -29,16 +29,6 @@
             'image': 'R130-south.jpg',
             'destination': {
                 'y': 2
-            },
-            '_props' :{
-                'RHF_Poster': {
-                    'name': 'RHF_Poster',
-                    'image': 'RHF_Poster.png',
-                    'width': 15,
-                    'height': 17,
-                    'left': 550,
-                    'top': 295
-                }
             }
         }
     }

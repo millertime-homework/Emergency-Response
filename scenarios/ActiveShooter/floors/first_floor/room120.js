@@ -35,14 +35,6 @@
                     'height': 104,
                     'left': 320,
                     'top': 190
-                },
-                'RHF_Poster': {
-                    'name': 'RHF_Poster',
-                    'image': 'RHF_Poster.png',
-                    'width': 24,
-                    'height': 31,
-                    'left': 550,
-                    'top': 290
                 }
             }
         }

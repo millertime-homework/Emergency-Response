@@ -2,7 +2,8 @@
     'id': 'apartment',
     'x': 0,
     'y': 0,
-    '_triggers' : ['packForSchool', 'enteredSchoolUnprepared'],
+    '_triggers' : ['packForSchool', 'enteredSchoolUnprepared',
+                   'hideFirstFloorRoomAnnotations', 'hideSecondFloorRoomAnnotations'],
     '_walls': {
         'n': {
             'name': 'apartment-n',

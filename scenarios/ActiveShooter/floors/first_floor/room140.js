@@ -29,16 +29,6 @@
             'image': 'R140-south.jpg',
             'destination': {
                 'y': 3
-            },
-            '_props': {
-                'RHF_Poster': {
-                    'name': 'RHF_Poster',
-                    'image': 'RHF_Poster.png',
-                    'width': 8,
-                    'height': 11,
-                    'left': 554,
-                    'top': 291
-                }
             }
         }
     }
