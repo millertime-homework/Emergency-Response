@@ -15,6 +15,16 @@
             'image': 'R300-west.jpg',
             'destination': {
                 'x': 2
+            },
+            '_props': {
+                'rubble': {
+                    'name': 'rubble',
+                    'image': 'rubble.png',
+                    'width': 550,
+                    'height': 317,
+                    'top': 230,
+                    'left': 20
+                }
             }
         },
         'n': {
