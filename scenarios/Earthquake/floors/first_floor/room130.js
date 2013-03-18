@@ -23,7 +23,7 @@
                     'image': 'fooFront.png',
                     'width': 285,
                     'height': 480,
-                    'left': 20,
+                    'left': 650,
                     'top': 200,
                     'action': 'showConversation',
                     'actionVariables': {

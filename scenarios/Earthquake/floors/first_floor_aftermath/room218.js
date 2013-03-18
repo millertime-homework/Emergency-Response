@@ -10,9 +10,6 @@
         'w': {
             'name': 'WHall218',
             'image': 'R210-west.jpg',
-            'destination': {
-                'x': 1
-            },
             '_props': {
                 'elevator-up': {
                     'name': 'elevator-up',

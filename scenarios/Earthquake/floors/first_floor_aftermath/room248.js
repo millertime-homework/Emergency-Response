@@ -13,26 +13,26 @@
                 'brokenGlass': {
                     'name': 'brokenGlass',
                     'image': 'brokenGlass.png',
-                    'width': 150,
+                    'width': 125,
                     'height': 25,
                     'left': 500,
-                    'top': 340
+                    'top': 350
 			    },
                 'brokenDoor': {
                     'name': 'brokenDoor',
                     'image': 'dooraskew.png',
-                    'width': 28,
-                    'height': 180,
-                    'left': 625,
-                    'top': 230
+                    'width': 15,
+                    'height': 120,
+                    'left': 610,
+                    'top': 251
                 },
                 'bridgeDoor': {
                     'name': 'bridgeDoor',
                     'image': 'doordown.png',
-                    'width': 100,
-                    'height': 60,
-                    'left': 505,
-                    'top': 320
+                    'width': 60,
+                    'height': 45,
+                    'left': 530,
+                    'top': 340
                 }
        
             }
@@ -66,7 +66,7 @@
 					'width': 15,
                     'height': 30,
                     'left': 580,
-                    'top': 294,
+                    'top': 300
 				},
                 'mrs-wheelchair': {
                     'name': 'mrs_wheelchair',

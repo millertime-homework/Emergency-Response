@@ -20,10 +20,10 @@
 				'bike' : {
 					'named' : 'bike',
 					'image' : 'bike.png',
-					'width': 39,
-                    'height': 27,
+					'width': 30,
+                    'height': 21,
                     'left': 537,
-                    'top': 287,
+                    'top': 299,
 				},
 				'bikeMoved' : {
 					'named' : 'bikeMoved',
@@ -31,7 +31,7 @@
 					'width': 13,
                     'height': 27,
                     'left': 570,
-                    'top': 287,
+                    'top': 295,
 				}
 			}
         },

@@ -23,7 +23,7 @@
 					'width': 45,
                     'height': 30,
                     'left': 535,
-                    'top': 290,
+                    'top': 300,
 				},
 				'bikeMoved' : {
 					'named' : 'bikeMoved',
@@ -31,7 +31,7 @@
 					'width': 15,
                     'height': 30,
                     'left': 580,
-                    'top': 290,
+                    'top': 300,
 				}
 			}
         },
