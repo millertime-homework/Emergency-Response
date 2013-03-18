@@ -52,8 +52,8 @@
             '_props': {
                 'UseDoor':{
                     'name': 'UseDoor',
-                    'image': 'UseDoor.png',
-                    'hoverImage': 'hoverUseDoor.png',
+                    'image': 'door.png',
+                    'hoverImage': 'doorHover.png',
                     'width': 78,
                     'height': 190,
                     'left' : 470,

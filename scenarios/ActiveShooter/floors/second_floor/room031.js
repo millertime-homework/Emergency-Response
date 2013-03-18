@@ -13,8 +13,9 @@
             '_props': {
                 'door': {
                     'name': 'door',
-                    'image': 'UseDoor.png',
+                    'image': 'door.png',
                     'openImage': 'blank.png',
+                    'hoverImage': 'doorHover.png',
                     'width': 280,
                     'height': 500,
                     'left': 420,
@@ -22,7 +23,8 @@
                     'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'door'
+                        'conversationName': 'door',
+                        'isAnAction': true
                     }
                 },
                 'doorShadeDown031': {
@@ -43,7 +45,8 @@
                     'top': 380,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'lockDoor'
+                        'conversationName': 'lockDoor',
+                        'isAnAction': true
                     }
                 },
                 'doorHandleDone031': {
@@ -64,7 +67,8 @@
                     'top': 357,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'turnOffLights031'
+                        'conversationName': 'turnOffLights031',
+                        'isAnAction': true
                     }
                 },
                 'lightSwitchDone031': {

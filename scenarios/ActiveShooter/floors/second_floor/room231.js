@@ -12,14 +12,16 @@
             '_props' : {
                 'lockedDoor': {
                     'name': 'lockedDoor',
-                    'image': 'trans.png',
+                    'image': 'door.png',
+                    'hoverImage': 'doorHover.png',
                     'width': 150,
                     'height': 350,
                     'left': 875,
                     'top': 200,
                     'action': 'showConversation',
                     'actionVariables': {
-                    'conversationName': 'lockedDoor'
+                        'conversationName': 'lockedDoor',
+                        'isAnAction': true
                     },
                 'barrier' : true
                 }

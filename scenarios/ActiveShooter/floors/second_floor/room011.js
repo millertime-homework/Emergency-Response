@@ -23,7 +23,8 @@
                     'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'lockableDoor2'
+                        'conversationName': 'lockableDoor2',
+                        'isAnAction': true
                     }
                 },
                 'doorShade': {
@@ -36,7 +37,8 @@
                     'top': 277,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'putShadeDown'
+                        'conversationName': 'putShadeDown',
+                        'isAnAction': true
                     }
                 },
                 'doorShadeDown': {
@@ -57,7 +59,8 @@
                     'top': 370,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'lockDoor'
+                        'conversationName': 'lockDoor',
+                        'isAnAction': true
                     }
                 },
                 'doorHandleDone': {
@@ -78,7 +81,8 @@
                     'top': 385,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'turnOffLights'
+                        'conversationName': 'turnOffLights',
+                        'isAnAction': true
                     }
                 },
                 'lightSwitchDone': {

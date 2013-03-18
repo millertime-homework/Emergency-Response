@@ -13,8 +13,9 @@
             '_props': {
                 'door': {
                     'name': 'door',
-                    'image': 'UseDoor.png',
+                    'image': 'door.png',
                     'openImage': 'blank.png',
+                    'hoverImage': 'doorHover.png',
                     'width': 280,
                     'height': 500,
                     'left': 420,
@@ -22,7 +23,8 @@
                     'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'lockableDoor1'
+                        'conversationName': 'lockableDoor1',
+                        'isAnAction': true
                     }
                 },
                 'doorShade041': {
@@ -35,7 +37,8 @@
                     'top': 277,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'putShadeDown041'
+                        'conversationName': 'putShadeDown041',
+                        'isAnAction': true
                     }
                 },
                 'doorShadeDown041': {
@@ -56,7 +59,8 @@
                     'top': 380,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'lockDoor041'
+                        'conversationName': 'lockDoor041',
+                        'isAnAction': true
                     }
                 },
                 'doorHandleDone041': {
@@ -77,7 +81,8 @@
                     'top': 357,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'turnOffLights041'
+                        'conversationName': 'turnOffLights041',
+                        'isAnAction': true
                     }
                 },
                 'lightSwitchDone041': {
@@ -97,7 +102,8 @@
                     'top': 480,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'Crouch down by the door?'
+                        'conversationName': 'Crouch down by the door?',
+                        'isAnAction': true
                     }
                 }
             }
