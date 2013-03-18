@@ -83,7 +83,7 @@ function saveGame() {
                 var trigger = scenario.triggers[type][tname];
                 if (trigger != null) {
                     result[saveableVars.triggerTypes][result[saveableVars.triggerTypes].length] = j;
-                    if (Number.isFinite(trigger.lives))
+                    if (isFinite(trigger.lives))
                         result[saveableVars.lives] = trigger.lives;
                     else
                         result[saveableVars.lives] = -1;
@@ -96,10 +96,9 @@ function saveGame() {
         var str = encodeForSaving(JSON.stringify(saveable));
         if (decodeForLoading(str) != JSON.stringify(saveable))
             console.log("Encoding unsuccessful: " + JSON.stringify(saveable) + " != " + decodeForLoading(str));
-        var cookieStr = "emergencySave="+str+"";
+        var cookieStr = "emergencySave="+str+";expires="+(new Date(new Date().valueOf()+86400*365*1000).toGMTString());
         if(cookieStr.length >= 4096)
             console.log("Cookie is too long again ("+cookieStr.length+"): "+JSON.stringify(saveable));
-        // TODO expire
         document.cookie = cookieStr;
     } catch (e) {
         console.log("Error while saving: " + e);
