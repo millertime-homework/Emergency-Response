@@ -9,11 +9,7 @@
         },
         'w': {
             'name': 'WHall321',
-            'image': 'R321-west.jpg',
-            'destination': {
-                'x': 2,
-                'z': 0
-            }
+            'image': 'R321-west.jpg'
         },
         'n': {
             'name': 'NHall321',
