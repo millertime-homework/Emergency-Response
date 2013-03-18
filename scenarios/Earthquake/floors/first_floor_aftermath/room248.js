@@ -66,7 +66,7 @@
 					'width': 15,
                     'height': 30,
                     'left': 580,
-                    'top': 294,
+                    'top': 300
 				},
                 'mrs-wheelchair': {
                     'name': 'mrs_wheelchair',

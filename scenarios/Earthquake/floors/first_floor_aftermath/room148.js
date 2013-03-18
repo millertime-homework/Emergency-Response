@@ -59,7 +59,7 @@
 				'beam' : {
 					'named' : 'beam',
 					'image' : 'beam.png',
-					'width': 18,
+					'width': 12,
                     'height': 85,
                     'left': 528,
                     'top': 275
@@ -67,10 +67,10 @@
 				'bikeMoved' : {
 					'named' : 'bikeMoved',
 					'image' : 'bikeMoved.png',
-					'width': 35,
-                    'height': 75,
+					'width': 30,
+                    'height': 55,
                     'left': 575,
-                    'top': 275,
+                    'top': 290
 				}
 			}
         },

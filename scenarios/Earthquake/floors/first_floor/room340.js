@@ -20,18 +20,18 @@
 				'bike' : {
 					'named' : 'bike',
 					'image' : 'bike.png',
-					'width': 40,
-                    'height': 28,
+					'width': 35,
+                    'height': 23,
                     'left': 535,
-                    'top': 288,
+                    'top': 299,
 				},
 				'bikeMoved' : {
 					'named' : 'bikeMoved',
 					'image' : 'bikeMoved.png',
 					'width': 14,
                     'height': 28,
-                    'left': 580,
-                    'top': 288,
+                    'left': 573,
+                    'top': 295,
 				}
 			}
         },
