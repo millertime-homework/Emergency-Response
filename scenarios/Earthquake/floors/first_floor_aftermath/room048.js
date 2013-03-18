@@ -60,8 +60,8 @@
 				},
                 'west-exit': {
                     'name': 'west-exit',
-                    'image': 'UseDoor.png',
-                    'hoverImage': 'hoverUseDoor.png',
+                    'image': 'door.png',
+                    'hoverImage': 'doorHover.png',
                     'width': 123,
                     'height': 296,
                     'left': 461,

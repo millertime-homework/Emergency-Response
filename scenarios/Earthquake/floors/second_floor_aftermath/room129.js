@@ -17,7 +17,17 @@
             'image': 'R121-west.jpg',
             'destination': {
                 'x': 0
-            }
+            },
+			'_props' : {
+				'aorSign' : {
+				    'name' : 'aorSign',
+					'image' : 'AreaRescueSign.png',
+					'width' : 125,
+					'height': 75,
+                    'left': 280,
+                    'top': 325
+				}
+			}
         },
         'n': {
             'name': 'NHall129',
@@ -28,8 +38,9 @@
             '_props': {
                 'door': {
                     'name': 'door',
-                    'image': 'UseDoor.png',
-                    'openImage': 'blank.png',
+                    'image': 'door.png',
+                    'openImage': 'trans.png',
+                    'hoverImage': 'doorHover.png',
                     'width': 280,
                     'height': 500,
                     'left': 420,
@@ -47,7 +58,21 @@
             'image': 'R121-south.jpg',
             'destination': {
                 'y': 1
-            }
+            },
+			'_props' : {
+                'ProfXavAoR': {
+                    'name': 'ProfXavAoR',
+                    'image': 'XavHurt.png',
+                    'width': 300,
+                    'height': 150,
+                    'left': 400,
+                    'top': 400,
+                    'action': 'showConversation',
+                    'actionVariables':{
+                        'conversationName': 'Injured Professor'
+                    }
+                }
+			}
         }
     }
 }

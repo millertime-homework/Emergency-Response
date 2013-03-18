@@ -24,10 +24,10 @@
                 'foo': {
                     'name': 'foo',
                     'image': 'fooRight.png',
-                    'width': 26,
-                    'height': 63,
-                    'left': 520,
-                    'top': 290
+                    'width': 52,
+                    'height': 124,
+                    'left': 475,
+                    'top': 285
                 }
             }
         },

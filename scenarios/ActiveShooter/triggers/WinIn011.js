@@ -8,8 +8,9 @@
 },
 'WinAloneIn011' : {
     'waitForObjectiveCompletions' : ['turnOffLights', 'pullDownWindowShade', 'hideByDoor', 'lockTheDoor', 'silencePhone'],
+    'enableTriggers': ['hideEnding'],
     'events' : {
         'completeObjective' : ['hideFromShooter'],
-        'endGame': ['You survived!', 'Hiding in a locked room turned out to be a good choice. although things won\'t always be this easy, you survived a very bad situation.']
+        'warpPlayer': ['survived',0,0,12]
     }
 }

@@ -19,17 +19,17 @@
                 'y': 2
             },
 			'_props' : {
-                'puddle': {
-                    'name': 'puddle',
-                    'image': 'puddle.png',
-                    'hoverImage': 'puddleHover.png',
-                    'width': 267,
-                    'height': 139,
-                    'left': 435,
-                    'top': 380,
+                'wallwater': {
+                    'name': 'wallwater',
+                    'image': 'wallwater.png',
+                    'width': 96,
+                    'height': 433,
+                    'top': 102,
+                    'left': 334,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'Puddle'
+                        'conversationName': 'WallWater',
+                        'isAnAction': true
                     }
                 },
 				'smokeSafe': {

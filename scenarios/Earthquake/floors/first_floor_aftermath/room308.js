@@ -24,14 +24,13 @@
                 'y': 1
             },        
             '_props' : {			
-		        'puddle': {
-                    'name': 'puddle',
-                    'image': 'puddle.png',
-                    'width': 100,
-                    'height': 50,
-                    'left': 515,
-                    'top': 325,
-                    'action': 'showConversation',
+		        'wallwater': {
+                    'name': 'wallwater',
+                    'image': 'wallwater.png',
+                    'width': 40,
+                    'height': 160,
+                    'top': 232,
+                    'left': 470
                 },
 				'smokeSafe': {
                     'name': 'smokeSafe',
