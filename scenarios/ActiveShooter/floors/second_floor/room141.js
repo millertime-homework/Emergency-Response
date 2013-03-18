@@ -17,8 +17,9 @@
             '_props': {
                 'door': {
                     'name': 'door',
-                    'image': 'UseDoor.png',
+                    'image': 'door.png',
                     'openImage': 'blank.png',
+                    'hoverImage': 'doorHover.png',
                     'width': 160,
                     'height': 340,
                     'left': 480,
@@ -26,7 +27,8 @@
                     'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'lockableDoor1'
+                        'conversationName': 'lockableDoor1',
+                        'isAnAction': true
                     }
                 }
             }

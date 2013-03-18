@@ -2,7 +2,8 @@
     'id': 'apartment',
     'x': 0,
     'y': 0,
-    '_triggers' : ['packForSchool', 'enteredSchoolUnprepared'],
+    '_triggers' : ['packForSchool', 'enteredSchoolUnprepared',
+                   'hideFirstFloorRoomAnnotations', 'hideSecondFloorRoomAnnotations'],
     '_walls': {
         'n': {
             'name': 'apartment-n',
@@ -44,7 +45,8 @@
             '_props': {
                 'door': {
                     'name': 'Exit to School',
-                    'image': 'blank.png',
+                    'image': 'door.png',
+                    'hoverImage': 'doorHover.png',
                     'top': 160,
                     'left': 470,
                     'width': 180,

@@ -20,8 +20,9 @@
             '_props': {
                 'door2': {
                     'name': 'door',
-                    'image': 'UseDoor.png',
+                    'image': 'door.png',
                     'openImage': 'blank.png',
+                    'hoverImage': 'doorHover.png',
                     'width': 120,
                     'height': 250,
                     'left': 780,
@@ -29,7 +30,8 @@
                     'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'door2'
+                        'conversationName': 'door2',
+                        'isAnAction': true
                     }
                 }
             }
@@ -50,8 +52,9 @@
             '_props': {
                 'door': {
                     'name': 'door',
-                    'image': 'UseDoor.png',
+                    'image': 'door.png',
                     'openImage': 'blank.png',
+                    'hoverImage': 'doorHover.png',
                     'width': 120,
                     'height': 250,
                     'left': 660,
@@ -59,7 +62,8 @@
                     'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'door'
+                        'conversationName': 'door',
+                        'isAnAction': true
                     }
                 }
             }

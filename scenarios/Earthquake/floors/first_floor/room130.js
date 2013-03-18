@@ -16,14 +16,14 @@
 			'destination': {
                 'x': 0
             },
-	        '_triggers' : ['hiMrsFoo'],
+	        '_triggers' : ['hiMrsFoo', 'walkedAwayFromConversation'],
             '_props': {
                 'foo': {
                     'name': 'foo',
                     'image': 'fooFront.png',
                     'width': 285,
                     'height': 480,
-                    'left': 200,
+                    'left': 650,
                     'top': 200,
                     'action': 'showConversation',
                     'actionVariables': {

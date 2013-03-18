@@ -28,10 +28,10 @@
 				'bikeMoved' : {
 					'named' : 'bikeMoved',
 					'image' : 'bikeMoved.png',
-					'width': 35,
-                    'height': 75,
+					'width': 30,
+                    'height': 55,
                     'left': 575,
-                    'top': 275,
+                    'top': 290
 				}
 			}
         },
@@ -52,10 +52,10 @@
                 'foo': {
                     'name': 'foo',
                     'image': 'fooLeft.png',
-                    'width': 95,
-                    'height': 230,
-                    'left': 575,
-                    'top': 260,
+                    'width': 35,
+                    'height': 90,
+                    'left': 585,
+                    'top': 290,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Mrs Foo'

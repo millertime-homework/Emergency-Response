@@ -21,10 +21,10 @@
                 'foo': {
                     'name': 'foo',
                     'image': 'fooRight.png',
-                    'width': 16,
-                    'height': 40,
-                    'left': 530,
-                    'top': 295
+                    'width': 20,
+                    'height': 50,
+                    'left': 520,
+                    'top': 297
                 }
             }
         },

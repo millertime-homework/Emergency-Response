@@ -36,17 +36,7 @@
         },
         's': {
             'name': 'SHall100',
-            'image': 'R100-south.jpg',
-            '_props': {
-                'RHF_Poster': {
-                    'name': 'RHF_Poster',
-                    'image': 'RHF_Poster.png',
-                    'width': 250,
-                    'height': 312,
-                    'left': 550,
-                    'top': 180
-                }
-            }
+            'image': 'R100-south.jpg'
         }
     }
 }

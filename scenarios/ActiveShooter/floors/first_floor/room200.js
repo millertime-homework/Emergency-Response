@@ -3,7 +3,8 @@
     'x': 2,
     'y': 0,
     'annotation': 'AnnotationExit.png',
-    '_triggers' : ['getShotAt', 'goPickUpBook'],
+    '_triggers' : ['getShotAt', 'goPickUpBook',
+                   'hideFirstFloorRoomAnnotations', 'hideSecondFloorRoomAnnotations'],
     '_walls': {
         'e': {
             'name': 'EHall200',
@@ -17,16 +18,6 @@
             'image': 'R200-west.jpg',
             'destination': {
                 'x': 1
-            },
-            '_props': {
-                'RHF_Poster': {
-                    'name': 'RHF_Poster',
-                    'image': 'RHF_Poster-skew.png',
-                    'width': 35,
-                    'height': 100,
-                    'left': 420,
-                    'top': 250
-                }
             }
         },
         'n': {
@@ -52,8 +43,8 @@
             '_props': {
                 'UseDoor':{
                     'name': 'UseDoor',
-                    'image': 'UseDoor.png',
-                    'hoverImage': 'hoverUseDoor.png',
+                    'image': 'door.png',
+                    'hoverImage': 'doorHover.png',
                     'width': 78,
                     'height': 190,
                     'left' : 470,

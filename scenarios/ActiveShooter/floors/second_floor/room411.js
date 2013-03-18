@@ -17,8 +17,9 @@
             '_props': {
                 'door': {
                     'name': 'door',
-                    'image': 'UseDoor.png',
+                    'image': 'door.png',
                     'openImage': 'blank.png',
+                    'hoverImage': 'doorHover.png',
                     'width': 140,
                     'height': 240,
                     'left': 500,
@@ -26,7 +27,8 @@
                     'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'door'
+                        'conversationName': 'door',
+                        'isAnAction': true
                     }
                 }
             }
@@ -48,9 +50,9 @@
                 'group-of-people': {
                     'name': 'group-of-people',
                     'image': 'GroupOfPeople.png',
-                    'width': 650,
-                    'height': 315,
-                    'left': 280,
+                    'width': 199,
+                    'height': 249,
+                    'left': 600,
                     'top': 230
                 }
             }
@@ -61,12 +63,12 @@
             'fakeDirection' : 'w',
             'isCutscene': true,
             '_props': {
-                'group-of-people': {
-                    'name': 'group-of-people',
-                    'image': 'GroupOfPeople.png',
-                    'width': 650,
-                    'height': 315,
-                    'left': 280,
+                'group-of-people-reacting': {
+                    'name': 'group-of-people-reacting',
+                    'image': 'GroupOfPeopleReacting.png',
+                    'width': 172,
+                    'height': 265,
+                    'left': 600,
                     'top': 230
                 },
                 'da-shootah': {
@@ -75,7 +77,7 @@
                     'width': 90,
                     'height': 256,
                     'left': 460,
-                    'top': 285
+                    'top': 250
                 }
             }
         }

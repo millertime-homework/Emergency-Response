@@ -11,7 +11,23 @@
                 'x': 2
             },
 			'_props': {
-                'mrs-wheelchair': {
+                'brokenGlass': {
+                    'name': 'brokenGlass',
+                    'image': 'brokenGlass.png',
+                    'width': 80,
+                    'height': 25,
+                    'left': 520,
+                    'top': 330
+			    },
+				'bridgeDoor': {
+                    'name': 'bridgeDoor',
+                    'image': 'doordown.png',
+                    'width': 40,
+                    'height': 23,
+                    'left': 540,
+                    'top': 325
+                },
+				'mrs-wheelchair': {
                     'name': 'mrs_wheelchair',
                     'image': 'manFront.png',
                     'width': 275,
@@ -22,22 +38,6 @@
                     'actionVariables': {
                         'conversationName': 'James'
                     }
-                },
-                'brokenGlass': {
-                    'name': 'brokenGlass',
-                    'image': 'brokenGlass.png',
-                    'width': 80,
-                    'height': 30,
-                    'left': 520,
-                    'top': 310
-			    },
-				'bridgeDoor': {
-                    'name': 'bridgeDoor',
-                    'image': 'doordown.png',
-                    'width': 40,
-                    'height': 40,
-                    'left': 540,
-                    'top': 310
                 }
 			}
         },
@@ -59,7 +59,7 @@
 				'beam' : {
 					'named' : 'beam',
 					'image' : 'beam.png',
-					'width': 18,
+					'width': 12,
                     'height': 85,
                     'left': 528,
                     'top': 275
@@ -67,10 +67,10 @@
 				'bikeMoved' : {
 					'named' : 'bikeMoved',
 					'image' : 'bikeMoved.png',
-					'width': 35,
-                    'height': 75,
+					'width': 30,
+                    'height': 55,
                     'left': 575,
-                    'top': 275,
+                    'top': 290
 				}
 			}
         },

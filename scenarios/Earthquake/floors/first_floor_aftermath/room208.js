@@ -28,7 +28,22 @@
         },
         's': {
             'name': 'SHall208', 
-            'image': 'R200-south.jpg'
+            'image': 'R200-south.jpg',
+            '_props': {
+                'rubble': {
+                    'name': 'rubble',
+                    'image': 'rubble.png',
+                    'width': 1059,
+                    'height': 611,
+                    'left': 50,
+                    'top': 100,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Rubble',
+                        'isAnAction': true
+                    }
+                }
+            }
         }
     }
 }

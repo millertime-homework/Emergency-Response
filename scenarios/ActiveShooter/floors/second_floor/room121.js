@@ -32,14 +32,16 @@
             '_props' : {
                 'lockedDoor': {
                     'name': 'lockedDoor',
-                    'image': 'trans.png',
+                    'image': 'door.png',
+                    'hoverImage': 'doorHover.png',
                     'width': 235,
                     'height': 450,
                     'left': 450,
                     'top': 170,
                     'action': 'showConversation',
                     'actionVariables': {
-                    'conversationName': 'lockedDoor'
+                        'conversationName': 'lockedDoor',
+                        'isAnAction': true
                     },
                 'barrier' : true
                 }
@@ -54,8 +56,9 @@
             '_props': {
                 'door': {
                     'name': 'door',
-                    'image': 'UseDoor.png',
+                    'image': 'door.png',
                     'openImage': 'blank.png',
+                    'hoverImage': 'doorHover.png',
                     'width': 280,
                     'height': 500,
                     'left': 420,
@@ -63,7 +66,8 @@
                     'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'door'
+                        'conversationName': 'door',
+                        'isAnAction': true
                     }
                 }
             }

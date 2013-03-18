@@ -1,5 +1,6 @@
 'Survived Earthquake' : {
     '1': {
+        'check': [{'objectivesCompleted': ['surviveEarthquake'], 'goto': 0}],
         'message': 'The shaking finally stops. You notice a large beam had fallen exactly where you were standing. Luckily, you had reacted quickly and escaped injury... or worse.',
         'replies': {
             'Crawl out from under the desk': 2
