@@ -5,7 +5,22 @@
     '_walls': {
         'e': {
             'name': 'EHall119',
-            'image': 'R111-east.jpg'
+            'image': 'R111-east.jpg',
+            '_props': {
+                'evac_plan': {
+                    'name': 'evac_plan',
+                    'image': 'door.png',
+                    'hoverImage': 'doorHover.png',
+                    'width': 448,
+                    'height': 393,
+                    'left': 288,
+                    'top': 68,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'evac_second_floor',
+                    }
+                }
+            }
         },
         'w': {
             'name': 'WHall119',

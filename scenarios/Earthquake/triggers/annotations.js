@@ -7,7 +7,7 @@
 'showFirstFloorRoomAnnotationsDetail': {
     'lives': Infinity,
     'events': {
-        'displayModal': ['Evacuation Plan', null, 'evac_first_floor.png']
+        'showModal': [null, null, '<img width="380" height="350" src="web/img/evac_first_floor.png"/>']
     },
     'startTriggers': ['showFirstFloorRoomAnnotations']
 },
@@ -20,7 +20,7 @@
 'showSecondFloorRoomAnnotationsDetail': {
     'lives': Infinity,
     'events': {
-        'displayModal': ['Evacuation Plan', null, 'evac_second_floor.png']
+        'showModal': [null, null, '<img width="380" height="350" src="web/img/evac_second_floor.png"/>']
     },
     'startTriggers': ['showSecondFloorRoomAnnotations']
 },
