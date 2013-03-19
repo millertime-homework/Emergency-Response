@@ -1,6 +1,6 @@
 'timeToTakeCover': {
     'startTriggers' : ['beginFailedEarthquakeEnding'],
-    'timeDelay': 4000,
+    'timeDelay': 10000,
     'showCountdown': true,
     'lives': Infinity
 }

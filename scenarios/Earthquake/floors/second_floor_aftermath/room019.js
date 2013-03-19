@@ -43,6 +43,19 @@
                     'actionVariables':{
                         'conversationName': 'Help Injured Professor'
                     }
+                },
+                'flashlight': {
+                    'name': 'Flashlight',
+                    'image': 'flashlight.png',
+                    'width': 62,
+                    'height': 40,
+                    'left': 700,
+                    'top': 400,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'pickupExtraFlashlight',
+                        'isAnAction': true
+                    }
                 }
             }
         },

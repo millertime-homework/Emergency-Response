@@ -1,26 +1,23 @@
 // GLOBALS
 var lightsOn = true;
+var earthquakeAnimating = false;
+var earthquakeTimeout = null;
 /* ######################################## */
 /* ######################################## */
 
 jQuery(document).ready(function($) {
 
-
-    function shakeScene(count) {
-        if (count <= 0) return;
-
+    /* DO NOT CALL BY ITSELF */
+    function shakeScene() {
         var speed = 100;
 
         $('#view-scene')
             .animate({ left: '2' }, speed)
             .animate({ left: '-2' }, speed)
-            .animate({ left: '0' }, speed, shakeScene(count-1))
-    }
-
-    $(document).on('startEarthquake', function() {
-        var speed = 100;
-
-        $('#view-scene')
+            .animate({ left: '2' }, speed)
+            .animate({ left: '-2' }, speed)
+            .animate({ left: '2' }, speed)
+            .animate({ left: '-2' }, speed)
             .animate({ left: '2' }, speed)
             .animate({ left: '-2' }, speed)
             .animate({ left: '2' }, speed)
@@ -43,12 +40,39 @@ jQuery(document).ready(function($) {
                                 $('#_dust').remove();
                                 $('#_dust2').remove();
                                 // Moves the player to aftermath floor
-                                $(document).trigger('disableLights');
-                                player.warp(player.facing, player.x, player.y, player.z + 8);
+                                // $(document).trigger('disableLights');
+                                // player.warp(player.facing, player.x, player.y, player.z + 8);
+                                if (earthquakeAnimating) {
+                                    shakeScene();
+                                }
                             })
                     })
             })
+    }
+
+    $(document).on('startEarthquake', function(event, time, triggerName) {
+        earthquakeAnimating = true;
+        earthquakeTimeout = setTimeout(function() {
+            $(document).trigger('stopEarthquake', triggerName);
+            return;
+        }, time);
+
+        shakeScene();
     });
+
+    $(document).on('stopEarthquake', function(event, triggerName) {
+        earthquakeAnimating = false;
+        clearTimeout(earthquakeTimeout);
+        earthquakeTimeout = null;
+        $('#view-scene').stop(true, true);
+        $('#view-scene').css('left', '');
+        $('#_dust').remove();
+        $('#_dust2').remove();
+        if (triggerName) {
+            console.log('triggering ' + triggerName)
+            startTrigger(triggerName);
+        }
+    })
 
     // Call renderScene when player moves
     $(document).on('player-move', function(event, direction) {
