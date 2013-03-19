@@ -16,11 +16,26 @@
         },
         'n': {
             'name': 'NClassroom000',
-            'image': 'R000-north.jpg',
+            'image': 'R000-north.jpg'
         },
         's': {
             'name': 'SClassroom000',
-            'image': 'R000-south.jpg'
+            'image': 'R000-south.jpg',
+            '_props': {
+                'evac_plan': {
+                    'name': 'evac_plan',
+                    'image': 'rectangle.png',
+                    'hoverImage': 'rectangleGlow.png',
+                    'width': 51,
+                    'height': 44,
+                    'left': 348,
+                    'top': 270,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'evac_first_floor_detail'
+                    }
+                }
+            }
         }
     }
 }

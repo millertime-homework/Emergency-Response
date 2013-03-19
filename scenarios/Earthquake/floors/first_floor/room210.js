@@ -6,6 +6,21 @@
         'e': {
             'name': 'EHall210', 
             'image': 'R210-east.jpg',
+            '_props': {
+                'evac_plan': {
+                    'name': 'evac_plan',
+                    'image': 'door.png',
+                    'hoverImage': 'doorHover.png',
+                    'width': 450,
+                    'height': 391,
+                    'left': 300,
+                    'top': 56,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'evac_first_floor',
+                    }
+                }
+            }
         },
         'w': {
             'name': 'WHall210',
