@@ -32,7 +32,7 @@ jQuery(document).ready(function ($) {
             }
         }
         //The remaining events can be triggered at all times.
-        if (event.keyCode == KEY_ESC && gameState !== GAME_STATE_MENU) {
+        if (event.keyCode == KEY_ESC && gameState !== GAME_STATE_MENU && gameState !== GAME_STATE_OVER) {
                 // pause game
                 showPauseMenu();
         }
