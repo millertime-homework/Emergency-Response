@@ -527,24 +527,28 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
             padding: 0;
             list-style-type: none;
             .conversation-option {
-                /* Cool new button stylings */
-                border:1px solid #25729a; 
-                .border_radius(3px);
-                font-family:arial, helvetica, sans-serif; 
-                padding: 10px 10px 10px 10px; 
-                text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
-                font-weight:bold; 
-                text-align: center; 
-                color: #FFFFFF; 
-                .background_gradient(#3090c7, #1c5a85);
-                &:hover {
-                    border:1px solid #1c5675; 
-                    .background_gradient(#26759e, #133d5b);
-                }
-                cursor: pointer;
+                .big-blue-button;
             }
         }
     }
+}
+
+.big-blue-button {
+    /* Cool new button stylings */
+    border:1px solid #25729a; 
+    .border_radius(3px);
+    font-family:arial, helvetica, sans-serif; 
+    padding: 10px 10px 10px 10px; 
+    text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
+    font-weight:bold; 
+    text-align: center; 
+    color: #FFFFFF; 
+    .background_gradient(#3090c7, #1c5a85);
+    &:hover {
+        border:1px solid #1c5675; 
+        .background_gradient(#26759e, #133d5b);
+    }
+    cursor: pointer;
 }
 
 .phone-menu {
