@@ -333,7 +333,7 @@ function setGameState(state) {
         jQuery('#modal-close').hide();
         break;
     case GAME_STATE_OVER:
-        showNamedModal(jQuery('#game-over-menu'), false, false);
+        positionGameOverModal(jQuery);
     }
 }
 
@@ -379,6 +379,7 @@ function showGameOver(header, body) {
     gameOverMenu.find('#game-over-message').text(body);
     gameOverMenu.find('#game-over-score span').text(player.score);
     setGameState(GAME_STATE_OVER);
+    gameOverMenu.show();
 }
 
 function showObjectives() {

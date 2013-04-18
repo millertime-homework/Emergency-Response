@@ -128,6 +128,25 @@ function centerModal(modalElement, windowHeight) {
 
 }
 
+function positionGameOverModal($) {
+    "use strict";
+    var modalElement = $("#game-over-menu");
+    var windowHeight = $(window).height();
+    var totalHeight  = erg.FooterMaxHeight + erg.FooterMinHeight + erg.BodyMaxHeight;
+
+    // put game over modal toward the left of the window
+    modalElement.css({
+        "position": "absolute",
+        "top": ($(window).height() - modalElement.height()) / 2 + $(window).scrollTop() + "px",
+        //"left": ($(window).width() - modalElement.width()) / 4 + $(window).scrollLeft() + "px"
+        "left": $("#scene-img").offset().left + 10 + "px"
+    });
+
+    if (windowHeight > totalHeight) {
+        modalElement.css('top', (totalHeight - modalElement.height()) / 2 + 'px');
+    }
+}
+
 function scaleProps() {
     "use strict";
     var object;
