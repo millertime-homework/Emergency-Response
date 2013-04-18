@@ -30,7 +30,7 @@ function sizeWindow() {
     scaleProps();
 
     if (gameState !== GAME_STATE_MENU) {
-        reisizeSidebar(sidebar);
+        resizeSidebar(sidebar);
     } else {
         centerMainMenu(windowHeight);
     }
@@ -38,7 +38,7 @@ function sizeWindow() {
     scrollTo(0, 0);
 }
 
-function reisizeSidebar(sidebar) {
+function resizeSidebar(sidebar) {
     "use strict";
     sidebar.css('left', erg.CurrentBodyWidth + 'px');
     jQuery('#map').css('height', (sidebar.height() - jQuery('#objective').height() - jQuery('#help').height() - 22) + 'px');
