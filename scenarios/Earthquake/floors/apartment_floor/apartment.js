@@ -3,7 +3,8 @@
     'x': 0,
     'y': 0,
     '_triggers' : ['packForSchool', 'enteredSchoolUnprepared',
-                   'hideFirstFloorRoomAnnotations', 'hideSecondFloorRoomAnnotations'],
+                   'hideFirstFloorRoomAnnotations', 'hideSecondFloorRoomAnnotations',
+                   'packForSchool', 'enteredSchoolUnprepared', 'showAskInstruction'],
     '_walls': {
         'n': {
             'name': 'apartment-n',

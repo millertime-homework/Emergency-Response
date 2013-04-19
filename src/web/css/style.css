@@ -555,19 +555,65 @@ textarea:focus {
   /* IE8 */
 
 }
+<<<<<<< HEAD
 .big-blue-button {
   /* Cool new button stylings */
 
   border: 1px solid #25729a;
+=======
+/**
+ * Instruction Modal Stylings
+ *
+ */
+#instruct-modal-wrapper {
+  position: absolute;
+  background: transparent;
+}
+#instruct-modal {
+  background-color: white;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  min-height: 100px;
+  z-index: 11;
+  border: 1px solid black;
+  -webkit-border-radius: 6px 6px 6px 6px;
+  -moz-border-radius: 6px 6px 6px 6px;
+  border-radius: 6px 6px 6px 6px;
+}
+#instruct-modal #content {
+  width: 200px;
+  padding: 6px;
+}
+#instruct-modal #buttons {
+  width: 100%;
+  overflow: hidden;
+}
+#instruct-modal #buttons #instruct-okay-button,
+#instruct-modal #buttons #instruct-skip-button {
+  position: relative;
+  float: left;
+>>>>>>> 998c782... imported ryan's tutorial code
   -webkit-border-radius: 3px 3px 3px 3px;
   -moz-border-radius: 3px 3px 3px 3px;
   border-radius: 3px 3px 3px 3px;
   font-family: arial, helvetica, sans-serif;
+<<<<<<< HEAD
   padding: 10px 10px 10px 10px;
+=======
+  padding: 5px 10px 5px 10px;
+>>>>>>> 998c782... imported ryan's tutorial code
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
   font-weight: bold;
   text-align: center;
   color: #FFFFFF;
+<<<<<<< HEAD
+=======
+  cursor: pointer;
+}
+#instruct-modal #buttons #instruct-okay-button {
+  border: 1px solid #25729a;
+>>>>>>> 998c782... imported ryan's tutorial code
   background: #3090c7;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#3090c7), to(#1c5a85));
   background-image: -moz-linear-gradient(top, #3090c7, #1c5a85);
@@ -582,9 +628,14 @@ textarea:focus {
   -ms-filter: formatstring("\"progid:DXImageTransform.Microsoft.gradient(startColorStr='{0}', EndColorStr='{1}')\"", #3090c7, #1c5a85);
   /* IE8 */
 
+<<<<<<< HEAD
   cursor: pointer;
 }
 .big-blue-button:hover {
+=======
+}
+#instruct-modal #buttons #instruct-okay-button:hover {
+>>>>>>> 998c782... imported ryan's tutorial code
   border: 1px solid #1c5675;
   background: #26759e;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#26759e), to(#133d5b));
@@ -601,6 +652,94 @@ textarea:focus {
   /* IE8 */
 
 }
+<<<<<<< HEAD
+=======
+#instruct-modal #buttons #instruct-skip-button {
+  border: 1px solid #969696;
+  background: #c3c4c4;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#c3c4c4), to(#848484));
+  background-image: -moz-linear-gradient(top, #c3c4c4, #848484);
+  background-image: -ms-linear-gradient(top, #0c93c0, #ffffff);
+  background-image: -o-linear-gradient(top, #0c93c0, #ffffff);
+  background-image: linear-gradient(top, #0c93c0, #ffffff);
+  /* standard, but currently unimplemented */
+
+  filter: formatstring("progid:DXImageTransform.Microsoft.gradient(startColorstr='{0}', endColorstr='{1}')", #c3c4c4, #848484);
+  /* IE6,IE7 */
+
+  -ms-filter: formatstring("\"progid:DXImageTransform.Microsoft.gradient(startColorStr='{0}', EndColorStr='{1}')\"", #c3c4c4, #848484);
+  /* IE8 */
+
+}
+#instruct-modal #buttons #instruct-skip-button:hover {
+  border: 1px solid #757575;
+  background: #9c9c9c;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#9c9c9c), to(#585959));
+  background-image: -moz-linear-gradient(top, #9c9c9c, #585959);
+  background-image: -ms-linear-gradient(top, #0c93c0, #ffffff);
+  background-image: -o-linear-gradient(top, #0c93c0, #ffffff);
+  background-image: linear-gradient(top, #0c93c0, #ffffff);
+  /* standard, but currently unimplemented */
+
+  filter: formatstring("progid:DXImageTransform.Microsoft.gradient(startColorstr='{0}', endColorstr='{1}')", #9c9c9c, #585959);
+  /* IE6,IE7 */
+
+  -ms-filter: formatstring("\"progid:DXImageTransform.Microsoft.gradient(startColorStr='{0}', EndColorStr='{1}')\"", #9c9c9c, #585959);
+  /* IE8 */
+
+}
+#instruct-modal #instruct-arrow {
+  position: absolute;
+}
+#instruct-modal.instruct-right.align-top #instruct-arrow,
+#instruct-modal.instruct-left.align-top #instruct-arrow {
+  top: 0;
+}
+#instruct-modal.instruct-right.align-middle #instruct-arrow,
+#instruct-modal.instruct-left.align-middle #instruct-arrow {
+  top: 79.5px;
+}
+#instruct-modal.instruct-right.align-bottom #instruct-arrow,
+#instruct-modal.instruct-left.align-bottom #instruct-arrow {
+  top: 159px;
+}
+#instruct-modal.instruct-top.align-left #instruct-arrow,
+#instruct-modal.instruct-bottom.align-left #instruct-arrow {
+  left: 0;
+}
+#instruct-modal.instruct-top.align-middle #instruct-arrow,
+#instruct-modal.instruct-bottom.align-middle #instruct-arrow {
+  left: 78px;
+}
+#instruct-modal.instruct-top.align-right #instruct-arrow,
+#instruct-modal.instruct-bottom.align-right #instruct-arrow {
+  left: 156px;
+}
+#instruct-modal.instruct-right #instruct-arrow {
+  left: 200px;
+  width: 44px;
+  height: 41px;
+  background-image: url('../img/arrow-instruct-right.png');
+}
+#instruct-modal.instruct-left #instruct-arrow {
+  left: -44px;
+  width: 44px;
+  height: 41px;
+  background-image: url('../img/arrow-instruct-left.png');
+}
+#instruct-modal.instruct-top #instruct-arrow {
+  top: -44px;
+  width: 41px;
+  height: 44px;
+  background-image: url('../img/arrow-instruct-up.png');
+}
+#instruct-modal.instruct-bottom #instruct-arrow {
+  top: 200px;
+  width: 41px;
+  height: 44px;
+  background-image: url('../img/arrow-instruct-down.png');
+}
+>>>>>>> 998c782... imported ryan's tutorial code
 .phone-menu {
   position: absolute;
   cursor: pointer;

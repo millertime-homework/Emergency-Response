@@ -28,6 +28,7 @@ function sizeWindow() {
     applyCurrentHeights();
     applyCurrentWidths(sidebarWidth);
     scaleProps();
+    alignInstructionModal();
 
     if (gameState !== GAME_STATE_MENU) {
         resizeSidebar(sidebar);

@@ -1,0 +1,5 @@
+'startInstructionModals': {
+    'events': {
+        'startInstruction': []
+    }
+}

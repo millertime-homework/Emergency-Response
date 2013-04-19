@@ -10,6 +10,14 @@ var erg = erg || {};
 erg.onScreenMessageContainer = jQuery('#on-screen-message-container');
 erg.onScreenMessageTemplate = jQuery('#on-screen-message-template');
 
+/**
+ * Instruction Modal variables
+ */
+ var instrModalElement = null;
+ var instrModalInstructType = null;
+ var instrModalArrowType = null;
+ var instrModalContent = null;
+
 jQuery(document).ready(function (jQuery) {
     jQuery(window).resize(function () {
         sizeWindow();
@@ -78,7 +86,205 @@ jQuery(document).ready(function (jQuery) {
 });
 
 /**
-* Loads annotations from the scenario file. 
+ *
+ * Example: showInstructModal('#objective', 'instruct-right', 'align-top', 'Hello!');
+ */
+
+function showInstructModal(relativeElement, instructType, arrowAlign, content) {
+    if (!(relativeElement instanceof HTMLElement)) {
+        console.log('getting relative element from string');
+        relativeElement = jQuery(relativeElement);
+    }
+
+    if (!relativeElement.length) {
+        console.log('bad relative element');
+        return false;
+    }
+
+    console.log('showInstructModal')
+    if (!relativeElement || !instructType || !arrowAlign || !content) {
+        console.log('invalid parameters')
+        return false;
+    }
+    instructWrapper = jQuery('#instruct-modal-wrapper');
+    if (!instructWrapper.length) {
+        console.log('creating instruct modal...');
+        instructWrapper = createInstructModal();
+        if (!instructWrapper.length) {
+            // something went wrong here.
+            console.log('no wrapper');
+            return false;
+        }
+    }
+    instructModal = instructWrapper.find('#instruct-modal');
+    if (!instructModal.length) {
+        console.log('no modal');
+        return false;
+    }
+    instructModal.removeClass();
+    instructModal.addClass(instructType + ' ' + arrowAlign);
+    instructModal.find('#content').html(content);
+
+    console.log('done showing instruct modal');
+
+    console.log('aligning instruct modal');
+
+    instrModalElement = relativeElement;
+    instrModalInstructType = instructType;
+    instrModalArrowType = arrowAlign;
+    instrModalContent = content;
+
+    return alignInstructModalFromElement(relativeElement, instructType, arrowAlign);
+}
+
+/**
+ * Prepends the instruct-modal html to the body
+ *
+ * <div id="instruct-modal-wrapper">
+ *     <div id="instruct-modal" class="">
+ *         <div id="content"></div>
+ *         <div id="buttons">
+ *             <div id="instruct-okay-button"></div>
+ *             <div id="instruct-skip-button"></div>
+ *         </div>
+ *         <div id="instruct-arrow"></div>
+ *     </div>
+ * </div>
+ */
+function createInstructModal() {
+    instructWrapper = jQuery('#instruct-modal-wrapper');
+    if (!instructWrapper.length) {
+        jQuery('body').prepend('<div id="instruct-modal-wrapper"><div id="instruct-modal" class=""><div id="content"></div><div id="buttons"><div id="instruct-okay-button">Next</div><div id="instruct-skip-button">Exit</div></div><div id="instruct-arrow"></div></div></div>');
+    }
+    return jQuery('#instruct-modal-wrapper');
+}
+
+function deleteInstructModal() {
+    instructModal = jQuery('#instruct-modal-wrapper');
+    if (instructModal.length) {
+        instructModal.remove();
+    }
+     instrModalElement = null;
+     instrModalInstructType = null;
+     instrModalArrowType = null;
+}
+
+function alignInstructionModal() {
+    if (instrModalElement && instrModalInstructType && instrModalArrowType && instrModalContent) {
+        alignInstructModalFromElement(instrModalElement, instrModalInstructType, instrModalArrowType, instrModalContent);
+    }
+}
+
+/**
+ * Aligns the instruct-modal according to the position of an element,
+ * the instruction-modal type, and arrow alignment.
+ * @param element
+ *      The document object that the instruct-modal will aligned with.
+ * @param instructType
+ *      instruct-left, instruct-right, instruct-top, or instruct-bottom
+ * @param arrowAlign:
+ *      For instructType instruct-left or instruct-right, must be align-left, align-middle or align-right.
+ *      For instructType instruct-top or instruct-bottom, must be align-top, align-middle or align-bottom.
+ */
+function alignInstructModalFromElement(element, instructType, arrowAlign) {
+    if (!element.length) {
+        return false;
+    }
+
+    instructWrapper = jQuery('#instruct-modal-wrapper');
+    instructModal = jQuery('#instruct-modal');
+
+    element = jQuery(element);
+    arrow = jQuery('#instruct-arrow');
+
+    instructModalWidth = instructModal.width();
+    instructModalHeight = instructModal.height();
+
+    elementPosition = element.offset();
+    elementWidth = element.width();
+    elementHeight = element.height();
+
+    arrowWidth = arrow.width();
+    arrowHeight = arrow.height();
+
+    // Align Left
+    switch (instructType) {
+        case 'instruct-left':
+            switch (arrowAlign) {
+                case 'align-top':
+                case 'align-middle':
+                case 'align-bottom':
+                    instructWrapper.css('left', (elementPosition.left + elementWidth + arrowWidth + 'px'));
+                    break;
+            }
+            break;
+        case 'instruct-right':
+            switch (arrowAlign) {
+                case 'align-top':
+                case 'align-middle':
+                case 'align-bottom':
+                    instructWrapper.css('left', (elementPosition.left - instructModalWidth - arrowWidth) + 'px');
+                    break;
+
+            }
+            break;
+        case 'instruct-top':
+        case 'instruct-bottom':
+            switch (arrowAlign) {
+                case 'align-left':
+                    instructWrapper.css('left', (elementPosition.left + (elementWidth/2) - (arrowWidth/2)) + 'px');
+                    break;
+                case 'align-middle':
+                    instructWrapper.css('left', (elementPosition.left + (elementWidth/2) - (instructModalWidth/2)) + 'px');
+                    break;
+                case 'align-right':
+                    instructWrapper.css('left', (elementPosition.left + (elementWidth/2) - instructModalWidth + (arrowWidth/2)) + 'px');
+                    break;
+
+            }
+            break;
+    }
+
+    // Align Top
+    switch (instructType) {
+        case 'instruct-left':
+        case 'instruct-right':
+            switch (arrowAlign) {
+                case 'align-top':
+                    instructWrapper.css('top', (elementPosition.top  + (elementHeight/2) - (arrowHeight/2)) + 'px');
+                    break;
+                case 'align-middle':
+                    instructWrapper.css('top', (elementPosition.top + (elementHeight/2) - (instructModalHeight/2)) + 'px');
+                    break;
+                case 'align-bottom':
+                    instructWrapper.css('top', (elementPosition.top + (elementHeight/2) - instructModalHeight + (arrowHeight/2)) + 'px');
+                    break;
+            }
+            break;
+        case 'instruct-top':
+            switch (arrowAlign) {
+                case 'align-left':
+                case 'align-middle':
+                case 'align-right':
+                    instructWrapper.css('top', (elementPosition.top + arrowHeight) + 'px');
+                    break;
+            }
+            break;
+        case 'instruct-bottom':
+            switch (arrowAlign) {
+                case 'align-left':
+                case 'align-middle':
+                case 'align-right':
+                    instructWrapper.css('top', (elementPosition.top - instructModalHeight - arrowHeight) + 'px');
+                    break;
+            }
+            break;
+    }
+    return true;
+}
+
+/**
+* Loads annotations from the scenario file.
 */
 function loadAnnodations(annotations) {
     var key;
@@ -86,7 +292,7 @@ function loadAnnodations(annotations) {
     if (!annotations) {
         return;
     }
-    
+
     for (key in annotations) {
         if (annotations.hasOwnProperty(key)) {
             addMinimapAnnotationByKey(annotations[key], key);
@@ -139,8 +345,8 @@ function loadScenario(data) {
         var currentWall;
 
         jQuery.each(roomData._walls, function (key, wallData) {
-            currentWall = room.addWall(wallData.name, key, wallData.image, 
-                    wallData.fakeDirection, wallData.isCutscene, 
+            currentWall = room.addWall(wallData.name, key, wallData.image,
+                    wallData.fakeDirection, wallData.isCutscene,
                     wallData._triggers);
 
             if (wallData._props) {
@@ -242,7 +448,7 @@ function loadScenario(data) {
     }
 
     function addSpinner() {
-         // Add spinner to view-modal while loading scenario   
+         // Add spinner to view-modal while loading scenario
         jQuery('#overlay').show();
         var spinner = new Spinner({
             color: '#000'
@@ -444,7 +650,7 @@ function resetLights() {
 /**
 * Show a message via large text that overlays the middle of the viewport.
 * @param {string} message The message to be displayed.
-* @param {int} duration The number of seconds that the message should remain 
+* @param {int} duration The number of seconds that the message should remain
 *     on screen.
 */
 function showOnScreenMessage(message, duration) {
@@ -587,10 +793,10 @@ jQuery.fn.opacity = function (opacity) {
 * @param {boolean} isAnAction If true, 'x says' and 'you reply' are not visible.
 */
 function showConversation(conversationName, currentConversationChoice, cannotSkip, isAnAction) {
-    var i, conversation, optionRowTemplate, currentOptionId, currentOption, 
+    var i, conversation, optionRowTemplate, currentOptionId, currentOption,
             replyChoices, choiceText, contentContainer;
     cannotSkip = cannotSkip || jQuery('#modal').data('cannotSkip');
-    
+
     optionRowTemplate = "<li class='conversation-option' data-conversation-option='{0}'>{1}</li><br />";
 
     //fetch the conversation name if we're progressing through a conversation tree.
@@ -653,7 +859,7 @@ function showConversation(conversationName, currentConversationChoice, cannotSki
     if (!currentOption.message) {
          hideModal();
     }
-    
+
     if (currentOption.triggers) {
         for (i = 0; i < currentOption.triggers.length; i++) {
             startTrigger(currentOption.triggers[i]);
