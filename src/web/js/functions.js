@@ -68,6 +68,12 @@ jQuery(document).ready(function (jQuery) {
         sizeWindow();
         saveGame();
         jQuery('div.spinner').remove();
+
+        // start running the triggers in the same room as the player
+        var startRoomTriggers = scenario.getRoom(player.x, player.y, player.z).triggers;
+        if (startRoomTriggers) {
+            startRoomTriggers.map(startTrigger);
+        }
     });
 });
 
@@ -209,11 +215,6 @@ function loadScenario(data) {
             jQuery.each(triggerData, function (key, value) {
                 scenario.addTrigger(key, value);
             });
-        }
-
-        var startRoomTriggers = scenario.getRoom(player.x, player.y, player.z).triggers;
-        if (startRoomTriggers) {
-            startRoomTriggers.map(startTrigger);
         }
     }
 
