@@ -8,11 +8,14 @@ var instrModalInstructType = null;
 var instrModalArrowType = null;
 var instrModalContent = null;
 
-var elements = ['#objective', '#inventory'];
-var types = ['instruct-right', 'instruct-bottom'];
-var aligns = ['align-top', 'align-right'];
+// Each array provides an arg to the tutorial function.
+var elements = ['#objective', '#map', '#inventory'];
+var types = ['instruct-right', 'instruct-right', 'instruct-bottom'];
+var aligns = ['align-top', 'align-bottom', 'align-right'];
 var contents = [
     'This is the current objective. If you\'re not sure what to do next, look here.',
+    'This is the mini-map. It\'s an overhead view of your surroundings. Each square represents ' +
+    'a place you can walk to. The connectors between the squares indicate directions you can move.',
     'This is the inventory. You can click it to open it and see the items you\'re carrying. ' +
     'Some items in your inventory can be clicked on.'
 ];
