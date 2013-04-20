@@ -26,6 +26,7 @@ jQuery(document).ready(function (jQuery) {
     });
 
     jQuery(".viewport-button").live("click", function () {
+        if (!allowKeyEvents) return;
         jQuery(document).trigger(
             'player-move',
             jQuery(this).attr('id')
@@ -53,6 +54,7 @@ jQuery(document).ready(function (jQuery) {
     });
 
     jQuery('#help').click(function() {
+        if (!allowKeyEvents) return;
         displayModal('', '', null);
         jQuery('#help-template').clone().
                 appendTo(jQuery('#modal').
@@ -331,6 +333,9 @@ function setGameState(state) {
     case GAME_STATE_FORCED_MODAL:
         showNamedModal(jQuery('#modal'), false, false);
         jQuery('#modal-close').hide();
+        break;
+    case GAME_STATE_TUTORIAL:
+        allowKeyEvents = false;
         break;
     case GAME_STATE_OVER:
         positionGameOverModal(jQuery);

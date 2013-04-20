@@ -23,6 +23,7 @@ var contents = [
 jQuery(document).ready(function(jQuery) {
     // for starting the tutorial
     jQuery(document).on('startInstruction', function(event, triggerName) {
+        setGameState(GAME_STATE_TUTORIAL);
         showNextTutorial();
     });
 
@@ -34,6 +35,7 @@ jQuery(document).ready(function(jQuery) {
     // exit button
     jQuery("#instruct-exit-button").live('click', function() {
         jQuery("#instruct-modal-wrapper").hide();
+        setGameState(GAME_STATE_RUNNING);
     });
 });
 

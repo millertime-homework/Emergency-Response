@@ -97,7 +97,9 @@ jQuery(document).ready(function($) {
     });
 
     $('#objective').click(function() {
-        showObjectives();
+        if (allowKeyEvents) {
+            showObjectives();
+        }
     });
 
     $('#game-over-show-objectives').click(function() {
@@ -124,7 +126,9 @@ jQuery(document).ready(function($) {
 
 
     $('#inventory').click(function() {
-        showInventory();
+        if (allowKeyEvents) {
+            showInventory();
+        }
     });
 
     $('#modal-close, #modal-close #icon').click(function(){
