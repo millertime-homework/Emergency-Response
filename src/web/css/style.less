@@ -549,6 +549,7 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
         .background_gradient(#26759e, #133d5b);
     }
     cursor: pointer;
+}
 
 /**
  * Instruction Modal Stylings
@@ -580,7 +581,7 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     #buttons {
         width: 100%;
         overflow: hidden;
-        #instruct-okay-button, #instruct-skip-button {
+        #instruct-next-button, #instruct-exit-button {
             position: relative;
             float: left;
             .border_radius(3px);
@@ -592,7 +593,7 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
             color: #FFFFFF;
             cursor: pointer;
         }
-        #instruct-okay-button {
+        #instruct-next-button {
             border:1px solid #25729a;
             .background_gradient(#3090c7, #1c5a85);
             &:hover {
@@ -600,7 +601,7 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
                 .background_gradient(#26759e, #133d5b);
             }
         }
-        #instruct-skip-button {
+        #instruct-exit-button {
             border:1px solid #969696;
             .background_gradient(#c3c4c4, #848484);
             &:hover {

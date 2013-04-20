@@ -555,12 +555,52 @@ textarea:focus {
   /* IE8 */
 
 }
-<<<<<<< HEAD
 .big-blue-button {
   /* Cool new button stylings */
 
   border: 1px solid #25729a;
-=======
+  -webkit-border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+  font-family: arial, helvetica, sans-serif;
+  padding: 10px 10px 10px 10px;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  text-align: center;
+  color: #FFFFFF;
+  background: #3090c7;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#3090c7), to(#1c5a85));
+  background-image: -moz-linear-gradient(top, #3090c7, #1c5a85);
+  background-image: -ms-linear-gradient(top, #0c93c0, #ffffff);
+  background-image: -o-linear-gradient(top, #0c93c0, #ffffff);
+  background-image: linear-gradient(top, #0c93c0, #ffffff);
+  /* standard, but currently unimplemented */
+
+  filter: formatstring("progid:DXImageTransform.Microsoft.gradient(startColorstr='{0}', endColorstr='{1}')", #3090c7, #1c5a85);
+  /* IE6,IE7 */
+
+  -ms-filter: formatstring("\"progid:DXImageTransform.Microsoft.gradient(startColorStr='{0}', EndColorStr='{1}')\"", #3090c7, #1c5a85);
+  /* IE8 */
+
+  cursor: pointer;
+}
+.big-blue-button:hover {
+  border: 1px solid #1c5675;
+  background: #26759e;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#26759e), to(#133d5b));
+  background-image: -moz-linear-gradient(top, #26759e, #133d5b);
+  background-image: -ms-linear-gradient(top, #0c93c0, #ffffff);
+  background-image: -o-linear-gradient(top, #0c93c0, #ffffff);
+  background-image: linear-gradient(top, #0c93c0, #ffffff);
+  /* standard, but currently unimplemented */
+
+  filter: formatstring("progid:DXImageTransform.Microsoft.gradient(startColorstr='{0}', endColorstr='{1}')", #26759e, #133d5b);
+  /* IE6,IE7 */
+
+  -ms-filter: formatstring("\"progid:DXImageTransform.Microsoft.gradient(startColorStr='{0}', EndColorStr='{1}')\"", #26759e, #133d5b);
+  /* IE8 */
+
+}
 /**
  * Instruction Modal Stylings
  *
@@ -589,31 +629,23 @@ textarea:focus {
   width: 100%;
   overflow: hidden;
 }
-#instruct-modal #buttons #instruct-okay-button,
-#instruct-modal #buttons #instruct-skip-button {
+#instruct-modal #buttons #instruct-next-button,
+#instruct-modal #buttons #instruct-exit-button {
   position: relative;
   float: left;
->>>>>>> 998c782... imported ryan's tutorial code
   -webkit-border-radius: 3px 3px 3px 3px;
   -moz-border-radius: 3px 3px 3px 3px;
   border-radius: 3px 3px 3px 3px;
   font-family: arial, helvetica, sans-serif;
-<<<<<<< HEAD
-  padding: 10px 10px 10px 10px;
-=======
   padding: 5px 10px 5px 10px;
->>>>>>> 998c782... imported ryan's tutorial code
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
   font-weight: bold;
   text-align: center;
   color: #FFFFFF;
-<<<<<<< HEAD
-=======
   cursor: pointer;
 }
-#instruct-modal #buttons #instruct-okay-button {
+#instruct-modal #buttons #instruct-next-button {
   border: 1px solid #25729a;
->>>>>>> 998c782... imported ryan's tutorial code
   background: #3090c7;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#3090c7), to(#1c5a85));
   background-image: -moz-linear-gradient(top, #3090c7, #1c5a85);
@@ -628,14 +660,8 @@ textarea:focus {
   -ms-filter: formatstring("\"progid:DXImageTransform.Microsoft.gradient(startColorStr='{0}', EndColorStr='{1}')\"", #3090c7, #1c5a85);
   /* IE8 */
 
-<<<<<<< HEAD
-  cursor: pointer;
 }
-.big-blue-button:hover {
-=======
-}
-#instruct-modal #buttons #instruct-okay-button:hover {
->>>>>>> 998c782... imported ryan's tutorial code
+#instruct-modal #buttons #instruct-next-button:hover {
   border: 1px solid #1c5675;
   background: #26759e;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#26759e), to(#133d5b));
@@ -652,9 +678,7 @@ textarea:focus {
   /* IE8 */
 
 }
-<<<<<<< HEAD
-=======
-#instruct-modal #buttons #instruct-skip-button {
+#instruct-modal #buttons #instruct-exit-button {
   border: 1px solid #969696;
   background: #c3c4c4;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#c3c4c4), to(#848484));
@@ -671,7 +695,7 @@ textarea:focus {
   /* IE8 */
 
 }
-#instruct-modal #buttons #instruct-skip-button:hover {
+#instruct-modal #buttons #instruct-exit-button:hover {
   border: 1px solid #757575;
   background: #9c9c9c;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#9c9c9c), to(#585959));
@@ -739,7 +763,6 @@ textarea:focus {
   height: 44px;
   background-image: url('../img/arrow-instruct-down.png');
 }
->>>>>>> 998c782... imported ryan's tutorial code
 .phone-menu {
   position: absolute;
   cursor: pointer;
