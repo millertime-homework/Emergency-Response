@@ -8,28 +8,43 @@ var instrModalInstructType = null;
 var instrModalArrowType = null;
 var instrModalContent = null;
 
+var elements = ['#objective', '#inventory'];
+var types = ['instruct-right', 'instruct-bottom'];
+var aligns = ['align-top', 'align-right'];
+var contents = [
+    'This is the current objective. If you\'re not sure what to do next, look here.',
+    'This is the inventory. You can click it to open it and see the items you\'re carrying. ' +
+    'Some items in your inventory can be clicked on.'
+];
+
 jQuery(document).ready(function(jQuery) {
     // for starting the tutorial
     jQuery(document).on('startInstruction', function(event, triggerName) {
-        showInstructModal('#objective', 'instruct-right', 'align-top',
-                          'This is the current objective.');
+        showNextTutorial();
     });
 
     // next button
     jQuery("#instruct-next-button").live('click', function() {
-        console.log("clicked next. hiding modal.");
-        hideInstructModal();
+        showNextTutorial();
     });
 
     // exit button
     jQuery("#instruct-exit-button").live('click', function() {
-        console.log("clicked exit. hiding modal.");
-        hideInstructModal();
+        jQuery("#instruct-modal-wrapper").hide();
     });
 });
 
-function hideInstructModal() {
-    jQuery("#instruct-modal-wrapper").hide();
+function moreTutorials() {
+    return elements.length && types.length && aligns.length && contents.length;
+}
+
+function showNextTutorial() {
+    if (moreTutorials()) {
+        showInstructModal(elements.shift(), types.shift(), aligns.shift(), contents.shift());
+    }
+    if (!moreTutorials()) {
+        jQuery("#instruct-next-button").hide();
+    }
 }
 
 function showInstructModal(relativeElement, instructType, arrowAlign, content) {
