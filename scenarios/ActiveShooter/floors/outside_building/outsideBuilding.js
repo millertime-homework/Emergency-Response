@@ -20,7 +20,7 @@
                     'image': 'shooter-and-cop.png',
                     'width': 564,
                     'height': 800,
-                    'left': 100,
+                    'left': 500,
                     'top': 100
                 }
             }
