@@ -3,28 +3,46 @@
  * A series of modals instructing the player on how the game works.
  */
 
+var skippedPartOne = false;
+var completedPartOne = false;
 var instrModalElement = null;
 var instrModalInstructType = null;
 var instrModalArrowType = null;
 var instrModalContent = null;
 
 // Each array provides an arg to the tutorial function.
-var elements = ['#objective', '#map', '#inventory'];
-var types = ['instruct-right', 'instruct-right', 'instruct-bottom'];
-var aligns = ['align-top', 'align-bottom', 'align-right'];
-var contents = [
-    'This is the current objective. If you\'re not sure what to do next, look here.',
-    'This is the mini-map. It\'s an overhead view of your surroundings. Each square represents ' +
-    'a place you can walk to. The connectors between the squares indicate directions you can move.',
-    'This is the inventory. You can click it to open it and see the items you\'re carrying. ' +
-    'Some items in your inventory can be clicked on.'
-];
+var tutorialPartOne = {
+    elements: ['#objective', '#inventory'],
+    types: ['instruct-right', 'instruct-bottom'],
+    aligns: ['align-top', 'align-right'],
+    contents: [
+        'This is the current objective. If you\'re not sure what to do next, look here.',
+        'This is the inventory. You can click it to open it and see the items you\'re carrying. ' +
+            'Some items in your inventory can be clicked on.'
+    ]
+};
+
+var tutorialPartTwo = {
+    elements: ['#map'],
+    types: ['instruct-right'],
+    aligns: ['align-bottom'],
+    contents: [
+        'This is the mini-map. It\'s an overhead view of your surroundings. Each square represents ' +
+            'a place you can walk to. The connectors between the squares indicate directions you can move.',
+    ]
+};
 
 jQuery(document).ready(function(jQuery) {
     // for starting the tutorial
-    jQuery(document).on('startInstruction', function(event, triggerName) {
+    jQuery(document).on('startTutorialPartOne', function(event, triggerName) {
         setGameState(GAME_STATE_TUTORIAL);
         showNextTutorial();
+    });
+
+    // skip the tutorial
+    jQuery(document).on('skipTutorial', function(event, triggerName) {
+        completedPartOne = true;
+        skippedPartOne = true;
     });
 
     // next button
@@ -32,23 +50,58 @@ jQuery(document).ready(function(jQuery) {
         showNextTutorial();
     });
 
+    // for starting the second half of the tutorial
+    jQuery(document).on('startTutorialPartTwo', function(event, triggerName) {
+        setGameState(GAME_STATE_TUTORIAL);
+        showNextTutorial();
+    });
+
     // exit button
     jQuery("#instruct-exit-button").live('click', function() {
-        jQuery("#instruct-modal-wrapper").hide();
+        deleteInstructModal();
         setGameState(GAME_STATE_RUNNING);
+        completedPartOne = true;
     });
 });
 
-function moreTutorials() {
-    return elements.length && types.length && aligns.length && contents.length;
+function moreTutorials(whichPart) {
+    if (whichPart !== 2) {
+        return tutorialPartOne.elements.length
+            && tutorialPartOne.types.length
+            && tutorialPartOne.aligns.length
+            && tutorialPartOne.contents.length;
+    } else {
+        return tutorialPartTwo.elements.length
+            && tutorialPartTwo.types.length
+            && tutorialPartTwo.aligns.length
+            && tutorialPartTwo.contents.length;
+    }
 }
 
 function showNextTutorial() {
-    if (moreTutorials()) {
-        showInstructModal(elements.shift(), types.shift(), aligns.shift(), contents.shift());
-    }
-    if (!moreTutorials()) {
-        jQuery("#instruct-next-button").hide();
+    if (!completedPartOne) {
+        if (moreTutorials()) {
+            showInstructModal(tutorialPartOne.elements.shift(),
+                              tutorialPartOne.types.shift(),
+                              tutorialPartOne.aligns.shift(),
+                              tutorialPartOne.contents.shift());
+            if (!moreTutorials()) {
+                jQuery("#instruct-next-button").hide();
+            }
+        }
+    } else {
+        if (moreTutorials(2) && !skippedPartOne) {
+            showInstructModal(tutorialPartTwo.elements.shift(),
+                              tutorialPartTwo.types.shift(),
+                              tutorialPartTwo.aligns.shift(),
+                              tutorialPartTwo.contents.shift());
+        }
+        if (!moreTutorials(2)) {
+            jQuery("#instruct-next-button").hide();
+        }
+        if (skippedPartOne) {
+            setGameState(GAME_STATE_RUNNING);
+        }
     }
 }
 

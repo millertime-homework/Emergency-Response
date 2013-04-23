@@ -7,6 +7,12 @@
         }
     },
     '2': {
+        'message': 'You left your house unprepared.',
+        'replies': {
+            'I\'ll try to be better prepared next time': 3
+        }
+    },
+    '3': {
         'triggers':['gotoSchool']
     }
 }

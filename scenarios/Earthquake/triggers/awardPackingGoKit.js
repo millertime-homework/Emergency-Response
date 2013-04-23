@@ -4,5 +4,6 @@
         'addPoints': [50]
     },
     'abortTriggers': ['enteredSchoolUnprepared'],
-    'startTriggers': ['gotoSchool']
+    'startTriggers': ['gotoSchool'],
+    'enableTriggers': ['startTutorialPartTwo']
 }
