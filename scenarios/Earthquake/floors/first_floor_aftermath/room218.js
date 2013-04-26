@@ -30,10 +30,10 @@
                     'name': 'elevator-up',
                     'image': 'elevator-up.png',
                     'hoverImage': 'elevator-up-hover.png',
-                    'width': 43,
-                    'height': 24,
-                    'left': 830,
-                    'top': 360,
+                    'width': 75,
+                    'height': 42,
+                    'left': 815,
+                    'top': 350,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Aftermath Elevator'
