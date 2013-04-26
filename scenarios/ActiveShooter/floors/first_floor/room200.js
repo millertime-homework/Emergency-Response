@@ -45,10 +45,10 @@
                     'name': 'UseDoor',
                     'image': 'door.png',
                     'hoverImage': 'doorHover.png',
-                    'width': 78,
-                    'height': 190,
-                    'left' : 470,
-                    'top': 245,
+                    'width': 100,
+                    'height': 220,
+                    'left' : 457,
+                    'top': 230,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'exit_school'
