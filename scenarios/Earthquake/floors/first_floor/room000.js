@@ -87,10 +87,10 @@
                     'name': 'evac_plan',
                     'image': 'rectangle.png',
                     'hoverImage': 'rectangleGlow.png',
-                    'width': 51,
-                    'height': 44,
-                    'left': 348,
-                    'top': 270,
+                    'width': 56,
+                    'height': 50,
+                    'left': 367,
+                    'top': 285,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'evac_first_floor_detail'
