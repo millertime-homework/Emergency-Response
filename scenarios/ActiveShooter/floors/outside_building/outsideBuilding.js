@@ -35,8 +35,8 @@
                     'image': 'ambulance.jpg',
                     'width': 634,
                     'height': 500,
-                    'left': 200,
-                    'top': 200
+                    'left': 500,
+                    'top': 110
                 }
             }
         },
