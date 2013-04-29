@@ -46,12 +46,12 @@
                 },
                 'sturdydesk':{
                     'name': 'Sturdy Desk',
-                    'image': 'rectangle.png',
-                    'hoverImage':'rectangleGlow.png',
-                    'width': 410,
-                    'height': 190,
-                    'left': 620,
-                    'top': 385,
+                    'image': 'sturdyDesk.png',
+                    'hoverImage':'sturdyDeskHover.png',
+                    'width': 285,
+                    'height': 94,
+                    'left': 751,
+                    'top': 405,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Sturdy Desk'
