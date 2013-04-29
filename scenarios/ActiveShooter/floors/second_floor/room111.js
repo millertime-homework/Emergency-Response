@@ -35,10 +35,10 @@
                     'image': 'door.png',
                     'openImage': 'doorOpen.png',
                     'hoverImage': 'doorHover.png',
-                    'width': 280,
+                    'width': 269,
                     'height': 500,
-                    'left': 420,
-                    'top': 160,
+                    'left': 426,
+                    'top': 151,
                     'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
