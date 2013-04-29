@@ -14,7 +14,7 @@
                 'door': {
                     'name': 'door',
                     'image': 'door.png',
-                    'openImage': 'trans.png',
+                    'openImage': 'blackout.jpg',
                     'hoverImage': 'doorHover.png',
                     'width': 160,
                     'height': 340,
