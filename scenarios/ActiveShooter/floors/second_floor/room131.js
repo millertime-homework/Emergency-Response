@@ -21,7 +21,7 @@
                 'door2': {
                     'name': 'door',
                     'image': 'door.png',
-                    'openImage': 'blackout.jpg',
+                    'openImage': 'doorOpen.png',
                     'hoverImage': 'doorHover.png',
                     'width': 120,
                     'height': 250,
@@ -53,7 +53,7 @@
                 'door': {
                     'name': 'door',
                     'image': 'door.png',
-                    'openImage': 'blackout.jpg',
+                    'openImage': 'doorOpen.png',
                     'hoverImage': 'doorHover.png',
                     'width': 120,
                     'height': 250,
