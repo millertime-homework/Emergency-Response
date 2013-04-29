@@ -25,6 +25,19 @@
                     'actionVariables': {
                         'conversationName': 'door'
                     }
+                },
+                'evac_plan': {
+                    'name': 'evac_plan',
+                    'image': 'rectangle.png',
+                    'hoverImage': 'rectangleGlow.png',
+                    'width': 130,
+                    'height': 117,
+                    'left': 724,
+                    'top': 270,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'evac_second_floor_detail'
+                    }
                 }
             }
         },
