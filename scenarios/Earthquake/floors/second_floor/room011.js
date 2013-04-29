@@ -14,16 +14,29 @@
                 'door': {
                     'name': 'door',
                     'image': 'door.png',
-                    'openImage': 'trans.png',
+                    'openImage': 'doorOpen.png',
                     'hoverImage': 'doorHover.png',
-                    'width': 160,
-                    'height': 340,
-                    'left': 480,
-                    'top': 200,
+                    'width': 165,
+                    'height': 367,
+                    'left': 475,
+                    'top': 207,
                     'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'door'
+                    }
+                },
+                'evac_plan': {
+                    'name': 'evac_plan',
+                    'image': 'rectangle.png',
+                    'hoverImage': 'rectangleGlow.png',
+                    'width': 130,
+                    'height': 117,
+                    'left': 724,
+                    'top': 270,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'evac_second_floor_detail'
                     }
                 }
             }
@@ -46,15 +59,16 @@
                 },
                 'sturdydesk':{
                     'name': 'Sturdy Desk',
-                    'image': 'rectangle.png',
-                    'hoverImage':'rectangleGlow.png',
-                    'width': 410,
-                    'height': 190,
-                    'left': 620,
-                    'top': 385,
+                    'image': 'sturdyDesk.png',
+                    'hoverImage':'sturdyDeskHover.png',
+                    'width': 285,
+                    'height': 94,
+                    'left': 751,
+                    'top': 405,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'Sturdy Desk'
+                        'conversationName': 'Sturdy Desk',
+                        'isAnAction': true
                     }
                 },
                 'chalk': {
@@ -67,7 +81,8 @@
                     'top': 355,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'Chalk on Sturdy Desk'
+                        'conversationName': 'Chalk on Sturdy Desk',
+                        'isAnAction': true
                     }
                 }
             }

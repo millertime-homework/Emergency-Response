@@ -14,12 +14,12 @@
                 'door': {
                     'name': 'door',
                     'image': 'door.png',
-                    'openImage': 'trans.png',
+                    'openImage': 'doorOpen.png',
                     'hoverImage': 'doorHover.png',
-                    'width': 160,
-                    'height': 340,
-                    'left': 480,
-                    'top': 200,
+                    'width': 165,
+                    'height': 367,
+                    'left': 475,
+                    'top': 207,
                     'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
