@@ -3,7 +3,7 @@
           'requires': {
                'objectivesInProgress': ['getChalkForTeacher']
           },
-          'message': 'A nice box of Chalk',
+          'message': 'A box of chalk sitting on a very sturdy desk.',
           'replies': {
                'Pick up Chalk': 2,
                'Leave Chalk': 0

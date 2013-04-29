@@ -54,7 +54,8 @@
                     'top': 405,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'Sturdy Desk'
+                        'conversationName': 'Sturdy Desk',
+                        'isAnAction': true
                     }
                 },
                 'chalk': {
@@ -67,7 +68,8 @@
                     'top': 355,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'Chalk on Sturdy Desk'
+                        'conversationName': 'Chalk on Sturdy Desk',
+                        'isAnAction': true
                     }
                 }
             }
