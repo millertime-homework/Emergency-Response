@@ -93,22 +93,6 @@
                     'left': 673,
                     'top': 385
                 },
-                'hidingStudent1': {
-                    'name': 'hidingStudent1',
-                    'image': 'personHiding.png',
-                    'width': 200,
-                    'height': 100,
-                    'left': 750,
-                    'top': 380
-                },
-                'hidingStudent2': {
-                    'name': 'hidingStudent2',
-                    'image': 'personHiding.png',
-                    'width': 200,
-                    'height': 100,
-                    'left': 750,
-                    'top': 230
-                },
                 'bell-hiding': {
                     'name': 'bell-hiding',
                     'image': 'XavDuck.png',
