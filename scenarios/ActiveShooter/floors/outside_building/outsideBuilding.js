@@ -42,7 +42,7 @@
         },
         'died': {
             'name': 'died',
-            'image': 'blackout.jpg',
+            'image': 'dead.jpg',
             'isCutscene': true
         }
     }

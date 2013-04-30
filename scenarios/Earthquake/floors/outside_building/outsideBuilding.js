@@ -34,7 +34,7 @@
           },
 		  'died' : {
 		      'name' : 'badEnding',
-			  'image' : 'blackout.jpg',
+			  'image' : 'dead.jpg',
 			  'isCutscene' : true,
 			  '_triggers' : ['failEvacuate']
 		  }
