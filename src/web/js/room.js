@@ -3,22 +3,22 @@ var PROP_STAIRS_DOWN = "hasStairsDown";
 var PROP_ENTER_STAIRS_DIRECTION = "enterStairsFacing";
 var PROP_EXIT_STAIRS_DIRECTION = "exitStairsFacing";
 
-Room = Class.create({
-    initialize: function(name, x, y, z) {
-        this.name = null;
-        this.x = null;
-        this.y = null;
-        this.z = null;
-        this.triggers;
-        this.walls = {};
-    },
-    set: function(name, x, y, z) {
+var Room = function(name, x, y, z) {
+    this.name = null;
+    this.x = null;
+    this.y = null;
+    this.z = null;
+    this.triggers;
+    this.walls = {};
+
+    this.set = function(name, x, y, z) {
         this.name = name;
         this.x = x;
         this.y = y;
         this.z = z;
-    },
-    addWall: function(name, direction, image, fakeDirection, isCutscene, triggers) {
+    }
+
+    this.addWall = function(name, direction, image, fakeDirection, isCutscene, triggers) {
         if (typeof this.walls[direction] !== 'undefined') {
             console.log('Room.addWall - direction ' + direction + ' already defined')
             return;
@@ -27,14 +27,17 @@ Room = Class.create({
         newWall.set(name, direction, image, fakeDirection, isCutscene, triggers)
         this.walls[direction] = newWall;
         return newWall;
-    },
-    addProp: function(prop, value) {
+    }
+
+    this.addProp = function(prop, value) {
         this[prop] = value;
-    },
-    addTriggers: function (triggers) {
+    }
+
+    this.addTriggers = function (triggers) {
         this.triggers = triggers;
-    },
-    getWallList: function() {
+    }
+
+    this.getWallList = function() {
         if (typeof this.walls === 'undefined') {
             return;
         }
@@ -47,20 +50,25 @@ Room = Class.create({
             });
         });
         return wallList;
-    },
-    getWallByDir: function(direction) {
+    }
+
+    this.getWallByDir = function(direction) {
         return this.walls[direction]
-    },
-    containsUpStairs: function() {
+    }
+
+    this.containsUpStairs = function() {
         return (this.hasOwnProperty(PROP_STAIRS_UP) && this[PROP_STAIRS_UP]);
-    },
-    containsDownStairs: function() {
+    }
+
+    this.containsDownStairs = function() {
         return (this.hasOwnProperty(PROP_STAIRS_DOWN) && this[PROP_STAIRS_DOWN]);
-    },
-    stairEntryDirection: function() {
+    }
+
+    this.stairEntryDirection = function() {
         return this.hasOwnProperty(PROP_ENTER_STAIRS_DIRECTION) ? this[PROP_ENTER_STAIRS_DIRECTION] : null;
-    },
-    stairExitDirection: function() {
+    }
+
+    this.stairExitDirection = function() {
         return this.hasOwnProperty(PROP_EXIT_STAIRS_DIRECTION) ? this[PROP_EXIT_STAIRS_DIRECTION] : null;
     }
-});
+}

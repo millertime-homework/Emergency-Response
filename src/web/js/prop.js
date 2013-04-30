@@ -1,16 +1,15 @@
-Prop = Class.create({
-    init: function() {
-        this.name = null;
-        this.image = null;
-        this.hoverImage = null;
-        this.width = null;
-        this.height = null;
-        this.left = null;
-        this.top = null;
-        this.action = null;
-        this.actionVariables = {};
-    },
-    set: function(name, image, hoverImage, width, height, left, top, action, actionVariables) {
+var Prop = function() {
+    this.name = null;
+    this.image = null;
+    this.hoverImage = null;
+    this.width = null;
+    this.height = null;
+    this.left = null;
+    this.top = null;
+    this.action = null;
+    this.actionVariables = {};
+
+    this.set = function(name, image, hoverImage, width, height, left, top, action, actionVariables) {
         this.name = name;
         this.image = image;
         this.hoverImage = hoverImage
@@ -21,5 +20,4 @@ Prop = Class.create({
         this.action = action;
         this.actionVariables = actionVariables;
     }
-
-});
+}

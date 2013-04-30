@@ -4,24 +4,23 @@ var SCENARIO_STATUS_DONE = 'done';
 var imageBasePath = "web/img/";
 var imagesToLoad = 0;
 
+var Scenario = function () {
+    this.name = null;
+    this.status = null;
+    this.floors = {};
+    this.images = [];
+    this.objectives = {};
+    this.objectives.inProgress = {};
+    this.objectives.completed = {};
+    this.objectives.failed = {};
+    this.inactiveProps = {};
 
-Scenario = Class.create({
-    initialize: function () {
-        this.name = null;
-        this.status = null;
-        this.floors = {};
-        this.images = [];
-        this.objectives = {};
-        this.objectives.inProgress = {};
-        this.objectives.completed = {};
-        this.objectives.failed = {};
-        this.inactiveProps = {};
-    },
-    set: function(name, status) {
+    this.set = function(name, status) {
         this.name = name;
         this.status = status;
-    },
-    start: function() {
+    }
+
+    this.start = function() {
         if (this.status === SCENARIO_STATUS_ACTIVE) {
             console.log('Scenario.start - scenario already active')
             return;
@@ -30,19 +29,22 @@ Scenario = Class.create({
             return;
         }
         this.status = SCENARIO_STATUS_ACTIVE;
-    },
-    addTrigger: function (triggerName, triggerData) {
+    }
+
+    this.addTrigger = function (triggerName, triggerData) {
         if (triggerData['disabled']) {
             scenario.triggers['disabled'][triggerName] = triggerData;
         } else {
             scenario.triggers.pool[triggerName] = triggerData;
         }
-    },
-    addImage: function(image) {
+    }
+
+    this.addImage = function(image) {
         this.images.push(imageBasePath + image)
         return this.preloadImage(imageBasePath + image)
-    },
-    preloadImage: function(imagePath) {
+    }
+
+    this.preloadImage = function(imagePath) {
         var image = document.createElement('img')
         image.src = imagePath
         imagesToLoad++;
@@ -53,8 +55,9 @@ Scenario = Class.create({
             }
         };
         return image
-    },
-    addFloor: function(name, z) {
+    }
+
+    this.addFloor = function(name, z) {
         if (typeof this.floors[z] !== 'undefined') {
             console.log('Scenario.addFloor - floor level with z=' + z + ' already defined')
             return;
@@ -62,25 +65,27 @@ Scenario = Class.create({
         this.floors[z] = new Floor;
         this.floors[z].set(name, z)
         return this.floors[z]
-    },
-    addRoomToFloor: function(z, id, name, x, y, z) {
+    }
+
+    this.addRoomToFloor = function(z, id, name, x, y, z) {
         floor = this.floors[z]
         if (typeof floor === 'undefined' || floor === null) {
             console.log('Scenario.addRoomToFloor - floor with z=' + z + ' does not exist')
             return;
         }
         floor.addRoom(id, name, x, y , z);
-    },
-    getFloor: function(z) {
+    }
+
+    this.getFloor = function(z) {
         floor = this.floors[z];
         if (typeof floor === 'undefined' || floor === null) {
             console.log('Scenario.getFloor - floor with z=' + z + ' does not exist')
             return;
         }
         return this.floors[z];
-    },
+    }
 
-    getFloorList: function() {
+    this.getFloorList = function() {
         var floorList = new Array();
         $j.each(this.floors, function(key, value) {
             floorList.push({
@@ -89,9 +94,9 @@ Scenario = Class.create({
             });
         })
         return floorList;
-    },
+    }
 
-    getLocNames: function(x, y, z, direction) {
+    this.getLocNames = function(x, y, z, direction) {
         floor = this.getFloor(z)
         if (typeof floor !== 'undefined') {
             room = floor.getRoomByXY(x, y)
@@ -112,8 +117,9 @@ Scenario = Class.create({
         } else {
             console.log('getLocNames - error getting floor z=' + z)
         }
-    },
-    isValidRoom: function(x, y, z) {
+    }
+
+    this.isValidRoom = function(x, y, z) {
         floor = this.getFloor(z);
         if (typeof floor !== 'undefined' && floor != null) {
             room = floor.getRoomByXY(x, y)
@@ -122,15 +128,16 @@ Scenario = Class.create({
             }
         }
         return false;
-    },
-    getRoom: function(x, y, z) {
+    }
+
+    this.getRoom = function(x, y, z) {
         if (this.isValidRoom(x, y, z)) {
             return this.getFloor(z).getRoomByXY(x, y);
         }
         return null;    
-    },
+    }
 
-    getObjectives: function(objectiveSource) {
+    this.getObjectives = function(objectiveSource) {
         result = []
         for (var objective in objectiveSource) {
             if (objectiveSource.hasOwnProperty(objective)) {
@@ -138,15 +145,17 @@ Scenario = Class.create({
             }
         }
         return result;
-    },
-    getObjectivesInProgress: function() {
-        return this.getObjectives(this.objectives.inProgress);
-    },
-    getObjectivesCompleted: function() {
-        return this.getObjectives(this.objectives.completed);
-    },
-    getObjectivesFailed: function() {
-        return this.getObjectives(this.objectives.failed);
     }
 
-});
+    this.getObjectivesInProgress = function() {
+        return this.getObjectives(this.objectives.inProgress);
+    }
+
+    this.getObjectivesCompleted = function() {
+        return this.getObjectives(this.objectives.completed);
+    }
+
+    this.getObjectivesFailed = function() {
+        return this.getObjectives(this.objectives.failed);
+    }
+}

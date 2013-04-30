@@ -13,20 +13,19 @@ var PLAYER_STATUS_INJURED = 'injured';
 var PLAYER_STATUS_DEAD = 'dead';
 var PLAYER_HEALTH_DEFAULT = 100;
 
-Player = Class.create({
-    initialize: function() {
-        this.x = null;
-        this.y = null;
-        this.z = null;
-        this.facing = null;
-        this.fakeFacing = null;
-        this.health = null;
-        this.status = null;
-        this.scenario = null;
-        this.inventory = null;
-        this.score = 0;
-    },
-    set: function(x, y, z, facing, scenario, fakeFacing) {
+var Player = function() {
+    this.x = null;
+    this.y = null;
+    this.z = null;
+    this.facing = null;
+    this.fakeFacing = null;
+    this.health = null;
+    this.status = null;
+    this.scenario = null;
+    this.inventory = null;
+    this.score = 0;
+
+    this.set = function(x, y, z, facing, scenario, fakeFacing) {
         this.x = x;
         this.y = y;
         this.z = z;
@@ -37,8 +36,9 @@ Player = Class.create({
         this.scenario = scenario;
         this.inventory = new Inventory();
         this.score = 0;
-    },
-    move: function(direction) { 
+    }
+
+    this.move = function(direction) { 
         var currRoom = scenario.getRoom(this.x, this.y, this.z);
         var currWall = currRoom.getWallByDir(direction);
 
@@ -54,9 +54,9 @@ Player = Class.create({
             showOnScreenMessage(currWall.getBarrierMessage(), 3);
         }
         return false;
-    },
+    }
 
-    turn: function (direction) {
+    this.turn = function (direction) {
         var currentDirectionIndex = DIRECTION_INDEX.indexOf(player.facing);
         var newDirectionIndex;
 
@@ -72,9 +72,9 @@ Player = Class.create({
             return true;
         }
         return false;
-    },
+    }
 
-    warp: function (f, x, y, z) {
+    this.warp = function (f, x, y, z) {
         var room, wall;
 
         if (f == null) {
@@ -107,25 +107,28 @@ Player = Class.create({
         this.fakeFacing = wall.fakeDirection;
 
         jQuery(document).trigger('player-moved', [x, y, z]);
-    },
+    }
     
-    canMoveUp: function() {
+    this.canMoveUp = function() {
         return (this.isFacingStairs() && scenario.getRoom(this.x, this.y, this.z).containsUpStairs() && scenario.isValidRoom(this.x, this.y, this.z + 1));
-    },
-    canMoveDown: function() {
+    }
+
+    this.canMoveDown = function() {
         return (this.isFacingStairs() && scenario.getRoom(this.x, this.y, this.z).containsDownStairs() && scenario.isValidRoom(this.x, this.y, this.z - 1));
-    },
-    isFacingStairs: function() {
+    }
+
+    this.isFacingStairs = function() {
         var room = scenario.getRoom(player.x, player.y, player.z);
         if (room) {
             return room.stairEntryDirection() === player.facing;
         }
         return false;
-    },
-    setFacingAfterExitingStairs: function() {
+    }
+
+    this.setFacingAfterExitingStairs = function() {
         var stairExitDirection = scenario.getRoom(player.x, player.y, player.z).stairExitDirection();
         if (stairExitDirection) {
             player.facing = stairExitDirection;
         }
     }
-});
+}
