@@ -27,6 +27,19 @@
                         'isAnAction': true
                     }
                 },
+                'evac_plan': {
+                    'name': 'evac_plan',
+                    'image': 'rectangle.png',
+                    'hoverImage': 'rectangleGlow.png',
+                    'width': 130,
+                    'height': 117,
+                    'left': 724,
+                    'top': 270,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'evac_second_floor_detail'
+                    }
+                },
                 'doorShade': {
                     'name': 'doorShade',
                     'image': 'ASshadeUp.png',
@@ -55,8 +68,8 @@
                     'hoverImage': 'rectangleGlow.png',
                     'width': 20,
                     'height': 62,
-                    'left': 495,
-                    'top': 370,
+                    'left': 497,
+                    'top': 368,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'lockDoor',
@@ -75,10 +88,10 @@
                     'name': 'lightSwitch',
                     'image': 'rectangle.png',
                     'hoverImage': 'rectangleGlow.png',
-                    'width': 51,
+                    'width': 47,
                     'height': 25,
-                    'left': 673,
-                    'top': 385,
+                    'left': 674,
+                    'top': 355,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'turnOffLights',
@@ -88,10 +101,10 @@
                 'lightSwitchDone': {
                     'name': 'lightSwitch',
                     'image': 'trans.png',
-                    'width': 51,
+                    'width': 47,
                     'height': 25,
-                    'left': 673,
-                    'top': 385
+                    'left': 674,
+                    'top': 355
                 },
                 'bell-hiding': {
                     'name': 'bell-hiding',
@@ -99,7 +112,7 @@
                     'width': 207,
                     'height': 200,
                     'left': 180,
-                    'top': 370,
+                    'top': 440,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Professor Bell is hiding'
