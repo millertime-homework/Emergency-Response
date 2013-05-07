@@ -5,22 +5,7 @@
     '_walls': {
         'e': {
             'name': 'EHall110',
-            'image': 'R110-east.jpg',
-            '_props': {
-                'Info-TV': {
-                    'name': 'Info-TV',
-                    'image': 'info-tv.png',
-                    'hoverImage': 'info-tvHover.png',
-                    'width': 370,
-                    'height': 217,
-                    'left': 200,
-                    'top': 50,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'Info TV'
-                    }
-                }
-            }
+            'image': 'R110-east.jpg'
         },
         'w': {
             'name': 'WHall110',
