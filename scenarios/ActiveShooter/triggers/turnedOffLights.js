@@ -3,7 +3,7 @@
     'events' : {
         'addPoints' : [10],
         'completeObjective' : ['turnOffLights'],
-        'replaceProp': ['lightSwitch', 'lightSwitchDone']
+        'removeFromScene': ['lightSwitch']
     },
     'deleteTriggers' : ['failedToTurnOffLights']
 },
@@ -12,7 +12,7 @@
     'events' : {
         'addPoints' : [10],
         'completeObjective' : ['turnOffLights041'],
-        'replaceProp': ['lightSwitch041', 'lightSwitchDone041']
+        'removeFromScene': ['lightSwitch041']
     },
     'deleteTriggers' : ['failedToTurnOffLights041']
 }

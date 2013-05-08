@@ -76,14 +76,6 @@
                         'isAnAction': true
                     }
                 },
-                'doorHandleDone': {
-                    'name': 'doorHandle',
-                    'image': 'rectangle.png',
-                    'width': 20,
-                    'height': 62,
-                    'left': 495,
-                    'top': 370
-                },
                 'lightSwitch': {
                     'name': 'lightSwitch',
                     'image': 'rectangle.png',
@@ -97,14 +89,6 @@
                         'conversationName': 'turnOffLights',
                         'isAnAction': true
                     }
-                },
-                'lightSwitchDone': {
-                    'name': 'lightSwitch',
-                    'image': 'trans.png',
-                    'width': 47,
-                    'height': 25,
-                    'left': 674,
-                    'top': 355
                 },
                 'bell-hiding': {
                     'name': 'bell-hiding',

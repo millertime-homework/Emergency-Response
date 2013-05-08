@@ -27,18 +27,10 @@
                         'isAnAction': true
                     }
                 },
-                'doorShadeDown031': {
-                    'name': 'doorShadeDown031',
-                    'image': 'ASshadeDown.png',
-                    'width': 52,
-                    'height': 72,
-                    'left': 532,
-                    'top': 277
-                },
                 'doorHandle031': {
                     'name': 'doorHandle031',
-                    'image': 'ASDoorHandle.png',
-                    'hoverImage': 'ASDoorHandleHover.png',
+                    'image': 'rectangle.png',
+                    'hoverImage': 'rectangleGlow.png',
                     'width': 45,
                     'height': 83,
                     'left': 476,
@@ -49,18 +41,10 @@
                         'isAnAction': true
                     }
                 },
-                'doorHandleDone031': {
-                    'name': 'doorHandle031',
-                    'image': 'ASDoorHandle.png',
-                    'width': 45,
-                    'height': 83,
-                    'left': 476,
-                    'top': 380
-                },
                 'lightSwitch031': {
                     'name': 'lightSwitch031',
-                    'image': 'ASLightSwitch.png',
-                    'hoverImage': 'ASLightSwitchHover.png',
+                    'image': 'rectangle.png',
+                    'hoverImage': 'rectangleGlow.png',
                     'width': 50,
                     'height': 45,
                     'left': 365,
@@ -70,14 +54,6 @@
                         'conversationName': 'turnOffLights031',
                         'isAnAction': true
                     }
-                },
-                'lightSwitchDone031': {
-                    'name': 'lightSwitch031',
-                    'image': 'ASLightSwitch.png',
-                    'width': 50,
-                    'height': 45,
-                    'left': 365,
-                    'top': 357
                 }
             }
         },

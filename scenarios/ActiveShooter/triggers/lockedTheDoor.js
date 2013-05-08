@@ -4,7 +4,7 @@
     'events' : {
         'addPoints' : [10],
         'completeObjective' : ['lockTheDoor'],
-        'replaceProp': ['doorHandle', 'doorHandleDone']
+        'removeFromScene': ['doorHandle']
     },
     'deleteTriggers' : ['failedToLockTheDoor'],
     'startTriggers': ['lockDoor2', 'ShootsThroughWalls011']
@@ -15,7 +15,7 @@
     'events' : {
         'addPoints' : [10],
         'completeObjective' : ['lockTheDoor'],
-        'replaceProp': ['doorHandle', 'doorHandleDone']
+        'removeFromScene': ['doorHandle']
     },
     'deleteTriggers' : ['failedToLockTheDoor'],
     'startTriggers': ['lockDoor2']
@@ -26,7 +26,7 @@
     'events' : {
         'addPoints' : [75],
         'completeObjective' : ['lockTheDoor041'],
-        'replaceProp': ['doorHandle041', 'doorHandleDone041']
+        'removeFromScene': ['doorHandle041']
     },
     'deleteTriggers' : ['failedToLockTheDoor041'],
     'startTriggers': ['lockDoor1', 'ShootsThroughWalls041']

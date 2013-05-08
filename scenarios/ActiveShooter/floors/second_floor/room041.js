@@ -51,8 +51,8 @@
                 },
                 'doorHandle041': {
                     'name': 'doorHandle041',
-                    'image': 'ASDoorHandle.png',
-                    'hoverImage': 'ASDoorHandleHover.png',
+                    'image': 'rectangle.png',
+                    'hoverImage': 'rectangleGlow.png',
                     'width': 45,
                     'height': 83,
                     'left': 476,
@@ -63,18 +63,10 @@
                         'isAnAction': true
                     }
                 },
-                'doorHandleDone041': {
-                    'name': 'doorHandle041',
-                    'image': 'ASDoorHandle.png',
-                    'width': 45,
-                    'height': 83,
-                    'left': 476,
-                    'top': 380
-                },
                 'lightSwitch041': {
                     'name': 'lightSwitch041',
-                    'image': 'ASLightSwitch.png',
-                    'hoverImage': 'ASLightSwitchHover.png',
+                    'image': 'rectangle.png',
+                    'hoverImage': 'rectangleGlow.png',
                     'width': 50,
                     'height': 45,
                     'left': 365,
@@ -84,14 +76,6 @@
                         'conversationName': 'turnOffLights041',
                         'isAnAction': true
                     }
-                },
-                'lightSwitchDone041': {
-                    'name': 'lightSwitch041',
-                    'image': 'ASLightSwitch.png',
-                    'width': 50,
-                    'height': 45,
-                    'left': 365,
-                    'top': 357
                 },
                 'hidingSpot041':{
                     'name':  'hidingSpot041',
