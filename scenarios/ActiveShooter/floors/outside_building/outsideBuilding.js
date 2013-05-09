@@ -32,7 +32,7 @@
             '_props': {
                 'ambulance': {
                     'name': 'ambulance',
-                    'image': 'ambulance.jpg',
+                    'image': 'ambulance.png',
                     'width': 634,
                     'height': 500,
                     'left': 500,
@@ -42,7 +42,7 @@
         },
         'died': {
             'name': 'died',
-            'image': 'blackout.jpg',
+            'image': 'dead.jpg',
             'isCutscene': true
         }
     }

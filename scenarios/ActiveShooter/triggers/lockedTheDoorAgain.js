@@ -4,7 +4,7 @@
     'events' : {
         'addPoints' : [10],
         'completeObjective' : ['lockTheDoorAgain'],
-        'replaceProp': ['doorHandle', 'doorHandleDone']
+        'removeFromScene': ['doorHandle']
     },
     'deleteTriggers' : ['failedToLockTheDoor']
 }
