@@ -4,7 +4,7 @@
         'warpPlayer' : ['Runscene'],
         'showOnScreenMessage' : ['As you\'re moving down the hallway a man comes out of a nearby classroom and runs past you.']
     },
-    'startTriggers': ['HePasses'],
+    'startTriggers': ['HePasses']
 },
 'HePasses' : {
     'timeDelay' : 4000,

@@ -12,7 +12,7 @@
         },
         'w': {
             'name': 'WHall101',
-            'image': 'R101-west.jpg',
+            'image': 'R101-west.jpg'
         },
         'n': {
             'name': 'NHall101',
@@ -23,7 +23,7 @@
         },
         's': {
             'name': 'SHall101',
-            'image': 'R101-south.jpg',
+            'image': 'R101-south.jpg'
         }
     }
 }

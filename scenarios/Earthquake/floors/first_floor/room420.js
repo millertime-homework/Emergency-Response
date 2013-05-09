@@ -5,7 +5,7 @@
     '_walls': {
         'e': {
             'name': 'EHall420',
-            'image': 'R420-east.jpg',
+            'image': 'R420-east.jpg'
         },
         'w': {
             'name': 'WHall420',

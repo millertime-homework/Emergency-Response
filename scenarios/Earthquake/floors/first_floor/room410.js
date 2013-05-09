@@ -19,7 +19,7 @@
                     'actionVariables': {
                         'conversationName': 'screwdriverconvo'
                     }
-                },
+                }
             }
         },
         'w': {

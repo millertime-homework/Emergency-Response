@@ -54,7 +54,7 @@
                     'width': 50,
                     'height': 65,
                     'left': 532,
-                    'top': 277,
+                    'top': 277
                 },
                 'beam' : {
                     'named' : 'beam',

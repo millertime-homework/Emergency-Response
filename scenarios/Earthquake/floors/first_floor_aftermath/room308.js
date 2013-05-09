@@ -48,8 +48,7 @@
                     'width': 150,
                     'height': 90,
                     'left': 485,
-                    'top': 250,
-                    'action': 'showConversation',
+                    'top': 250
                 }
             }
         },

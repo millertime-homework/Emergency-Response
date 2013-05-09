@@ -120,7 +120,7 @@
                         'conversationName': 'WallWater',
                         'isAnAction': true
                     }
-                },
+                }
             }
         }
     }

@@ -56,7 +56,7 @@
                     'width': 35,
                     'height': 35,
                     'left': 534,
-                    'top': 355,
+                    'top': 355
                 },
                 'Luke2' : {
                     'name': 'Luke2',

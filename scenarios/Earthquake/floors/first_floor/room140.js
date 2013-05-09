@@ -23,7 +23,7 @@
                     'width': 65,
                     'height': 50,
                     'left': 515,
-                    'top': 300,
+                    'top': 300
                 },
                 'bikeMoved' : {
                     'named' : 'bikeMoved',

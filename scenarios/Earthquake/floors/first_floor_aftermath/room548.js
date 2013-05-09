@@ -37,7 +37,7 @@
                     'width':30,
                     'height':30,
                     'left': 540,
-                    'top': 300,
+                    'top': 300
                 },
                 'brokenGlass': {
                     'name': 'brokenGlass',
@@ -67,7 +67,7 @@
         },
         'n': {
             'name': 'NHall548',
-            'image': 'R540-north.jpg',
+            'image': 'R540-north.jpg'
         },
         's': {
             'name': 'SHall548',

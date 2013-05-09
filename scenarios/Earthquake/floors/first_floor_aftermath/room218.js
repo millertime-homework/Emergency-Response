@@ -1,10 +1,10 @@
 'room218': {
-    'id': 'hall218', 
-    'x': 2, 
+    'id': 'hall218',
+    'x': 2,
     'y': 1,
     '_walls': {
         'e': {
-            'name': 'EHall218', 
+            'name': 'EHall218',
             'image': 'R210-east.jpg',
             '_props': {
                 'evac_plan': {
@@ -17,7 +17,7 @@
                     'top': 50,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'evac_first_floor',
+                        'conversationName': 'evac_first_floor'
                     }
                 }
             }
@@ -42,14 +42,14 @@
             }
         },
         'n': {
-            'name': 'NHall218',   
+            'name': 'NHall218',
             'image': 'R210-north.jpg',
             'destination': {
-                'y': 2,
+                'y': 2
             }
         },
         's': {
-            'name': 'SHall218', 
+            'name': 'SHall218',
             'image': 'R210-south.jpg',
             'destination': {
                 'y': 0

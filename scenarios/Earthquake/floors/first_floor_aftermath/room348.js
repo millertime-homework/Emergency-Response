@@ -66,7 +66,7 @@
                     'width': 30,
                     'height': 40,
                     'left': 540,
-                    'top': 285,
+                    'top': 285
                 },
                 'beam' : {
                     'named' : 'beam',
@@ -74,7 +74,7 @@
                     'width': 10,
                     'height': 45,
                     'left': 541,
-                    'top': 280,
+                    'top': 280
                 },
                 'bikeMoved' : {
                     'named' : 'bikeMoved',
@@ -82,7 +82,7 @@
                     'width': 14,
                     'height': 28,
                     'left': 573,
-                    'top': 295,
+                    'top': 295
                 },
                 'wheelchair':{
                     'name':'the_wheelchair',
@@ -90,7 +90,7 @@
                     'width':100,
                     'height':100,
                     'left': 510,
-                    'top': 300,
+                    'top': 300
                 }
             }
         },
@@ -114,8 +114,7 @@
                     'width': 150,
                     'height': 90,
                     'left': 485,
-                    'top': 250,
-                    'action': 'showConversation',
+                    'top': 250
                 }
             }
         }

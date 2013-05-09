@@ -17,7 +17,7 @@
             'destination': {
                 'x': 1
             },
-            '_triggers' : ['aftershock'],
+            '_triggers' : ['aftershock']
         },
         'n': {
             'name': 'NHall208',

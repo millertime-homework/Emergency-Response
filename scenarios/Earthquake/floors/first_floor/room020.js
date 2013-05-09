@@ -29,7 +29,7 @@
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Bunsen Burner'
-                    },
+                    }
                 },
                 'rag':{
                     'name':'rag',

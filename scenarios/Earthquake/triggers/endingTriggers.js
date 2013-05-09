@@ -9,7 +9,7 @@
 'failedEarthquake' : {
     'timeDelay' : 2000,
     'events' : {
-        'showConversation' : ['Did not survive.',null,true,true],
+        'showConversation' : ['Did not survive.',null,true,true]
     }
 },
 'startReviewPrompt' : {
@@ -39,7 +39,7 @@
 'failedPowerLines' : {
     'timeDelay' : 2000,
     'events' : {
-        'showConversation' : ['Killed by power lines.',null,true,true],
+        'showConversation' : ['Killed by power lines.',null,true,true]
     }
 },
 'inFailedPowerLines' : {

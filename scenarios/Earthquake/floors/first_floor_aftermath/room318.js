@@ -6,7 +6,7 @@
     '_walls': {
         'e': {
             'name': 'EHall318',
-            'image': 'R310-east.jpg',
+            'image': 'R310-east.jpg'
         },
         'w': {
             'name': 'WHall318',
@@ -38,7 +38,7 @@
                     'width': 225,
                     'height': 125,
                     'left': 455,
-                    'top': 215,
+                    'top': 215
                 }
             }
         },

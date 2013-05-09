@@ -5,7 +5,7 @@
         'replies' : {
             'I would like to know what I could do better for next time.' : 2,
             'I\'m ready to play again.' : 3
-        },
+        }
     },
     '2' :{
         'triggers' : ['startObjectiveReview']

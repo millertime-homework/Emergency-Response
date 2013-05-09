@@ -13,7 +13,7 @@
             'image': 'R120-west.jpg',
             'destination': {
                 'x': 0
-            },
+            }
         },
         'n': {
             'name': 'NHall128',
@@ -77,7 +77,7 @@
                         'conversationName': 'Luke'
                     }
                 }
-            },
+            }
         }
     }
 }

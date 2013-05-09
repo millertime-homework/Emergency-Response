@@ -89,11 +89,11 @@
         },
         'n': {
             'name': 'NClass011',
-            'image': 'R011-north.jpg',
+            'image': 'R011-north.jpg'
         },
         's': {
             'name': 'SClass011',
-            'image': 'R011-south.jpg',
+            'image': 'R011-south.jpg'
         }
     }
 }

@@ -24,7 +24,7 @@
                     'width': 30,
                     'height': 40,
                     'left': 540,
-                    'top': 285,
+                    'top': 285
                 },
                 'beam' : {
                     'named' : 'beam',
@@ -32,7 +32,7 @@
                     'width': 9,
                     'height': 38,
                     'left': 541,
-                    'top': 280,
+                    'top': 280
                 },
                 'bikeMoved' : {
                     'named' : 'bikeMoved',
@@ -40,7 +40,7 @@
                     'width': 13,
                     'height': 27,
                     'left': 570,
-                    'top': 295,
+                    'top': 295
                 },
                 'wheelchair':{
                     'name':'the_wheelchair',
@@ -48,7 +48,7 @@
                     'width':50,
                     'height':50,
                     'left': 530,
-                    'top': 300,
+                    'top': 300
                 }
             }
         },

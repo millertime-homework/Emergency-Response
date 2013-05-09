@@ -37,11 +37,11 @@
         },
         'w': {
             'name': 'WClassroom030',
-            'image': 'R030-west.jpg',
+            'image': 'R030-west.jpg'
         },
         'n': {
             'name': 'NClassroom030',
-            'image': 'R030-north.jpg',
+            'image': 'R030-north.jpg'
         },
         's': {
             'name': 'SClassroom030',

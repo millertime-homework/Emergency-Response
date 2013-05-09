@@ -1,11 +1,11 @@
 'room408': {
-    'id': 'hall408', 
-    'x': 4, 
+    'id': 'hall408',
+    'x': 4,
     'y': 0,
     '_walls': {
         'e': {
-            'name': 'EHall408', 
-            'image': 'R400-east.jpg',
+            'name': 'EHall408',
+            'image': 'R400-east.jpg'
         },
         'w': {
             'name': 'WHall408',
@@ -15,14 +15,14 @@
             }
         },
         'n': {
-            'name': 'NHall408',   
+            'name': 'NHall408',
             'image': 'R400-north.jpg',
             'destination': {
                 'y': 1
             }
         },
         's': {
-            'name': 'SHall408', 
+            'name': 'SHall408',
             'image': 'R400-south.jpg'
         }
     }

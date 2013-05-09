@@ -17,7 +17,7 @@
                     'width':45,
                     'height':45,
                     'left': 535,
-                    'top': 305,
+                    'top': 305
                 }
             }
         },
@@ -44,7 +44,7 @@
                     'width': 60,
                     'height': 450,
                     'left': 385,
-                    'top': 130,
+                    'top': 130
                 },
                 'bikeMoved' : {
                     'name' : 'bikeMoved',
@@ -75,7 +75,7 @@
         },
         'n': {
             'name': 'NHall048',
-            'image': 'R040-north.jpg',
+            'image': 'R040-north.jpg'
         },
         's': {
             'name': 'SHall048',

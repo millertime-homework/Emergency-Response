@@ -29,15 +29,15 @@
         },
         'w': {
             'name': 'WOffice049',
-            'image': 'R041-west.jpg',
+            'image': 'R041-west.jpg'
         },
         'n': {
             'name': 'NOffice049',
-            'image': 'R041-north.jpg',
+            'image': 'R041-north.jpg'
         },
         's': {
             'name': 'SOffice049',
-            'image': 'R041-south.jpg',
+            'image': 'R041-south.jpg'
         }
     }
 }

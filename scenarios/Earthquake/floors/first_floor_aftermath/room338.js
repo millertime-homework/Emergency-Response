@@ -59,7 +59,7 @@
         'blackout': {
             'name': 'SHall338',
             'image': 'blackout.jpg',
-            'isCutscene': true,
+            'isCutscene': true
         }
     }
 }

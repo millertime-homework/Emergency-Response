@@ -34,7 +34,6 @@
                     'left': 530,
                     'top': 340
                 }
-
             }
         },
         'w': {
@@ -50,7 +49,7 @@
                     'width': 35,
                     'height': 50,
                     'left': 540,
-                    'top': 280,
+                    'top': 280
                 },
                 'beam' : {
                     'named' : 'beam',
