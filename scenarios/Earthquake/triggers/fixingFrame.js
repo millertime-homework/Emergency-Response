@@ -2,7 +2,7 @@
     'events': {
         'removeInventory' : ['Screw Driver'],
         'addPoints' : [15],
-		'completeObjective' : ['fixPlaque']
+        'completeObjective' : ['fixPlaque']
     },
     'enableTriggers':['frameFixed']
 }

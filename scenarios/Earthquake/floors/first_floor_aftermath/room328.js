@@ -1,16 +1,16 @@
 'room328': {
-    'id': 'hall328', 
-    'x': 3, 
-    'y': 2, 
-	'_triggers' : ['passout'],
+    'id': 'hall328',
+    'x': 3,
+    'y': 2,
+    '_triggers' : ['passout'],
     '_walls': {
         'e': {
-            'name': 'EHall328', 
+            'name': 'EHall328',
             'image': 'R320-east.jpg',
             'destination': {
                 'x': 4
             },
-			'_props' : {
+            '_props' : {
                 'smoke': {
                     'name': 'smoke',
                     'image': 'smokeScreen.png',
@@ -35,13 +35,13 @@
                         'conversationName': 'Smoke'
                     }
                 }
-			}
+            }
         },
         'w': {
             'name': 'WHall328',
             'image': 'R320-west.jpg',
-			'_props' : {
-				'smokeSafe': {
+            '_props' : {
+                'smokeSafe': {
                     'name': 'smokeSafe',
                     'image': 'smokeScreen.png',
                     'width': 1300,
@@ -53,16 +53,16 @@
                         'conversationName': 'Smoke'
                     }
                 }
-			}
+            }
         },
         'n': {
-            'name': 'NHall328',   
+            'name': 'NHall328',
             'image': 'R320-north.jpg',
             'destination': {
                 'y': 3
             },
-			'_triggers' : ['activatePassout','dangerwarningSmoke'],
-			'_props' : {
+            '_triggers' : ['activatePassout','dangerwarningSmoke'],
+            '_props' : {
                 'smoke': {
                     'name': 'smoke',
                     'image': 'smokeScreen.png',
@@ -90,13 +90,13 @@
             }
         },
         's': {
-            'name': 'SHall328', 
+            'name': 'SHall328',
             'image': 'R320-south.jpg',
             'destination': {
                 'y': 1
             },
             '_props' : {
-			'smokeSafe': {
+            'smokeSafe': {
                     'name': 'smokeSafe',
                     'image': 'smokeScreen.png',
                     'width': 1300,

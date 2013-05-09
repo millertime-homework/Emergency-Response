@@ -2,7 +2,7 @@
     'events': {
         'removeFromScene': ['heavy'],
         'addToScene': ['heavy-on-floor'],
-		'completeObjective' : ['moveHeavyObjects'],
+        'completeObjective' : ['moveHeavyObjects'],
         'addPoints': 15
     }
 }

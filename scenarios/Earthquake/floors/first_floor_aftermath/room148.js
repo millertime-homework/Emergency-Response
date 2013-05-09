@@ -2,7 +2,7 @@
     'id': 'hall148',
     'x': 1,
     'y': 4,
-	'_triggers' : ['deactivateElectrocute','footInjury'],
+    '_triggers' : ['deactivateElectrocute','footInjury'],
     '_walls': {
         'e': {
             'name': 'EHall148',
@@ -10,7 +10,7 @@
             'destination': {
                 'x': 2
             },
-			'_props': {
+            '_props': {
                 'brokenGlass': {
                     'name': 'brokenGlass',
                     'image': 'brokenGlass.png',
@@ -18,8 +18,8 @@
                     'height': 25,
                     'left': 520,
                     'top': 330
-			    },
-				'bridgeDoor': {
+                },
+                'bridgeDoor': {
                     'name': 'bridgeDoor',
                     'image': 'doordown.png',
                     'width': 40,
@@ -27,7 +27,7 @@
                     'left': 540,
                     'top': 325
                 },
-				'mrs-wheelchair': {
+                'mrs-wheelchair': {
                     'name': 'mrs_wheelchair',
                     'image': 'manFront.png',
                     'width': 275,
@@ -39,7 +39,7 @@
                         'conversationName': 'James'
                     }
                 }
-			}
+            }
         },
         'w': {
             'name': 'WHall148',
@@ -47,32 +47,32 @@
             'destination': {
                 'x': 0
             },
-			'_props' : {
-				'bikeMangled' : {
-					'named' : 'bikeMangled',
-					'image' : 'bikeMangle.png',
-					'width': 50,
+            '_props' : {
+                'bikeMangled' : {
+                    'named' : 'bikeMangled',
+                    'image' : 'bikeMangle.png',
+                    'width': 50,
                     'height': 65,
                     'left': 532,
                     'top': 277,
-				},
-				'beam' : {
-					'named' : 'beam',
-					'image' : 'beam.png',
-					'width': 12,
+                },
+                'beam' : {
+                    'named' : 'beam',
+                    'image' : 'beam.png',
+                    'width': 12,
                     'height': 85,
                     'left': 528,
                     'top': 275
-				},
-				'bikeMoved' : {
-					'named' : 'bikeMoved',
-					'image' : 'bikeMoved.png',
-					'width': 30,
+                },
+                'bikeMoved' : {
+                    'named' : 'bikeMoved',
+                    'image' : 'bikeMoved.png',
+                    'width': 30,
                     'height': 55,
                     'left': 575,
                     'top': 290
-				}
-			}
+                }
+            }
         },
         'n': {
             'name': 'NHall148',
@@ -87,7 +87,7 @@
             'destination': {
                 'y': 3
             },
-			'_props' : {
+            '_props' : {
                 'Downedwire': {
                     'name': 'Downedwire',
                     'image': 'wire.png',
@@ -96,7 +96,7 @@
                     'left': 483,
                     'top': 220
                 },
-				'Movedwire': {
+                'Movedwire': {
                     'name': 'Movedwire',
                     'image': 'wire-moved.png',
                     'width': 160,
@@ -104,14 +104,14 @@
                     'left': 483,
                     'top': 220
                 },
-				'Luke2' : {    
-					'name': 'Luke2',
+                'Luke2' : {
+                    'name': 'Luke2',
                     'image': 'RunnerBack.png',
                     'width': 33,
                     'height': 100,
                     'left': 500,
                     'top': 275
-				}
+                }
             }
         }
     }

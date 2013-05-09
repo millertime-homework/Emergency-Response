@@ -4,7 +4,7 @@
         'replies': {
             'Hi, Mrs. Foo.': 2
         },
-		'triggers' : ['completeSpeakWithFoo','stopHiFoo']
+        'triggers' : ['completeSpeakWithFoo','stopHiFoo']
     },
     '2': {
         'message': 'You should really try out the Emergency Response Game on my computer!',

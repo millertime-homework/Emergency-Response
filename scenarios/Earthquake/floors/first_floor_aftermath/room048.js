@@ -10,8 +10,8 @@
             'destination': {
                 'x': 1
             },
-			'_props' : {
-				'wheelchair':{
+            '_props' : {
+                'wheelchair':{
                     'name':'the_wheelchair',
                     'image':'manFront.png',
                     'width':45,
@@ -19,17 +19,17 @@
                     'left': 535,
                     'top': 305,
                 }
-			}
+            }
         },
         'w': {
             'name': 'WHall048',
             'image': 'R040-west.jpg',
             '_props' : {
-				'bikeMangled' : {
-					'name' : 'bikeMangled',
-					'image' : 'bikeMangle.png',
+                'bikeMangled' : {
+                    'name' : 'bikeMangled',
+                    'image' : 'bikeMangle.png',
                     'hoverImage' : 'bikeMangleHover.png',
-					'width': 350,
+                    'width': 350,
                     'height': 425,
                     'left': 355,
                     'top': 140,
@@ -37,19 +37,19 @@
                     'actionVariables': {
                         'conversationName': 'A Mangled Bike'
                     }
-				},
-				'beam' : {
-					'name' : 'beam',
-					'image' : 'beam.png',
-					'width': 60,
+                },
+                'beam' : {
+                    'name' : 'beam',
+                    'image' : 'beam.png',
+                    'width': 60,
                     'height': 450,
                     'left': 385,
                     'top': 130,
-				},
-				'bikeMoved' : {
-					'name' : 'bikeMoved',
-					'image' : 'bikeMoved.png',
-					'width': 100,
+                },
+                'bikeMoved' : {
+                    'name' : 'bikeMoved',
+                    'image' : 'bikeMoved.png',
+                    'width': 100,
                     'height': 300,
                     'left': 750,
                     'top': 300,
@@ -57,7 +57,7 @@
                     'actionVariables': {
                         'conversationName': 'A Bike against the wall.'
                     }
-				},
+                },
                 'west-exit': {
                     'name': 'west-exit',
                     'image': 'door.png',
@@ -71,7 +71,7 @@
                         'conversationName': 'Exit Building'
                     }
                 }
-			}
+            }
         },
         'n': {
             'name': 'NHall048',

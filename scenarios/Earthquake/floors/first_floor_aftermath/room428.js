@@ -1,11 +1,11 @@
 'room428': {
-    'id': 'hall428', 
-    'x': 4, 
+    'id': 'hall428',
+    'x': 4,
     'y': 2,
-	'_triggers' : ['passout'],
+    '_triggers' : ['passout'],
     '_walls': {
         'e': {
-            'name': 'EHall428', 
+            'name': 'EHall428',
             'image': 'R420-east.jpg'
         },
         'w': {
@@ -14,8 +14,8 @@
             'destination': {
                 'x': 3
             },
-			'_triggers' : ['dangerwarningSmoke','activatePassout'],
-			'_props' : {
+            '_triggers' : ['dangerwarningSmoke','activatePassout'],
+            '_props' : {
                 'smoke': {
                     'name': 'smoke',
                     'image': 'smokeScreen.png',
@@ -40,14 +40,14 @@
                         'conversationName': 'Smoke'
                     }
                 }
-			}
+            }
         },
         'n': {
-            'name': 'NHall428',   
+            'name': 'NHall428',
             'image': 'R420-north.jpg'
         },
         's': {
-            'name': 'SHall428', 
+            'name': 'SHall428',
             'image': 'R420-south.jpg',
             'destination': {
                 'y': 1

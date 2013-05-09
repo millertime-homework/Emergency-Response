@@ -2,21 +2,21 @@
      'id': 'outside',
      'x': 0,
      'y': 0,
-	 '_triggers' : ['completeAvoidObstacles','failAftermathObjectives'],
+     '_triggers' : ['completeAvoidObstacles','failAftermathObjectives'],
      '_walls': {
           'outsideBuilding': {
               'name': 'facingSchool',
               'image': 'facingSchool.jpg',
               'isCutscene': true,
-			  '_triggers' : ['startEBCconvo'],
+              '_triggers' : ['startEBCconvo'],
               '_props': {
-				  'ambulance': { 
-					  'name': 'ambulance', 
-					  'image': 'ambulance.png', 
-					  'width': 634, 
-					  'height': 500, 
-					  'left': 200, 
-					  'top': 200 
+                  'ambulance': {
+                      'name': 'ambulance',
+                      'image': 'ambulance.png',
+                      'width': 634,
+                      'height': 500,
+                      'left': 200,
+                      'top': 200
                   },
                   'coordinator': {
                       'name': 'coordinator',
@@ -32,11 +32,11 @@
                   }
               }
           },
-		  'died' : {
-		      'name' : 'badEnding',
-			  'image' : 'dead.jpg',
-			  'isCutscene' : true,
-			  '_triggers' : ['failEvacuate']
-		  }
+          'died' : {
+              'name' : 'badEnding',
+              'image' : 'dead.jpg',
+              'isCutscene' : true,
+              '_triggers' : ['failEvacuate']
+          }
      }
 }

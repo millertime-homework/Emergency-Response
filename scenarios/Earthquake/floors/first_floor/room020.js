@@ -17,7 +17,7 @@
         'n': {
             'name': 'NClassroom020',
             'image': 'R020-north.jpg',
-			'_props':{
+            '_props':{
                 'burner':{
                     'name':'burner',
                     'image':'bburner.png',
@@ -26,12 +26,12 @@
                     'height': 225,
                     'left': 565,
                     'top': 190,
-					'action': 'showConversation',
+                    'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Bunsen Burner'
                     },
-				},
-		        'rag':{
+                },
+                'rag':{
                     'name':'rag',
                     'image':'rag.png',
                     'hoverImage':'ragHover.png',
@@ -43,8 +43,8 @@
                     'actionVariables': {
                         'conversationName' : 'Rag'
                     }
-				},
-				'bugSpray':{
+                },
+                'bugSpray':{
                     'name':'bugSpray',
                     'image':'spray.png',
                     'hoverImage':'sprayHover.png',
@@ -57,7 +57,7 @@
                         'conversationName' : 'Spray'
                     }
                 }
-			}
+            }
         },
         's': {
             'name': 'SClassroom020',

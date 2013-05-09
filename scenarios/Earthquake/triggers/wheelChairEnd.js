@@ -4,8 +4,8 @@
     }
 },
 'savedJames' : {
-	'events' : {
-		'addPoints' : [15],
-		'completeObjective' : ['saveJames']
-	}
+    'events' : {
+        'addPoints' : [15],
+        'completeObjective' : ['saveJames']
+    }
 }

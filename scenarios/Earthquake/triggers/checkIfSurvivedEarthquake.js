@@ -1,5 +1,5 @@
 'checkIfSurvivedEarthquake': {
-	'timeDelay' : 250,
+    'timeDelay' : 250,
     'events': {
         'completeObjective': ['surviveEarthquake'],
         'setObjective': ['evacuateSchool', 'Evacuate the School safely'],

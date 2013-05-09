@@ -1,6 +1,6 @@
 'completeHeat' : {
-	'events' : {
-		'addPoints' : [15],
-		'completeObjective' : ['awayFromHeat']
-	}
+    'events' : {
+        'addPoints' : [15],
+        'completeObjective' : ['awayFromHeat']
+    }
 }

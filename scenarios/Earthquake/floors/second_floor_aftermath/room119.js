@@ -52,7 +52,7 @@
             'destination': {
                 'y': 2
             },
-			'_props' : {
+            '_props' : {
                 'ProfXavAoR': {
                     'name': 'ProfXavAoR',
                     'image': 'XavHurt.png',
@@ -65,7 +65,7 @@
                         'conversationName': 'Injured Professor'
                     }
                 }
-			}
+            }
         },
         's': {
             'name': 'SHall119',

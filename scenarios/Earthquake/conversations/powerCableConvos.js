@@ -30,5 +30,4 @@
     '2' : {
         'triggers' : ['takeDoorFrame']
     }
-},
-        
+}

@@ -1,8 +1,8 @@
 'room138': {
     'id': 'hall138',
-    'x': 1, 
+    'x': 1,
     'y': 3,
-	'_triggers': ['lukeRunsPast','electrocute'],
+    '_triggers': ['lukeRunsPast','electrocute'],
     '_walls': {
         'e': {
             'name': 'NHall138',
@@ -31,16 +31,16 @@
             'destination': {
                 'y': 2
             },
-			'_triggers' : ['dangerwarningPowerLines','activateElectrocute'],
-		    '_props' : {
-			    'doorFrame': {
-					'name': 'doorFrame',
-					'image': 'doorframe2.png',
-					'width': 25,
-					'height': 25,
-					'left': 540,
-					'top': 325
-				},
+            '_triggers' : ['dangerwarningPowerLines','activateElectrocute'],
+            '_props' : {
+                'doorFrame': {
+                    'name': 'doorFrame',
+                    'image': 'doorframe2.png',
+                    'width': 25,
+                    'height': 25,
+                    'left': 540,
+                    'top': 325
+                },
                 'Downedwire': {
                     'name': 'Downedwire',
                     'image': 'wire.png',
@@ -48,12 +48,12 @@
                     'height': 250,
                     'left': 370,
                     'top': 120,
-			        'action': 'showConversation',
+                    'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Hanging wires'
                     }
                 },
-				'Movedwire': {
+                'Movedwire': {
                     'name': 'Movedwire',
                     'image': 'wire-moved.png',
                     'width': 385,
@@ -61,33 +61,33 @@
                     'left': 370,
                     'top': 120
                 },
-				'Luke2' : {    
-					'name': 'Luke2',
+                'Luke2' : {
+                    'name': 'Luke2',
                     'image': 'RunnerBack.png',
                     'width': 41,
                     'height': 125,
                     'left': 500,
                     'top': 275
-				}
+                }
             }
         },
-		'Runscene': {
+        'Runscene': {
             'name': 'Runscene',
             'image': 'R130-north.jpg',
-			'isCutscene': true,
+            'isCutscene': true,
             'destination': {
                 'x': 2
             },
-			'_props' : {
-			    'Luke' : {    
-					'name': 'Luke',
+            '_props' : {
+                'Luke' : {
+                    'name': 'Luke',
                     'image': 'RunnerFront.png',
                     'width': 113,
                     'height': 300,
                     'left': 475,
                     'top': 250
-				}
-			}
+                }
+            }
         },
     }
 }

@@ -1,23 +1,23 @@
-'failAftermathObjectives' : {	
-	'startTriggers' : ['failSaveLukeObjective','failSaveJamesObjective','failSaveXavierObjective','avoidObstaclesObjective']
+'failAftermathObjectives' : {
+    'startTriggers' : ['failSaveLukeObjective','failSaveJamesObjective','failSaveXavierObjective','avoidObstaclesObjective']
 },
 'failSaveLukeObjective' : {
-	'events' : {
-		'failObjective' : ['saveLuke']
-	}
+    'events' : {
+        'failObjective' : ['saveLuke']
+    }
 },
 'failSaveJamesObjective' : {
-	'events' : {
-		'failObjective' : ['saveJames']
-	}
+    'events' : {
+        'failObjective' : ['saveJames']
+    }
 },
 'failSaveXavierObjective' : {
-	'events' : {
-		'failObjective' : ['saveXavier']
-	}
+    'events' : {
+        'failObjective' : ['saveXavier']
+    }
 },
 'failEvacuate' : {
-	'events' : {
-		'failObjective' : ['evacuateSchool']
-	}
+    'events' : {
+        'failObjective' : ['evacuateSchool']
+    }
 }

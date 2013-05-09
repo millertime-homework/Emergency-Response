@@ -9,15 +9,15 @@
             'destination': {
                 'x': 1
             },
-			'_props': {
-				'smBookcase' : {
-					'name' : 'smBookcase',
-					'image' : 'smBookcaseside.png',
-					'width': 200,
+            '_props': {
+                'smBookcase' : {
+                    'name' : 'smBookcase',
+                    'image' : 'smBookcaseside.png',
+                    'width': 200,
                     'height': 150,
                     'left': 75,
-                    'top': 365	
-				},
+                    'top': 365
+                },
                 'heavy': {
                     'name': 'heavy',
                     'image': 'largeTVside.png',
@@ -47,15 +47,15 @@
         'n': {
             'name': 'NClassroom000',
             'image': 'R000-north.jpg',
-			'_props': {
-				'smBookcase' : {
-					'name' : 'smBookcase',
-					'image' : 'smBookcase.png',
-					'width': 200,
+            '_props': {
+                'smBookcase' : {
+                    'name' : 'smBookcase',
+                    'image' : 'smBookcase.png',
+                    'width': 200,
                     'height': 150,
                     'left': 705,
-                    'top': 330	
-				},
+                    'top': 330
+                },
                 'heavy': {
                     'name': 'heavy',
                     'image': 'largeTV.png',

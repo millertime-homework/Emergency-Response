@@ -32,8 +32,8 @@
             'image': 'R100-north.jpg',
             'destination': {
                 'y': 1
-            },			
-			'_props' : {
+            },
+            '_props' : {
                 'Downedwire': {
                     'name': 'Downedwire',
                     'image': 'wire.png',
@@ -42,7 +42,7 @@
                     'left': 530,
                     'top': 275
                 },
-				'Movedwire': {
+                'Movedwire': {
                     'name': 'Movedwire',
                     'image': 'wire-moved.png',
                     'width': 50,
@@ -50,7 +50,7 @@
                     'left': 530,
                     'top': 275
                 },
-				'doorFrame': {
+                'doorFrame': {
                     'name': 'doorFrame',
                     'image': 'doorframe2.png',
                     'width': 35,
@@ -58,18 +58,18 @@
                     'left': 534,
                     'top': 355,
                 },
-				'Luke2' : {    
-					'name': 'Luke2',
+                'Luke2' : {
+                    'name': 'Luke2',
                     'image': 'RunnerFront.png',
                     'width': 94,
                     'height': 250,
                     'left': 475,
                     'top': 250,
-					'action': 'showConversation',
-					'actionVariables': {
+                    'action': 'showConversation',
+                    'actionVariables': {
                         'conversationName': 'Luke'
                     }
-				}
+                }
             }
         },
         's': {
