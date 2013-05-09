@@ -9,16 +9,16 @@
             'destination': {
                 'x': 1
             },
-			'_triggers' : ['hiComputer', 'walkedAwayFromConversation'],
-			'_props': {
-				'desk' : {
-					'name' : 'desk',
-					'image' : 'sturdy-desk.png',
-					'width': 340,
+            '_triggers' : ['hiComputer', 'walkedAwayFromConversation'],
+            '_props': {
+                'desk' : {
+                    'name' : 'desk',
+                    'image' : 'sturdy-desk.png',
+                    'width': 340,
                     'height': 185,
                     'left': 250,
                     'top': 400
-				},
+                },
                 'computer': {
                     'name': 'computer',
                     'image': 'computer.png',
@@ -37,11 +37,11 @@
         },
         'w': {
             'name': 'WClassroom030',
-            'image': 'R030-west.jpg',
+            'image': 'R030-west.jpg'
         },
         'n': {
             'name': 'NClassroom030',
-            'image': 'R030-north.jpg',
+            'image': 'R030-north.jpg'
         },
         's': {
             'name': 'SClassroom030',

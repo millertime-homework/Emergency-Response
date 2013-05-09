@@ -1,4 +1,4 @@
 'playerRuns':{
     'disabled' : true,
-    'startTrigger': ['getOutOfBuilding'],
+    'startTrigger': ['getOutOfBuilding']
 }

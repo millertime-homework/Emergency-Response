@@ -5,7 +5,7 @@
     '_walls': {
         'e': {
             'name': 'EHall540',
-            'image': 'R540-east.jpg',
+            'image': 'R540-east.jpg'
         },
         'w': {
             'name': 'WHall540',
@@ -16,7 +16,7 @@
         },
         'n': {
             'name': 'NHall540',
-            'image': 'R540-north.jpg',
+            'image': 'R540-north.jpg'
         },
         's': {
             'name': 'SHall540',

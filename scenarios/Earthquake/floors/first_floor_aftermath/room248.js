@@ -1,15 +1,15 @@
 'room248': {
-    'id': 'hall248', 
-    'x': 2, 
+    'id': 'hall248',
+    'x': 2,
     'y': 4,
     '_walls': {
         'e': {
-            'name': 'EHall248', 
+            'name': 'EHall248',
             'image': 'R240-east.jpg',
             'destination': {
                 'x': 3
             },
-			'_props': {
+            '_props': {
                 'brokenGlass': {
                     'name': 'brokenGlass',
                     'image': 'brokenGlass.png',
@@ -17,7 +17,7 @@
                     'height': 25,
                     'left': 500,
                     'top': 350
-			    },
+                },
                 'brokenDoor': {
                     'name': 'brokenDoor',
                     'image': 'dooraskew.png',
@@ -34,7 +34,6 @@
                     'left': 530,
                     'top': 340
                 }
-       
             }
         },
         'w': {
@@ -43,31 +42,31 @@
             'destination': {
                 'x': 1
             },
-			'_props': {
-				'bikeMangled' : {
-					'named' : 'bikeMangled',
-					'image' : 'bikeMangle.png',
-					'width': 35,
+            '_props': {
+                'bikeMangled' : {
+                    'named' : 'bikeMangled',
+                    'image' : 'bikeMangle.png',
+                    'width': 35,
                     'height': 50,
                     'left': 540,
-                    'top': 280,
-				},
-				'beam' : {
-					'named' : 'beam',
-					'image' : 'beam.png',
-					'width': 13,
+                    'top': 280
+                },
+                'beam' : {
+                    'named' : 'beam',
+                    'image' : 'beam.png',
+                    'width': 13,
                     'height': 55,
                     'left': 535,
                     'top': 280
-				},
-				'bikeMoved' : {
-					'named' : 'bikeMoved',
-					'image' : 'bikeMoved.png',
-					'width': 15,
+                },
+                'bikeMoved' : {
+                    'named' : 'bikeMoved',
+                    'image' : 'bikeMoved.png',
+                    'width': 15,
                     'height': 30,
                     'left': 580,
                     'top': 300
-				},
+                },
                 'mrs-wheelchair': {
                     'name': 'mrs_wheelchair',
                     'image': 'manLeft.png',
@@ -83,11 +82,11 @@
             }
         },
         'n': {
-            'name': 'NHall248',   
+            'name': 'NHall248',
             'image': 'R240-north.jpg'
         },
         's': {
-            'name': 'SHall248', 
+            'name': 'SHall248',
             'image': 'R240-south.jpg'
         }
     }

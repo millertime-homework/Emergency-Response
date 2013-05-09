@@ -1,12 +1,12 @@
 'room540': {
-    'id': 'hall540', 
-    'x': 5, 
+    'id': 'hall540',
+    'x': 5,
     'y': 4,
     'annotation': 'AnnotationExit.png',
     '_walls': {
         'e': {
-            'name': 'EHall540', 
-            'image': 'R540-east.jpg',
+            'name': 'EHall540',
+            'image': 'R540-east.jpg'
         },
         'w': {
             'name': 'WHall540',
@@ -16,11 +16,11 @@
             }
         },
         'n': {
-            'name': 'NHall540',   
-            'image': 'R540-north.jpg',
+            'name': 'NHall540',
+            'image': 'R540-north.jpg'
         },
         's': {
-            'name': 'SHall540', 
+            'name': 'SHall540',
             'image': 'R540-south.jpg'
         }
     }

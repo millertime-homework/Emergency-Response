@@ -1,12 +1,12 @@
 'room548': {
-    'id': 'hall548', 
-    'x': 5, 
+    'id': 'hall548',
+    'x': 5,
     'y': 4,
-	'_triggers' : ['footInjury'],
+    '_triggers' : ['footInjury'],
     'annotation': 'AnnotationExit.png',
     '_walls': {
         'e': {
-            'name': 'EHall548', 
+            'name': 'EHall548',
             'image': 'R540-east.jpg',
             '_props': {
                 'east-exit': {
@@ -30,14 +30,14 @@
             'destination': {
                 'x': 4
             },
-			'_props' : {
-	            'wheelchair':{
+            '_props' : {
+                'wheelchair':{
                     'name':'the_wheelchair',
                     'image':'manLeft.png',
                     'width':30,
                     'height':30,
                     'left': 540,
-                    'top': 300,
+                    'top': 300
                 },
                 'brokenGlass': {
                     'name': 'brokenGlass',
@@ -50,8 +50,8 @@
                     'actionVariables': {
                         'conversationName': 'Broken glass'
                     }
-			    },
-				'bridgeDoor': {
+                },
+                'bridgeDoor': {
                     'name': 'bridgeDoor',
                     'image': 'doordown.png',
                     'width': 78,
@@ -63,14 +63,14 @@
                         'conversationName': 'Broken glass'
                     }
                 }
-			}
+            }
         },
         'n': {
-            'name': 'NHall548',   
-            'image': 'R540-north.jpg',
+            'name': 'NHall548',
+            'image': 'R540-north.jpg'
         },
         's': {
-            'name': 'SHall548', 
+            'name': 'SHall548',
             'image': 'R540-south.jpg'
         }
     }

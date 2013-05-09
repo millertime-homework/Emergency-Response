@@ -43,11 +43,11 @@
         },
         'triggers': ['wheelChairEnd','savedJames']
     },
-	'6' : {
-		'message' : 'The wheelchair is now locked.',
-		'replies' : {
-			'Carefully help him into the wheelchair.':4
-		},
-		'triggers': ['lockChair']
-	}
+    '6' : {
+        'message' : 'The wheelchair is now locked.',
+        'replies' : {
+            'Carefully help him into the wheelchair.':4
+        },
+        'triggers': ['lockChair']
+    }
 }

@@ -24,7 +24,7 @@
     'enableTriggers' : ['shotOnStairPlatform', 'getShotAtYopOfStairs'],
     'events': {
         'addToScene': ['shooter121E', 'shooter321W']
-    },
+    }
 },
 'shotOnStairPlatform':{
     'disabled' : true,
@@ -37,6 +37,6 @@
     'disabled': true,
     'timeDelay': 750,
     'events' : {
-        'endGame': ['Game Over', "You ran towards the shooter and he shot you!"],
+        'endGame': ['Game Over', "You ran towards the shooter and he shot you!"]
     }
 }

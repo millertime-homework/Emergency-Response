@@ -16,7 +16,7 @@
         },
         'n': {
             'name': 'NHall040',
-            'image': 'R040-north.jpg',
+            'image': 'R040-north.jpg'
         },
         's': {
             'name': 'SHall040',

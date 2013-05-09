@@ -2,7 +2,7 @@
     'abortTriggers': ['timeToTakeCover'],
     'deleteTriggers': ['timeToTakeCover'],
     'events': {
-        'stopEarthquake': ['survivedEarthquakeXavier'],
+        'stopEarthquake': ['survivedEarthquakeXavier']
     },
     'lives': Infinity
 }

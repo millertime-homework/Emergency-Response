@@ -1,6 +1,6 @@
 'gotToClass': {
     'events': {
-        'completeObjective': ['getToClass'],
+        'completeObjective': ['getToClass']
     },
     'timeDelay': 1000,
     'startTriggers': ['activateShooter'],

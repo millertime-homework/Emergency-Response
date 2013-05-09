@@ -16,24 +16,24 @@
             'destination': {
                 'x': 0
             },
-			'_props' : {
-				'bike' : {
-					'named' : 'bike',
-					'image' : 'bike.png',
-					'width': 65,
+            '_props' : {
+                'bike' : {
+                    'named' : 'bike',
+                    'image' : 'bike.png',
+                    'width': 65,
                     'height': 50,
                     'left': 515,
-                    'top': 300,
-				},
-				'bikeMoved' : {
-					'named' : 'bikeMoved',
-					'image' : 'bikeMoved.png',
-					'width': 30,
+                    'top': 300
+                },
+                'bikeMoved' : {
+                    'named' : 'bikeMoved',
+                    'image' : 'bikeMoved.png',
+                    'width': 30,
                     'height': 55,
                     'left': 575,
                     'top': 290
-				}
-			}
+                }
+            }
         },
         'n': {
             'name': 'NHall140',

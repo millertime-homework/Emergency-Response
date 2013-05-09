@@ -17,7 +17,7 @@
                     'top': 63,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'evac_second_floor',
+                        'conversationName': 'evac_second_floor'
                     }
                 }
             }
@@ -52,7 +52,7 @@
             'destination': {
                 'y': 2
             },
-			'_props' : {
+            '_props' : {
                 'ProfXavAoR': {
                     'name': 'ProfXavAoR',
                     'image': 'XavHurt.png',
@@ -65,7 +65,7 @@
                         'conversationName': 'Injured Professor'
                     }
                 }
-			}
+            }
         },
         's': {
             'name': 'SHall119',

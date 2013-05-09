@@ -1,3 +1,3 @@
 'wheelChairPoints' : {
-    'addPoints' : [20],
+    'addPoints' : [20]
 }

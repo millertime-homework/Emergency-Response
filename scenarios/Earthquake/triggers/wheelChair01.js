@@ -1,3 +1,3 @@
 'wheelChair01' : {
-    'enableTriggers' :['wheelChair00'] 
+    'enableTriggers' :['wheelChair00']
 }

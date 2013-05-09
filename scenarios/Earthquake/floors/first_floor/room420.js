@@ -1,11 +1,11 @@
 'room420': {
-    'id': 'hall420', 
-    'x': 4, 
+    'id': 'hall420',
+    'x': 4,
     'y': 2,
     '_walls': {
         'e': {
-            'name': 'EHall420', 
-            'image': 'R420-east.jpg',
+            'name': 'EHall420',
+            'image': 'R420-east.jpg'
         },
         'w': {
             'name': 'WHall420',
@@ -13,8 +13,8 @@
             'destination': {
                 'x': 3
             },
-			'_props' : {
-			    'pictureframeid':{
+            '_props' : {
+                'pictureframeid':{
                     'name': 'pictureframeprop',
                     'image': 'picture.png',
                     'width': 100,
@@ -26,14 +26,14 @@
                         'conversationName': 'A picture frame'
                     }
                 }
-			}
+            }
         },
         'n': {
-            'name': 'NHall420',   
+            'name': 'NHall420',
             'image': 'R420-north.jpg'
         },
         's': {
-            'name': 'SHall420', 
+            'name': 'SHall420',
             'image': 'R420-south.jpg',
             'destination': {
                 'y': 1

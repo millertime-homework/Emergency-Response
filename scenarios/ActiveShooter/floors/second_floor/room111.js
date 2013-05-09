@@ -18,7 +18,7 @@
                     'top': 68,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'evac_second_floor',
+                        'conversationName': 'evac_second_floor'
                     }
                 }
             }

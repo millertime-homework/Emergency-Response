@@ -1,23 +1,23 @@
 'failprepSchoolObjectives' : {
-	'startTriggers' : ['failplaqueObjective','failmoveBikeObjective','failheatObjective','failheavyObjectsObjective']
+    'startTriggers' : ['failplaqueObjective','failmoveBikeObjective','failheatObjective','failheavyObjectsObjective']
 },
 'failplaqueObjective' : {
-	'events' : {
-		'failObjective' : ['fixPlaque']
-	}
+    'events' : {
+        'failObjective' : ['fixPlaque']
+    }
 },
 'failmoveBikeObjective' : {
-	'events' : {
-		'failObjective' : ['moveBike']
-	}
+    'events' : {
+        'failObjective' : ['moveBike']
+    }
 },
 'failheatObjective' : {
-	'events' : {
-		'failObjective' : ['awayFromHeat']
-	}
+    'events' : {
+        'failObjective' : ['awayFromHeat']
+    }
 },
 'failheavyObjectsObjective' : {
-	'events' : {
-		'failObjective' : ['moveHeavyObjects']
-	}
+    'events' : {
+        'failObjective' : ['moveHeavyObjects']
+    }
 }

@@ -1,11 +1,11 @@
 'room400': {
-    'id': 'hall400', 
-    'x': 4, 
+    'id': 'hall400',
+    'x': 4,
     'y': 0,
     '_walls': {
         'e': {
-            'name': 'EHall400', 
-            'image': 'R400-east.jpg',
+            'name': 'EHall400',
+            'image': 'R400-east.jpg'
         },
         'w': {
             'name': 'WHall400',
@@ -15,12 +15,12 @@
             }
         },
         'n': {
-            'name': 'NHall400',   
+            'name': 'NHall400',
             'image': 'R400-north.jpg',
             'destination': {
                 'y': 1
             },
-			'_props':{
+            '_props':{
                 'screwdriver':{
                     'name':'screwdriver',
                     'image':'screwdriver.png',
@@ -33,11 +33,11 @@
                     'actionVariables': {
                         'conversationName': 'screwdriverconvo'
                     }
-                },
+                }
             }
         },
         's': {
-            'name': 'SHall400', 
+            'name': 'SHall400',
             'image': 'R400-south.jpg'
         }
     }

@@ -1,6 +1,6 @@
 'scoreERGpoints' : {
-	'events' : {
-		'addPoints' : [6]
-	},
-	'lives' : 10
+    'events' : {
+        'addPoints' : [6]
+    },
+    'lives' : 10
 }
