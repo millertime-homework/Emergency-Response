@@ -2,7 +2,7 @@
     '1': {
         'message': 'This Door is locked.',
         'replies': {
-            'Okay': 0,
+            'Okay': 0
         }
     }
 }

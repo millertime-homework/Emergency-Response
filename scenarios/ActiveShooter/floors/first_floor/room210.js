@@ -18,7 +18,7 @@
                     'top': 50,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'evac_first_floor',
+                        'conversationName': 'evac_first_floor'
                     }
                 }
             }
@@ -59,7 +59,7 @@
             'name': 'NHall210',
             'image': 'R210-north.jpg',
             'destination': {
-                'y': 2,
+                'y': 2
             },
             '_props': {
                 'Fire-Extinguisher': {

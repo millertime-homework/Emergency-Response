@@ -3,7 +3,7 @@
         'message': 'Hey, what\'s going on out there? We\'re staying right here untill everything cools down.',
         'replies': {
             'Yeah, good idea. I think the shooter is close by, we better just stay put until help arives.' : 2,
-            'Hey, I don\'t think this is a good idea. We should try to find a room with a lock on the door.' : 3,
+            'Hey, I don\'t think this is a good idea. We should try to find a room with a lock on the door.' : 3
         }
     },
     '2': {

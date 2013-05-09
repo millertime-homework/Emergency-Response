@@ -23,7 +23,7 @@
         }
     },
     '5' : {
-        'requires': {'objectivesNotInProgress':['hideFromShooter']},
+        'requires': {'objectivesNotInProgress':['hideFromShooter']}
     }
 },
 'turnOffLights031' : {
@@ -31,7 +31,7 @@
         'message' : 'Turn off lights?',
         'replies': {
             'Leave them alone.': '0',
-            "Turn them off.": '2',
+            "Turn them off.": '2'
         }
     },
     '2':{ 
@@ -47,7 +47,7 @@
         'message' : 'What do you want to do to the lights?',
         'replies': {
             'Turn them on.': '3',
-            "Turn them off.": '2',
+            "Turn them off.": '2'
         }
     },
     '2' : {
