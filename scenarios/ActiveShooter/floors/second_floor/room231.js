@@ -6,9 +6,6 @@
         'e': {
             'name': 'ELibrary231',
             'image': 'R231-east.jpg',
-            'destination': {
-                'x': 3
-            },
             '_props' : {
                 'lockedDoor': {
                     'name': 'lockedDoor',

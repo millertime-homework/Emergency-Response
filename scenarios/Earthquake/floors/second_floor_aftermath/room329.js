@@ -13,10 +13,7 @@
         },
         'n': {
             'name': 'NHall329',
-            'image': 'R321-north.jpg',
-            'destination': {
-                'y': 3
-            }
+            'image': 'R321-north.jpg'
         },
         's': {
             'name': 'SHall329',
