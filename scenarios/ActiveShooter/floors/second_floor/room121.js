@@ -26,9 +26,6 @@
         'w': {
             'name': 'WHall121',
             'image': 'R121-west.jpg',
-            'destination': {
-                'x': 0
-            },
             '_props' : {
                 'lockedDoor': {
                     'name': 'lockedDoor',
