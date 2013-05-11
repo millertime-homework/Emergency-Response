@@ -1,3 +1,3 @@
 'begin': {
-    'startTriggers': ['goPickUpBook', 'goPickUpBookHint', 'hideFirstFloorRoomAnnotations', 'hideSecondFloorRoomAnnotations']
+    'startTriggers': ['askName', 'goPickUpBook', 'goPickUpBookHint', 'hideFirstFloorRoomAnnotations', 'hideSecondFloorRoomAnnotations']
 }

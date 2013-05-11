@@ -1,19 +1,27 @@
 'Suzie': {
     '1': {
+        'check': [{'objectivesInProgress': ['studentsGatherWeapons031'], 'goto': 2},
+                  {'objectivesCompleted': ['studentsGatherWeapons031'], 'goto': 5}],
+        'message': 'Hey PLAYERNAME. Can you come back later?',
+        'replies': {
+            'Okay': 0
+        }
+    },
+    '2': {
         'message': 'Hey, what\'s going on out there? We\'re staying right here untill everything cools down.',
         'replies': {
             'Yeah, good idea. I think the shooter is close by, we better just stay put until help arives.' : 2,
             'Hey, I don\'t think this is a good idea. We should try to find a room with a lock on the door.' : 3
         }
     },
-    '2': {
+    '3': {
         'message': 'Wait... I hear something. The shooter is right outside the door. I can hear him reloading.',
         'replies':{
             'Ok, everyone stay calm, let\'s just stay put.' : 5,
             'Ok, everyone very quietly look for a weapon. If the shooter comes in we\'re going to have to fight them' : 6
         }
     },
-    '3': {
+    '4': {
         'message': 'Wait! I hear something. [Everyone freezes, you can clearly hear someone reloading a gun right outside the door]',
         'replies':{
             'Ok, everyone stay calm, let\'s just stay put.' : 5,
