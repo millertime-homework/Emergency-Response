@@ -16,14 +16,14 @@
                       'width': 634,
                       'height': 500,
                       'left': 200,
-                      'top': 200
+                      'top': 100
                   },
                   'coordinator': {
                       'name': 'coordinator',
                       'image': 'responder4.png',
                       'width': 350,
                       'height': 734,
-                      'left': 125,
+                      'left': 375,
                       'top': 250,
                       'action': 'showConversation',
                       'actionVariables': {
