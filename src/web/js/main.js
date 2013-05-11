@@ -14,10 +14,6 @@ var gameState;
 var lastGameState;
 
 jQuery(document).ready(function($){
-    // ## INIT UI ##
-    // initMap()
-
     setGameState(GAME_STATE_MENU);
     sizeWindow();
-
 });
