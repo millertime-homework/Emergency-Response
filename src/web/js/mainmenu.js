@@ -17,7 +17,6 @@ jQuery(document).ready(function($){
         scenarioSelectModal.find('.option').remove();
         scenarioSelectModal.append('<div class="option"><span id="loadActiveShooter">' + ActiveShooterDef['name'] + '</span></div>').
         append('<div class="option"><span id="loadEarthquake">' + EarthquakeDef['name'] + '</span></div>').
-        append('<div class="option"><span id="loadTest">' + TestDef['name'] + '</span></div>').
         show();
         centerModal(scenarioSelectModal);
     })
@@ -31,11 +30,6 @@ jQuery(document).ready(function($){
     $("#loadEarthquake").live("click", function() {
         currentScenario = "EarthquakeDef";
         loadScenario(EarthquakeDef);
-    });
-
-    $("#loadTest").live("click", function() {
-        currentScenario = "TestDef";
-        loadScenario(TestDef);
     });
 
     $("#resume-button").click(function() {

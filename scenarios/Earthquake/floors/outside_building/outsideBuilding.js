@@ -20,7 +20,7 @@
                   },
                   'coordinator': {
                       'name': 'coordinator',
-                      'image': 'responder4.png',
+                      'image': 'responder.png',
                       'width': 350,
                       'height': 734,
                       'left': 375,
