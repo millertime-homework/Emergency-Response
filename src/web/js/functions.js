@@ -338,36 +338,11 @@ function setGameState(state) {
         allowKeyEvents = false;
         break;
     case GAME_STATE_OVER:
+        if (lastGameState === GAME_STATE_SHOW_OBJECTIVES) {
+            $('#objectives-modal').hide();
+        }
         positionGameOverModal(jQuery);
     }
-}
-
-function setObjective(name, displayText) {
-    scenario.objectives.inProgress[name] = displayText || name;
-    jQuery('#objective ul').empty();
-    jQuery('#objective ul').append('<li id="{0}">{1}</li>'.format(name, scenario.objectives.inProgress[name]));
-}
-
-function completeObjective(name) {
-    var objective = scenario.objectives.inProgress[name];
-    if (objective) {
-        scenario.objectives.completed[name] = objective;
-        delete scenario.objectives.inProgress[name];
-    }
-    jQuery('#objective').find('#' + name).remove();
-}
-
-function failObjective(name) {
-    var objective = scenario.objectives.inProgress[name];
-    if (objective) {
-        scenario.objectives.failed[name] = objective;
-        delete scenario.objectives.inProgress[name];
-    }
-    jQuery('#objective').find('#' + name).remove();
-}
-
-function clearObjective() {
-    jQuery('#objective').find('ul').empty();
 }
 
 function showNamedModal(modal, newAllowKeyEvents, newCanDismissModal) {
@@ -385,11 +360,6 @@ function showGameOver(header, body) {
     gameOverMenu.find('#game-over-score span').text(player.score);
     setGameState(GAME_STATE_OVER);
     gameOverMenu.show();
-}
-
-function showObjectives() {
-    showObjectivesIn(jQuery('#objectives-modal #objectives-list'));
-    setGameState(GAME_STATE_SHOW_OBJECTIVES);
 }
 
 function showPauseMenu() {
@@ -461,47 +431,6 @@ function showOnScreenMessage(message, duration) {
             show().
             delay(duration).
             fadeOut(300, function () { jQuery(this).remove(); });
-}
-
-function showObjectivesIn(element, markInProgressAsFailed) {
-    var objectivesInProgress, objectivesCompleted, objectivesFailed;
-
-    element.empty();
-
-    if (scenario) {
-        objectivesInProgress = scenario.getObjectivesInProgress();
-        objectivesCompleted = scenario.getObjectivesCompleted();
-        objectivesFailed = scenario.getObjectivesFailed();
-
-        if (markInProgressAsFailed) {
-            objectivesFailed = objectivesFailed.concat(objectivesInProgress);
-            objectivesInProgress = [];
-        }
-
-        if (objectivesInProgress.length > 0) {
-            showObjectives(element, objectivesInProgress, 'Current Objectives');
-        }
-
-        if (objectivesCompleted.length > 0) {
-            showObjectives(element, objectivesCompleted, 'Completed Objectives');
-        }
-
-        if (objectivesFailed.length > 0) {
-            showObjectives(element, objectivesFailed, 'Failed Objectives');
-        }
-    }
-
-    function showObjectives(container, list, header) {
-        var objectiveText;
-
-        container.append('<span class="pause-header bold-colored-text">{0}</span><br>'.format(header));
-        for (objectiveText in list) {
-            if (list.hasOwnProperty(objectiveText)) {
-                container.append('<span>{0}</span><br>'.format(list[objectiveText]));
-            }
-        }
-        container.append('<p>');
-    }
 }
 
 function showInventory() {

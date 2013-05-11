@@ -96,35 +96,6 @@ jQuery(document).ready(function($) {
         }
     });
 
-    $('#objective').click(function() {
-        if (allowKeyEvents) {
-            showObjectives();
-        }
-    });
-
-    $('#game-over-show-objectives').click(function() {
-        showObjectives();
-    });
-
-    $('#pause-view-objectives-button').click(function() {
-        showObjectives();
-    });
-
-    $('#objectives-modal-go-back-game-over').click(function() {
-        setGameState(GAME_STATE_RUNNING);
-        setGameState(GAME_STATE_OVER);
-    });
-
-    $('#objectives-modal-go-back-paused').click(function() {
-        setGameState(GAME_STATE_RUNNING);
-        setGameState(GAME_STATE_PAUSED);
-    });
-
-    $('#objectives-modal-close').click(function() {
-        setGameState(GAME_STATE_RUNNING);
-    });
-
-
     $('#inventory').click(function() {
         if (allowKeyEvents) {
             showInventory();

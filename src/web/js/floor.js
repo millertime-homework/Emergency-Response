@@ -57,7 +57,7 @@ var Floor = function(name, z) {
 
     this.getRoomByXY = function(x ,y) {
         var room = null;
-        $j.each(this.rooms, function(key, value) {
+        $.each(this.rooms, function(key, value) {
             if (value.x == x && value.y == y) {
                 room = value;
             }
@@ -67,7 +67,7 @@ var Floor = function(name, z) {
 
     this.getRoomList = function() {
         var roomList = new Array();
-        $j.each(this.rooms, function(key, value) {
+        $.each(this.rooms, function(key, value) {
             roomList.push({
                 'id':key,
                 'name':value.name,
