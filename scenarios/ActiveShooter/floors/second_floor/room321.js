@@ -14,9 +14,6 @@
         'n': {
             'name': 'NHall321',
             'image': 'R321-north.jpg',
-            'destination': {
-                'y': 3
-            },
             '_props' : {
                 'lockedDoor': {
                     'name': 'lockedDoor',

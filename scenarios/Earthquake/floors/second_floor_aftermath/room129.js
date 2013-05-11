@@ -15,9 +15,6 @@
         'w': {
             'name': 'WHall129',
             'image': 'R121-west.jpg',
-            'destination': {
-                'x': 0
-            },
             '_props' : {
                 'aorSign' : {
                     'name' : 'aorSign',
