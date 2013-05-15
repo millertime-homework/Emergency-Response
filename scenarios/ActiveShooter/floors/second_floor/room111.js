@@ -2,7 +2,7 @@
     'id': 'hall111',
     'x': 1,
     'y': 1,
-    '_triggers' : ['playerRuns', 'shooterCloseGetShot'],
+    '_triggers': ['playerRuns','shooterCloseGetShot'],
     '_walls': {
         'e': {
             'name': 'EHall111',
@@ -12,38 +12,13 @@
                     'name': 'evac_plan',
                     'image': 'door.png',
                     'hoverImage': 'doorHover.png',
-                    'width': 448,
-                    'height': 393,
-                    'left': 288,
+                    'width': 521,
+                    'height': 434,
                     'top': 68,
+                    'left': 288,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'evac_second_floor'
-                    }
-                }
-            }
-        },
-        'w': {
-            'name': 'WHall111',
-            'image': 'R111-west.jpg',
-            'destination': {
-                'x': 0
-            },
-            '_props': {
-                'door': {
-                    'name': 'door',
-                    'image': 'door.png',
-                    'openImage': 'doorOpen.png',
-                    'hoverImage': 'doorHover.png',
-                    'width': 269,
-                    'height': 500,
-                    'left': 426,
-                    'top': 151,
-                    'barrier': true,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'lockableDoor2',
-                        'isAnAction': true
                     }
                 }
             }
@@ -67,8 +42,32 @@
                     'image': 'shooter.png',
                     'width': 67,
                     'height': 192,
-                    'left': 550,
-                    'top': 300
+                    'top': 300,
+                    'left': 550                }
+            }
+        },
+        'w': {
+            'name': 'WHall111',
+            'image': 'R111-west.jpg',
+            'destination': {
+                'x': 0
+            },
+            '_props': {
+                'door': {
+                    'name': 'door',
+                    'image': 'door.png',
+                    'openImage': 'doorOpen.png',
+                    'hoverImage': 'doorHover.png',
+                    'width': 269,
+                    'height': 500,
+                    'top': 151,
+                    'left': 426,
+                    'barrier': 'true',
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'lockableDoor2',
+                        'isAnAction': 'true'
+                    }
                 }
             }
         }
