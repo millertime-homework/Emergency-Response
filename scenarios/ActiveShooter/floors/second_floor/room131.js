@@ -2,38 +2,13 @@
     'id': 'library131',
     'x': 1,
     'y': 3,
-    '_triggers': ['abort', 'shooterCloseGetShot'],
+    '_triggers': ['abort','shooterCloseGetShot'],
     '_walls': {
         'e': {
             'name': 'ELibrary131',
             'image': 'R131-east.jpg',
             'destination': {
                 'x': 2
-            }
-        },
-        'w': {
-            'name': 'WLibrary131',
-            'image': 'R131-west.jpg',
-            'destination': {
-                'x': 0
-            },
-            '_props': {
-                'door2': {
-                    'name': 'door',
-                    'image': 'door.png',
-                    'openImage': 'doorOpen.png',
-                    'hoverImage': 'doorHover.png',
-                    'width': 120,
-                    'height': 250,
-                    'left': 780,
-                    'top': 240,
-                    'barrier': true,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'door2',
-                        'isAnAction': true
-                    }
-                }
             }
         },
         'n': {
@@ -55,15 +30,40 @@
                     'image': 'door.png',
                     'openImage': 'doorOpen.png',
                     'hoverImage': 'doorHover.png',
-                    'width': 120,
-                    'height': 250,
-                    'left': 660,
-                    'top': 240,
-                    'barrier': true,
+                    'width': 125,
+                    'height': 264,
+                    'top': 231,
+                    'left': 651,
+                    'barrier': 'true',
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'door',
-                        'isAnAction': true
+                        'isAnAction': 'true'
+                    }
+                }
+            }
+        },
+        'w': {
+            'name': 'WLibrary131',
+            'image': 'R131-west.jpg',
+            'destination': {
+                'x': 0
+            },
+            '_props': {
+                'door2': {
+                    'name': 'door',
+                    'image': 'door.png',
+                    'openImage': 'doorOpen.png',
+                    'hoverImage': 'doorHover.png',
+                    'width': 132,
+                    'height': 293,
+                    'top': 222,
+                    'left': 781,
+                    'barrier': 'true',
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'door2',
+                        'isAnAction': 'true'
                     }
                 }
             }
