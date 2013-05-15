@@ -6,29 +6,22 @@
         'e': {
             'name': 'ELibrary231',
             'image': 'R231-east.jpg',
-            '_props' : {
+            '_props': {
                 'lockedDoor': {
                     'name': 'lockedDoor',
                     'image': 'door.png',
                     'hoverImage': 'doorHover.png',
-                    'width': 150,
-                    'height': 350,
-                    'left': 875,
-                    'top': 200,
+                    'width': 143,
+                    'height': 299,
+                    'top': 223,
+                    'left': 660,
+                    'barrier': 'true',
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'lockedDoor',
-                        'isAnAction': true
-                    },
-                'barrier' : true
+                        'isAnAction': 'true'
+                    }
                 }
-            }
-        },
-        'w': {
-            'name': 'WLibrary231',
-            'image': 'R231-west.jpg',
-            'destination': {
-                'x': 1
             }
         },
         'n': {
@@ -43,14 +36,20 @@
                     'image': 'book.png',
                     'width': 23,
                     'height': 18,
-                    'left': 680,
-                    'top': 300
-                }
+                    'top': 300,
+                    'left': 680                }
             }
         },
         's': {
             'name': 'SLibrary231',
             'image': 'R231-south.jpg'
+        },
+        'w': {
+            'name': 'WLibrary231',
+            'image': 'R231-west.jpg',
+            'destination': {
+                'x': 1
+            }
         }
     }
 }
