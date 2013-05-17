@@ -15,10 +15,10 @@
                     'image': 'door.png',
                     'openImage': 'doorOpen.png',
                     'hoverImage': 'doorHover.png',
-                    'width': 280,
-                    'height': 500,
-                    'left': 420,
-                    'top': 160,
+                    'width': 236,
+                    'height': 490,
+                    'top': 169,
+                    'left': 436,
                     'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
@@ -27,10 +27,6 @@
                 }
             }
         },
-        'w': {
-            'name': 'WOffice041',
-            'image': 'R041-west.jpg'
-        },
         'n': {
             'name': 'NOffice041',
             'image': 'R041-north.jpg'
@@ -38,6 +34,10 @@
         's': {
             'name': 'SOffice041',
             'image': 'R041-south.jpg'
+        },
+        'w': {
+            'name': 'WOffice041',
+            'image': 'R041-west.jpg'
         }
     }
 }

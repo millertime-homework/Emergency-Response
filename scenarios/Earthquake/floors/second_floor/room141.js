@@ -7,6 +7,17 @@
             'name': 'ELibrary141',
             'image': 'R141-east.jpg'
         },
+        'n': {
+            'name': 'NLibrary141',
+            'image': 'R141-north.jpg'
+        },
+        's': {
+            'name': 'SLibrary141',
+            'image': 'R141-south.jpg',
+            'destination': {
+                'y': 3
+            }
+        },
         'w': {
             'name': 'WLibrary141',
             'image': 'R141-west.jpg',
@@ -19,27 +30,16 @@
                     'image': 'door.png',
                     'openImage': 'doorOpen.png',
                     'hoverImage': 'doorHover.png',
-                    'width': 160,
-                    'height': 340,
-                    'left': 480,
-                    'top': 200,
+                    'width': 135,
+                    'height': 299,
+                    'top': 221,
+                    'left': 492,
                     'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'door'
                     }
                 }
-            }
-        },
-        'n': {
-            'name': 'NLibrary141',
-            'image': 'R141-north.jpg'
-        },
-        's': {
-            'name': 'SLibrary141',
-            'image': 'R141-south.jpg',
-            'destination': {
-                'y': 3
             }
         }
     }
