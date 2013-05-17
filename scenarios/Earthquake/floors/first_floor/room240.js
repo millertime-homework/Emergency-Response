@@ -10,31 +10,6 @@
                 'x': 3
             }
         },
-        'w': {
-            'name': 'WHall240',
-            'image': 'R240-west.jpg',
-            'destination': {
-                'x': 1
-            },
-            '_props' : {
-                'bike' : {
-                    'named' : 'bike',
-                    'image' : 'bike.png',
-                    'width': 45,
-                    'height': 30,
-                    'left': 535,
-                    'top': 300
-                },
-                'bikeMoved' : {
-                    'named' : 'bikeMoved',
-                    'image' : 'bikeMoved.png',
-                    'width': 15,
-                    'height': 30,
-                    'left': 580,
-                    'top': 300
-                }
-            }
-        },
         'n': {
             'name': 'NHall240',
             'image': 'R240-north.jpg'
@@ -42,6 +17,31 @@
         's': {
             'name': 'SHall240',
             'image': 'R240-south.jpg'
+        },
+        'w': {
+            'name': 'WHall240',
+            'image': 'R240-west.jpg',
+            'destination': {
+                'x': 1
+            },
+            '_props': {
+                'bike': {
+                    'name': 'bike',
+                    'image': 'bike.png',
+                    'width': 42,
+                    'height': 30,
+                    'top': 306,
+                    'left': 536
+                },
+                'bikeMoved': {
+                    'name': 'bikeMoved',
+                    'image': 'bikeMoved.png',
+                    'width': 26,
+                    'height': 38,
+                    'top': 302,
+                    'left': 567
+                }
+            }
         }
     }
 }
