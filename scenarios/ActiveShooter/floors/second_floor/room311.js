@@ -17,8 +17,8 @@
                     'hoverImage': 'doorHover.png',
                     'width': 280,
                     'height': 500,
-                    'left': 420,
-                    'top': 160,
+                    'top': 143,
+                    'left': 417,
                     'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
@@ -26,13 +26,6 @@
                         'isAnAction': true
                     }
                 }
-            }
-        },
-        'w': {
-            'name': 'WHall311',
-            'image': 'R311-west.jpg',
-            'destination': {
-                'x': 2
             }
         },
         'n': {
@@ -45,6 +38,13 @@
         's': {
             'name': 'SHall311',
             'image': 'R311-south.jpg'
+        },
+        'w': {
+            'name': 'WHall311',
+            'image': 'R311-west.jpg',
+            'destination': {
+                'x': 2
+            }
         }
     }
 }
