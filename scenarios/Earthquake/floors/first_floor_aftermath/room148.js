@@ -2,7 +2,7 @@
     'id': 'hall148',
     'x': 1,
     'y': 4,
-    '_triggers' : ['deactivateElectrocute','footInjury'],
+    '_triggers': ['deactivateElectrocute','footInjury'],
     '_walls': {
         'e': {
             'name': 'EHall148',
@@ -11,66 +11,33 @@
                 'x': 2
             },
             '_props': {
-                'brokenGlass': {
-                    'name': 'brokenGlass',
-                    'image': 'brokenGlass.png',
-                    'width': 80,
-                    'height': 25,
-                    'left': 520,
-                    'top': 330
-                },
                 'bridgeDoor': {
                     'name': 'bridgeDoor',
                     'image': 'doordown.png',
                     'width': 40,
                     'height': 23,
-                    'left': 540,
-                    'top': 325
+                    'top': 325,
+                    'left': 540
+                },
+                'brokenGlass': {
+                    'name': 'brokenGlass',
+                    'image': 'brokenGlass.png',
+                    'width': 80,
+                    'height': 25,
+                    'top': 330,
+                    'left': 520
                 },
                 'mrs-wheelchair': {
                     'name': 'mrs_wheelchair',
                     'image': 'manFront.png',
                     'width': 275,
                     'height': 275,
-                    'left': 400,
                     'top': 300,
+                    'left': 400,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'James'
                     }
-                }
-            }
-        },
-        'w': {
-            'name': 'WHall148',
-            'image': 'R140-west.jpg',
-            'destination': {
-                'x': 0
-            },
-            '_props' : {
-                'bikeMangled' : {
-                    'named' : 'bikeMangled',
-                    'image' : 'bikeMangle.png',
-                    'width': 50,
-                    'height': 65,
-                    'left': 532,
-                    'top': 277
-                },
-                'beam' : {
-                    'named' : 'beam',
-                    'image' : 'beam.png',
-                    'width': 12,
-                    'height': 85,
-                    'left': 528,
-                    'top': 275
-                },
-                'bikeMoved' : {
-                    'named' : 'bikeMoved',
-                    'image' : 'bikeMoved.png',
-                    'width': 30,
-                    'height': 55,
-                    'left': 575,
-                    'top': 290
                 }
             }
         },
@@ -87,30 +54,63 @@
             'destination': {
                 'y': 3
             },
-            '_props' : {
+            '_props': {
                 'Downedwire': {
                     'name': 'Downedwire',
                     'image': 'wire.png',
                     'width': 160,
                     'height': 102,
-                    'left': 483,
-                    'top': 220
+                    'top': 220,
+                    'left': 483
+                },
+                'Luke2': {
+                    'name': 'Luke2',
+                    'image': 'RunnerBack.png',
+                    'width': 24,
+                    'height': 69,
+                    'top': 288,
+                    'left': 539
                 },
                 'Movedwire': {
                     'name': 'Movedwire',
                     'image': 'wire-moved.png',
                     'width': 160,
                     'height': 102,
-                    'left': 483,
-                    'top': 220
+                    'top': 220,
+                    'left': 483
+                }
+            }
+        },
+        'w': {
+            'name': 'WHall148',
+            'image': 'R140-west.jpg',
+            'destination': {
+                'x': 0
+            },
+            '_props': {
+                'beam': {
+                    'name': 'beam',
+                    'image': 'beam.png',
+                    'width': 12,
+                    'height': 85,
+                    'top': 275,
+                    'left': 528
                 },
-                'Luke2' : {
-                    'name': 'Luke2',
-                    'image': 'RunnerBack.png',
-                    'width': 33,
-                    'height': 100,
-                    'left': 500,
-                    'top': 275
+                'bikeMangled': {
+                    'name': 'bikeMangle',
+                    'image': 'bikeMangle.png',
+                    'width': 50,
+                    'height': 65,
+                    'top': 284,
+                    'left': 529
+                },
+                'bikeMoved': {
+                    'name': 'bikeMoved',
+                    'image': 'bikeMoved.png',
+                    'width': 30,
+                    'height': 55,
+                    'top': 301,
+                    'left': 577
                 }
             }
         }

@@ -10,30 +10,6 @@
                 'x': 2
             }
         },
-        'w': {
-            'name': 'WLibrary131',
-            'image': 'R131-west.jpg',
-            'destination': {
-                'x': 0
-            },
-            '_props': {
-                'door2': {
-                    'name': 'door',
-                    'image': 'door.png',
-                    'openImage': 'doorOpen.png',
-                    'hoverImage': 'doorHover.png',
-                    'width': 120,
-                    'height': 250,
-                    'left': 780,
-                    'top': 240,
-                    'barrier': true,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'door2'
-                    }
-                }
-            }
-        },
         'n': {
             'name': 'NLibrary131',
             'image': 'R131-north.jpg',
@@ -53,14 +29,38 @@
                     'image': 'door.png',
                     'openImage': 'doorOpen.png',
                     'hoverImage': 'doorHover.png',
-                    'width': 120,
-                    'height': 250,
-                    'left': 660,
-                    'top': 240,
+                    'width': 127,
+                    'height': 262,
+                    'top': 232,
+                    'left': 650,
                     'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'door'
+                    }
+                }
+            }
+        },
+        'w': {
+            'name': 'WLibrary131',
+            'image': 'R131-west.jpg',
+            'destination': {
+                'x': 0
+            },
+            '_props': {
+                'door2': {
+                    'name': 'door',
+                    'image': 'door.png',
+                    'openImage': 'doorOpen.png',
+                    'hoverImage': 'doorHover.png',
+                    'width': 133,
+                    'height': 291,
+                    'top': 224,
+                    'left': 781,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'door2'
                     }
                 }
             }

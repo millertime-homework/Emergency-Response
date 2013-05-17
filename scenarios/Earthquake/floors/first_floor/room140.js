@@ -10,31 +10,6 @@
                 'x': 2
             }
         },
-        'w': {
-            'name': 'WHall140',
-            'image': 'R140-west.jpg',
-            'destination': {
-                'x': 0
-            },
-            '_props' : {
-                'bike' : {
-                    'named' : 'bike',
-                    'image' : 'bike.png',
-                    'width': 65,
-                    'height': 50,
-                    'left': 515,
-                    'top': 300
-                },
-                'bikeMoved' : {
-                    'named' : 'bikeMoved',
-                    'image' : 'bikeMoved.png',
-                    'width': 30,
-                    'height': 55,
-                    'left': 575,
-                    'top': 290
-                }
-            }
-        },
         'n': {
             'name': 'NHall140',
             'image': 'R140-north.jpg',
@@ -54,12 +29,37 @@
                     'image': 'fooLeft.png',
                     'width': 35,
                     'height': 90,
-                    'left': 585,
                     'top': 290,
+                    'left': 585,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Mrs Foo'
                     }
+                }
+            }
+        },
+        'w': {
+            'name': 'WHall140',
+            'image': 'R140-west.jpg',
+            'destination': {
+                'x': 0
+            },
+            '_props': {
+                'bike': {
+                    'name': 'bike',
+                    'image': 'bike.png',
+                    'width': 61,
+                    'height': 46,
+                    'top': 300,
+                    'left': 526
+                },
+                'bikeMoved': {
+                    'name': 'bikeMoved',
+                    'image': 'bikeMoved.png',
+                    'width': 30,
+                    'height': 57,
+                    'top': 300,
+                    'left': 578
                 }
             }
         }

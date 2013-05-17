@@ -10,74 +10,29 @@
                 'x': 3
             },
             '_props': {
-                'brokenGlass': {
-                    'name': 'brokenGlass',
-                    'image': 'brokenGlass.png',
-                    'width': 125,
-                    'height': 25,
-                    'left': 500,
-                    'top': 350
+                'bridgeDoor': {
+                    'name': 'bridgeDoor',
+                    'image': 'doordown.png',
+                    'width': 60,
+                    'height': 45,
+                    'top': 340,
+                    'left': 530
                 },
                 'brokenDoor': {
                     'name': 'brokenDoor',
                     'image': 'dooraskew.png',
                     'width': 15,
                     'height': 120,
-                    'left': 610,
-                    'top': 251
+                    'top': 251,
+                    'left': 610
                 },
-                'bridgeDoor': {
-                    'name': 'bridgeDoor',
-                    'image': 'doordown.png',
-                    'width': 60,
-                    'height': 45,
-                    'left': 530,
-                    'top': 340
-                }
-            }
-        },
-        'w': {
-            'name': 'WHall248',
-            'image': 'R240-west.jpg',
-            'destination': {
-                'x': 1
-            },
-            '_props': {
-                'bikeMangled' : {
-                    'named' : 'bikeMangled',
-                    'image' : 'bikeMangle.png',
-                    'width': 35,
-                    'height': 50,
-                    'left': 540,
-                    'top': 280
-                },
-                'beam' : {
-                    'named' : 'beam',
-                    'image' : 'beam.png',
-                    'width': 13,
-                    'height': 55,
-                    'left': 535,
-                    'top': 280
-                },
-                'bikeMoved' : {
-                    'named' : 'bikeMoved',
-                    'image' : 'bikeMoved.png',
-                    'width': 15,
-                    'height': 30,
-                    'left': 580,
-                    'top': 300
-                },
-                'mrs-wheelchair': {
-                    'name': 'mrs_wheelchair',
-                    'image': 'manLeft.png',
-                    'width': 275,
-                    'height': 275,
-                    'left': 400,
-                    'top': 300,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'James'
-                    }
+                'brokenGlass': {
+                    'name': 'brokenGlass',
+                    'image': 'brokenGlass.png',
+                    'width': 125,
+                    'height': 25,
+                    'top': 350,
+                    'left': 500
                 }
             }
         },
@@ -88,6 +43,51 @@
         's': {
             'name': 'SHall248',
             'image': 'R240-south.jpg'
+        },
+        'w': {
+            'name': 'WHall248',
+            'image': 'R240-west.jpg',
+            'destination': {
+                'x': 1
+            },
+            '_props': {
+                'beam': {
+                    'name': 'beam',
+                    'image': 'beam.png',
+                    'width': 13,
+                    'height': 55,
+                    'top': 280,
+                    'left': 535
+                },
+                'bikeMangled': {
+                    'name': 'bikeMangle',
+                    'image': 'bikeMangle.png',
+                    'width': 35,
+                    'height': 50,
+                    'top': 286,
+                    'left': 540
+                },
+                'bikeMoved': {
+                    'name': 'bikeMoved',
+                    'image': 'bikeMoved.png',
+                    'width': 15,
+                    'height': 41,
+                    'top': 301,
+                    'left': 579
+                },
+                'mrs-wheelchair': {
+                    'name': 'mrs_wheelchair',
+                    'image': 'manLeft.png',
+                    'width': 275,
+                    'height': 275,
+                    'top': 308,
+                    'left': 406,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'James'
+                    }
+                }
+            }
         }
     }
 }
