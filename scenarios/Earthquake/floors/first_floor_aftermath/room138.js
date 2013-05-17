@@ -4,18 +4,29 @@
     'y': 3,
     '_triggers': ['lukeRunsPast','electrocute'],
     '_walls': {
+        'Runscene': {
+            'name': 'Runscene',
+            'image': 'R130-north.jpg',
+            'destination': {
+                'x': 2
+            },
+            'isCutscene': true,
+            '_props': {
+                'Luke': {
+                    'name': 'Luke',
+                    'image': 'RunnerFront.png',
+                    'width': 113,
+                    'height': 300,
+                    'top': 250,
+                    'left': 475
+                }
+            }
+        },
         'e': {
             'name': 'NHall138',
             'image': 'R130-east.jpg',
             'destination': {
                 'x': 2
-            }
-        },
-        'w': {
-            'name': 'SHall138',
-            'image': 'R130-west.jpg',
-            'destination': {
-                'x': 0
             }
         },
         'n': {
@@ -31,62 +42,51 @@
             'destination': {
                 'y': 2
             },
-            '_triggers' : ['dangerwarningPowerLines','activateElectrocute'],
-            '_props' : {
-                'doorFrame': {
-                    'name': 'doorFrame',
-                    'image': 'doorframe2.png',
-                    'width': 25,
-                    'height': 25,
-                    'left': 540,
-                    'top': 325
-                },
+            '_triggers': ['lukeRunsPast','electrocute'],
+            '_props': {
                 'Downedwire': {
                     'name': 'Downedwire',
                     'image': 'wire.png',
                     'width': 385,
                     'height': 250,
-                    'left': 370,
                     'top': 120,
+                    'left': 370,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Hanging wires'
                     }
+                },
+                'Luke2': {
+                    'name': 'Luke2',
+                    'image': 'RunnerBack.png',
+                    'width': 55,
+                    'height': 152,
+                    'top': 284,
+                    'left': 526
                 },
                 'Movedwire': {
                     'name': 'Movedwire',
                     'image': 'wire-moved.png',
                     'width': 385,
                     'height': 250,
-                    'left': 370,
-                    'top': 120
+                    'top': 120,
+                    'left': 374
                 },
-                'Luke2' : {
-                    'name': 'Luke2',
-                    'image': 'RunnerBack.png',
-                    'width': 41,
-                    'height': 125,
-                    'left': 500,
-                    'top': 275
+                'doorFrame': {
+                    'name': 'doorFrame',
+                    'image': 'doorframe2.png',
+                    'width': 25,
+                    'height': 25,
+                    'top': 325,
+                    'left': 540
                 }
             }
         },
-        'Runscene': {
-            'name': 'Runscene',
-            'image': 'R130-north.jpg',
-            'isCutscene': true,
+        'w': {
+            'name': 'SHall138',
+            'image': 'R130-west.jpg',
             'destination': {
-                'x': 2
-            },
-            '_props' : {
-                'Luke' : {
-                    'name': 'Luke',
-                    'image': 'RunnerFront.png',
-                    'width': 113,
-                    'height': 300,
-                    'left': 475,
-                    'top': 250
-                }
+                'x': 0
             }
         }
     }
