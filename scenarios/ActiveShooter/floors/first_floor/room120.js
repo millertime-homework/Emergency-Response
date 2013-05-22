@@ -26,16 +26,6 @@
             'image': 'R120-south.jpg',
             'destination': {
                 'y': 1
-            },
-            '_props': {
-                'Info-TV': {
-                    'name': 'Info-TV',
-                    'image': 'info-tv-skew-right.png',
-                    'width': 150,
-                    'height': 104,
-                    'left': 320,
-                    'top': 190
-                }
             }
         }
     }
