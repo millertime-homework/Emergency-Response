@@ -22,16 +22,6 @@
             'image': 'R100-north.jpg',
             'destination': {
                 'y': 1
-            },
-            '_props': {
-                'Info-TV': {
-                    'name': 'Info-TV',
-                    'image': 'info-tv-skew-left.png',
-                    'width': 150,
-                    'height': 104,
-                    'left': 650,
-                    'top': 190
-                }
             }
         },
         's': {
