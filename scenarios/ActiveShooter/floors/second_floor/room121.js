@@ -2,7 +2,6 @@
     'id': 'hall121',
     'x': 1,
     'y': 2,
-    'annotation': 'AnnotationStairs.png',
     '_triggers': ['chanceofEscape','deathIn240','getShotAtYopOfStairs'],
     '_walls': {
         'e': {
