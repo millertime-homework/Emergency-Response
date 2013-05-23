@@ -10,13 +10,6 @@
                 'x': 2
             }
         },
-        'w': {
-            'name': 'WHall100',
-            'image': 'R100-west.jpg',
-            'destination': {
-                'x': 0
-            }
-        },
         'n': {
             'name': 'NHall100',
             'image': 'R100-north.jpg',
@@ -27,6 +20,30 @@
         's': {
             'name': 'SHall100',
             'image': 'R100-south.jpg'
+        },
+        'w': {
+            'name': 'WHall100',
+            'image': 'R100-west.jpg',
+            'destination': {
+                'x': 0
+            },
+            '_props': {
+                'door': {
+                    'name': 'door',
+                    'image': 'doorOutsideRight.png',
+                    'openImage': 'doorOpen.png',
+                    'hoverImage': 'doorHover.png',
+                    'width': 215,
+                    'height': 536,
+                    'top': 140,
+                    'left': 154,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'door'
+                    }
+                }
+            }
         }
     }
 }

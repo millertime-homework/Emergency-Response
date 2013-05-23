@@ -43,7 +43,8 @@
                     'width': 67,
                     'height': 192,
                     'top': 300,
-                    'left': 550                }
+                    'left': 550
+                }
             }
         },
         'w': {
@@ -55,18 +56,18 @@
             '_props': {
                 'door': {
                     'name': 'door',
-                    'image': 'door.png',
+                    'image': 'doorOutsideRight.png',
                     'openImage': 'doorOpen.png',
                     'hoverImage': 'doorHover.png',
-                    'width': 269,
-                    'height': 500,
-                    'top': 151,
-                    'left': 426,
-                    'barrier': 'true',
+                    'width': 228,
+                    'height': 607,
+                    'top': 169,
+                    'left': 444,
+                    'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'lockableDoor2',
-                        'isAnAction': 'true'
+                        'isAnAction': true
                     }
                 }
             }

@@ -2,7 +2,7 @@
     'id': 'class011',
     'x': 0,
     'y': 1,
-    '_triggers' : ['abort', 'playerEnters011'],
+    '_triggers': ['abort','playerEnters011'],
     '_walls': {
         'e': {
             'name': 'EClass011',
@@ -11,15 +11,27 @@
                 'x': 1
             },
             '_props': {
+                'bell-hiding': {
+                    'name': 'bell-hiding',
+                    'image': 'XavDuck.png',
+                    'width': 207,
+                    'height': 200,
+                    'top': 440,
+                    'left': 180,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Professor Bell is hiding'
+                    }
+                },
                 'door': {
                     'name': 'door',
-                    'image': 'door.png',
-                    'hoverImage': 'doorHover.png',
+                    'image': 'doorInsideLeft.png',
                     'openImage': 'doorOpen.png',
-                    'width': 165,
-                    'height': 367,
-                    'left': 475,
-                    'top': 207,
+                    'hoverImage': 'doorHover.png',
+                    'width': 151,
+                    'height': 348,
+                    'top': 217,
+                    'left': 482,
                     'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
@@ -27,17 +39,18 @@
                         'isAnAction': true
                     }
                 },
-                'evac_plan': {
-                    'name': 'evac_plan',
+                'doorHandle': {
+                    'name': 'doorHandle',
                     'image': 'rectangle.png',
                     'hoverImage': 'rectangleGlow.png',
-                    'width': 130,
-                    'height': 117,
-                    'left': 724,
-                    'top': 270,
+                    'width': 20,
+                    'height': 62,
+                    'top': 368,
+                    'left': 497,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'evac_second_floor_detail'
+                        'conversationName': 'lockDoor',
+                        'isAnAction': true
                     }
                 },
                 'doorShade': {
@@ -46,8 +59,8 @@
                     'hoverImage': 'ASshadeUpHover.png',
                     'width': 52,
                     'height': 72,
-                    'left': 532,
                     'top': 277,
+                    'left': 532,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'putShadeDown',
@@ -59,21 +72,20 @@
                     'image': 'ASshadeDown.png',
                     'width': 52,
                     'height': 72,
-                    'left': 532,
-                    'top': 277
+                    'top': 277,
+                    'left': 532
                 },
-                'doorHandle': {
-                    'name': 'doorHandle',
+                'evac_plan': {
+                    'name': 'evac_plan',
                     'image': 'rectangle.png',
                     'hoverImage': 'rectangleGlow.png',
-                    'width': 20,
-                    'height': 62,
-                    'left': 497,
-                    'top': 368,
+                    'width': 130,
+                    'height': 117,
+                    'top': 270,
+                    'left': 724,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'lockDoor',
-                        'isAnAction': true
+                        'conversationName': 'evac_second_floor_detail'
                     }
                 },
                 'lightSwitch': {
@@ -82,42 +94,12 @@
                     'hoverImage': 'rectangleGlow.png',
                     'width': 47,
                     'height': 25,
-                    'left': 674,
                     'top': 355,
+                    'left': 674,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'turnOffLights',
                         'isAnAction': true
-                    }
-                },
-                'bell-hiding': {
-                    'name': 'bell-hiding',
-                    'image': 'XavDuck.png',
-                    'width': 207,
-                    'height': 200,
-                    'left': 180,
-                    'top': 440,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'Professor Bell is hiding'
-                    }
-                }
-            }
-        },
-        'w': {
-            'name': 'WClass011',
-            'image': 'R011-west.jpg',
-            '_props': {
-                'prof-bell': {
-                    'name': 'prof-bell',
-                    'image': 'XavFront.png',
-                    'width': 80,
-                    'height': 240,
-                    'left': 500,
-                    'top': 225,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'Professor Bell'
                     }
                 }
             }
@@ -129,6 +111,24 @@
         's': {
             'name': 'SClass011',
             'image': 'R011-south.jpg'
+        },
+        'w': {
+            'name': 'WClass011',
+            'image': 'R011-west.jpg',
+            '_props': {
+                'prof-bell': {
+                    'name': 'prof-bell',
+                    'image': 'XavFront.png',
+                    'width': 80,
+                    'height': 240,
+                    'top': 225,
+                    'left': 500,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Professor Bell'
+                    }
+                }
+            }
         }
     }
 }

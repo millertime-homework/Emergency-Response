@@ -7,13 +7,6 @@
             'name': 'EHall420',
             'image': 'R420-east.jpg'
         },
-        'w': {
-            'name': 'WHall420',
-            'image': 'R420-west.jpg',
-            'destination': {
-                'x': 3
-            }
-        },
         'n': {
             'name': 'NHall420',
             'image': 'R420-north.jpg'
@@ -23,6 +16,30 @@
             'image': 'R420-south.jpg',
             'destination': {
                 'y': 1
+            }
+        },
+        'w': {
+            'name': 'WHall420',
+            'image': 'R420-west.jpg',
+            'destination': {
+                'x': 3
+            },
+            '_props': {
+                'door': {
+                    'name': 'door',
+                    'image': 'doorInsideRight.png',
+                    'openImage': 'doorOpen.png',
+                    'hoverImage': 'doorHover.png',
+                    'width': 74,
+                    'height': 171,
+                    'top': 252,
+                    'left': 480,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'door'
+                    }
+                }
             }
         }
     }
