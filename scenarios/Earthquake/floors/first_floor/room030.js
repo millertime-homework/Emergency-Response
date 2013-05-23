@@ -32,6 +32,21 @@
                         'conversationName': 'Computer',
                         'isAnAction': true
                     }
+                },
+                'door': {
+                    'name': 'door',
+                    'image': 'doorInsideLeft.png',
+                    'openImage': 'doorOpen.png',
+                    'hoverImage': 'doorHover.png',
+                    'width': 106,
+                    'height': 247,
+                    'top': 228,
+                    'left': 659,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'door'
+                    }
                 }
             }
         },

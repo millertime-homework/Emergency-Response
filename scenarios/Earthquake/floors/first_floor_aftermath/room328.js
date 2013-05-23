@@ -34,6 +34,21 @@
                     'actionVariables': {
                         'conversationName': 'Smoke'
                     }
+                },
+                'door': {
+                    'name': 'door',
+                    'image': 'doorOutsideLeft.png',
+                    'openImage': 'doorOpen.png',
+                    'hoverImage': 'doorHover.png',
+                    'width': 230,
+                    'height': 537,
+                    'top': 135,
+                    'left': 571,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'door'
+                    }
                 }
             }
         },

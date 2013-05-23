@@ -8,6 +8,23 @@
             'image': 'R300-east.jpg',
             'destination': {
                 'x': 4
+            },
+            '_props': {
+                'door': {
+                    'name': 'door',
+                    'image': 'doorOutsideLeft.png',
+                    'openImage': 'doorOpen.png',
+                    'hoverImage': 'doorHover.png',
+                    'width': 232,
+                    'height': 565,
+                    'top': 135,
+                    'left': 685,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'door'
+                    }
+                }
             }
         },
         'w': {

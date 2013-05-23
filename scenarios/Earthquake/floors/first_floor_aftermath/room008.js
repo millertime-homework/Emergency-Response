@@ -33,6 +33,21 @@
                     'height': 150,
                     'left': 200,
                     'top': 400
+                },
+                'door': {
+                    'name': 'door',
+                    'image': 'doorInsideLeft.png',
+                    'openImage': 'doorOpen.png',
+                    'hoverImage': 'doorHover.png',
+                    'width': 104,
+                    'height': 236,
+                    'top': 232,
+                    'left': 966,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'door'
+                    }
                 }
             }
         },

@@ -13,6 +13,23 @@
             'image': 'R330-west.jpg',
             'destination': {
                 'x': 2
+            },
+            '_props': {
+                'door': {
+                    'name': 'door',
+                    'image': 'doorOutsideRight.png',
+                    'openImage': 'doorOpen.png',
+                    'hoverImage': 'doorHover.png',
+                    'width': 229,
+                    'height': 544,
+                    'top': 137,
+                    'left': 319,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'door'
+                    }
+                }
             }
         },
         'n': {

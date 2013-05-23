@@ -13,17 +13,18 @@
             '_props': {
                 'door': {
                     'name': 'door',
-                    'image': 'door.png',
+                    'image': 'doorInsideLeft.png',
                     'openImage': 'doorOpen.png',
                     'hoverImage': 'doorHover.png',
-                    'width': 165,
-                    'height': 367,
-                    'left': 475,
-                    'top': 207,
+                    'width': 151,
+                    'height': 348,
+                    'top': 217,
+                    'left': 482,
                     'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'door'
+                        'conversationName': 'lockableDoor2',
+                        'isAnAction': true
                     }
                 },
                 'evac_plan': {
