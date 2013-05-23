@@ -1,4 +1,4 @@
-'showAskInstruction': {
+'startTutorial': {
     'events': {
         'startTutorialPartOne': []
     }

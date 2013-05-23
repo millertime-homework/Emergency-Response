@@ -2,6 +2,7 @@
     'id': 'elevator',
     'x': 0,
     'y': 1,
+    '_triggers': ['continueTutorial'],
     '_walls': {
         'e': {
             'name': 'ElevatorE',
