@@ -32,32 +32,32 @@ var tutorialPartTwo = {
     ]
 };
 
-jQuery(document).ready(function(jQuery) {
+$(document).ready(function() {
     // for starting the tutorial
-    jQuery(document).on('startTutorialPartOne', function(event, triggerName) {
+    $(document).on('startTutorialPartOne', function(event, triggerName) {
         setGameState(GAME_STATE_TUTORIAL);
         showNextTutorial();
     });
 
     // skip the tutorial
-    jQuery(document).on('skipTutorial', function(event, triggerName) {
+    $(document).on('skipTutorial', function(event, triggerName) {
         completedPartOne = true;
         skippedPartOne = true;
     });
 
     // next button
-    jQuery("#instruct-next-button").live('click', function() {
+    $("#instruct-next-button").click(function() {
         showNextTutorial();
     });
 
     // for starting the second half of the tutorial
-    jQuery(document).on('startTutorialPartTwo', function(event, triggerName) {
+    $(document).on('startTutorialPartTwo', function(event, triggerName) {
         setGameState(GAME_STATE_TUTORIAL);
         showNextTutorial();
     });
 
     // exit button
-    jQuery("#instruct-exit-button").live('click', function() {
+    $("#instruct-exit-button").click(function() {
         deleteInstructModal();
         setGameState(GAME_STATE_RUNNING);
         completedPartOne = true;
@@ -86,7 +86,7 @@ function showNextTutorial() {
                               tutorialPartOne.aligns.shift(),
                               tutorialPartOne.contents.shift());
             if (!moreTutorials()) {
-                jQuery("#instruct-next-button").hide();
+                $("#instruct-next-button").hide();
             }
         }
     } else {
@@ -97,7 +97,7 @@ function showNextTutorial() {
                               tutorialPartTwo.contents.shift());
         }
         if (!moreTutorials(2)) {
-            jQuery("#instruct-next-button").hide();
+            $("#instruct-next-button").hide();
         }
         if (skippedPartOne) {
             setGameState(GAME_STATE_RUNNING);
@@ -108,7 +108,7 @@ function showNextTutorial() {
 function showInstructModal(relativeElement, instructType, arrowAlign, content) {
     if (!(relativeElement instanceof HTMLElement)) {
         console.log('getting relative element from string');
-        relativeElement = jQuery(relativeElement);
+        relativeElement = $(relativeElement);
     }
 
     if (!relativeElement.length) {
@@ -121,7 +121,7 @@ function showInstructModal(relativeElement, instructType, arrowAlign, content) {
         console.log('invalid parameters')
         return false;
     }
-    instructWrapper = jQuery('#instruct-modal-wrapper');
+    instructWrapper = $('#instruct-modal-wrapper');
     if (!instructWrapper.length) {
         console.log('creating instruct modal...');
         instructWrapper = createInstructModal();
@@ -167,15 +167,15 @@ function showInstructModal(relativeElement, instructType, arrowAlign, content) {
  * </div>
  */
 function createInstructModal() {
-    instructWrapper = jQuery('#instruct-modal-wrapper');
+    instructWrapper = $('#instruct-modal-wrapper');
     if (!instructWrapper.length) {
-        jQuery('body').prepend('<div id="instruct-modal-wrapper"><div id="instruct-modal" class=""><div id="content"></div><div id="buttons"><div id="instruct-next-button">Next</div><div id="instruct-exit-button">Exit</div></div><div id="instruct-arrow"></div></div></div>');
+        $('body').prepend('<div id="instruct-modal-wrapper"><div id="instruct-modal" class=""><div id="content"></div><div id="buttons"><div id="instruct-next-button">Next</div><div id="instruct-exit-button">Exit</div></div><div id="instruct-arrow"></div></div></div>');
     }
-    return jQuery('#instruct-modal-wrapper');
+    return $('#instruct-modal-wrapper');
 }
 
 function deleteInstructModal() {
-    instructModal = jQuery('#instruct-modal-wrapper');
+    instructModal = $('#instruct-modal-wrapper');
     if (instructModal.length) {
         instructModal.remove();
     }
@@ -206,11 +206,11 @@ function alignInstructModalFromElement(element, instructType, arrowAlign) {
         return false;
     }
 
-    instructWrapper = jQuery('#instruct-modal-wrapper');
-    instructModal = jQuery('#instruct-modal');
+    instructWrapper = $('#instruct-modal-wrapper');
+    instructModal = $('#instruct-modal');
 
-    element = jQuery(element);
-    arrow = jQuery('#instruct-arrow');
+    element = $(element);
+    arrow = $('#instruct-arrow');
 
     instructModalWidth = instructModal.width();
     instructModalHeight = instructModal.height();

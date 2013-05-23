@@ -1,23 +1,23 @@
 var erg = erg || {};
 
-jQuery(document).ready(function (jQuery) {
+$(document).ready(function () {
     erg.phone = {};
-    erg.phone.element = jQuery('#cell-phone');
-    erg.phone.allContextMenus = jQuery('.phone-context');
-    erg.phone.firstContextMenu = jQuery('#phone-context');
-    erg.phone.secondContextMenu = jQuery('#phone-context-2');
-    erg.phone.thirdContextMenu = jQuery('#phone-context-3');
-    erg.controlsOverlay = jQuery('#controls-overlay');
+    erg.phone.element = $('#cell-phone');
+    erg.phone.allContextMenus = $('.phone-context');
+    erg.phone.firstContextMenu = $('#phone-context');
+    erg.phone.secondContextMenu = $('#phone-context-2');
+    erg.phone.thirdContextMenu = $('#phone-context-3');
+    erg.controlsOverlay = $('#controls-overlay');
     erg.phone.events = {};
     erg.phone.contextIterator = 0;
 
     erg.phone.element.mouseenter(function () {
-        jQuery('#phone-context').show();
+        $('#phone-context').show();
         positionFirstContextMenu();
     });
 
-    jQuery('#phone-context div div').live('mouseenter', function () {
-        var group = jQuery(this).attr('id'),
+    $('#phone-context div div').hover(function () {
+        var group = $(this).attr('id'),
             subMenuChildren = erg.phone.secondContextMenu.find('div.' + group);
 
         if (subMenuChildren.length > 0) {
@@ -25,24 +25,24 @@ jQuery(document).ready(function (jQuery) {
             erg.phone.secondContextMenu.show();
             erg.phone.secondContextMenu.find('div div').hide();
             subMenuChildren.show();
-            positionSubMenu(erg.phone.firstContextMenu, erg.phone.secondContextMenu, jQuery(this));
+            positionSubMenu(erg.phone.firstContextMenu, erg.phone.secondContextMenu, $(this));
         }
     });
 
-    jQuery('#phone-context-2 div div').live('mouseenter', function () {
-        var group = jQuery(this).attr('id'),
+    $('#phone-context-2 div div').hover(function () {
+        var group = $(this).attr('id'),
             subMenuChildren = erg.phone.thirdContextMenu.find('div.' + group);
 
         if (subMenuChildren.length > 0) {
             erg.phone.thirdContextMenu.show();
             erg.phone.thirdContextMenu.find('div div').hide();
             subMenuChildren.show();
-            positionSubMenu(erg.phone.secondContextMenu, erg.phone.thirdContextMenu, jQuery(this));
+            positionSubMenu(erg.phone.secondContextMenu, erg.phone.thirdContextMenu, $(this));
         }
     });
 
-    jQuery('.phone-context div div').live('click', function () {
-        executeEvents(jQuery(this).attr('id'));
+    $('.phone-context div div').click(function () {
+        executeEvents($(this).attr('id'));
     });
 
     erg.phone.allContextMenus.mouseenter(function () {
@@ -55,19 +55,19 @@ jQuery(document).ready(function (jQuery) {
         }, 500);
     });
 
-    jQuery(document).on('phoneHideRinger', function (event) {
+    $(document).on('phoneHideRinger', function (event) {
         erg.phone.firstContextMenu.find('#ringer').hide();
     });
 
-    jQuery(document).on('phoneShowRinger', function (event) {
+    $(document).on('phoneShowRinger', function (event) {
         erg.phone.firstContextMenu.find('#ringer').show();
     });
 
-    jQuery(document).on('attachEventsToPhone', function (event, menuItemId, triggerEvents) {
+    $(document).on('attachEventsToPhone', function (event, menuItemId, triggerEvents) {
         attachEvents(menuItemId, triggerEvents);
     });
 
-    jQuery(document).on('detatchEventsFromPhone', function (event, menuItemId, eventIds) {
+    $(document).on('detatchEventsFromPhone', function (event, menuItemId, eventIds) {
         var events, i;
         erg.phone.events[menuItemId] = erg.phone.events[menuItemId] || null;
         events = erg.phone.events[menuItemId];
@@ -80,33 +80,33 @@ jQuery(document).ready(function (jQuery) {
         }
     });
 
-    jQuery(document).on('addTextMessage', function (event, contactName, message) {
+    $(document).on('addTextMessage', function (event, contactName, message) {
         addTextMessage(contactName, message);
     });
 
-    jQuery(document).on('addPhoneCall', function (event, contactName, conversationName) {
+    $(document).on('addPhoneCall', function (event, contactName, conversationName) {
         addPhoneCall(contactName, conversationName);
     });
 
-    jQuery(document).on('removePhoneCall', function (event, contactName) {
+    $(document).on('removePhoneCall', function (event, contactName) {
         removePhoneCall(contactName);
     });
 
-    jQuery('.clear-highlight').live('mouseenter', function() {
+    $('.clear-highlight').hover(function() {
         erg.phone.shouldClearHighlight = true;
     });
 
-    jQuery('#ringer-on').click(function () {
+    $('#ringer-on').click(function () {
         erg.phone.firstContextMenu.find('#ringer').show();
-        jQuery('#ringer-off').removeClass('selected');
-        jQuery(this).addClass('selected');
+        $('#ringer-off').removeClass('selected');
+        $(this).addClass('selected');
         closePhoneMenu();
     });
 
-    jQuery('#ringer-off').click(function () {
+    $('#ringer-off').click(function () {
         startTrigger('silencedPhone');
-        jQuery('#ringer-on').removeClass('selected');
-        jQuery(this).addClass('selected');
+        $('#ringer-on').removeClass('selected');
+        $(this).addClass('selected');
         closePhoneMenu();
 
     });
@@ -117,19 +117,19 @@ function closePhoneMenu() {
     erg.phone.secondContextMenu.hide();
     erg.phone.thirdContextMenu.hide();
     if (erg.phone.shouldClearHighlight) {
-        jQuery(this).removeClass('clear-highlight');
-        jQuery('.highlighted').removeClass('highlighted');
-        jQuery('#cell-phone').css('background', 'transparent url("web/img/phone.png")');
+        $(this).removeClass('clear-highlight');
+        $('.highlighted').removeClass('highlighted');
+        $('#cell-phone').css('background', 'transparent url("web/img/phone.png")');
         erg.phone.shouldClearHighlight = false;
     }
 }
 
 function addContextHighlight(removeHighlightSelector, contextSelector, context2Selector, context3Selector) {
-    jQuery('#cell-phone').css('background', 'transparent url("web/img/phoneAlert.png")');
-    jQuery(contextSelector).addClass('highlighted');
-    jQuery(context2Selector).addClass('highlighted');
-    jQuery(context3Selector).addClass('highlighted');
-    jQuery(removeHighlightSelector).addClass('clear-highlight highlighted');
+    $('#cell-phone').css('background', 'transparent url("web/img/phoneAlert.png")');
+    $(contextSelector).addClass('highlighted');
+    $(context2Selector).addClass('highlighted');
+    $(context3Selector).addClass('highlighted');
+    $(removeHighlightSelector).addClass('clear-highlight highlighted');
 }
 
 function addTextMessage(contactName, message) {
@@ -140,16 +140,16 @@ function addTextMessage(contactName, message) {
 
     erg.phone.secondContextMenu.find('div.text#none').remove();
 
-    if (jQuery(selector).length === 0) {
-        jQuery('#text-contact-template').
+    if ($(selector).length === 0) {
+        $('#text-contact-template').
                 clone().
-                appendTo(jQuery('#phone-context-2 div.phone-context-padder')).
+                appendTo($('#phone-context-2 div.phone-context-padder')).
                 attr('id', contactId).
                 text(contactName);
     }
 
-    jQuery('#text-message-template').
-            clone().appendTo(jQuery('#phone-context-3 div.phone-context-padder')).
+    $('#text-message-template').
+            clone().appendTo($('#phone-context-3 div.phone-context-padder')).
             attr('id', messageId).
             addClass(contactId).
             find('span').
@@ -164,9 +164,9 @@ function addPhoneCall(contactName, conversationName) {
     erg.phone.secondContextMenu.find('div.call#none').remove();
     erg.phone.secondContextMenu.find(selector).remove();
 
-    jQuery('#call-template').
+    $('#call-template').
             clone().
-            appendTo(jQuery('#phone-context-2 div.phone-context-padder')).
+            appendTo($('#phone-context-2 div.phone-context-padder')).
             attr('id', contactId).
             text(contactName);
 
@@ -176,7 +176,7 @@ function addPhoneCall(contactName, conversationName) {
 
 function removePhoneCall(contactName) {
     var selector = '.call#' + contactId;
-    jQuery(selector).remove();
+    $(selector).remove();
 }
 
 function attachEvents(menuItemId, triggerEvents) {
@@ -245,6 +245,6 @@ function initializeCellPhone() {
     erg.phone.thirdContextMenu.find('.phone-context-padder').empty();
     erg.phone.secondContextMenu.find('.call').remove();
     erg.phone.secondContextMenu.find('.text').remove();
-    jQuery('#no-call-template').clone().appendTo(secondContextMenu).attr('id', 'none');
-    jQuery('#no-text-template').clone().appendTo(secondContextMenu).attr('id', 'none');
+    $('#no-call-template').clone().appendTo(secondContextMenu).attr('id', 'none');
+    $('#no-text-template').clone().appendTo(secondContextMenu).attr('id', 'none');
 }

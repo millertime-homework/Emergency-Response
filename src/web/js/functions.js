@@ -7,69 +7,69 @@ Managed by setGameState, so you can override it temporarily without cleaning up
 after yourself (ie, saving and then restoring the original value) */
 var canDismissModal = false;
 var erg = erg || {};
-erg.onScreenMessageContainer = jQuery('#on-screen-message-container');
-erg.onScreenMessageTemplate = jQuery('#on-screen-message-template');
+erg.onScreenMessageContainer = $('#on-screen-message-container');
+erg.onScreenMessageTemplate = $('#on-screen-message-template');
 
-jQuery(document).ready(function (jQuery) {
-    jQuery(window).resize(function () {
+$(document).ready(function () {
+    $(window).resize(function () {
         sizeWindow();
     });
 
-    jQuery('#overlay').live("click", function () {
+    $('#overlay').click(function () {
         if (canDismissModal) {
             hideModal();
         }
     });
 
-    jQuery("li.conversation-option").live("click", function () {
-        showConversation(null, jQuery(this).attr('data-conversation-option'));
+    $("li.conversation-option").click(function () {
+        showConversation(null, $(this).attr('data-conversation-option'));
     });
 
-    jQuery(".viewport-button").live("click", function () {
+    $(".viewport-button").click(function () {
         if (!allowKeyEvents) return;
-        jQuery(document).trigger(
+        $(document).trigger(
             'player-move',
-            jQuery(this).attr('id')
+            $(this).attr('id')
         );
     });
 
     /* Pause Menu click functions */
-    jQuery('#pause-resume-button').live("click", function () {
+    $('#pause-resume-button').click(function () {
         setGameState(GAME_STATE_RUNNING);
     });
 
-    jQuery('#pause-save-button').live("click", function () {
+    $('#pause-save-button').click(function () {
         saveGame();
         hideModal();
     });
 
-    jQuery('#pause-mainmenu-button').live("click", function () {
+    $('#pause-mainmenu-button').click(function () {
         if (confirm("Quit and return to main menu?")) {
             setGameState(GAME_STATE_MENU);
         }
     });
 
-    jQuery('#game-over-mainmenu-button').live("click", function () {
+    $('#game-over-mainmenu-button').click(function () {
         setGameState(GAME_STATE_MENU);
     });
 
-    jQuery('#help').click(function() {
+    $('#help').click(function() {
         if (!allowKeyEvents) return;
         displayModal('', '', null);
-        jQuery('#help-template').clone().
-                appendTo(jQuery('#modal').
+        $('#help-template').clone().
+                appendTo($('#modal').
                 children('#content')).
                 removeAttr('id');
     });
 
     //Allows scenario image loader to signal once all the images are loaded.
-    jQuery(document).on('scenario-images-loaded', function(event) {
+    $(document).on('scenario-images-loaded', function(event) {
         setGameState(GAME_STATE_RUNNING);
         renderScene();
         generateMap(player.x, player.y, scenario.getFloor(player.z));
         sizeWindow();
         saveGame();
-        jQuery('div.spinner').remove();
+        $('div.spinner').remove();
 
         // start running the triggers in the same room as the player
         var startRoomTriggers = scenario.getRoom(player.x, player.y, player.z).triggers;
@@ -111,13 +111,13 @@ function loadScenario(data) {
     loadAnnodations(data.annotations);
     markInactivePropsInactive(data.inactiveProps);
 
-    triggerData = jQuery.extend(true, {}, data._triggers);
+    triggerData = $.extend(true, {}, data._triggers);
     loadTriggers(triggerData);
 
     function loadFloors(scenarioData) {
         var currentFloor;
 
-        jQuery.each(scenarioData._floors, function (key, floor) {
+        $.each(scenarioData._floors, function (key, floor) {
             currentFloor = scenario.addFloor(key, floor.z);
             loadRooms(currentFloor, floor);
         });
@@ -126,7 +126,7 @@ function loadScenario(data) {
     function loadRooms(floor, floorData) {
         var currentRoom;
 
-        jQuery.each(floorData._rooms, function (key, roomData) {
+        $.each(floorData._rooms, function (key, roomData) {
             currentRoom = floor.addRoom(key, roomData.id, roomData.x, roomData.y, floorData.z);
             currentRoom.addTriggers(roomData._triggers);
             currentRoom.abortTriggers = roomData.abortTriggers;
@@ -140,7 +140,7 @@ function loadScenario(data) {
     function loadWalls(room, roomData) {
         var currentWall;
 
-        jQuery.each(roomData._walls, function (key, wallData) {
+        $.each(roomData._walls, function (key, wallData) {
             currentWall = room.addWall(wallData.name, key, wallData.image,
                     wallData.fakeDirection, wallData.isCutscene,
                     wallData._triggers);
@@ -162,7 +162,7 @@ function loadScenario(data) {
     }
 
     function loadProps(wall, wallData) {
-        jQuery.each(wallData._props, function (key, prop) {
+        $.each(wallData._props, function (key, prop) {
             wall.addProp(
                 key,
                 prop.name,
@@ -201,7 +201,7 @@ function loadScenario(data) {
     function loadConversations(conversationData) {
         scenario.conversations = {};
         if (conversationData) {
-            jQuery.each(conversationData, function (key, value) {
+            $.each(conversationData, function (key, value) {
                 var newConversation = new Conversation;
                 newConversation.set(key, value);
                 scenario.conversations[key] = newConversation;
@@ -214,7 +214,7 @@ function loadScenario(data) {
         clearObjective();
 
         if (triggerData) {
-            jQuery.each(triggerData, function (key, value) {
+            $.each(triggerData, function (key, value) {
                 scenario.addTrigger(key, value);
             });
         }
@@ -245,7 +245,7 @@ function loadScenario(data) {
 
     function addSpinner() {
          // Add spinner to view-modal while loading scenario
-        jQuery('#overlay').show();
+        $('#overlay').show();
         var spinner = new Spinner({
             color: '#000'
         }).spin(document.getElementById('overlay'));
@@ -287,52 +287,52 @@ function setGameState(state) {
     gameState = state;
     switch (state) {
     case GAME_STATE_MENU:
-        jQuery('#view-modal').hide();
-        jQuery('.modal').hide();
-        jQuery('#overlay').hide();
+        $('#view-modal').hide();
+        $('.modal').hide();
+        $('#overlay').hide();
         resetLights();
         showMainMenu();
         allowKeyEvents = false;
         break;
     case GAME_STATE_RUNNING:
         hideMainMenu();
-        jQuery('#view-modal').show();
-        jQuery('.modal').hide();
-        jQuery('#overlay').hide();
+        $('#view-modal').show();
+        $('.modal').hide();
+        $('#overlay').hide();
         allowKeyEvents = true;
         break;
     case GAME_STATE_LOADING:
         hideMainMenu();
-        jQuery('.modal').hide();
-        jQuery('#view-modal').show();
+        $('.modal').hide();
+        $('#view-modal').show();
         allowKeyEvents = true;
         break;
     case GAME_STATE_PAUSED:
-        showNamedModal(jQuery('#pause-menu'), false, true);
+        showNamedModal($('#pause-menu'), false, true);
         break;
     case GAME_STATE_SHOW_INVENTORY:
-        showNamedModal(jQuery('#inventory-modal'), false, true);
+        showNamedModal($('#inventory-modal'), false, true);
         break;
     case GAME_STATE_SHOW_OBJECTIVES:
-        jQuery('#objectives-modal .option').hide();
+        $('#objectives-modal .option').hide();
         if (lastGameState === GAME_STATE_RUNNING) {
-            jQuery('#objectives-modal-close').show();
+            $('#objectives-modal-close').show();
 
         } else if (lastGameState === GAME_STATE_PAUSED) {
-            jQuery('#objectives-modal-go-back-paused').show();
+            $('#objectives-modal-go-back-paused').show();
         } else {
-            jQuery('#objectives-modal-go-back-game-over').show();
+            $('#objectives-modal-go-back-game-over').show();
         }
 
-        showNamedModal(jQuery('#objectives-modal'), false, false);
+        showNamedModal($('#objectives-modal'), false, false);
         break;
     case GAME_STATE_MODAL:
-        showNamedModal(jQuery('#modal'), false, true);
-        jQuery('#modal-close').show();
+        showNamedModal($('#modal'), false, true);
+        $('#modal-close').show();
         break;
     case GAME_STATE_FORCED_MODAL:
-        showNamedModal(jQuery('#modal'), false, false);
-        jQuery('#modal-close').hide();
+        showNamedModal($('#modal'), false, false);
+        $('#modal-close').hide();
         break;
     case GAME_STATE_TUTORIAL:
         allowKeyEvents = false;
@@ -341,7 +341,7 @@ function setGameState(state) {
         if (lastGameState === GAME_STATE_SHOW_OBJECTIVES) {
             $('#objectives-modal').hide();
         }
-        positionGameOverModal(jQuery);
+        positionGameOverModal();
     }
 }
 
@@ -350,11 +350,11 @@ function showNamedModal(modal, newAllowKeyEvents, newCanDismissModal) {
     allowKeyEvents = newAllowKeyEvents;
     modal.show();
     centerModal(modal);
-    jQuery('#overlay').show();
+    $('#overlay').show();
 }
 
 function showGameOver(header, body) {
-    gameOverMenu = jQuery('#game-over-menu');
+    gameOverMenu = $('#game-over-menu');
     gameOverMenu.find('#game-over-header').text(header);
     gameOverMenu.find('#game-over-message').text(body);
     gameOverMenu.find('#game-over-score span').text(player.score);
@@ -367,20 +367,20 @@ function showPauseMenu() {
 }
 
 function showMainMenu() {
-    jQuery('#main-menu').show();
+    $('#main-menu').show();
     centerMainMenu();
 }
 
 function hideMainMenu() {
-    jQuery('#main-menu').hide();
+    $('#main-menu').hide();
 }
 
 function displayModal(header, text, image) {
     emptyModal();
 
-    jQuery('#modal #header').html(header);
-    jQuery('#modal #content').html(text);
-    jQuery('#modal #content').append(image);
+    $('#modal #header').html(header);
+    $('#modal #content').html(text);
+    $('#modal #content').append(image);
     showModal();
 }
 
@@ -390,19 +390,19 @@ function showModal() {
 
 function emptyModal() {
     // Clear header and content
-    jQuery('#modal #header').empty();
-    jQuery('#modal #content').empty();
+    $('#modal #header').empty();
+    $('#modal #content').empty();
 }
 
 function hideModal() {
     // Hide any visible modal element
-    jQuery('#modal').data('conversationName', null);
-    jQuery('#modal').data('cannotSkip', null);
+    $('#modal').data('conversationName', null);
+    $('#modal').data('cannotSkip', null);
     if (lastGameState === GAME_STATE_MENU) {
         setGameState(GAME_STATE_MENU);
     }
     if (gameState === GAME_STATE_OVER) {
-        jQuery('#modal').hide();
+        $('#modal').hide();
     } else if (gameState !== GAME_STATE_MENU) {
         setGameState(GAME_STATE_RUNNING);
     }
@@ -411,7 +411,7 @@ function hideModal() {
 
 function resetLights() {
     lightsOn = true;
-    var flashlightOverlay = jQuery('#flashlight-overlay');
+    var flashlightOverlay = $('#flashlight-overlay');
     flashlightOverlay.addClass('hidden');
     flashlightOverlay.removeClass('flashlight-on');
     flashlightOverlay.addClass('flashlight-off');
@@ -430,7 +430,7 @@ function showOnScreenMessage(message, duration) {
             text(message).
             show().
             delay(duration).
-            fadeOut(300, function () { jQuery(this).remove(); });
+            fadeOut(300, function () { $(this).remove(); });
 }
 
 function showInventory() {
@@ -438,7 +438,7 @@ function showInventory() {
     // modeled after showConversation's implementation
     rowTemplate = "<span class='inventory-item' id='{0}' onclick='inventoryItemClick(\"{0}\")'><img src='web/img/{1}' alt=''{2}> {3}</span>";
     items = player.inventory.items;
-    inventoryModal = jQuery('#inventory-modal');
+    inventoryModal = $('#inventory-modal');
     inventoryItemsContainer = inventoryModal.find('#items-container');
     inventoryItemsContainer.empty();
     for (i in items) {
@@ -473,7 +473,7 @@ function inventoryItemClick(itemId) {
 
     if (itemId == 'Flashlight') {
         validItemClicked = true;
-        flashlightOverlay = jQuery('#flashlight-overlay');
+        flashlightOverlay = $('#flashlight-overlay');
         if (!flashlightOverlay.hasClass('hidden')) {
             if (flashlightOverlay.hasClass('flashlight-on')) {
                 flashlightOverlay.removeClass('flashlight-on');
@@ -496,15 +496,15 @@ String.prototype.format = function () {
     return this.replace(/\{(\d+)\}/g, function (m, n) { return args[n]; });
 }
 
-jQuery.fn.center = function () {
+$.fn.center = function () {
     return this.css({
         "position" : "absolute",
-        "top" : (jQuery(window).height() - this.height()) / 2 + jQuery(window).scrollTop() + "px",
-        "left" : (jQuery(window).width() - this.width()) / 2 + jQuery(window).scrollLeft() + "px"
+        "top" : ($(window).height() - this.height()) / 2 + $(window).scrollTop() + "px",
+        "left" : ($(window).width() - this.width()) / 2 + $(window).scrollLeft() + "px"
     });
 }
 
-jQuery.fn.opacity = function (opacity) {
+$.fn.opacity = function (opacity) {
     return this.css({
         "filter" : "alpha({0}*100)".format(opacity),
         "moz opacity" : opacity,
@@ -523,13 +523,13 @@ jQuery.fn.opacity = function (opacity) {
 function showConversation(conversationName, currentConversationChoice, cannotSkip, isAnAction) {
     var i, conversation, optionRowTemplate, currentOptionId, currentOption,
             replyChoices, choiceText, contentContainer;
-    cannotSkip = cannotSkip || jQuery('#modal').data('cannotSkip');
+    cannotSkip = cannotSkip || $('#modal').data('cannotSkip');
 
     optionRowTemplate = "<li class='conversation-option' data-conversation-option='{0}'>{1}</li><br />";
 
     //fetch the conversation name if we're progressing through a conversation tree.
     if (!conversationName) {
-        conversationName = jQuery('#modal').data('conversationName');
+        conversationName = $('#modal').data('conversationName');
     }
 
     //Now the current contents from the modal.
@@ -599,14 +599,14 @@ function showConversation(conversationName, currentConversationChoice, cannotSki
         return;
     }
     //Save whether the conversation can be skipped or not to the modal.
-    jQuery('#modal').data('cannotSkip', cannotSkip);
+    $('#modal').data('cannotSkip', cannotSkip);
     //Show the message and reply options.
-    jQuery('#modal').data('conversationName', conversationName);
+    $('#modal').data('conversationName', conversationName);
 
     if (!isAnAction) {
-        jQuery('#modal #header').html('<span id="conversation-name">' + conversationName + " says:</span>");
+        $('#modal #header').html('<span id="conversation-name">' + conversationName + " says:</span>");
     }
-    contentContainer = jQuery('#modal #content');
+    contentContainer = $('#modal #content');
     contentContainer.append('<span id="option-message">' + currentOption.message + '</span><p />');
 
     if (!isAnAction) {
@@ -617,7 +617,7 @@ function showConversation(conversationName, currentConversationChoice, cannotSki
     replyChoices = currentOption.replies;
     for (choiceText in replyChoices) {
         if (replyChoices.hasOwnProperty(choiceText) && shouldShowReplyChoice(conversation, replyChoices, choiceText)) {
-            jQuery('#modal #content ul').append(optionRowTemplate.format(replyChoices[choiceText], choiceText));
+            $('#modal #content ul').append(optionRowTemplate.format(replyChoices[choiceText], choiceText));
         }
     }
     contentContainer.append('</ul>');
