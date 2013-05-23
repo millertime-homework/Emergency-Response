@@ -29,7 +29,7 @@
                     'name': 'door',
                     'image': 'doorOutsideRight.png',
                     'openImage': 'doorOpen.png',
-                    'hoverImage': 'doorHover.png',
+                    'hoverImage': 'doorOutsideRightHover.png',
                     'width': 113,
                     'height': 271,
                     'top': 236,
@@ -37,7 +37,7 @@
                     'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'lockableDoor1',
+                        'conversationName': 'door',
                         'isAnAction': true
                     }
                 }

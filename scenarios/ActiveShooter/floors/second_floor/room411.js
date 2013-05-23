@@ -67,7 +67,7 @@
                     'name': 'door',
                     'image': 'doorInsideLeft.png',
                     'openImage': 'doorOpen.png',
-                    'hoverImage': 'doorHover.png',
+                    'hoverImage': 'doorInsideLeftHover.png',
                     'width': 79,
                     'height': 188,
                     'top': 259,
