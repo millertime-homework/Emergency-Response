@@ -2,7 +2,7 @@
     'id': 'entrance',
     'x': 0,
     'y': 0,
-    '_triggers': ['showAskInstruction'],
+    '_triggers': ['startTutorial'],
     '_walls': {
         'e': {
             'name': 'EntranceE',

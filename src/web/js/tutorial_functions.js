@@ -12,9 +12,9 @@ var instrModalContent = null;
 
 // Each array provides an arg to the tutorial function.
 var tutorialPartOne = {
-    elements: ['#objective', '#inventory'],
-    types: ['instruct-right', 'instruct-bottom'],
-    aligns: ['align-top', 'align-right'],
+    elements: ['#objective',     '#inventory',      ],
+    types:    ['instruct-right', 'instruct-bottom', ],
+    aligns:   ['align-top',      'align-right',     ],
     contents: [
         'This is the current objective. If you\'re not sure what to do next, look here.',
         'This is the inventory. You can click it to open it and see the items you\'re carrying. ' +

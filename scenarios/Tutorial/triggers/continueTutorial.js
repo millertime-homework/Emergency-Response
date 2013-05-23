@@ -1,0 +1,5 @@
+'continueTutorial': {
+    'events': {
+        'startTutorialPartTwo': []
+    }
+}
