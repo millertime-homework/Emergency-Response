@@ -46,9 +46,7 @@ $(document).ready(function() {
     });
 
     // next button
-    $("#instruct-next-button").click(function() {
-        showNextTutorial();
-    });
+    $("body").on("click", "#instruct-next-button", showNextTutorial);
 
     // for starting the second half of the tutorial
     $(document).on('startTutorialPartTwo', function(event, triggerName) {
@@ -57,7 +55,7 @@ $(document).ready(function() {
     });
 
     // exit button
-    $("#instruct-exit-button").click(function() {
+    $("body").on("click", "#instruct-exit-button", function() {
         deleteInstructModal();
         setGameState(GAME_STATE_RUNNING);
         completedPartOne = true;

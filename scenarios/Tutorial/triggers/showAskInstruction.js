@@ -1,0 +1,5 @@
+'showAskInstruction': {
+    'events': {
+        'startTutorialPartOne': []
+    }
+}

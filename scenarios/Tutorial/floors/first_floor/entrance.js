@@ -2,14 +2,11 @@
     'id': 'entrance',
     'x': 0,
     'y': 0,
+    '_triggers': ['showAskInstruction'],
     '_walls': {
         'e': {
             'name': 'EntranceE',
-            'image': 'blackout.jpg'
-        },
-        'w': {
-            'name': 'EntranceW',
-            'image': 'blackout.jpg'
+            'image': 'R200-east.jpg'
         },
         'n': {
             'name': 'EntranceN',
@@ -21,6 +18,10 @@
         's': {
             'name': 'EntranceS',
             'image': 'R200-south.jpg'
+        },
+        'w': {
+            'name': 'EntranceW',
+            'image': 'R200-west.jpg'
         }
     }
 }
