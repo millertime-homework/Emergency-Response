@@ -8,6 +8,23 @@
             'image': 'R320-east.jpg',
             'destination': {
                 'x': 4
+            },
+            '_props': {
+                'door': {
+                    'name': 'door',
+                    'image': 'doorOutsideLeft.png',
+                    'openImage': 'doorOpen.png',
+                    'hoverImage': 'doorOutsideLeftHover.png',
+                    'width': 230,
+                    'height': 537,
+                    'top': 135,
+                    'left': 571,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'door'
+                    }
+                }
             }
         },
         'w': {

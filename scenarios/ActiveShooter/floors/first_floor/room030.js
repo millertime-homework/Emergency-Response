@@ -8,11 +8,24 @@
             'image': 'R030-east.jpg',
             'destination': {
                 'x': 1
+            },
+            '_props': {
+                'door': {
+                    'name': 'door',
+                    'image': 'doorInsideLeft.png',
+                    'openImage': 'doorOpen.png',
+                    'hoverImage': 'doorInsideLeftHover.png',
+                    'width': 106,
+                    'height': 247,
+                    'top': 228,
+                    'left': 659,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'door'
+                    }
+                }
             }
-        },
-        'w': {
-            'name': 'WClassroom030',
-            'image': 'R030-west.jpg'
         },
         'n': {
             'name': 'NClassroom030',
@@ -21,6 +34,10 @@
         's': {
             'name': 'SClassroom030',
             'image': 'R030-south.jpg'
+        },
+        'w': {
+            'name': 'WClassroom030',
+            'image': 'R030-west.jpg'
         }
     }
 }

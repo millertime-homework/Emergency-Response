@@ -24,8 +24,23 @@
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'A picture frame'
-                    }
-                }
+                    },
+				},
+                'door': {
+                    'name': 'door',
+                    'image': 'doorInsideRight.png',
+                    'openImage': 'doorOpen.png',
+                    'hoverImage': 'doorInsideRightHover.png',
+                    'width': 74,
+                    'height': 171,
+                    'top': 252,
+                    'left': 480,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'door'
+	                    }
+	              }
             }
         },
         'n': {

@@ -8,6 +8,23 @@
             'image': 'R020-east.jpg',
             'destination': {
                 'x': 1
+            },
+            '_props': {
+                'door': {
+                    'name': 'door',
+                    'image': 'doorInsideLeft.png',
+                    'openImage': 'doorOpen.png',
+                    'hoverImage': 'doorInsideLeftHover.png',
+                    'width': 106,
+                    'height': 246,
+                    'top': 228,
+                    'left': 453,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'door'
+                    }
+                }
             }
         },
         'w': {

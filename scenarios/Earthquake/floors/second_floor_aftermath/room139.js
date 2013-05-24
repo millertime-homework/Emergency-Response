@@ -17,19 +17,20 @@
                 'x': 0
             },
             '_props': {
-                'door2': {
+                'door': {
                     'name': 'door',
-                    'image': 'door.png',
+                    'image': 'doorInsideLeft.png',
                     'openImage': 'doorOpen.png',
-                    'hoverImage': 'doorHover.png',
-                    'width': 120,
-                    'height': 250,
-                    'left': 780,
-                    'top': 240,
+                    'hoverImage': 'doorInsideLeftHover.png',
+                    'width': 105,
+                    'height': 245,
+                    'top': 244,
+                    'left': 662,
                     'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'door2'
+                        'conversationName': 'door',
+                        'isAnAction': true
                     }
                 }
             }
@@ -50,17 +51,18 @@
             '_props': {
                 'door': {
                     'name': 'door',
-                    'image': 'door.png',
+                    'image': 'doorInsideLeft.png',
                     'openImage': 'doorOpen.png',
-                    'hoverImage': 'doorHover.png',
-                    'width': 120,
-                    'height': 250,
-                    'left': 660,
-                    'top': 240,
+                    'hoverImage': 'doorInsideLeftHover.png',
+                    'width': 105,
+                    'height': 245,
+                    'top': 244,
+                    'left': 662,
                     'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'door'
+                        'conversationName': 'door',
+                        'isAnAction': true
                     }
                 }
             }

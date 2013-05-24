@@ -12,6 +12,23 @@
             'image': 'R400-west.jpg',
             'destination': {
                 'x': 3
+            },
+            '_props': {
+                'door': {
+                    'name': 'door',
+                    'image': 'doorInsideRight.png',
+                    'openImage': 'doorOpen.png',
+                    'hoverImage': 'doorInsideRightHover.png',
+                    'width': 72,
+                    'height': 171,
+                    'top': 252,
+                    'left': 482,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'door'
+                    }
+                }
             }
         },
         'n': {

@@ -18,7 +18,22 @@
         },
         'n': {
             'name': 'NStairs228',
-            'image': 'R220-north.jpg'
+            'image': 'R220-north.jpg',
+            '_props': {
+                'Info-TV': {
+                    'name': 'Info-TV',
+                    'image': 'info-tv.png',
+                    'hoverImage': 'info-tvHover.png',
+                    'width': 215,
+                    'height': 139,
+                    'top': 192,
+                    'left': 454,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Info TV'
+                    }
+                }
+            }
         },
         's': {
             'name': 'SStairs228',

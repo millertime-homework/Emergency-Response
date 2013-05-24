@@ -8,6 +8,23 @@
             'image': 'R230-east.jpg',
             'destination': {
                 'x': 3
+            },
+            '_props': {
+                'door': {
+                    'name': 'door',
+                    'image': 'doorInsideLeft.png',
+                    'openImage': 'doorOpen.png',
+                    'hoverImage': 'doorInsideLeftHover.png',
+                    'width': 82,
+                    'height': 190,
+                    'top': 246,
+                    'left': 560,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'door'
+                    }
+                }
             }
         },
         'w': {
@@ -15,6 +32,23 @@
             'image': 'R230-west.jpg',
             'destination': {
                 'x': 1
+            },
+            '_props': {
+                'door': {
+                    'name': 'door',
+                    'image': 'doorInsideRight.png',
+                    'openImage': 'doorOpen.png',
+                    'hoverImage': 'doorInsideRightHover.png',
+                    'width': 82,
+                    'height': 190,
+                    'top': 246,
+                    'left': 473,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'door'
+                    }
+                }
             }
         },
         'n': {

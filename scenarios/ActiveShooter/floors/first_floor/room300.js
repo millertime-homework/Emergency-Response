@@ -8,13 +8,23 @@
             'image': 'R300-east.jpg',
             'destination': {
                 'x': 4
-            }
-        },
-        'w': {
-            'name': 'WHall300',
-            'image': 'R300-west.jpg',
-            'destination': {
-                'x': 2
+            },
+            '_props': {
+                'door': {
+                    'name': 'door',
+                    'image': 'doorOutsideLeft.png',
+                    'openImage': 'doorOpen.png',
+                    'hoverImage': 'doorOutsideLeftHover.png',
+                    'width': 232,
+                    'height': 565,
+                    'top': 135,
+                    'left': 685,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'door'
+                    }
+                }
             }
         },
         'n': {
@@ -27,6 +37,13 @@
         's': {
             'name': 'SHall300',
             'image': 'R300-south.jpg'
+        },
+        'w': {
+            'name': 'WHall300',
+            'image': 'R300-west.jpg',
+            'destination': {
+                'x': 2
+            }
         }
     }
 }

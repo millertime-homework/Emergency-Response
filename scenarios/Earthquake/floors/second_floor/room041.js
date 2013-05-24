@@ -12,17 +12,18 @@
             '_props': {
                 'door': {
                     'name': 'door',
-                    'image': 'door.png',
+                    'image': 'doorInsideLeft.png',
                     'openImage': 'doorOpen.png',
-                    'hoverImage': 'doorHover.png',
-                    'width': 236,
-                    'height': 490,
-                    'top': 169,
-                    'left': 436,
+                    'hoverImage': 'doorInsideLeftHover.png',
+                    'width': 189,
+                    'height': 489,
+                    'top': 192,
+                    'left': 463,
                     'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'door'
+                        'conversationName': 'door',
+                        'isAnAction': true
                     }
                 }
             }

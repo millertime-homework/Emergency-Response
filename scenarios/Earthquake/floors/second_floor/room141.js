@@ -27,17 +27,18 @@
             '_props': {
                 'door': {
                     'name': 'door',
-                    'image': 'door.png',
+                    'image': 'doorOutsideRight.png',
                     'openImage': 'doorOpen.png',
-                    'hoverImage': 'doorHover.png',
-                    'width': 135,
-                    'height': 299,
-                    'top': 221,
-                    'left': 492,
+                    'hoverImage': 'doorOutsideRightHover.png',
+                    'width': 113,
+                    'height': 271,
+                    'top': 236,
+                    'left': 502,
                     'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'door'
+                        'conversationName': 'door',
+                        'isAnAction': true
                     }
                 }
             }

@@ -13,18 +13,18 @@
             '_props': {
                 'door': {
                     'name': 'door',
-                    'image': 'door.png',
+                    'image': 'doorInsideLeft.png',
                     'openImage': 'doorOpen.png',
-                    'hoverImage': 'doorHover.png',
-                    'width': 230,
-                    'height': 491,
-                    'top': 170,
-                    'left': 442,
-                    'barrier': 'true',
+                    'hoverImage': 'doorInsideLeftHover.png',
+                    'width': 191,
+                    'height': 487,
+                    'top': 192,
+                    'left': 461,
+                    'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'door',
-                        'isAnAction': 'true'
+                        'isAnAction': true
                     }
                 },
                 'doorHandle031': {
@@ -38,7 +38,7 @@
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'lockDoor',
-                        'isAnAction': 'true'
+                        'isAnAction': true
                     }
                 },
                 'lightSwitch031': {
@@ -52,7 +52,7 @@
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'turnOffLights031',
-                        'isAnAction': 'true'
+                        'isAnAction': true
                     }
                 }
             }

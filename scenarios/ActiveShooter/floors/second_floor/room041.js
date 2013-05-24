@@ -13,13 +13,13 @@
             '_props': {
                 'door': {
                     'name': 'door',
-                    'image': 'door.png',
+                    'image': 'doorInsideLeft.png',
                     'openImage': 'doorOpen.png',
-                    'hoverImage': 'doorHover.png',
-                    'width': 239,
-                    'height': 493,
-                    'top': 170,
-                    'left': 436,
+                    'hoverImage': 'doorInsideLeftHover.png',
+                    'width': 189,
+                    'height': 489,
+                    'top': 192,
+                    'left': 463,
                     'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
@@ -31,10 +31,10 @@
                     'name': 'doorHandle041',
                     'image': 'rectangle.png',
                     'hoverImage': 'rectangleGlow.png',
-                    'width': 27,
-                    'height': 85,
-                    'top': 382,
-                    'left': 479,
+                    'width': 34,
+                    'height': 41,
+                    'top': 399,
+                    'left': 476,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'lockDoor041',
@@ -47,8 +47,8 @@
                     'hoverImage': 'ASshadeUpHover.png',
                     'width': 67,
                     'height': 76,
-                    'top': 274,
-                    'left': 523,
+                    'top': 275,
+                    'left': 522,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'putShadeDown041',
@@ -58,10 +58,10 @@
                 'doorShadeDown041': {
                     'name': 'doorShadeDown041',
                     'image': 'ASShadeDown.png',
-                    'width': 67,
-                    'height': 93,
-                    'top': 273,
-                    'left': 523
+                    'width': 94,
+                    'height': 114,
+                    'top': 289,
+                    'left': 508
                 },
                 'hidingSpot041': {
                     'name': 'hidingSpot041',
