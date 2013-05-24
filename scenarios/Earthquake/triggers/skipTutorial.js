@@ -1,5 +1,0 @@
-'skipTutorial': {
-    'events': {
-        'skipTutorial': []
-    }
-}
