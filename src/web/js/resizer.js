@@ -129,7 +129,7 @@ function centerModal(modalElement, windowHeight) {
 
 }
 
-function positionGameOverModal($) {
+function positionGameOverModal() {
     "use strict";
     var modalElement = $("#game-over-menu");
     var windowHeight = $(window).height();
