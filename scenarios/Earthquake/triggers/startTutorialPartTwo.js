@@ -1,5 +1,0 @@
-'startTutorialPartTwo': {
-    'events': {
-        'startTutorialPartTwo': []
-    }
-}
