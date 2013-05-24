@@ -3,103 +3,72 @@
  * A series of modals instructing the player on how the game works.
  */
 
-var skippedPartOne = false;
-var completedPartOne = false;
 var instrModalElement = null;
 var instrModalInstructType = null;
 var instrModalArrowType = null;
 var instrModalContent = null;
 
-// Each array provides an arg to the tutorial function.
-var tutorialPartOne = {
-    elements: ['#objective',     '#inventory',      ],
-    types:    ['instruct-right', 'instruct-bottom', ],
-    aligns:   ['align-top',      'align-right',     ],
-    contents: [
-        'This is the current objective. If you\'re not sure what to do next, look here.',
-        'This is the inventory. You can click it to open it and see the items you\'re carrying. ' +
-            'Some items in your inventory can be clicked on.'
-    ]
-};
+var tutorialInfo = function(name, e, t, a, c, n) {
+    this.name    = name;
+    this.element = e;
+    this.type    = t;
+    this.align   = a;
+    this.content = c;
+    this.next    = n;
+}
 
-var tutorialPartTwo = {
-    elements: ['#map'],
-    types: ['instruct-right'],
-    aligns: ['align-bottom'],
-    contents: [
-        'This is the mini-map. It\'s an overhead view of your surroundings. Each square represents ' +
-            'a place you can walk to. The connectors between the squares indicate directions you can move.',
-    ]
-};
+var tutorialParts = [];
+tutorialParts.push(new tutorialInfo(
+    'objective',
+    '#objective',
+    'instruct-right',
+    'align-top',
+    'This is the current objective. If you\'re not sure what to do next, look here.',
+    true
+));
+tutorialParts.push(new tutorialInfo(
+    'inventory',
+    '#inventory',
+    'instruct-bottom',
+    'align-right',
+    'This is the inventory. You can click it to open it and see the items you\'re carrying. '+
+        'Some items in your inventory can be clicked on.'
+));
+tutorialParts.push(new tutorialInfo(
+    'map',
+    '#map',
+    'instruct-right',
+    'align-bottom',
+    'This is the mini-map. It\'s an overhead view of your surroundings. Each square represents ' +
+        'a place you can walk to. The connectors between the squares indicate directions you can move.'
+));
 
 $(document).ready(function() {
     // for starting the tutorial
-    $(document).on('startTutorialPartOne', function(event, triggerName) {
+    $(document).on('showTutorial', function(event, triggerName) {
         setGameState(GAME_STATE_TUTORIAL);
         showNextTutorial();
-    });
-
-    // skip the tutorial
-    $(document).on('skipTutorial', function(event, triggerName) {
-        completedPartOne = true;
-        skippedPartOne = true;
     });
 
     // next button
     $("body").on("click", "#instruct-next-button", showNextTutorial);
 
-    // for starting the second half of the tutorial
-    $(document).on('startTutorialPartTwo', function(event, triggerName) {
-        setGameState(GAME_STATE_TUTORIAL);
-        showNextTutorial();
-    });
-
     // exit button
     $("body").on("click", "#instruct-exit-button", function() {
         deleteInstructModal();
         setGameState(GAME_STATE_RUNNING);
-        completedPartOne = true;
     });
 });
 
-function moreTutorials(whichPart) {
-    if (whichPart !== 2) {
-        return tutorialPartOne.elements.length
-            && tutorialPartOne.types.length
-            && tutorialPartOne.aligns.length
-            && tutorialPartOne.contents.length;
-    } else {
-        return tutorialPartTwo.elements.length
-            && tutorialPartTwo.types.length
-            && tutorialPartTwo.aligns.length
-            && tutorialPartTwo.contents.length;
-    }
-}
-
 function showNextTutorial() {
-    if (!completedPartOne) {
-        if (moreTutorials()) {
-            showInstructModal(tutorialPartOne.elements.shift(),
-                              tutorialPartOne.types.shift(),
-                              tutorialPartOne.aligns.shift(),
-                              tutorialPartOne.contents.shift());
-            if (!moreTutorials()) {
-                $("#instruct-next-button").hide();
-            }
-        }
-    } else {
-        if (moreTutorials(2) && !skippedPartOne) {
-            showInstructModal(tutorialPartTwo.elements.shift(),
-                              tutorialPartTwo.types.shift(),
-                              tutorialPartTwo.aligns.shift(),
-                              tutorialPartTwo.contents.shift());
-        }
-        if (!moreTutorials(2)) {
+    if (tutorialParts) {
+        var nextTutorial = tutorialParts.shift();
+        showInstructModal(nextTutorial.element,
+                          nextTutorial.type,
+                          nextTutorial.align,
+                          nextTutorial.content);
+        if (!nextTutorial.next)
             $("#instruct-next-button").hide();
-        }
-        if (skippedPartOne) {
-            setGameState(GAME_STATE_RUNNING);
-        }
     }
 }
 

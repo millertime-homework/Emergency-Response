@@ -1,6 +1,6 @@
 'elevator': {
     'id': 'elevator',
-    'x': 0,
+    'x': 2,
     'y': 1,
     '_triggers': ['continueTutorial'],
     '_walls': {

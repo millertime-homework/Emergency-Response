@@ -1,6 +1,6 @@
 'entrance': {
     'id': 'entrance',
-    'x': 0,
+    'x': 2,
     'y': 0,
     '_triggers': ['startTutorial'],
     '_walls': {
@@ -21,7 +21,10 @@
         },
         'w': {
             'name': 'EntranceW',
-            'image': 'R200-west.jpg'
+            'image': 'R200-west.jpg',
+            'destination': {
+                'x': 1
+            }
         }
     }
 }
