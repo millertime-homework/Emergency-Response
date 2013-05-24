@@ -1,11 +1,12 @@
 'startTutorial': {
     'events': {
-        'showTutorial': [],
+        'showConversation': ['introduction', 1, true, true],
         'hideMapAnnotations': [['0,0,0']],
         'setObjective': ['findEvacPlan', 'Find a floor plan poster.']
     }
 },
-'continueTutorial': {
+'showTutorial': {
+    'lives': Infinity,
     'events': {
         'showTutorial': []
     }
