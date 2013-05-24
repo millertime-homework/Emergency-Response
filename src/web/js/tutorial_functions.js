@@ -27,20 +27,29 @@ tutorialParts.push(new tutorialInfo(
     true
 ));
 tutorialParts.push(new tutorialInfo(
-    'inventory',
-    '#inventory',
-    'instruct-bottom',
-    'align-right',
-    'This is the inventory. You can click it to open it and see the items you\'re carrying. '+
-        'Some items in your inventory can be clicked on.'
-));
-tutorialParts.push(new tutorialInfo(
     'map',
     '#map',
     'instruct-right',
     'align-bottom',
     'This is the mini-map. It\'s an overhead view of your surroundings. Each square represents ' +
-        'a place you can walk to. The connectors between the squares indicate directions you can move.'
+        'a place you can walk to. The connectors between the squares indicate directions you can move.',
+    true
+));
+tutorialParts.push(new tutorialInfo(
+    'moveForward',
+    '#move-forward',
+    'instruct-left',
+    'align-top',
+    'This is an arrow to move forward. Try clicking this. Or press the up arrow key on the keyboard. ' +
+        'But first press Exit below.'
+));
+tutorialParts.push(new tutorialInfo(
+    'inventory',
+    '#inventory',
+    'instruct-bottom',
+    'align-right',
+    'This is the inventory. You can click it to open it and see the items you\'re carrying. ' +
+        'Some items in your inventory can be clicked on.'
 ));
 
 $(document).ready(function() {

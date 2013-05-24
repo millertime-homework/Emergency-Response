@@ -21,7 +21,7 @@ $(document).ready(function () {
         }
     });
 
-    $("li.conversation-option").click(function () {
+    $("body").on("click", "li.conversation-option", function () {
         showConversation(null, $(this).attr('data-conversation-option'));
     });
 
