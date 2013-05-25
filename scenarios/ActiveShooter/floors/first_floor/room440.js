@@ -17,6 +17,9 @@
         's': {
             'name': 'SHall440',
             'image': 'R440-south.jpg',
+            'destination': {
+                'y': 3
+            },
             '_props': {
                 'door': {
                     'name': 'door',
