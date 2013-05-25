@@ -340,6 +340,7 @@ function setGameState(state) {
     case GAME_STATE_OVER:
         if (lastGameState === GAME_STATE_SHOW_OBJECTIVES) {
             $('#objectives-modal').hide();
+            $("#overlay").hide();
         }
         positionGameOverModal();
     }
