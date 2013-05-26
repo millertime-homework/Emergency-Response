@@ -34,6 +34,7 @@ body {
   left: 100%;
   width: 128px;
   height: 128px;
+  width: 102px;
   margin-top: -120px;
   margin-left: -100px;
   background: transparent url("../img/backpack.png");
@@ -54,8 +55,9 @@ body {
   left: 100%;
   width: 128px;
   height: 128px;
+  width: 72px;
   margin-top: -100px;
-  margin-left: -230px;
+  margin-left: -174px;
   background: transparent url("../img/phone.png");
 }
 #cell-phone:hover {
