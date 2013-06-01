@@ -9,24 +9,16 @@
             'destination': {
                 'x': 1
             },
-            '_triggers' : ['hiComputer', 'walkedAwayFromConversation'],
+            '_triggers': [],
             '_props': {
-                'desk' : {
-                    'name' : 'desk',
-                    'image' : 'sturdy-desk.png',
-                    'width': 340,
-                    'height': 185,
-                    'left': 250,
-                    'top': 400
-                },
                 'computer': {
                     'name': 'computer',
-                    'image': 'computer.png',
-                    'hoverImage': 'computerHover.png',
-                    'width': 125,
-                    'height': 140,
-                    'left': 360,
-                    'top': 295,
+                    'image': 'rectangle.png',
+                    'hoverImage': 'rectangleGlow.png',
+                    'width': 170,
+                    'height': 114,
+                    'top': 311,
+                    'left': 324,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Computer',
@@ -50,10 +42,6 @@
                 }
             }
         },
-        'w': {
-            'name': 'WClassroom030',
-            'image': 'R030-west.jpg'
-        },
         'n': {
             'name': 'NClassroom030',
             'image': 'R030-north.jpg'
@@ -61,6 +49,10 @@
         's': {
             'name': 'SClassroom030',
             'image': 'R030-south.jpg'
+        },
+        'w': {
+            'name': 'WClassroom030',
+            'image': 'R030-west.jpg'
         }
     }
 }
