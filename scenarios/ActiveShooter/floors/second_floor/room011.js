@@ -88,6 +88,26 @@
                         'conversationName': 'evac_second_floor_detail'
                     }
                 },
+                'girlCrouched': {
+                    'name': 'girlCrouched',
+                    'image': 'girlCrouched.png',
+                    'width': 184,
+                    'height': 203,
+                    'top': 407,
+                    'left': 754,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Scared Student'
+                    }
+                },
+                'girlRunning': {
+                    'name': 'girlRunning',
+                    'image': 'girlRunning.png',
+                    'width': 266,
+                    'height': 294,
+                    'top': 320,
+                    'left': 698
+                },
                 'lightSwitch': {
                     'name': 'lightSwitch',
                     'image': 'rectangle.png',
@@ -116,6 +136,18 @@
             'name': 'WClass011',
             'image': 'R011-west.jpg',
             '_props': {
+                'girl': {
+                    'name': 'girl',
+                    'image': 'girl.png',
+                    'width': 255,
+                    'height': 308,
+                    'top': 294,
+                    'left': 703,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Rachel'
+                    }
+                },
                 'prof-bell': {
                     'name': 'prof-bell',
                     'image': 'XavFront.png',

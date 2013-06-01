@@ -44,6 +44,20 @@
             'image': 'R311-west.jpg',
             'destination': {
                 'x': 2
+            },
+            '_props': {
+                'girlWounded': {
+                    'name': 'girlWounded',
+                    'image': 'girlWounded.png',
+                    'width': 109,
+                    'height': 89,
+                    'top': 334,
+                    'left': 575,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Wounded Student'
+                    }
+                }
             }
         }
     }
