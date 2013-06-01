@@ -6,7 +6,23 @@
     '_walls': {
         'e': {
             'name': 'ELibrary141',
-            'image': 'R141-east.jpg'
+            'image': 'R141-east.jpg',
+            '_props': {
+                'bookshelf': {
+                    'name': 'bookshelf',
+                    'image': 'largeSquare.png',
+                    'hoverImage': 'largeSquareHover.png',
+                    'width': 800,
+                    'height': 609,
+                    'top': 1,
+                    'left': 124,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Bookshelf',
+                        'isAnAction': true
+                    }
+                }
+            }
         },
         'n': {
             'name': 'NLibrary141',

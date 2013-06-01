@@ -29,15 +29,6 @@
             'image': 'R231-north.jpg',
             'destination': {
                 'y': 4
-            },
-            '_props': {
-                'new-book': {
-                    'name': 'new-book',
-                    'image': 'book.png',
-                    'width': 23,
-                    'height': 18,
-                    'top': 300,
-                    'left': 680                }
             }
         },
         's': {
