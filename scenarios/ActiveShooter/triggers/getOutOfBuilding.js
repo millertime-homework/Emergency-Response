@@ -1,6 +1,6 @@
 'getOutOfBuilding' : {
     'events' : {
-        'addToScene': ['UseDoor', 'hidingSpot011'],
+        'addToScene': ['UseDoor'],
         'setObjective' : ['GetOut!', 'Get out of the building']
     },
     'startRandomTrigger': ['pathNotClear', 'pathClear']
