@@ -7,7 +7,7 @@
     'disabled': true
 },
 'shooterEnters': {
-    'timeDelay': 6000,
+    'timeDelay': 4000,
     'events': {
         'warpPlayer': ['shooterEntersScene'],
         'showOnScreenMessage': ['Unfortunately, the shooter saw you enter the room and bursts in...', 4]
@@ -15,18 +15,45 @@
     'startRandomTrigger': ['playerInitiatesAttack', 'groupInitiatesAttack']
 },
 'playerInitiatesAttack': {
-    'timeDelay': 5000,
+    'timeDelay': 4000,
     'events': {
         'showConversation': ['playerInitiatesAttack', null, true, true]
     }
 },
 'groupInitiatesAttack': {
-    'timeDelay': 5000,
+    'timeDelay': 4000,
     'events': {
         'showConversation': ['groupInitiatesAttack', null, true, true]
     }
 },
+'playerBeginAttack': {
+    'startTriggers': ['playerDownedShooter'],
+    'events': {
+        'warpPlayer': ['attackShooter']
+    }
+},
+'groupBeginAttack': {
+    'startTriggers': ['groupDownedShooter'],
+    'events': {
+        'warpPlayer': ['attackShooter']
+    }
+},
+'playerDownedShooter': {
+    'timeDelay': 4000,
+    'startTriggers': ['shooterSubduedPlayerInitiated'],
+    'events': {
+        'warpPlayer': ['shooterDowned']
+    }
+},
+'groupDownedShooter': {
+    'timeDelay': 4000,
+    'startTriggers': ['shooterSubduedGroupInitiated'],
+    'events': {
+        'warpPlayer': ['shooterDowned']
+    }
+},
 'shooterSubduedPlayerInitiated': {
+    'timeDelay': 4000,
     'enableTriggers': ['shooterSubduedPlayerInitiatedEnding'],
     'events': {
         'warpPlayer': ['survived',0,0,12]
@@ -40,6 +67,7 @@
     }
 },
 'shooterSubduedGroupInitiated': {
+    'timeDelay': 4000,
     'enableTriggers': ['shooterSubduedGroupInitiatedEnding'],
     'events': {
         'warpPlayer': ['survived',0,0,12]

@@ -7,7 +7,7 @@
 'playerEnters011':{
     'timeDelay' : 5000,
     'events': {
-                'showConversation' : ['Professor Bell']
+        'showConversation' : ['Professor Bell']
     }
 },
 'disablePBAutoConversation':{

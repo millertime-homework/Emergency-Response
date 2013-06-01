@@ -4,5 +4,5 @@
     },
     'timeDelay': 1000,
     'startTriggers': ['activateShooter'],
-    'abortTriggers': ['playerEnters011']
+    'abortTriggers': ['playerEnters011', 'goPickUpBookHint']
 }
