@@ -4,6 +4,30 @@
     'y': 1,
     '_triggers': ['groupAttack411'],
     '_walls': {
+        'attackShooter': {
+            'name': 'attackShooter',
+            'image': 'R411-west.jpg',
+            'fakeDirection': 'w',
+            'isCutscene': true,
+            '_props': {
+                'peopleWeaponsReady': {
+                    'name': 'peopleWeaponsReady',
+                    'image': 'peopleWeaponsReady.png',
+                    'width': 219,
+                    'height': 310,
+                    'top': 273,
+                    'left': 556
+                },
+                'shooterReact': {
+                    'name': 'shooterReact',
+                    'image': 'shooterRight.png',
+                    'width': 260,
+                    'height': 325,
+                    'top': 287,
+                    'left': 260
+                }
+            }
+        },
         'e': {
             'name': 'ERoom411',
             'image': 'R411-east.jpg'
@@ -19,8 +43,8 @@
                     'image': 'GroupOfPeople.png',
                     'width': 199,
                     'height': 249,
-                    'top': 230,
-                    'left': 600
+                    'top': 256,
+                    'left': 693
                 }
             }
         },
@@ -31,6 +55,30 @@
         's': {
             'name': 'SRoom411',
             'image': 'R411-south.jpg'
+        },
+        'shooterDowned': {
+            'name': 'shooterDowned',
+            'image': 'R411-west.jpg',
+            'fakeDirection': 'w',
+            'isCutscene': true,
+            '_props': {
+                'peopleAttack': {
+                    'name': 'peopleAttack',
+                    'image': 'peopleAttack.png',
+                    'width': 251,
+                    'height': 352,
+                    'top': 237,
+                    'left': 441
+                },
+                'shooterDowned': {
+                    'name': 'shooterDowned',
+                    'image': 'shooterDowned.png',
+                    'width': 283,
+                    'height': 162,
+                    'top': 387,
+                    'left': 196
+                }
+            }
         },
         'shooterEntersScene': {
             'name': 'WRoom411',
@@ -43,16 +91,16 @@
                     'image': 'shooter.png',
                     'width': 74,
                     'height': 226,
-                    'top': 269,
-                    'left': 488
+                    'top': 281,
+                    'left': 511
                 },
                 'group-of-people-reacting': {
                     'name': 'group-of-people-reacting',
-                    'image': 'GroupOfPeopleReacting.png',
-                    'width': 172,
-                    'height': 265,
-                    'top': 289,
-                    'left': 592
+                    'image': 'peopleReacting.png',
+                    'width': 235,
+                    'height': 310,
+                    'top': 253,
+                    'left': 676
                 }
             }
         },

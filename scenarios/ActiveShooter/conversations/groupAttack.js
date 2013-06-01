@@ -8,7 +8,7 @@
         }
     },
     '2' : {
-        'triggers' : ['shooterSubduedPlayerInitiated']
+        'triggers' : ['playerBeginAttack']
     },
     '3' : {
         'triggers' : ['youLiveOthersDiePlayerInitiated']
@@ -28,7 +28,7 @@
         }
     },
     '2' : {
-        'triggers' : ['shooterSubduedGroupInitiated']
+        'triggers' : ['groupBeginAttack']
     },
     '4' : {
         'triggers' : ['youLiveOthersDieGroupInitiated']
