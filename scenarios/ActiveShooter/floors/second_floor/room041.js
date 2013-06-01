@@ -11,30 +11,14 @@
                 'x': 1
             },
             '_props': {
-                'door': {
-                    'name': 'door',
-                    'image': 'doorInsideLeft.png',
-                    'openImage': 'doorOpen.png',
-                    'hoverImage': 'doorInsideLeftHover.png',
-                    'width': 199,
-                    'height': 443,
-                    'top': 189,
-                    'left': 456,
-                    'barrier': true,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'lockableDoor1',
-                        'isAnAction': true
-                    }
-                },
                 'doorHandle041': {
                     'name': 'doorHandle041',
                     'image': 'rectangle.png',
                     'hoverImage': 'rectangleGlow.png',
-                    'width': 34,
-                    'height': 41,
-                    'top': 399,
-                    'left': 476,
+                    'width': 25,
+                    'height': 80,
+                    'top': 381,
+                    'left': 479,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'lockDoor041',
@@ -62,6 +46,22 @@
                     'height': 114,
                     'top': 289,
                     'left': 508
+                },
+                'door': {
+                    'name': 'door',
+                    'image': 'doorInsideLeft.png',
+                    'openImage': 'doorOpen.png',
+                    'hoverImage': 'doorInsideLeftHover.png',
+                    'width': 199,
+                    'height': 443,
+                    'top': 188,
+                    'left': 456,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'lockableDoor1',
+                        'isAnAction': true
+                    }
                 },
                 'hidingSpot041': {
                     'name': 'hidingSpot041',
