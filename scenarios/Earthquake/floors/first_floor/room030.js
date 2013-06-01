@@ -13,8 +13,8 @@
             '_props': {
                 'computer': {
                     'name': 'computer',
-                    'image': 'rectangle.png',
-                    'hoverImage': 'rectangleGlow.png',
+                    'image': 'largeSquare.png',
+                    'hoverImage': 'largeSquareHover.png',
                     'width': 170,
                     'height': 114,
                     'top': 311,
