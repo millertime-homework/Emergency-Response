@@ -11,30 +11,14 @@
                 'x': 1
             },
             '_props': {
-                'door': {
-                    'name': 'door',
-                    'image': 'doorInsideLeft.png',
-                    'openImage': 'doorOpen.png',
-                    'hoverImage': 'doorInsideLeftHover.png',
-                    'width': 189,
-                    'height': 489,
-                    'top': 192,
-                    'left': 463,
-                    'barrier': true,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'lockableDoor1',
-                        'isAnAction': true
-                    }
-                },
                 'doorHandle041': {
                     'name': 'doorHandle041',
                     'image': 'rectangle.png',
                     'hoverImage': 'rectangleGlow.png',
-                    'width': 34,
-                    'height': 41,
-                    'top': 399,
-                    'left': 476,
+                    'width': 25,
+                    'height': 80,
+                    'top': 381,
+                    'left': 479,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'lockDoor041',
@@ -63,13 +47,30 @@
                     'top': 289,
                     'left': 508
                 },
+                'door': {
+                    'name': 'door',
+                    'image': 'doorInsideLeft.png',
+                    'openImage': 'doorOpen.png',
+                    'hoverImage': 'doorInsideLeftHover.png',
+                    'width': 199,
+                    'height': 443,
+                    'top': 188,
+                    'left': 456,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'lockableDoor1',
+                        'isAnAction': true
+                    }
+                },
                 'hidingSpot041': {
                     'name': 'hidingSpot041',
-                    'image': 'ASHideSilhouette.png',
+                    'image': 'hideArrow.png',
+                    'hoverImage': 'hideArrowHover.png',
                     'width': 84,
                     'height': 89,
-                    'top': 528,
-                    'left': 248,
+                    'top': 482,
+                    'left': 291,
                     'action': 'showConversation',
                     'actionVariables': {
                         'conversationName': 'Crouch down by the door?',
