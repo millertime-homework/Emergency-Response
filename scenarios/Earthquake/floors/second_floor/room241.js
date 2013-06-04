@@ -5,23 +5,7 @@
     '_walls': {
         'e': {
             'name': 'ELibrary241',
-            'image': 'R241-east.jpg',
-            '_props': {
-                'new-book': {
-                    'name': 'new-book',
-                    'image': 'book.png',
-                    'hoverImage': 'book-hover.png',
-                    'width': 70,
-                    'height': 55,
-                    'left': 490,
-                    'top': 304,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'New Book',
-                        'isAnAction': true
-                    }
-                }
-            }
+            'image': 'R241-east.jpg'
         },
         'w': {
             'name': 'WLibrary241',
