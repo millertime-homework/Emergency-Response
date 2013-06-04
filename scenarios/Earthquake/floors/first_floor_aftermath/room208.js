@@ -11,14 +11,6 @@
                 'x': 3
             }
         },
-        'w': {
-            'name': 'WHall208',
-            'image': 'R200-west.jpg',
-            'destination': {
-                'x': 1
-            },
-            '_triggers' : ['aftershock']
-        },
         'n': {
             'name': 'NHall208',
             'image': 'R200-north.jpg',
@@ -28,22 +20,31 @@
         },
         's': {
             'name': 'SHall208',
-            'image': 'R200-south.jpg',
+            'image': 'R208-south.jpg',
             '_props': {
-                'rubble': {
-                    'name': 'rubble',
-                    'image': 'rubble.png',
-                    'width': 1059,
-                    'height': 611,
-                    'left': 50,
-                    'top': 100,
+                'destroyedRotaryDoor': {
+                    'name': 'destroyedRotaryDoor',
+                    'image': 'largeSquare.png',
+                    'hoverImage': 'largeSquareHover.png',
+                    'width': 265,
+                    'height': 303,
+                    'top': 201,
+                    'left': 425,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'Rubble',
+                        'conversationName': 'DestroyedRotaryDoor',
                         'isAnAction': true
                     }
                 }
             }
+        },
+        'w': {
+            'name': 'WHall208',
+            'image': 'R200-west.jpg',
+            'destination': {
+                'x': 1
+            },
+            '_triggers': []
         }
     }
 }
