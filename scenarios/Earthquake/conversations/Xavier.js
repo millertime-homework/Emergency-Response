@@ -24,5 +24,11 @@
         'replies': {
             'Okay I\'ll look for something sturdy to click on': 0
         }
+    },
+    '4': {
+        'message': 'Could you hand me that chalk?',
+        'replies': {
+            'Of course.': 2
+        }
     }
 }
