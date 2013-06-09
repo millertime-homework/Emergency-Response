@@ -7,7 +7,7 @@
     }
 },
 'playerEnters011':{
-    'timeDelay' : 5000,
+    'timeDelay' : 1500,
     'events': {
         'showConversation' : ['Professor Bell']
     }
