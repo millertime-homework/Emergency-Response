@@ -32,7 +32,7 @@ tutorialParts.push(new tutorialInfo(
     'instruct-right',
     'align-bottom',
     'This is the mini-map. It\'s an overhead view of your surroundings. Each square represents ' +
-        'a place you can walk to. The connectors between the squares indicate directions you can move.',
+        'a place you can walk. The connectors between the squares indicate directions you can move.',
     true
 ));
 tutorialParts.push(new tutorialInfo(
