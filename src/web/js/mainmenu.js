@@ -34,6 +34,11 @@ $(document).ready(function(){
     });
 
     $("#info-button").click(function() {
-        displayModal("About this game", "Team Banana's Emergency Response Game<br/>Development Version 0.5", null);
+        $("#about").show();
+        $("#about").center();
+    });
+
+    $("#about-hide").click(function() {
+        $("#about").hide();
     });
 });
