@@ -281,6 +281,12 @@ function isPlayerDefined() {
     return true;
 }
 
+// todo: move to cellphone.js when it is more OO
+function resetPhone() {
+    $('#ringer-off').removeClass('selected');
+    $('#ringer-on').addClass('selected');
+}
+
 // Changes the layout to match the current game state.
 function setGameState(state) {
     lastGameState = gameState;
@@ -291,6 +297,7 @@ function setGameState(state) {
         $('.modal').hide();
         $('#overlay').hide();
         resetLights();
+        resetPhone();
         showMainMenu();
         allowKeyEvents = false;
         break;
