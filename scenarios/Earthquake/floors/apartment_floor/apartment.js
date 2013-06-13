@@ -75,11 +75,6 @@
         's': {
             'name': 'apartment-s',
             'image': 'apartment-s.jpg',
-            'destination': {
-                'x': 2,
-                'y': 0,
-                'z': 0
-            },
             '_props': {
                 'door': {
                     'name': 'Exit to School',
