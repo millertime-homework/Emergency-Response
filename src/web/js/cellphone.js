@@ -98,8 +98,7 @@ $(document).ready(function () {
 
     $('#ringer-on').click(function () {
         erg.phone.firstContextMenu.find('#ringer').show();
-        $('#ringer-off').removeClass('selected');
-        $(this).addClass('selected');
+        resetPhone();
         closePhoneMenu();
     });
 
@@ -108,7 +107,6 @@ $(document).ready(function () {
         $('#ringer-on').removeClass('selected');
         $(this).addClass('selected');
         closePhoneMenu();
-
     });
 });
 
@@ -136,7 +134,6 @@ function addTextMessage(contactName, message) {
     var contactId = contactName.replace(/ /g,"_"),
         selector = ".text#" + contactId,
         messageId = "content" + erg.phone.contextIterator++;
-    
 
     erg.phone.secondContextMenu.find('div.text#none').remove();
 
