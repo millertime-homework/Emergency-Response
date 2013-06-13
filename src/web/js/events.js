@@ -106,6 +106,12 @@ jQuery(document).ready(function($) {
         hideModal();
     })
 
+    $(document).on('ask-name', function(event) {
+        if (player.name === 'Player') {
+            player.name = prompt("What is your name?") || "Player";
+        }
+    });
+
     /** 
     * Should be triggered by any function that moves the player. Any functions
     * that should run after the player moves can react accordingly.

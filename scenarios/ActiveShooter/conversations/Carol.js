@@ -2,7 +2,7 @@
     '1': {
         'check': [{'objectivesInProgress': ['studentsGatherWeapons031'], 'goto': 2},
                   {'objectivesCompleted': ['studentsGatherWeapons031'], 'goto': 3}],
-        'message': 'Hi there. Are you lost?',
+        'message': 'Hi there PLAYERNAME. Are you lost?',
         'replies': {
             'Yes': 4,
             'No, but thank you.': 0

@@ -1,6 +1,6 @@
 'Mrs Foo': {
     '1': {
-        'message': 'Hello!',
+        'message': 'Hello PLAYERNAME!',
         'replies': {
             'Hi, Mrs. Foo.': 2
         },

@@ -1,0 +1,5 @@
+'askName': {
+    'events': {
+        'ask-name': []
+    }
+}

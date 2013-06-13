@@ -14,6 +14,7 @@ var Player = function() {
     this.z = null;
     this.facing = null;
     this.fakeFacing = null;
+    this.name = "Player";
     this.scenario = null;
     this.inventory = null;
     this.score = 0;

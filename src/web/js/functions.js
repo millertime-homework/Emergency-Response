@@ -615,6 +615,7 @@ function showConversation(conversationName, currentConversationChoice, cannotSki
         $('#modal #header').html('<span id="conversation-name">' + conversationName + " says:</span>");
     }
     contentContainer = $('#modal #content');
+    currentOption.message = currentOption.message.replace('PLAYERNAME', player.name);
     contentContainer.append('<span id="option-message">' + currentOption.message + '</span><p />');
 
     if (!isAnAction) {
