@@ -98,8 +98,8 @@
             'name': 'SClassroom000',
             'image': 'R000-south.jpg',
             '_props': {
-                'evac_plan': {
-                    'name': 'evac_plan',
+                'evac_plan_1': {
+                    'name': 'evac_plan_1',
                     'image': 'rectangle.png',
                     'hoverImage': 'rectangleGlow.png',
                     'width': 56,

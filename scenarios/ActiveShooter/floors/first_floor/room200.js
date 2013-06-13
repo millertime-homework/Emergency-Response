@@ -3,8 +3,7 @@
     'x': 2,
     'y': 0,
     'annotation': 'AnnotationExit.png',
-    '_triggers' : ['getShotAt', 'goPickUpBook', 'goPickUpBookHint',
-                   'hideFirstFloorRoomAnnotations', 'hideSecondFloorRoomAnnotations'],
+    '_triggers' : ['getShotAt', 'begin'],
     '_walls': {
         'e': {
             'name': 'EHall200',

@@ -27,8 +27,8 @@
                         'isAnAction': true
                     }
                 },
-                'evac_plan': {
-                    'name': 'evac_plan',
+                'evac_plan_2': {
+                    'name': 'evac_plan_2',
                     'image': 'rectangle.png',
                     'hoverImage': 'rectangleGlow.png',
                     'width': 130,

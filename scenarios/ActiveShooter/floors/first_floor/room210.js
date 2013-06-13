@@ -8,8 +8,8 @@
             'name': 'EHall210',
             'image': 'R210-east.jpg',
             '_props': {
-                'evac_plan': {
-                    'name': 'evac_plan',
+                'evac_plan_1': {
+                    'name': 'evac_plan_1',
                     'image': 'door.png',
                     'hoverImage': 'doorHover.png',
                     'width': 530,
