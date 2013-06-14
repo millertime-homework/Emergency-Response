@@ -82,7 +82,7 @@ function showNextTutorial() {
 }
 
 function showInstructModal(relativeElement, instructType, arrowAlign, content) {
-    if (!(relativeElement instanceof HTMLElement)) {
+    if (!(relativeElement.nodeType === 1)) {
         console.log('getting relative element from string');
         relativeElement = $(relativeElement);
     }
