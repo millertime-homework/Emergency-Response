@@ -229,11 +229,13 @@ function centerMap() {
     "use strict";
     var occupiedCell, occupiedTop, occupiedLeft;
     occupiedCell = jQuery(erg.MAP_CONTAINER).children(erg.MAP_CELL_SELECTOR_TEMPLATE.format(player.x, player.y));
-    occupiedTop = occupiedCell.position().top;
-    occupiedLeft = occupiedCell.position().left;
+    if (occupiedCell.length) {
+        occupiedTop = occupiedCell.position().top;
+        occupiedLeft = occupiedCell.position().left;
 
-    erg.MAP_CONTAINER.css('left', ((erg.MAP_CONTAINER_PARENT.width() / 2) - (occupiedCell.width() / 2) - occupiedLeft) + 'px')
-        .css('top', ((erg.MAP_CONTAINER_PARENT.height() / 2) - (occupiedCell.height() / 2) - occupiedTop) + 'px');
+        erg.MAP_CONTAINER.css('left', ((erg.MAP_CONTAINER_PARENT.width() / 2) - (occupiedCell.width() / 2) - occupiedLeft) + 'px')
+            .css('top', ((erg.MAP_CONTAINER_PARENT.height() / 2) - (occupiedCell.height() / 2) - occupiedTop) + 'px');
+    }
 }
 
 function showDirectionalIndicator() {
