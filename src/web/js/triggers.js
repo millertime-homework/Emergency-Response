@@ -25,10 +25,10 @@ function triggersMovementHandler(x, y, z) {
     processWaitingForMoves();
     
     if (triggers) {
-        triggers.map(startTrigger);
+        $.map(triggers, startTrigger);
     }
     if (abortTriggers) {
-        abortTriggers.map(abortTrigger);
+        $.map(abortTriggers, abortTrigger);
     }
 
     checkWallTriggers(player.facing, room);
@@ -42,7 +42,7 @@ function checkWallTriggers(facing, room) {
     var wall = room.getWallByDir(facing);
 
     if (wall.triggers) {
-        wall.triggers.map(startTrigger);
+        $.map(wall.triggers, startTrigger);
     }
 }
 
@@ -183,27 +183,27 @@ function processTriggers(trigger) {
     var index;
 
     if (trigger.signalTriggers) {
-        trigger.signalTriggers.map(signalTrigger)
+        $.map(trigger.signalTriggers, signalTrigger)
     }
 
     if (trigger.deleteTriggers) {
-        trigger.deleteTriggers.map(deleteTrigger)
+        $.map(trigger.deleteTriggers, deleteTrigger)
     }
 
     if (trigger.abortTriggers) {
-        trigger.abortTriggers.map(abortTrigger);
+        $.map(trigger.abortTriggers, abortTrigger);
     }
 
     if (trigger.startTriggers) {
-        trigger.startTriggers.map(startTrigger);
+        $.map(trigger.startTriggers, startTrigger);
     }
 
     if (trigger.enableTriggers) {
-        trigger.enableTriggers.map(enableTrigger);
+        $.map(trigger.enableTriggers, enableTrigger);
     }
 
     if (trigger.disableTriggers) {
-        trigger.disableTriggers.map(disableTrigger);
+        $.map(trigger.disableTriggers, disableTrigger);
     }
 
     if (trigger.startRandomTrigger) {

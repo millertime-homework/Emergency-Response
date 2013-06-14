@@ -74,7 +74,7 @@ $(document).ready(function () {
         // start running the triggers in the same room as the player
         var startRoomTriggers = scenario.getRoom(player.x, player.y, player.z).triggers;
         if (startRoomTriggers) {
-            startRoomTriggers.map(startTrigger);
+            $.map(startRoomTriggers, startTrigger);
         }
     });
 });

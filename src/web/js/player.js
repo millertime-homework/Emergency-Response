@@ -48,7 +48,7 @@ var Player = function() {
     }
 
     this.turn = function (direction) {
-        var currentDirectionIndex = DIRECTION_INDEX.indexOf(player.facing);
+        var currentDirectionIndex = $.inArray(player.facing, DIRECTION_INDEX);
         var newDirectionIndex;
 
         player.fakeFacing = null;
