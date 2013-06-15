@@ -18,7 +18,7 @@ var Scenario = function () {
     this.set = function(name, status) {
         this.name = name;
         this.status = status;
-    }
+    };
 
     this.start = function() {
         if (this.status === SCENARIO_STATUS_ACTIVE) {
@@ -29,7 +29,7 @@ var Scenario = function () {
             return;
         }
         this.status = SCENARIO_STATUS_ACTIVE;
-    }
+    };
 
     this.addTrigger = function (triggerName, triggerData) {
         if (triggerData['disabled']) {
@@ -37,12 +37,12 @@ var Scenario = function () {
         } else {
             scenario.triggers.pool[triggerName] = triggerData;
         }
-    }
+    };
 
     this.addImage = function(image) {
         this.images.push(imageBasePath + image);
         return this.preloadImage(imageBasePath + image);
-    }
+    };
 
     this.preloadImage = function(imagePath) {
         var image = document.createElement('img');
@@ -55,7 +55,7 @@ var Scenario = function () {
             }
         };
         return image;
-    }
+    };
 
     this.addFloor = function(name, z) {
         if (typeof this.floors[z] !== 'undefined') {
@@ -65,7 +65,7 @@ var Scenario = function () {
         this.floors[z] = new Floor;
         this.floors[z].set(name, z);
         return this.floors[z];
-    }
+    };
 
     this.addRoomToFloor = function(z, id, name, x, y, z) {
         floor = this.floors[z];
@@ -74,7 +74,7 @@ var Scenario = function () {
             return;
         }
         floor.addRoom(id, name, x, y , z);
-    }
+    };
 
     this.getFloor = function(z) {
         floor = this.floors[z];
@@ -83,7 +83,7 @@ var Scenario = function () {
             return;
         }
         return this.floors[z];
-    }
+    };
 
     this.getFloorList = function() {
         var floorList = new Array();
@@ -94,7 +94,7 @@ var Scenario = function () {
             });
         });
         return floorList;
-    }
+    };
 
     this.getLocNames = function(x, y, z, direction) {
         floor = this.getFloor(z);
@@ -117,7 +117,7 @@ var Scenario = function () {
         } else {
             console.log('getLocNames - error getting floor z=' + z);
         }
-    }
+    };
 
     this.isValidRoom = function(x, y, z) {
         floor = this.getFloor(z);
@@ -128,14 +128,14 @@ var Scenario = function () {
             }
         }
         return false;
-    }
+    };
 
     this.getRoom = function(x, y, z) {
         if (this.isValidRoom(x, y, z)) {
             return this.getFloor(z).getRoomByXY(x, y);
         }
         return null; 
-    }
+    };
 
     this.getObjectives = function(objectiveSource) {
         result = [];
@@ -145,17 +145,17 @@ var Scenario = function () {
             }
         }
         return result;
-    }
+    };
 
     this.getObjectivesInProgress = function() {
         return this.getObjectives(this.objectives.inProgress);
-    }
+    };
 
     this.getObjectivesCompleted = function() {
         return this.getObjectives(this.objectives.completed);
-    }
+    };
 
     this.getObjectivesFailed = function() {
         return this.getObjectives(this.objectives.failed);
-    }
-}
+    };
+};
