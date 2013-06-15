@@ -23,7 +23,7 @@ function triggersMovementHandler(x, y, z) {
     var triggers = room.triggers;
     var abortTriggers = room.abortTriggers;
     processWaitingForMoves();
-    
+
     if (triggers) {
         $.map(triggers, startTrigger);
     }
@@ -138,16 +138,19 @@ function timeDelayedStep(triggerName, triggerScenario) {
         return;
     }
     var trigger = scenario.triggers.deferredByTime[triggerName];
-    if (trigger == null)
+    if (trigger == null) {
         return;
-    if(trigger.timeLeft <= 0)
+    }
+    if(trigger.timeLeft <= 0) {
          executeTimeDelayedTriggerEvent(triggerName);
+    }
     else if(trigger.timeLeft < 1000) {
         setTimeout(function () { timeDelayedStep(triggerName, triggerScenario) }, trigger.timeLeft);
         trigger.timeLeft = 0;
     } else {
-        if (trigger.showCountdown)
+        if (trigger.showCountdown) {
             showOnScreenMessage(Math.floor(trigger.timeLeft/1000), 0.5);
+        }
         trigger.timeLeft -= 1000;
         setTimeout(function () { timeDelayedStep(triggerName, triggerScenario) }, 1000);
     }
@@ -169,10 +172,10 @@ function executeTimeDelayedTriggerEvent(triggerName) {
 //send messages to other triggers if the current trigger has messages to send.
 function executeTriggerEvent(trigger) {
     processTriggers(trigger);
-    var events = trigger['events'] || []
+    var events = trigger['events'] || [];
     for (var eventName in events) {
         if (events.hasOwnProperty(eventName)) {
-            var arguments = events[eventName]
+            var arguments = events[eventName];
             jQuery(document).trigger(eventName, arguments);
         }
     }
@@ -183,11 +186,11 @@ function processTriggers(trigger) {
     var index;
 
     if (trigger.signalTriggers) {
-        $.map(trigger.signalTriggers, signalTrigger)
+        $.map(trigger.signalTriggers, signalTrigger);
     }
 
     if (trigger.deleteTriggers) {
-        $.map(trigger.deleteTriggers, deleteTrigger)
+        $.map(trigger.deleteTriggers, deleteTrigger);
     }
 
     if (trigger.abortTriggers) {
@@ -223,7 +226,7 @@ function abortTrigger(triggerName) {
 function enableTrigger(triggerName) {
     var trigger = scenario.triggers['disabled'][triggerName];
     if (trigger) {
-        trigger['disabled'] = false
+        trigger['disabled'] = false;
         delete scenario.triggers['disabled'][triggerName];
         scenario.triggers.pool[triggerName] = trigger;
     }
@@ -232,7 +235,7 @@ function enableTrigger(triggerName) {
 function disableTrigger(triggerName) {
     var trigger = scenario.triggers.pool[triggerName];
     if (trigger) {
-        trigger['disabled'] = true
+        trigger['disabled'] = true;
         delete scenario.triggers.pool[triggerName];
         scenario.triggers['disabled'][triggerName] = trigger;
     }

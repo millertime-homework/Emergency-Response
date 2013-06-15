@@ -8,8 +8,8 @@ function clearProps() {}
 
 jQuery(document).ready(function($){
 
-// Applies new scene image, 
-    // Shows movement buttons that are available 
+// Applies new scene image,
+    // Shows movement buttons that are available
     renderScene = function() {
         clearProps();
         $(".move-z").hide();
@@ -46,16 +46,16 @@ jQuery(document).ready(function($){
         var view, flashlightOverlay;
 
         if (lightsOn) {
-            view = $('#view-scene')
+            view = $('#view-scene');
         } else {
             view = $('#flashlight-overlay');
             behindView = $('#view-scene');
         }
 
         $.each(wall.props, function(key, value) {
-            if (scenario.inactiveProps[key])
+            if (scenario.inactiveProps[key]) {
                 return;
-            
+            }
             data = { 'left': value.left, 'top': value.top, 'width': value.width, 'height': value.height };
 
             // Append prop container div to view
@@ -63,7 +63,7 @@ jQuery(document).ready(function($){
             var viewProp = $('#' + key);
 
             // Set prop's position and store original values as data attributes
-            viewProp.css({ 
+            viewProp.css({
                 'left': value.left,
                 'top': value.top,
             }).data(data);
@@ -125,7 +125,7 @@ jQuery(document).ready(function($){
                 eventParams.imageElement = value.actionVariables.imageElement;
                 eventParams.name = value.actionVariables.name;
                 viewProp.find('img').bind('click', eventParams, function (event) {
-                    displayModal(event.data.name, null, event.data.imageElement)
+                    displayModal(event.data.name, null, event.data.imageElement);
                 });
             } else if (value.action === 'showConversation' && value.actionVariables && value.actionVariables.conversationName) {
                 eventParams.conversationName = value.actionVariables.conversationName;
@@ -140,13 +140,13 @@ jQuery(document).ready(function($){
                     }
                 });
             }
-        })
-        scaleProps();    
-    } 
-
-    clearProps = function() {
-        $('#view-modal .prop').remove()
-        $('#flashlightOverlay .prop').remove()
+        });
+        scaleProps();
     }
 
-})
+    clearProps = function() {
+        $('#view-modal .prop').remove();
+        $('#flashlightOverlay .prop').remove();
+    }
+
+});

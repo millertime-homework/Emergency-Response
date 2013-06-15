@@ -22,7 +22,7 @@ var Scenario = function () {
 
     this.start = function() {
         if (this.status === SCENARIO_STATUS_ACTIVE) {
-            console.log('Scenario.start - scenario already active')
+            console.log('Scenario.start - scenario already active');
             return;
         } else if (this.status === SCENARIO_STATUS_DONE) {
             console.log('Scenario.start - scenario done, must be reset to start')
@@ -40,13 +40,13 @@ var Scenario = function () {
     }
 
     this.addImage = function(image) {
-        this.images.push(imageBasePath + image)
-        return this.preloadImage(imageBasePath + image)
+        this.images.push(imageBasePath + image);
+        return this.preloadImage(imageBasePath + image);
     }
 
     this.preloadImage = function(imagePath) {
-        var image = document.createElement('img')
-        image.src = imagePath
+        var image = document.createElement('img');
+        image.src = imagePath;
         imagesToLoad++;
         image.onload = image.onerror = function() {
             imagesToLoad--;
@@ -54,23 +54,23 @@ var Scenario = function () {
                 jQuery(document).trigger('scenario-images-loaded');
             }
         };
-        return image
+        return image;
     }
 
     this.addFloor = function(name, z) {
         if (typeof this.floors[z] !== 'undefined') {
-            console.log('Scenario.addFloor - floor level with z=' + z + ' already defined')
+            console.log('Scenario.addFloor - floor level with z=' + z + ' already defined');
             return;
         }
         this.floors[z] = new Floor;
-        this.floors[z].set(name, z)
-        return this.floors[z]
+        this.floors[z].set(name, z);
+        return this.floors[z];
     }
 
     this.addRoomToFloor = function(z, id, name, x, y, z) {
-        floor = this.floors[z]
+        floor = this.floors[z];
         if (typeof floor === 'undefined' || floor === null) {
-            console.log('Scenario.addRoomToFloor - floor with z=' + z + ' does not exist')
+            console.log('Scenario.addRoomToFloor - floor with z=' + z + ' does not exist');
             return;
         }
         floor.addRoom(id, name, x, y , z);
@@ -79,7 +79,7 @@ var Scenario = function () {
     this.getFloor = function(z) {
         floor = this.floors[z];
         if (typeof floor === 'undefined' || floor === null) {
-            console.log('Scenario.getFloor - floor with z=' + z + ' does not exist')
+            console.log('Scenario.getFloor - floor with z=' + z + ' does not exist');
             return;
         }
         return this.floors[z];
@@ -92,37 +92,37 @@ var Scenario = function () {
                 'z': key,
                 'name': value.name,
             });
-        })
+        });
         return floorList;
     }
 
     this.getLocNames = function(x, y, z, direction) {
-        floor = this.getFloor(z)
+        floor = this.getFloor(z);
         if (typeof floor !== 'undefined') {
-            room = floor.getRoomByXY(x, y)
+            room = floor.getRoomByXY(x, y);
             if (typeof room !== 'undefined') {
-                wall = room.getWallByDir(direction)
+                wall = room.getWallByDir(direction);
                 if (typeof wall !== 'undefined') {
                     return {
                         'floorName' : floor.name, 
                         'roomName' : room.name,
                         'wallName' : wall.name
-                    }
+                    };
                 } else {
-                    console.log('getLocNames - error getting wall dir=' + direction)
+                    console.log('getLocNames - error getting wall dir=' + direction);
                 }
             } else {
-                console.log('getLocNames - error getting room x=' + x + ',' + y)
+                console.log('getLocNames - error getting room x=' + x + ',' + y);
             }
         } else {
-            console.log('getLocNames - error getting floor z=' + z)
+            console.log('getLocNames - error getting floor z=' + z);
         }
     }
 
     this.isValidRoom = function(x, y, z) {
         floor = this.getFloor(z);
         if (typeof floor !== 'undefined' && floor != null) {
-            room = floor.getRoomByXY(x, y)
+            room = floor.getRoomByXY(x, y);
             if (typeof room !== 'undefined' && room != null) {
                 return true;
             }
@@ -134,11 +134,11 @@ var Scenario = function () {
         if (this.isValidRoom(x, y, z)) {
             return this.getFloor(z).getRoomByXY(x, y);
         }
-        return null;    
+        return null; 
     }
 
     this.getObjectives = function(objectiveSource) {
-        result = []
+        result = [];
         for (var objective in objectiveSource) {
             if (objectiveSource.hasOwnProperty(objective)) {
                 result.push(objectiveSource[objective]);

@@ -17,8 +17,8 @@ $(document).ready(function () {
     });
 
     $('#phone-context div div').hover(function () {
-        var group = $(this).attr('id'),
-            subMenuChildren = erg.phone.secondContextMenu.find('div.' + group);
+        var group = $(this).attr('id');
+        var subMenuChildren = erg.phone.secondContextMenu.find('div.' + group);
 
         if (subMenuChildren.length > 0) {
             erg.phone.thirdContextMenu.hide();
@@ -30,8 +30,8 @@ $(document).ready(function () {
     });
 
     $('#phone-context-2 div div').hover(function () {
-        var group = $(this).attr('id'),
-            subMenuChildren = erg.phone.thirdContextMenu.find('div.' + group);
+        var group = $(this).attr('id');
+        var subMenuChildren = erg.phone.thirdContextMenu.find('div.' + group);
 
         if (subMenuChildren.length > 0) {
             erg.phone.thirdContextMenu.show();

@@ -2,8 +2,6 @@
 var lightsOn = true;
 var earthquakeAnimating = false;
 var earthquakeTimeout = null;
-/* ######################################## */
-/* ######################################## */
 
 jQuery(document).ready(function($) {
 
@@ -45,9 +43,9 @@ jQuery(document).ready(function($) {
                                 if (earthquakeAnimating) {
                                     shakeScene();
                                 }
-                            })
-                    })
-            })
+                            });
+                    });
+            });
     }
 
     $(document).on('startEarthquake', function(event, time, triggerName) {
@@ -69,10 +67,10 @@ jQuery(document).ready(function($) {
         $('#_dust').remove();
         $('#_dust2').remove();
         if (triggerName) {
-            console.log('triggering ' + triggerName)
+            console.log('triggering ' + triggerName);
             startTrigger(triggerName);
         }
-    })
+    });
 
     // Call renderScene when player moves
     $(document).on('player-move', function(event, direction) {
@@ -104,7 +102,7 @@ jQuery(document).ready(function($) {
 
     $('#modal-close, #modal-close #icon').click(function(){
         hideModal();
-    })
+    });
 
     /** 
     * Should be triggered by any function that moves the player. Any functions
@@ -132,8 +130,8 @@ jQuery(document).ready(function($) {
     /** 
     * Teleport the player to the specified location. All of the arguments are
     * optional and the current player value will be substituted for any null
-    * or undefined argument. If the specified or derived location does not 
-    * exist, the warp instruction is ignored. A successful warp will trigger 
+    * or undefined argument. If the specified or derived location does not
+    * exist, the warp instruction is ignored. A successful warp will trigger
     * the 'player-moved' event.
     * @param {string} wall The wall the player should face.
     * @param {int} x The destination x coordinate.
@@ -145,7 +143,7 @@ jQuery(document).ready(function($) {
 
     });
 
-    /** 
+    /**
     * Shows a modal.
     * @param {string} header The modal's header text.
     * @param {string} body Text to display in the modal's body.
@@ -155,7 +153,7 @@ jQuery(document).ready(function($) {
         displayModal(header, body, image);
     });
 
-    /** 
+    /**
     * Ends the current game, displaying a modal that presents information
     * about the session to the user.
     * @param {string} header A concise description of the outcome (EG "Game
@@ -167,9 +165,9 @@ jQuery(document).ready(function($) {
         showGameOver(header, body);
     });
 
-    /** 
+    /**
     * Reduces the player's score by the specified number of points.
-    * @param {int} pointValue The number of points to take away from the 
+    * @param {int} pointValue The number of points to take away from the
     *     player. Must be greater than zero.
     */
     $(document).on('deductPoints', function (event, pointValue) {
@@ -178,7 +176,7 @@ jQuery(document).ready(function($) {
         }
     });
 
-    /** 
+    /**
     * Increases the player's score by the specified number of points
     * @param {int} pointValue The number of points to award the player. Must
     *     be greater than zero.
@@ -189,7 +187,7 @@ jQuery(document).ready(function($) {
         }
     });
 
-    /** 
+    /**
     * Creates an objective and starts it. Can be completed or failed via
     * an event or direct call to completeObjective/failObjective.
     * @param {string} name The name of the objective
@@ -200,11 +198,11 @@ jQuery(document).ready(function($) {
         setObjective(name, displayText);
     });
 
-    /** 
-    * Starts an array of objectives where every even (0, 2, 4... n+2) element 
-    * is an objective name and every odd (1, 3, 4... n+2) element is an 
-    * objective description. The first objective name/description pair is 
-    * considered the primary objective, and will be displayed in the current 
+    /**
+    * Starts an array of objectives where every even (0, 2, 4... n+2) element
+    * is an objective name and every odd (1, 3, 4... n+2) element is an
+    * objective description. The first objective name/description pair is
+    * considered the primary objective, and will be displayed in the current
     * objective window.
     * @param {array<string>} objectives The objectives to create/start.
     */
@@ -238,13 +236,13 @@ jQuery(document).ready(function($) {
 
     /**
     * Shows a conversation in a standardized conversation modal.
-    * @param {string} conversationName The name of the conversation to be 
+    * @param {string} conversationName The name of the conversation to be
           displayed.
-    * @param {string} entryPoint The key of the first message to display. 
+    * @param {string} entryPoint The key of the first message to display.
           Default is '1'
-    * @param {boolean} cannotSkip If true, the player cannot close the 
+    * @param {boolean} cannotSkip If true, the player cannot close the
           conversation before it is over.
-    * @param {boolean} isAnAction If true, 'x says' and 'you reply' are not 
+    * @param {boolean} isAnAction If true, 'x says' and 'you reply' are not
           displayed.
     */
     $(document).on('showConversation', function (
@@ -255,7 +253,7 @@ jQuery(document).ready(function($) {
     /**
     * Show a message via large text that overlays the middle of the viewport
     * @param {string} message The message to be displayed.
-    * @param {int} duration The number of seconds that the message should 
+    * @param {int} duration The number of seconds that the message should
     *     remain on screen. Defaults to 5 seconds.
     */
     $(document).on('showOnScreenMessage', function (event, message, duration) {

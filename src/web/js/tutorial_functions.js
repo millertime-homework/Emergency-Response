@@ -76,8 +76,9 @@ function showNextTutorial() {
                           nextTutorial.type,
                           nextTutorial.align,
                           nextTutorial.content);
-        if (!nextTutorial.next)
+        if (!nextTutorial.next) {
             $("#instruct-next-button").hide();
+        }
     }
 }
 
@@ -92,9 +93,9 @@ function showInstructModal(relativeElement, instructType, arrowAlign, content) {
         return false;
     }
 
-    console.log('showInstructModal')
+    console.log('showInstructModal');
     if (!relativeElement || !instructType || !arrowAlign || !content) {
-        console.log('invalid parameters')
+        console.log('invalid parameters');
         return false;
     }
     instructWrapper = $('#instruct-modal-wrapper');
