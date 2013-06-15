@@ -9,6 +9,7 @@ var canDismissModal = false;
 var erg = erg || {};
 erg.onScreenMessageContainer = $('#on-screen-message-container');
 erg.onScreenMessageTemplate = $('#on-screen-message-template');
+var spinnerTimerId;
 
 $(document).ready(function () {
     $(window).resize(function () {
@@ -64,6 +65,7 @@ $(document).ready(function () {
 
     //Allows scenario image loader to signal once all the images are loaded.
     $(document).on('scenario-images-loaded', function(event) {
+        window.clearTimeout(spinnerTimerId);
         setGameState(GAME_STATE_RUNNING);
         renderScene();
         generateMap(player.x, player.y, scenario.getFloor(player.z));
@@ -96,6 +98,10 @@ function loadAnnodations(annotations) {
     }
 }
 
+function spinnerTimeout() {
+    $(document).trigger('scenario-images-loaded');
+}
+
 // Loads the Scenario objects from the data parameter (scenario-definition array)
 function loadScenario(data) {
     setGameState(GAME_STATE_LOADING);
@@ -103,6 +109,8 @@ function loadScenario(data) {
     scenario = new Scenario;
     scenario.set(data.name, 'active');
     addSpinner();
+
+    spinnerTimerId = window.setTimeout(spinnerTimeout, 10000);
 
     loadFloors(data);
     loadConversations(data._conversations);
