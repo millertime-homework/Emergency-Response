@@ -593,11 +593,6 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
 @instructArrowDimension1: 44px;
 @instructArrowDimension2: 41px;
 
-#instruct-modal-wrapper {
-    position: absolute;
-    background: transparent;
-}
-
 #instruct-modal {
     background-color: white;
     position: absolute;
@@ -608,7 +603,7 @@ input:hover, input:active, input:focus, textarea:hover, textarea:active, textare
     border: 1px solid black;
     .border_radius(6px);
     #content {
-        width: @instructModalWidth;
+        width: @instructModalWidth - 12;
         padding: 6px;
     }
     #buttons {

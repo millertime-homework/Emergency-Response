@@ -8,7 +8,7 @@ var instrModalInstructType = null;
 var instrModalArrowType = null;
 var instrModalContent = null;
 
-var tutorialInfo = function(name, e, t, a, c, n) {
+var TutorialInfo = function(name, e, t, a, c, n) {
     this.name    = name;
     this.element = e;
     this.type    = t;
@@ -18,7 +18,7 @@ var tutorialInfo = function(name, e, t, a, c, n) {
 }
 
 var tutorialParts = [];
-tutorialParts.push(new tutorialInfo(
+tutorialParts.push(new TutorialInfo(
     'objective',
     '#objective',
     'instruct-right',
@@ -26,7 +26,7 @@ tutorialParts.push(new tutorialInfo(
     'This is the current objective. If you\'re not sure what to do next, look here.',
     true
 ));
-tutorialParts.push(new tutorialInfo(
+tutorialParts.push(new TutorialInfo(
     'map',
     '#map',
     'instruct-right',
@@ -35,7 +35,7 @@ tutorialParts.push(new tutorialInfo(
         'a place you can walk. The connectors between the squares indicate directions you can move.',
     true
 ));
-tutorialParts.push(new tutorialInfo(
+tutorialParts.push(new TutorialInfo(
     'moveForward',
     '#move-forward',
     'instruct-left',
@@ -43,7 +43,7 @@ tutorialParts.push(new tutorialInfo(
     'This is an arrow to move forward. Try clicking this. Or press the up arrow key on the keyboard. ' +
         'But first press Exit below.'
 ));
-tutorialParts.push(new tutorialInfo(
+tutorialParts.push(new TutorialInfo(
     'inventory',
     '#inventory',
     'instruct-bottom',
@@ -64,7 +64,7 @@ $(document).ready(function() {
 
     // exit button
     $("body").on("click", "#instruct-exit-button", function() {
-        deleteInstructModal();
+        $("#instruct-modal").hide();
         setGameState(GAME_STATE_RUNNING);
     });
 });
@@ -84,42 +84,23 @@ function showNextTutorial() {
 
 function showInstructModal(relativeElement, instructType, arrowAlign, content) {
     if (!(relativeElement.nodeType === 1)) {
-        console.log('getting relative element from string');
         relativeElement = $(relativeElement);
     }
 
     if (!relativeElement.length) {
-        console.log('bad relative element');
+        console.log('showInstructModal: bad relative element');
         return false;
     }
 
-    console.log('showInstructModal');
     if (!relativeElement || !instructType || !arrowAlign || !content) {
-        console.log('invalid parameters');
+        console.log('showInstructModal: invalid parameters');
         return false;
     }
-    instructWrapper = $('#instruct-modal-wrapper');
-    if (!instructWrapper.length) {
-        console.log('creating instruct modal...');
-        instructWrapper = createInstructModal();
-        if (!instructWrapper.length) {
-            // something went wrong here.
-            console.log('no wrapper');
-            return false;
-        }
-    }
-    instructModal = instructWrapper.find('#instruct-modal');
-    if (!instructModal.length) {
-        console.log('no modal');
-        return false;
-    }
+    instructModal = $('#instruct-modal');
     instructModal.removeClass();
     instructModal.addClass(instructType + ' ' + arrowAlign);
     instructModal.find('#content').html(content);
-
-    console.log('done showing instruct modal');
-
-    console.log('aligning instruct modal');
+    instructModal.show();
 
     instrModalElement = relativeElement;
     instrModalInstructType = instructType;
@@ -129,41 +110,13 @@ function showInstructModal(relativeElement, instructType, arrowAlign, content) {
     return alignInstructModalFromElement(relativeElement, instructType, arrowAlign);
 }
 
-/**
- * Prepends the instruct-modal html to the body
- *
- * <div id="instruct-modal-wrapper">
- *     <div id="instruct-modal" class="">
- *         <div id="content"></div>
- *         <div id="buttons">
- *             <div id="instruct-next-button"></div>
- *             <div id="instruct-exit-button"></div>
- *         </div>
- *         <div id="instruct-arrow"></div>
- *     </div>
- * </div>
- */
-function createInstructModal() {
-    instructWrapper = $('#instruct-modal-wrapper');
-    if (!instructWrapper.length) {
-        $('body').prepend('<div id="instruct-modal-wrapper"><div id="instruct-modal" class=""><div id="content"></div><div id="buttons"><div id="instruct-next-button">Next</div><div id="instruct-exit-button">Exit</div></div><div id="instruct-arrow"></div></div></div>');
-    }
-    return $('#instruct-modal-wrapper');
-}
-
-function deleteInstructModal() {
-    instructModal = $('#instruct-modal-wrapper');
-    if (instructModal.length) {
-        instructModal.remove();
-    }
-     instrModalElement = null;
-     instrModalInstructType = null;
-     instrModalArrowType = null;
-}
-
 function alignInstructionModal() {
-    if (instrModalElement && instrModalInstructType && instrModalArrowType && instrModalContent) {
-        alignInstructModalFromElement(instrModalElement, instrModalInstructType, instrModalArrowType, instrModalContent);
+    if (instrModalElement && instrModalInstructType &&
+        instrModalArrowType && instrModalContent) {
+        alignInstructModalFromElement(
+            instrModalElement, instrModalInstructType,
+            instrModalArrowType, instrModalContent
+        );
     }
 }
 
@@ -183,7 +136,6 @@ function alignInstructModalFromElement(element, instructType, arrowAlign) {
         return false;
     }
 
-    instructWrapper = $('#instruct-modal-wrapper');
     instructModal = $('#instruct-modal');
 
     element = $(element);
@@ -206,7 +158,10 @@ function alignInstructModalFromElement(element, instructType, arrowAlign) {
                 case 'align-top':
                 case 'align-middle':
                 case 'align-bottom':
-                    instructWrapper.css('left', (elementPosition.left + elementWidth + arrowWidth + 'px'));
+                    instructModal.css(
+                        'left',
+                        (elementPosition.left + elementWidth + arrowWidth + 'px')
+                    );
                     break;
             }
             break;
@@ -215,7 +170,10 @@ function alignInstructModalFromElement(element, instructType, arrowAlign) {
                 case 'align-top':
                 case 'align-middle':
                 case 'align-bottom':
-                    instructWrapper.css('left', (elementPosition.left - instructModalWidth - arrowWidth) + 'px');
+                    instructModal.css(
+                        'left',
+                        (elementPosition.left - instructModalWidth - arrowWidth) + 'px'
+                    );
                     break;
 
             }
@@ -224,15 +182,23 @@ function alignInstructModalFromElement(element, instructType, arrowAlign) {
         case 'instruct-bottom':
             switch (arrowAlign) {
                 case 'align-left':
-                    instructWrapper.css('left', (elementPosition.left + (elementWidth/2) - (arrowWidth/2)) + 'px');
+                    instructModal.css(
+                        'left',
+                        (elementPosition.left + (elementWidth/2) - (arrowWidth/2)) + 'px'
+                    );
                     break;
                 case 'align-middle':
-                    instructWrapper.css('left', (elementPosition.left + (elementWidth/2) - (instructModalWidth/2)) + 'px');
+                    instructModal.css(
+                        'left',
+                        (elementPosition.left + (elementWidth/2) - (instructModalWidth/2)) + 'px'
+                    );
                     break;
                 case 'align-right':
-                    instructWrapper.css('left', (elementPosition.left + (elementWidth/2) - instructModalWidth + (arrowWidth/2)) + 'px');
+                    instructModal.css(
+                        'left',
+                        (elementPosition.left + (elementWidth/2) - instructModalWidth + (arrowWidth/2)) + 'px'
+                    );
                     break;
-
             }
             break;
     }
@@ -243,13 +209,22 @@ function alignInstructModalFromElement(element, instructType, arrowAlign) {
         case 'instruct-right':
             switch (arrowAlign) {
                 case 'align-top':
-                    instructWrapper.css('top', (elementPosition.top  + (elementHeight/2) - (arrowHeight/2)) + 'px');
+                    instructModal.css(
+                        'top',
+                        (elementPosition.top  + (elementHeight/2) - (arrowHeight/2)) + 'px'
+                    );
                     break;
                 case 'align-middle':
-                    instructWrapper.css('top', (elementPosition.top + (elementHeight/2) - (instructModalHeight/2)) + 'px');
+                    instructModal.css(
+                        'top',
+                        (elementPosition.top + (elementHeight/2) - (instructModalHeight/2)) + 'px'
+                    );
                     break;
                 case 'align-bottom':
-                    instructWrapper.css('top', (elementPosition.top + (elementHeight/2) - instructModalHeight + (arrowHeight/2)) + 'px');
+                    instructModal.css(
+                        'top',
+                        (elementPosition.top + (elementHeight/2) - instructModalHeight + (arrowHeight/2)) + 'px'
+                    );
                     break;
             }
             break;
@@ -258,7 +233,10 @@ function alignInstructModalFromElement(element, instructType, arrowAlign) {
                 case 'align-left':
                 case 'align-middle':
                 case 'align-right':
-                    instructWrapper.css('top', (elementPosition.top + arrowHeight) + 'px');
+                    instructModal.css(
+                        'top',
+                        (elementPosition.top + arrowHeight) + 'px'
+                    );
                     break;
             }
             break;
@@ -267,7 +245,10 @@ function alignInstructModalFromElement(element, instructType, arrowAlign) {
                 case 'align-left':
                 case 'align-middle':
                 case 'align-right':
-                    instructWrapper.css('top', (elementPosition.top - instructModalHeight - arrowHeight) + 'px');
+                    instructModal.css(
+                        'top',
+                        (elementPosition.top - instructModalHeight - arrowHeight) + 'px'
+                    );
                     break;
             }
             break;
