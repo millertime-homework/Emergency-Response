@@ -16,7 +16,7 @@
     'disabled' : true,
     'timeDelay': 750,
     'events' : {
-        'endGame': ['Game Over', "You entered the elevator and headed for the first floor. The shooter realized what was happening though and simply waited for you at the bottom. As the elevator doors opened you realized your mistake, but it was too late and he shot you."]
+        'endGame': ['Game Over', "You headed for the first floor. The shooter realized what was happening - and was waiting for you at the bottom."]
     }
 },
 'shooterMoves': {
