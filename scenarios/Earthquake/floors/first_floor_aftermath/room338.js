@@ -45,7 +45,7 @@
             'destination': {
                 'y': 2
             },
-            '_triggers' : ['dangerwarningSmoke','activatePassout'],
+            '_triggers' : ['dangerwarningSmoke','activatePassout', 'approachSmoke'],
             '_props' : {
                 'smoke': {
                     'name': 'smoke',

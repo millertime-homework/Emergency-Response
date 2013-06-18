@@ -2,7 +2,7 @@
     'id': 'hall328',
     'x': 3,
     'y': 2,
-    '_triggers' : ['passout'],
+    '_triggers' : ['passout', 'approachSmoke'],
     '_walls': {
         'e': {
             'name': 'EHall328',

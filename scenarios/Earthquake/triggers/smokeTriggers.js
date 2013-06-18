@@ -1,4 +1,8 @@
+'approachSmoke': {
+    'enableTriggers': ['clearSmoke']
+},
 'clearSmoke' :{
+    'disabled': true,
     'events' : {
         'replaceProp': ['smoke', 'smokeSafe']
     },
