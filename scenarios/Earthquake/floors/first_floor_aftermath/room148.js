@@ -2,7 +2,7 @@
     'id': 'hall148',
     'x': 1,
     'y': 4,
-    '_triggers': ['deactivateElectrocute','footInjury'],
+    '_triggers': ['footInjury'],
     '_walls': {
         'e': {
             'name': 'EHall148',
@@ -51,6 +51,7 @@
         's': {
             'name': 'SHall148',
             'image': 'R140-south.jpg',
+            '_triggers': ['dangerwarningPowerLines', 'activateElectrocute'],
             'destination': {
                 'y': 3
             },

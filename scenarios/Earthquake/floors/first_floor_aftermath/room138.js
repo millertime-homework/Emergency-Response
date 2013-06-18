@@ -59,7 +59,6 @@
             'destination': {
                 'y': 2
             },
-            '_triggers': ['lukeRunsPast','electrocute'],
             '_props': {
                 'Downedwire': {
                     'name': 'Downedwire',
