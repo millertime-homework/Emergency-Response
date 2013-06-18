@@ -2,7 +2,6 @@
     'id': 'hall128',
     'x': 1,
     'y': 2,
-    '_triggers': ['electrocute'],
     '_walls': {
         'e': {
             'name': 'EHall128',
@@ -14,7 +13,7 @@
             'destination': {
                 'y': 3
             },
-            '_triggers': ['electrocute'],
+            '_triggers': ['dangerwarningPowerLines', 'activateElectrocute'],
             '_props': {
                 'Downedwire': {
                     'name': 'Downedwire',
