@@ -10,7 +10,8 @@
     'disableTriggers' : ['activatePassout','passout']
 },
 'wetTheCloth' : {
-    'enableTriggers' : ['clothIsWet']
+    'enableTriggers' : ['clothIsWet'],
+    'startTriggers': ['clearSmoke']
 },
 'clothIsWet' : {
     'disabled' : true
