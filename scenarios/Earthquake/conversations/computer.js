@@ -19,13 +19,13 @@
     '3' : {
         'message' : 'Question 1: Large and/or heavy objects should be ...',
         'replies' : {
-            'placed on the top shelf to keep from bumping into them.' : 5,
-            'placed on the bottom shelf or secured to keep them from falling.' : 4,
-            'placed into storage so they can never hurt anybody.' : 5
+            'Placed on the top shelf to avoid bumping into them.' : 5,
+            'Placed on the bottom shelf or secured to keep them from falling.' : 4,
+            'Placed into storage so they can never hurt anybody.' : 5
         }
     },
     '4' : {
-        'message' : 'Correct: Heavy object should be stored on low shelves or secured with a strap.',
+        'message' : 'Correct: Heavy objects should be stored on low shelves or secured with a strap.',
         'replies' : {
             'Keep playing' : 6,
             'I\'m done for now' : 0
@@ -33,14 +33,14 @@
         'triggers' : ['scoreERGpoints']
     },
     '5' : {
-        'message' : 'Incorrect: Heavy object should be stored on low shelves or secured with a strap.',
+        'message' : 'Incorrect: Heavy objects should be stored on low shelves or secured with a strap.',
         'replies' : {
             'Keep playing' : 6,
             'I\'m done for now' : 0
         }
     },
     '6' : {
-        'message' : 'Question 2: Flammable objects should be stored... ',
+        'message' : 'Question 2: Flammable objects should be stored ... ',
         'replies' : {
             'In a yellow locking cabinet with acids.' : 8,
             'Near the stove or fireplace.' : 8,
@@ -63,10 +63,10 @@
         }
     },
     '9' : {
-        'message' : 'It is important to have professionals...',
+        'message' : 'Question 3: It is important to have professionals ...',
         'replies' : {
-            'clean and repair chimneys, vents, and electrical wiring.' : 10,
-            'look over your car for hazardous material.' : 11,
+            'Clean and repair chimneys, vents, and electrical wiring.' : 10,
+            'Look over your car for hazardous material.' : 11,
             'I can do it myself, professionals aren\'t important.' : 11
         }
     },
@@ -117,7 +117,7 @@
         }
     },
     '16' : {
-        'message' : 'Correct: If in bed during an earthquake lay on your back and use a pillow to cover your head.',
+        'message' : 'Correct: Lie on your stomach and use a pillow to cover your head.',
         'replies' : {
             'Keep playing.' : 18,
             'I\'m done for now' : 0
@@ -125,7 +125,7 @@
         'triggers' : ['scoreERGpoints']
     },
     '17' : {
-        'message' : 'Incorrect: If in bed during an earthquake lay on your back and use a pillow to cover your head.',
+        'message' : 'Incorrect: Lie on your stomach and use a pillow to cover your head.',
         'replies' : {
             'Keep playing.' : 18,
             'I\'m done for now' : 0
@@ -155,11 +155,11 @@
         }
     },
     '21' : {
-        'message' : 'Question 1: Disaster plans should...',
+        'message' : 'Question 1: Disaster plans should ...',
         'replies' : {
-            'be a mystery' : 23,
-            'be known and practiced before disaster strikes.' : 22,
-            'be left to the professionals.' : 23
+            'Be a mystery' : 23,
+            'Be known and practiced before disaster strikes.' : 22,
+            'Be left to the professionals.' : 23
         }
     },
     '22' : {
@@ -178,11 +178,11 @@
         }
     },
     '24' : {
-        'message' : 'Question 2: A family reunification location should be...',
+        'message' : 'Question 2: A family reunification location should be ...',
         'replies' : {
-            'designated ahead of time and given to all family members.' : 25,
-            'ignored.' : 26,
-            'assigned by the emergency personnel.' : 26
+            'Designated ahead of time and given to all family members.' : 25,
+            'Ignored.' : 26,
+            'Assigned by the emergency personnel.' : 26
         }
     },
     '25' : {
@@ -201,11 +201,11 @@
         }
     },
     '27' : {
-        'message' : 'Question 3: Communicating during an emergency should...',
+        'message' : 'Question 3: Communicating during an emergency should ...',
         'replies' : {
-            'be done using only cell phones because the phone lines will be down.' : 29,
-            'be through a designated out of town relative or friend.' : 28,
-            'not be worried about, everyone will be able to communicate.' : 29
+            'Be done using only cell phones because the phone lines will be down.' : 29,
+            'Be through a designated out of town relative or friend.' : 28,
+            'Not be worried about, everyone will be able to communicate.' : 29
         }
     },
     '28' : {
