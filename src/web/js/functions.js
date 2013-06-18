@@ -493,6 +493,14 @@ function inventoryItemClick(itemId) {
         }
     }
 
+    else if (itemId == 'Breathing-Mask') {
+        // check if clearSmoke is enabled yet
+        if (scenario.triggers.pool['clearSmoke']) {
+            validItemClicked = true;
+            startTrigger('clearSmoke');
+        }
+    }
+
     // Hide inventory modal if valid item clicked
     if (validItemClicked) {
         hideModal();

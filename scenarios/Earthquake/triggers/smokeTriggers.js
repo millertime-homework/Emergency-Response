@@ -1,4 +1,8 @@
+'approachSmoke': {
+    'enableTriggers': ['clearSmoke']
+},
 'clearSmoke' :{
+    'disabled': true,
     'events' : {
         'replaceProp': ['smoke', 'smokeSafe']
     },
@@ -6,7 +10,8 @@
     'disableTriggers' : ['activatePassout','passout']
 },
 'wetTheCloth' : {
-    'enableTriggers' : ['clothIsWet']
+    'enableTriggers' : ['clothIsWet'],
+    'startTriggers': ['clearSmoke']
 },
 'clothIsWet' : {
     'disabled' : true
