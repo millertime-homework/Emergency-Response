@@ -25,8 +25,9 @@ function savingCode(input, code) {
             current = "";
         }
     }
-    if (current != "")
-        console.log("Incomplete: " + current);
+    if (current != "") {
+        //console.log("Incomplete: " + current);
+    }
     return output;
 }
 
@@ -94,21 +95,23 @@ function saveGame() {
             triggersSaveable[i] = result;
         }
         var str = encodeForSaving(JSON.stringify(saveable));
-        if (decodeForLoading(str) != JSON.stringify(saveable))
-            console.log("Encoding unsuccessful: " + JSON.stringify(saveable) + " != " + decodeForLoading(str));
+        if (decodeForLoading(str) != JSON.stringify(saveable)) {
+            //console.log("Encoding unsuccessful: " + JSON.stringify(saveable) + " != " + decodeForLoading(str));
+        }
         var cookieStr = "emergencySave="+str+";expires="+(new Date(new Date().valueOf()+86400*365*1000).toGMTString());
-        if(cookieStr.length >= 4096)
-            console.log("Cookie is too long again ("+cookieStr.length+"): "+JSON.stringify(saveable));
+        if(cookieStr.length >= 4096) {
+            //console.log("Cookie is too long again ("+cookieStr.length+"): "+JSON.stringify(saveable));
+        }
         document.cookie = cookieStr;
     } catch (e) {
-        console.log("Error while saving: " + e);
+        //console.log("Error while saving: " + e);
     }
 }
 
 // I can use this from the console if further testing or debugging is needed
 function logSavedGame() {
     document.cookie.match(/emergencySave=([^;]+)/);
-    console.log(decodeForLoading(RegExp.$1));
+    //console.log(decodeForLoading(RegExp.$1));
 }
 
 function canLoadGame() {
@@ -132,8 +135,9 @@ function loadGame() {
     player.inventory.items = saveable[saveableVars.inventory];
     scenario.objectives = saveable[saveableVars.objectives];
     clearAllTriggers();
-    if (triggerNames.length != saveable[saveableVars.triggers].length)
-        console.log("Incompatible save: number of triggers changed from "+triggerNames.length+" to "+saveable[saveableVars.triggers].length);
+    if (triggerNames.length != saveable[saveableVars.triggers].length) {
+        //console.log("Incompatible save: number of triggers changed from "+triggerNames.length+" to "+saveable[saveableVars.triggers].length);
+    }
     for(var i = 0; i < triggerNames.length; i++) {
         var tname = triggerNames[i];
         var input = saveable[saveableVars.triggers][i];

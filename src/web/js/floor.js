@@ -13,11 +13,11 @@ var Floor = function(name, z) {
 
     this.addRoom = function(id, name, x, y, z) {
         if (typeof this.rooms[id] !== 'undefined') {
-            console.log('Floor.addRoom - Room with id ' + id + ' already exists');
+            //console.log('Floor.addRoom - Room with id ' + id + ' already exists');
             return;
         }
         if (this.getRoomByXY(x, y) !== null) {
-            console.log('Floor.addRoom - Room with x=' + x + ',y=' + y + ",z=" + z + " already exists");
+            //console.log('Floor.addRoom - Room with x=' + x + ',y=' + y + ",z=" + z + " already exists");
             return;
         }
         if (x > this.maxX) {
@@ -36,7 +36,7 @@ var Floor = function(name, z) {
     this.addWallToRoom = function(id, name, direction, image) {
         var room = this.getRoomById(id);
         if (typeof room === 'undefined' || room === null) {
-            console.log('Floor.addWallToRoom - Room with id ' + id + ' does not exist');
+            //console.log('Floor.addWallToRoom - Room with id ' + id + ' does not exist');
             return;
         }
         room.addWall(name, direction, image);
@@ -45,7 +45,7 @@ var Floor = function(name, z) {
     this.getRoomById = function(id) {
         room = this.rooms[id];
         if (typeof room === 'undefined' || room === null) {
-            console.log('Unknown Room Id - ' + id);
+            //console.log('Unknown Room Id - ' + id);
             return null;
         }
         return this.rooms[id];

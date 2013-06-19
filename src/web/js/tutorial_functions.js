@@ -88,12 +88,12 @@ function showInstructModal(relativeElement, instructType, arrowAlign, content) {
     }
 
     if (!relativeElement.length) {
-        console.log('showInstructModal: bad relative element');
+        //console.log('showInstructModal: bad relative element');
         return false;
     }
 
     if (!relativeElement || !instructType || !arrowAlign || !content) {
-        console.log('showInstructModal: invalid parameters');
+        //console.log('showInstructModal: invalid parameters');
         return false;
     }
     instructModal = $('#instruct-modal');

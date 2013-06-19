@@ -22,10 +22,10 @@ var Scenario = function () {
 
     this.start = function() {
         if (this.status === SCENARIO_STATUS_ACTIVE) {
-            console.log('Scenario.start - scenario already active');
+            //console.log('Scenario.start - scenario already active');
             return;
         } else if (this.status === SCENARIO_STATUS_DONE) {
-            console.log('Scenario.start - scenario done, must be reset to start')
+            //console.log('Scenario.start - scenario done, must be reset to start')
             return;
         }
         this.status = SCENARIO_STATUS_ACTIVE;
@@ -59,7 +59,7 @@ var Scenario = function () {
 
     this.addFloor = function(name, z) {
         if (typeof this.floors[z] !== 'undefined') {
-            console.log('Scenario.addFloor - floor level with z=' + z + ' already defined');
+            //console.log('Scenario.addFloor - floor level with z=' + z + ' already defined');
             return;
         }
         this.floors[z] = new Floor;
@@ -70,7 +70,7 @@ var Scenario = function () {
     this.addRoomToFloor = function(z, id, name, x, y, z) {
         floor = this.floors[z];
         if (typeof floor === 'undefined' || floor === null) {
-            console.log('Scenario.addRoomToFloor - floor with z=' + z + ' does not exist');
+            //console.log('Scenario.addRoomToFloor - floor with z=' + z + ' does not exist');
             return;
         }
         floor.addRoom(id, name, x, y , z);
@@ -79,7 +79,7 @@ var Scenario = function () {
     this.getFloor = function(z) {
         floor = this.floors[z];
         if (typeof floor === 'undefined' || floor === null) {
-            console.log('Scenario.getFloor - floor with z=' + z + ' does not exist');
+            //console.log('Scenario.getFloor - floor with z=' + z + ' does not exist');
             return;
         }
         return this.floors[z];
@@ -109,13 +109,13 @@ var Scenario = function () {
                         'wallName' : wall.name
                     };
                 } else {
-                    console.log('getLocNames - error getting wall dir=' + direction);
+                    //console.log('getLocNames - error getting wall dir=' + direction);
                 }
             } else {
-                console.log('getLocNames - error getting room x=' + x + ',' + y);
+                //console.log('getLocNames - error getting room x=' + x + ',' + y);
             }
         } else {
-            console.log('getLocNames - error getting floor z=' + z);
+            //console.log('getLocNames - error getting floor z=' + z);
         }
     };
 

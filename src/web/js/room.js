@@ -20,7 +20,7 @@ var Room = function(name, x, y, z) {
 
     this.addWall = function(name, direction, image, fakeDirection, isCutscene, triggers) {
         if (typeof this.walls[direction] !== 'undefined') {
-            console.log('Room.addWall - direction ' + direction + ' already defined')
+            //console.log('Room.addWall - direction ' + direction + ' already defined')
             return;
         }
         var newWall = new Wall;

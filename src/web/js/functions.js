@@ -273,7 +273,7 @@ function loadScenario(data) {
 // Returns True if scenario object is defined
 function isScenarioDefined() {
     if (scenario === undefined) {
-        console.log('scenario class undefined');
+        //console.log('scenario class undefined');
         return false;
     }
     return true;
@@ -283,7 +283,7 @@ function isScenarioDefined() {
 // Returns True if player object is defined
 function isPlayerDefined() {
     if (player === undefined) {
-        console.log('player class undefined');
+        //console.log('player class undefined');
         return false;
     }
     return true;

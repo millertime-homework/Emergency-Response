@@ -41,7 +41,7 @@ jQuery(document).ready(function ($) {
             $(document).trigger(keyEvent, keyEventArg);
         }
         } catch (e) {
-            console.log(e);
+            //console.log(e);
         }
         keypressed = false;
     })

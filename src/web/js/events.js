@@ -67,7 +67,7 @@ jQuery(document).ready(function($) {
         $('#_dust').remove();
         $('#_dust2').remove();
         if (triggerName) {
-            console.log('triggering ' + triggerName);
+            //console.log('triggering ' + triggerName);
             startTrigger(triggerName);
         }
     });
