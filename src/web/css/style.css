@@ -634,10 +634,6 @@ textarea:focus {
  * Instruction Modal Stylings
  *
  */
-#instruct-modal-wrapper {
-  position: absolute;
-  background: transparent;
-}
 #instruct-modal {
   background-color: white;
   position: absolute;
@@ -651,7 +647,7 @@ textarea:focus {
   border-radius: 6px 6px 6px 6px;
 }
 #instruct-modal #content {
-  width: 200px;
+  width: 188px;
   padding: 6px;
 }
 #instruct-modal #buttons {

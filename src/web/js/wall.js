@@ -30,7 +30,7 @@ var Wall = function() {
                 propImage.style.cursor = "pointer";
             }
         }
-        
+
         if (action ==='displayModal' && !actionVariables['imageElement']) {
             actionVariables['imageElement'] = scenario.addImage(actionVariables['image']);
         }
@@ -56,16 +56,20 @@ var Wall = function() {
     }
 
     this.hasDestination = function() {
-        for (var i = 0; i < this.barriers.length; i++)
-            if (!scenario.inactiveProps[this.barriers[i]])
+        for (var i = 0; i < this.barriers.length; i++) {
+            if (!scenario.inactiveProps[this.barriers[i]]) {
                 return false;
+            }
+        }
         return (this.destination != null);
     }
 
     this.getBarrierMessage = function () {
-        for (var i = 0; i < this.barriers.length; i++)
-            if (!scenario.inactiveProps[this.barriers[i]])
+        for (var i = 0; i < this.barriers.length; i++) {
+            if (!scenario.inactiveProps[this.barriers[i]]) {
                 return this.barrierMessages[this.barriers[i]];
+            }
+        }
         return null;
     }
 
@@ -78,6 +82,6 @@ var Wall = function() {
     }
 
     this.setImage = function(image) {
-        this.image = scenario.addImage(image)
+        this.image = scenario.addImage(image);
     }
 }
