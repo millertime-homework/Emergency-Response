@@ -13,7 +13,17 @@ var GAME_STATE_TUTORIAL = "tutorial in progress";
 var gameState;
 var lastGameState;
 
-jQuery(document).ready(function($){
+$(document).ready(function() {
+    $("#ie-warning-hide").click(function() {
+        $("#ie-warning").hide();
+        $("#main-menu").show();
+    });
+
     setGameState(GAME_STATE_MENU);
     sizeWindow();
+    if (typeof(danger_will_robinson) !== 'undefined') {
+        $("#main-menu").hide();
+        $("#ie-warning").show();
+        $("#ie-warning").center();
+    }
 });

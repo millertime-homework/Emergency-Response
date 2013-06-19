@@ -10,7 +10,12 @@
 
         <!-- Clark College Google Analytics -->
         <script type="text/javascript" src="web/js/analytics.js"></script>
-        
+
+    <!--[if IE]>
+        <script type="text/javascript">
+          var danger_will_robinson = true;
+        </script>
+    <![endif]-->
     <script type="text/javascript" src="web/js/spin.js"></script>
     <script type="text/javascript" src="web/js/jquery.js"></script>
 </head>
@@ -133,6 +138,17 @@
       <a href="http://github.com/millertime-homework/Emergency-Response" style="color:blue">Github</a><br />
       <br />
       <div id="about-hide" class="big-blue-button">OK</div>
+    </div>
+    <div id="ie-warning" class="modal hidden">
+      <h3>Warning</h3>
+      <div id="ie-image">
+        <img src="web/img/ie-sadface.png" width="85" height="85" />
+      </div>
+      <p>It looks like you're using Internet Explorer. We recommend playing this game
+        with <a href="https://www.google.com/intl/en/chrome/browser/" style="color:blue">Google Chrome</a>
+        or <a href="http://www.mozilla.org/en-US/firefox/new/" style="color:blue">Firefox</a>.
+      </p>
+      <div id="ie-warning-hide" class="big-blue-button">Continue Anyway</div>
     </div>
     <div id="main-header"><h1>Emergency Response Game</h1></div>
     <div id="outer-container">
