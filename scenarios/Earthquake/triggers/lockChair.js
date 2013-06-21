@@ -1,3 +1,0 @@
-'lockChair' : {
-    'enableTriggers' : ['chairLocked']
-}

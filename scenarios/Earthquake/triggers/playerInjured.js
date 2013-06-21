@@ -1,3 +1,0 @@
-'playerInjured' : {
-    'disabled' : true
-}

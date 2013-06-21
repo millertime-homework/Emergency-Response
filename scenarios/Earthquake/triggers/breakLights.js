@@ -1,5 +1,0 @@
-'breakLights': {
-    'events': {
-        'disableLights': []
-    }
-}

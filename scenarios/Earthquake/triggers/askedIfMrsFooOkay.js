@@ -1,3 +1,0 @@
-'askedMrsFooIfOkay': {
-    'addPoints': [20]
-}

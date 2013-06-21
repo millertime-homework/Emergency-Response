@@ -1,5 +1,0 @@
-'moveSpray': {
-    'events': {
-        'removeFromScene':['bugSpray']
-    }
-}

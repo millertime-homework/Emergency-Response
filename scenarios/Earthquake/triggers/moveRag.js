@@ -1,5 +1,0 @@
-'moveRag': {
-    'events':{
-        'removeFromScene':['rag']
-    }
-}
