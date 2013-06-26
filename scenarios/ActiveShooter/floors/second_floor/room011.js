@@ -35,7 +35,7 @@
                     'barrier': true,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'lockableDoor2',
+                        'conversationName': 'doorR011',
                         'isAnAction': true
                     }
                 },

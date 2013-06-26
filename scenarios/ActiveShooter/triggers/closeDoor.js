@@ -2,5 +2,17 @@
     'events' : {
         'replaceProp': ['door-open', 'door']
     },
-    'lives': -1
+    'lives': Infinity
+},
+'closeDoorR011': {
+    'events': {
+        'closeDoorR011': []
+    },
+    'lives': Infinity
+},
+'closeDoorR041': {
+    'events': {
+        'closeDoorR041': []
+    },
+    'lives': Infinity
 }

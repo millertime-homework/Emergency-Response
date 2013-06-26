@@ -11,6 +11,22 @@
                 'x': 1
             },
             '_props': {
+                'door': {
+                    'name': 'door',
+                    'image': 'doorInsideLeft.png',
+                    'openImage': 'doorOpen.png',
+                    'hoverImage': 'doorInsideLeftHover.png',
+                    'width': 199,
+                    'height': 443,
+                    'top': 188,
+                    'left': 456,
+                    'barrier': true,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'doorR041',
+                        'isAnAction': true
+                    }
+                },
                 'doorHandle041': {
                     'name': 'doorHandle041',
                     'image': 'rectangle.png',
@@ -42,26 +58,10 @@
                 'doorShadeDown041': {
                     'name': 'doorShadeDown041',
                     'image': 'ASShadeDown.png',
-                    'width': 94,
-                    'height': 114,
-                    'top': 289,
-                    'left': 508
-                },
-                'door': {
-                    'name': 'door',
-                    'image': 'doorInsideLeft.png',
-                    'openImage': 'doorOpen.png',
-                    'hoverImage': 'doorInsideLeftHover.png',
-                    'width': 199,
-                    'height': 443,
-                    'top': 188,
-                    'left': 456,
-                    'barrier': true,
-                    'action': 'showConversation',
-                    'actionVariables': {
-                        'conversationName': 'lockableDoor1',
-                        'isAnAction': true
-                    }
+                    'width': 72,
+                    'height': 93,
+                    'top': 268,
+                    'left': 519
                 },
                 'hidingSpot041': {
                     'name': 'hidingSpot041',

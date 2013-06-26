@@ -307,4 +307,48 @@ jQuery(document).ready(function($) {
         lightsOn = true;
         $('#flashlightOverlay').addClass('hidden');
     });
+
+    $(document).on('pullBlindsR011', function(event) {
+        shadesPulledR011 = true;
+    });
+    $(document).on('pullBlindsR041', function(event) {
+        shadesPulledR041 = true;
+    });
+
+    $(document).on('openDoorR011', function(event) {
+        $(document).trigger('replaceProp', ['door', 'door-open']);
+        $(document).trigger('removeFromScene', 'doorHandle');
+        if (shadesPulledR011) {
+            $(document).trigger('removeFromScene', 'doorShadeDown');
+        } else {
+            $(document).trigger('removeFromScene', 'doorShade');
+        }
+    });
+    $(document).on('closeDoorR011', function(event) {
+        $(document).trigger('replaceProp', ['door-open', 'door']);
+        $(document).trigger('addToScene', 'doorHandle');
+        if (shadesPulledR011) {
+            $(document).trigger('addToScene', 'doorShadeDown');
+        } else {
+            $(document).trigger('addToScene', 'doorShade');
+        }
+    });
+    $(document).on('openDoorR041', function(event) {
+        $(document).trigger('replaceProp', ['door', 'door-open']);
+        $(document).trigger('removeFromScene', 'doorHandle041');
+        if (shadesPulledR041) {
+            $(document).trigger('removeFromScene', 'doorShadeDown041');
+        } else {
+            $(document).trigger('removeFromScene', 'doorShade041');
+        }
+    });
+    $(document).on('closeDoorR041', function(event) {
+        $(document).trigger('replaceProp', ['door-open', 'door']);
+        $(document).trigger('addToScene', 'doorHandle041');
+        if (shadesPulledR041) {
+            $(document).trigger('addToScene', 'doorShadeDown041');
+        } else {
+            $(document).trigger('addToScene', 'doorShade041');
+        }
+    });
 });

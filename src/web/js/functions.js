@@ -10,6 +10,7 @@ var erg = erg || {};
 erg.onScreenMessageContainer = $('#on-screen-message-container');
 erg.onScreenMessageTemplate = $('#on-screen-message-template');
 var spinnerTimerId;
+var shadesPulledR011, shadesPulledR041;
 
 $(document).ready(function () {
     $(window).resize(function () {
@@ -306,6 +307,8 @@ function setGameState(state) {
         $('#overlay').hide();
         resetLights();
         resetPhone();
+        shadesPulledR011 = false;
+        shadesPulledR041 = false;
         showMainMenu();
         allowKeyEvents = false;
         break;

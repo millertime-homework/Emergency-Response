@@ -12,7 +12,6 @@
         'triggers' : ['pulledDownShade']
     }
 },
-
 'putShadeDown041' : {
     '1' : {
         'requires': {'objectivesNotCompleted':['pulledDownShade041']},
