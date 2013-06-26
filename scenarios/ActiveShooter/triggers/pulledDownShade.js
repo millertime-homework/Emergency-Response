@@ -3,7 +3,8 @@
     'events' : {
         'addPoints' : [10],
         'completeObjective' : ['pullDownWindowShade'],
-        'replaceProp': ['doorShade', 'doorShadeDown']
+        'replaceProp': ['doorShade', 'doorShadeDown'],
+        'pullBlindsR011': []
     },
     'deleteTriggers' : ['failedToPullDownShade']
 },
@@ -12,7 +13,8 @@
     'events' : {
         'addPoints' : [10],
         'completeObjective' : ['pullDownWindowShade041'],
-        'replaceProp': ['doorShade041', 'doorShadeDown041']
+        'replaceProp': ['doorShade041', 'doorShadeDown041'],
+        'pullBlindsR041': []
     },
     'deleteTriggers' : ['failedToPullDownShade041']
 }
