@@ -42,6 +42,18 @@
             'name': 'apartment-n',
             'image': 'apartment-n.jpg',
             '_props': {
+                'boo': {
+                    'name': 'boo',
+                    'image': 'boo.png',
+                    'width': 114,
+                    'height': 138,
+                    'top': 476,
+                    'left': 180,
+                    'action': 'showConversation',
+                    'actionVariables': {
+                        'conversationName': 'Boo',
+                    }
+                },
                 'mask': {
                     'name': 'N-95 Breathing Mask',
                     'image': 'breathingmask.png',
