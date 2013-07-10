@@ -1,0 +1,5 @@
+'talkedToMrsAnderson': {
+    'events': {
+        'completeObjective': ['talkToMrsAnderson']
+    }
+}

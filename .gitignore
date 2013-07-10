@@ -1,6 +1,7 @@
 *.swp
 .DS_Store
 Thumbs.db
+Earthquake.js.backup
 Earthquake.js
 Earthquake.js.backup
 ActiveShooter.js
@@ -9,3 +10,7 @@ Test.js
 Test.js.backup
 Tutorial.js
 Tutorial.js.backup
+list
+add.txt
+rm.txt
+new.txt

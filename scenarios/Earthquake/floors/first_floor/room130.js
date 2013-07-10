@@ -33,7 +33,7 @@
             'destination': {
                 'x': 0
             },
-            '_triggers' : ['hiMrsFoo', 'walkedAwayFromConversation'],
+            '_triggers' : ['hiMrsAnderson', 'walkedAwayFromConversation'],
             '_props': {
                 'foo': {
                     'name': 'foo',
@@ -44,7 +44,7 @@
                     'top': 200,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'Mrs Foo'
+                        'conversationName': 'Mrs Anderson'
                     }
                 },
                 'door': {

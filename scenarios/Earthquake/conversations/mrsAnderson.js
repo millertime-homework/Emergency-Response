@@ -1,10 +1,10 @@
-'Mrs Foo': {
+'Mrs Anderson': {
     '1': {
         'message': 'Hello!',
         'replies': {
-            'Hi, Mrs. Foo.': 2
+            'Hi, Mrs. Anderson.': 2
         },
-        'triggers' : ['completeSpeakWithFoo','stopHiFoo']
+        'triggers' : ['completeSpeakWithAnderson','stopHiAnderson']
     },
     '2': {
         'message': 'You should really try out the Emergency Response Game on my computer!',

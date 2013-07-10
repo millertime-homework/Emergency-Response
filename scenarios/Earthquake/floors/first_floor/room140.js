@@ -33,7 +33,7 @@
                     'left': 585,
                     'action': 'showConversation',
                     'actionVariables': {
-                        'conversationName': 'Mrs Foo'
+                        'conversationName': 'Mrs Anderson'
                     }
                 }
             }
