@@ -1,6 +1,6 @@
 'moveBike': {
     'events': {
-        'replaceProp': ['bike','bikeMoved']
+        'replaceProp': ['bike','bikeMoved'],
         'addPoints' : [10]
     }
 },
