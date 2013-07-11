@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Devin Quirozoliver - Evacuation — 3 of 22</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="author" content="Devin Quirozoliver" />
+  <meta name="description" content="A page for the game Evacuation by Devin Quirozoliver." />
+  <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+</head>
+
+<body>
+
+<div class = "container">
+
+<div class ="sourcecoverimage">
+	<span><a href="Cover.jpg"><img src="Small Cover.jpg" border="1" /></a></span>
+</div>
+
+<div class ="sourceintroduction">
+	<h1>
+		<span>Evacuation</span> <span class="pagination">— 3 of 22</span>
+	</h1>
+	<h2>
+		<span>Devin Quirozoliver</span>
+	</h2>
+	<div class ="sourcebibliography">
+		<span>Release 1</span>
+	</div>
+</div>
+
+<div class = "links">
+<ul>
+<li><a href="index.html">Home page</a></li><li><a href="source.html">Beginning</a></li><li><a href="source_0.html">Previous</a></li><li><a href="source_2.html">Next</a></li>
+</ul>
+</div>
+
+<div class = "source">
+<p class="indent0"><span class="heading">Section - &quot;<span class="quote">Map Rendering</span>&quot;</span></p><p class="indent0"></p><p class="indent0"><span class="comment">[Grid is enumerated from 1]</span></p><p class="indent0"><span class="heading">Table of Third Floor Rooms</span></p><table><tr><td><span class="columnhead">RName</span></td><td><span class="columnhead">X</span></td><td><span class="columnhead">Y</span></td></tr>
+<tr><td>Third Floor Stairwell</td><td>3</td><td>2</td></tr>
+</table><p class="indent0"></p><p class="indent0"><span class="heading">Table of Second Floor Rooms</span></p><table><tr><td><span class="columnhead">RName</span></td><td><span class="columnhead">X</span></td><td><span class="columnhead">Y</span></td></tr>
+<tr><td>Second Floor Elevator</td><td>2</td><td>1</td></tr>
+<tr><td>Hallway North</td><td>2</td><td>2</td></tr>
+<tr><td>Hallway South</td><td>2</td><td>3</td></tr>
+<tr><td>Professor's Office</td><td>1</td><td>3</td></tr>
+<tr><td>The Second Floor Stairwell</td><td>3</td><td>2</td></tr>
+</table><p class="indent0"></p><p class="indent0"><span class="heading">Table of First Floor Rooms</span></p><table><tr><td><span class="columnhead">RName</span></td><td><span class="columnhead">X</span></td><td><span class="columnhead">Y</span></td></tr>
+<tr><td>First Floor Elevator</td><td>2</td><td>1</td></tr>
+<tr><td>First Floor Hallway North</td><td>2</td><td>2</td></tr>
+<tr><td>First Floor Stairwell</td><td>3</td><td>2</td></tr>
+<tr><td>First Floor Hallway South</td><td>2</td><td>3</td></tr>
+</table><p class="indent0"></p><p class="indent0"></p><p class="indent0"><span class="comment">[This table describes a separate grid </span></p><p class="indent0"><span class="comment"> which overlays the room grid.]</span></p><p class="indent0"><span class="comment">[There are no connecting passages</span></p><p class="indent0"><span class="comment">  on the third floor]</span></p><p class="indent0">  <span class="comment">[Type 1 : Vertical]</span></p><p class="indent0">  <span class="comment">[Type 2 : Horizontal]</span></p><p class="indent0"><span class="heading">Table of First Floor Connecting Passages</span></p><table><tr><td><span class="columnhead">Orientation</span></td><td><span class="columnhead">X</span></td><td><span class="columnhead">Y</span></td></tr>
+<tr><td>&quot;<span class="quote">v</span>&quot;</td><td>2</td><td>1</td></tr>
+<tr><td>&quot;<span class="quote">v</span>&quot;</td><td>2</td><td>2</td></tr>
+<tr><td>&quot;<span class="quote">h</span>&quot;</td><td>2</td><td>2</td></tr>
+</table><p class="indent0"></p><p class="indent0"><span class="heading">Table of Second Floor Connecting Passages</span></p><table><tr><td><span class="columnhead">Orientation</span></td><td><span class="columnhead">X</span></td><td><span class="columnhead">Y</span></td></tr>
+<tr><td>&quot;<span class="quote">v</span>&quot;</td><td>2</td><td>1</td></tr>
+<tr><td>&quot;<span class="quote">v</span>&quot;</td><td>2</td><td>2</td></tr>
+<tr><td>&quot;<span class="quote">h</span>&quot;</td><td>2</td><td>2</td></tr>
+<tr><td>&quot;<span class="quote">h</span>&quot;</td><td>1</td><td>3</td></tr>
+</table><p class="indent0"></p><p class="indent0"></p><p class="indent0"><span class="heading">Table of Third Floor Connecting Passages</span></p><table><tr><td><span class="columnhead">Orientation</span></td></tr>
+<tr><td>&quot;<span class="quote">none</span>&quot;</td></tr>
+</table><p class="indent0"></p><p class="indent0">The curtable is a table-name that varies;</p><p class="indent0">The curconnection is a table-name that varies;</p><p class="indent0">Rendering is an action applying to nothing.</p><p class="indent0">Report rendering:</p><p class="indent1">If the player is in the Second Floor:</p><p class="indent2">Now the curtable is the Table of Second Floor Rooms;</p><p class="indent2">Now the curconnection is the Table of Second Floor Connecting Passages;</p><p class="indent1">If the player is in the First Floor:</p><p class="indent2">Now the curtable is the Table of First Floor Rooms;</p><p class="indent2">Now the curconnection is the Table of First Floor Connecting Passages;</p><p class="indent1">If the player is in the Third Floor:</p><p class="indent2">Now the curtable is the Table of Third Floor Rooms;</p><p class="indent2">Now the curconnection is the Table of Third Floor Connecting Passages;</p><p class="indent1">repeat with N running from 1 to the number of rows in the curtable:</p><p class="indent2">If the player is in rname in row N of the curtable:</p><p class="indent3">position the cursor in map-window at row ((Y in row N of the curtable * 4)+ 2) column (X in row N of the curtable * 6);</p><p class="indent3">say &quot;<span class="quote">***</span>&quot;;</p><p class="indent3">position the cursor in map-window at row ((Y in row N of the curtable * 4)+ 3) column (X in row N of the curtable * 6);</p><p class="indent3">say &quot;<span class="quote">*@*</span>&quot;;</p><p class="indent3">position the cursor in map-window at row ((Y in row N of the curtable * 4) + 4) column (X in row N of the curtable * 6);</p><p class="indent3">say &quot;<span class="quote">***</span>&quot;;</p><p class="indent2">Otherwise:</p><p class="indent3">position the cursor in map-window at row ((Y in row N of the curtable * 4)+ 2) column (X in row N of the curtable * 6);</p><p class="indent3">say &quot;<span class="quote">***</span>&quot;;</p><p class="indent3">position the cursor in map-window at row ((Y in row N of the curtable * 4)+ 3) column (X in row N of the curtable * 6);</p><p class="indent3">say &quot;<span class="quote">* *</span>&quot;;</p><p class="indent3">position the cursor in map-window at row ((Y in row N of the curtable * 4) + 4) column (X in row N of the curtable * 6);</p><p class="indent3">say &quot;<span class="quote">***</span>&quot;;</p><p class="indent1">repeat with M running from 1 to the number of rows in the curconnection:</p><p class="indent2">Choose row M in the curconnection;</p><p class="indent2">If the orientation entry is &quot;<span class="quote">v</span>&quot;: </p><p class="indent3">position the cursor in map-window at row ((Y entry * 4) + 5) column ((X entry * 6) + 1);</p><p class="indent3">say &quot;<span class="quote">|</span>&quot;;</p><p class="indent2">If the orientation entry is &quot;<span class="quote">h</span>&quot;: </p><p class="indent3">position the cursor in map-window at row ((Y entry * 4) + 3) column ((X entry * 6) + 3);</p><p class="indent3">say &quot;<span class="quote">---</span>&quot;;</p><p class="indent1">position the cursor in map-window at row 2 column 2;</p><p class="indent1">say &quot;<span class="quote">    MAP KEY - [</span><span class="substitution">line break</span><span class="quote">]     @ = You.[</span><span class="substitution">paragraph break</span><span class="quote">]</span>&quot;;</p><p class="indent0"></p><p class="indent0">Talking to is an action applying to one visible thing.</p><p class="indent0">Understand &quot;<span class="quote">talk to [</span><span class="substitution">someone</span><span class="quote">]</span>&quot; as talking to. </p><p class="indent0">Understand &quot;<span class="quote">talk</span>&quot; as talking to.</p><p class="indent0">Understand &quot;<span class="quote">say hello to [</span><span class="substitution">someone</span><span class="quote">]</span>&quot; as talking to.</p><p class="indent0"></p><p class="indent0">Every turn:</p><p class="indent1">follow the window-drawing rules for the map-window;</p><p class="indent1">try currentrooming;</p><p class="indent1">try objectiving;</p><p class="indent1"></p><p class="indent1"></p>
+</div>
+
+<div class ="notes">
+
+</div>
+
+</div>
+
+</body>
+
+</html>
