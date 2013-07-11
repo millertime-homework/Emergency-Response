@@ -636,9 +636,6 @@ function showConversation(conversationName, currentConversationChoice, cannotSki
     contentContainer = $('#modal #content');
     contentContainer.append('<span id="option-message">' + currentOption.message + '</span><p />');
 
-    if (!isAnAction) {
-        contentContainer.append('<span id="you-reply"> You Reply: </span><br />');
-    }
     contentContainer.append('<ul>');
 
     replyChoices = currentOption.replies;
