@@ -4,7 +4,7 @@
     'events' : {
         'replaceProp': ['girlCrouched', 'girlRunning'],
         'addToScene': ['doorHandle', 'girlWounded'],
-        'setObjective' : ['lockTheDoorAgain', 'Lock the door again!']
+        'setObjective' : ['lockTheDoorAgain', 'Quick, lock the door again!']
     },
     'enableTriggers' : ['lockedTheDoorAgain', 'shooterEnters011', 'playerRuns'],
     'startTriggers' : ['WinIn011', 'unlockDoor2', 'getOutOfBuilding', 'studentPanics'],
