@@ -1,7 +1,7 @@
 'hiddenFromShooter' : {
     'waitForObjectiveCompletions' : ['turnOffLights', 'pullDownWindowShade', 'hideByDoor', 'lockTheDoor', 'silencePhone'],
     'events' : {
-        'addPoints' : [60],
+        'addPoints' : [100],
         'completeObjective' : ['hideFromShooter']
     },
     'deleteTriggers' : ['failedToHide'],
@@ -13,7 +13,7 @@
     'abortTriggers' : ['ShootsThroughWalls041'],
     'enableTriggers': ['hideEnding'],
     'events' : {
-        'addPoints' : [60],
+        'addPoints' : [100],
         'completeObjective' : ['hideFromShooter041'],
         'warpPlayer': ['survived',0,0,12]
     }

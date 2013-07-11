@@ -1,7 +1,7 @@
 'fixingFrame': {
     'events': {
         'removeInventory' : ['Screw Driver'],
-        'addPoints' : [15],
+        'addPoints' : [10],
         'completeObjective' : ['fixPlaque']
     },
     'enableTriggers':['frameFixed']

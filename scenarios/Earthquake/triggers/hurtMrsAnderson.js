@@ -1,3 +1,3 @@
 'hurtMrsAnderson': {
-    'addPoints': [-20]
+    'reducePoints': [20]
 }

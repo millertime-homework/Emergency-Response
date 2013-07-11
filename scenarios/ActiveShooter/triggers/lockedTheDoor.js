@@ -24,7 +24,7 @@
     'disabled' : true,
     'abortTriggers': ['failedToLockTheDoor041'],
     'events' : {
-        'addPoints' : [75],
+        'addPoints' : [10],
         'completeObjective' : ['lockTheDoor041'],
         'removeFromScene': ['doorHandle041']
     },

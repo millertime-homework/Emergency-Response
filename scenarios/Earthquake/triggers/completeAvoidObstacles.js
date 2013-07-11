@@ -1,7 +1,7 @@
 'completeAvoidObstacles' : {
     'events' : {
         'completeObjective' : ['avoidObstacles'],
-        'addPoints' : 30
+        'addPoints' : [100]
     }
 },
 'failAvoidObstacles' : {

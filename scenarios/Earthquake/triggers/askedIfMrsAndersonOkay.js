@@ -1,3 +1,3 @@
 'askedMrsAndersonIfOkay': {
-    'addPoints': [20]
+    'addPoints': [50]
 }

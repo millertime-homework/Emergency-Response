@@ -2,7 +2,7 @@
     'events' : {
         'replaceProp': ['ProfXavInjured','ProfXavAoR'],
         'completeObjective' : ['saveXavier'],
-        'addPoints' : [15]
+        'addPoints' : [50]
     },
     'disableTriggers' : ['failSaveXavierObjective']
 }

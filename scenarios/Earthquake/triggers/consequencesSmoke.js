@@ -13,7 +13,8 @@
     'enableTriggers' : ['playerInjured'],
     'startTriggers' : ['wakeup','failAvoidObstacles'],
     'events' : {
-        'warpPlayer' : ['blackout',3,3,8],
+        'reducePoints' : [50],
+        'warpPlayer'   : ['blackout',3,3,8],
         'showOnScreenMessage' : ['The smoke clouds your vision as you wade through it.  Your lungs heave.  You collaspe to the floor and black out.']
     },
     'disabled' : true,

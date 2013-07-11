@@ -5,7 +5,7 @@
 },
 'savedJames' : {
     'events' : {
-        'addPoints' : [15],
+        'addPoints' : [50],
         'completeObjective' : ['saveJames']
     }
 }
