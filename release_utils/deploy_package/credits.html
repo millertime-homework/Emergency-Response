@@ -3,8 +3,13 @@
         <title>Emergency Preparation Scenario Training</title>
         <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <link rel="stylesheet" media="screen and (min-width: 701px)" type="text/css" href="css/large.css" />
-        <link rel="stylesheet" media="screen and (max-width: 700px)" type="text/css" href="css/mobile.css" />
+        <!--[if !IE]> -->
+              <link rel="stylesheet" media="screen and (min-width: 701px)" type="text/css" href="css/large.css" />
+              <link rel="stylesheet" media="screen and (max-width: 700px)" type="text/css" href="css/mobile.css" />
+        <!--<![endif]-->
+        <!--[if IE]>
+                <link rel="stylesheet" type="text/css" href="css/large.css" />
+        <![endif]-->
     </head>
     <body>
         <div class="header box">
@@ -24,11 +29,12 @@
         <div class="panel_container">
             <span class="panel">
                 <h3>Credits:</h3>
-                <p></p>
+                <p>The visual training engine and visual training scenarios were developed by Team Banana - Portland State University Capstone Senior Project Team: <ul><li>Russell Miller</li><li>Ryan Catlin</li><li>Scott Palomino</li><li>John Wehland</li><li>Robert Fesler</li><li>Chris Havlicek</li><li>Chris Dyson</li></ul></p>
+                <p>The text based training scenarios were developed by <span id="self">Devin Quirozoliver</span>, using the Inform 7 interactive fiction engine. You can find out more about Inform 7 <a href="http://inform7.com">here.</a></p>
             </span>
         </div>
         <div class="footer box">
-            <p>Copyright 2012 Clark College</p>
+            <p id="copyright">Copyright &#9400; 2012 Clark College</p>
         </div>
     </body>
 </html>

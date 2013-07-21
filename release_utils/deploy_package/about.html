@@ -3,8 +3,13 @@
         <title>Emergency Preparation Scenario Training</title>
         <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <link rel="stylesheet" media="screen and (min-width: 701px)" type="text/css" href="css/large.css" />
-        <link rel="stylesheet" media="screen and (max-width: 700px)" type="text/css" href="css/mobile.css" />
+        <!--[if !IE]> -->
+              <link rel="stylesheet" media="screen and (min-width: 701px)" type="text/css" href="css/large.css" />
+              <link rel="stylesheet" media="screen and (max-width: 700px)" type="text/css" href="css/mobile.css" />
+        <!--<![endif]-->
+        <!--[if IE]>
+                <link rel="stylesheet" type="text/css" href="css/large.css" />
+        <![endif]-->
     </head>
     <body>
         <div class="header box">
@@ -25,10 +30,11 @@
             <span class="panel">
                 <h3>About:</h3>
                 <p>These scenarios are intended to promote awareness and preparedness in students and faculty. The scenarios contain pointers and helpful tips for managing emergency scenarios which might be encountered on a campus of higher education.</p>
+                <p>This project was made possible by a grant from the Department of Education, Office of Safe and Healthy Students. Project leadership was provided by the Clark College Emergency Management Planning Committee.</p>
             </span>
         </div>
         <div class="footer box">
-            <p>Copyright 2012 Clark College</p>
+            <p id="copyright">Copyright &#9400; 2012 Clark College</p>
         </div>
     </body>
 </html>

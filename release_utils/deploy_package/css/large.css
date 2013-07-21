@@ -18,6 +18,7 @@ h2 {
     color: #ffffff;
 }
 
+
 p,ul,ol,dl,dd {
     margin: 0 0 0.25em 0;
     font-size: 1em;
@@ -42,17 +43,25 @@ ul {
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 10px 10px 20px 10px; 
-    max-width: 1000;
+    max-width: 1000px;
     width:  90%;
     float: left;
 }
 
 .panel p, 
-.panel a, 
 .panel h1, 
-.panel h2, 
-.panel h3 {
+.panel h2 {
     color: #888888;
+}
+
+.panel a,
+.panel h3,
+#self {
+    color: #2e354c;
+}
+
+.panel li {
+    color: #2e354c;
 }
 
 .page_container {
@@ -131,6 +140,10 @@ li#footerli {
     font-size: 0.8em;
 }
 
+#visual_launch {
+    padding: 60px;
+}
+
 .sidebar {
     height: 500px; 
     max-width: 160px;
@@ -138,7 +151,4 @@ li#footerli {
     float: left;
     margin-right: 5%;
     text-align: left;
-}
-
-li {
 }

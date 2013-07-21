@@ -40,19 +40,26 @@ ul {
     border: 4px solid #888888;
     margin-top: 20px;
     margin-bottom: 20px;
-    padding: 10px 0px 5px 0px; 
-    height: 220px;
+    padding: 10px 0px 20px 0px; 
     max-width: 800px;
     width:  98%;
     float: left;
 }
 
 .panel p, 
-.panel a, 
 .panel h1, 
-.panel h2, 
-.panel h3 {
+.panel h2 {
     color: #888888;
+}
+
+.panel a,
+.panel h3,
+#self {
+    color: #2e354c;
+}
+
+.panel li {
+    color: #2e354c;
 }
 
 .panel_container {

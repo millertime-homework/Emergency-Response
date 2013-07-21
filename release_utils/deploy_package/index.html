@@ -3,7 +3,13 @@
     <head>
         <title>Emergency Preparation Scenario Training</title>        
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <link rel="stylesheet" type="text/css" href="css/large.css" />
+        <!--[if !IE]> -->
+              <link rel="stylesheet" media="screen and (min-width: 701px)" type="text/css" href="css/large.css" />
+              <link rel="stylesheet" media="screen and (max-width: 700px)" type="text/css" href="css/mobile.css" />
+        <!--<![endif]-->
+        <!--[if IE]>
+                <link rel="stylesheet" type="text/css" href="css/large.css" />
+        <![endif]-->
         <script src="js/jquery-1.9.1.min.js"></script>
         <script src="js/splash.js"></script>
     </head>
@@ -25,26 +31,22 @@
         <div class="panel_container">
             <div class="panel" id="visual_panel">
                 <h3>Visual Training Scenarios</h3>
+                <p>Play through a set of visual adventure scenarios in order to see how well prepared you are for a campus emergency.</p>
                 <hr>
                 <div>
-                  <p>
-                    <img src="img/cover.png" width="120" height="150" style="float:left" />
-                    This project was made possible by a grant from the Department of Education, Office of Safe and Healthy Students.
-                    Project leadership was provided by the Clark College Emergency Management Planning Committee.
-                    Project development was done by Team Banana - Portland State University Capstone Senior Project Team:
-                    Russell Miller, Ryan Catlin, Scott Palomino, John Wehland, Robert Fesler, Chris Havlicek, and Chris Dyson.
-                  </p>
-                  <br />
-                  <a href="Visual_Training/index.html">Click here to launch the game</a>
+                  <img src="img/cover.png" width="120" height="150" style="float:left" />
+                  <div id="visual_launch">
+                    <a href="Visual_Training/index.html">Click here to launch the game</a>
+                  </div>
                 </div>
             </div>
             <div class="panel">
-                <h3>Text Based Training Scenarios:</h3>
+                <h3>Text Based Training Scenarios</h3>
                 <p>Play through two text adventure scenarios in order to see how well prepared you are for a campus emergency.</p>
                 <hr>
                 <ul>
-                    <li><a href="Evacuation_Materials/Release/play.html">Evacuation</a></li>
-                    <li><a href="Active_Shooter_Materials/Release/play.html">Active Shooter</a></li>
+                    <li><a href="Evacuation_Materials/Release/play.html">Play Evacuation</a></li>
+                    <li><a href="Active_Shooter_Materials/Release/play.html">Play Active Shooter</a></li>
                 </ul>
             </div>
         </div>
