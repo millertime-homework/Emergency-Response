@@ -4,7 +4,7 @@ endif
 
 INDEX=v$(VERSION)/Visual_Training/index.html
 
-all : cleanup
+all : zip
 
 zip : cleanup
 	@zip -r v$(VERSION).zip v$(VERSION)
