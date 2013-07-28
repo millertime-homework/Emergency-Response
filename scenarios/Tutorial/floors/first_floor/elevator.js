@@ -7,6 +7,7 @@
         'e': {
             'name': 'ElevatorE',
             'image': 'R210-east.jpg',
+            '_triggers' : ['movedRight'],
             '_props': {
                 'evac_plan': {
                     'name': 'evac_plan',

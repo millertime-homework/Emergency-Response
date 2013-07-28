@@ -1,6 +1,8 @@
 'enteredClassroom': {
     'lives': Infinity,
     'events': {
-        'showConversation': ['foundClassroom', 1, true, true]
+        'completeObjective': ['openDoor'],
+        'setObjective': ['waterBottle', 'Find a water bottle in the classroom.'],
+        'showConversation': ['roomEntered', 1, true, true]
     }
 }
